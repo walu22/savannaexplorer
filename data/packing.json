@@ -1,0 +1,42 @@
+{
+  "safari": [
+    "Binoculars",
+    "Neutral-tone clothing",
+    "Insect repellent (DEET)",
+    "Headlamp / torch",
+    "Power bank",
+    "Sun hat & SPF 50",
+    "Camera + zoom lens",
+    "Reusable water bottle"
+  ],
+  "beach": [
+    "Swimsuit & cover-up",
+    "Reef-safe sunscreen SPF 50",
+    "Snorkel & mask",
+    "Waterproof phone pouch",
+    "Flip flops & water shoes",
+    "Beach towel",
+    "Aloe vera gel",
+    "Light sarong / wrap"
+  ],
+  "city": [
+    "Comfortable walking shoes",
+    "Crossbody anti-theft bag",
+    "Portable charger",
+    "Light jacket / layers",
+    "Travel adapter (Type M/G)",
+    "Copies of passport",
+    "Sunglasses",
+    "Day backpack"
+  ],
+  "mountain": [
+    "Hiking boots (broken in)",
+    "Thermal base layers",
+    "Rain jacket",
+    "Trekking poles",
+    "Altitude sickness meds",
+    "Warm fleece / down jacket",
+    "Head torch + batteries",
+    "Trail snacks & electrolytes"
+  ]
+}

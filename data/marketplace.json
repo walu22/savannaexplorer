@@ -1,0 +1,127 @@
+{
+  "safari": [
+    {
+      "id": "saf1",
+      "title": "5-Day Classic Kruger Safari",
+      "category": "safari",
+      "location": "South Africa",
+      "duration": "5 Days",
+      "price_range": "$$$",
+      "rating": 4.8,
+      "badge": "Top Pick",
+      "best_time": "May - October",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800",
+      "description": "Experience the raw beauty of Kruger with expert local trackers."
+    },
+    {
+      "id": "saf2",
+      "title": "Delta Mokoro Expedition",
+      "category": "safari",
+      "location": "Botswana",
+      "duration": "3 Days",
+      "price_range": "$$$$",
+      "rating": 4.9,
+      "badge": "Exclusive",
+      "best_time": "June - August",
+      "image": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800&auto=format&fit=crop",
+      "description": "Glide silently through the Okavango waterways in a traditional canoe."
+    },
+    {
+      "id": "saf3",
+      "title": "Etosha Waterhole Watch",
+      "category": "safari",
+      "location": "Namibia",
+      "duration": "4 Days",
+      "price_range": "$$",
+      "rating": 4.6,
+      "badge": "Popular",
+      "best_time": "July - October",
+      "image": "https://images.unsplash.com/photo-1519181245277-cffeb31da2e3?q=80&w=800&auto=format&fit=crop",
+      "description": "Unrivaled game viewing at the famous floodlit waterholes."
+    }
+  ],
+  "adventure": [
+    {
+      "id": "adv1",
+      "title": "Namib Dune Surfing",
+      "category": "adventure",
+      "location": "Namibia",
+      "duration": "Half Day",
+      "price_range": "$$",
+      "rating": 4.7,
+      "badge": "Adrenaline",
+      "best_time": "Year-round",
+      "image": "https://images.unsplash.com/photo-1519181245277-cffeb31da2e3?q=80&w=800&auto=format&fit=crop",
+      "description": "Tackle the sheer slipfaces of the world's oldest desert."
+    },
+    {
+      "id": "adv2",
+      "title": "Zambezi White Water Rafting",
+      "category": "adventure",
+      "location": "Zimbabwe",
+      "duration": "1 Day",
+      "price_range": "$$$",
+      "rating": 4.9,
+      "badge": "Bestseller",
+      "best_time": "August - December",
+      "image": "https://images.unsplash.com/photo-1454486326938-e6727284ea44?q=80&w=800&auto=format&fit=crop",
+      "description": "Navigate Grade 5 rapids below the majestic Victoria Falls."
+    }
+  ],
+  "culture": [
+    {
+      "id": "cul1",
+      "title": "Himba Village Journey",
+      "category": "culture",
+      "location": "Namibia",
+      "duration": "2 Days",
+      "price_range": "$$",
+      "rating": 4.6,
+      "badge": "Authentic",
+      "best_time": "May - Sept",
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800",
+      "description": "Learn the ancient desert survival skills of the Himba people."
+    },
+    {
+      "id": "cul2",
+      "title": "Cape Winelands Tour",
+      "category": "culture",
+      "location": "South Africa",
+      "duration": "1 Day",
+      "price_range": "$$$",
+      "rating": 4.8,
+      "badge": "Relaxing",
+      "best_time": "Nov - April",
+      "image": "https://images.unsplash.com/photo-1576485375217-d6a95e34d043?q=80&w=800&auto=format&fit=crop",
+      "description": "Taste world-class vintages across historic wine estates."
+    }
+  ],
+  "nature": [
+    {
+      "id": "nat1",
+      "title": "Victoria Falls Flight",
+      "category": "nature",
+      "location": "Zambia",
+      "duration": "1 Hour",
+      "price_range": "$$$",
+      "rating": 5,
+      "badge": "Bucket List",
+      "best_time": "Feb - May",
+      "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=800&auto=format&fit=crop",
+      "description": "Helicopter \"Flight of Angels\" over the thundering falls."
+    },
+    {
+      "id": "nat2",
+      "title": "Drakensberg Hike",
+      "category": "nature",
+      "location": "South Africa",
+      "duration": "3 Days",
+      "price_range": "$$",
+      "rating": 4.7,
+      "badge": "Scenic",
+      "best_time": "March - May",
+      "image": "https://images.unsplash.com/photo-1541414779316-956a5084c0d4?q=80&w=800&auto=format&fit=crop",
+      "description": "Trek the spectacular Amphitheatre in the Drakensberg mountains."
+    }
+  ]
+}
