@@ -1,6 +1,7 @@
 import countries from '../../data/countries.json';
 import faqs from '../../data/faqs.json';
 import regions from '../../data/regions.json';
+import { getFullCountryData } from '../lib/merge-country.js';
 import { getCountryGuide } from '../lib/guide.js';
 import { spotImageUrl, activityImageUrl } from '../lib/images.js';
 
@@ -27,8 +28,18 @@ function resetGuideTabs() {
     document.getElementById('panel-about')?.classList.add('active');
 }
 
+function spotMetaHtml(spot) {
+    const badges = [];
+    if (spot.bestSeason) badges.push(`<span><i class="fas fa-calendar"></i> ${spot.bestSeason}</span>`);
+    if (spot.visitDuration) badges.push(`<span><i class="fas fa-clock"></i> ${spot.visitDuration}</span>`);
+    if (spot.fees) badges.push(`<span><i class="fas fa-ticket"></i> ${spot.fees}</span>`);
+    const meta = badges.length ? `<div class="spot-meta">${badges.join('')}</div>` : '';
+    const tip = spot.tip ? `<p class="spot-tip"><i class="fas fa-lightbulb"></i> ${spot.tip}</p>` : '';
+    return meta + tip;
+}
+
 function populateCountryPage(countryId) {
-    const data = countries[countryId];
+    const data = getFullCountryData(countryId);
     if (!data) return;
     const guide = getCountryGuide(countryId, data);
 
@@ -38,8 +49,18 @@ function populateCountryPage(countryId) {
 
     const aboutHeading = document.getElementById('detail-about-heading');
     const aboutIntro = document.getElementById('detail-about-intro');
+    const summaryEl = document.getElementById('detail-summary');
+    const gettingThereEl = document.getElementById('detail-getting-there');
+    const economyEl = document.getElementById('detail-economy');
+
     if (aboutHeading) aboutHeading.textContent = `Information About ${data.name}`;
     if (aboutIntro) aboutIntro.textContent = `Discover essential information for your trip to ${data.name} — geography, history, culture, wildlife, and practical travel advice.`;
+    if (summaryEl) {
+        summaryEl.textContent = data.about.summary || '';
+        summaryEl.classList.toggle('hidden', !data.about.summary);
+    }
+    if (gettingThereEl) gettingThereEl.textContent = data.about.gettingThere || '';
+    if (economyEl) economyEl.textContent = data.about.economy || '';
 
     document.getElementById('detail-history').textContent = data.about.history || '';
     document.getElementById('detail-wildlife').textContent = guide.wildlife;
@@ -49,7 +70,11 @@ function populateCountryPage(countryId) {
     detailSpotsGrid.innerHTML = data.spots.map(spot => `
         <div class="spot-detail-card">
             <img src="${spotImageUrl(spot)}" alt="${spot.name}" loading="lazy">
-            <div class="spot-detail-info"><h3>${spot.name}</h3><p>${spot.desc}</p></div>
+            <div class="spot-detail-info">
+                <h3>${spot.name}</h3>
+                <p>${spot.desc}</p>
+                ${spotMetaHtml(spot)}
+            </div>
         </div>
     `).join('');
 
@@ -116,12 +141,22 @@ function populateCountryPage(countryId) {
 
     const detailRoutesGrid = document.getElementById('detail-routes-grid');
     if (detailRoutesGrid && data.routes) {
-        detailRoutesGrid.innerHTML = data.routes.map(route => `
+        detailRoutesGrid.innerHTML = data.routes.map(route => {
+            const highlights = route.highlights?.length
+                ? `<ul class="route-highlights">${route.highlights.map(h => `<li>${h}</li>`).join('')}</ul>`
+                : '';
+            const meta = route.duration || route.distance
+                ? `<div class="route-meta">${route.duration ? `<span><i class="far fa-clock"></i> ${route.duration}</span>` : ''}${route.distance ? `<span><i class="fas fa-road"></i> ${route.distance}</span>` : ''}</div>`
+                : '';
+            return `
             <div class="route-card">
-                <h4>${route.name}</h4><p>${route.desc}</p>
+                <h4>${route.name}</h4>
+                ${meta}
+                <p>${route.desc}</p>
+                ${highlights}
                 <button class="btn btn-outline btn-sm" data-action="view-itineraries">View All Itineraries</button>
-            </div>
-        `).join('');
+            </div>`;
+        }).join('');
     }
 
     if (detailFlavorInline) {

@@ -1,0 +1,958 @@
+{
+  "namibia": {
+    "summary": "Namibia rewards independent travellers with vast empty landscapes, excellent roads, and world-class wildlife without the crowds. Start in Windhoek for logistics, then self-drive north to Etosha's waterhole action or south to Sossusvlei's dunes and Fish River Canyon. The coast adds fog-draped Skeleton Coast drama and Swakopmund adventure sports. May–October dry season is prime for game viewing and comfortable temperatures; summer brings heat and occasional storms but greener scenery. Budget mid-range self-drive trips from roughly USD 80–150 per person daily excluding flights. Visa-free for many nationalities up to 90 days. Malaria risk is low in the south and central plateau but take prophylaxis if visiting the Zambezi Region in the far north.",
+    "gettingThere": "Hosea Kutako International Airport (WDH), 45 km east of Windhoek, is the main gateway with daily links from Johannesburg, Cape Town, Frankfurt, and Addis Ababa. Walvis Bay (WVB) serves some regional flights and is handy for the coast. Overland entry is straightforward from South Africa via the Vioolsdrif–Noordoewer border (Fish River Canyon access), Ariamsvlei–Nakop (southern route), or Oshoek–Oshikango for northern Zambia connections. Botswana borders at Buitepos and Ngoma link the Caprivi/Zambezi strip. Self-drive is the defining experience: rent a 4x4 or robust 2WD depending on your route, carry two spare tyres, and plan fuel stops carefully in remote areas. Gravel highways like the C19 to Sossusvlei and C39 through Damaraland are well maintained but demand cautious speeds below 80 km/h. Internal flights with charter operators connect Windhoek to lodges in Damaraland, Sossusvlei, and the Skeleton Coast for fly-in safaris.",
+    "economy": "Tourism is a pillar of Namibia's economy alongside mining—particularly uranium and diamonds—and fisheries along the Atlantic coast. The government pioneered community-based conservancies that channel lodge revenue and trophy-hunting fees directly to rural communities, making Namibia a global model for conservation-linked development. High-value, low-volume tourism dominates: Etosha camps, luxury lodges in Damaraland, and Skeleton Coast fly-in experiences command premium rates while supporting anti-poaching and rhino tracking programmes. Agriculture—mainly livestock ranching in the arid interior—employs many Namibians, and the retail and logistics sectors in Windhoek and Walvis Bay serve the broader SADC region. The Namibian dollar is pegged 1:1 to the South African rand, simplifying cross-border travel. For visitors, this translates to excellent infrastructure relative to population density, well-stocked supermarkets in towns, and a mature self-drive rental market.",
+    "geoOverride": "Namibia spans roughly 824,000 square kilometres yet holds only about three million people, making it one of the world's least densely populated nations. The Namib Desert along the Atlantic coast is among the oldest deserts on Earth, its dunes at Sossusvlei reaching over 300 metres and shifting in apricot and crimson hues at sunrise. Inland, the central plateau rises to 1,700 metres around Windhoek, cooling nights even in summer. Damaraland's basalt ridges shelter desert-adapted elephant and rhino, while the Skeleton Coast's fog belt sustains lichen fields and Cape fur seal colonies. The Fish River Canyon in the south carves a 160-kilometre chasm second only to Arizona's Grand Canyon. Far north, the Zambezi Region is a lush anomaly of rivers, papyrus swamps, and subtropical birdlife—a stark contrast to the arid south. The Kalahari's red sands fringe the eastern border. This geographic diversity means you can experience coastal fog, alpine-highland chill, and tropical wetland humidity within a single two-week itinerary.",
+    "peopleOverride": "Namibia's population reflects millennia of adaptation to arid landscapes. The San are among the oldest continuous cultures in southern Africa, with deep knowledge of desert plants, tracking, and rock art at sites like Twyfelfontein. The Herero are recognisable by Victorian-influenced dress commemorating historical resistance, while the Himba of Kaokoland maintain semi-nomadic pastoral traditions, ochre-covered skin, and elaborate hairstyles. Ovambo communities in the north form the largest ethnic group and drive much of the country's political and economic life. Nama and Damara peoples add further linguistic and cultural layers, and Afrikaans and English serve as lingua francas alongside Oshiwambo and Khoekhoegowab. German colonial architecture in Swakopmund and Lüderitz hints at a complex past, yet modern Namibia prides itself on reconciliation and constitutional protections for minority languages. Visitors are welcomed warmly; learning a few words of greeting opens doors in markets and conservancies. Community lodges staffed by local families offer the most authentic cultural exchanges.",
+    "additionalSpots": [
+      {
+        "name": "Skeleton Coast National Park",
+        "desc": "The Skeleton Coast is Namibia's most haunting shoreline—a fog-shrouded realm where the cold Benguela Current meets the Namib dunes and shipwrecks litter the beaches like bleached bones. Access to the southern section near Swakopmund is relatively straightforward, but the northern wilderness zone requires fly-in permits and guided expeditions through specialist operators. Here you encounter roaring seal colonies at Cape Cross, lichen fields that bloom after mist, and desert-adapted lion prides that patrol the beach. The landscape feels post-apocalyptic yet teems with life adapted to salt and fog. Scenic flights from Swakopmund or Terrace Bay reveal shipwrecks from above and the sheer isolation of the coast. It is not a casual day trip; plan at least two nights and respect park regulations that limit vehicle numbers to protect this fragile ecosystem.",
+        "image": "1611181829285-d3929e061807",
+        "bestSeason": "May–Oct",
+        "visitDuration": "2–4 days",
+        "fees": "Park entry NAD 80/day; northern zone fly-in packages from USD 800/night",
+        "tip": "Book fly-in camps months ahead; mist is heaviest in mornings—afternoons often clear for photography."
+      },
+      {
+        "name": "Twyfelfontein Rock Engravings",
+        "desc": "Twyfelfontein is Namibia's first UNESCO World Heritage Site and one of Africa's richest open-air galleries of rock art, with over 2,000 engravings carved into sandstone over six thousand years. The site lies in a valley of Damaraland where San hunter-gatherers recorded giraffe, rhino, lion, and geometric symbols on reddish rock faces. A guided walking circuit takes roughly an hour and interprets the spiritual and practical significance of each panel—guides explain how engravings may have marked water sources, initiation sites, or shamanic rituals. The surrounding landscape of table-top mountains and dry riverbeds is itself spectacular, with desert-adapted elephant occasionally wandering past the parking area. Combine Twyfelfontein with nearby attractions: the organ-pipe basalt formation, Burnt Mountain, and the Petrified Forest. Arrive early to avoid heat and tour groups; midday temperatures on exposed rock can be extreme from October through March.",
+        "image": "1502675135487-e971002a6adb",
+        "bestSeason": "Apr–Sep",
+        "visitDuration": "Half day",
+        "fees": "NAD 80 adults; guided tour included",
+        "tip": "Hire a Damara guide at the gate for context—you will see far more than walking alone."
+      },
+      {
+        "name": "Damaraland & Palmwag Concession",
+        "desc": "Damaraland is the rugged heartland between the Skeleton Coast and Etosha—a wilderness of granite inselbergs, dry riverbeds, and community conservancies where desert-adapted elephant and black rhino roam freely. The Palmwag Concession is a standout for rhino tracking on foot with Save the Rhino Trust guides, offering one of Africa's most intimate conservation experiences. Brandberg Mountain, Namibia's highest peak, shelters the famous White Lady rock painting and challenging multi-day hikes. Lodges like Damaraland Camp and Mowani Mountain Camp blend into boulder-strewn hillsides and fund local employment. Unlike fenced parks, this is true open-range country where wildlife coexists with semi-nomadic Herero pastoralists. Self-drivers should carry extra fuel and water; distances between attractions are vast and mobile signal is sparse. Sunset over the Erongo Mountains from your camp terrace is among Namibia's finest moments.",
+        "image": "1612140403750-13f69b821034",
+        "bestSeason": "May–Oct",
+        "visitDuration": "2–3 days",
+        "fees": "Concession fees NAD 100–200/day; rhino tracking from USD 150/person",
+        "tip": "Book rhino tracking at least 48 hours ahead—guides leave at dawn and groups are kept small."
+      },
+      {
+        "name": "Lüderitz & Kolmanskop Ghost Town",
+        "desc": "Lüderitz is a windswept coastal town of colourful Bavarian art-nouveau buildings perched on a rocky Atlantic peninsula—a surreal blend of German colonial heritage and Namibian fishing culture. The nearby ghost town of Kolmanskop was once a diamond-mining boomtown; abandoned in the 1950s, its sand-filled houses are now one of Namibia's most photographed sites. Early-morning and late-afternoon light streams through broken windows onto dunes that have reclaimed parlours and ballrooms. Guided tours explain the opulent past—bowling alleys, ice factories, and a tram—while the adjacent Sperrgebiet remains largely off-limits. Lüderitz itself offers fresh rock lobster, boat trips to Halifax Island penguin colonies, and access to the wild coast road toward Aus and the feral horses of the Garub plains. Strong winds are common; pack layers even in summer.",
+        "image": "1612450531505-181cf3a60424",
+        "bestSeason": "Sep–Apr",
+        "visitDuration": "1–2 days",
+        "fees": "Kolmanskop entry NAD 100; ghost town tours NAD 150",
+        "tip": "Photography permits for Kolmanskop cost extra—buy at the gate if you use a tripod."
+      }
+    ],
+    "additionalActivities": [
+      {
+        "name": "Dune Boarding at Swakopmund",
+        "desc": "Swakopmund's surrounding dunes are a natural playground for sandboarding, quad biking, and fat-bike tours. Operators run morning and afternoon sessions on the curves near Langstrand and the Moon Landscape, with lie-down boards for beginners and stand-up boards for the adventurous. Quad trails wind through valleys of compacted sand away from sensitive lichen fields—reputable guides stick to designated routes. The combination of Atlantic cool air and desert heat creates comfortable riding conditions year-round, though winter mornings can be chilly. Most sessions last two to three hours and include equipment, instruction, and transfers from town. Pair with an afternoon township tour or oyster tasting in Walvis Bay for a full coastal day.",
+        "image": "1583271167909-5e263fa7bce3"
+      },
+      {
+        "name": "Stargazing in the NamibRand",
+        "desc": "The NamibRand Nature Reserve is Africa's first International Dark Sky Reserve, where Bortle Class 1 skies reveal the Milky Way in extraordinary detail. Luxury lodges and designated camps offer guided astronomy sessions with powerful telescopes. Guides identify southern constellations, satellites, and zodiacal light while explaining how desert peoples navigated by star lore. New-moon periods between April and September offer the darkest conditions. Bring warm layers—nighttime temperatures drop sharply even after hot days. Photography enthusiasts should use a sturdy tripod; the reserve restricts artificial light to preserve darkness for wildlife and guests.",
+        "image": "1611181829676-d3929e061807"
+      },
+      {
+        "name": "Living Museum Cultural Visits",
+        "desc": "Namibia's Living Museums near Swakopmund, Damaraland, and the Zambezi Region are community-run cultural centres where San, Damara, and Ovambo demonstrators share traditional fire-making, archery, jewellery crafting, and dance in settings that support livelihoods without voyeurism. Visits typically last two to three hours and include interactive participation—guests may try bow shooting, grinding millet, or learning click consonants. Revenue flows directly to participant families, offering an ethical alternative to roadside photo stops. Guides explain how customs persist in modern Namibia and how conservancy tourism funds schools and clinics. Morning visits avoid afternoon heat in desert locations.",
+        "image": "1516426122078-c23e76319801"
+      }
+    ],
+    "routesEnhanced": [
+      {
+        "name": "The Arid Eden Route",
+        "duration": "10–14 days",
+        "distance": "~1,400 km",
+        "highlights": [
+          "Swakopmund coast",
+          "Damaraland rhino country",
+          "Etosha waterholes"
+        ],
+        "desc": "This classic north-west circuit links the Atlantic coast with Namibia's premier wildlife park via some of the country's most dramatic desert-mountain scenery. Start in Windhoek and descend to Swakopmund for coastal adventure—sandboarding, dolphin cruises, or fresh seafood on the jetty. Turn inland through the Moon Landscape and Spitzkoppe granite peaks toward Damaraland, where community lodges offer rhino tracking and elephant encounters in dry riverbeds. Continue to Etosha's southern gates for self-drive waterhole watching at floodlit camps. The route follows well-maintained gravel highways suitable for confident 2WD drivers in dry season, though a high-clearance vehicle adds comfort. Allow extra time for photography stops—Damaraland sunsets are legendary. Return to Windhoek via Outjo or add a detour to Himba villages in Kaokoland if time and permits allow."
+      },
+      {
+        "name": "The Great Namib Loop",
+        "duration": "8–12 days",
+        "distance": "~1,200 km",
+        "highlights": [
+          "Sossusvlei dunes",
+          "Fish River Canyon",
+          "Quiver Tree Forest"
+        ],
+        "desc": "The southern loop showcases Namibia's iconic desert landscapes in a manageable circuit from Windhoek. Drive south on the B1 to the Sesriem gateway for pre-dawn climbs of Dune 45 and the clay pan of Deadvlei, where 900-year-old camelthorn skeletons contrast against orange dunes. Continue toward Solitaire and the Namib-Naukluft Park's vast gravel plains, then swing west to Lüderitz and the ghost town of Kolmanskop before heading inland to the Fish River Canyon viewpoint at Hobas. The canyon hike is a multi-day endurance challenge; most visitors content themselves with rim viewpoints and sundowners. Stop at the Quiver Tree Forest near Keetmanshoop—aloes silhouetted against the Milky Way are a photographer's dream. Summer temperatures exceed 40°C—travel April through October for comfort."
+      },
+      {
+        "name": "The Tropical North Transit",
+        "duration": "7–10 days",
+        "distance": "~900 km",
+        "highlights": [
+          "Zambezi wetlands",
+          "Popa Falls",
+          "Bwabwata National Park"
+        ],
+        "desc": "This route reveals a side of Namibia many travellers miss—a lush, riverine north more reminiscent of Botswana than desert stereotypes. From Etosha's eastern edge or Windhoek, head northeast through Grootfontein to Rundu on the Kavango River, then follow the B8 through the Zambezi Region to Katima Mulilo. En route, explore Popa Falls rapids, mahangu homesteads, and boat cruises spotting hippos, crocodiles, and prolific birdlife including African skimmers and Pel's fishing owls. Bwabwata National Park allows self-drive game viewing along the Kwando River, while Mudumu and Nkasa Rupara offer wilder wetland experiences. The region borders Botswana, Zambia, Angola, and Zimbabwe—ideal for multi-country itineraries. Malaria prophylaxis is essential here. Roads are tarred but wildlife crosses freely; avoid night driving."
+      }
+    ],
+    "adviceExtended": {
+      "transport": "Namibia is built for self-drive tourism. International rental fleets in Windhoek offer 4x4 double-cab pickups with rooftop tents or fully equipped camping vehicles. Gravel roads are generally excellent but tyre punctures are common—carry two spares and a compressor. Speed limits on gravel are effectively self-imposed; 60–80 km/h maximises safety and fuel economy. Distances are deceptive on maps; Windhoek to Etosha is a full day. Internal charter flights save time for Skeleton Coast or remote lodges. Intercape coaches link major towns for budget travellers.",
+      "budget": "Mid-range self-drive travellers should budget NAD 1,500–2,500 (USD 80–140) per person daily covering vehicle rental split between two, fuel, camping or mid lodges, park fees, and meals. Luxury fly-in safaris run USD 500–1,200 per person nightly all-inclusive. Fuel is slightly cheaper than Europe; supermarket braai supplies keep food costs low. Peak season (July–September) demands advance booking for Etosha camps and Sossusvlei lodges.",
+      "visa": "Citizens of the EU, UK, USA, Canada, Australia, and most SADC nations receive 90-day visa-free entry on arrival at Hosea Kutako Airport or land borders. Passports must be valid six months beyond stay with blank pages for stamps. Extensions are possible at the Ministry of Home Affairs in Windhoek. Minors travelling with one parent require certified consent letters—a legacy regulation strictly enforced.",
+      "health": "Namibia is malaria-free south of Etosha and the central plateau. Prophylaxis is recommended for the Zambezi Region and northern border areas, especially November–May. Tap water in towns is generally safe; remote areas rely on borehole water—bottled is advisable. Sun exposure at altitude is intense; SPF 50 and lip balm are essential. Medical facilities in Windhoek and Swakopmund are good; remote areas require evacuation insurance.",
+      "safety": "Namibia is among Africa's safest destinations for independent travel. Petty crime exists in Windhoek—avoid displaying valuables. The primary risk is road accidents on gravel: slow down, rest at midday, and never drive at night due to wildlife and unmarked livestock. Desert breakdowns can be life-threatening—carry water, satellite phone or SAT device, and inform lodges of your route.",
+      "money": "The Namibian Dollar (NAD) is pegged 1:1 with the South African Rand (ZAR); both circulate freely. ATMs in towns dispense NAD; credit cards work at lodges, fuel stations, and supermarkets. Remote camps are cash-only. Tipping: 10% restaurants; NAD 100–150 per day for private guides.",
+      "climate": "May through October is peak season: dry, cool nights, and wildlife congregating at waterholes. November brings rising heat and occasional thunderstorms; landscapes green briefly. December–March is hottest, with some lodges offering discounts. Coastal Swakopmund is foggy year-round but mild. Pack layers—desert nights drop below freezing in winter."
+    }
+  },
+  "south-africa": {
+    "summary": "South Africa packs extraordinary diversity into one country: Big Five safaris in Kruger, cosmopolitan Cape Town beneath Table Mountain, whale-watched coastlines, and world-class wine within an hour's drive. Fly into Johannesburg or Cape Town—both have strong international networks—or self-drive from neighbouring countries via well-used border posts at Komatipoort (Kruger), Lebombo (Mozambique), and Oshoek (Eswatini). The rand's exchange rate delivers exceptional value for dining, lodges, and activities. May–September dry winter is best for bushveld game viewing; November–March summer suits the Cape, beaches, and Garden Route. Visa-free for many nationalities up to 90 days. Urban vigilance is prudent in Johannesburg and Durban; tourist corridors and national parks are generally very safe.",
+    "gettingThere": "O.R. Tambo International (JNB) in Johannesburg is Africa's busiest hub with direct flights from Europe, the Middle East, Americas, and across the continent. Cape Town International (CPT) offers growing long-haul links and is ideal for Western Cape itineraries. King Shaka (DUR) serves Durban and KwaZulu-Natal beach holidays. Overland access is excellent: the Lebombo/Ressano Garcia border connects Kruger to Mozambique; Beitbridge links to Zimbabwe; Maseru Bridge enters Lesotho; Oshoek reaches Eswatini. Self-drive is superb on tarred highways—the N1, N2, N4, and N7 are well maintained—though township detours and night driving warrant caution. Car rental desks at airports offer GPS-equipped vehicles; 4x4 is only essential for remote Sani Pass or deep gravel in Kruger private reserves. Baz Bus hop-on hop-off serves backpacker routes along the coast. Shosholoza Meyl trains connect major cities affordably but slowly. Domestic flights with FlySafair, Airlink, and CemAir save time on Cape Town–Kruger–Durban triangles.",
+    "economy": "South Africa is the continent's most industrialised economy, yet tourism remains a vital employer—directly supporting over a million jobs in hospitality, guiding, transport, and conservation. Kruger and private reserves like Sabi Sands anchor high-yield safari tourism, while the Western Cape's wine, food, and design scenes draw international visitors year-round. Mining—platinum, gold, coal—still underpins exports, alongside automotive manufacturing in Gauteng and agriculture in the Cape and Free State. The weak rand makes South Africa exceptional value for foreign currencies: world-class restaurants and lodges often cost half comparable Australian or European rates. BEE (Broad-Based Black Economic Empowerment) policies shape lodge ownership and community partnerships. Township tourism, craft markets, and cultural tours increasingly channel revenue to previously excluded communities. Load-shedding (scheduled power cuts) affects urban areas—confirm lodge backup power when booking.",
+    "historyOverride": "South Africa's story begins deep in the geological record: the Cradle of Humankind west of Johannesburg has yielded hominid fossils over three million years old, earning UNESCO status and reshaping how humanity understands its origins. Bantu-speaking farmers and herders migrated south from roughly 300 CE, displacing or absorbing earlier Khoisan hunter-gatherers whose rock art still adorns Drakensberg caves. Portuguese navigator Bartolomeu Dias rounded the Cape in 1488; the Dutch East India Company established a refreshment station at Cape Town in 1652, planting vines and importing slaves from Southeast Asia—ancestors of today's Cape Malay community. British seizure of the Cape in 1806 set the stage for frontier wars with Xhosa kingdoms and the Great Trek of Boer voortrekkers inland.\n\nMineral discoveries—diamonds at Kimberley (1867) and gold on the Witwatersrand (1886)—transformed the economy and ignited the Anglo-Boer Wars (1899–1902), whose scorched-earth camps foreshadowed twentieth-century trauma. Union in 1910 consolidated white minority rule; the 1948 election of the National Party institutionalised apartheid—racial segregation enforced by law, pass books, forced removals, and the Sharpeville massacre of 1960. Nelson Mandela's ANC led armed and diplomatic resistance; Mandela's 27-year imprisonment on Robben Island became a global symbol. International sanctions, internal uprising, and FW de Klerk's negotiations produced the miraculous 1994 democratic election—Mandela's presidency, the Truth and Reconciliation Commission, and a new constitution hailed as among the world's most progressive.\n\nContemporary South Africa grapples with inequality, unemployment, and corruption scandals, yet its cultural vitality—jazz, braai culture, township theatre, Springbok rugby unity—remains undimmed. For travellers, history is not abstract: walk Soweto's Vilakazi Street, tour Apartheid Museum in Johannesburg, stand in Mandela's Robben Island cell, and visit Constitution Hill where apartheid prisoners once suffered and today constitutional judges deliberate. Understanding this arc enriches every safari sundowner and Cape wine tasting. Contemporary South Africa grapples with inequality, unemployment, and corruption scandals, yet its cultural vitality—jazz, braai culture, township theatre, Springbok rugby unity—remains undimmed. For travellers, history is not abstract: walk Soweto's Vilakazi Street, tour Apartheid Museum in Johannesburg, stand in Mandela's Robben Island cell, and visit Constitution Hill where apartheid prisoners once suffered and today constitutional judges deliberate. Understanding this arc enriches every safari sundowner and Cape wine tasting. Each province tells a different chapter of the same complex national story.",
+    "geoOverride": "South Africa covers 1.22 million square kilometres at Africa's southern tip, flanked by the Atlantic and Indian Oceans whose meeting at Cape Agulhas—not Cape Point—is the true geographic divide. The interior plateau (Highveld) averages 1,200–1,800 metres, dropping sharply to coastal plains via the Drakensberg escarpment, which peaks above 3,400 metres and catches winter snow. The Cape Fold Mountains cradle wine valleys with Mediterranean climate—unique in Africa for winter rainfall. Eastward, KwaZulu-Natal's subtropical coast receives summer monsoons; the Kruger lowveld is classic bushveld savanna. The Karoo semi-desert separates Cape from interior, while the Wild Coast and Garden Route offer temperate forests and dramatic cliffs. Two ocean currents shape climate: the cold Benguela chills the west; the warm Agulhas enriches east coast reefs. Biodiversity is staggering—Cape Floristic Region is a UNESCO hotspot with more plant species than the Amazon per unit area. Kruger alone spans nearly two million hectares of riverine forest, granite kopjes, and mopane woodland.",
+    "peopleOverride": "South Africa's 60 million people comprise a 'Rainbow Nation' of extraordinary ethnic and cultural diversity—eleven official languages reflect this multiplicity. Zulu and Xhosa nations dominate the east; Sotho peoples inhabit the highveld; Afrikaners and English-speakers trace colonial settler lineages; Coloured communities blend Khoisan, Malay, and European ancestry; Indian South Africans—descendants of nineteenth-century indentured labourers—enrich KwaZulu-Natal. Urban townships like Soweto and Khayelitsha pulse with spaza shops, taverns, and gospel choirs; suburban malls and wine estates present a different face minutes away. Ubuntu philosophy—'I am because we are'—permeates social discourse. Braai (barbecue) culture crosses racial lines as national ritual. Young creatives drive fashion, music, and art scenes in Johannesburg's Maboneng and Cape Town's Woodstock. Visitors should approach cultural encounters respectfully: township tours with community guides, homestays on the Wild Coast, and Zulu village visits near Rorke's Drift offer depth beyond resort bubbles. Learning greetings—'Sawubona' (Zulu), 'Dumela' (Sotho), 'Hallo' (Afrikaans)—is always appreciated. Learning greetings—'Sawubona' (Zulu), 'Dumela' (Sotho), 'Hallo' (Afrikaans)—is always appreciated and opens genuine conversations in markets, taxis, and lodge staff rooms across the country.",
+    "additionalSpots": [
+      {
+        "name": "Addo Elephant National Park",
+        "desc": "Addo Elephant National Park near Port Elizabeth is the third-largest national park in South Africa and the only one boasting the Big Seven—elephant, buffalo, rhino, lion, leopard, great white shark, and southern right whale in adjacent marine protected areas. Over 600 elephants roam consolidated bushveld where the original 1931 sanctuary saved eleven survivors from extinction. Self-drive loops around waterholes offer close encounters without crowds typical of Kruger; matriarch herds with calves are daily sights. The park expanded to include Darlington Lake, Zuurberg Mountains, and a marine section at Algoa Bay. Malaria-free status makes it ideal for families. Nearby private reserves offer guided drives and horseback safaris. Combine with Route 62 wine detour or continue east to the Wild Coast. Accommodation ranges from SANParks campsites to luxury lodges; book waterhole-facing chalets at Main Camp for floodlit night viewing.",
+        "image": "1549219355-66779e9508d4",
+        "bestSeason": "May–Oct",
+        "visitDuration": "2–4 days",
+        "fees": "SANParks entry ZAR 400/day foreigners; accommodation from ZAR 1,200/night",
+        "tip": "Arrive at opening gate—elephants visit Hapoor waterhole reliably in early morning."
+      },
+      {
+        "name": "iSimangaliso Wetland Park",
+        "desc": "iSimangaliso Wetland Park on KwaZulu-Natal's north coast is South Africa's first UNESCO World Heritage Site—a 332,000-hectare mosaic of lakes, coastal forest, coral reefs, and savanna where hippos graze beaches and loggerhead turtles nest by moonlight. Lake St Lucia estuary boat cruises pass crocodiles and over 500 bird species including flamingos and fish eagles. Eastern Shores game drives reveal rhino, leopard, and buffalo with Indian Ocean surf as backdrop. Snorkel Sodwana Bay's coral reefs—among the southernmost tropical reefs on Earth—or kayak up estuaries at sunrise. The park links to Hluhluwe-iMfolozi, historic home of white rhino conservation. Community guides from St Lucia village enrich visits. Summer humidity is high; winter dry months offer comfortable game viewing. Malaria risk is low but present—consult your doctor.",
+        "image": "1454486326938-e6727284ea44",
+        "bestSeason": "May–Sep",
+        "visitDuration": "3–5 days",
+        "fees": "Park entry ZAR 350/day; boat cruises from ZAR 400",
+        "tip": "Stay in St Lucia village for restaurants and estuary cruises—book turtle tours Nov–Feb separately."
+      },
+      {
+        "name": "Pilanesberg Game Reserve",
+        "desc": "Pilanesberg Game Reserve sits in an ancient volcanic crater two hours from Johannesburg—a malaria-free Big Five destination perfect for short safaris or conference add-ons. The alkaline crater lake and concentric ridges create diverse habitats supporting over 7,000 animals including the Big Five, wild dog, and cheetah. Self-drive on tar and gravel loops is excellent; guided open-vehicle drives depart from Sun City resorts and independent lodges. The landscape of lake views and mountain backdrops photographs beautifully at golden hour. Unlike sprawling Kruger, Pilanesberg's compact 550 square kilometres allow meaningful wildlife encounters in a single morning. Combine with Sun City entertainment or continue to Madikwe Game Reserve on the Botswana border. Accommodation spans Sun City palaces to bush chalets; advance booking essential in school holidays.",
+        "image": "1547970810-dc1eef37d176",
+        "bestSeason": "Year-round",
+        "visitDuration": "1–3 days",
+        "fees": "Entry ZAR 320/day; guided drives from ZAR 600",
+        "tip": "Enter via Bakubung Gate at dawn—predators active along Tshwene Drive."
+      },
+      {
+        "name": "Cederberg Wilderness Area",
+        "desc": "The Cederberg Wilderness Area two hours north of Cape Town preserves dramatic sandstone formations, San rock art, and endemic fynbos in a malaria-free mountain escape. Wolfberg Arch and Maltese Cross hikes reward with otherworldly cliffs and panoramic views; the Sevilla Rock Art Trail interprets paintings up to 8,000 years old. Rooibos tea farms dot the valleys—tour factories in Clanwilliam to learn how this global health trend originates here. Night skies are pristine for stargazing; leopard and caracal roam silently. Summer temperatures soar; spring wildflowers (August–September) carpet slopes. Self-drive gravel roads suit high-clearance vehicles. Cederberg is uncrowded compared to Table Mountain, offering solitude and rustic cottages. Pair with West Coast wildflower route or Namaqualand if timing aligns.",
+        "image": "1541414779316-956a5084c0d4",
+        "bestSeason": "Apr–Oct",
+        "visitDuration": "2–3 days",
+        "fees": "Conservation fee ZAR 50/day; accommodation from ZAR 800/night",
+        "tip": "Download CapeNature maps offline—cell signal vanishes in kloofs."
+      }
+    ],
+    "additionalActivities": [
+      {
+        "name": "Township Tour with Local Guide",
+        "desc": "Guided township tours in Soweto, Langa (Cape Town), or Alexandra (Johannesburg) offer nuanced insight into daily life beyond headlines—visiting shebeens, community projects, street art, and memorial sites with residents who narrate their own stories. Reputable operators employ local guides and include stops at Vilakazi Street (Mandela House), Orlando Towers bungee, and craft breweries reviving township economies. Tours last three to four hours and often include lunch at a family restaurant serving pap, chakalaka, and grilled meats. Choose operators certified by Fair Trade Tourism or similar bodies to ensure ethical practice. Morning tours avoid afternoon heat; combine with Apartheid Museum for full historical context.",
+        "image": "1589182337358-2cb6309475e8"
+      },
+      {
+        "name": "Cape Peninsula Cycling Tour",
+        "desc": "Cycle the Cape Peninsula's scenic Chapman's Peak Drive and coastal roads on guided e-bike or road bike tours from Cape Town—a full-day adventure past Hout Bay, Chapman's Peak, Cape Point, and Boulders Beach penguins. Support vehicles carry gear; routes adjust to fitness levels. The southwestern tip of Africa at Cape Point offers funicular access to lighthouse views where two oceans metaphorically meet. Boulders Beach boardwalks bring you within metres of African penguin colonies. Tours include park entry fees, lunch at seafood harbour restaurants, and hotel pickup. Winter months bring whale spouts in False Bay. Helmets and high-vis gear provided; book wind-free days when possible.",
+        "image": "1580060839134-75a5edca2d99"
+      },
+      {
+        "name": "Panorama Route Day Trip",
+        "desc": "The Panorama Route from Nelspruit or Hazyview showcases Mpumalanga's Blyde River Canyon—the world's third-largest green canyon—plus God's Window viewpoints, Bourke's Luck Potholes, and Lisbon and Berlin Falls. Full-day guided tours or self-drive loops on the R532 deliver non-stop scenery through misty escarpment forests. Pilgrim's Rest gold-rush village offers lunch stops and curio shops. The route is ideal en route to Kruger via Phabeni or Orpen gates—allow a full day for stops. Early morning light at God's Window reduces mist; afternoon thunderstorms common in summer. Wheelchair-accessible viewpoints exist at several sites.",
+        "image": "1506905925344-21ddaec4d32d"
+      }
+    ],
+    "routesEnhanced": [
+      {
+        "name": "The Classic Garden Route",
+        "duration": "7–10 days",
+        "distance": "~700 km",
+        "highlights": [
+          "Tsitsikamma forest",
+          "Knysna Heads",
+          "Plettenberg Bay beaches"
+        ],
+        "desc": "The Garden Route ranks among the world's great coastal drives, stretching roughly from Mossel Bay through George, Wilderness, Knysna, Plettenberg Bay, and Tsitsikamma to Storms River. Start in Cape Town or fly to George airport. Highlights include bungee jumping at Bloukrans Bridge (216 metres), kayaking Tsitsikamma's Storms River Mouth, elephant encounters at Knysna sanctuaries, and beach time at Plettenberg Bay. The N2 highway is well paved; detour to Outeniqua Pass viewpoints and ostrich farms near Oudtshoorn for Karoo contrast. Whale season (June–November) rewards Hermanus or Plett stops. Accommodation ranges from backpacker hostels to clifftop boutique hotels—book Knysna Oyster Festival week early. Allow unhurried days; misty mornings and golden afternoons define the mood."
+      },
+      {
+        "name": "The Panorama Route",
+        "duration": "2–3 days",
+        "distance": "~250 km",
+        "highlights": [
+          "Blyde River Canyon",
+          "God's Window",
+          "Bourke's Luck Potholes"
+        ],
+        "desc": "The Panorama Route is Mpumalanga's escarpment showcase, ideally combined with Kruger entry via the northern Drakensberg passes. Base in Hazyview, Sabie, or Graskop—historic timber towns with excellent guesthouses. Drive the R532 loop to God's Window, Wonder View, and Pinnacle Rock before descending to Bourke's Luck Potholes where centuries of water carved cylindrical potholes in sandstone. Blyde River Canyon viewpoints (Three Rondavels) offer iconic photo angles over the 26-kilometre gorge. Waterfalls—Lisbon, Berlin, Mac Mac—dot the route. Graskop's pancake bars are a ritual lunch stop. Self-drive is straightforward; guided tours depart from Nelspruit for those without vehicles. Winter mornings often clear; summer brings lush greenery and afternoon thunder."
+      },
+      {
+        "name": "The Diamond Coast Trail",
+        "duration": "5–7 days",
+        "distance": "~600 km",
+        "highlights": [
+          "Namaqualand flowers",
+          "Richtersveld desert",
+          "West Coast fishing villages"
+        ],
+        "desc": "The Diamond Coast Trail explores South Africa's wild Atlantic seaboard from Cape Town north through Namaqualand to the Namibian border—a remote counterpoint to the tourist-heavy Garden Route. Spring wildflower blooms (August–September) transform arid plains into carpets of orange, purple, and white daisies—Namaqua National Park is ground zero. Continue to Springbok, Port Nolloth, and Alexander Bay where desert meets ocean and diamond mining history lingers. Richtersveld Transfrontier Park offers 4x4 trails through surreal lava landscapes. West Coast National Park near Langebaan provides lagoon birding and spring flowers closer to Cape Town. Infrastructure thins northward—carry fuel, water, and spare tyres. Malaria-free and uncrowded year-round except flower season."
+      }
+    ],
+    "adviceExtended": {
+      "transport": "South Africa's road network is the continent's best for self-drive tourism. Rent from Avis, Europcar, or Tempest at airports—automatic vehicles common. GPS or offline maps essential. Gautrain links Johannesburg OR Tambo to Pretoria and Sandton efficiently. Uber works in major cities; avoid minibus taxis unless guided. Long distances: Cape Town to Kruger is two days or a two-hour flight. 4x4 needed only for Sani Pass, Richtersveld, or deep sand in private reserves.",
+      "budget": "South Africa offers exceptional value. Budget backpackers: ZAR 800–1,200 (USD 45–70) daily. Mid-range self-drive: ZAR 2,000–3,500 daily per couple including car, lodges, and park fees. Ultra-luxury safaris: ZAR 15,000+ per person nightly. Wine tastings run ZAR 50–150; SANParks camps from ZAR 400. Peak Kruger school holidays (June–July, December) require months-ahead booking.",
+      "visa": "Citizens of the EU, UK, USA, Canada, Australia, and many others receive 90-day visa-free entry. Passports need 30 days validity beyond departure and two blank pages. Parents travelling with children must carry unabridged birth certificates—a strict enforcement since 2015. Extensions at Home Affairs in Pretoria are possible but slow.",
+      "health": "Malaria prophylaxis recommended for Kruger and Maputaland lowveld, especially October–May. Cape Town, Garden Route, and highveld are malaria-free. Private hospitals in cities match European standards; travel insurance with evacuation cover essential. Tap water safe in cities. HIV prevalence is high—standard precautions apply. COVID and routine vaccinations per WHO guidance.",
+      "safety": "Crime in urban areas—carjacking, bag snatching—requires vigilance: lock doors while driving, avoid displaying phones, don't walk city streets at night. Tourist areas (V&A Waterfront, Stellenbosch, Kruger rest camps) are generally safe. Load-shedding means dark traffic lights—treat intersections as four-way stops. National parks are very safe; follow guide instructions near wildlife.",
+      "money": "South African Rand (ZAR) fluctuates—check rates. Credit cards widely accepted; carry cash for tips and rural stalls. ATMs at malls and airports; avoid isolated ATMs at night. Tipping: 10–15% restaurants; ZAR 150–250 per safari guide daily; petrol attendants ZAR 10–20.",
+      "climate": "Dual-season planning is key. Dry winter (May–September): best for Kruger and inland—mild days, cold nights, sparse vegetation improves game viewing. Wet summer (November–March): lush bushveld, newborn animals, afternoon storms; ideal for Cape Town, whales, and beaches. Drakensberg gets snow June–August."
+    }
+  },
+  "botswana": {
+    "summary": "Botswana delivers Africa's most exclusive safari experience—pristine Okavango Delta channels, Chobe's elephant herds, and Kalahari black-maned lions—through a deliberate high-value, low-impact tourism model. Fly into Maun or Kasane, or self-drive from Namibia and Zimbabwe on challenging sand tracks. There are no mass-market crowds; lodges are intimate and prices reflect conservation investment. June–October dry season coincides with Delta floodwaters peaking—ideal for mokoro and game drives. Visa-free for many nationalities. Malaria prophylaxis essential in Delta and Chobe. Budget USD 400–1,200 per person daily for mid-to-luxury all-inclusive camps; self-drive Kalahari trips cost less.",
+    "gettingThere": "Sir Seretse Khama International Airport (GBE) in Gaborone is the main international gateway with links from Johannesburg, Cape Town, Nairobi, and Addis Ababa. Maun Airport (MUB) is the Okavango safari hub—most Delta camps collect guests by light aircraft charter. Kasane Airport (BBK) serves Chobe and Victoria Falls combinations. Overland from Namibia: Mohembo border near Shakawe for the Panhandle; Ngoma bridge from Caprivi; Buitepos from Gobabis. Zimbabwe's Kazungula border near Victoria Falls connects to Kasane. Self-drive is possible but deep Kalahari sand and Delta floodplains demand 4x4 skill, recovery gear, and satellite communication. Most visitors fly between camps on scheduled air transfers with Mack Air, Moremi Air, or Safari Air—luggage limited to 20 kg soft bags. Road transfers from Maun to public Moremi gates take 3–5 hours in dry season.",
+    "economy": "Botswana transformed from one of the world's poorest nations at independence in 1966 to a middle-income country through prudent diamond revenue management—Debswana joint venture funds education, healthcare, and infrastructure. Tourism is the second-largest foreign exchange earner, operating under a strict high-value, low-volume philosophy that limits bed numbers and prioritises wilderness integrity. Community trusts in concessions like Khwai and Sankuyo receive lease fees and employment from lodges. Beef exports to the EU, copper-nickel mining, and financial services diversify the economy. The Pula is one of Africa's strongest currencies. For visitors, this means premium pricing but exceptional guiding standards, low poaching rates, and genuine wilderness—no fence-hopping day tourists in core Delta zones.",
+    "historyOverride": "Botswana's human history spans over 100,000 years—San hunter-gatherers left rock art across the Tsodilo Hills, now UNESCO-listed spiritual mountains they call the 'Rock That Whispers.' Bantu-speaking Tswana clans migrated southward from the fifteenth century, establishing chiefdoms that British missionaries and traders encountered in the nineteenth century. Three diKgosi (chiefs)—Khama III of the Bangwato, Bathoen I of the Bangwaketse, and Sebele I of the Bakwena—famously petitioned Queen Victoria in 1895, securing British protection rather than incorporation into Cecil Rhodes' British South Africa Company, which would have merged them into Rhodesia. The Bechuanaland Protectorate remained deliberately underdeveloped—no land alienation for white settlers, minimal infrastructure.\n\nIndependence on 30 September 1966 under Sir Seretse Khama—whose marriage to Englishwoman Ruth Williams had scandalised colonial Britain—launched Africa's most remarkable economic success story. Diamond discoveries at Orapa (1967) and Jwaneng (1982) funded free primary education, anti-poaching units, and foreign reserves that cushioned global shocks. Khama's successor Quett Masire and Festus Mogae maintained fiscal discipline; Mogae earned the Ibrahim Prize for leaving office without corruption. Vice President Ian Khama (son of Seretse) and subsequent leaders continued conservation-first policies—hunting bans in core areas, transfrontier parks with neighbours, and community-based natural resource management.\n\nModern Botswana navigates inequality between urban elites and rural communities, youth unemployment, and HIV/AIDS successes through universal treatment programmes. For travellers, history lives in the Khama III Memorial Museum in Serowe, colonial architecture in Mahalapye, and San-guided walks explaining how ancient cultures adapted to the Kalahari. The nation's stability is not accidental—it is the foundation on which Okavango luxury rests. Modern Botswana navigates inequality between urban elites and rural communities, youth unemployment, and HIV/AIDS successes through universal treatment programmes. For travellers, history lives in the Khama III Memorial Museum in Serowe, colonial architecture in Mahalapye, and San-guided walks explaining how ancient cultures adapted to the Kalahari. The nation's stability is not accidental—it is the foundation on which Okavango luxury rests and upon which community trusts build schools, clinics, and anti-poaching patrols funded by tourism revenue across the Okavango, Chobe, and Kalahari.",
+    "geoOverride": "Botswana is landlocked yet water-defined—a country of 581,000 square kilometres where the Okavango River dies in the Kalahari sand, creating the world's largest inland delta. The Delta's 15,000 square kilometres of channels, lagoons, and floodplains pulse annually with floodwaters arriving from Angolan highlands months after local rains cease—a paradox that sustains staggering biodiversity. Chobe River frontage in the north hosts Africa's densest elephant concentrations. The Makgadikgadi and Nxai Pans—remnants of a prehistoric super-lake—shimmer white and endless, fringed by baobab sentinels like Baines' Baobabs. The Central Kalahari Game Reserve sprawls 52,000 square kilometres of grassland where black-maned lions hunt oryx beneath vast skies. The eastern hardveld along the Limpopo is rockier and more developed. Altitude averages 1,000 metres; climate is semi-arid with extreme temperature swings. This geography demands seasonal itinerary planning—Delta mokoro in flood season, pans after rains, Kalahari in cooler dry months. Seasonal planning is essential: mokoro excursions peak when floodwaters arrive, salt pans shimmer brightest after rains, and Kalahari black-maned lions hunt most visibly in cooler dry months when grass is low.",
+    "peopleOverride": "Botswana's two million citizens are predominantly Tswana-speaking Bantu peoples organised into eight major merafe (tribes) with hereditary chiefs who retain cultural authority alongside elected government. The San (Basarwa) minority—roughly 50,000—face ongoing struggles for land rights in the Central Kalahari but maintain unparalleled tracking knowledge increasingly valued in eco-tourism. Wayeyi and Hambukushu communities inhabit Delta fringes; Kalanga people populate the northeast. Setswana and English are official languages; radio and television reinforce a cohesive national identity rare in Africa. Dress is generally conservative in towns; rural villages welcome respectful visitors to kgotla (meeting place) gatherings. Botswana's peace and hospitality are genuine—crime rates are low, police corruption minimal, and guides share wildlife passion openly. Purchasing crafts from Okavango cooperatives and hiring community guides channels tourism benefits directly. Avoid photographing people without permission; many San communities prefer organised cultural experiences over roadside snapshots. Purchasing crafts from Okavango cooperatives and hiring community guides channels tourism benefits directly to families who otherwise depend on subsistence herding and seasonal labour across this vast, peaceful republic.",
+    "additionalSpots": [
+      {
+        "name": "Tsodilo Hills",
+        "desc": "Tsodilo Hills rise abruptly from the Kalahari scrub in northwest Botswana—a UNESCO World Heritage Site revered as the 'Louvre of the Desert' with over 4,500 rock paintings spanning 100,000 years of human creativity. San and Hambukushu peoples consider the hills sacred dwelling places of ancestral spirits; guided walks interpret paintings of rhinos, whales, and geometric patterns across Female, Male, and Child hills. The summit viewpoints survey endless bush; silence is profound. Access requires 4x4 from Shakawe or Divundu—rough roads deter casual visitors, preserving intimacy. A small museum and community campsite support local villages. Combine with Okavango Panhandle for contrast between spiritual desert hills and watery channels. Summer heat is intense; winter mornings ideal for hiking. Respect no-photography zones at sacred sites flagged by guides.",
+        "image": "1504107123655-081832049e37",
+        "bestSeason": "May–Sep",
+        "visitDuration": "1–2 days",
+        "fees": "Community fee BWP 200; guide BWP 300 mandatory",
+        "tip": "Hire community guides at the gate—they hold keys to interpret symbolism."
+      },
+      {
+        "name": "Khwai Community Concession",
+        "desc": "Khwai village sits on the eastern Okavango Delta edge where a community trust manages wildlife concessions bridging Moremi Game Reserve and Chobe—offering excellent predator and wild dog sightings at lower cost than inner-Delta camps. Night drives and off-road guiding (where permitted) exceed national park rules. The Khwai River attracts elephant, leopard, and hippos steps from rustic tented camps. Village walks reveal daily life—fishing, basket weaving, and school visits arranged through lodges. Self-drivers can book community campsites; fly-in guests transfer from Maun in under an hour. Revenue funds anti-poaching scouts and village infrastructure. Shoulder seasons (May, November) balance price and wildlife density.",
+        "image": "1547471080-7cc2caa01a7e",
+        "bestSeason": "Jun–Oct",
+        "visitDuration": "2–3 days",
+        "fees": "Concession fees BWP 350/day; lodges USD 350–700/night",
+        "tip": "Book night drives on arrival—limited vehicles and high predator success."
+      },
+      {
+        "name": "Nxai Pan National Park",
+        "desc": "Nxai Pan National Park neighbours Makgadikgadi, famous for Baines' Baobabs—seven ancient trees painted by Victorian explorer Thomas Baines in 1862—and seasonal zebra migrations rivalling Serengeti drama when rains transform pans into shallow lakes. Cheetah hunt open grasslands; lion prides lounge under acacias. The pans' cracked white surface and infinite horizons create surreal photography. Camping is basic; few permanent lodges mean low visitor numbers. Access from Maun via Gweta on gravel roads suits high-clearance 4x4. Combine with Makgadikgadi sleepouts under stars with San guides. December–April green season brings migrants; dry season concentrates wildlife at waterholes.",
+        "image": "1519181245277-cffeb31da2e3",
+        "bestSeason": "Dec–Apr",
+        "visitDuration": "1–2 days",
+        "fees": "Park entry BWP 120/day; camping BWP 50/person",
+        "tip": "Visit Baines' Baobabs at sunrise—shadows stretch across the pan."
+      },
+      {
+        "name": "Tuli Block",
+        "desc": "The Tuli Block in eastern Botswana is a narrow strip of private reserves along the Limpopo River—Mashatu, Tuli Safari Lodge, and others—offering malaria-free Big Five viewing, elephant herds under baobabs, and horseback safaris across sandstone outcrops. Unlike Delta water camps, Tuli is dry-country bushveld with dramatic landscapes and archaeological sites. Self-drive from South Africa via Pont Drift border (cable car over river) or guided transfers from Polokwane. Mountain biking and cycling safaris are unique offerings. Combine with Mapungubwe UNESCO site across the border. Year-round wildlife; winter mild. Luxury lodges dominate but day visitors from South Africa add options.",
+        "image": "1518709766631-a6a7f45921c3",
+        "bestSeason": "Year-round",
+        "visitDuration": "2–4 days",
+        "fees": "Lodge rates USD 400–900/night all-inclusive",
+        "tip": "Pont Drift border closes 4pm—arrive early from South Africa."
+      }
+    ],
+    "additionalActivities": [
+      {
+        "name": "Helicopter Delta Flight",
+        "desc": "Scenic helicopter flights over the Okavango Delta reveal the full labyrinth of channels, lagoons, and islands invisible from ground level—hippo pods, elephant crossings, and red lechwe herds appear as geometric patterns in green and blue. Flights last 30–45 minutes from Maun, Kasane, or camp helipads; doors-off options suit photographers. Pilots narrate flood dynamics and wildlife movements. Best light is early morning when thermals are calm. Premium camps include short scenic flights in packages; independent travellers book through operators in Maun. Weight limits apply. Combine with mokoro afternoon for contrasting perspectives on the same ecosystem.",
+        "image": "1448831338187-78296e6fdc4d"
+      },
+      {
+        "name": "Meerkat Habituation Walk",
+        "desc": "The Makgadikgadi meerkat research habituation project near Jack's Camp and San Camp allows visitors to sit among wild meerkats as they warm in morning sun—standing sentry, digging for scorpions, and grooming pups that may climb your knee for vantage height. Researchers accompany small groups to minimise stress on colonies. Experiences last 2–3 hours at sunrise; summer heat ends sessions early. Proceeds support conservation science. Not guaranteed daily—meerkats range widely—but success rates exceed 80% in dry season. Pair with quad bike salt pan expeditions for full Makgadikgadi immersion.",
+        "image": "1504107123655-081832049e37"
+      },
+      {
+        "name": "Catch-and-Release Tiger Fishing",
+        "desc": "The Okavango Panhandle and Chobe River offer world-class catch-and-release tigerfish angling—ferocious freshwater fighters reaching 10 kg on fly or spin tackle. Season peaks September–December when waters warm and fish strike aggressively. Licensed guides supply boats, tackle, and knowledge of deep channels and eddies. National park permits required; barbless hooks mandated. Half and full-day trips depart from Shakawe lodges. Even non-anglers enjoy river birding and hippo encounters. Combine with houseboat stays on Chobe for multi-day fishing safaris.",
+        "image": "1520690214124-2405c5217036"
+      }
+    ],
+    "routesEnhanced": [
+      {
+        "name": "The Desert to Delta Trail",
+        "duration": "10–14 days",
+        "distance": "~800 km + flights",
+        "highlights": [
+          "Central Kalahari lions",
+          "Okavango mokoro",
+          "Chobe river cruise"
+        ],
+        "desc": "Botswana's signature journey contrasts arid Kalahari with aquatic Okavango and Chobe's elephant highways. Start in Maun stocking supplies, optionally self-driving into Central Kalahari Game Reserve for black-maned lions and San cultural experiences—4–5 days minimum for meaningful depth. Fly or drive north to Moremi or Khwai for mokoro poling, game drives, and night sounds of the Delta. Continue to Kasane and Chobe National Park for sunset boat cruises past hundreds of elephants. Light aircraft hops save days on sand roads. Dry season (June–October) aligns flood and wildlife concentrations. Book camps six months ahead for peak months. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      },
+      {
+        "name": "The Panhandle Explorer",
+        "duration": "5–7 days",
+        "distance": "~200 km + boat",
+        "highlights": [
+          "Shakawe fishing",
+          "papyrus channels",
+          "river birding"
+        ],
+        "desc": "The Okavango Panhandle is the Delta's narrow northern throat where the river enters Botswana before fanning into the sands—a specialist corridor for anglers, birders, and travellers seeking quieter water than inner Delta camps. Base at Shakawe or Drotsky's Cabins for tiger fishing, mokoro trips into papyrus channels, and boat safaris spotting Pel's fishing owl and African skimmer. Tsodilo Hills day trip adds cultural depth. Roads from Namibia's Caprivi are tarred; mobile signal weak. Fewer luxury camps mean moderate pricing. Combine with Caprivi wetlands for extended birding itinerary. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      },
+      {
+        "name": "The Salt & Silk Road",
+        "duration": "6–8 days",
+        "distance": "~400 km",
+        "highlights": [
+          "Makgadikgadi pans",
+          "meerkats",
+          "Nxai zebra migration"
+        ],
+        "desc": "This remote loop through Botswana's great salt pans captures the 'Great Thirstland' aesthetic—endless white horizons, ancient baobabs, and desert-adapted wildlife. From Maun, drive southeast via Gweta to Makgadikgadi for quad bike expeditions, San bush walks, and meerkat habituation near luxury desert camps. Continue to Nxai Pan for Baines' Baobabs and zebra migrations after rains. Kubu Island—a granite outcrop in Sowa Pan—is a sacred Lekoa site requiring guides. Camping under stars with no light pollution is unforgettable. Summer rains essential for zebra; dry season better for meerkats and clear skies. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      }
+    ],
+    "adviceExtended": {
+      "transport": "Fly-in safaris dominate Okavango and Linyanti—book through lodges including air transfers from Maun or Kasane. Self-drive Kalahari and pans requires 4x4 with sand ladders, two spares, and GPS tracks. Soft bag 20 kg limit on charter planes strictly enforced. No public buses to remote parks; private guides available in Maun.",
+      "budget": "Botswana is Southern Africa's most expensive safari destination. Budget mobile camping: USD 250–400 daily. Mid luxury: USD 500–800. Top camps: USD 1,200–2,500 nightly all-inclusive. Park fees modest; lodge rates include activities. Shoulder months (May, November) offer 20–30% discounts.",
+      "visa": "Visa-free 90 days for EU, UK, US, Canada, Australia, SADC. Passport six months validity. Extensions in Gaborone. KAZA Univisa covers Zambia/Zimbabwe if combining Victoria Falls.",
+      "health": "Malaria prophylaxis essential Delta, Chobe, Linyanti year-round; lower risk in Kalahari dry season. Tsetse flies in woodland—avoid dark blue/black clothing. Medical evacuation insurance mandatory for remote camps. Maun and Kasane have clinics; serious cases airlifted to Johannesburg.",
+      "safety": "Botswana is extremely safe—low crime, stable politics, professional guides. Wildlife poses greater risk: heed camp briefings on elephants and hippos. Deep sand driving strandings require recovery—travel in pairs if self-driving.",
+      "money": "Botswana Pula (BWP). USD and EUR accepted at lodges; change for tips. ATMs in Maun, Kasane, Gaborone. Credit cards at camps; cash tips preferred for guides (USD 10–20 daily).",
+      "climate": "Dry winter June–October: peak season, Delta flood, cool nights 5°C, warm days 28°C. Wet summer November–March: discounted rates, dramatic storms, migrant birds, some roads impassable. Kalahari hottest October–November before rains."
+    }
+  },
+  "zambia": {
+    "summary": "Zambia is the birthplace of the walking safari and home to Victoria Falls' thundering 'Smoke That Thunders'—a country where raw wilderness, warm hospitality, and excellent guiding define the experience. Fly into Lusaka or Livingstone, or cross from Zimbabwe, Botswana, or Namibia at well-used border posts. South Luangwa and Lower Zambezi deliver intimate predator encounters; Kafue's Busanga Plains offer hot-air ballooning over lion prides. May–October dry season concentrates wildlife at rivers; November 'Emerald Season' brings lush scenery and lower rates. KAZA Univisa (USD 50) simplifies Victoria Falls access. Malaria prophylaxis essential. Mid-to-high safari budgets from USD 200–600 daily all-inclusive.",
+    "gettingThere": "Kenneth Kaunda International Airport (LUN) in Lusaka receives flights from Johannesburg, Nairobi, Dubai, and Addis Ababa. Harry Mwanga Nkumbula Airport (LVI) in Livingstone serves Victoria Falls tourists with links from Johannesburg, Cape Town, and Kruger. Proflight Zambia and Mahogany Air connect Lusaka to Mfuwe (South Luangwa), Lower Zambezi, and Ndola. Overland: Kazungula ferry/bridge from Botswana; Victoria Falls Bridge from Zimbabwe; Chirundu and Kariba borders from Zimbabwe; Nakonde from Tanzania. Self-drive on the Great North Road (T2) is tarred but long—Lusaka to Mfuwe takes 8–10 hours. Bush flights require soft bags under 15 kg. 4x4 useful in Kafue wet season. Luxury lodges arrange road transfers from Mfuwe airstrip.",
+    "economy": "Zambia's economy historically rode the copper belt—mining still dominates exports though diversification into agriculture, hydroelectric power (Kariba and Kafue Gorge dams), and tourism accelerates. Tourism employs thousands in Luangwa Valley lodges, Livingstone adventure operators, and Kafue camps. Community-owned concessions and partnerships with African Parks (in Liuwa Plain and Bangweulu) channel revenue to rural areas. The kwacha fluctuates; USD remains king at safari lodges. Zambia positions itself as 'the real Africa'—less commercialised than neighbours, with legendary guiding standards from Zambian licensing schools. Victoria Falls tourism supports Livingstone's economy year-round. Emerging sectors include gemstone mining (emeralds) and maize exports.",
+    "geoOverride": "Zambia is a landlocked plateau nation of 752,000 square kilometres where three great rivers—the Zambezi, Kafue, and Luangwa—carve valleys through miombo woodland and grassland. Victoria Falls (Mosi-oa-Tunya) plunges 108 metres at the Zimbabwe border, creating perpetual spray rainbows visible kilometres away. South Luangwa Valley's oxbow lagoons and ebony groves host among Africa's highest leopard densities. Lower Zambezi National Park lines the river escarpment where elephants swim between islands. Kafue—Zambia's largest park at 22,400 square kilometres—includes the treeless Busanga Plains where lions hunt lechwe in flood season. Bangweulu Wetlands and Kasanka host shoebills and fruit-bat migrations. The Copperbelt and Lusaka sit on the central plateau at 1,200 metres; escarpments drop to hotter valleys. Seasonal flooding transforms landscapes dramatically—plan around water levels. The Bangweulu Wetlands and Kasanka host shoebills and fruit-bat migrations respectively, while Liuwa Plain preserves wildebeest herds in Africa's most remote grassland. Seasonal flooding transforms landscapes dramatically—plan itineraries around water levels, road conditions, and whether you prioritise walking safaris, canoe corridors, or specialist birding.",
+    "peopleOverride": "Zambia's 20 million people encompass 70+ ethnic groups united by remarkable national peace and the Bemba, Nyanja, Tonga, and Lozi identities. The Lozi people's Kuomboka ceremony—moving the Litunga's court by royal barge when floods rise—is among Africa's grandest cultural spectacles. Bemba dominate the north; Tonga farm the southern plateau; Lozi inhabit western floodplains. English is the official language; local languages thrive in village life. Zambians' warmth is legendary—'Zikomo' (thank you) echoes everywhere. Urban Lusaka buzzes with markets and nightlife; rural areas maintain strong chiefly traditions. Craft cooperatives produce excellent baskets and carvings. Visitors should support community tourism initiatives in Luangwa and Livingstone. Photography of ceremonies requires permission. The nation avoided the civil conflicts that scarred neighbours, fostering stability that underpins tourism growth. Photography of ceremonies requires permission from chiefs and participants. The nation avoided the civil conflicts that scarred neighbours, fostering stability that underpins tourism growth and makes Zambia a trusted gateway for first-time safari travellers.",
+    "additionalSpots": [
+      {
+        "name": "Kafue National Park",
+        "desc": "Kafue National Park is Zambia's largest and one of Africa's biggest protected areas—a vast wilderness of miombo forest, riverine channels, and the legendary Busanga Plains where lions stalk red lechwe through waist-deep floodwaters. Northern Busanga camps open June–November when waters recede, offering hot-air balloon safaris unique in Zambia. The Kafue River supports hippo pods and puku antelope; cheetah and wild dog ranges expand annually. Unlike crowded parks elsewhere, Kafue feels empty—self-drivers on the Lufupa and Nanzhila loops may not see another vehicle all day. Access from Lusaka via Mumbwa on gravel roads takes 5–6 hours; fly-in to Busanga airstrip saves time. Camps range from rustic to ultra-luxury. Combine with Liuwa Plain for remote wildebeest migrations.",
+        "image": "1581850106622-cf8f3a382ec3",
+        "bestSeason": "Jun–Oct",
+        "visitDuration": "4–6 days",
+        "fees": "Park entry USD 20/day; Busanga lodges USD 400–1,200/night",
+        "tip": "Book Busanga camps before June—limited beds and short season."
+      },
+      {
+        "name": "Liuwa Plain National Park",
+        "desc": "Liuwa Plain National Park in western Zambia is one of Africa's most remote safari destinations—a flat grassland where the second-largest wildebeest migration occurs after rains, and hyena clans outnumber lions. African Parks' restoration reintroduced cheetah and bolstered anti-poaching; Lady Liuwa, the legendary last lioness, became a conservation icon. King Lewanika Lodge offers exclusive luxury in utter isolation. Access requires charter flights from Lusaka or Livingstone—no self-drive infrastructure. Wet season (December–April) brings migrations and dramatic storms; dry season offers predator action around water. Community scouts guide visitors; revenue supports 10,000 surrounding residents. This is expedition travel—not for first-time safariers—but rewards with soul-stirring emptiness.",
+        "image": "1516426122078-c23e76319801",
+        "bestSeason": "Dec–Apr",
+        "visitDuration": "3–5 days",
+        "fees": "Charter flights USD 400+; lodge USD 800–1,500/night",
+        "tip": "Fly King Lewanika only—no roads; book wet season for migration."
+      },
+      {
+        "name": "Livingstone Island & Devil's Pool",
+        "desc": "Livingstone Island sits midstream at Victoria Falls where David Livingstone first viewed Mosi-oa-Tunya in 1855—today exclusive tours ferry small groups for champagne breakfasts on the lip and, in low water (August–December), swims in Devil's Pool, a natural rock eddy literally on the cascade edge. Guides hold your ankles as you peer over the abyss—a controlled adrenaline rush with safety harnesses and strict group limits. Morning mistbows arch across the gorge; lunch includes Livingstone's story narrated by Zambian historians. Access only via Tongabezi or Livingstone Island operators; half-day trips sell out weeks ahead in peak season. Combine with microlight flights over the falls or white-water rafting below the gorge. Not for vertigo sufferers.",
+        "image": "1516026672322-bc52d61a55d5",
+        "bestSeason": "Aug–Dec",
+        "visitDuration": "Half day",
+        "fees": "Devil's Pool tours from USD 110; island breakfast USD 150",
+        "tip": "Book Devil's Pool for morning—lower wind and better light."
+      },
+      {
+        "name": "Shiwa Ng'andu Manor House",
+        "desc": "Shiwa Ng'andu is a English manor house improbably planted on the Zambian plateau—built by British officer Stewart Gore-Browne from 1914, surrounded by lakes, hot springs, and a working estate producing tea and honey. Guided tours reveal colonial eccentricity, World War memorials, and lakeside walks where hippos grunt at sunset. The estate offers guest cottages and a unique alternative to bush camps between North Luangwa and Kasanka. Hot springs swim at Kapishya nearby soothes safari fatigue. Access via tar road from Mpika—rougher tracks need 4x4 in wet season. History buffs and romantics find magic here; wildlife is gentle compared to Luangwa but birding excels.",
+        "image": "1454486326938-e6727284ea44",
+        "bestSeason": "May–Oct",
+        "visitDuration": "1–2 days",
+        "fees": "Manor tours USD 30; cottages from USD 150/night",
+        "tip": "Stay overnight—day trippers miss the hot springs at golden hour."
+      }
+    ],
+    "additionalActivities": [
+      {
+        "name": "Microlight Flight over Victoria Falls",
+        "desc": "Microlight flights from Livingstone airport circle Victoria Falls at low altitude—spray soaking your goggles as the gorge unfolds beneath open cockpit frames. Pilots narrate geology and history while banking over Zambezi rapids and bungee jumpers on the bridge. Flights last 15–30 minutes; weight limits apply. Best conditions at sunrise before thermals build. Combine with afternoon sunset cruise on the Zambezi above the falls. Operators hold Zambian aviation licences; safety records are strong. Not suitable for pregnant travellers or those with heart conditions. Book directly or through lodges; peak season requires advance reservation.",
+        "image": "1516026672322-bc52d61a55d5"
+      },
+      {
+        "name": "Busanga Plains Balloon Safari",
+        "desc": "Hot-air ballooning over Kafue's Busanga Plains at dawn floats silently above lion prides, wattled cranes, and lechwe herds scattered across misty floodplains—a perspective impossible from vehicles. Flights launch from Shumba or Busanga Bush Camp June–October when plains are accessible; champagne breakfast follows landing in the bush. Pilots from established balloon companies hold commercial licences; baskets carry 4–8 passengers. Calm mornings essential—wind cancellations occur. Premium add-on to Kafue itineraries; book with lodge packages. Photography requires wide-angle lenses and strap security. One of Zambia's most exclusive experiences.",
+        "image": "1611181829676-d3929e061807"
+      },
+      {
+        "name": "Village & Craft Tour in Mfuwe",
+        "desc": "Community tours from Mfuwe town visit local villages, schools, and craft markets outside South Luangwa—offering context to Luangwa's luxury lodges and supporting artisans who weave baskets and carve hardwood animals. Guides explain daily life, farming cycles, and how tourism revenue funds boreholes and clinics. Tours last 2–3 hours; donations to schools welcome but not mandatory. Ethical operators avoid staged poverty; choose lodge-affiliated or Tribal Textiles workshop visits in Mfuwe. Combine with Tribal Textiles screen-printing tour producing globally sold fabrics. Morning tours avoid heat; ask permission before photographing residents.",
+        "image": "1581850106622-cf8f3a382ec3"
+      }
+    ],
+    "routesEnhanced": [
+      {
+        "name": "The Zambezi Explorer",
+        "duration": "8–12 days",
+        "distance": "~600 km + river",
+        "highlights": [
+          "Victoria Falls",
+          "Lower Zambezi canoeing",
+          "Lake Kariba houseboat"
+        ],
+        "desc": "The Zambezi Explorer traces Zambia's defining river from Livingstone's falls through safari valleys to Kariba's inland sea. Start at Victoria Falls for two nights of falls viewing, rafting, and sunset cruises. Fly or drive to Lusaka, then continue to Lower Zambezi for canoe safaris and tiger fishing—elephants wade past camp decks at Ana Tree and Old Mondoro. Conclude on a houseboat cruising Lake Kariba's drowned forests, fishing for bream and watching hippos at sundowner hour. Dry season (May–October) essential for Lower Zambezi access. Mix flights and road transfers to save time. KAZA Univisa simplifies Zimbabwe day trips to falls. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      },
+      {
+        "name": "The Luangwa Valley Loop",
+        "duration": "7–10 days",
+        "distance": "~400 km + flights",
+        "highlights": [
+          "South Luangwa walking",
+          "North Luangwa wild",
+          "Mfuwe village"
+        ],
+        "desc": "The Luangwa Valley is Zambia's safari soul—birthplace of walking safaris and home to leopard densities that astound even seasoned guides. Fly to Mfuwe from Lusaka (1 hour) and spend 4–5 nights across two camps for varied habitats—oxbow lagoons, ebony groves, and open plains. Morning walks with armed scouts and afternoon drives deliver intimate encounters. Optional North Luangwa expedition camps offer multi-day walking only—no vehicles, true wilderness. Night drives reveal genets, porcupines, and hunting leopards. Emerald Season (November) discounts rates and brings migrant birds; dry season concentrates game. Combine bush and river camps. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      },
+      {
+        "name": "The Northern Highs Trail",
+        "duration": "10–14 days",
+        "distance": "~800 km + flights",
+        "highlights": [
+          "Kasanka bat migration",
+          "Bangweulu shoebills",
+          "Lake Tanganyika"
+        ],
+        "desc": "This adventurous northern circuit targets specialist wildlife spectacles far from tourist crowds. Time Kasanka National Park (October–December) for 10 million straw-coloured fruit bats erupting at dusk—a sky-darkening migration. Continue to Bangweulu Wetlands for shoebill stork tracking in dugout canoes through papyrus—a prehistoric birdwatching grail. Fly north to Nsumbu and Lake Tanganyika for clear-water snorkelling with endemic cichlids and beach lodges on white sand. Roads are rough; charter flights recommended between nodes. Shiwa Ng'andu manor adds colonial history en route. For experienced Africa travellers seeking rarity over Big Five checklists. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      }
+    ],
+    "adviceExtended": {
+      "transport": "Proflight and Mahogany Air link Lusaka to bush airstrips—book through lodges. Soft bags mandatory; 15–23 kg limits. Self-drive viable on Great East Road to Mfuwe (tar, then gravel last 40 km). Lower Zambezi and Kafue need 4x4 in wet season. Livingstone taxis and lodge transfers cover falls area.",
+      "budget": "Mid-range Luangwa: USD 250–450 per person daily all-inclusive. Luxury: USD 500–900. Victoria Falls activities add USD 50–200 per adventure. Budget overlanders camp at Lusaka hostels. Emerald Season discounts 30–50%.",
+      "visa": "KAZA Univisa USD 50 covers Zambia/Zimbabwe/Botswana day trips—buy at Livingstone or Lusaka airport. E-visa available online. Most Western nationals visa-free 90 days—verify current list.",
+      "health": "Malaria prophylaxis essential year-round in valleys. Tsetse flies in Luangwa—avoid dark clothing. Bilharzia in some lake areas—avoid stagnant swimming. Medical evacuation insurance critical. Lusaka and Livingstone have private clinics.",
+      "safety": "Zambia is very safe and welcoming. Victoria Falls touts can be persistent—polite firmness works. Walking safaris follow strict guide protocols. Drones require ZCAA registration 30 days prior.",
+      "money": "Zambian Kwacha (ZMW) official; USD widely accepted at lodges (post-2013 notes only). ATMs in Lusaka, Livingstone, Mfuwe. Tips USD 15/day guides, USD 15/day lodge staff.",
+      "climate": "Dry May–October: peak game viewing, cool nights. Emerald November–April: lush, discounted, bat migration October–December. Victoria Falls highest flow March–May; Devil's Pool August–December."
+    }
+  },
+  "zimbabwe": {
+    "summary": "Zimbabwe pairs world-class guiding with iconic destinations—Victoria Falls, Hwange's elephant herds, and Mana Pools' walking safaris—at prices softer than Botswana. Fly into Victoria Falls or Harare, or enter from Zambia via the bridge and KAZA Univisa. Zimbabwean guides train rigorously; walking safaris here set the continental standard. July–October dry season draws wildlife to waterholes; emerald rains from December bring birding bonanzas. USD cash remains primary for tourists. Generally safe in tourist corridors; hospitality is genuine and erudite. Budget USD 150–500 daily for quality safari experiences.",
+    "gettingThere": "Victoria Falls Airport (VFA) receives international flights from Johannesburg, Cape Town, Nairobi, and seasonal European charters—ideal for falls-first itineraries. Robert Gabriel Mugabe International (HRE) in Harare links globally via Johannesburg and Addis Ababa. Bulawayo serves Hwange access. Overland: Beitbridge from South Africa (busiest border—allow hours); Kazungula from Botswana; Victoria Falls Bridge from Zambia (day visits easy). Self-drive highways A1, A2, A3 connect major centres on generally good tar, though potholes appear and fuel shortages occasionally disrupt—carry cash USD for fuel. 4x4 essential for Mana Pools and Gonarezhou. Domestic charter flights link Harare to Mana Pools and Matusadona. Luxury lodges arrange all transfers.",
+    "economy": "Zimbabwe's economy has weathered hyperinflation, currency changes, and political turbulence, yet tourism endures as a vital hard-currency earner. Victoria Falls, Hwange, and Mana Pools employ thousands in guiding, hospitality, and crafts. Community conservancies like CAMPFIRE channel hunting and tourism revenue to rural districts. Agriculture—tobacco, maize, horticulture—competes with mining (platinum, gold, diamonds). The multi-currency system stabilised daily transactions; tourists use USD almost exclusively. Zimbabwe's competitive advantage is guiding excellence—Zimbabwean Professional Guides licence is among Africa's toughest. Art exports—Shona stone sculpture, Tengenenge art community—supplement rural incomes. Tourism recovery post-2010s sees rising arrivals as infrastructure improves.",
+    "geoOverride": "Zimbabwe occupies 390,000 square kilometres of highveld plateau (1,000–1,500 metres) descending to Zambezi and Limpopo valleys. Victoria Falls anchors the northwest; Hwange's Kalahari sands spread southwest; Mana Pools' alluvial floodplains line the Zambezi east. Eastern Highlands—Nyanga, Vumba, Chimanimani—rise to 2,500 metres with mist forests, tea estates, and Zimbabwe's highest peak. Great Zimbabwe's stone ruins sit on the central plateau. Lake Kariba, created by 1959 damming, forms the world's largest man-made lake by volume—houseboat culture thrives. Gonarezhou in the far south is raw bushveld along the Save River. Climate varies sharply by altitude—Harare pleasant year-round; lowveld scorching October; highlands receive winter frost. Gonarezhou in the far south is raw bushveld along the Save River within the Great Limpopo Transfrontier Park. Climate varies sharply by altitude—Harare pleasant year-round; lowveld scorching in October; highlands receive winter frost and occasional snow on Nyanga peaks.  Mana Pools walking seasons and Gonarezhou access both depend on dry roads and low river levels from July through October.",
+    "peopleOverride": "Zimbabwe's 16 million people are predominantly Shona (70%) and Ndebele (20%), with fourteen official languages reflecting diverse heritage. Shona sculptors transformed serpentine stone into a global art movement; mbira music—spiritual thumb piano—resonates in ceremonies and contemporary fusion bands. Zimbabweans are among Africa's best-educated populations; guides often hold degrees alongside professional guiding licences. Urban Harare and Bulawayo offer galleries, cafes, and literary festivals; rural communities maintain chiefly authority and agricultural rhythms. Despite economic hardship, hospitality remains gracious—visitors remark on warmth and intellectual curiosity. Support local crafts at Avondale market Harare and Victoria Falls craft village. Ask before photographing; respect sacred sites at Great Zimbabwe. Cultural renaissance in theatre and visual arts makes cities worth exploring beyond transit. Support local crafts at Avondale market in Harare and Victoria Falls craft village. Ask before photographing people at work or worship. Cultural renaissance in theatre, mbira music, and visual arts makes cities worth exploring beyond simple transit stops.",
+    "additionalSpots": [
+      {
+        "name": "Gonarezhou National Park",
+        "desc": "Gonarezhou National Park ('Place of Elephants') is Zimbabwe's second-largest and wildest park—a remote triangle bordering Mozambique and South Africa within the Great Limpopo Transfrontier Park. Chilojo Cliffs' red sandstone ramparts overlook Runde River confluences where elephant herds numbering thousands migrate seasonally. Lions, wild dogs, and nyala inhabit mopane and baobab country. Infrastructure is minimal—self-sufficient 4x4 camping or exclusive Chilo Gorge lodge. Access from Chiredzi on rough gravel; no crowds, no cell signal, pure wilderness. Combine with Kruger via Pafuri gate for transfrontier adventure. Dry season (May–October) only practical access; rains close black cotton soil roads. For seasoned safariers escaping well-trodden circuits.",
+        "image": "1547970810-dc1eef37d176",
+        "bestSeason": "May–Oct",
+        "visitDuration": "4–6 days",
+        "fees": "Park entry USD 15/day; Chilo Gorge USD 400+/night",
+        "tip": "Carry extra fuel and water—no services inside park."
+      },
+      {
+        "name": "Great Zimbabwe National Monument",
+        "desc": "Great Zimbabwe is the medieval stone city that gave the nation its name—a UNESCO World Heritage Site of mortarless granite walls, conical towers, and hill complexes that housed up to 18,000 people between 1100 and 1450 AD. The Kingdom of Mutapa traded gold and ivory to Swahili coast merchants from this capital. Guided tours interpret the Great Enclosure's 250-metre walls, Valley Ruins' living quarters, and Hill Complex royal citadel. Museum exhibits gold artefacts and archaeological context dispelling colonial myths attributing ruins to foreigners. Easily reached from Masvingo on tar roads—half-day visits suffice; sunrise light paints walls gold. Combine with Save Valley conservancies or Bulawayo overnight. Modest entrance fees; local guides essential for depth.",
+        "image": "1519066629447-267fffa62d4b",
+        "bestSeason": "Apr–Oct",
+        "visitDuration": "Half day",
+        "fees": "Entry USD 15; guide USD 20",
+        "tip": "Climb Hill Complex early—midday heat on exposed granite is brutal."
+      },
+      {
+        "name": "Eastern Highlands",
+        "desc": "Zimbabwe's Eastern Highlands offer temperate escape from lowveld heat—rolling tea estates, montane forests, and waterfalls around Nyanga, Vumba, and Chimanimani. Nyanga National Park features Mutarazi Falls (765 metres), fly-fishing for trout, and horseback riding across rolling moors reminiscent of Scotland. Vumba Botanical Gardens and forest drives reveal samango monkeys and turacos. Chimanimani Mountains border Mozambique with challenging multi-day hikes to quartzite peaks. Luxury lodges and rustic B&Bs dot the Bvumba pass near Mutare. Accessible year-round from Harare (4–5 hours) on good roads. Malaria-free; ideal for families and hikers between safaris. April–May and August–September offer clearest weather.",
+        "image": "1541414779316-956a5084c0d4",
+        "bestSeason": "Apr–Oct",
+        "visitDuration": "3–5 days",
+        "fees": "Park entry USD 5/day; lodges USD 80–300/night",
+        "tip": "Book Mutarazi Falls skywalk tickets in advance on weekends."
+      },
+      {
+        "name": "Matusadona National Park",
+        "desc": "Matusadona National Park on Lake Kariba's southern shore combines drowned forests, shoreline game drives, and walking safaris in rugged escarpment country. Elephant and buffalo herds graze waterline grass; lions and rhino (reintroduced) inhabit mopane hills. Houseboats anchor in sheltered bays for sunset fishing and game viewing from deck—unique hybrid safari. Access by boat from Kariba town or charter flight to Fothergill airstrip. Rhino tracking walks with guides offer rare intimacy. Dry season concentrates animals at water; rainy season lush but access harder. Combine with Mana Pools or Kariba houseboat circuits. Remote and uncrowded compared to Hwange.",
+        "image": "1516246062751-beda751bedaf",
+        "bestSeason": "May–Oct",
+        "visitDuration": "3–4 days",
+        "fees": "Park entry USD 15/day; houseboats USD 200–600/night",
+        "tip": "Book houseboat with game-viewing tender—shore access needs ranger escort."
+      }
+    ],
+    "additionalActivities": [
+      {
+        "name": "White-Water Rafting below Victoria Falls",
+        "desc": "Rafting the Zambezi below Victoria Falls ranks among the world's great white-water experiences—Class IV–V rapids like 'Oblivion' and 'Gnashing Jaws of Death' pulse through Batoka Gorge with basalt walls towering 200 metres. Full-day trips launch from Zimbabwe or Zambia depending on water levels; low water (August–December) offers steepest drops, high water (March–May) more powerful volume. Operators provide safety kayakers, helmets, and thorough briefings. Minimum age typically 15; fitness required for portaging. Combine with gorge swing or zipline for adrenaline trilogy. Professional safety standards maintained despite wild water.",
+        "image": "1547970810-dc1eef37d176"
+      },
+      {
+        "name": "Mana Pools Walking Safari",
+        "desc": "Mana Pools National Park permits walking safaris without armed escort in designated areas—a privilege unique in Africa, testament to Zimbabwean guiding excellence. Guides read elephant body language as herds browse acacia pods on hind legs; encounters with buffalo and lion require calm adherence to guide instructions. Multi-day mobile walking trails camp riverside under mosquito nets. Canoe safaris on the Zambezi parallel walks, paddling past hippo pods. Dry season (July–October) essential—parks close partially in wet months. Book through operators with ZimParks licences. Physical fitness and mental composure mandatory.",
+        "image": "1516246062751-beda751bedaf"
+      },
+      {
+        "name": "Shona Sculpture Workshop Visit",
+        "desc": "Harare and Tengenenge art community north of the capital host Shona stone sculptors who carve serpentine, springstone, and verdite into flowing abstract forms recognised globally since the 1960s art movement. Workshop visits meet artists at work—chiselling, sanding, and polishing without power tools—while galleries like Chapungu explain symbolism of family, spirit, and nature themes. Purchases ship internationally; support artists directly rather than middlemen. Tours last 2–3 hours; combine with National Gallery and Avondale market. Ethical cultural tourism supporting Zimbabwe's creative economy.",
+        "image": "1519066629447-267fffa62d4b"
+      }
+    ],
+    "routesEnhanced": [
+      {
+        "name": "The Mosi-oa-Tunya Explorer",
+        "duration": "6–9 days",
+        "distance": "~400 km",
+        "highlights": [
+          "Victoria Falls",
+          "Hwange waterholes",
+          "Dete teak forests"
+        ],
+        "desc": "Link Victoria Falls' adrenaline and awe with Hwange National Park's elephant stronghold on Zimbabwe's premier short safari circuit. Spend two nights at Victoria Falls town—falls viewing from Knife-Edge Bridge, sunset cruise, optional rafting. Drive or transfer 2 hours to Hwange's Main Camp or private concessions for 3–4 nights of game drives around pumped waterholes where hundreds of elephants and presidential lion prides gather July–October. Self-drive on tar to Hwange town then park roads; guided drives recommended for first-timers. Combine Zimbabwe and Zambia falls viewpoints via KAZA Univisa. Dry season non-negotiable for wildlife density. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      },
+      {
+        "name": "The Wild Zambezi Transit",
+        "duration": "8–11 days",
+        "distance": "~500 km + boat",
+        "highlights": [
+          "Lake Kariba houseboat",
+          "Mana Pools walking",
+          "Zambezi canoe"
+        ],
+        "desc": "Trace the Zambezi's wild heart from Kariba's inland sea through Mana Pools UNESCO wilderness. Start with 2 nights houseboating Kariba—fishing, shoreline game, drowned forest sunsets. Transfer downstream to Mana Pools for walking and canoe safaris among elephants, wild dogs, and hippos. Camps like Kanga Pan and Vundu offer riverside luxury. Fly between nodes if time short. July–October dry season allows walking; access rough—4x4 or lodge transfers essential. Remote, low-density tourism preserves Mana's magic. Extend to Matusadona for rhino walks. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      },
+      {
+        "name": "The Eastern Highlands Trail",
+        "duration": "5–7 days",
+        "distance": "~350 km",
+        "highlights": [
+          "Nyanga peaks",
+          "Vumba forests",
+          "tea estates"
+        ],
+        "desc": "Escape safari dust for misty mountains, trout streams, and colonial-era charm along Zimbabwe's eastern border. Base in Nyanga for Mutarazi Falls skywalk, fly-fishing, and horseback riding across highland moors. Drive the Bvumba pass to botanical gardens, forest walks, and White Horse Inn sundowners overlooking Mozambique plains. Chimanimani day hikes or multi-day treks reward fit adventurers. Tar roads from Harare; malaria-free; family-friendly. Combine with Great Zimbabwe en route south. Year-round destination—winter crisp, summer green. Luxury lodges and affordable guesthouses plentiful. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      }
+    ],
+    "adviceExtended": {
+      "transport": "USD cash critical for fuel and tips. Main highways tarred; Mana and Gonarezhou need 4x4. Domestic charters to bush strips from Harare. Victoria Falls–Hwange transfers 2 hours. Avoid night driving—wildlife and unlit cattle.",
+      "budget": "Excellent value: mid-range safari USD 150–350 daily. Luxury Mana camps USD 400–700. Victoria Falls activities USD 50–180 each. Cash USD essential; ATMs unreliable outside cities.",
+      "visa": "KAZA Univisa USD 50 at Victoria Falls/Livingstone. E-visa online available. Most Western nationals visa-free 90 days—confirm before travel.",
+      "health": "Malaria prophylaxis mandatory Zambezi valley and lowveld. Tap water unsafe—bottled only. Harare private hospitals adequate; remote evacuation insurance essential.",
+      "safety": "Tourist areas safe and welcoming. Avoid political demonstrations. Cash security in cities—use hotel safes. Wildlife follows guide instructions strictly in Mana.",
+      "money": "USD primary tourist currency. ZiG (Zimbabwe Gold) local but tourists rarely need it. Small USD notes for tips. Credit cards at major lodges—not markets.",
+      "climate": "Dry July–October: best wildlife, cool mornings. Wet December–March: emerald beauty, birding, some park closures. Victoria Falls peak flow March–May."
+    }
+  },
+  "mozambique": {
+    "summary": "Mozambique offers 2,500 kilometres of Indian Ocean coastline—dhow sailing, world-class diving with whale sharks, and Afro-Portuguese culture—plus the rewilding triumph of Gorongosa National Park. Fly into Maputo or Vilanculos for Bazaruto islands; Pemba opens the Quirimbas north. May–October dry season delivers calm seas and superb visibility; cyclone risk peaks January–February in the south. Visa e-visa or on-arrival for most tourists. Malaria prophylaxis nationwide. Combine bush and beach: Gorongosa to Tofo in one trip. Budget USD 80–400 daily from backpacker lodges to island luxury.",
+    "gettingThere": "Maputo International Airport (MPM) connects via Johannesburg, Nairobi, Lisbon, and Istanbul. Vilanculos Airport (VNX) serves Bazaruto Archipelago with daily flights from Johannesburg and Maputo. Pemba (POL) opens northern Quirimbas. Overland from South Africa via Ressano Garcia/Lebombo (Kruger corridor) or Kosi Bay to Ponta do Ouro. Zimbabwe and Malawi borders link to Tete and Niassa. EN1 highway runs north–south but 4x4 recommended off main routes. Island lodges collect guests by speedboat or light aircraft. LAM Mozambique and private charters fly Maputo–Pemba–Vilanculos. Long-distance chapas (minibuses) serve budget travellers on tar segments. Self-drive north of Beira requires planning—fuel and police checkpoints common. Fuel stops and police checkpoints are common on long drives—carry USD cash and copies of vehicle papers.",
+    "economy": "Mozambique's economy blends natural gas discoveries off Cabo Delgado, aluminium smelting at Mozal near Maputo, agriculture (cashews, prawns), and rapidly growing tourism along the coast. Portuguese colonial legacy infuses architecture, language, and peri-peri cuisine. Post-civil-war recovery (1992 peace) unleashed beach tourism—Tofo, Vilanculos, and Ponta do Ouro draw divers globally. Gorongosa's restoration under Gregory Carr Foundation models science-based rewilding with community health and education programmes. Northern insurgency affects Cabo Delgado security—check travel advisories; southern and central coasts remain popular. Tourism employs fishing communities as boat guides and lodge staff. Metical (MZN) official; USD and ZAR accepted at lodges.",
+    "geoOverride": "Mozambique stretches 2,500 km along the Indian Ocean from subtropical Maputo south of the Tropic of Capricorn to humid Pemba near the equator. The Mozambican Channel separates the mainland from Madagascar, creating coral reefs, mangrove estuaries, and barrier islands—Bazaruto and Quirimbas archipelagos are marine national parks. Inland, Gorongosa Mountain rises from central savanna; Niassa Reserve spans 42,000 square kilometres of wilderness bordering Tanzania. Zambezi River delta at Marromeu hosts buffalo and waterbirds. Southern Maputaland coastal forests meet South Africa at Kosi Bay. Two seasons dominate: dry May–October with southeast trade winds calming seas; wet November–April with cyclones possible. Coastal plains are low-lying; Tete and Manica highlands reach 1,800 metres. Tete and Manica highlands reach 1,800 metres with cooler nights. Coastal cyclone risk peaks January through February in the south, making dry-season beach and diving plans safest between May and October.  Northern Quirimbas islands remain seasonal destinations best served by calm seas between May and November each year.",
+    "peopleOverride": "Mozambique's 33 million people speak Portuguese as the official language—a legacy of 500 years Lusophone presence—while Makhuwa, Tsonga, Sena, and Lomwe languages thrive regionally. Afro-Portuguese fusion defines music (marrabenta, pandza), cuisine (matapa, peri-peri prawns), and architecture in Maputo's art-deco apartments. Island communities on Ibo and Mozambique Island preserve Swahili-Arab trading heritage with silver jewellery and dhow building. Post-war generation drives creative entrepreneurship—Maputo galleries, fashion, and jazz clubs pulse nightly. Coastal fishing villages welcome respectful visitors; community tourism in Vilanculos and Inhambane supports local economies. Learn basic Portuguese—'Bom dia' and 'Obrigado' open conversations. Northern cultures differ from southern; dress modestly in Muslim-majority Cabo Delgado towns. Learn basic Portuguese—'Bom dia' and 'Obrigado' open conversations in markets, taxis, and beach lodges from Maputo to Pemba.  Respectful dress and basic Portuguese greetings enhance interactions from Maputo cafes to northern dhow harbours. Island homestays and dhow crews appreciate fair tipping and calm, respectful engagement. Always ask first.",
+    "additionalSpots": [
+      {
+        "name": "Quirimbas Archipelago",
+        "desc": "The Quirimbas Archipelago stretches 400 kilometres from Pemba to the Tanzanian border—a string of 32 coral islands where Ibo Island's crumbling Portuguese forts, silversmiths, and mangrove channels evoke centuries of Indian Ocean trade. Luxury lodges on Vamizi and Medjumbe offer private-island diving; community tours on Ibo explore slave-trade history with nuance. Marine park protections sustain turtles, dugongs, and pristine reefs. Access via Pemba flights and boat transfers—journeys are part of the adventure. Dry season (May–November) essential for calm crossings. Northern security requires current advisory checks for Cabo Delgado mainland; island tourism operates with precautions. Combine with Ngorongoro or Tanzania safaris via southern border.",
+        "image": "1506905925344-21ddaec4d32d",
+        "bestSeason": "May–Nov",
+        "visitDuration": "5–7 days",
+        "fees": "Island lodges USD 400–1,200/night; Ibo day tours USD 50",
+        "tip": "Confirm security situation before booking Pemba mainland stays."
+      },
+      {
+        "name": "Ponta do Ouro",
+        "desc": "Ponta do Ouro at Mozambique's southern tip is a laid-back beach village bordering South Africa's Kosi Bay—famous for resident bottlenose dolphin pods that snorkelers encounter daily on ethical swim tours. Pristine reefs suit diving and surfing; beach bars serve grilled prawns and 2M beer. Access via 4x4 through Kosi Bay border or sandy tracks from Maputo (4 hours)—high clearance essential. Less developed than Tofo; self-catering beach houses and rustic lodges dominate. Whale season July–November; dolphin swims year-round with licensed operators respecting distance rules. Malaria prophylaxis required. Perfect Kruger or Eswatini add-on beach finale.",
+        "image": "1568249761-0ae12982d60d",
+        "bestSeason": "May–Nov",
+        "visitDuration": "3–5 days",
+        "fees": "Dolphin swim USD 60; accommodation USD 50–200/night",
+        "tip": "Book dolphin tours with licensed operators—avoid harassing pods."
+      },
+      {
+        "name": "Niassa Special Reserve",
+        "desc": "Niassa Reserve is Mozambique's largest protected area—42,000 square kilometres of miombo wilderness larger than Switzerland, bordering Tanzania's Selous ecosystem. Elephant, sable, lion, and African wild dog roam with minimal tourism infrastructure. Lugenda Wilderness Camp offers fly-in luxury in profound isolation. Access only by charter from Pemba or Dar es Salaam—no self-drive tourism. Catch-and-release tiger fishing on Lugenda and Lugenda rivers. Security and remoteness demand experienced Africa travellers. Dry season June–November. Revenue supports anti-poaching in one of Africa's last great miombo blocks. Combine with Quirimbas coast for bush-beach expedition.",
+        "image": "1516426122078-c23e76319801",
+        "bestSeason": "Jun–Nov",
+        "visitDuration": "4–6 days",
+        "fees": "Charter flights USD 500+; lodge USD 600–1,000/night",
+        "tip": "Fly-in only—confirm flight schedules with lodge well ahead."
+      },
+      {
+        "name": "Mozambique Island (Ilha de Moçambique)",
+        "desc": "Mozambique Island is a UNESCO World Heritage coral islet connected to the mainland by causeway—a time capsule of Portuguese, Arab, and African heritage with fortresses, mosques, and mansions dating to the 16th century. Once the capital, its Stone Town lanes house museums, craft markets, and guesthouses in restored colonial buildings. Dhow builders work beaches; local guides narrate slave-trade history and independence struggle. Accessible from Nampula (3 hours drive); less touristy than Ibo. Snorkelling and diving nearby. Budget to mid-range accommodation. Cultural depth rewards history enthusiasts. Combine with mainland Nampula or southbound Gorongosa circuit.",
+        "image": "1580060839134-75a5edca2d99",
+        "bestSeason": "Apr–Nov",
+        "visitDuration": "2–3 days",
+        "fees": "Museum entry MZN 200; guesthouses USD 40–120/night",
+        "tip": "Stay overnight in Stone Town—day trips miss atmospheric evenings."
+      }
+    ],
+    "additionalActivities": [
+      {
+        "name": "Dhow Sunset Cruise",
+        "desc": "Traditional wooden dhows with lateen sails cruise Bazaruto and Vilanculos channels at sunset—fresh prawns, local beer, and guitarist accompaniment as the sun melts into the Indian Ocean. Skippers navigate sandbanks while guests spot flamingos and fish eagles. Trips last 2–3 hours; operators range from backpacker hostels to Anantara resort exclusives. Calm dry-season seas essential; life jackets provided. Book through lodges or beach operators. Revenue supports local fishing families who crew boats. Combine with morning snorkelling at Two Mile Reef.",
+        "image": "1568249761-0ae12982d60d"
+      },
+      {
+        "name": "Gorongosa Safari Drives",
+        "desc": "Gorongosa National Park's restoration offers game drives through fever-tree forests, floodplains, and lion research areas where wild dog and elephant populations rebound dramatically since 2004. Guides from Montebelo Lodge and Muzimu explain science-based conservation and community programmes. Walking trails to waterfalls on Mount Gorongosa. Birding exceptional—over 500 species. Access from Beira (3 hours) or Chitengo camp airstrip. Dry season concentrates wildlife; wet season lush and discounted. Combine with Great Rift Valley geology tours. One of Africa's most inspiring conservation success stories.",
+        "image": "1516426122078-c23e76319801"
+      },
+      {
+        "name": "Maputo City Food Tour",
+        "desc": "Maputo's culinary scene blends Portuguese, African, and Indian Ocean flavours—guided food tours sample peri-peri chicken at Mercado Municipal, fresh crab curry in Costa do Sol, and craft cocktails in Polana district art-deco bars. Tours visit FEIMA craft market, Central Railway Station's copper dome, and marrabenta live music venues. Portuguese-speaking guides explain colonial history and contemporary art. Walking tours last 3–4 hours; evening options focus on nightlife. Safe in groups with reputable operators. Essential for transit days before beach transfers.",
+        "image": "1580060839134-75a5edca2d99"
+      }
+    ],
+    "routesEnhanced": [
+      {
+        "name": "The Coastal Explorer",
+        "duration": "8–12 days",
+        "distance": "~700 km",
+        "highlights": [
+          "Maputo culture",
+          "Inhambane history",
+          "Bazaruto islands"
+        ],
+        "desc": "Journey Mozambique's developed southern coast from cosmopolitan Maputo through Inhambane's colonial charm to Bazaruto's turquoise archipelago. Start 2 nights in Maputo—food tours, railway station, craft markets. Drive north on EN1 to Inhambane and Maxixe, crossing to Tofo or Barra for whale shark diving and rustic beach lodges. Continue to Vilanculos for Bazaruto island hops—snorkelling, dhow cruises, luxury island lodges. EN1 tarred but watch speed traps. Dry season calm seas essential. Fly Vilanculos–Maputo to save return drive. Portuguese phrases enhance village interactions. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      },
+      {
+        "name": "The Northern Heritage Trail",
+        "duration": "10–14 days",
+        "distance": "~500 km + boat",
+        "highlights": [
+          "Pemba gateway",
+          "Ibo Island history",
+          "Quirimbas diving"
+        ],
+        "desc": "Explore Mozambique's Swahili-Arab heritage and remote northern reefs from Pemba base. Fly to Pemba from Maputo or Nairobi; check current security advisories for Cabo Delgado. Transfer by boat to Ibo Island for 3 nights exploring forts, silversmiths, and mangrove kayaking. Continue to Quirimbas lodge on Vamizi or Matemo for diving and turtle nesting (November–March). Cultural sensitivity required in Muslim communities. Dry season only for sea crossings. Combine with Tanzania safari via Negomano border for epic overland. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      },
+      {
+        "name": "The Big Five & Beach Loop",
+        "duration": "9–12 days",
+        "distance": "~400 km + flights",
+        "highlights": [
+          "Gorongosa wildlife",
+          "Chitengo camp",
+          "Tofo diving"
+        ],
+        "desc": "Pair central Mozambique safari with Indian Ocean finale. Fly Beira or drive from Zimbabwe/Tete to Gorongosa for 3–4 nights game driving among recovering lion, elephant, and wild dog populations. Transfer south to Inhambane/Tofo (long drive or charter) for whale shark snorkelling, ocean safaris, and beach recovery. Dry season aligns wildlife and diving conditions. Gorongosa Mount hike adds adventure. Ideal Zimbabwe–Mozambique combination avoiding Maputo congestion. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections. Independent travellers should confirm seasonal access, pack for variable weather, and build buffer days for gravel roads, border formalities, and lodge transfer schedules."
+      }
+    ],
+    "adviceExtended": {
+      "transport": "4x4 for Ponta, Gorongosa access, and north of Beira. Island lodges arrange boat transfers. LAM flights connect hubs—check schedules. Chapas cheap but crowded. Maputo taxis and Uber equivalents work. EN1 main artery; off-road needs experience.",
+      "budget": "Backpacker beach: USD 40–80 daily. Mid-range lodges USD 100–250. Island luxury USD 400–1,200. Diving USD 50–90 per dive. Gorongosa mid-luxury USD 300–500 nightly.",
+      "visa": "E-visa online or visa on arrival most nationalities USD 50. Passport 6 months validity. Border from SA popular—have accommodation proof ready.",
+      "health": "Malaria prophylaxis essential nationwide. Bilharzia in freshwater—ocean swimming safe. Drink bottled water. Beira and Maputo hospitals adequate; remote evacuation insurance advised.",
+      "safety": "Southern and central tourist coasts generally safe. Check Cabo Delgado advisories. Maputo petty theft—standard urban caution. Beach rip currents—heed local advice.",
+      "money": "Metical (MZN) official; USD and ZAR at lodges. ATMs Maputo, Inhambane, Vilanculos. Cash for remote areas. Tips 10% restaurants; USD for dive guides.",
+      "climate": "Dry May–October: calm seas, best diving. Wet November–April: humid, cyclone risk Jan–Feb south. Whale sharks Tofo October–March; humpbacks July–October."
+    }
+  },
+  "malawi": {
+    "summary": "Malawi delivers Africa's warmest welcome alongside Lake Malawi's crystal waters, reintroduced Big Five in Majete, and affordable safari value. Fly into Lilongwe or Blantyre, or enter from Zambia, Tanzania, and Mozambique. The lake offers kayaking, snorkelling with cichlids, and beach lodges at a fraction of coastal prices. May–October dry season suits wildlife and hiking; September hosts the Lake of Stars festival. Visa on arrival or e-visa for most visitors. Malaria prophylaxis essential lakeside. Budget USD 50–200 daily makes Malawi Southern Africa's best-value destination.",
+    "gettingThere": "Kamuzu International Airport (LLW) in Lilongwe and Chileka (BLZ) in Blantyre receive flights from Johannesburg, Nairobi, Addis Ababa, and Dubai. Overland from Zambia via Mchinji or Chipata; Tanzania at Songwe/Kasumulu; Mozambique at Zobue. The M1 runs north–south the length of the country on generally good tar. Lake resorts accessible from Lilongwe to Cape Maclear (3–4 hours). Self-drive is viable; rental from Lilongwe airport. AXA Coach links major towns. Bush flights to Likoma Island and Nyika plateau via charter. No rail passenger service. Bicycle touring popular along lakeshore. The MV Ilala ferry still plies the lake on multi-day schedules for adventurous travellers. Bicycle touring is popular along the lakeshore with repair kits essential for remote stretches between fishing villages and beach lodges.",
+    "economy": "Malawi is among Africa's poorest nations yet tourism grows steadily on hospitality reputation and conservation wins. African Parks' transformation of Majete, Liwonde, and Nkhotakota reintroduced rhino, lion, and cheetah—creating new safari circuits. Lake tourism employs fishing communities as boat guides and lodge staff. Tobacco historically dominated exports; diversification into tea (Thyolo), sugar, and tourism proceeds. Community tourism on Likoma and Chizumulu islands channels revenue locally. The kwacha is weak—exceptional value for visitors. NGO and faith-based tourism supplements safari economy. 'Warm Heart of Africa' branding reflects genuine national pride in welcoming strangers.",
+    "geoOverride": "Malawi is dominated by Lake Malawi (Lake Nyasa)—Africa's third-largest lake covering 20% of the country with over 1,000 endemic cichlid fish species evolved in aquarium-clear water. The Great Rift Valley floor holds the lake; escarpments rise east to Mozambique and west to the central plateau. Mount Mulanje (3,002 m) and Zomba Plateau offer alpine hiking above tea estates. Nyika Plateau in the north is rolling grassland at 2,500 metres with orchids, roan antelope, and leopard. Shire River drains the lake south through Liwonde and Majete to Mozambique. Small landlocked (118,000 sq km) yet vertically diverse—lake shore at 470 m, peaks above 3,000 m. Three seasons: cool dry May–August, hot dry September–November, wet December–April. Small and landlocked at 118,000 square kilometres, Malawi is nonetheless vertically diverse—lake shore at 470 metres, peaks above 3,000 metres on Mulanje, and cool Nyika grasslands resembling Scottish moors.  Cool Nyika nights require warm layers even when lakeshore afternoons feel tropical and humid.",
+    "peopleOverride": "Malawi's 20 million people are primarily Chewa, Lomwe, Yao, and Tumbuka—united by Chichewa lingua franca and extraordinary hospitality that travellers cite decades later. Village life revolves around subsistence farming, fishing, and church or mosque communities. Traditional dances—gule wamkulu (Chewa secret society) with elaborate masks—feature in ceremonies; some performances staged for respectful cultural tourism. Yao Muslims in the south traded with Zanzibar for centuries. Urban Lilongwe and Blantyre are modest capitals with markets and cafes. Malawians greet strangers warmly; children may wave along roads for hours. Support community lodges on Likoma, craft cooperatives, and fair-trade tea tours. Photography in villages requires permission. The nation embodies genuine warmth—not marketing spin. Support community lodges on Likoma Island, craft cooperatives around Mua Mission, and fair-trade tea tours in Thyolo to ensure tourism spending reaches families beyond urban centres.  Homestays and community lodges remain the most ethical way to experience village hospitality beyond resort bubbles.",
+    "additionalSpots": [
+      {
+        "name": "Cape Maclear & Lake Malawi National Park",
+        "desc": "Cape Maclear on Lake Malawi's southern shore is the hub of Africa's first freshwater national park—crystal water where snorkelling reveals hundreds of colourful cichlid species inches from your face. Kayak to Thumbi Island, dive with otters, or relax at Gecko Lounge and Fat Monkeys backpacker institution. Community-run lodges on Chembe village edge balance tourism with fishing life. Boat trips to nearby islands and sunset cruises standard. Bilharzia risk in stagnant bays—swim from sandy beaches and dry off promptly. Accessible from Lilongwe (3.5 hours). Dry season May–October best; windy August afternoons. Lake of Stars festival September brings music and culture.",
+        "image": "1519066629447-267fffa62d4b",
+        "bestSeason": "May–Oct",
+        "visitDuration": "3–5 days",
+        "fees": "Park fee MWK 5,000; snorkel hire USD 5/day",
+        "tip": "Snorkel early morning—calm water and best fish activity."
+      },
+      {
+        "name": "Likoma Island",
+        "desc": "Likoma Island sits in Mozambican territorial waters yet belongs to Malawi—a tropical islet of baobabs, beaches, and St Peter's Cathedral (same size as Winchester Cathedral) built by Anglican missionaries in 1905. Kaya Mawa and Mango Drift lodges offer luxury; local guesthouses budget options. Snorkelling, diving, and dhow sailing surround the island. MV Ilala ferry from Monkey Bay or Nkhata Bay provides adventurous access (2 days) or charter flights from Lilongwe. Community tourism supports 9,000 residents. Remote, unhurried, and genuinely off-grid. Combine with Nkhata Bay backpacker scene or fly out for time-saving.",
+        "image": "1519066629447-267fffa62d4b",
+        "bestSeason": "May–Nov",
+        "visitDuration": "3–4 days",
+        "fees": "Ferry deck class USD 20; lodges USD 80–400/night",
+        "tip": "Book Ilala ferry ahead—limited cabin berths sell out."
+      },
+      {
+        "name": "Zomba Plateau",
+        "desc": "Zomba Plateau rises above Malawi's former colonial capital—a cool highland escape of pine forests, trout streams, waterfalls, and panoramic views over the Shire Highlands. Hiking trails loop to Emperor's View, Williams Falls, and Chingwe's Hole cleft. Horse riding and mountain biking available. Ku Chawe Inn offers colonial-era sundowners. Accessible year-round from Zomba town (30 minutes drive); malaria-free. Mulunguzi Dam picnic spots popular weekends. Combine with tea factory tours in Thyolo and Liwonde safari southward. Less famous than Mulanje but gentler and family-friendly. Rainy season waterfalls spectacular; dry season clear views.",
+        "image": "1541414779316-956a5084c0d4",
+        "bestSeason": "Apr–Nov",
+        "visitDuration": "2–3 days",
+        "fees": "Guide hikes USD 15; Ku Chawe lunch USD 20",
+        "tip": "Hire local guide for Chingwe's Hole—trails unmarked."
+      },
+      {
+        "name": "Nkhotakota Wildlife Reserve",
+        "desc": "Nkhotakota Wildlife Reserve is Malawi's oldest and largest—1,800 square kilometres of miombo woodland along the Bua River where African Parks completed one of history's largest elephant translocations (520 elephants in 2016–2017). Tongole Wilderness Lodge and Bua River Lodge offer exclusive safaris in recovering wilderness. Walking trails, river kayaking, and night drives reveal leopard, hyena, and buffalo. Less visited than Liwonde—genuine solitude. Access from Lilongwe (3 hours) on improving roads. Combine with lake beaches or Nyika northward. Dry season wildlife concentrations; wet season birding and greenery.",
+        "image": "1516426122078-c23e76319801",
+        "bestSeason": "May–Oct",
+        "visitDuration": "3–4 days",
+        "fees": "Park entry USD 20/day; lodges USD 200–400/night",
+        "tip": "Book Tongole for guided walks—self-drive limited inside reserve."
+      }
+    ],
+    "additionalActivities": [
+      {
+        "name": "Cichlid Snorkelling Safari",
+        "desc": "Guided snorkelling safaris on Lake Malawi identify endemic cichlid species by colour, behaviour, and habitat—rock-dwellers, sand-feeders, and mouth-brooders visible in three metres of visibility. Expert guides from Danforth Lodge and research stations explain adaptive radiation that makes the lake an evolutionary showcase. Equipment provided; wetsuits optional in cooler August water. Trips last 2–3 hours from Cape Maclear or Nkhata Bay. Non-swimmers can view from glass-bottom boats. Supports local conservation education. Morning calm essential before afternoon winds.",
+        "image": "1519066629447-267fffa62d4b"
+      },
+      {
+        "name": "Mulanje Multi-Day Trek",
+        "desc": "Mount Mulanje's massif offers hut-to-hut trekking through cedar forests, sheer rock faces, and Sapitwa Peak (3,002 m)—highest point in central Africa south of Kilimanjaro. Mountain Club of Malawi maintains basic huts; guides mandatory. Routes range from 2-day Plateau walks to 5-day Sapitwa summit challenges. Porter services available. Malaria-free; cold nights year-round at altitude. Lichenya and Chambe huts book through Mulanje Mountain Conservation Trust. Dry May–October best; rains make paths treacherous. One of Southern Africa's finest hiking experiences.",
+        "image": "1541414779316-956a5084c0d4"
+      },
+      {
+        "name": "Fair Trade Tea Estate Tour",
+        "desc": "Thyolo and Mulanje tea estates offer factory tours tracing leaf plucking to export—Satemwa and Lujeri estates welcome visitors for tastings, garden walks, and insight into Malawi's colonial agricultural legacy and modern fair-trade practices. Tours last 2–3 hours; combine with Zomba Plateau or Mulanje hikes. Purchase single-origin teas on site. Guides explain smallholder outgrower schemes supporting 50,000 families. Scenic drives through emerald plantations. Book weekdays when factories operate.",
+        "image": "1516426122078-c23e76319801"
+      }
+    ],
+    "routesEnhanced": [
+      {
+        "name": "The Lake of Stars Circuit",
+        "duration": "8–12 days",
+        "distance": "~500 km",
+        "highlights": [
+          "Cape Maclear snorkel",
+          "Nkhata Bay kayaking",
+          "Likoma Island"
+        ],
+        "desc": "Trace Lake Malawi's shores from Monkey Bay through Cape Maclear, Senga Bay, and Nkhata Bay to northern lodges—a classic overland or lodge-hopping circuit. Start Cape Maclear for national park snorkelling and village culture. Continue north to Nkhata Bay for backpacker vibe, kayak rentals, and sunset decks. Optional Ilala ferry to Likoma Island for cathedral and beach isolation. Dry season roads easy; lakeshore camps and luxury lodges plentiful. September Lake of Stars festival anchor. Allow unhurried pace—Malawi's gift is relaxation. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      },
+      {
+        "name": "The Rift Valley Explorer",
+        "duration": "10–14 days",
+        "distance": "~600 km",
+        "highlights": [
+          "Majete Big Five",
+          "Liwonde river safari",
+          "Mulanje trek"
+        ],
+        "desc": "Combine Malawi's reborn wildlife reserves with mountain adventure. Start Majete from Blantyre for Big Five game drives in African Parks success story. Continue to Liwonde for Shire River boat safaris among elephant and hippo. Finish at Mount Mulanje for 3-day hut trek or plateau walks. Logistics flow south to north or reverse. Dry season essential for wildlife; Mulanje accessible year-round. Mid-range lodges USD 150–300 nightly. One of Africa's best-value safari-plus-hike combos. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections. Independent travellers should confirm seasonal access, pack for variable weather, and build buffer days for gravel roads, border formalities, and lodge transfer schedules."
+      },
+      {
+        "name": "The Northern Highlands Trail",
+        "duration": "7–10 days",
+        "distance": "~400 km",
+        "highlights": [
+          "Nyika Plateau",
+          "Livingstonia mission",
+          "Nkhotakota elephants"
+        ],
+        "desc": "Explore Malawi's remote north—cool Nyika grasslands with zebra, roan, and orchids; historic Livingstonia mission perched above Rift Valley escarpment; Nkhotakota's elephant wilderness. Fly or drive from Lilongwe to Nyika (4 hours)—4x4 recommended. Chelinda Lodge offers plateau safaris. Livingstonia's stone church and waterfall hike add cultural depth. Descend to Nkhotakota for river lodges. Uncrowded and atmospheric. Dry season only for Nyika access; wet roads impassable. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections. Independent travellers should confirm seasonal access, pack for variable weather, and build buffer days for gravel roads, border formalities, and lodge transfer schedules."
+      }
+    ],
+    "adviceExtended": {
+      "transport": "Self-drive on M1 viable; 4x4 for Nyika and rainy season. AXA buses connect towns. Boat taxis lakeshore. Charter flights to Likoma and Nyika. Bicycle touring popular—repair kits essential.",
+      "budget": "Africa's best value: backpacker USD 30–50 daily. Mid-range lake/safari USD 80–150. Luxury Likoma USD 300–400. Park fees low. Cash MWK and USD; cards at upscale lodges only.",
+      "visa": "E-visa or visa on arrival USD 50 most nationalities. Passport 6 months validity. Border crossings from Zambia straightforward.",
+      "health": "Malaria prophylaxis essential lake and Shire valley. Bilharzia—avoid stagnant lake bays; swim sandy beaches, dry off. Tap water unsafe. Evacuation insurance recommended.",
+      "safety": "Very safe—'Warm Heart' reputation earned. Standard urban caution Lilongwe/Blantyre. Lake swimming heed local bilharzia advice. Road travel daytime preferred.",
+      "money": "Malawian Kwacha (MWK). USD accepted tourist areas. ATMs Lilongwe, Blantyre, Mzuzu. Cash essential villages. Tips 10% restaurants; USD 5–10/day guides.",
+      "climate": "Dry May–October: best wildlife, clear lake. Hot September–November before rains. Wet December–April: lush, cheaper, some road challenges. Nyika cold year-round."
+    }
+  },
+  "lesotho": {
+    "summary": "Lesotho is the 'Kingdom in the Sky'—the only country entirely above 1,000 metres, offering Sani Pass 4x4 adventures, pony trekking, and Africa's highest pub. Enter exclusively through South Africa at Maseru Bridge, Ficksburg, or Sani Pass from KwaZulu-Natal. No international flights; fly to Johannesburg or Durban then drive. May–September dry season opens mountain passes; June–August brings snow and skiing at Afriski. Visa-free for most nationalities. Malaria-free. Budget USD 60–150 daily; 4x4 rental the main expense. Pony trekking through highland villages, abseiling Maletsunyane Falls, and winter skiing at Afriski round out a kingdom unlike anywhere else on the continent.",
+    "gettingThere": "Lesotho has no international airport—visitors fly to O.R. Tambo (JNB) or King Shaka (DUR) in South Africa and drive to border posts. Maseru Bridge and Maseru West border connect the capital to Bloemfontein/Johannesburg corridor (4–5 hours from JNB). Ficksburg Bridge links Free State. Sani Pass (2874 m) is the dramatic KwaZulu-Natal entry—4x4 mandatory, passport control at summit. Caledonspoort and other minor posts serve regional access. Rental cars from South Africa require lessor permission to enter Lesotho—confirm paperwork. Lesotho vehicles drive left. Internal roads range from good tar (A1 Maseru–Butha-Buthe) to challenging mountain gravel. Local taxis and buses connect lowland towns.",
+    "economy": "Lesotho's economy relies on water exports to South Africa (Lesotho Highlands Water Project), textile manufacturing, diamond mining, and remittances from Basotho workers in South African mines. Tourism is growing—Sani Pass, pony trekking, and Afriski skiing draw adventure travellers. Community tourism in Semonkong and Malealea supports highland villages. Wool and mohair from hardy sheep and angora goats supply global textile chains. The loti is pegged 1:1 to the South African rand. Poverty remains high; tourism revenue to pony trekking guides and craft sellers makes direct community impact. Katse Dam engineering tours highlight water economy significance.",
+    "geoOverride": "Lesotho is a mountain kingdom of 30,000 square kilometres entirely surrounded by South Africa, with lowest point 1,400 metres and Thabana Ntlenyana peak at 3,482 metres—the highest in southern Africa south of Kilimanjaro. The Drakensberg escarpment forms eastern boundary with Sani Pass snaking to KwaZulu-Natal. Maloti Mountains dominate central highlands; lowlands strip along Caledon River holds Maseru and agriculture. Alpine grasslands, sandstone cliffs, and seasonal snow create landscapes unlike anywhere else in Africa. Orange River (Senqu) sources here. Katse and Mohale dams flood deep valleys. Climate is continental—hot summers with thunderstorms, cold dry winters with frost and snow. Erosion and overgrazing challenge highland ecology. Orange River sources in these highlands. Katse and Mohale dams flood deep valleys as part of the Lesotho Highlands Water Project. Climate is continental—hot summers with thunderstorms, cold dry winters with frost, snow, and ice on highest passes.  Erosion and overgrazing remain challenges, yet highland vistas and Sani Pass drama keep adventurers returning each dry season.",
+    "peopleOverride": "Lesotho's two million Basotho people share Sesotho language and remarkable cultural cohesion centred on the monarchy—King Letsie III and traditional chiefs alongside elected parliament. Basotho blankets with distinctive patterns signify life stages and clans; conical mokorotlo hats are national symbol. Pony trekking culture evolved because horses navigate mountain paths impassable to vehicles. Village life maintains strong community bonds—funerals and weddings draw entire valleys. Traditional medicine and Catholic/Protestant faith coexist. Basotho hospitality is warm; rural homestays at Malealea and Semonkong offer authentic encounters. Respect for chiefs and elders is important. Singing and litaba (storytelling) preserve history. Many families depend on South African remittances; tourism to guides and crafts provides supplementary income. Many families depend on South African remittances; tourism income to pony guides and craft sellers provides vital supplementary cash in remote valleys where winter cold is fierce and roads are few.  Homestays at Malealea and Semonkong remain the best way to support pony guides and rural families directly.",
+    "additionalSpots": [
+      {
+        "name": "Afriski Mountain Resort",
+        "desc": "Afriski Mountain Resort in the northern Maloti Mountains offers Southern Africa's only ski and snowboard slopes—June to August snow permitting on a 3,222-metre plateau. Beginner to intermediate runs, terrain park, and mountain biking in summer. Altitude lodge provides cosy après-ski beside Africa's unlikely pistes. Access from Butha-Buthe via tar then mountain road; 4x4 in snow. Malaria-free; crisp sunny winter days contrast with SA lowland heat. Family-friendly alternative to beach holidays. Book accommodation early—limited beds. Combine with Katse Dam and dinosaur footprints at Qalo for highland circuit.",
+        "image": "1454486326938-e6727284ea44",
+        "bestSeason": "Jun–Aug",
+        "visitDuration": "2–3 days",
+        "fees": "Lift pass ZAR 350/day; lodge from ZAR 800/night",
+        "tip": "Check snow reports before driving—chains may be required."
+      },
+      {
+        "name": "Malealea Lodge & Pony Trek Centre",
+        "desc": "Malealea Lodge is the iconic base for Basotho pony trekking into remote highland villages—a trading post turned community tourism pioneer where multi-day rides traverse mountain passes, waterfalls, and traditional homesteads. Guides lead sure-footed ponies; guests overnight in village rondavels or lodge cottages. Day rides to Botsoela Falls or week-long expeditions to Ketane Falls. Lodge hosts Sotho choirs, craft shop, and stargazing. Accessible from Maseru (1.5 hours) on good gravel. Fair Trade Tourism certified. Revenue supports local schools and guides' families. Essential Lesotho experience for cultural immersion.",
+        "image": "1519408299519-b7a0274f7d67",
+        "bestSeason": "Apr–Oct",
+        "visitDuration": "2–5 days",
+        "fees": "Day pony trek ZAR 600; lodge ZAR 700/night",
+        "tip": "Book multi-day treks ahead—guide and pony availability limited."
+      },
+      {
+        "name": "Quthing Dinosaur Footprints",
+        "desc": "Quthing district preserves Triassic dinosaur footprints and fossilised bone fragments in sandstone slabs—among southern Africa's most accessible palaeontology sites where 200-million-year-old tracks cross riverbeds near Moyeni and Masitise. Local guides from Masitise Dinosaur Trackway Centre explain track makers and geology. Combine with historic Masitise Cave House built into cliff face. Remote southeastern Lesotho; 4x4 from Quthing town. Uncrowded and educational—ideal for families en route to Sehlabathebe. Dry season access easier. Supports community guide employment in overlooked region. Guides explain how tracks were preserved in river sandstone and why the region matters to palaeotourism in southern Africa.",
+        "image": "1504107123655-081832049e37",
+        "bestSeason": "May–Sep",
+        "visitDuration": "Half day",
+        "fees": "Guide fee ZAR 150; donations to community centre",
+        "tip": "Visit after rains when riverbed tracks are washed clear."
+      },
+      {
+        "name": "Bokong Nature Reserve",
+        "desc": "Bokong Nature Reserve perches on the edge of the Mont-aux-Sources plateau—a high-altitude wilderness of alpine bogs, bearded vultures, and the Lepaqoa Waterfall plunging into a rainbow mist gorge. Maliba Lodge in reserve offers luxury; day visitors hike escarpment trails with views into South Africa's Royal Natal Park. Snow common winter; wildflowers summer. Access from Maseru via Leribe (3 hours); 4x4 recommended. Malaria-free; cold nights year-round. Sehlabathebe border nearby for multi-day wilderness. Among Lesotho's most scenic and least visited protected areas.",
+        "image": "1541414779316-956a5084c0d4",
+        "bestSeason": "Oct–Apr",
+        "visitDuration": "1–2 days",
+        "fees": "Reserve entry ZAR 50; Maliba lodge ZAR 2,000+/night",
+        "tip": "Pack warm layers—even summer nights drop below freezing."
+      }
+    ],
+    "additionalActivities": [
+      {
+        "name": "Sani Pass 4x4 Expedition",
+        "desc": "Guided 4x4 ascents of Sani Pass climb 1,300 metres through five hours of switchbacks, waterfalls, and cliff exposure from KwaZulu-Natal to Africa's highest pub at 2,874 metres. Operators from Underberg and Maseru supply vehicles; self-drivers need 4x4 skill and nerve. Border formalities at summit. Lunch at Sani Mountain Lodge with views into Lesotho highlands. Return descent same day or overnight in Lesotho. Weather changes rapidly—carry jackets. Iconic Southern Africa adventure. Book guided if inexperienced on mountain gravel.",
+        "image": "1541414779316-956a5084c0d4"
+      },
+      {
+        "name": "Basotho Hat Craft Workshop",
+        "desc": "Maseru's Basotho Hat centre—a building shaped like the national mokorotlo hat—hosts craft demonstrations where artisans weave grass hats, rugs, and tapestries using traditional patterns. Purchases support local cooperatives. Tours explain symbolism of designs denoting clans and occasions. Combine with King Moshoeshoe I monument and Thaba Bosiu day trip. One-hour visit suits Maseru transit. Authentic souvenirs with direct community benefit. Photography welcome with purchase.",
+        "image": "1504107123655-081832049e37"
+      },
+      {
+        "name": "Katse Dam Engineering Tour",
+        "desc": "Katse Dam visitor centre tours explain the Lesotho Highlands Water Project—Africa's largest water transfer engineering feat channelling Senqu River to Gauteng through mountain tunnels. Guided dam wall visits, geological exhibits, and viewpoints over 185-metre wall holding back sapphire reservoir. Access from Maseru (3 hours) on scenic A3. Combine with Bokong or Afriski northern circuit. Fascinating for engineering enthusiasts. Book tours weekdays; security clearance required for dam interior.",
+        "image": "1454486326938-e6727284ea44"
+      }
+    ],
+    "routesEnhanced": [
+      {
+        "name": "The Roof of Africa Route",
+        "duration": "5–7 days",
+        "distance": "~350 km",
+        "highlights": [
+          "Maloti highlands",
+          "Katse Dam",
+          "mountain passes"
+        ],
+        "desc": "Traverse Lesotho's central highlands on the A1 and mountain byways linking Maseru to mountain passes, dams, and viewpoints. Day one Maseru to Katse Dam for engineering tour and reservoir views. Continue to Bokong or Afriski for alpine scenery. Loop through Leribe and Oxbow for highland moors. Tar roads predominate; secondary gravel to viewpoints needs caution. Malaria-free; altitude affects fitness—pace yourself. Winter snow possible June–August. Pony trekking add-on from Malealea en route south. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections. Independent travellers should confirm seasonal access, pack for variable weather, and build buffer days for gravel roads, border formalities, and lodge transfer schedules."
+      },
+      {
+        "name": "The Sani Serpent Trail",
+        "duration": "2–3 days",
+        "distance": "~120 km",
+        "highlights": [
+          "Sani Pass summit",
+          "Highest Pub in Africa",
+          "Sehlabathebe"
+        ],
+        "desc": "The ultimate Lesotho 4x4 challenge enters via Sani Pass from South Africa's Drakensberg—overnight at Sani Mountain Lodge or descend to Sehlabathebe National Park for wilderness hiking among unique alpine flora and rock formations. UNESCO transfrontier park links to uKhahlamba. Return via Sani or continue to Maseru on gravel roads. 4x4 mandatory; passport stamps at summit. Dry season only—mud and snow close pass unpredictably. Guided convoys recommended for first-timers. Adrenaline and scenery in equal measure. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections."
+      },
+      {
+        "name": "The Southern Fortress Loop",
+        "duration": "4–6 days",
+        "distance": "~250 km",
+        "highlights": [
+          "Thaba Bosiu",
+          "Malealea pony trek",
+          "Maletsunyane Falls"
+        ],
+        "desc": "Explore Basotho history and adventure in southern Lesotho. Thaba Bosiu plateau—fortress of King Moshoeshoe I—offers museum and panoramic lowland views. Continue to Malealea for pony trekking through villages. Semonkong hosts Maletsunyane Falls abseil (world's highest commercial abseil, 204 m) and lodge stays. Gravel roads from Maseru manageable in dry season. Cultural depth combined with adrenaline. Community tourism benefits highland villages throughout. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections. Independent travellers should confirm seasonal access, pack for variable weather, and build buffer days for gravel roads, border formalities, and lodge transfer schedules."
+      }
+    ],
+    "adviceExtended": {
+      "transport": "4x4 essential Sani Pass and remote areas. SA rental needs cross-border permission. Internal taxis and buses on lowland tar. Pony trekking for highland villages. No fuel in mountains—fill Maseru.",
+      "budget": "Affordable except 4x4 rental ZAR 800–1,200/day. Lodges ZAR 600–1,500. Pony treks ZAR 500–800/day. Sani guided tours ZAR 2,500+. Cash ZAR and LSL.",
+      "visa": "Visa-free 14–90 days most nationalities. Entry only via South Africa—ensure SA visa allows re-entry. Passport stamp at border.",
+      "health": "Malaria-free. Altitude sickness possible above 2,500 m—hydrate, ascend gradually. Cold exposure real in winter—pack thermals. Maseru clinics basic; serious cases to Bloemfontein SA.",
+      "safety": "Very safe and welcoming. Mountain weather changes fast—carry layers. Sani Pass cliffs demand careful driving. Political stability excellent.",
+      "money": "Lesotho Loti (LSL) pegged 1:1 ZAR; both accepted everywhere. ATMs Maseru and major towns. Cash for villages and pony guides.",
+      "climate": "Summer Nov–Mar: warm, thunderstorms. Winter Jun–Aug: cold, snow highlands, skiing Afriski. Shoulder Apr–May, Sep–Oct ideal hiking."
+    }
+  },
+  "eswatini": {
+    "summary": "Eswatini (formerly Swaziland) packs Big Five reserves, living royal culture, and craft markets into Africa's smallest mainland nation—easily added to a Kruger or KwaZulu-Natal itinerary. Enter from South Africa at Oshoek/Ngwenya near Johannesburg or Golela near Durban; no international airport. Malaria-free highveld; lowveld reserves need prophylaxis in summer. Umhlanga Reed Dance (August/September) and Incwala ceremony offer rare cultural access. Visa-free for most visitors. Excellent value: USD 80–200 daily for quality wildlife and culture. Excellent road infrastructure and compact size mean you can breakfast in cool highveld pine forest and watch sunset hippos in steamy lowveld the same day.",
+    "gettingThere": "Eswatini has no commercial international airport—fly to Johannesburg (JNB) or Durban (DUR) and drive. Oshoek/Ngwenya border (2.5 hours from JNB) is the main Gauteng gateway to Mbabane and Ezulwini Valley. Lavumisa/Golela border connects KwaZulu-Natal to lowveld reserves (3 hours from DUR). Lomahasha/Namaacha from Mozambique near Maputo. Roads are among Southern Africa's best—EZ1 highway excellent. Rental cars from SA require cross-border permission. No 4x4 needed except remote tracks. Royal Swazi National Airways ceased ops; all access overland. Guided day tours from Kruger/Mpumalanga popular. Guided day tours from Kruger and Mpumalanga lodges are popular for travellers without rental cars. Border formalities are usually swift at Oshoek and Golela compared with busier South African posts elsewhere.",
+    "economy": "Eswatini's economy combines sugar exports, soft drink concentrate manufacturing (Coca-Cola concentrate plant—largest in world), forestry, and tourism. Despite Africa's last absolute monarchy, stability attracts South African weekend visitors to casinos, craft markets, and game reserves. Big Game Parks (Hlane, Mlilwane, Mkhaya) pioneered rhino conservation—tourism revenue funds anti-poaching. Ngwenya Glass and Swazi Candles employ artisans in fair-trade production. Rand/lilangeni peg keeps prices predictable for SA visitors. Community tourism around Mantenga Cultural Village and craft markets channels income to rural women. Unemployment high; tourism spending has outsized social impact.",
+    "geoOverride": "Eswatini spans just 17,300 square kilometres—roughly Belgium-sized—yet rises from 21 metres in lowveld east to 1,862 metres in western highveld within 130 kilometres. Ezulwini Valley ('Valley of Heaven') between Mbabane and Manzini holds royal residences, casinos, and Mlilwane sanctuary. Eastern lowveld along Lebombo Mountains is hot bushveld where Hlane and Mkhaya protect rhino. Highveld west is cool, green, and eucalyptus-scented. Lubombo Mountains border Mozambique. Rivers include Usutu and Ngwavuma. Four ecological zones create rapid scenery changes on short drives. Malaria-free above 600 metres; lowveld summer risk. Lubombo Mountains form the eastern spine bordering Mozambique. Rivers include the Usutu and Ngwavuma. Four ecological zones create rapid scenery changes on drives of under two hours between Mbabane and Hlane.  Short drives link cool highveld forests, craft valleys, and hot lowveld game reserves within a single long weekend from Johannesburg or Durban. Birders find rich lowveld and Lubombo escarpment species within easy drives of Ezulwini lodges.",
+    "peopleOverride": "Eswatini's 1.2 million Swazi people maintain Africa's most visible living monarchy—King Mswati III and royal traditions including Umhlanga (Reed Dance) where tens of thousands of unmarried women present reeds to the Queen Mother, and Incwala first-fruits ceremony. SiSwati language and respect for elders structure social life. Polygamy among royalty contrasts with Christian majority in towns. Craft tradition excels—baskets, candles, glass, and mohair textiles sold at Malkerns Valley markets. Swazi hospitality is genuine; Mantenga village performances showcase dance and song without voyeurism. Women dominate craft economy. Visitors should dress modestly for cultural events and request photography permission at ceremonies. Nation renamed Eswatini in 2018, reclaiming Swazi identity. Visitors should dress modestly for cultural events and request photography permission at ceremonies. The nation renamed Eswatini in 2018, reclaiming Swazi identity while preserving hospitality that South African weekend visitors have cherished for decades.  Craft purchases at Malkerns Valley and cultural performances at Mantenga directly employ women artisans and dancers year-round.",
+    "additionalSpots": [
+      {
+        "name": "Sibebe Rock",
+        "desc": "Sibebe Rock is the world's largest exposed granite pluton—a bald whale-back dome rising 350 metres above Mbabane offering half-day hikes to summit views over highveld eucalyptus forests and distant lowveld. Unlike climbing destinations, the walk follows manageable paths with boulder scrambling near top. Local guides from community projects lead ascents explaining geology and folklore. Malaria-free; accessible year-round though summer heat intense. Combine with Mbabane craft market and Phophonyane Falls ecolodge nearby. Little-known compared to Table Mountain yet equally dramatic. Free entry; guide tips appreciated. Morning starts recommended.",
+        "image": "1502675135487-e971002a6adb",
+        "bestSeason": "Apr–Oct",
+        "visitDuration": "Half day",
+        "fees": "Free entry; guide tip ZAR 150",
+        "tip": "Wear grippy shoes—granite slopes slick when wet."
+      },
+      {
+        "name": "Phophonyane Falls Ecolodge",
+        "desc": "Phophonyane Falls Ecolodge near Piggs Peak cascades through indigenous forest where waterfalls drop 80 metres into pools surrounded by rare cycads and louries. Rustic luxury cottages blend into jungle; hiking trails loop the reserve. Birding exceptional—Narina trogon and purple-crested turaco. Malaria-free highveld microclimate. Accessible from Mbabane (2 hours) on good roads. Tranquil alternative to Ezulwini bustle. Owner-managed with environmental ethos. Combine with Ngwenya Glass and Malolotja Nature Reserve for northwest circuit. Book weekends ahead—only nine cottages. Evening campfires and forest sounds make overnight stays far richer than a rushed day visit from Mbabane.",
+        "image": "1454486326938-e6727284ea44",
+        "bestSeason": "Year-round",
+        "visitDuration": "1–2 nights",
+        "fees": "Cottages from ZAR 1,200/night B&B",
+        "tip": "Request forest walk at dawn—bird activity peaks early."
+      },
+      {
+        "name": "Malolotja Nature Reserve",
+        "desc": "Malolotja Nature Reserve in northwest Eswatini protects highveld wilderness of grassland, wildflowers, and the Malolotja Falls zip-line—the world's fastest zip over rugged gorges. Hiking trails span multi-day backpack routes with basic camps. Eswatini's largest protected area links to South Africa's Songimvelo. 4x4 not required for main viewpoints. Prolific proteas and aloes; eland and wildebeest roam. Cool climate year-round. Accessible from Mbabane via Ngwenya (1.5 hours). Adventure tourism meets tranquillity. Zip-line bookings essential weekends. Multi-day backpackers can sleep at rustic mountain camps while day visitors enjoy viewpoints and the adrenaline zip-line over the gorge.",
+        "image": "1541414779316-956a5084c0d4",
+        "bestSeason": "Sep–Apr",
+        "visitDuration": "1–2 days",
+        "fees": "Reserve entry ZAR 50; zip-line ZAR 350",
+        "tip": "Book canopy tour online—weight limits apply."
+      },
+      {
+        "name": "Mlawula Nature Reserve",
+        "desc": "Mlawula Nature Reserve on the Lebombo escarpment edge offers lowveld bushveld, baobabs, and Lubombo Mountains hiking where Mozambique views stretch to Indian Ocean haze. Less visited than Hlane—self-drive game viewing for antelope, zebra, and rich birdlife including purple-crested turaco. Lubombo Mountains trail multi-day hikes with rustic camps. Hot climate; malaria prophylaxis summer. Access from Simunye or Big Bend. Combine with Mkhaya rhino tracking for comprehensive Eswatini wildlife. Community guides available. Authentic bush without crowds. Night drives are not offered, so plan morning and late afternoon self-drives when animals are most active at water sources.",
+        "image": "1518709766631-a6a7f45921c3",
+        "bestSeason": "May–Sep",
+        "visitDuration": "2–3 days",
+        "fees": "Entry ZAR 40/day; camping ZAR 80",
+        "tip": "Bring binoculars—bird density exceptional along Lubombo ridges."
+      }
+    ],
+    "additionalActivities": [
+      {
+        "name": "Mkhaya Rhinoceros Walk",
+        "desc": "Mkhaya Game Reserve's guided rhino walks bring visitors within metres of white rhino on foot—trackers read spoor, wind direction, and behaviour for safe close encounters funding critical black and white rhino protection. Walks last 2–3 hours morning or afternoon; open vehicles supplement. No self-driving in Mkhaya—transfers from Big Game Parks central booking. Revenue directly supports anti-poaching. One of Africa's best rhino experiences at moderate cost. Book centrally through Big Game Parks office Ezulwini.",
+        "image": "1612140403750-13f69b821034"
+      },
+      {
+        "name": "Mantenga Cultural Village Performance",
+        "desc": "Mantenga Cultural Village stages daily traditional Swazi dance and song performances in authentic reed homestead setting—explaining Umhlanga, Incwala, and daily customs with audience participation. Museum exhibits Swazi history and craft. Performances 11:30 and 15:15 daily; combine with Ezulwini Valley game drives at Mlilwane. Revenue supports cultural preservation and performer livelihoods. Respectful tourism model—no exploitative staging. Photography permitted with tip to performers.",
+        "image": "1518709766631-a6a7f45921c3"
+      },
+      {
+        "name": "Ngwenya Glass Blowing Demo",
+        "desc": "Ngwenya Glass factory transforms recycled glass into vases, animals, and chandeliers—watch artisans blow molten glass at 1,100°C in open workshops, then purchase fair-trade pieces shipping worldwide. Mine tour of world's oldest hematite mine (43,000 years) on site. Malkerns Valley location near craft market cluster. Free demonstrations; purchases support 70+ employees. Combine with Swazi Candles and Baobab Batik in same valley. Essential craft tourism stop.",
+        "image": "1576485375217-d6a95e34d043"
+      }
+    ],
+    "routesEnhanced": [
+      {
+        "name": "The Royal Heritage Trail",
+        "duration": "3–5 days",
+        "distance": "~150 km",
+        "highlights": [
+          "Mantenga culture",
+          "Mlilwane sanctuary",
+          "Hlane Big Five"
+        ],
+        "desc": "Eswatini's classic circuit links cultural heartland with escalating wildlife. Start Ezulwini Valley—Mantenga performances, Ngwenya Glass, craft markets. Mlilwane for walking, cycling, and horseback among zebra and warthog. Continue east to Hlane Royal National Park for Big Five game drives and rhino. Tar roads throughout; day segments short. Royal presence palpable—respect photography near palaces. Umhlanga timing (late August/early September) transforms cultural access. Mid-range lodges excellent value. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections. Independent travellers should confirm seasonal access, pack for variable weather, and build buffer days for gravel roads, border formalities, and lodge transfer schedules."
+      },
+      {
+        "name": "The Lebombo Mountain Loop",
+        "duration": "4–5 days",
+        "distance": "~200 km",
+        "highlights": [
+          "Mlawula reserve",
+          "Lubombo hike",
+          "lowveld views"
+        ],
+        "desc": "Eastern Eswatini's Lubombo Mountains offer hiking, birding, and Mozambique border vistas on a loop from Manzini through lowveld. Mlawula Nature Reserve game drives and mountain trails. Mbuluzi Game Reserve adds riverside luxury. Hot lowveld climate—start early. Malaria prophylaxis summer. Combine with Mozambique border crossing for extended trip. Less touristed than Ezulwini—authentic rural Eswatini. 4x2 sufficient; hiking boots essential. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections. Independent travellers should confirm seasonal access, pack for variable weather, and build buffer days for gravel roads, border formalities, and lodge transfer schedules."
+      },
+      {
+        "name": "The Highveld to Lowveld Transit",
+        "duration": "2–3 days",
+        "distance": "~100 km",
+        "highlights": [
+          "Mbabane capital",
+          "pine forests",
+          "Hlane plains"
+        ],
+        "desc": "Experience Eswatini's dramatic altitude shift from cool Mbabane highveld (1,200 m) to steamy Hlane lowveld (300 m) in under two hours driving. Sibebe Rock hike near Mbabane morning; descend Ezulwini for lunch and craft shopping. Afternoon Hlane game drive as temperature drops toward sunset. Microclimate change showcases biodiversity compression in tiny kingdom. Malaria-free highveld; lowveld precautions summer. Ideal Kruger add-on from Malelane or Komatipoort. Allow extra time for photo stops, fuel, and lodge check-in. Book key accommodation ahead in peak season and confirm road conditions with locals before remote gravel sections. Independent travellers should confirm seasonal access, pack for variable weather, and build buffer days for gravel roads, border formalities, and lodge transfer schedules."
+      }
+    ],
+    "adviceExtended": {
+      "transport": "Excellent tar roads; no 4x4 needed. SA rental with cross-border letter. Ezulwini to Hlane 45 minutes. Guided tours from Kruger lodges common. No public transport for tourists—hire car or book transfers.",
+      "budget": "High value: lodges ZAR 800–2,000 (USD 45–110). Park entry ZAR 50–80. Craft purchases cash. Casino hotels Ezulwini mid-range. Full board safari packages affordable vs SA private reserves.",
+      "visa": "Visa-free 30 days most Commonwealth, EU, US. Entry via SA only—plan SA visa accordingly. Passport stamp at Oshoek or Golela.",
+      "health": "Malaria-free highveld year-round. Lowveld Hlane/Mkhaya: prophylaxis Nov–Apr recommended. Tap water generally safe Mbabane. Private clinics adequate.",
+      "safety": "Extremely safe—low crime, friendly population. Game reserve rules strict. Respect royal cultural protocols at ceremonies.",
+      "money": "Swazi Lilangeni (SZL) pegged 1:1 ZAR; both accepted. ATMs Mbabane, Manzini, Ezulwini. Cards at major lodges; cash for crafts and tips.",
+      "climate": "Highveld mild year-round; summer storms Nov–Mar. Lowveld hot; best wildlife dry May–Sep. Umhlanga late August/early September."
+    }
+  }
+}
