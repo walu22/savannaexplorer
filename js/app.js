@@ -7,6 +7,7 @@ import { initMarketplace } from './modules/marketplace.js';
 import { initUtilityHub } from './modules/utility-hub.js';
 import { initContact } from './modules/contact.js';
 import { initParks } from './modules/parks.js';
+import { initBorders } from './modules/borders.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const versionEl = document.getElementById('app-version');
@@ -22,4 +23,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initUtilityHub();
     initContact();
     initParks();
+    initBorders();
 });

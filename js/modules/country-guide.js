@@ -1,4 +1,5 @@
 import countries from '../../data/countries.json';
+import faqs from '../../data/faqs.json';
 import { getCountryGuide } from '../lib/guide.js';
 import { spotImageUrl, activityImageUrl } from '../lib/images.js';
 
@@ -116,6 +117,37 @@ function populateCountryPage(countryId) {
     }
 
     if (ctaCountryName) ctaCountryName.textContent = data.name;
+
+    const faqList = document.getElementById('detail-faq-list');
+    if (faqList) {
+        const countryFaqs = faqs[countryId] || [];
+        faqList.innerHTML = countryFaqs.map((item, i) => `
+            <div class="accordion-item faq-item">
+                <button class="accordion-header" aria-expanded="false" data-faq="${i}">
+                    <span class="accordion-title">${item.q}</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-body" id="faq-body-${i}">
+                    <p>${item.a}</p>
+                </div>
+            </div>
+        `).join('');
+
+        faqList.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const expanded = header.getAttribute('aria-expanded') === 'true';
+                faqList.querySelectorAll('.accordion-header').forEach(h => {
+                    h.setAttribute('aria-expanded', 'false');
+                    h.nextElementSibling?.classList.remove('open');
+                });
+                if (!expanded) {
+                    header.setAttribute('aria-expanded', 'true');
+                    header.nextElementSibling?.classList.add('open');
+                }
+            });
+        });
+    }
+
     resetGuideTabs();
 }
 

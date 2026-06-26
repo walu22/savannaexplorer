@@ -21,6 +21,7 @@
                 <li><a href="#experiences">Experiences</a></li>
                 <li><a href="#cultures">Cultures</a></li>
                 <li><a href="#parks">Parks</a></li>
+                <li><a href="#borders">Borders</a></li>
                 <li><a href="#itineraries">Itineraries</a></li>
                 <li><a href="#plan">Plan Your Trip</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -514,74 +515,28 @@
         <div class="container">
             <div class="section-header">
                 <h2>National Parks & Conservation</h2>
-                <p>30+ protected reserves — 18% of Southern Africa's surface area dedicated to wildlife.</p>
+                <p><span id="parks-count">27</span> protected reserves across nine countries — wildlife, landscapes, and marine parks.</p>
             </div>
-            <div class="parks-filters">
-                <button class="park-filter active" data-filter="all">All Parks</button>
-                <button class="park-filter" data-filter="south-africa">🇿🇦 South Africa</button>
-                <button class="park-filter" data-filter="namibia">🇳🇦 Namibia</button>
-                <button class="park-filter" data-filter="botswana">🇧🇼 Botswana</button>
-                <button class="park-filter" data-filter="zambia">🇿🇲 Zambia</button>
-                <button class="park-filter" data-filter="zimbabwe">🇿🇼 Zimbabwe</button>
-                <button class="park-filter" data-filter="mozambique">🇲🇿 Mozambique</button>
-                <button class="park-filter" data-filter="malawi">🇲🇼 Malawi</button>
+            <div class="parks-filters" id="parks-filters"></div>
+            <div class="parks-grid" id="parks-grid"></div>
+        </div>
+    </section>
+
+    <!-- Border Crossings Hub -->
+    <section id="borders" class="borders-hub">
+        <div class="container">
+            <div class="section-header">
+                <h2>Border Crossings</h2>
+                <p><span id="borders-count">15</span> major posts for self-drive and overland trips — hours, documents, fees, and local tips.</p>
             </div>
-            <div class="parks-grid">
-                <div class="park-card" data-country="south-africa">
-                    <div class="park-badge">🇿🇦</div>
-                    <h3>Kruger National Park</h3>
-                    <p>Africa's greatest game reserve — Big Five, 500+ bird species, 2M hectares of wilderness.</p>
-                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Big Five</span><span><i class="fa-solid fa-person-hiking"></i> Easy-Moderate</span></div>
+            <div class="borders-toolbar">
+                <div class="borders-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="borders-search" placeholder="Search border post or route...">
                 </div>
-                <div class="park-card" data-country="namibia">
-                    <div class="park-badge">🇳🇦</div>
-                    <h3>Etosha National Park</h3>
-                    <p>One of Africa's oldest parks — centred on a vast salt pan visible from space, teeming with wildlife at waterholes.</p>
-                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Big Five</span><span><i class="fa-solid fa-person-hiking"></i> Easy</span></div>
-                </div>
-                <div class="park-card" data-country="botswana">
-                    <div class="park-badge">🇧🇼</div>
-                    <h3>Chobe National Park</h3>
-                    <p>Home to Africa's largest elephant population — 120,000 elephants and spectacular river cruises.</p>
-                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Elephants</span><span><i class="fa-solid fa-person-hiking"></i> Easy</span></div>
-                </div>
-                <div class="park-card" data-country="zambia">
-                    <div class="park-badge">🇿🇲</div>
-                    <h3>South Luangwa</h3>
-                    <p>Birthplace of the walking safari — legendary leopard sightings and the Luangwa River's hippo pools.</p>
-                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Leopards</span><span><i class="fa-solid fa-person-hiking"></i> Moderate</span></div>
-                </div>
-                <div class="park-card" data-country="zimbabwe">
-                    <div class="park-badge">🇿🇼</div>
-                    <h3>Hwange National Park</h3>
-                    <p>Zimbabwe's largest reserve — over 100 mammal and 400 bird species cross ancient elephant migration corridors.</p>
-                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Elephants</span><span><i class="fa-solid fa-person-hiking"></i> Moderate</span></div>
-                </div>
-                <div class="park-card" data-country="namibia">
-                    <div class="park-badge">🇳🇦</div>
-                    <h3>Namib-Naukluft Park</h3>
-                    <p>One of the world's largest conservation areas — home to Sossusvlei's iconic red dunes, the oldest desert on Earth.</p>
-                    <div class="park-meta"><span><i class="fa-solid fa-mountain"></i> Landscapes</span><span><i class="fa-solid fa-person-hiking"></i> Moderate</span></div>
-                </div>
-                <div class="park-card" data-country="mozambique">
-                    <div class="park-badge">🇲🇿</div>
-                    <h3>Gorongosa National Park</h3>
-                    <p>Africa's greatest wildlife restoration story — from war-devastation to thriving ecosystem in a single generation.</p>
-                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Lions</span><span><i class="fa-solid fa-person-hiking"></i> Moderate</span></div>
-                </div>
-                <div class="park-card" data-country="malawi">
-                    <div class="park-badge">🇲🇼</div>
-                    <h3>Liwonde National Park</h3>
-                    <p>Malawi's premier wildlife reserve — boat safaris along the Shire River alongside elephants, hippos, and crocs.</p>
-                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Elephants</span><span><i class="fa-solid fa-person-hiking"></i> Easy</span></div>
-                </div>
-                <div class="park-card" data-country="namibia">
-                    <div class="park-badge">🇳🇦</div>
-                    <h3>Skeleton Coast Park</h3>
-                    <p>Where the desert meets the Atlantic — shipwrecks, fur seals, and desert-adapted lions haunt this eerie coast.</p>
-                    <div class="park-meta"><span><i class="fa-solid fa-skull-crossbones"></i> Remote</span><span><i class="fa-solid fa-person-hiking"></i> Advanced</span></div>
-                </div>
+                <div class="borders-filters" id="borders-filters"></div>
             </div>
+            <div class="borders-grid" id="borders-grid"></div>
         </div>
     </section>
 
@@ -940,9 +895,9 @@
                 <div class="footer-col">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">Business Directory</a></li>
-                        <li><a href="#">Travel Planning</a></li>
-                        <li><a href="#">Border Posts</a></li>
+                        <li><a href="#parks">National Parks</a></li>
+                        <li><a href="#borders">Border Posts</a></li>
+                        <li><a href="#plan">Travel Planning</a></li>
                         <li><a href="#">Foreign Missions</a></li>
                     </ul>
                 </div>
@@ -1036,6 +991,10 @@
                         <ul class="packing-list" id="detail-packing"></ul>
                     </div>
                     <div class="day-narrative" id="detail-day-narrative"></div>
+                    <div class="faq-section">
+                        <h3><i class="fas fa-circle-question"></i> Common Questions</h3>
+                        <div id="detail-faq-list" class="faq-accordion"></div>
+                    </div>
                 </div>
 
                 <!-- Tab: Attractions -->

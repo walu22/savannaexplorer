@@ -1,0 +1,236 @@
+{
+  "namibia": [
+    {
+      "q": "Do I need a 4x4 to travel in Namibia?",
+      "a": "Not for the main tar roads between Windhoek, Swakopmund, and Etosha. A 4x4 or high-clearance vehicle is strongly recommended for Skeleton Coast, Kaokoland, and deep sand tracks like those near Sossusvlei."
+    },
+    {
+      "q": "What plug type does Namibia use?",
+      "a": "Namibia uses 220–240V with Type D and M plugs (three round pins). Bring a multi-plug adapter — supermarkets in Windhoek sell them."
+    },
+    {
+      "q": "Is Namibia safe for self-drive tourists?",
+      "a": "Yes, Namibia is one of Southern Africa's safest self-drive destinations. Main risks are gravel-road punctures, long distances between fuel stops, and wildlife on roads at night — avoid night driving outside towns."
+    },
+    {
+      "q": "When is the best time for a Namibia safari?",
+      "a": "July to October is peak dry season — wildlife concentrates at Etosha waterholes and skies are clear. November to March is greener with lower prices but hotter temperatures."
+    },
+    {
+      "q": "Can I use my foreign phone in Namibia?",
+      "a": "Foreign SIMs work in towns but coverage is patchy in remote parks. Buy a Namibian pre-paid SIM (MTC or Telecom) at the airport for better coverage and data."
+    },
+    {
+      "q": "What currency should I carry?",
+      "a": "The Namibian Dollar (NAD) is pegged 1:1 to the South African Rand. Both are accepted everywhere. ATMs are available in major towns; carry cash for remote fuel stations."
+    }
+  ],
+  "south-africa": [
+    {
+      "q": "Is South Africa safe for tourists?",
+      "a": "Major tourist areas like the Garden Route, Kruger, and Cape Town are well-travelled. Use standard urban precautions in cities — don't display valuables, use registered taxis, and avoid walking alone at night."
+    },
+    {
+      "q": "Do I need a visa for South Africa?",
+      "a": "Citizens of the EU, UK, USA, Australia, and many African nations receive 90-day visa-free entry. Check the latest DHA list for your passport — rules change periodically."
+    },
+    {
+      "q": "Can I self-drive in Kruger National Park?",
+      "a": "Yes — Kruger is one of the world's best self-drive safari parks. Hire a sedan for main roads or a higher vehicle for gravel tracks. Gate times are strict — plan to be inside before closing."
+    },
+    {
+      "q": "What about travelling with children?",
+      "a": "South Africa requires an unabridged birth certificate for minors travelling with one parent or guardians. Carry certified copies — border officials check this regularly."
+    },
+    {
+      "q": "When is the best time to visit Cape Town?",
+      "a": "November to March is warm and dry — ideal for beaches and Table Mountain. May to September is cooler and wetter but excellent for whale watching."
+    },
+    {
+      "q": "Is tap water safe to drink?",
+      "a": "Tap water in major cities and tourist areas is generally safe. In rural areas, use bottled or filtered water."
+    }
+  ],
+  "botswana": [
+    {
+      "q": "Why can't I bring meat into Botswana?",
+      "a": "Botswana enforces strict veterinary controls to prevent foot-and-mouth disease. Fresh meat, dairy, and some animal products are confiscated at borders. Finish or discard these before crossing."
+    },
+    {
+      "q": "Do I need a 4x4 in Botswana?",
+      "a": "Essential for the Okavango Delta, Makgadikgadi Pans, and Central Kalahari. Tar roads to Maun and Kasane are fine in a sedan."
+    },
+    {
+      "q": "Is Botswana expensive compared to neighbours?",
+      "a": "Botswana uses a high-value, low-impact tourism model. Expect premium lodge prices but excellent wildlife density and low crowds — especially in private concessions."
+    },
+    {
+      "q": "What is a mokoro safari?",
+      "a": "A traditional dugout canoe poled through Okavango Delta channels. It's a silent, low-impact way to see birds, hippos, and elephants — a Botswana signature experience."
+    },
+    {
+      "q": "When is the Okavango Delta at its best?",
+      "a": "June to August when floodwaters arrive from Angola. Wildlife viewing peaks as animals concentrate on shrinking dry-season islands."
+    },
+    {
+      "q": "Can I pay with cards in Botswana?",
+      "a": "Cards are accepted at lodges and major towns. Carry Pula cash for park fees, fuel in remote areas, and small purchases."
+    }
+  ],
+  "zambia": [
+    {
+      "q": "What is the KAZA UniVisa?",
+      "a": "A $50 visa valid for 30 days covering multiple entries to Zambia and Zimbabwe, plus day trips to Botswana's Chobe via Kazungula. Available at major airports and Victoria Falls border posts."
+    },
+    {
+      "q": "Is Victoria Falls better from Zambia or Zimbabwe?",
+      "a": "Zimbabwe offers wider panoramic views (80% of the Falls). Zambia provides closer access to the gorge and Devil's Pool (seasonal). Most visitors cross the bridge to experience both sides."
+    },
+    {
+      "q": "Do I need malaria tablets for Zambia?",
+      "a": "Malaria is present in most of Zambia including Victoria Falls and the Luangwa Valley. Consult your doctor about prophylaxis — especially for visits between November and April."
+    },
+    {
+      "q": "What is a walking safari?",
+      "a": "A guided bush walk with an armed ranger — pioneered in South Luangwa. You track wildlife on foot for an intimate, adrenaline-filled experience unavailable in vehicles."
+    },
+    {
+      "q": "When is the best time for South Luangwa?",
+      "a": "May to October (dry season) for concentrated wildlife at the river. November to March is emerald season — lush, fewer tourists, and excellent birding."
+    },
+    {
+      "q": "How do I get to Lower Zambezi?",
+      "a": "Fly from Lusaka to Jeki or Royal airstrip (45 min), or drive via Chirundu (4–5 hours). The park is best explored by canoe and boat."
+    }
+  ],
+  "zimbabwe": [
+    {
+      "q": "What currency is used in Zimbabwe?",
+      "a": "The Zimbabwe Gold (ZiG) is the official currency, but US Dollars are widely accepted in tourism. Carry small USD notes for tips, park fees, and markets."
+    },
+    {
+      "q": "Is Hwange National Park worth visiting?",
+      "a": "Absolutely — Hwange has some of Africa's largest elephant herds and excellent predator sightings. It's less crowded than Kruger and pairs perfectly with Victoria Falls."
+    },
+    {
+      "q": "Can I walk in Mana Pools?",
+      "a": "Yes — Mana Pools is one of few parks allowing unguided walking among wildlife (experienced visitors only). Guided walks are recommended for most travellers."
+    },
+    {
+      "q": "How long should I spend at Victoria Falls?",
+      "a": "Allow 2–3 days minimum: one day for Falls viewpoints, one for activities (rafting, helicopter, bridge), and one for a Chobe day trip into Botswana."
+    },
+    {
+      "q": "Is Zimbabwe safe for tourists?",
+      "a": "Tourist corridors (Victoria Falls, Hwange, Mana Pools) are well-established and welcoming. Use licensed operators, avoid political gatherings, and follow standard travel precautions."
+    },
+    {
+      "q": "Do I need a visa for Zimbabwe?",
+      "a": "Many nationalities can get a visa on arrival or use the KAZA UniVisa ($50) for Zambia–Zimbabwe travel. Check your passport category before departure."
+    }
+  ],
+  "mozambique": [
+    {
+      "q": "Do I need a visa for Mozambique?",
+      "a": "Many nationalities require a visa or e-visa. Apply online before travel — border visa availability varies. Check the official Mozambique e-visa portal for your passport."
+    },
+    {
+      "q": "Is Mozambique safe for beach holidays?",
+      "a": "Popular areas like Tofo, Vilanculos, and the Bazaruto Archipelago are well-travelled. Avoid northern Cabo Delgado province. Use registered transfers and avoid driving at night."
+    },
+    {
+      "q": "When is the best time for diving in Mozambique?",
+      "a": "May to November offers calm seas and excellent visibility. Whale shark season at Tofo runs roughly October to March."
+    },
+    {
+      "q": "Can I combine Gorongosa with a beach trip?",
+      "a": "Yes — fly or drive from Beira (near Gorongosa) to Vilanculos or Inhambane on the coast. Allow 10–14 days for a bush-and-beach combination."
+    },
+    {
+      "q": "What language is spoken in Mozambique?",
+      "a": "Portuguese is the official language. English is spoken in tourist lodges and Maputo. Learning basic Portuguese phrases helps in local markets."
+    },
+    {
+      "q": "Is malaria a concern in Mozambique?",
+      "a": "Yes — malaria risk is high throughout Mozambique including coastal areas. Take prophylaxis, use DEET repellent, and sleep under treated nets."
+    }
+  ],
+  "malawi": [
+    {
+      "q": "Why is Lake Malawi called the Calendar Lake?",
+      "a": "The lake is approximately 365 miles long and 52 miles wide at its broadest — matching days and weeks in a year. It's also a UNESCO World Heritage Site."
+    },
+    {
+      "q": "Do I need an e-visa for Malawi?",
+      "a": "Most visitors require an e-visa applied online before travel. Processing typically takes a few days — apply at least a week before departure."
+    },
+    {
+      "q": "Is Malawi good for first-time safari visitors?",
+      "a": "Liwonde and Majete offer accessible, affordable safaris with boat trips on the Shire River. Malawi is often called 'the warm heart of Africa' for its friendly people."
+    },
+    {
+      "q": "Can I swim in Lake Malawi?",
+      "a": "Yes at most tourist beaches — the lake is bilharzia-risk in some shallow reedy areas. Stick to open sandy beaches and ask lodge staff about local conditions."
+    },
+    {
+      "q": "When is the best time to visit Malawi?",
+      "a": "May to October is dry season — best for wildlife and lake activities. November to April is rainy season with lush landscapes and lower prices."
+    },
+    {
+      "q": "How do I get around Malawi?",
+      "a": "Domestic flights connect Lilongwe, Blantyre, and lake resorts. Road transfers and minibuses are common. Allow generous time — distances feel longer on rural roads."
+    }
+  ],
+  "lesotho": [
+    {
+      "q": "Do I need a 4x4 in Lesotho?",
+      "a": "A 4x4 is essential for Sani Pass, remote highland tracks, and winter snow routes. Main roads to Maseru and Afriski are tarred but mountain passes can be challenging."
+    },
+    {
+      "q": "What is the best time for hiking in Lesotho?",
+      "a": "October to April offers warmer weather and open mountain passes. Winter (June–August) brings snow at altitude — stunning but requires cold-weather gear."
+    },
+    {
+      "q": "Can I enter Lesotho from South Africa easily?",
+      "a": "Yes — multiple border posts (Maseru Bridge, Caledonspoort, Sani Pass) connect the two countries. Most visitors are visa-free for up to 14–90 days depending on passport."
+    },
+    {
+      "q": "What is pony trekking?",
+      "a": "Riding Basotho ponies through mountain villages — a traditional way to explore Lesotho's highlands. Multi-day treks with local guides are available from Malealea and Semonkong."
+    },
+    {
+      "q": "Does Lesotho use the same currency as South Africa?",
+      "a": "The Loti (LSL) is pegged 1:1 to the South African Rand. Both currencies are accepted interchangeably throughout Lesotho."
+    },
+    {
+      "q": "Is altitude sickness a risk?",
+      "a": "Lesotho is entirely above 1,000 metres — the only country in the world with that distinction. Most visitors acclimatise quickly, but take it easy on arrival if coming from sea level."
+    }
+  ],
+  "eswatini": [
+    {
+      "q": "Is Eswatini the same as Swaziland?",
+      "a": "Yes — the country was renamed Eswatini in 2018. Both names are still used, but official documents and borders now say Eswatini."
+    },
+    {
+      "q": "How many days do I need in Eswatini?",
+      "a": "2–4 days covers the main game reserves (Hlane, Mlilwane), craft markets, and cultural experiences. It pairs perfectly with a Kruger or KwaZulu-Natal itinerary."
+    },
+    {
+      "q": "Can I walk among wildlife in Eswatini?",
+      "a": "Mlilwane Wildlife Sanctuary allows walking and cycling among antelope and hippos — one of the few places in Southern Africa where this is possible without a vehicle."
+    },
+    {
+      "q": "When is the Umhlanga Reed Dance?",
+      "a": "Usually late August to early September. Thousands of young women participate in this cultural ceremony at the Queen Mother's residence — a profound cultural experience for visitors."
+    },
+    {
+      "q": "Do I need a visa for Eswatini?",
+      "a": "Most Western and Southern African passport holders receive visa-free entry. Eswatini is commonly visited as a side trip from South Africa."
+    },
+    {
+      "q": "What currency does Eswatini use?",
+      "a": "The Lilangeni (SZL) is pegged 1:1 to the South African Rand. Both are accepted everywhere — no need to change money if you already have rands."
+    }
+  ]
+}
