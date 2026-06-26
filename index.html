@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savanna Explorer | Official Tourism Guide</title>
+    <meta name="description" content="Explore the breathtaking landscapes, diverse wildlife, and rich cultures of Southern Africa. Your ultimate guide to safari, adventure, and relaxation.">
+    <link rel="stylesheet" href="savanna-luxe.css?v=v2.7">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#" class="logo">SAVANNA EXPLORER</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#cultures">Cultures</a></li>
+                <li><a href="#parks">Parks</a></li>
+                <li><a href="#itineraries">Itineraries</a></li>
+                <li><a href="#utility">Utility</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <img src="https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1920" alt="African Savanna Sunset" class="hero-bg" id="hero-img">
+        <div class="hero-content">
+            <span class="hero-tagline">Southern Africa's Premier Discovery Platform</span>
+            <h1>Where the Wild Meets the Extraordinary</h1>
+            <p>Nine countries. Infinite horizons. From the thundering Victoria Falls to the ancient dunes of the Namib — discover Africa's most captivating region.</p>
+            <a href="#destinations" class="btn">Start Planning</a>
+        </div>
+    </section>
+
+    <!-- Did You Know Ticker -->
+    <section class="ticker-bar">
+        <div class="ticker-label"><i class="fas fa-lightbulb"></i> DID YOU KNOW</div>
+        <div class="ticker-track">
+            <div class="ticker-content">
+                <span class="ticker-item">🇳🇦 Namibia's Namib Desert is the oldest desert on Earth — approximately 55 million years old</span>
+                <span class="ticker-item">🇧🇼 Botswana's Okavango Delta is the world's largest inland delta, covering 22,000 km²</span>
+                <span class="ticker-item">🇿🇲 Victoria Falls creates a mist column visible from 50 km away — the locals call it "Mosi-oa-Tunya" (The Smoke That Thunders)</span>
+                <span class="ticker-item">🇿🇦 South Africa has 3 capital cities: Pretoria (executive), Cape Town (legislative), and Bloemfontein (judicial)</span>
+                <span class="ticker-item">🇲🇼 Lake Malawi contains more fish species than any other lake on Earth — over 1,000 cichlid species</span>
+                <span class="ticker-item">🇲🇿 Mozambique's flag features an AK-47 — the only national flag in the world to display a modern firearm</span>
+                <span class="ticker-item">🇱🇸 Lesotho is the only country in the world entirely above 1,000 metres in elevation — the "Kingdom in the Sky"</span>
+                <span class="ticker-item">🇸🇿 Eswatini is Africa's last remaining absolute monarchy, ruled by King Mswati III</span>
+                <span class="ticker-item">🇿🇼 The Great Zimbabwe ruins, built between 1100-1450 AD, gave the country its name — "Zimbabwe" means "Houses of Stone"</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="ticker-item">🇳🇦 Namibia's Namib Desert is the oldest desert on Earth — approximately 55 million years old</span>
+                <span class="ticker-item">🇧🇼 Botswana's Okavango Delta is the world's largest inland delta, covering 22,000 km²</span>
+                <span class="ticker-item">🇿🇲 Victoria Falls creates a mist column visible from 50 km away — the locals call it "Mosi-oa-Tunya" (The Smoke That Thunders)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-stats">
+                <div class="trust-stat">
+                    <span class="trust-number">9</span>
+                    <span class="trust-label">Countries</span>
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-stat">
+                    <span class="trust-number">30+</span>
+                    <span class="trust-label">National Parks</span>
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-stat">
+                    <span class="trust-number">50+</span>
+                    <span class="trust-label">Cultural Groups</span>
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-stat">
+                    <span class="trust-number">6</span>
+                    <span class="trust-label">Cross-border Itineraries</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Explore Our Destinations</h2>
+                <p>9 Countries. Countless Wonders.</p>
+            </div>
+
+            <div class="destinations-grid">
+                <!-- South Africa -->
+                <div class="country-card" data-country-id="south-africa">
+                    <img src="https://images.unsplash.com/photo-1549076656-10360fa2333c?auto=format&fit=crop&q=80&w=800" alt="South Africa" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>South Africa</h3>
+                        <p class="tagline-overlay">A World in One Country</p>
+                        <p class="attractions">Kruger Park • Cape Town • Garden Route • Drakensberg • Winelands</p>
+                        <button class="btn btn-sm btn-explore">Discover More</button>
+                    </div>
+                </div>
+
+                <!-- Botswana -->
+                <div class="country-card" data-country-id="botswana">
+                    <img src="https://images.unsplash.com/photo-1551323330-918809e5352c?auto=format&fit=crop&q=80&w=800" alt="Botswana" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Botswana</h3>
+                        <p class="tagline-overlay">The Pristine Heart of the Wild</p>
+                        <p class="attractions">Okavango Delta • Chobe • Moremi • Makgadikgadi • Central Kalahari</p>
+                        <button class="btn btn-sm btn-explore">Discover More</button>
+                    </div>
+                </div>
+
+                <!-- Namibia -->
+                <div class="country-card" data-country-id="namibia">
+                    <img src="https://images.unsplash.com/photo-1448831338187-78296e6fdc4d?auto=format&fit=crop&q=80&w=800" alt="Namibia" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Namibia</h3>
+                        <p class="tagline-overlay">A Realm of Endless Horizons</p>
+                        <p class="attractions">Sossusvlei • Etosha • Fish River Canyon • Skeleton Coast • Spitzkoppe • Swakopmund</p>
+                        <button class="btn btn-sm btn-explore">Discover More</button>
+                    </div>
+                </div>
+
+                <!-- Zambia -->
+                <div class="country-card" data-country-id="zambia">
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=800" alt="Zambia" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Zambia</h3>
+                        <p class="tagline-overlay">The Spirit of the Real Africa</p>
+                        <p class="attractions">Victoria Falls • South Luangwa • Lower Zambezi • Kafue • Lake Kariba • Liuwa Plain</p>
+                        <button class="btn btn-sm btn-explore">Discover More</button>
+                    </div>
+                </div>
+
+                <!-- Zimbabwe -->
+                <div class="country-card" data-country-id="zimbabwe">
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=800" alt="Zimbabwe" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Zimbabwe</h3>
+                        <p class="tagline-overlay">A World of Wonders</p>
+                        <p class="attractions">Victoria Falls • Hwange • Mana Pools • Lake Kariba • Matobo Hills</p>
+                        <button class="btn btn-sm btn-explore">Discover More</button>
+                    </div>
+                </div>
+
+                <!-- Mozambique -->
+                <div class="country-card" data-country-id="mozambique">
+                    <img src="https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=800" alt="Mozambique" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Mozambique</h3>
+                        <p class="tagline-overlay">Tropical Shores & Vibrant Fusion</p>
+                        <p class="attractions">Bazaruto • Tofo Beach • Gorongosa • Maputo • Ibo Island</p>
+                        <button class="btn btn-sm btn-explore">Discover More</button>
+                    </div>
+                </div>
+
+                <!-- Malawi -->
+                <div class="country-card" data-country-id="malawi">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Malawi" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Malawi</h3>
+                        <p class="tagline-overlay">The Warm Heart of Africa</p>
+                        <p class="attractions">Lake Malawi • Mount Mulanje • Liwonde Park • Majete • Nyika Plateau</p>
+                        <button class="btn btn-sm btn-explore">Discover More</button>
+                    </div>
+                </div>
+
+                <!-- Lesotho -->
+                <div class="country-card" data-country-id="lesotho">
+                    <img src="https://images.unsplash.com/photo-1541414779316-956a5084c0d4?q=80&w=800&auto=format&fit=crop" alt="Lesotho" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Lesotho</h3>
+                        <p class="tagline-overlay">The Kingdom in the Sky</p>
+                        <p class="attractions">Maletsunyane Falls • Sani Pass • Sehlabathebe • Thaba Bosiu • Katse Dam</p>
+                        <button class="btn btn-sm btn-explore">Discover More</button>
+                    </div>
+                </div>
+
+                <!-- Eswatini -->
+                <div class="country-card" data-country-id="eswatini">
+                    <img src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80&w=800&auto=format&fit=crop" alt="Eswatini" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Eswatini</h3>
+                        <p class="tagline-overlay">Rich Traditions & Royal Heritage</p>
+                        <p class="attractions">Hlane Royal Park • Mlilwane Sanctuary • Mantenga Cultural Village • Mkhaya</p>
+                        <button class="btn btn-sm btn-explore">Discover More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section id="experiences" class="experiences">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top Experiences</h2>
+                <p>What kind of adventure are you looking for?</p>
+            </div>
+            <div class="experiences-grid">
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Wildlife & Safari">
+                    <div class="exp-overlay">
+                        <span class="exp-category">Wildlife</span>
+                        <h3>Wildlife & Safari</h3>
+                        <p>Track the legendary Big Five across the vast savannas of Etosha and Kruger.</p>
+                        <a href="javascript:void(0)" class="exp-link" data-theme="safari">Explore Safari <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=800" alt="Coast & Adventure">
+                    <div class="exp-overlay">
+                        <span class="exp-category">Adventure</span>
+                        <h3>Coast & Adventure</h3>
+                        <p>From dune surfing in the Namib to shark diving in the Atlantic, feel the adrenaline.</p>
+                        <a href="javascript:void(0)" class="exp-link" data-theme="adventure">Feel the Rush <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1448831338187-78296e6fdc4d?auto=format&fit=crop&q=80&w=800" alt="Cultural Immersion">
+                    <div class="exp-overlay">
+                        <span class="exp-category">Heritage</span>
+                        <h3>Cultural Immersion</h3>
+                        <p>Connect with the ancient traditions of the Himba and San people in their ancestral lands.</p>
+                        <a href="javascript:void(0)" class="exp-link" data-theme="culture">Discover Traditions <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Nature's Wonders">
+                    <div class="exp-overlay">
+                        <span class="exp-category">Nature</span>
+                        <h3>Nature's Wonders</h3>
+                        <p>Witness the awe-inspiring Victoria Falls and the deep silence of the Fish River Canyon.</p>
+                        <a href="javascript:void(0)" class="exp-link" data-theme="nature">See the Magic <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facts Section -->
+    <section class="facts">
+        <div class="container">
+            <div class="facts-grid">
+                <div class="fact-item">
+                    <i class="fa-solid fa-earth-africa"></i>
+                    <h3>9</h3>
+                    <p>Southern African Countries</p>
+                </div>
+                <div class="fact-item">
+                    <i class="fa-solid fa-tree"></i>
+                    <h3>30+</h3>
+                    <p>National Parks & Reserves</p>
+                </div>
+                <div class="fact-item">
+                    <i class="fa-solid fa-paw"></i>
+                    <h3>1000+</h3>
+                    <p>Wildlife Species</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Engine -->
+    <section id="itineraries" class="itineraries">
+        <div class="container">
+            <div class="section-header">
+                <h2>Journey Engine</h2>
+                <p>6 curated cross-border routes — seamlessly journey across Southern Africa.</p>
+            </div>
+            <div class="itinerary-grid">
+                <!-- Route 1: Desert to Delta -->
+                <div class="itinerary-card">
+                    <div class="itinerary-header">
+                        <span class="itinerary-tag">14-21 Days</span>
+                        <h3>The Desert to Delta</h3>
+                        <p>🇳🇦 Namibia <i class="fas fa-arrow-right"></i> 🇧🇼 Botswana</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step"><span class="step-num">01</span><div class="step-info"><h4>Windhoek & Sossusvlei</h4><p>Ancient red dunes and dead vlei.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">02</span><div class="step-info"><h4>Swakopmund & Etosha</h4><p>Skeleton Coast meets world-class safari.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">03</span><div class="step-info"><h4>Caprivi & Chobe</h4><p>The lush water paradise of the north.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">04</span><div class="step-info"><h4>Okavango Delta</h4><p>Mokoro rides in the world's largest inland delta.</p></div></div>
+                    </div>
+                    <a href="javascript:void(0)" class="btn btn-outline" onclick="inquireJourney('Desert to Delta', 'Namibia → Botswana')">Inquire <i class="fab fa-whatsapp"></i></a>
+                </div>
+                <!-- Route 2: Coastal Explorer -->
+                <div class="itinerary-card">
+                    <div class="itinerary-header">
+                        <span class="itinerary-tag">15-20 Days</span>
+                        <h3>The Coastal Explorer</h3>
+                        <p>🇿🇦 South Africa <i class="fas fa-arrow-right"></i> 🇲🇿 Mozambique</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step"><span class="step-num">01</span><div class="step-info"><h4>Cape Town & Garden Route</h4><p>Table Mountain and pristine coastline.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">02</span><div class="step-info"><h4>Wild Coast & Durban</h4><p>Rugged cliffs and vibrant surf city.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">03</span><div class="step-info"><h4>St Lucia & Kosi Bay</h4><p>Estuaries and tropical wetlands.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">04</span><div class="step-info"><h4>Maputo & Bazaruto</h4><p>Portuguese flair and turquoise islands.</p></div></div>
+                    </div>
+                    <a href="javascript:void(0)" class="btn btn-outline" onclick="inquireJourney('Coastal Explorer', 'South Africa → Mozambique')">Inquire <i class="fab fa-whatsapp"></i></a>
+                </div>
+                <!-- Route 3: The Falls & Beyond -->
+                <div class="itinerary-card">
+                    <div class="itinerary-header">
+                        <span class="itinerary-tag">10-14 Days</span>
+                        <h3>The Falls & Beyond</h3>
+                        <p>🇿🇲 Zambia <i class="fas fa-arrow-right"></i> 🇿🇼 Zimbabwe <i class="fas fa-arrow-right"></i> 🇧🇼 Botswana</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step"><span class="step-num">01</span><div class="step-info"><h4>Livingstone & Vic Falls</h4><p>Bungee, rafting, and helicopter flights over the falls.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">02</span><div class="step-info"><h4>South Luangwa</h4><p>Walking safaris where leopards rule the night.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">03</span><div class="step-info"><h4>Hwange & Matobo Hills</h4><p>Elephant herds and ancient rock art.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">04</span><div class="step-info"><h4>Chobe River Cruise</h4><p>Sunset cruises among hippos and crocs.</p></div></div>
+                    </div>
+                    <a href="javascript:void(0)" class="btn btn-outline" onclick="inquireJourney('Falls & Beyond', 'Zambia → Zimbabwe → Botswana')">Inquire <i class="fab fa-whatsapp"></i></a>
+                </div>
+                <!-- Route 4: Kingdom Circuit -->
+                <div class="itinerary-card">
+                    <div class="itinerary-header">
+                        <span class="itinerary-tag">7-10 Days</span>
+                        <h3>The Kingdom Circuit</h3>
+                        <p>🇱🇸 Lesotho <i class="fas fa-arrow-right"></i> 🇸🇿 Eswatini <i class="fas fa-arrow-right"></i> 🇿🇦 South Africa</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step"><span class="step-num">01</span><div class="step-info"><h4>Sani Pass & Malealea</h4><p>Mountain passes and pony trekking.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">02</span><div class="step-info"><h4>Afriski & Katse Dam</h4><p>Africa's only ski resort and engineering marvel.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">03</span><div class="step-info"><h4>Hlane & Mantenga</h4><p>Royal game reserve and Swazi cultural village.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">04</span><div class="step-info"><h4>Kruger's Orpen Gate</h4><p>Big Five finale in Africa's premier park.</p></div></div>
+                    </div>
+                    <a href="javascript:void(0)" class="btn btn-outline" onclick="inquireJourney('Kingdom Circuit', 'Lesotho → Eswatini → South Africa')">Inquire <i class="fab fa-whatsapp"></i></a>
+                </div>
+                <!-- Route 5: Lake & Mountain -->
+                <div class="itinerary-card">
+                    <div class="itinerary-header">
+                        <span class="itinerary-tag">10-14 Days</span>
+                        <h3>Lake & Mountain</h3>
+                        <p>🇲🇼 Malawi <i class="fas fa-arrow-right"></i> 🇲🇿 Mozambique</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step"><span class="step-num">01</span><div class="step-info"><h4>Cape Maclear & Nkhata Bay</h4><p>Snorkelling with a thousand cichlid species.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">02</span><div class="step-info"><h4>Mount Mulanje</h4><p>Hiking the "Island in the Sky" — Malawi's highest peak.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">03</span><div class="step-info"><h4>Liwonde National Park</h4><p>Boat safaris on the Shire River.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">04</span><div class="step-info"><h4>Ilha de Moçambique</h4><p>UNESCO World Heritage island with Swahili-Portuguese flair.</p></div></div>
+                    </div>
+                    <a href="javascript:void(0)" class="btn btn-outline" onclick="inquireJourney('Lake & Mountain', 'Malawi → Mozambique')">Inquire <i class="fab fa-whatsapp"></i></a>
+                </div>
+                <!-- Route 6: The Grand Safari -->
+                <div class="itinerary-card">
+                    <div class="itinerary-header">
+                        <span class="itinerary-tag">21-28 Days</span>
+                        <h3>The Grand Safari</h3>
+                        <p>🇿🇦 South Africa <i class="fas fa-arrow-right"></i> 🇳🇦 Namibia <i class="fas fa-arrow-right"></i> 🇧🇼 Botswana</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step"><span class="step-num">01</span><div class="step-info"><h4>Kruger National Park</h4><p>Big Five in Africa's iconic mega-reserve.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">02</span><div class="step-info"><h4>Etosha & Damaraland</h4><p>Desert-adapted elephants and ancient rock art.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">03</span><div class="step-info"><h4>Skeleton Coast & Sossusvlei</h4><p>Shipwrecks, seals, and the world's tallest dunes.</p></div></div>
+                        <div class="timeline-step"><span class="step-num">04</span><div class="step-info"><h4>Okavango & Moremi</h4><p>The ultimate delta safari — mokoro and 4x4.</p></div></div>
+                    </div>
+                    <a href="javascript:void(0)" class="btn btn-outline" onclick="inquireJourney('Grand Safari', 'South Africa → Namibia → Botswana')">Inquire <i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Mosaic Section -->
+    <section id="cultures" class="cultural-mosaic">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cultural Mosaic</h2>
+                <p>The living heritage of Southern Africa's most fascinating peoples.</p>
+            </div>
+            <div class="culture-grid">
+                <div class="culture-card">
+                    <div class="culture-icon">🏹</div>
+                    <h3>San (Bushmen)</h3>
+                    <span class="culture-region">Botswana • Namibia</span>
+                    <p>The world's oldest indigenous people — master trackers with 20,000-year-old rock art traditions.</p>
+                    <div class="culture-greeting"><strong>Greeting:</strong> "Tsamaya sentle" (Go well)</div>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-icon">🔴</div>
+                    <h3>Ovahimba</h3>
+                    <span class="culture-region">Namibia (Kaokoland)</span>
+                    <p>Semi-nomadic pastoralists known for their ochre-covered skin and intricate hairstyles indicating social status.</p>
+                    <div class="culture-greeting"><strong>Greeting:</strong> "Moro" (Good day)</div>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-icon">🛡</div>
+                    <h3>Zulu</h3>
+                    <span class="culture-region">South Africa (KwaZulu-Natal)</span>
+                    <p>Southern Africa's largest ethnic group — legendary warriors with rich ceremonies like the Reed Dance.</p>
+                    <div class="culture-greeting"><strong>Greeting:</strong> "Sawubona" (I see you)</div>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-icon">💎</div>
+                    <h3>Tswana</h3>
+                    <span class="culture-region">Botswana • South Africa</span>
+                    <p>Masters of cattle and democracy — the Kgotla (community court) inspired Botswana's peaceful governance.</p>
+                    <div class="culture-greeting"><strong>Greeting:</strong> "Dumela" (Hello)</div>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-icon">🏛</div>
+                    <h3>Shona</h3>
+                    <span class="culture-region">Zimbabwe</span>
+                    <p>Builders of Great Zimbabwe — world-renowned stone sculptors whose art graces galleries globally.</p>
+                    <div class="culture-greeting"><strong>Greeting:</strong> "Mhoro" (Hello)</div>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-icon">🌾</div>
+                    <h3>Chewa</h3>
+                    <span class="culture-region">Malawi • Zambia</span>
+                    <p>Keepers of the Gule Wamkulu — a UNESCO-recognised masked dance of spirits and ancestors.</p>
+                    <div class="culture-greeting"><strong>Greeting:</strong> "Moni" (Hello)</div>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-icon">👑</div>
+                    <h3>Swazi</h3>
+                    <span class="culture-region">Eswatini</span>
+                    <p>A kingdom of ceremony — home to the Incwala (Kingship) and Umhlanga (Reed Dance) festivals.</p>
+                    <div class="culture-greeting"><strong>Greeting:</strong> "Sawubona" (I see you)</div>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-icon">🐎</div>
+                    <h3>Basotho</h3>
+                    <span class="culture-region">Lesotho</span>
+                    <p>Mountain horsemen of the "Kingdom in the Sky" — famous for their Basotho blankets and ponies.</p>
+                    <div class="culture-greeting"><strong>Greeting:</strong> "Lumela" (Hello)</div>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-icon">🌊</div>
+                    <h3>Makua</h3>
+                    <span class="culture-region">Mozambique</span>
+                    <p>Coastal traders with Swahili-Portuguese heritage — known for white-face "musiro" beauty masks.</p>
+                    <div class="culture-greeting"><strong>Greeting:</strong> "Salama" (Peace)</div>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-icon">👗</div>
+                    <h3>Ovaherero</h3>
+                    <span class="culture-region">Namibia • Botswana</span>
+                    <p>Known for iconic Victorian-era dresses and horn-shaped headdresses — a symbol of cattle wealth.</p>
+                    <div class="culture-greeting"><strong>Greeting:</strong> "Tjike" (Hello)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- National Parks & Conservation Hub -->
+    <section id="parks" class="parks-hub">
+        <div class="container">
+            <div class="section-header">
+                <h2>National Parks & Conservation</h2>
+                <p>30+ protected reserves — 18% of Southern Africa's surface area dedicated to wildlife.</p>
+            </div>
+            <div class="parks-filters">
+                <button class="park-filter active" data-filter="all">All Parks</button>
+                <button class="park-filter" data-filter="south-africa">🇿🇦 South Africa</button>
+                <button class="park-filter" data-filter="namibia">🇳🇦 Namibia</button>
+                <button class="park-filter" data-filter="botswana">🇧🇼 Botswana</button>
+                <button class="park-filter" data-filter="zambia">🇿🇲 Zambia</button>
+                <button class="park-filter" data-filter="zimbabwe">🇿🇼 Zimbabwe</button>
+                <button class="park-filter" data-filter="mozambique">🇲🇿 Mozambique</button>
+                <button class="park-filter" data-filter="malawi">🇲🇼 Malawi</button>
+            </div>
+            <div class="parks-grid">
+                <div class="park-card" data-country="south-africa">
+                    <div class="park-badge">🇿🇦</div>
+                    <h3>Kruger National Park</h3>
+                    <p>Africa's greatest game reserve — Big Five, 500+ bird species, 2M hectares of wilderness.</p>
+                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Big Five</span><span><i class="fa-solid fa-person-hiking"></i> Easy-Moderate</span></div>
+                </div>
+                <div class="park-card" data-country="namibia">
+                    <div class="park-badge">🇳🇦</div>
+                    <h3>Etosha National Park</h3>
+                    <p>One of Africa's oldest parks — centred on a vast salt pan visible from space, teeming with wildlife at waterholes.</p>
+                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Big Five</span><span><i class="fa-solid fa-person-hiking"></i> Easy</span></div>
+                </div>
+                <div class="park-card" data-country="botswana">
+                    <div class="park-badge">🇧🇼</div>
+                    <h3>Chobe National Park</h3>
+                    <p>Home to Africa's largest elephant population — 120,000 elephants and spectacular river cruises.</p>
+                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Elephants</span><span><i class="fa-solid fa-person-hiking"></i> Easy</span></div>
+                </div>
+                <div class="park-card" data-country="zambia">
+                    <div class="park-badge">🇿🇲</div>
+                    <h3>South Luangwa</h3>
+                    <p>Birthplace of the walking safari — legendary leopard sightings and the Luangwa River's hippo pools.</p>
+                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Leopards</span><span><i class="fa-solid fa-person-hiking"></i> Moderate</span></div>
+                </div>
+                <div class="park-card" data-country="zimbabwe">
+                    <div class="park-badge">🇿🇼</div>
+                    <h3>Hwange National Park</h3>
+                    <p>Zimbabwe's largest reserve — over 100 mammal and 400 bird species cross ancient elephant migration corridors.</p>
+                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Elephants</span><span><i class="fa-solid fa-person-hiking"></i> Moderate</span></div>
+                </div>
+                <div class="park-card" data-country="namibia">
+                    <div class="park-badge">🇳🇦</div>
+                    <h3>Namib-Naukluft Park</h3>
+                    <p>One of the world's largest conservation areas — home to Sossusvlei's iconic red dunes, the oldest desert on Earth.</p>
+                    <div class="park-meta"><span><i class="fa-solid fa-mountain"></i> Landscapes</span><span><i class="fa-solid fa-person-hiking"></i> Moderate</span></div>
+                </div>
+                <div class="park-card" data-country="mozambique">
+                    <div class="park-badge">🇲🇿</div>
+                    <h3>Gorongosa National Park</h3>
+                    <p>Africa's greatest wildlife restoration story — from war-devastation to thriving ecosystem in a single generation.</p>
+                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Lions</span><span><i class="fa-solid fa-person-hiking"></i> Moderate</span></div>
+                </div>
+                <div class="park-card" data-country="malawi">
+                    <div class="park-badge">🇲🇼</div>
+                    <h3>Liwonde National Park</h3>
+                    <p>Malawi's premier wildlife reserve — boat safaris along the Shire River alongside elephants, hippos, and crocs.</p>
+                    <div class="park-meta"><span><i class="fa-solid fa-paw"></i> Elephants</span><span><i class="fa-solid fa-person-hiking"></i> Easy</span></div>
+                </div>
+                <div class="park-card" data-country="namibia">
+                    <div class="park-badge">🇳🇦</div>
+                    <h3>Skeleton Coast Park</h3>
+                    <p>Where the desert meets the Atlantic — shipwrecks, fur seals, and desert-adapted lions haunt this eerie coast.</p>
+                    <div class="park-meta"><span><i class="fa-solid fa-skull-crossbones"></i> Remote</span><span><i class="fa-solid fa-person-hiking"></i> Advanced</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gastronomy Journey -->
+    <section id="gastronomy" class="gastronomy">
+        <div class="container">
+            <div class="section-header">
+                <h2>Gastronomy Journey</h2>
+                <p>Taste Southern Africa — from open-fire braais to Swahili-spiced coastlines.</p>
+            </div>
+            <div class="gastro-scroll">
+                <div class="gastro-card">
+                    <div class="gastro-emoji">🥩</div>
+                    <h3>Kapana</h3>
+                    <span class="gastro-country">🇳🇦 Namibia</span>
+                    <p>Thin strips of beef grilled over open coals, served with chilli relish and vetkoek — Windhoek's beloved street food.</p>
+                </div>
+                <div class="gastro-card">
+                    <div class="gastro-emoji">🔥</div>
+                    <h3>Braai</h3>
+                    <span class="gastro-country">🇿🇦 South Africa</span>
+                    <p>More than a BBQ — it's a cultural institution. Boerewors, sosaties, and pap unite every South African gathering.</p>
+                </div>
+                <div class="gastro-card">
+                    <div class="gastro-emoji">🍖</div>
+                    <h3>Seswaa</h3>
+                    <span class="gastro-country">🇧🇼 Botswana</span>
+                    <p>Slow-cooked, pounded beef — Botswana's national dish, served at every wedding and celebration.</p>
+                </div>
+                <div class="gastro-card">
+                    <div class="gastro-emoji">🌽</div>
+                    <h3>Nshima</h3>
+                    <span class="gastro-country">🇿🇲 Zambia</span>
+                    <p>A thick maize porridge eaten with relish — the heartbeat of every Zambian meal, shaped by hand.</p>
+                </div>
+                <div class="gastro-card">
+                    <div class="gastro-emoji">🍲</div>
+                    <h3>Sadza</h3>
+                    <span class="gastro-country">🇿🇼 Zimbabwe</span>
+                    <p>Zimbabwe's staple — maize meal served with muriwo (greens) and nyama (meat). No Zimbabwean table is complete without it.</p>
+                </div>
+                <div class="gastro-card">
+                    <div class="gastro-emoji">🦐</div>
+                    <h3>Peri-Peri Prawns</h3>
+                    <span class="gastro-country">🇲🇿 Mozambique</span>
+                    <p>Giant tiger prawns in fiery peri-peri sauce — a Portuguese-African fusion that defines Mozambican cuisine.</p>
+                </div>
+                <div class="gastro-card">
+                    <div class="gastro-emoji">🐛</div>
+                    <h3>Omagungu</h3>
+                    <span class="gastro-country">🇳🇦 Namibia</span>
+                    <p>Fried Mopane worms — a protein-rich delicacy harvested from Mopane trees, crunchy and surprisingly addictive.</p>
+                </div>
+                <div class="gastro-card">
+                    <div class="gastro-emoji">🏔</div>
+                    <h3>Papa</h3>
+                    <span class="gastro-country">🇱🇸 Lesotho</span>
+                    <p>Mountain-ground maize porridge with moroho (wild greens) — hearty fare for the Kingdom in the Sky.</p>
+                </div>
+                <div class="gastro-card">
+                    <div class="gastro-emoji">🍺</div>
+                    <h3>Signature Drinks</h3>
+                    <span class="gastro-country">🌍 Region-wide</span>
+                    <p>Amarula (SA), Windhoek Lager (NAM), Chibuku (ZM/MW), Tipo Tinto (MOZ) — each with a story to tell.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Experiences Section (Already implemented) -->
+
+
+    <!-- Southern Africa Utility Hub -->
+    <section id="plan" class="utility-hub">
+        <div class="container">
+            <div class="section-header">
+                <h2>Traveler Utility Hub</h2>
+                <p>Everything you need to plan your Southern African adventure — in one place.</p>
+            </div>
+            <div class="hub-grid">
+
+                <!-- 1. Currency Converter — Large Card -->
+                <div class="hub-card hub-card--lg" id="hub-currency">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-coins"></i></span>
+                        <h3>Currency Converter</h3>
+                    </div>
+                    <div class="hub-converter">
+                        <div class="hub-input-row">
+                            <div class="hub-input-group">
+                                <label>Amount</label>
+                                <input type="number" id="hub-amount" value="100" min="1">
+                            </div>
+                            <div class="hub-input-group">
+                                <label>From</label>
+                                <select id="hub-from-currency">
+                                    <option value="USD">🇺🇸 USD</option>
+                                    <option value="EUR">🇪🇺 EUR</option>
+                                    <option value="GBP">🇬🇧 GBP</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="hub-currency-results" id="hub-results">
+                            <div class="hub-cur-row"><span class="hub-flag">🇿🇦</span><span class="hub-cur-name">South African Rand</span><span class="hub-cur-val" data-rate-usd="18.50" data-rate-eur="20.00" data-rate-gbp="23.50">1,850.00</span></div>
+                            <div class="hub-cur-row"><span class="hub-flag">🇳🇦</span><span class="hub-cur-name">Namibian Dollar</span><span class="hub-cur-val" data-rate-usd="18.50" data-rate-eur="20.00" data-rate-gbp="23.50">1,850.00</span></div>
+                            <div class="hub-cur-row"><span class="hub-flag">🇧🇼</span><span class="hub-cur-name">Botswana Pula</span><span class="hub-cur-val" data-rate-usd="13.50" data-rate-eur="14.60" data-rate-gbp="17.10">1,350.00</span></div>
+                            <div class="hub-cur-row"><span class="hub-flag">🇿🇲</span><span class="hub-cur-name">Zambian Kwacha</span><span class="hub-cur-val" data-rate-usd="25.00" data-rate-eur="27.00" data-rate-gbp="31.80">2,500.00</span></div>
+                            <div class="hub-cur-row"><span class="hub-flag">🇿🇼</span><span class="hub-cur-name">Zimbabwe Gold (ZiG)</span><span class="hub-cur-val" data-rate-usd="13.56" data-rate-eur="14.65" data-rate-gbp="17.20">1,356.00</span></div>
+                            <div class="hub-cur-row"><span class="hub-flag">🇲🇿</span><span class="hub-cur-name">Mozambican Metical</span><span class="hub-cur-val" data-rate-usd="63.90" data-rate-eur="69.00" data-rate-gbp="81.00">6,390.00</span></div>
+                            <div class="hub-cur-row"><span class="hub-flag">🇲🇼</span><span class="hub-cur-name">Malawian Kwacha</span><span class="hub-cur-val" data-rate-usd="1735" data-rate-eur="1880" data-rate-gbp="2200">173,500</span></div>
+                            <div class="hub-cur-row"><span class="hub-flag">🇱🇸</span><span class="hub-cur-name">Lesotho Loti</span><span class="hub-cur-val" data-rate-usd="18.50" data-rate-eur="20.00" data-rate-gbp="23.50">1,850.00</span></div>
+                            <div class="hub-cur-row"><span class="hub-flag">🇸🇿</span><span class="hub-cur-name">Swazi Lilangeni</span><span class="hub-cur-val" data-rate-usd="18.50" data-rate-eur="20.00" data-rate-gbp="23.50">1,850.00</span></div>
+                        </div>
+                        <div class="hub-converter-note">Approximate rates · Updated Mar 2026</div>
+                    </div>
+                </div>
+
+                <!-- 2. Visa & Health Matrix — Large Card -->
+                <div class="hub-card hub-card--lg" id="hub-visa">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-passport"></i></span>
+                        <h3>Visa & Health Matrix</h3>
+                    </div>
+                    <div class="hub-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="hub-visa-search" placeholder="Search country...">
+                    </div>
+                    <div class="hub-matrix">
+                        <div class="hub-matrix-head">
+                            <span>Country</span><span>Visa</span><span>Health</span><span>Advisory</span>
+                        </div>
+                        <div class="hub-matrix-row" data-country="south africa"><span>🇿🇦 South Africa</span><span class="badge badge--green">Visa Free</span><span class="badge badge--yellow">Yellow Fever*</span><span class="badge badge--green">Low Risk</span></div>
+                        <div class="hub-matrix-row" data-country="namibia"><span>🇳🇦 Namibia</span><span class="badge badge--green">Visa Free 90d</span><span class="badge badge--yellow">Malaria (N)</span><span class="badge badge--green">Low Risk</span></div>
+                        <div class="hub-matrix-row" data-country="botswana"><span>🇧🇼 Botswana</span><span class="badge badge--green">Visa Free 90d</span><span class="badge badge--yellow">Malaria (N)</span><span class="badge badge--green">Low Risk</span></div>
+                        <div class="hub-matrix-row" data-country="zambia"><span>🇿🇲 Zambia</span><span class="badge badge--yellow">KAZA UniVisa</span><span class="badge badge--red">Yellow Fever</span><span class="badge badge--green">Low Risk</span></div>
+                        <div class="hub-matrix-row" data-country="zimbabwe"><span>🇿🇼 Zimbabwe</span><span class="badge badge--yellow">KAZA UniVisa</span><span class="badge badge--yellow">Malaria Risk</span><span class="badge badge--yellow">Moderate</span></div>
+                        <div class="hub-matrix-row" data-country="mozambique"><span>🇲🇿 Mozambique</span><span class="badge badge--yellow">Visa on Arrival</span><span class="badge badge--red">Malaria High</span><span class="badge badge--yellow">Moderate</span></div>
+                        <div class="hub-matrix-row" data-country="malawi"><span>🇲🇼 Malawi</span><span class="badge badge--yellow">E-Visa</span><span class="badge badge--yellow">Bilharzia</span><span class="badge badge--green">Low Risk</span></div>
+                        <div class="hub-matrix-row" data-country="lesotho"><span>🇱🇸 Lesotho</span><span class="badge badge--green">Visa Free</span><span class="badge badge--green">Low Risk</span><span class="badge badge--green">Low Risk</span></div>
+                        <div class="hub-matrix-row" data-country="eswatini"><span>🇸🇿 Eswatini</span><span class="badge badge--green">Visa Free</span><span class="badge badge--green">Low Malaria</span><span class="badge badge--green">Low Risk</span></div>
+                    </div>
+                </div>
+
+                <!-- 3. Best Time to Visit — Medium Card -->
+                <div class="hub-card hub-card--md" id="hub-seasons">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-sun"></i></span>
+                        <h3>Best Time to Visit</h3>
+                    </div>
+                    <div class="hub-legend">
+                        <span class="legend-dot legend-peak"></span> Peak
+                        <span class="legend-dot legend-shoulder"></span> Shoulder
+                        <span class="legend-dot legend-off"></span> Off-Season
+                    </div>
+                    <div class="hub-season-grid">
+                        <div class="season-head"><span></span><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div>
+                        <div class="season-row"><span>🇿🇦 SA</span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-peak"></span></div>
+                        <div class="season-row"><span>🇳🇦 NAM</span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-off"></span></div>
+                        <div class="season-row"><span>🇧🇼 BWA</span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-off"></span></div>
+                        <div class="season-row"><span>🇿🇲 ZMB</span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-off"></span></div>
+                        <div class="season-row"><span>🇿🇼 ZWE</span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-off"></span></div>
+                        <div class="season-row"><span>🇲🇿 MOZ</span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-off"></span></div>
+                        <div class="season-row"><span>🇲🇼 MWI</span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-off"></span></div>
+                        <div class="season-row"><span>🇱🇸 LSO</span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-off"></span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span></div>
+                        <div class="season-row"><span>🇸🇿 SWZ</span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span></div>
+                    </div>
+                </div>
+
+                <!-- 4. Weather Dashboard — Medium Card -->
+                <div class="hub-card hub-card--md" id="hub-weather">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-cloud-sun"></i></span>
+                        <h3>Weather Now</h3>
+                    </div>
+                    <div class="hub-weather-grid">
+                        <div class="weather-city"><span class="weather-flag">🇿🇦</span><span class="weather-name">Cape Town</span><span class="weather-temp">22°C</span><span class="weather-icon">☀️</span></div>
+                        <div class="weather-city"><span class="weather-flag">🇳🇦</span><span class="weather-name">Windhoek</span><span class="weather-temp">28°C</span><span class="weather-icon">⛅</span></div>
+                        <div class="weather-city"><span class="weather-flag">🇧🇼</span><span class="weather-name">Gaborone</span><span class="weather-temp">30°C</span><span class="weather-icon">☀️</span></div>
+                        <div class="weather-city"><span class="weather-flag">🇿🇲</span><span class="weather-name">Lusaka</span><span class="weather-temp">26°C</span><span class="weather-icon">🌧️</span></div>
+                        <div class="weather-city"><span class="weather-flag">🇿🇼</span><span class="weather-name">Harare</span><span class="weather-temp">25°C</span><span class="weather-icon">⛅</span></div>
+                        <div class="weather-city"><span class="weather-flag">🇲🇿</span><span class="weather-name">Maputo</span><span class="weather-temp">31°C</span><span class="weather-icon">🌤️</span></div>
+                        <div class="weather-city"><span class="weather-flag">🇲🇼</span><span class="weather-name">Lilongwe</span><span class="weather-temp">24°C</span><span class="weather-icon">🌧️</span></div>
+                        <div class="weather-city"><span class="weather-flag">🇱🇸</span><span class="weather-name">Maseru</span><span class="weather-temp">20°C</span><span class="weather-icon">☀️</span></div>
+                        <div class="weather-city"><span class="weather-flag">🇸🇿</span><span class="weather-name">Mbabane</span><span class="weather-temp">22°C</span><span class="weather-icon">⛅</span></div>
+                    </div>
+                    <div class="hub-converter-note">Typical March conditions</div>
+                </div>
+
+                <!-- 5. Emergency Contacts — Small Card -->
+                <div class="hub-card hub-card--sm" id="hub-emergency">
+                    <div class="hub-card-header">
+                        <span class="hub-icon hub-icon--red"><i class="fas fa-phone-alt"></i></span>
+                        <h3>Emergency Contacts</h3>
+                    </div>
+                    <div class="hub-emergency-list">
+                        <div class="emg-row"><span class="emg-flag">🇿🇦</span><span class="emg-country">South Africa</span><span class="emg-nums">Police 10111 · Ambulance 10177</span></div>
+                        <div class="emg-row"><span class="emg-flag">🇳🇦</span><span class="emg-country">Namibia</span><span class="emg-nums">Police 10111 · Ambulance 211111</span></div>
+                        <div class="emg-row"><span class="emg-flag">🇧🇼</span><span class="emg-country">Botswana</span><span class="emg-nums">Police 999 · Ambulance 997</span></div>
+                        <div class="emg-row"><span class="emg-flag">🇿🇲</span><span class="emg-country">Zambia</span><span class="emg-nums">Police 999 · Ambulance 992</span></div>
+                        <div class="emg-row"><span class="emg-flag">🇿🇼</span><span class="emg-country">Zimbabwe</span><span class="emg-nums">Police 995 · Ambulance 994</span></div>
+                        <div class="emg-row"><span class="emg-flag">🇲🇿</span><span class="emg-country">Mozambique</span><span class="emg-nums">Police 119 · Ambulance 117</span></div>
+                        <div class="emg-row"><span class="emg-flag">🇲🇼</span><span class="emg-country">Malawi</span><span class="emg-nums">Police 997 · Ambulance 998</span></div>
+                        <div class="emg-row"><span class="emg-flag">🇱🇸</span><span class="emg-country">Lesotho</span><span class="emg-nums">Police 123 · Ambulance 121</span></div>
+                        <div class="emg-row"><span class="emg-flag">🇸🇿</span><span class="emg-country">Eswatini</span><span class="emg-nums">Police 999 · Ambulance 977</span></div>
+                    </div>
+                </div>
+
+                <!-- 6. Packing Wizard — Small Card -->
+                <div class="hub-card hub-card--sm" id="hub-packing">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-suitcase-rolling"></i></span>
+                        <h3>Packing Wizard</h3>
+                    </div>
+                    <div class="hub-pack-tabs">
+                        <button class="hub-tab active" data-pack="safari">🦁 Safari</button>
+                        <button class="hub-tab" data-pack="beach">🏖️ Beach</button>
+                        <button class="hub-tab" data-pack="city">🏙️ City</button>
+                        <button class="hub-tab" data-pack="mountain">⛰️ Mountain</button>
+                    </div>
+                    <div class="hub-pack-progress">
+                        <div class="hub-progress-bar"><div class="hub-progress-fill" id="pack-progress"></div></div>
+                        <span class="hub-progress-text" id="pack-progress-text">0 of 8 packed</span>
+                    </div>
+                    <div class="hub-pack-list" id="hub-pack-list">
+                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Binoculars</span></label>
+                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Neutral-tone clothing</span></label>
+                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Insect repellent (DEET)</span></label>
+                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Headlamp / torch</span></label>
+                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Power bank</span></label>
+                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Sun hat & SPF 50</span></label>
+                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Camera + zoom lens</span></label>
+                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Reusable water bottle</span></label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Get Traveler Updates</h2>
+            <p>Join our newsletter for insider tips, exclusive offers, and the latest travel news from Southern Africa.</p>
+            <form class="signup-form">
+                <input type="email" placeholder="Your Email Address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="logo">SAVANNA EXPLORER</a>
+                    <p>Our mission is to showcase the unparalleled beauty of Southern Africa to the world, promoting sustainable tourism and conservation.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#experiences">Experiences</a></li>
+                        <li><a href="#plan">Plan Your Trip</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Destinations</h4>
+                    <ul>
+                        <li><a href="#">South Africa</a></li>
+                        <li><a href="#">Namibia</a></li>
+                        <li><a href="#">Botswana</a></li>
+                        <li><a href="#">Zambia</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Business Directory</a></li>
+                        <li><a href="#">Travel Planning</a></li>
+                        <li><a href="#">Border Posts</a></li>
+                        <li><a href="#">Foreign Missions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Savanna Explorer. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Country Detail View (Full Page) -->
+    <section id="country-detail-view" class="country-detail-view hidden">
+        <div class="detail-header">
+            <button id="close-detail" class="btn-back-main">
+                <i class="fas fa-arrow-left"></i> Back to Destinations
+            </button>
+            <div class="detail-hero">
+                <img id="detail-hero-img" src="" alt="Country Hero">
+                <div class="detail-hero-overlay">
+                    <div class="container">
+                        <h1 id="detail-title">Country Name</h1>
+                        <p id="detail-tagline" class="premium-tagline">Premium Tagline</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-content">
+            <div class="container">
+                <!-- Country Overview -->
+                <div class="detail-section" id="detail-overview">
+                    <div class="detail-grid">
+                        <div class="detail-text-block">
+                            <h2>Landscapes & Geography</h2>
+                            <p id="detail-geo">Geography details...</p>
+                        </div>
+                        <div class="detail-text-block">
+                            <h2>People & Culture</h2>
+                            <p id="detail-people">Culture details...</p>
+                            <!-- Inline Cultural Discovery Bar -->
+                            <div id="detail-flavor-inline" class="flavor-inline-grid"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attractions Grid -->
+                <div class="detail-section">
+                    <div class="section-header-left">
+                        <h2>Must Visit Attractions</h2>
+                        <div class="accent-line"></div>
+                    </div>
+                    <div id="detail-spots-grid" class="attractions-detail-grid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Signature Experiences -->
+                <div class="detail-section luxury-accent-bg">
+                    <div class="section-header-left">
+                        <h2>Signature Experiences</h2>
+                        <div class="accent-line"></div>
+                    </div>
+                    <div id="detail-activities" class="activities-detail-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Travelers' Toolbox -->
+                <div class="detail-section">
+                    <div class="section-header-left">
+                        <h2>Traveler's Toolbox</h2>
+                        <div class="accent-line"></div>
+                    </div>
+                    <div class="toolbox-grid">
+                        <div class="toolbox-card">
+                            <i class="fas fa-route"></i>
+                            <h3>Transport</h3>
+                            <p id="detail-transport">Transport info...</p>
+                        </div>
+                        <div class="toolbox-card">
+                            <i class="fas fa-wallet"></i>
+                            <h3>Budget</h3>
+                            <p id="detail-budget">Budget info...</p>
+                        </div>
+                        <div class="toolbox-card">
+                            <i class="fas fa-passport"></i>
+                            <h3>Visa & Entry</h3>
+                            <p id="detail-visa">Visa info...</p>
+                        </div>
+                        <div class="toolbox-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Safety & Health</h3>
+                            <p id="detail-safety">Safety info...</p>
+                        </div>
+                        <div class="toolbox-card">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <h3>Currency</h3>
+                            <p id="detail-money">Currency info...</p>
+                        </div>
+                        <div class="toolbox-card">
+                            <i class="fas fa-sun"></i>
+                            <h3>Best Time</h3>
+                            <p id="detail-climate">Climate info...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Final Journey CTA Section -->
+        <div class="final-cta-section">
+            <div class="container">
+                <button class="btn btn-primary enlarge-on-hover" onclick="document.getElementById('close-detail').click(); window.location.hash='#contact';">
+                    Plan My Trip to <span class="cta-country-name">this Destination</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketplace Modal (Experiences) -->
+    <div id="marketplace-modal" class="modal">
+        <div class="modal-overlay market-close"></div>
+        <div class="modal-container">
+            <button class="modal-close market-close">&times;</button>
+            <div class="modal-header">
+                <h2><span id="market-title">Marketplace</span> Experiences</h2>
+                <p>Curated packages, tours, and activities directly from verified local providers.</p>
+            </div>
+            <div class="modal-body">
+                <div id="marketplace-grid" class="marketplace-grid">
+                    <!-- Dynamic Experience Cards Injected Here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Supabase JS API -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="main.js?v=savanna-v2.7"></script>
+</body>
+</html>
