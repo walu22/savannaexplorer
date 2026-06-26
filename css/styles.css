@@ -2026,19 +2026,22 @@ footer {
 
 /* Header & Back Button */
 .detail-header {
-    position: relative;
-    width: 100%;
+    padding: 100px 0 32px;
+    background: var(--bg-cream);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.detail-header-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .btn-back-main {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    z-index: 2010;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
+    align-self: flex-start;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-main);
     padding: 12px 24px;
     border-radius: 50px;
     font-weight: 500;
@@ -2050,62 +2053,33 @@ footer {
 }
 
 .btn-back-main:hover {
-    background: white;
-    color: var(--accent);
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
     transform: translateX(-5px);
 }
 
-/* Hero Section */
-.detail-hero {
-    height: 70vh;
-    position: relative;
-    overflow: hidden;
-}
-
-#detail-hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.1);
-    transition: transform 10s ease;
-}
-
-.country-detail-view:not(.hidden) #detail-hero-img {
-    transform: scale(1);
-}
-
-.detail-hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 80px;
-}
-
-.detail-hero-overlay h1 {
-    font-size: 5rem;
-    color: white;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+.detail-page-title h1 {
+    font-size: 3.5rem;
+    color: var(--text-main);
+    margin-bottom: 8px;
     font-weight: 800;
     font-family: var(--font-accent);
+    line-height: 1.1;
 }
 
-.premium-tagline-detail {
-    font-size: 1.5rem;
-    color: var(--primary);
+.detail-tagline {
+    font-size: 1.1rem;
+    color: var(--text-muted);
     font-family: var(--font-accent);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
+    margin: 0;
 }
 
 /* Content Sections */
 .detail-content {
-    padding: 80px 0 150px;
+    padding: 40px 0 150px;
 }
 
 .detail-section {
@@ -2374,8 +2348,8 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    .detail-hero-overlay h1 {
-        font-size: 3.5rem;
+    .detail-page-title h1 {
+        font-size: 2.5rem;
     }
     
     .luxury-accent-bg {
@@ -2393,10 +2367,6 @@ footer {
     .flavor-info {
         flex-direction: column;
         gap: 20px;
-    }
-    
-    .detail-hero {
-        height: 60vh;
     }
 }
 

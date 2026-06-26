@@ -4,7 +4,6 @@ import { spotImageUrl, activityImageUrl } from '../lib/images.js';
 
 const detailView = document.getElementById('country-detail-view');
 const closeDetailBtn = document.getElementById('close-detail');
-const detailHeroImg = document.getElementById('detail-hero-img');
 const detailTitle = document.getElementById('detail-title');
 const detailTagline = document.getElementById('detail-tagline');
 const detailGeo = document.getElementById('detail-geo');
@@ -44,9 +43,6 @@ function populateCountryPage(countryId) {
     document.getElementById('detail-wildlife').textContent = guide.wildlife;
     detailGeo.textContent = data.about.geo;
     detailPeople.textContent = data.about.people;
-
-    const cardImg = document.querySelector(`.country-card[data-country-id="${countryId}"] img`);
-    if (cardImg) detailHeroImg.src = cardImg.src.replace('w=800', 'w=1920');
 
     detailSpotsGrid.innerHTML = data.spots.map(spot => `
         <div class="spot-detail-card">
