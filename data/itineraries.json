@@ -67,7 +67,9 @@
       "Travel and cancellation insurance",
       "Optional activities (balloon rides, scenic flights)",
       "Visa fees and border crossing charges"
-    ]
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1504107123655-081832049e37?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey."
   },
   "coastal-explorer": {
     "type": "Self-Drive Route",
@@ -131,7 +133,9 @@
       "Meals and personal expenses",
       "Travel insurance",
       "Mozambique visa fees"
-    ]
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1506905925344-21ddaec4d32d?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey."
   },
   "falls-beyond": {
     "type": "Guided & Self-Drive",
@@ -188,7 +192,9 @@
       "Premium spirits and personal purchases",
       "Travel insurance",
       "Gratuities for guides and lodge staff"
-    ]
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey."
   },
   "kingdom-circuit": {
     "type": "Mountain & Culture Route",
@@ -245,7 +251,9 @@
       "Optional abseiling at Maletsunyane Falls",
       "Travel insurance",
       "Lesotho/Eswatini border fees"
-    ]
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1541414779316-956a5084c0d4?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey."
   },
   "lake-mountain": {
     "type": "Adventure Route",
@@ -302,7 +310,9 @@
       "Mulanje peak summit attempt (optional guide upgrade)",
       "Mozambique visa fees",
       "Travel insurance"
-    ]
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey."
   },
   "grand-safari": {
     "type": "Signature Safari",
@@ -372,6 +382,8 @@
       "Meals not specified as included",
       "Travel and cancellation insurance",
       "Visa fees for three countries"
-    ]
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey."
   }
 }

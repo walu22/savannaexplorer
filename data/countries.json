@@ -286,7 +286,7 @@
     "about": {
       "geo": "A high-altitude plateau cut by the massive Zambezi, Kafue, and Luangwa rivers. Home to the legendary Victoria Falls and some of the largest, most pristine wilderness areas in Africa.",
       "people": "Zambians are famously friendly and welcoming, with over 70 ethnic groups living in harmony. The nation is often cited as one of the most peaceful in Africa.",
-      "history": "From ancient Gwembe Tonga cultures to the exploration of David Livingstone. Since independence in 1964, Zambia has remained a stable and vibrant democracy."
+      "history": "Ancient Tonga and Lozi kingdoms flourished along the Zambezi for centuries before David Livingstone became the first European to witness Victoria Falls in 1855, naming them after Queen Victoria. Northern Rhodesia was administered by the British South Africa Company until 1924, then as a British protectorate. Copper mining in the Copperbelt transformed the economy. Independence came peacefully on 24 October 1964 under Kenneth Kaunda, who championed pan-Africanism and stability. Today Zambia is renowned for its peaceful democracy, pioneering walking safaris in South Luangwa, and community conservation models."
     },
     "spots": [
       {
@@ -383,50 +383,60 @@
     "about": {
       "geo": "A dramatic high-altitude plateau framed by the lush Eastern Highlands, the northern Zambezi Valley, and the wild southern Lowveld plains.",
       "people": "Known for their resilience and deep-rooted cultural pride, Zimbabweans excel in art, education, and world-class hospitality.",
-      "history": "From the medieval stone city of Great Zimbabwe to the modern struggle for independence. A land rich in ancient heritage and colonial complexity."
+      "history": "The medieval stone city of Great Zimbabwe — built between 1100 and 1450 AD — was the capital of a vast trading empire that exported gold and ivory to the Swahili coast. Cecil Rhodes' British South Africa Company occupied the territory in 1890, naming it Rhodesia. After a bitter liberation war, independence was achieved on 18 April 1980 as Zimbabwe, with Robert Mugabe as prime minister. Despite economic challenges, the country has preserved world-class guiding standards, UNESCO sites at Great Zimbabwe and Mana Pools, and a cultural renaissance in stone sculpture and mbira music."
     },
     "spots": [
       {
         "name": "Victoria Falls (Mosi-oa-Tunya)",
-        "desc": "The most impressive panoramic views of the \"Smoke That Thunders\". A world-class hub for both sightseeing and extreme adventure."
+        "desc": "The most impressive panoramic views of the \"Smoke That Thunders\". A world-class hub for both sightseeing and extreme adventure.",
+        "image": "1516026672322-bc52d61a55d5"
       },
       {
         "name": "Hwange National Park",
-        "desc": "The flagship wildlife reserve. Famous for its massive elephant population and the \"presidential\" lion prides around its diverse waterholes."
+        "desc": "The flagship wildlife reserve. Famous for its massive elephant population and the \"presidential\" lion prides around its diverse waterholes.",
+        "image": "1547970810-dc1eef37d176"
       },
       {
         "name": "Mana Pools (UNESCO)",
-        "desc": "A remote walking safari paradise in the Zambezi Valley, where elephants are known to stand on their hind legs to reach acacia pods."
+        "desc": "A remote walking safari paradise in the Zambezi Valley, where elephants are known to stand on their hind legs to reach acacia pods.",
+        "image": "1516246062751-beda751bedaf"
       },
       {
         "name": "Lake Kariba",
-        "desc": "A vast inland sea known for its \"drowning forests\" and spectacular sunset safaris by boat or luxury houseboat."
+        "desc": "A vast inland sea known for its \"drowning forests\" and spectacular sunset safaris by boat or luxury houseboat.",
+        "image": "1519066629447-267fffa62d4b"
       },
       {
         "name": "Matobo Hills",
-        "desc": "A landscape of balancing boulders and ancient San rock art, and the final resting place of Cecil Rhodes."
+        "desc": "A landscape of balancing boulders and ancient San rock art, and the final resting place of Cecil Rhodes.",
+        "image": "1502675135487-e971002a6adb"
       }
     ],
     "activities": [
       {
         "name": "Walking Safaris",
-        "desc": "Zimbabwe trains some of Africa's most elite guides. Mana Pools is the world center for safe, up-close walking encounters."
+        "desc": "Zimbabwe trains some of Africa's most elite guides. Mana Pools is the world center for safe, up-close walking encounters.",
+        "image": "1516026672322-bc52d61a55d5"
       },
       {
         "name": "Bungee & Bridge Jump",
-        "desc": "Leap into the abyss from the Victoria Falls bridge with the legendary falls as your backdrop."
+        "desc": "Leap into the abyss from the Victoria Falls bridge with the legendary falls as your backdrop.",
+        "image": "1547970810-dc1eef37d176"
       },
       {
         "name": "Elephant Interaction",
-        "desc": "Hwange offers unique opportunities to observe massive herds from \"log-pile\" hides at water level."
+        "desc": "Hwange offers unique opportunities to observe massive herds from \"log-pile\" hides at water level.",
+        "image": "1516246062751-beda751bedaf"
       },
       {
         "name": "Great Zimbabwe Tour",
-        "desc": "Explore the massive stone ruins of an ancient empire that gave the modern nation its name."
+        "desc": "Explore the massive stone ruins of an ancient empire that gave the modern nation its name.",
+        "image": "1519066629447-267fffa62d4b"
       },
       {
         "name": "Tiger Fishing",
-        "desc": "Lake Kariba and the Upper Zambezi offer world-class challenges for this legendary freshwater predator."
+        "desc": "Lake Kariba and the Upper Zambezi offer world-class challenges for this legendary freshwater predator.",
+        "image": "1502675135487-e971002a6adb"
       }
     ],
     "routes": [
@@ -465,50 +475,60 @@
     "about": {
       "geo": "A stunning 2,500km palm-fringed Indian Ocean coastline, defined by idyllic coral archipelagos and the restored, biodiversity-rich Gorongosa National Park.",
       "people": "A warm, resilient fusion of African, Portuguese, and Arab heritage reflected in the music, architecture, and island traditions.",
-      "history": "From ancient Arab dhow trading routes to Portuguese colonial influence and modern independence. A land of incredible maritime history."
+      "history": "For over a millennium, Arab dhow traders sailed the Mozambique Channel, establishing ports that later attracted Portuguese explorers. Vasco da Gama landed in 1498; by 1530 Portugal controlled the coast. Mozambique remained a Portuguese colony until independence on 25 June 1975, followed by a devastating civil war that ended in 1992. The nation has since rebuilt with remarkable resilience — Gorongosa National Park's restoration is a global conservation model, and the 2,500km coastline has become one of Africa's hottest beach and diving destinations."
     },
     "spots": [
       {
         "name": "Bazaruto Archipelago",
-        "desc": "Dazzling turquoise waters and high-end luxury island lodges. A paradise for snorkeling and sunset dhow sailing."
+        "desc": "Dazzling turquoise waters and high-end luxury island lodges. A paradise for snorkeling and sunset dhow sailing.",
+        "image": "1519066629447-267fffa62d4b"
       },
       {
         "name": "Tofo Beach & Vilanculos",
-        "desc": "The world's capital for manta ray and whale shark encounters. A vibrant, laid-back hub for diving and surfing."
+        "desc": "The world's capital for manta ray and whale shark encounters. A vibrant, laid-back hub for diving and surfing.",
+        "image": "1568249761-0ae12982d60d"
       },
       {
         "name": "Gorongosa National Park",
-        "desc": "Africa's most successful rewilding story. A lush, diverse ecosystem now home to booming populations of wild dogs and lions."
+        "desc": "Africa's most successful rewilding story. A lush, diverse ecosystem now home to booming populations of wild dogs and lions.",
+        "image": "1516426122078-c23e76319801"
       },
       {
         "name": "Maputo",
-        "desc": "The \"City of Acacia\"—an Art Deco urban gem famous for its Latin-flavored jazz scene and vibrant seafood markets."
+        "desc": "The \"City of Acacia\"—an Art Deco urban gem famous for its Latin-flavored jazz scene and vibrant seafood markets.",
+        "image": "1580060839134-75a5edca2d99"
       },
       {
         "name": "Ibo Island (Quirimbas)",
-        "desc": "Step back in time among crumbling Portuguese ruins, ancient forts, and traditional silver-smiths on this remote isle."
+        "desc": "Step back in time among crumbling Portuguese ruins, ancient forts, and traditional silver-smiths on this remote isle.",
+        "image": "1506905925344-21ddaec4d32d"
       }
     ],
     "activities": [
       {
         "name": "Swimming with Whale Sharks",
-        "desc": "Experience the sheer scale of the ocean's giants in the crystal-clear waters of Tofo."
+        "desc": "Experience the sheer scale of the ocean's giants in the crystal-clear waters of Tofo.",
+        "image": "1519066629447-267fffa62d4b"
       },
       {
         "name": "Sunset Dhow Sailing",
-        "desc": "Navigate the coastal archipelagos at sunset on a traditional wooden sailing vessel."
+        "desc": "Navigate the coastal archipelagos at sunset on a traditional wooden sailing vessel.",
+        "image": "1568249761-0ae12982d60d"
       },
       {
         "name": "Scuba Diving & Snorkeling",
-        "desc": "Explore pristine coral reefs teeming with biodiversity, including rare sea turtles and dugongs."
+        "desc": "Explore pristine coral reefs teeming with biodiversity, including rare sea turtles and dugongs.",
+        "image": "1516426122078-c23e76319801"
       },
       {
         "name": "Peri-Peri Seafood Trail",
-        "desc": "Sample famous Mozambican prawns and grilled chicken at beachside markets in Maputo or Vilanculos."
+        "desc": "Sample famous Mozambican prawns and grilled chicken at beachside markets in Maputo or Vilanculos.",
+        "image": "1580060839134-75a5edca2d99"
       },
       {
         "name": "Island Hopping",
-        "desc": "Travel between remote islands in the Quirimbas or Bazaruto by speedboat or dhow."
+        "desc": "Travel between remote islands in the Quirimbas or Bazaruto by speedboat or dhow.",
+        "image": "1506905925344-21ddaec4d32d"
       }
     ],
     "routes": [
@@ -547,50 +567,60 @@
     "about": {
       "geo": "Dominated by the crystalline waters of Lake Malawi, which covers a third of the country, the landscape transitions from the massive Great Rift Valley floor to the 3,000m peaks of Mount Mulanje and the lush, high-altitude Zomba Plateau.",
       "people": "Malawians are world-famous for their incredible warmth and hospitality. The nation is a peaceful tapestry of ethnic groups, primarily Chewa, Nyanja, and Yao, with deep-rooted traditions in music, dance, and fishing.",
-      "history": "From ancient Iron Age settlements and the 15th-century Maravi Kingdom to the exploration of David Livingstone and independence in 1964. Malawi has a long history of peaceful coexistence."
+      "history": "The Maravi Kingdom dominated the region from the 15th century, giving the country its name. David Livingstone reached Lake Malawi in 1859, calling it the \"Lake of Stars\" for the fishermen's lanterns. Britain established the Nyasaland Protectorate in 1891. Independence followed peacefully on 6 July 1964 under Hastings Banda. Despite being one of Africa's smallest and poorest nations, Malawi has earned its nickname \"The Warm Heart of Africa\" through extraordinary hospitality, successful rewilding at Majete and Liwonde, and the UNESCO-listed lake ecosystem with over 1,000 endemic fish species."
     },
     "spots": [
       {
         "name": "Lake Malawi (UNESCO)",
-        "desc": "The \"Lake of Stars\"—a vast inland sea home to over 1,000 species of colorful cichlid fish. Perfect for kayaking, snorkeling, and sunset dhow cruises."
+        "desc": "The \"Lake of Stars\"—a vast inland sea home to over 1,000 species of colorful cichlid fish. Perfect for kayaking, snorkeling, and sunset dhow cruises.",
+        "image": "1519066629447-267fffa62d4b"
       },
       {
         "name": "Mount Mulanje",
-        "desc": "The \"Island in the Sky\"—a massive granite massif that rises abruptly from the tea estates, offering world-class hiking and the unique Mulanje Cedar."
+        "desc": "The \"Island in the Sky\"—a massive granite massif that rises abruptly from the tea estates, offering world-class hiking and the unique Mulanje Cedar.",
+        "image": "1541414779316-956a5084c0d4"
       },
       {
         "name": "Liwonde National Park",
-        "desc": "A premier wildlife sanctuary centered on the Shire River, famous for its dense populations of elephants, hippos, and rare black rhinos."
+        "desc": "A premier wildlife sanctuary centered on the Shire River, famous for its dense populations of elephants, hippos, and rare black rhinos.",
+        "image": "1547970810-dc1eef37d176"
       },
       {
         "name": "Majete Wildlife Reserve",
-        "desc": "Malawi's most successful conservation story—a rewilded paradise where the Big Five have been restored to their ancestral home."
+        "desc": "Malawi's most successful conservation story—a rewilded paradise where the Big Five have been restored to their ancestral home.",
+        "image": "1516426122078-c23e76319801"
       },
       {
         "name": "Nyika Plateau",
-        "desc": "A mystical high-altitude grassland resembling the Scottish Highlands, famous for its high concentration of leopards and rare orchids."
+        "desc": "A mystical high-altitude grassland resembling the Scottish Highlands, famous for its high concentration of leopards and rare orchids.",
+        "image": "1504107123655-081832049e37"
       }
     ],
     "activities": [
       {
         "name": "Snorkeling with Cichlids",
-        "desc": "Swim in the crystal-clear waters of Cape Maclear amidst hundreds of vibrant, endemic fish species."
+        "desc": "Swim in the crystal-clear waters of Cape Maclear amidst hundreds of vibrant, endemic fish species.",
+        "image": "1519066629447-267fffa62d4b"
       },
       {
         "name": "Mulanje Peak Trek",
-        "desc": "Challenge yourself on a multi-day hike to Sapitwa Peak, the highest point in South-Central Africa."
+        "desc": "Challenge yourself on a multi-day hike to Sapitwa Peak, the highest point in South-Central Africa.",
+        "image": "1541414779316-956a5084c0d4"
       },
       {
         "name": "Shire River Boat Safari",
-        "desc": "Glide past massive herds of elephants and pods of hippos in the heart of Liwonde."
+        "desc": "Glide past massive herds of elephants and pods of hippos in the heart of Liwonde.",
+        "image": "1547970810-dc1eef37d176"
       },
       {
         "name": "Tea Estate Tasting",
-        "desc": "Tour the historic colonial-era tea plantations of Thyolo for a taste of Malawi's agricultural heritage."
+        "desc": "Tour the historic colonial-era tea plantations of Thyolo for a taste of Malawi's agricultural heritage.",
+        "image": "1516426122078-c23e76319801"
       },
       {
         "name": "Kayaking to Domwe Island",
-        "desc": "Escape to a remote, uninhabited island inside the Lake Malawi National Park for a night under the stars."
+        "desc": "Escape to a remote, uninhabited island inside the Lake Malawi National Park for a night under the stars.",
+        "image": "1504107123655-081832049e37"
       }
     ],
     "routes": [
@@ -629,50 +659,60 @@
     "about": {
       "geo": "The only independent state in the world that lies entirely above 1,000m. A rugged, mountainous country defined by the dramatic Maloti and Drakensberg ranges.",
       "people": "Home to the resilient Basotho people, known for their iconic conical hats (Mokorotlo), colorful blankets, and extraordinary mountain horsemanship.",
-      "history": "Founded by King Moshoeshoe I in the early 19th century as a mountain stronghold. Lesotho remains a proud and culturally distinct constitutional monarchy."
+      "history": "King Moshoeshoe I united scattered Sotho clans in the early 19th century, forging the Basotho nation in the mountain stronghold of Thaba Bosiu and successfully resisting Zulu, Boer, and British forces. In 1868, Moshoeshoe appealed to Queen Victoria for protection, making Lesotho a British protectorate — deliberately avoiding incorporation into South Africa. Independence as the Kingdom of Lesotho came on 4 October 1966. Today it remains a constitutional monarchy where traditional blankets, pony culture, and highland resilience define the \"Kingdom in the Sky.\""
     },
     "spots": [
       {
         "name": "Maletsunyane Falls",
-        "desc": "One of Africa's highest single-drop waterfalls, plunging 192 meters into a spectacular, spray-filled gorge."
+        "desc": "One of Africa's highest single-drop waterfalls, plunging 192 meters into a spectacular, spray-filled gorge.",
+        "image": "1519408299519-b7a0274f7d67"
       },
       {
         "name": "Sani Pass",
-        "desc": "The world-famous alpine road that snakes up the Drakensberg escarpment, home to the Highest Pub in Africa (2,874m)."
+        "desc": "The world-famous alpine road that snakes up the Drakensberg escarpment, home to the Highest Pub in Africa (2,874m).",
+        "image": "1541414779316-956a5084c0d4"
       },
       {
         "name": "Sehlabathebe National Park",
-        "desc": "A remote UNESCO-listed wilderness of unique rock formations, alpine flora, and high-altitude wetlands."
+        "desc": "A remote UNESCO-listed wilderness of unique rock formations, alpine flora, and high-altitude wetlands.",
+        "image": "1502675135487-e971002a6adb"
       },
       {
         "name": "Katse Dam",
-        "desc": "An engineering marvel nestled deep in the mountains, forming a massive sapphire-blue lake amidst the peaks."
+        "desc": "An engineering marvel nestled deep in the mountains, forming a massive sapphire-blue lake amidst the peaks.",
+        "image": "1454486326938-e6727284ea44"
       },
       {
         "name": "Thaba Bosiu",
-        "desc": "The \"Mountain at Night\"—the historic sandstone plateau that served as the impenetrable fortress of the first Basotho King."
+        "desc": "The \"Mountain at Night\"—the historic sandstone plateau that served as the impenetrable fortress of the first Basotho King.",
+        "image": "1504107123655-081832049e37"
       }
     ],
     "activities": [
       {
         "name": "Pony Trekking",
-        "desc": "Explore the rugged highlands on a sturdy Basotho pony, the traditional and most reliable \"4x4\" of the mountains."
+        "desc": "Explore the rugged highlands on a sturdy Basotho pony, the traditional and most reliable \"4x4\" of the mountains.",
+        "image": "1519408299519-b7a0274f7d67"
       },
       {
         "name": "Abseiling the Falls",
-        "desc": "Tackle the world's longest commercially operated abseil alongside the thundering Maletsunyane Falls."
+        "desc": "Tackle the world's longest commercially operated abseil alongside the thundering Maletsunyane Falls.",
+        "image": "1541414779316-956a5084c0d4"
       },
       {
         "name": "Drakensberg Alpine Hiking",
-        "desc": "Follow ancient trails across the \"Roof of Africa,\" reaching peaks over 3,400m high."
+        "desc": "Follow ancient trails across the \"Roof of Africa,\" reaching peaks over 3,400m high.",
+        "image": "1502675135487-e971002a6adb"
       },
       {
         "name": "Snow Skiing (Seasonal)",
-        "desc": "Experience Southern Africa's unique winter destination at Afriski Mountain Resort (June - August)."
+        "desc": "Experience Southern Africa's unique winter destination at Afriski Mountain Resort (June - August).",
+        "image": "1454486326938-e6727284ea44"
       },
       {
         "name": "San Rock Art Tours",
-        "desc": "Discover ancient rock art sites hidden in the remote overhangs and caves of the Maloti Mountains."
+        "desc": "Discover ancient rock art sites hidden in the remote overhangs and caves of the Maloti Mountains.",
+        "image": "1504107123655-081832049e37"
       }
     ],
     "routes": [
@@ -711,50 +751,60 @@
     "about": {
       "geo": "One of the smallest countries in Africa, yet incredibly diverse—ranging from the highveld mountains of the west to the lowveld savanna and the Lebombo mountains in the east.",
       "people": "Known for a vibrant, living culture centered on an absolute monarchy. The Swazi people are famously friendly and proud of their ancient festivals and traditions.",
-      "history": "Since the 18th-century migration of the Dlamini clan. Eswatini (formerly Swaziland) is one of the few remaining absolute monarchies in the world."
+      "history": "The Dlamini clan established the Swazi kingdom in the 18th century under King Ngwane III, consolidating power in the Ezulwini Valley. King Sobhuza II reigned for 82 years (1899–1982), guiding the nation through British protectorate status to independence on 6 September 1968. Renamed Eswatini in 2018, it remains one of the world's last absolute monarchies. Ancient traditions persist — the Umhlanga Reed Dance and Incwala ceremony are living royal rituals. Conservation success at Mkhaya and Hlane makes this tiny kingdom a heavyweight in rhino protection."
     },
     "spots": [
       {
         "name": "Hlane Royal National Park",
-        "desc": "Eswatini's largest protected area and home to the Big Five. Famous for its high concentration of white rhino and majestic lions."
+        "desc": "Eswatini's largest protected area and home to the Big Five. Famous for its high concentration of white rhino and majestic lions.",
+        "image": "1547970810-dc1eef37d176"
       },
       {
         "name": "Mlilwane Wildlife Sanctuary",
-        "desc": "A peaceful, vehicle-free sanctuary in the beautiful Ezulwini Valley, perfect for walking, cycling, and horse-riding safaris."
+        "desc": "A peaceful, vehicle-free sanctuary in the beautiful Ezulwini Valley, perfect for walking, cycling, and horse-riding safaris.",
+        "image": "1516426122078-c23e76319801"
       },
       {
         "name": "Mantenga Cultural Village",
-        "desc": "A living museum of Swazi traditions, featuring a reconstructed 19th-century village and spectacular traditional dance performances."
+        "desc": "A living museum of Swazi traditions, featuring a reconstructed 19th-century village and spectacular traditional dance performances.",
+        "image": "1518709766631-a6a7f45921c3"
       },
       {
         "name": "Mkhaya Game Reserve",
-        "desc": "Renowned as one of Africa's best places for rhino tracking. Each visit supports critical conservation efforts for black and white rhinos."
+        "desc": "Renowned as one of Africa's best places for rhino tracking. Each visit supports critical conservation efforts for black and white rhinos.",
+        "image": "1612140403750-13f69b821034"
       },
       {
         "name": "Ngwenya Glass & Craft Markets",
-        "desc": "Visit the world's oldest mine and see artisans transform recycled glass into world-class art at the Ngwenya workshops."
+        "desc": "Visit the world's oldest mine and see artisans transform recycled glass into world-class art at the Ngwenya workshops.",
+        "image": "1576485375217-d6a95e34d043"
       }
     ],
     "activities": [
       {
         "name": "Rhino Tracking on Foot",
-        "desc": "Get heart-stoppingly close to black and white rhinos with expert rangers in the Mkhaya Game Reserve."
+        "desc": "Get heart-stoppingly close to black and white rhinos with expert rangers in the Mkhaya Game Reserve.",
+        "image": "1547970810-dc1eef37d176"
       },
       {
         "name": "The Umhlanga (Reed Dance)",
-        "desc": "Experience one of Africa's most spectacular cultural festivals (usually in late August/early September)."
+        "desc": "Experience one of Africa's most spectacular cultural festivals (usually in late August/early September).",
+        "image": "1516426122078-c23e76319801"
       },
       {
         "name": "Ezulwini Valley Horse Back Safari",
-        "desc": "Ride through the \"Valley of Heaven\" among zebras and warthogs in Mlilwane Sanctuary."
+        "desc": "Ride through the \"Valley of Heaven\" among zebras and warthogs in Mlilwane Sanctuary.",
+        "image": "1518709766631-a6a7f45921c3"
       },
       {
         "name": "Adventure Caving",
-        "desc": "Explore the unique granite caves of Gobholo, navigating deep tunnels and subterranean streams."
+        "desc": "Explore the unique granite caves of Gobholo, navigating deep tunnels and subterranean streams.",
+        "image": "1612140403750-13f69b821034"
       },
       {
         "name": "Swazi Craft Trail",
-        "desc": "Tour the vibrant markets of Mbabane and Manzini for world-famous handmade candles, glass, and baskets."
+        "desc": "Tour the vibrant markets of Mbabane and Manzini for world-famous handmade candles, glass, and baskets.",
+        "image": "1576485375217-d6a95e34d043"
       }
     ],
     "routes": [
