@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savanna Explorer | Official Tourism Guide</title>
     <meta name="description" content="Explore the breathtaking landscapes, diverse wildlife, and rich cultures of Southern Africa. Your ultimate guide to safari, adventure, and relaxation.">
-    <link rel="stylesheet" href="savanna-luxe.css?v=v2.7">
+    <link rel="stylesheet" href="savanna-luxe.css?v=v3.0">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -22,7 +22,7 @@
                 <li><a href="#cultures">Cultures</a></li>
                 <li><a href="#parks">Parks</a></li>
                 <li><a href="#itineraries">Itineraries</a></li>
-                <li><a href="#utility">Utility</a></li>
+                <li><a href="#plan">Plan Your Trip</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="menu-toggle" id="mobile-menu">
@@ -86,6 +86,39 @@
                 <div class="trust-stat">
                     <span class="trust-number">6</span>
                     <span class="trust-label">Cross-border Itineraries</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Service (Explore Namibia-style trust layer) -->
+    <section class="service-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Our Service</span>
+                <h2>Thoughtful Experts for Every Journey</h2>
+                <p>From your first inquiry to your return home — local knowledge, transparent planning, and 24-hour support across Southern Africa.</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Efficient & Friendly Service</h3>
+                    <p>Reach us by phone, email, or WhatsApp. We arrange digital consultations to match routes, budgets, and travel styles to your wishes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>Qualified Local Knowledge</h3>
+                    <p>Our consultants and on-ground partners know the gravel roads, border posts, park gates, and seasonal wildlife patterns across all nine countries.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Sustainable Mindset</h3>
+                    <p>We champion community conservancies, low-impact lodges, and operators who invest in local employment and environmental protection.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-life-ring"></i></div>
+                    <h3>24-Hour Support</h3>
+                    <p>While you travel, our team remains reachable for route changes, emergencies, and on-the-ground assistance — wherever the savanna takes you.</p>
                 </div>
             </div>
         </div>
@@ -277,99 +310,118 @@
     <section id="itineraries" class="itineraries">
         <div class="container">
             <div class="section-header">
-                <h2>Journey Engine</h2>
-                <p>6 curated cross-border routes — seamlessly journey across Southern Africa.</p>
+                <span class="section-eyebrow">Southern Africa Itineraries</span>
+                <h2>Curated Cross-Border Routes</h2>
+                <p>Fully customizable journeys — book as-is or use them as inspiration for your tailor-made adventure.</p>
             </div>
             <div class="itinerary-grid">
                 <!-- Route 1: Desert to Delta -->
-                <div class="itinerary-card">
+                <div class="itinerary-card" data-itinerary-id="desert-to-delta">
                     <div class="itinerary-header">
-                        <span class="itinerary-tag">14-21 Days</span>
+                        <span class="itinerary-type">Self-Drive Route</span>
+                        <span class="itinerary-tag">14–21 Days</span>
                         <h3>The Desert to Delta</h3>
                         <p>🇳🇦 Namibia <i class="fas fa-arrow-right"></i> 🇧🇼 Botswana</p>
                     </div>
-                    <div class="timeline">
-                        <div class="timeline-step"><span class="step-num">01</span><div class="step-info"><h4>Windhoek & Sossusvlei</h4><p>Ancient red dunes and dead vlei.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">02</span><div class="step-info"><h4>Swakopmund & Etosha</h4><p>Skeleton Coast meets world-class safari.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">03</span><div class="step-info"><h4>Caprivi & Chobe</h4><p>The lush water paradise of the north.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">04</span><div class="step-info"><h4>Okavango Delta</h4><p>Mokoro rides in the world's largest inland delta.</p></div></div>
+                    <p class="itinerary-blurb">From the world's oldest desert through Etosha's waterholes to the Okavango Delta's mokoro channels.</p>
+                    <div class="itinerary-meta">
+                        <span><i class="far fa-clock"></i> 14–21 Days</span>
+                        <span><i class="fas fa-tag"></i> From $2,450 USD</span>
                     </div>
-                    <a href="javascript:void(0)" class="btn btn-outline" onclick="inquireJourney('Desert to Delta', 'Namibia → Botswana')">Inquire <i class="fab fa-whatsapp"></i></a>
+                    <div class="itinerary-actions">
+                        <button class="btn btn-primary" onclick="openItineraryDetail('desert-to-delta')">View Route</button>
+                        <button class="btn btn-outline" onclick="inquireJourney('Desert to Delta', 'Namibia → Botswana')"><i class="fab fa-whatsapp"></i> Inquire</button>
+                    </div>
                 </div>
                 <!-- Route 2: Coastal Explorer -->
-                <div class="itinerary-card">
+                <div class="itinerary-card" data-itinerary-id="coastal-explorer">
                     <div class="itinerary-header">
-                        <span class="itinerary-tag">15-20 Days</span>
+                        <span class="itinerary-type">Self-Drive Route</span>
+                        <span class="itinerary-tag">15–20 Days</span>
                         <h3>The Coastal Explorer</h3>
                         <p>🇿🇦 South Africa <i class="fas fa-arrow-right"></i> 🇲🇿 Mozambique</p>
                     </div>
-                    <div class="timeline">
-                        <div class="timeline-step"><span class="step-num">01</span><div class="step-info"><h4>Cape Town & Garden Route</h4><p>Table Mountain and pristine coastline.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">02</span><div class="step-info"><h4>Wild Coast & Durban</h4><p>Rugged cliffs and vibrant surf city.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">03</span><div class="step-info"><h4>St Lucia & Kosi Bay</h4><p>Estuaries and tropical wetlands.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">04</span><div class="step-info"><h4>Maputo & Bazaruto</h4><p>Portuguese flair and turquoise islands.</p></div></div>
+                    <p class="itinerary-blurb">Cape Town's mountains to Mozambique's turquoise archipelagos — the ultimate Indian Ocean odyssey.</p>
+                    <div class="itinerary-meta">
+                        <span><i class="far fa-clock"></i> 15–20 Days</span>
+                        <span><i class="fas fa-tag"></i> From $2,890 USD</span>
                     </div>
-                    <a href="javascript:void(0)" class="btn btn-outline" onclick="inquireJourney('Coastal Explorer', 'South Africa → Mozambique')">Inquire <i class="fab fa-whatsapp"></i></a>
+                    <div class="itinerary-actions">
+                        <button class="btn btn-primary" onclick="openItineraryDetail('coastal-explorer')">View Route</button>
+                        <button class="btn btn-outline" onclick="inquireJourney('Coastal Explorer', 'South Africa → Mozambique')"><i class="fab fa-whatsapp"></i> Inquire</button>
+                    </div>
                 </div>
                 <!-- Route 3: The Falls & Beyond -->
-                <div class="itinerary-card">
+                <div class="itinerary-card" data-itinerary-id="falls-beyond">
                     <div class="itinerary-header">
-                        <span class="itinerary-tag">10-14 Days</span>
+                        <span class="itinerary-type">Guided & Self-Drive</span>
+                        <span class="itinerary-tag">10–14 Days</span>
                         <h3>The Falls & Beyond</h3>
                         <p>🇿🇲 Zambia <i class="fas fa-arrow-right"></i> 🇿🇼 Zimbabwe <i class="fas fa-arrow-right"></i> 🇧🇼 Botswana</p>
                     </div>
-                    <div class="timeline">
-                        <div class="timeline-step"><span class="step-num">01</span><div class="step-info"><h4>Livingstone & Vic Falls</h4><p>Bungee, rafting, and helicopter flights over the falls.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">02</span><div class="step-info"><h4>South Luangwa</h4><p>Walking safaris where leopards rule the night.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">03</span><div class="step-info"><h4>Hwange & Matobo Hills</h4><p>Elephant herds and ancient rock art.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">04</span><div class="step-info"><h4>Chobe River Cruise</h4><p>Sunset cruises among hippos and crocs.</p></div></div>
+                    <p class="itinerary-blurb">Victoria Falls, walking safaris in Luangwa, Hwange's elephants, and Chobe river cruises.</p>
+                    <div class="itinerary-meta">
+                        <span><i class="far fa-clock"></i> 10–14 Days</span>
+                        <span><i class="fas fa-tag"></i> From $3,150 USD</span>
                     </div>
-                    <a href="javascript:void(0)" class="btn btn-outline" onclick="inquireJourney('Falls & Beyond', 'Zambia → Zimbabwe → Botswana')">Inquire <i class="fab fa-whatsapp"></i></a>
+                    <div class="itinerary-actions">
+                        <button class="btn btn-primary" onclick="openItineraryDetail('falls-beyond')">View Route</button>
+                        <button class="btn btn-outline" onclick="inquireJourney('Falls & Beyond', 'Zambia → Zimbabwe → Botswana')"><i class="fab fa-whatsapp"></i> Inquire</button>
+                    </div>
                 </div>
                 <!-- Route 4: Kingdom Circuit -->
-                <div class="itinerary-card">
+                <div class="itinerary-card" data-itinerary-id="kingdom-circuit">
                     <div class="itinerary-header">
-                        <span class="itinerary-tag">7-10 Days</span>
+                        <span class="itinerary-type">Mountain & Culture</span>
+                        <span class="itinerary-tag">7–10 Days</span>
                         <h3>The Kingdom Circuit</h3>
                         <p>🇱🇸 Lesotho <i class="fas fa-arrow-right"></i> 🇸🇿 Eswatini <i class="fas fa-arrow-right"></i> 🇿🇦 South Africa</p>
                     </div>
-                    <div class="timeline">
-                        <div class="timeline-step"><span class="step-num">01</span><div class="step-info"><h4>Sani Pass & Malealea</h4><p>Mountain passes and pony trekking.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">02</span><div class="step-info"><h4>Afriski & Katse Dam</h4><p>Africa's only ski resort and engineering marvel.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">03</span><div class="step-info"><h4>Hlane & Mantenga</h4><p>Royal game reserve and Swazi cultural village.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">04</span><div class="step-info"><h4>Kruger's Orpen Gate</h4><p>Big Five finale in Africa's premier park.</p></div></div>
+                    <p class="itinerary-blurb">High-altitude pony trekking, royal game reserves, and a Big Five finale in Kruger.</p>
+                    <div class="itinerary-meta">
+                        <span><i class="far fa-clock"></i> 7–10 Days</span>
+                        <span><i class="fas fa-tag"></i> From $1,680 USD</span>
                     </div>
-                    <a href="javascript:void(0)" class="btn btn-outline" onclick="inquireJourney('Kingdom Circuit', 'Lesotho → Eswatini → South Africa')">Inquire <i class="fab fa-whatsapp"></i></a>
+                    <div class="itinerary-actions">
+                        <button class="btn btn-primary" onclick="openItineraryDetail('kingdom-circuit')">View Route</button>
+                        <button class="btn btn-outline" onclick="inquireJourney('Kingdom Circuit', 'Lesotho → Eswatini → South Africa')"><i class="fab fa-whatsapp"></i> Inquire</button>
+                    </div>
                 </div>
                 <!-- Route 5: Lake & Mountain -->
-                <div class="itinerary-card">
+                <div class="itinerary-card" data-itinerary-id="lake-mountain">
                     <div class="itinerary-header">
-                        <span class="itinerary-tag">10-14 Days</span>
+                        <span class="itinerary-type">Adventure Route</span>
+                        <span class="itinerary-tag">10–14 Days</span>
                         <h3>Lake & Mountain</h3>
                         <p>🇲🇼 Malawi <i class="fas fa-arrow-right"></i> 🇲🇿 Mozambique</p>
                     </div>
-                    <div class="timeline">
-                        <div class="timeline-step"><span class="step-num">01</span><div class="step-info"><h4>Cape Maclear & Nkhata Bay</h4><p>Snorkelling with a thousand cichlid species.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">02</span><div class="step-info"><h4>Mount Mulanje</h4><p>Hiking the "Island in the Sky" — Malawi's highest peak.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">03</span><div class="step-info"><h4>Liwonde National Park</h4><p>Boat safaris on the Shire River.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">04</span><div class="step-info"><h4>Ilha de Moçambique</h4><p>UNESCO World Heritage island with Swahili-Portuguese flair.</p></div></div>
+                    <p class="itinerary-blurb">Lake Malawi's cichlids, Mount Mulanje's peaks, and Mozambique's historic island coast.</p>
+                    <div class="itinerary-meta">
+                        <span><i class="far fa-clock"></i> 10–14 Days</span>
+                        <span><i class="fas fa-tag"></i> From $1,950 USD</span>
                     </div>
-                    <a href="javascript:void(0)" class="btn btn-outline" onclick="inquireJourney('Lake & Mountain', 'Malawi → Mozambique')">Inquire <i class="fab fa-whatsapp"></i></a>
+                    <div class="itinerary-actions">
+                        <button class="btn btn-primary" onclick="openItineraryDetail('lake-mountain')">View Route</button>
+                        <button class="btn btn-outline" onclick="inquireJourney('Lake & Mountain', 'Malawi → Mozambique')"><i class="fab fa-whatsapp"></i> Inquire</button>
+                    </div>
                 </div>
                 <!-- Route 6: The Grand Safari -->
-                <div class="itinerary-card">
+                <div class="itinerary-card" data-itinerary-id="grand-safari">
                     <div class="itinerary-header">
-                        <span class="itinerary-tag">21-28 Days</span>
+                        <span class="itinerary-type">Signature Safari</span>
+                        <span class="itinerary-tag">21–28 Days</span>
                         <h3>The Grand Safari</h3>
                         <p>🇿🇦 South Africa <i class="fas fa-arrow-right"></i> 🇳🇦 Namibia <i class="fas fa-arrow-right"></i> 🇧🇼 Botswana</p>
                     </div>
-                    <div class="timeline">
-                        <div class="timeline-step"><span class="step-num">01</span><div class="step-info"><h4>Kruger National Park</h4><p>Big Five in Africa's iconic mega-reserve.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">02</span><div class="step-info"><h4>Etosha & Damaraland</h4><p>Desert-adapted elephants and ancient rock art.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">03</span><div class="step-info"><h4>Skeleton Coast & Sossusvlei</h4><p>Shipwrecks, seals, and the world's tallest dunes.</p></div></div>
-                        <div class="timeline-step"><span class="step-num">04</span><div class="step-info"><h4>Okavango & Moremi</h4><p>The ultimate delta safari — mokoro and 4x4.</p></div></div>
+                    <p class="itinerary-blurb">The definitive Southern African safari — Kruger, Etosha, Skeleton Coast, and the Okavango Delta.</p>
+                    <div class="itinerary-meta">
+                        <span><i class="far fa-clock"></i> 21–28 Days</span>
+                        <span><i class="fas fa-tag"></i> From $5,200 USD</span>
                     </div>
-                    <a href="javascript:void(0)" class="btn btn-outline" onclick="inquireJourney('Grand Safari', 'South Africa → Namibia → Botswana')">Inquire <i class="fab fa-whatsapp"></i></a>
+                    <div class="itinerary-actions">
+                        <button class="btn btn-primary" onclick="openItineraryDetail('grand-safari')">View Route</button>
+                        <button class="btn btn-outline" onclick="inquireJourney('Grand Safari', 'South Africa → Namibia → Botswana')"><i class="fab fa-whatsapp"></i> Inquire</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -781,6 +833,84 @@
         </div>
     </section>
 
+    <!-- Contact & Quotation (Explore Namibia-style) -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-eyebrow">Plan Your Trip</span>
+                    <h2>Southern Africa Travel Advice</h2>
+                    <p>Every traveler is unique. Our experienced consultants can create a fully customized itinerary based on your wishes, preferences, and budget.</p>
+                    <div class="contact-channels">
+                        <a href="https://wa.me/260977123456" class="contact-channel" target="_blank" rel="noopener">
+                            <i class="fab fa-whatsapp"></i>
+                            <div><strong>WhatsApp</strong><span>Chat with a consultant</span></div>
+                        </a>
+                        <a href="mailto:bookings@savannaexplorer.com" class="contact-channel">
+                            <i class="fas fa-envelope"></i>
+                            <div><strong>bookings@savannaexplorer.com</strong><span>We reply within 24 hours</span></div>
+                        </a>
+                        <div class="contact-channel">
+                            <i class="fas fa-clock"></i>
+                            <div><strong>24-Hour Support</strong><span>While you travel across the region</span></div>
+                        </div>
+                    </div>
+                </div>
+                <form class="quotation-form" id="quotation-form" onsubmit="submitQuotation(event)">
+                    <h3>Request a Quotation</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="q-name">Full Name</label>
+                            <input type="text" id="q-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="q-email">Email</label>
+                            <input type="email" id="q-email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="q-travelers">Travelers</label>
+                            <select id="q-travelers">
+                                <option value="1">1</option>
+                                <option value="2" selected>2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5+">5+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="q-style">Travel Style</label>
+                            <select id="q-style">
+                                <option value="self-drive">Self-Drive</option>
+                                <option value="guided">Private Guided</option>
+                                <option value="camping">Camping</option>
+                                <option value="lodge">Lodge & Luxury</option>
+                                <option value="mix">Mix</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Interested Itineraries</label>
+                        <div class="checkbox-grid">
+                            <label><input type="checkbox" name="itinerary" value="Desert to Delta"> Desert to Delta</label>
+                            <label><input type="checkbox" name="itinerary" value="Coastal Explorer"> Coastal Explorer</label>
+                            <label><input type="checkbox" name="itinerary" value="Falls & Beyond"> Falls & Beyond</label>
+                            <label><input type="checkbox" name="itinerary" value="Kingdom Circuit"> Kingdom Circuit</label>
+                            <label><input type="checkbox" name="itinerary" value="Lake & Mountain"> Lake & Mountain</label>
+                            <label><input type="checkbox" name="itinerary" value="Grand Safari"> Grand Safari</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="q-message">Tell us about your dream trip</label>
+                        <textarea id="q-message" rows="4" placeholder="Preferred dates, countries, budget, special interests..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-paper-plane"></i> Send Quotation Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -801,10 +931,10 @@
                 <div class="footer-col">
                     <h4>Destinations</h4>
                     <ul>
-                        <li><a href="#">South Africa</a></li>
-                        <li><a href="#">Namibia</a></li>
-                        <li><a href="#">Botswana</a></li>
-                        <li><a href="#">Zambia</a></li>
+                        <li><a href="#south-africa">South Africa</a></li>
+                        <li><a href="#namibia">Namibia</a></li>
+                        <li><a href="#botswana">Botswana</a></li>
+                        <li><a href="#zambia">Zambia</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -848,82 +978,96 @@
 
         <div class="detail-content">
             <div class="container">
-                <!-- Country Overview -->
-                <div class="detail-section" id="detail-overview">
-                    <div class="detail-grid">
-                        <div class="detail-text-block">
-                            <h2>Landscapes & Geography</h2>
+                <!-- Tab Navigation (Explore Namibia-style country guide) -->
+                <nav class="guide-tabs" id="guide-tabs">
+                    <button class="guide-tab active" data-tab="about">About</button>
+                    <button class="guide-tab" data-tab="travelling">Travelling</button>
+                    <button class="guide-tab" data-tab="attractions">Attractions</button>
+                    <button class="guide-tab" data-tab="activities">Activities</button>
+                    <button class="guide-tab" data-tab="routes">Routes</button>
+                </nav>
+
+                <!-- Tab: About -->
+                <div class="guide-panel active" id="panel-about">
+                    <div class="guide-intro">
+                        <span class="section-eyebrow">About</span>
+                        <h2 id="detail-about-heading">Information About This Destination</h2>
+                        <p id="detail-about-intro">Discover essential information before you embark on your journey.</p>
+                    </div>
+                    <div class="guide-article-grid">
+                        <article class="guide-article">
+                            <h3><i class="fas fa-mountain"></i> Geography</h3>
                             <p id="detail-geo">Geography details...</p>
-                        </div>
-                        <div class="detail-text-block">
-                            <h2>People & Culture</h2>
+                        </article>
+                        <article class="guide-article">
+                            <h3><i class="fas fa-landmark"></i> History</h3>
+                            <p id="detail-history">History details...</p>
+                        </article>
+                        <article class="guide-article">
+                            <h3><i class="fas fa-users"></i> People & Culture</h3>
                             <p id="detail-people">Culture details...</p>
-                            <!-- Inline Cultural Discovery Bar -->
                             <div id="detail-flavor-inline" class="flavor-inline-grid"></div>
-                        </div>
+                        </article>
+                        <article class="guide-article">
+                            <h3><i class="fas fa-paw"></i> Flora & Fauna</h3>
+                            <p id="detail-wildlife">Wildlife details...</p>
+                        </article>
                     </div>
+                    <div class="guide-practical-row" id="detail-practical"></div>
                 </div>
 
-                <!-- Attractions Grid -->
-                <div class="detail-section">
-                    <div class="section-header-left">
-                        <h2>Must Visit Attractions</h2>
-                        <div class="accent-line"></div>
+                <!-- Tab: Travelling -->
+                <div class="guide-panel" id="panel-travelling">
+                    <div class="guide-intro">
+                        <span class="section-eyebrow">Travelling</span>
+                        <h2>Essential Pre-Trip Information</h2>
+                        <p>Everything you need to plan a safe, memorable journey.</p>
                     </div>
-                    <div id="detail-spots-grid" class="attractions-detail-grid">
-                        <!-- Populated by JS -->
+                    <div class="seasons-grid" id="detail-seasons"></div>
+                    <div class="travel-info-grid">
+                        <div class="travel-info-card"><i class="fas fa-passport"></i><h4>Visa & Entry</h4><p id="detail-visa"></p></div>
+                        <div class="travel-info-card"><i class="fas fa-heartbeat"></i><h4>Health</h4><p id="detail-health"></p></div>
+                        <div class="travel-info-card"><i class="fas fa-money-bill-wave"></i><h4>Currency & Money</h4><p id="detail-money"></p></div>
+                        <div class="travel-info-card"><i class="fas fa-hand-holding-usd"></i><h4>Tipping</h4><p id="detail-tipping"></p></div>
+                        <div class="travel-info-card"><i class="fas fa-utensils"></i><h4>Food & Drink</h4><p id="detail-food"></p></div>
+                        <div class="travel-info-card"><i class="fas fa-shield-alt"></i><h4>Safety</h4><p id="detail-safety"></p></div>
+                        <div class="travel-info-card"><i class="fas fa-route"></i><h4>Getting Around</h4><p id="detail-transport"></p></div>
+                        <div class="travel-info-card"><i class="fas fa-wallet"></i><h4>Budget</h4><p id="detail-budget"></p></div>
                     </div>
+                    <div class="packing-section">
+                        <h3><i class="fas fa-suitcase"></i> Essential Packing List</h3>
+                        <ul class="packing-list" id="detail-packing"></ul>
+                    </div>
+                    <div class="day-narrative" id="detail-day-narrative"></div>
                 </div>
 
-                <!-- Signature Experiences -->
-                <div class="detail-section luxury-accent-bg">
-                    <div class="section-header-left">
-                        <h2>Signature Experiences</h2>
-                        <div class="accent-line"></div>
+                <!-- Tab: Attractions -->
+                <div class="guide-panel" id="panel-attractions">
+                    <div class="guide-intro">
+                        <span class="section-eyebrow">Discover</span>
+                        <h2>Must-Visit Attractions</h2>
                     </div>
-                    <div id="detail-activities" class="activities-detail-list">
-                        <!-- Populated by JS -->
-                    </div>
+                    <div id="detail-spots-grid" class="attractions-detail-grid"></div>
                 </div>
 
-                <!-- Travelers' Toolbox -->
-                <div class="detail-section">
-                    <div class="section-header-left">
-                        <h2>Traveler's Toolbox</h2>
-                        <div class="accent-line"></div>
+                <!-- Tab: Activities -->
+                <div class="guide-panel" id="panel-activities">
+                    <div class="guide-intro">
+                        <span class="section-eyebrow">Experiences</span>
+                        <h2>Signature Activities</h2>
                     </div>
-                    <div class="toolbox-grid">
-                        <div class="toolbox-card">
-                            <i class="fas fa-route"></i>
-                            <h3>Transport</h3>
-                            <p id="detail-transport">Transport info...</p>
-                        </div>
-                        <div class="toolbox-card">
-                            <i class="fas fa-wallet"></i>
-                            <h3>Budget</h3>
-                            <p id="detail-budget">Budget info...</p>
-                        </div>
-                        <div class="toolbox-card">
-                            <i class="fas fa-passport"></i>
-                            <h3>Visa & Entry</h3>
-                            <p id="detail-visa">Visa info...</p>
-                        </div>
-                        <div class="toolbox-card">
-                            <i class="fas fa-shield-alt"></i>
-                            <h3>Safety & Health</h3>
-                            <p id="detail-safety">Safety info...</p>
-                        </div>
-                        <div class="toolbox-card">
-                            <i class="fas fa-money-bill-wave"></i>
-                            <h3>Currency</h3>
-                            <p id="detail-money">Currency info...</p>
-                        </div>
-                        <div class="toolbox-card">
-                            <i class="fas fa-sun"></i>
-                            <h3>Best Time</h3>
-                            <p id="detail-climate">Climate info...</p>
-                        </div>
+                    <div id="detail-activity-categories" class="activity-categories"></div>
+                    <div id="detail-activities" class="activities-detail-list"></div>
+                </div>
+
+                <!-- Tab: Routes -->
+                <div class="guide-panel" id="panel-routes">
+                    <div class="guide-intro">
+                        <span class="section-eyebrow">Itineraries</span>
+                        <h2>Suggested Routes</h2>
+                        <p>Curated journeys through this destination — fully customizable.</p>
                     </div>
+                    <div id="detail-routes-grid" class="routes-grid"></div>
                 </div>
             </div>
         </div>
@@ -937,6 +1081,44 @@
             </div>
         </div>
     </section>
+
+    <!-- Itinerary Detail Modal -->
+    <div id="itinerary-modal" class="modal itinerary-modal">
+        <div class="modal-overlay itin-close"></div>
+        <div class="modal-container itin-container">
+            <button class="modal-close itin-close">&times;</button>
+            <div class="itin-header">
+                <span class="itin-type" id="itin-type">Self-Drive Route</span>
+                <h2 id="itin-title">Route Title</h2>
+                <p id="itin-countries" class="itin-countries"></p>
+                <div class="itin-meta-bar">
+                    <span id="itin-duration"><i class="far fa-clock"></i> 14 Days</span>
+                    <span id="itin-price"><i class="fas fa-tag"></i> From $2,450</span>
+                    <span id="itin-customizable"><i class="fas fa-sliders-h"></i> Fully Customizable</span>
+                </div>
+            </div>
+            <div class="itin-body">
+                <p id="itin-description" class="itin-description"></p>
+                <div class="itin-highlights" id="itin-highlights"></div>
+                <h3>Day-by-Day Itinerary</h3>
+                <div class="itin-accordion" id="itin-accordion"></div>
+                <div class="itin-includes-grid">
+                    <div class="itin-includes">
+                        <h4><i class="fas fa-check-circle"></i> Included</h4>
+                        <ul id="itin-included"></ul>
+                    </div>
+                    <div class="itin-excludes">
+                        <h4><i class="fas fa-times-circle"></i> Not Included</h4>
+                        <ul id="itin-excluded"></ul>
+                    </div>
+                </div>
+                <div class="itin-actions-bar">
+                    <button class="btn btn-primary" onclick="requestItineraryQuote()"><i class="fas fa-paper-plane"></i> Request Quote</button>
+                    <button class="btn btn-outline" id="itin-whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp Us</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Marketplace Modal (Experiences) -->
     <div id="marketplace-modal" class="modal">
@@ -957,6 +1139,8 @@
 
     <!-- Load Supabase JS API -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="main.js?v=savanna-v2.7"></script>
+    <script src="itinerary-data.js?v=1.0"></script>
+    <script src="country-guide.js?v=1.0"></script>
+    <script src="main.js?v=savanna-v3.0"></script>
 </body>
 </html>
