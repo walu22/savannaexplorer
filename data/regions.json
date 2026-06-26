@@ -1,0 +1,44 @@
+{
+  "namibia": [
+    {
+      "name": "Fish River Canyon",
+      "desc": "Found in southern Namibia along the country's longest river — Africa's largest canyon and a premier hiking destination.",
+      "spots": ["Fish River Canyon"]
+    },
+    {
+      "name": "Damaraland & Kaokoland",
+      "desc": "A destination in its own right — desert-adapted elephants, rhino tracking, and Himba culture between Etosha and the Skeleton Coast.",
+      "spots": ["Spitzkoppe"]
+    },
+    {
+      "name": "Namib-Naukluft Park",
+      "desc": "One of the world's largest conservation areas — stretching from the central plateau to the iconic dunes of Sossusvlei.",
+      "spots": ["Sossusvlei & Deadvlei"]
+    },
+    {
+      "name": "Swakopmund & Walvis Bay",
+      "desc": "Coastal resort towns where the Atlantic meets the desert — adventure sports, colonial architecture, and fresh seafood.",
+      "spots": ["Swakopmund"]
+    },
+    {
+      "name": "Kavango & Zambezi",
+      "desc": "A lush riverine region with summer rainfall — crocodiles, hippos, and a tropical contrast to the arid south.",
+      "spots": ["Zambezi Region"]
+    },
+    {
+      "name": "Kalahari Desert",
+      "desc": "Eastern Namibia's red sand sea — home to San culture, solitude, and surprising wildlife around ephemeral rivers.",
+      "spots": []
+    },
+    {
+      "name": "Etosha National Park",
+      "desc": "One of the greatest and oldest game parks in Africa — Namibia's premier wildlife sanctuary centred on a vast salt pan.",
+      "spots": ["Etosha National Park"]
+    },
+    {
+      "name": "Skeleton Coast Park",
+      "desc": "Where the desert meets the Atlantic — shipwrecks, seal colonies, and desert-adapted lions along an eerie coastline.",
+      "spots": []
+    }
+  ]
+}

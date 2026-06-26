@@ -1,5 +1,5 @@
 export const CONFIG = {
-    appVersion: '3.2.0',
+    appVersion: '3.3.0',
     supportPhone: '260977123456',
     supportEmail: 'bookings@savannaexplorer.com',
     supabase: {

@@ -8,6 +8,7 @@ import { initUtilityHub } from './modules/utility-hub.js';
 import { initContact } from './modules/contact.js';
 import { initParks } from './modules/parks.js';
 import { initBorders } from './modules/borders.js';
+import { initDiscover } from './modules/discover.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const versionEl = document.getElementById('app-version');
@@ -24,4 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initContact();
     initParks();
     initBorders();
+    initDiscover();
 });

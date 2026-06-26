@@ -1,0 +1,226 @@
+{
+  "facts": [
+    {
+      "title": "Houses the Oldest Desert",
+      "description": "The Namib is the world's oldest desert — and the only desert where large mammals like elephants, rhinos, lions, and giraffes survive.",
+      "icon": "fa-sun",
+      "country": "namibia"
+    },
+    {
+      "title": "Highest Sand Dunes",
+      "description": "Sossusvlei's dunes are among the tallest on Earth — Big Daddy rises over 325 metres above the ancient clay pan of Deadvlei.",
+      "icon": "fa-mountain",
+      "country": "namibia"
+    },
+    {
+      "title": "Second Largest Canyon",
+      "description": "Fish River Canyon in southern Namibia is Africa's largest canyon — a vast landscape carved by the oldest river in the region.",
+      "icon": "fa-water",
+      "country": "namibia"
+    },
+    {
+      "title": "Largest Inland Delta",
+      "description": "Botswana's Okavango Delta is the world's largest inland delta — 22,000 km² of floodplains teeming with wildlife.",
+      "icon": "fa-leaf",
+      "country": "botswana"
+    },
+    {
+      "title": "Smoke That Thunders",
+      "description": "Victoria Falls creates a mist column visible from 50 km away. Locals call it Mosi-oa-Tunya — \"The Smoke That Thunders.\"",
+      "icon": "fa-cloud",
+      "country": "zambia"
+    },
+    {
+      "title": "Kingdom in the Sky",
+      "description": "Lesotho is the only country entirely above 1,000 metres — earning its title as the \"Kingdom in the Sky.\"",
+      "icon": "fa-cloud",
+      "country": "lesotho"
+    }
+  ],
+  "planTripLinks": [
+    {
+      "title": "Where to Stay",
+      "subtitle": "Lodges, camps & guesthouses",
+      "icon": "fa-bed",
+      "href": "#contact",
+      "description": "From community campsites to 5-star lodges — find accommodation across nine countries."
+    },
+    {
+      "title": "What to See",
+      "subtitle": "Top destinations",
+      "icon": "fa-binoculars",
+      "href": "#top-destinations",
+      "description": "Must-visit parks, landmarks, and landscapes handpicked across Southern Africa."
+    },
+    {
+      "title": "What to Do",
+      "subtitle": "Activities & experiences",
+      "icon": "fa-hiking",
+      "href": "#experiences",
+      "description": "Safari, adventure, culture, and nature — bookable experiences for every traveller."
+    },
+    {
+      "title": "Travel Info",
+      "subtitle": "Visas, borders & planning",
+      "icon": "fa-passport",
+      "href": "#plan",
+      "description": "Currency converter, visa matrix, packing wizard, and border crossing guides."
+    }
+  ],
+  "topDestinations": [
+    {
+      "name": "Etosha National Park",
+      "country": "namibia",
+      "region": "Northern Namibia",
+      "desc": "One of Africa's greatest and oldest game parks — legendary waterhole viewing around a vast salt pan.",
+      "image": "1549219355-66779e9508d4",
+      "mustVisit": true
+    },
+    {
+      "name": "Sossusvlei & Namib-Naukluft",
+      "country": "namibia",
+      "region": "Southern Namibia",
+      "desc": "Iconic red dunes in one of the world's largest conservation areas — the oldest desert on Earth.",
+      "image": "1504107123655-081832049e37",
+      "mustVisit": true
+    },
+    {
+      "name": "Fish River Canyon",
+      "country": "namibia",
+      "region": "Southern Namibia",
+      "desc": "Africa's largest canyon — dramatic multi-day hiking and panoramic desert vistas.",
+      "image": "1519408299519-b7a0274f7d67",
+      "mustVisit": true
+    },
+    {
+      "name": "Swakopmund & Walvis Bay",
+      "country": "namibia",
+      "region": "Central Coast",
+      "desc": "Coastal adventure hub — German colonial charm, dunes, skydiving, and fresh Atlantic oysters.",
+      "image": "1612450531505-181cf3a60424",
+      "mustVisit": true
+    },
+    {
+      "name": "Damaraland & Kaokoland",
+      "country": "namibia",
+      "region": "Northwest",
+      "desc": "Desert-adapted elephants, rhino tracking, Twyfelfontein rock art, and Himba culture.",
+      "image": "1612140403750-13f69b821034",
+      "mustVisit": true
+    },
+    {
+      "name": "Kavango & Zambezi",
+      "country": "namibia",
+      "region": "Northeast",
+      "desc": "Lush riverine wilderness — a tropical contrast to the Namib with hippos, crocs, and mokoro trips.",
+      "image": "1454486326938-e6727284ea44",
+      "mustVisit": true
+    },
+    {
+      "name": "Victoria Falls",
+      "country": "zambia",
+      "region": "Livingstone",
+      "desc": "One of the Seven Natural Wonders — thundering cascades on the Zambia–Zimbabwe border.",
+      "image": "1516026672322-bc52d61a55d5",
+      "mustVisit": true
+    },
+    {
+      "name": "Okavango Delta",
+      "country": "botswana",
+      "region": "Northern Botswana",
+      "desc": "UNESCO wetland wilderness — mokoro safaris through papyrus channels teeming with wildlife.",
+      "image": "1547471080-7cc2caa01a7e",
+      "mustVisit": true
+    },
+    {
+      "name": "Kruger National Park",
+      "country": "south-africa",
+      "region": "Mpumalanga & Limpopo",
+      "desc": "Africa's flagship self-drive safari — Big Five, 500+ birds, and 2 million hectares of bushveld.",
+      "image": "1516426122078-c23e76319801",
+      "mustVisit": true
+    }
+  ],
+  "travelNews": [
+    {
+      "date": "Jun 2026",
+      "category": "Travel Update",
+      "title": "KAZA UniVisa extended at Victoria Falls crossings",
+      "excerpt": "The $50 UniVisa continues to cover multiple entries between Zambia and Zimbabwe, including day trips to Botswana's Chobe National Park via Kazungula.",
+      "country": "zambia"
+    },
+    {
+      "date": "Apr 2026",
+      "category": "Industry News",
+      "title": "Namibia visa-free access expanded for 33 nationalities",
+      "excerpt": "Updated entry requirements simplify tourism visits — check the latest Ministry of Home Affairs list before you travel.",
+      "country": "namibia"
+    },
+    {
+      "date": "Mar 2026",
+      "category": "Conservation",
+      "title": "Gorongosa reports record predator sightings",
+      "excerpt": "Mozambique's restored wilderness continues its remarkable recovery — lion and elephant populations reach new highs.",
+      "country": "mozambique"
+    },
+    {
+      "date": "Feb 2026",
+      "category": "Infrastructure",
+      "title": "Kazungula Bridge cuts Chobe crossing times",
+      "excerpt": "The modern bridge linking Botswana, Zambia, and Zimbabwe has replaced the slow pontoon — plan Victoria Falls circuit day trips with confidence.",
+      "country": "botswana"
+    },
+    {
+      "date": "Jan 2026",
+      "category": "Culture",
+      "title": "Herero Living Museum opens in Otjokavare",
+      "excerpt": "A new cultural experience in northwest Namibia offers immersive insight into Herero traditions, dress, and daily life.",
+      "country": "namibia"
+    },
+    {
+      "date": "Dec 2025",
+      "category": "Travel Tip",
+      "title": "Self-drive season peaks across Southern Africa",
+      "excerpt": "Dry-season wildlife viewing (May–October) is underway — book park accommodation and 4x4 rentals early for peak months.",
+      "country": null
+    }
+  ],
+  "planningGuides": [
+    {
+      "country": "namibia",
+      "title": "Namibia Explorer Guide",
+      "topics": ["Where to Go", "Where to Stay", "Best Times to Visit", "Entry & Visa", "Self-Drive Tips"],
+      "pages": 24
+    },
+    {
+      "country": "south-africa",
+      "title": "South Africa Planning Guide",
+      "topics": ["Cape Town & Winelands", "Kruger Safari", "Garden Route", "Visa & Safety"],
+      "pages": 28
+    },
+    {
+      "country": "botswana",
+      "title": "Botswana Delta Guide",
+      "topics": ["Okavango Delta", "Chobe River", "Makgadikgadi", "Fly-in vs Self-drive"],
+      "pages": 20
+    },
+    {
+      "country": "zambia",
+      "title": "Zambia Safari Guide",
+      "topics": ["Victoria Falls", "South Luangwa", "Walking Safaris", "KAZA UniVisa"],
+      "pages": 22
+    },
+    {
+      "country": "zimbabwe",
+      "title": "Zimbabwe Wonders Guide",
+      "topics": ["Victoria Falls", "Hwange", "Mana Pools", "Currency Tips"],
+      "pages": 20
+    },
+    {
+      "country": "mozambique",
+      "title": "Mozambique Coast Guide",
+      "topics": ["Beach Resorts", "Gorongosa", "Diving & Marine", "E-Visa"],
+      "pages": 18
+    }
+  ]
+}

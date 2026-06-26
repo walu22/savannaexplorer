@@ -1,5 +1,6 @@
 import countries from '../../data/countries.json';
 import faqs from '../../data/faqs.json';
+import regions from '../../data/regions.json';
 import { getCountryGuide } from '../lib/guide.js';
 import { spotImageUrl, activityImageUrl } from '../lib/images.js';
 
@@ -51,6 +52,21 @@ function populateCountryPage(countryId) {
             <div class="spot-detail-info"><h3>${spot.name}</h3><p>${spot.desc}</p></div>
         </div>
     `).join('');
+
+    const regionsGrid = document.getElementById('detail-regions-grid');
+    const countryRegions = regions[countryId];
+    const regionsSection = document.getElementById('detail-regions-section');
+    if (regionsGrid && countryRegions?.length) {
+        regionsSection?.classList.remove('hidden');
+        regionsGrid.innerHTML = countryRegions.map(region => `
+            <article class="region-card">
+                <h3>${region.name}</h3>
+                <p>${region.desc}</p>
+            </article>
+        `).join('');
+    } else {
+        regionsSection?.classList.add('hidden');
+    }
 
     detailActivities.innerHTML = data.activities.map(act => `
         <div class="activity-detail-item">
