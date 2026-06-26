@@ -161,7 +161,7 @@ const countryData = {
         about: { 
             geo: 'A vast land of dramatic contrasts, from the world\'s oldest desert (the Namib) and the rugged Skeleton Coast to the high central plateau and the red sands of the Kalahari basin.', 
             people: 'Home to a resilient tapestry of cultures including the semi-nomadic Himba, the ancestral San (Bushmen), and the Herero, all of whom have adapted to thrive in this arid wilderness.', 
-            history: 'From ancient rock art sites to German colonial architecture and independence in 1990, Namibia\'s history is as expansive as its landscapes.' 
+            history: 'Until Western explorers arrived, Namibia\'s stories were passed through generations of San, Nama, and Herero oral tradition. Rock engravings at Twyfelfontein and stone circles of Khoi settlements remain vital records of ancient life. European contact began at the coast — Portuguese explorers named the Skeleton Coast in the 15th century. German colonization followed from 1884, and the 1904 Battle of Waterberg triggered devastating conflict. After South African administration and decades of struggle, SWAPO led Namibia to independence on 21 March 1990 under founding president Sam Nujoma. Today, reconciliation and community conservancies define the nation\'s remarkable conservation success story.' 
         },
         spots: [ 
             { name: 'Sossusvlei & Deadvlei', desc: 'Towering apricot-colored dunes and ancient, skeletal trees. Home to "Big Daddy" and the iconic "Dune 45".', image: '1504107123655-081832049e37' }, 
@@ -210,7 +210,7 @@ const countryData = {
         spots: [ 
             { name: 'Kruger National Park', desc: 'The flagship of African safaris. A world-class wilderness where the Big Five roam freely across nearly 2 million hectares.', image: '1547448415-e9f5b28e570d' }, 
             { name: 'Cape Town & Table Mountain', desc: 'A stunning coastal city dominated by a UNESCO-listed flat-topped mountain, offering a mix of high-culture and rugged nature.', image: '1580060839134-75a5edca2d99' },
-            { name: 'The Garden Route', desc: '300km of breathtaking coastline, featuring ancient forests, secluded beaches, and the dramatic Storms River Mouth.', image: '1422111166666-666666666666' },
+            { name: 'The Garden Route', desc: '300km of breathtaking coastline, featuring ancient forests, secluded beaches, and the dramatic Storms River Mouth.', image: '1506905925344-21ddaec4d32d' },
             { name: 'The Drakensberg (uKhahlamba)', desc: 'The "Dragon Mountains"—spectacular basalt peaks and thousands of ancient San rock art sites.', image: '1541414779316-956a5084c0d4' },
             { name: 'Cape Winelands', desc: 'Tour the historic estates of Stellenbosch and Franschhoek, renowned for world-class vintages and Michelin-standard dining.', image: '1576485375217-d6a95e34d043' }
         ],
@@ -563,93 +563,178 @@ const detailBudget = document.getElementById('detail-budget');
 const detailVisa = document.getElementById('detail-visa');
 const detailSafety = document.getElementById('detail-safety');
 const detailMoney = document.getElementById('detail-money');
-const detailClimate = document.getElementById('detail-climate');
 const detailFlavorInline = document.getElementById('detail-flavor-inline');
 const ctaCountryName = document.querySelector('.cta-country-name');
 
-const SUPPORT_PHONE = '1234567890'; // Placeholder WhatsApp
+const SUPPORT_PHONE = '260977123456';
 const SUPPORT_EMAIL = 'bookings@savannaexplorer.com';
+
+function spotImageUrl(spot) {
+    if (spot.image) {
+        return `https://images.unsplash.com/photo-${spot.image}?auto=format&fit=crop&q=80&w=800`;
+    }
+    return 'https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=800';
+}
+
+function activityImageUrl(act) {
+    if (act.image) {
+        return `https://images.unsplash.com/photo-${act.image}?auto=format&fit=crop&q=80&w=300`;
+    }
+    return 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=300';
+}
 
 function populateCountryPage(countryId) {
     const data = countryData[countryId];
     if (!data) return;
+    const guide = getCountryGuide(countryId, data);
 
-    // Reset scroll center
     detailView.scrollTop = 0;
 
-    // Basic Info
     detailTitle.textContent = data.name;
     detailTagline.textContent = data.tagline;
+
+    const aboutHeading = document.getElementById('detail-about-heading');
+    const aboutIntro = document.getElementById('detail-about-intro');
+    if (aboutHeading) aboutHeading.textContent = `Information About ${data.name}`;
+    if (aboutIntro) aboutIntro.textContent = `Discover essential information for your trip to ${data.name} — geography, history, culture, wildlife, and practical travel advice.`;
+
+    const detailHistory = document.getElementById('detail-history');
+    if (detailHistory) detailHistory.textContent = data.about.history || '';
+
+    const detailWildlife = document.getElementById('detail-wildlife');
+    if (detailWildlife) detailWildlife.textContent = guide.wildlife;
+
     detailGeo.textContent = data.about.geo;
     detailPeople.textContent = data.about.people;
 
-    // Hero Image
-    const cardImg = document.querySelector(`.country-card[data-country-id=\"${countryId}\"] img`);
+    const cardImg = document.querySelector(`.country-card[data-country-id="${countryId}"] img`);
     if (cardImg) {
         detailHeroImg.src = cardImg.src.replace('w=800', 'w=1920');
     }
 
-    // Spots Grid
     detailSpotsGrid.innerHTML = data.spots.map(spot => `
-        <div class=\"spot-detail-card\">
-            <img src=\"https://images.unsplash.com/photo-${spot.image}?auto=format&fit=crop&q=80&w=800\" alt=\"${spot.name}\" loading=\"lazy\">
-            <div class=\"spot-detail-info\">
+        <div class="spot-detail-card">
+            <img src="${spotImageUrl(spot)}" alt="${spot.name}" loading="lazy">
+            <div class="spot-detail-info">
                 <h3>${spot.name}</h3>
                 <p>${spot.desc}</p>
             </div>
         </div>
     `).join('');
 
-    // Activities List
     detailActivities.innerHTML = data.activities.map(act => `
-        <div class=\"activity-detail-item\">
-            <img src=\"https://images.unsplash.com/photo-${act.image}?auto=format&fit=crop&q=80&w=300\" alt=\"${act.name}\" loading=\"lazy\">
-            <div class=\"activity-text\">
+        <div class="activity-detail-item">
+            <img src="${activityImageUrl(act)}" alt="${act.name}" loading="lazy">
+            <div class="activity-text">
                 <h3>${act.name}</h3>
                 <p>${act.desc}</p>
             </div>
         </div>
     `).join('');
 
-    // Toolbox (Advice)
+    const actCategories = document.getElementById('detail-activity-categories');
+    if (actCategories) {
+        actCategories.innerHTML = guide.activityCategories.map(cat => `
+            <div class="activity-cat-card">
+                <div class="activity-cat-header"><span>${cat.icon}</span><h4>${cat.name}</h4></div>
+                <ul>${cat.items.map(i => `<li>${i}</li>`).join('')}</ul>
+            </div>
+        `).join('');
+    }
+
     detailTransport.textContent = data.advice.transport;
     detailBudget.textContent = data.advice.budget;
     detailVisa.textContent = data.advice.visa;
     detailSafety.textContent = data.advice.safety;
     detailMoney.textContent = data.advice.money;
-    detailClimate.textContent = data.advice.climate;
 
-    // Local Flavor - Inline Discovery
+    const detailHealth = document.getElementById('detail-health');
+    const detailTipping = document.getElementById('detail-tipping');
+    const detailFood = document.getElementById('detail-food');
+    if (detailHealth) detailHealth.textContent = guide.health;
+    if (detailTipping) detailTipping.textContent = guide.tipping;
+    if (detailFood) detailFood.textContent = guide.food;
+
+    const detailSeasons = document.getElementById('detail-seasons');
+    if (detailSeasons) {
+        detailSeasons.innerHTML = guide.seasons.map(s => `
+            <div class="season-card">
+                <span class="season-icon">${s.icon}</span>
+                <h4>${s.name}</h4>
+                <p>${s.desc}</p>
+            </div>
+        `).join('');
+    }
+
+    const detailPacking = document.getElementById('detail-packing');
+    if (detailPacking) {
+        detailPacking.innerHTML = guide.packing.map(item => `<li>${item}</li>`).join('');
+    }
+
+    const detailDayNarrative = document.getElementById('detail-day-narrative');
+    if (detailDayNarrative) {
+        detailDayNarrative.innerHTML = `
+            <h3><i class="fas fa-sun"></i> A Day on Safari in ${data.name}</h3>
+            <ol class="narrative-list">${guide.dayNarrative.map(line => `<li>${line}</li>`).join('')}</ol>
+        `;
+    }
+
+    const detailPractical = document.getElementById('detail-practical');
+    if (detailPractical) {
+        const p = guide.practical;
+        detailPractical.innerHTML = `
+            <div class="practical-card"><i class="fas fa-language"></i><h4>Language</h4><p>${p.language}</p></div>
+            <div class="practical-card"><i class="fas fa-plug"></i><h4>Electricity</h4><p>${p.electricity}</p></div>
+            <div class="practical-card"><i class="fas fa-sim-card"></i><h4>Mobile & SIM</h4><p>${p.sim}</p></div>
+            <div class="practical-card"><i class="fas fa-clock"></i><h4>Time Zone</h4><p>${p.time}</p></div>
+        `;
+    }
+
+    const detailRoutesGrid = document.getElementById('detail-routes-grid');
+    if (detailRoutesGrid && data.routes) {
+        detailRoutesGrid.innerHTML = data.routes.map(route => `
+            <div class="route-card">
+                <h4>${route.name}</h4>
+                <p>${route.desc}</p>
+                <button class="btn btn-outline btn-sm" onclick="document.getElementById('close-detail').click(); window.location.hash=''; setTimeout(() => document.getElementById('itineraries').scrollIntoView({behavior:'smooth'}), 300);">View All Itineraries</button>
+            </div>
+        `).join('');
+    }
+
     if (detailFlavorInline) {
         detailFlavorInline.innerHTML = `
-            <div class=\"flavor-item\">
-                <div class=\"flavor-icon\"><i class=\"fa-solid fa-utensils\"></i></div>
-                <div class=\"flavor-text\">
-                    <span class=\"flavor-label\">Signature Dish</span>
-                    <span class=\"flavor-value\">${data.localFlavor.food}</span>
+            <div class="flavor-item">
+                <div class="flavor-icon"><i class="fa-solid fa-utensils"></i></div>
+                <div class="flavor-text">
+                    <span class="flavor-label">Signature Dish</span>
+                    <span class="flavor-value">${data.localFlavor.food}</span>
                 </div>
             </div>
-            <div class=\"flavor-item\">
-                <div class=\"flavor-icon\"><i class=\"fa-solid fa-glass-water\"></i></div>
-                <div class=\"flavor-text\">
-                    <span class=\"flavor-label\">Local Drink</span>
-                    <span class=\"flavor-value\">${data.localFlavor.drink}</span>
+            <div class="flavor-item">
+                <div class="flavor-icon"><i class="fa-solid fa-glass-water"></i></div>
+                <div class="flavor-text">
+                    <span class="flavor-label">Local Drink</span>
+                    <span class="flavor-value">${data.localFlavor.drink}</span>
                 </div>
             </div>
-            <div class=\"flavor-item\">
-                <div class=\"flavor-icon\"><i class=\"fa-solid fa-comments\"></i></div>
-                <div class=\"flavor-text\">
-                    <span class=\"flavor-label\">Greeting</span>
-                    <span class=\"flavor-value\">${data.localFlavor.lang}</span>
+            <div class="flavor-item">
+                <div class="flavor-icon"><i class="fa-solid fa-comments"></i></div>
+                <div class="flavor-text">
+                    <span class="flavor-label">Greeting</span>
+                    <span class="flavor-value">${data.localFlavor.lang}</span>
                 </div>
             </div>
         `;
     }
 
-    // Final CTA Customization
-    if (ctaCountryName) {
-        ctaCountryName.textContent = data.name;
-    }
+    if (ctaCountryName) ctaCountryName.textContent = data.name;
+
+    document.querySelectorAll('.guide-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.guide-panel').forEach(p => p.classList.remove('active'));
+    const firstTab = document.querySelector('.guide-tab[data-tab="about"]');
+    const firstPanel = document.getElementById('panel-about');
+    if (firstTab) firstTab.classList.add('active');
+    if (firstPanel) firstPanel.classList.add('active');
 }
 
 function showCountryPage(countryId) {
@@ -693,6 +778,110 @@ function handleRouting() {
 
 window.addEventListener('hashchange', handleRouting);
 window.addEventListener('load', handleRouting);
+
+// Country guide tab switching
+document.querySelectorAll('.guide-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-tab');
+        document.querySelectorAll('.guide-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.guide-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        const panel = document.getElementById(`panel-${target}`);
+        if (panel) panel.classList.add('active');
+    });
+});
+
+// --- Itinerary Detail Modal ---
+let currentItineraryId = null;
+
+window.openItineraryDetail = function(id) {
+    const data = itineraryData[id];
+    if (!data) return;
+    currentItineraryId = id;
+
+    document.getElementById('itin-type').textContent = data.type;
+    document.getElementById('itin-title').textContent = data.title;
+    document.getElementById('itin-countries').textContent = data.countries;
+    document.getElementById('itin-duration').innerHTML = `<i class="far fa-clock"></i> ${data.duration}`;
+    document.getElementById('itin-price').innerHTML = `<i class="fas fa-tag"></i> From ${data.priceFrom}`;
+    document.getElementById('itin-customizable').innerHTML = data.customizable
+        ? '<i class="fas fa-sliders-h"></i> Fully Customizable'
+        : '<i class="fas fa-lock"></i> Fixed Departure';
+    document.getElementById('itin-description').textContent = data.description;
+
+    document.getElementById('itin-highlights').innerHTML = `
+        <h4>Highlights</h4>
+        <ul>${data.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
+    `;
+
+    document.getElementById('itin-accordion').innerHTML = data.days.map((day, i) => `
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="${i === 0}">
+                <span class="accordion-day">${day.range}</span>
+                <span class="accordion-title">${day.title}</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="accordion-body${i === 0 ? ' open' : ''}">
+                <p class="accordion-places"><i class="fas fa-map-marker-alt"></i> ${day.places}</p>
+                <p>${day.narrative}</p>
+            </div>
+        </div>
+    `).join('');
+
+    document.getElementById('itin-included').innerHTML = data.included.map(i => `<li>${i}</li>`).join('');
+    document.getElementById('itin-excluded').innerHTML = data.excluded.map(i => `<li>${i}</li>`).join('');
+
+    document.getElementById('itin-whatsapp-btn').onclick = () => {
+        inquireJourney(data.title, data.countries);
+    };
+
+    document.getElementById('itinerary-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+window.toggleAccordion = function(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    btn.closest('.itin-accordion').querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+    btn.closest('.itin-accordion').querySelectorAll('.accordion-header').forEach(h => h.setAttribute('aria-expanded', 'false'));
+    if (!isOpen) {
+        body.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+    }
+};
+
+function closeItineraryModal() {
+    document.getElementById('itinerary-modal').classList.remove('active');
+    document.body.style.overflow = '';
+    currentItineraryId = null;
+}
+
+document.querySelectorAll('.itin-close').forEach(btn => {
+    btn.addEventListener('click', closeItineraryModal);
+});
+
+window.requestItineraryQuote = function() {
+    const data = itineraryData[currentItineraryId];
+    closeItineraryModal();
+    if (data) {
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        const msg = document.getElementById('q-message');
+        if (msg) msg.value = `I'm interested in the "${data.title}" itinerary (${data.duration}, ${data.countries}).`;
+    }
+};
+
+window.submitQuotation = function(e) {
+    e.preventDefault();
+    const name = document.getElementById('q-name').value;
+    const email = document.getElementById('q-email').value;
+    const travelers = document.getElementById('q-travelers').value;
+    const style = document.getElementById('q-style').value;
+    const itineraries = [...document.querySelectorAll('input[name="itinerary"]:checked')].map(c => c.value);
+    const message = document.getElementById('q-message').value;
+
+    const body = `Quotation Request from Savanna Explorer\n\nName: ${name}\nEmail: ${email}\nTravelers: ${travelers}\nStyle: ${style}\nItineraries: ${itineraries.join(', ') || 'Not specified'}\n\nMessage:\n${message}`;
+    window.location.href = `mailto:bookings@savannaexplorer.com?subject=${encodeURIComponent('Quotation Request - ' + name)}&body=${encodeURIComponent(body)}`;
+};
 
 
 /* --- EXPERIENCES MARKETPLACE LAYER (SUPABASE BACKEND) --- */
@@ -856,26 +1045,10 @@ document.querySelectorAll('.park-filter').forEach(btn => {
 
 // --- Journey Engine WhatsApp Inquiry ---
 function inquireJourney(journeyName, route) {
-    const phone = '260977123456'; // Replace with actual business WhatsApp
     const msg = encodeURIComponent(
         `Hi! I'm interested in the "${journeyName}" journey (${route}) from Savanna Explorer. Could you help me plan this trip?`
     );
-    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
-}
-
-// --- Nav update for new sections ---
-const navLinks = document.querySelector('.nav-links');
-if (navLinks && !document.querySelector('.nav-links a[href="#cultures"]')) {
-    const culturesLi = document.createElement('li');
-    culturesLi.innerHTML = '<a href="#cultures">Cultures</a>';
-    const parksLi = document.createElement('li');
-    parksLi.innerHTML = '<a href="#parks">Parks</a>';
-    // Insert before "Contact"
-    const contactLi = navLinks.querySelector('a[href="#contact"]')?.parentElement;
-    if (contactLi) {
-        navLinks.insertBefore(culturesLi, contactLi);
-        navLinks.insertBefore(parksLi, contactLi);
-    }
+    window.open(`https://wa.me/${SUPPORT_PHONE}?text=${msg}`, '_blank');
 }
 
 // ==============================================
