@@ -310,7 +310,32 @@
           "Lozi cultural experiences"
         ]
       }
-    ]
+    ],
+    "packing": [
+      "Binoculars",
+      "Neutral-tone safari clothing",
+      "DEET insect repellent",
+      "Headlamp / torch",
+      "Malaria prophylaxis",
+      "Sun hat & SPF 50",
+      "Camera with zoom lens",
+      "Soft duffel bag (bush flights)",
+      "US Dollars in small bills",
+      "Travel adapter (Type C/D/G)",
+      "Reusable water bottle"
+    ],
+    "dayNarrative": [
+      "Wake to the roar of the Zambezi and the mist of Mosi-oa-Tunya rising above the treeline. Coffee on the veranda as the sun lights up the spray.",
+      "Set out on foot with your scout in South Luangwa — track leopard prints in the soft sand and watch elephants cross the river.",
+      "Drift silently in a canoe past pods of hippos on the Lower Zambezi, elephants bathing on the far bank.",
+      "Sundowners on the river as fish eagles call. Dinner under the stars with stories from your guide and a cold Mosi Lager."
+    ],
+    "practical": {
+      "language": "English is the official language. Bemba, Nyanja, Tonga, and Lozi are widely spoken. Guides speak excellent English.",
+      "electricity": "230V. Type C, D, and G plugs. Power cuts possible in cities; lodges have backup generators.",
+      "sim": "Buy Airtel or MTN SIM at Lusaka or Livingstone airport. Coverage is good in towns; patchy in remote parks.",
+      "time": "UTC+2 (CAT). No daylight saving. Bush flights require soft bags max 15–23kg."
+    }
   },
   "zimbabwe": {
     "wildlife": "Zimbabwe protects over 10% of its land as national parks. Hwange hosts one of Africa's largest elephant populations. Mana Pools is a UNESCO site famous for elephants standing on hind legs to reach acacia pods. Matobo Hills shelters both black and white rhino among granite boulders. Zimbabwe trains some of the continent's finest safari guides.",
@@ -321,8 +346,9 @@
         "items": [
           "Walking safaris in Mana Pools",
           "Hwange waterhole game viewing",
-          "Matobo rhino tracking",
-          "Houseboat safaris on Lake Kariba"
+          "Matobo rhino tracking on foot",
+          "Houseboat safaris on Lake Kariba",
+          "Night drives for leopard and lion"
         ]
       },
       {
@@ -330,21 +356,78 @@
         "icon": "🎯",
         "items": [
           "Victoria Falls bungee and bridge swing",
-          "White-water rafting (Grade 5)",
-          "Helicopter flights over the falls",
-          "Tiger fishing on the Zambezi"
+          "Grade 5 white-water rafting",
+          "Helicopter Flight of Angels",
+          "Tiger fishing on the Zambezi",
+          "Gorge swing and zipline"
         ]
       },
       {
         "name": "Culture",
         "icon": "🏛️",
         "items": [
-          "Great Zimbabwe ruins tour",
-          "Shona sculpture workshops",
-          "Traditional dance performances"
+          "Great Zimbabwe ruins UNESCO tour",
+          "Shona sculpture village workshops",
+          "Traditional mbira music performances",
+          "Eastern Highlands tea estate visits"
+        ]
+      },
+      {
+        "name": "Up in the Air",
+        "icon": "🚁",
+        "items": [
+          "Helicopter over Victoria Falls",
+          "Microlight flights along the Batoka Gorge",
+          "Scenic flights over Hwange"
         ]
       }
-    ]
+    ],
+    "seasons": [
+      {
+        "name": "Emerald Season (Nov–Apr)",
+        "icon": "🌧️",
+        "desc": "Lush landscapes and newborn animals. Victoria Falls is at peak flow (Feb–May). Some Mana Pools camps close. Excellent birding."
+      },
+      {
+        "name": "Shoulder (May–Jun)",
+        "icon": "🍂",
+        "desc": "Rains taper off. Falls remain impressive. Bush thins for improving game viewing."
+      },
+      {
+        "name": "Dry Season (Jul–Oct)",
+        "icon": "☀️",
+        "desc": "Peak safari season. Hwange waterholes teem with elephant. Best walking safari conditions in Mana Pools."
+      },
+      {
+        "name": "Hot (Oct–Nov)",
+        "icon": "🔥",
+        "desc": "Hottest and driest before rains. Predator action intensifies. Falls at lowest flow on the Zim side."
+      }
+    ],
+    "packing": [
+      "Binoculars",
+      "Neutral safari clothing",
+      "DEET insect repellent",
+      "Malaria tablets",
+      "US Dollars (small denominations, post-2013 notes)",
+      "Headlamp",
+      "Sun hat & SPF 50",
+      "Camera with telephoto lens",
+      "Warm layer for winter mornings",
+      "Soft bag for domestic flights"
+    ],
+    "dayNarrative": [
+      "Stand before the thundering curtain of Victoria Falls as the spray catches the morning rainbow.",
+      "Game drive in Hwange to a hide at water level — hundreds of elephants arrive in the golden afternoon.",
+      "Walk in Mana Pools with Zimbabwe's legendary guides, approaching elephants and wild dogs on foot.",
+      "Sunset houseboat cruise on Lake Kariba as the drowned forest silhouettes against a copper sky."
+    ],
+    "practical": {
+      "language": "English, Shona, and Ndebele are official languages. Tourism industry speaks fluent English.",
+      "electricity": "220/240V. Type D and G plugs. Load-shedding occurs in cities; lodges have backup power.",
+      "sim": "Econet and NetOne SIM cards available in Harare and Victoria Falls. Buy data bundles for maps.",
+      "time": "UTC+2 (CAT). KAZA Univisa ($50) covers Zambia/Zimbabwe cross-border day trips."
+    }
   },
   "mozambique": {
     "wildlife": "Gorongosa National Park is Africa's most successful rewilding story — lion, wild dog, and elephant populations have rebounded dramatically. The 2,500km coastline supports dugongs, whale sharks, manta rays, and over 1,200 fish species on pristine coral reefs.",
@@ -354,30 +437,89 @@
         "icon": "🐠",
         "items": [
           "Whale shark swimming at Tofo",
-          "Dhow sailing in the Bazaruto Archipelago",
-          "Scuba diving on Quirimbas reefs",
-          "Deep-sea fishing off Vilanculos"
+          "Dhow sailing in Bazaruto Archipelago",
+          "Scuba diving Quirimbas reefs",
+          "Deep-sea fishing off Vilanculos",
+          "Dugong spotting in Bazaruto"
         ]
       },
       {
         "name": "Safari",
         "icon": "🦁",
         "items": [
-          "Gorongosa game drives",
+          "Gorongosa game drives and wild dog tracking",
           "Niassa Reserve fly-in safaris",
-          "Elephant Coast bush walks"
+          "Elephant Coast bush walks",
+          "Birding in Gorongosa floodplains"
         ]
       },
       {
         "name": "Culture",
         "icon": "🏛️",
         "items": [
-          "Ilha de Moçambique UNESCO tour",
-          "Maputo art deco architecture walk",
-          "Peri-peri seafood trail"
+          "Ilha de Moçambique UNESCO walking tour",
+          "Maputo art deco and FEIMA craft market",
+          "Peri-peri seafood trail",
+          "Makonde wood carving workshops"
+        ]
+      },
+      {
+        "name": "Adventure",
+        "icon": "🏄",
+        "items": [
+          "Kitesurfing at Ponta do Ouro",
+          "Ocean safaris for manta rays",
+          "Kayaking through mangrove channels",
+          "Island hopping by speedboat"
         ]
       }
-    ]
+    ],
+    "seasons": [
+      {
+        "name": "Wet Season (Nov–Apr)",
+        "icon": "🌧️",
+        "desc": "Hot and humid with afternoon rains. Cyclone risk on the south coast Jan–Feb. Lush Gorongosa. Lower prices."
+      },
+      {
+        "name": "Shoulder (May)",
+        "icon": "🍂",
+        "desc": "Rains end. Rivers still full. Transition period with fewer tourists."
+      },
+      {
+        "name": "Dry Season (Jun–Oct)",
+        "icon": "☀️",
+        "desc": "Peak beach and safari season. Calm seas for diving. Best visibility for whale sharks at Tofo (Oct–Mar overlap)."
+      },
+      {
+        "name": "Whale Season (Jun–Oct)",
+        "icon": "🐋",
+        "desc": "Humpback whales migrate along the coast. Excellent for ocean safaris from Vilanculos and Inhambane."
+      }
+    ],
+    "packing": [
+      "Reef-safe sunscreen SPF 50",
+      "Swimsuit & rash vest",
+      "Snorkel mask (or rent locally)",
+      "DEET insect repellent",
+      "Malaria prophylaxis",
+      "Light cotton clothing",
+      "Waterproof phone pouch",
+      "US Dollars and South African Rands",
+      "Travel adapter (Type C/F/M)",
+      "Motion sickness tablets for boat trips"
+    ],
+    "dayNarrative": [
+      "Wake to the sound of dhow rigging and turquoise water lapping the Bazaruto shore.",
+      "Snorkel pristine reefs among sea turtles and tropical fish before a lunch of peri-peri prawns.",
+      "Afternoon dhow sail at sunset as the archipelago turns gold and pink.",
+      "Evening in Maputo — live marrabenta music, grilled seafood, and a cold 2M beer."
+    ],
+    "practical": {
+      "language": "Portuguese is the official language. English is spoken in tourist areas and lodges. Swahili in the far north.",
+      "electricity": "220/240V. Type C, F, and M plugs. Power cuts common; lodges have generators.",
+      "sim": "Vodacom and mCel SIM cards in Maputo. Buy data at airports and shopping centres.",
+      "time": "UTC+2 (CAT). E-visa recommended before travel. 4x4 essential for Gorongosa and northern coast."
+    }
   },
   "malawi": {
     "wildlife": "Lake Malawi contains more fish species than any other lake on Earth — over 1,000 endemic cichlids. Liwonde and Majete have been rewilded with the Big Five. Nyika Plateau shelters leopards, roan antelope, and over 200 orchid species in a landscape resembling the Scottish Highlands.",
@@ -389,16 +531,18 @@
           "Snorkelling with cichlids at Cape Maclear",
           "Kayaking to Domwe Island",
           "Shire River boat safaris",
-          "Dhow cruises at sunset"
+          "Sunset dhow cruises",
+          "Scuba diving at Lake Malawi"
         ]
       },
       {
         "name": "Mountain",
         "icon": "⛰️",
         "items": [
-          "Mount Mulanje multi-day trek",
+          "Mount Mulanje multi-day trek to Sapitwa",
           "Nyika Plateau horse riding",
-          "Zomba Plateau hiking"
+          "Zomba Plateau hiking and views",
+          "Livingstonia escarpment waterfall hike"
         ]
       },
       {
@@ -407,10 +551,67 @@
         "items": [
           "Liwonde elephant boat safaris",
           "Majete Big Five tracking",
-          "Black rhino sanctuary walks"
+          "Black rhino sanctuary walks",
+          "Nyika leopard and roan antelope"
+        ]
+      },
+      {
+        "name": "Culture",
+        "icon": "🏛️",
+        "items": [
+          "Tea estate tours in Thyolo",
+          "Village homestays on Likoma Island",
+          "Local market visits in Nkhata Bay",
+          "Livingstonia mission history"
         ]
       }
-    ]
+    ],
+    "seasons": [
+      {
+        "name": "Wet Season (Nov–Apr)",
+        "icon": "🌧️",
+        "desc": "Warm rains green the landscape. Roads can be challenging. Excellent value and birding. Lake is warm for swimming."
+      },
+      {
+        "name": "Shoulder (May)",
+        "icon": "🍂",
+        "desc": "Rains end. Landscapes lush. Good for combining lake and safari."
+      },
+      {
+        "name": "Dry Season (Jun–Oct)",
+        "icon": "☀️",
+        "desc": "Peak travel season. Clear skies, excellent wildlife at Liwonde waterholes. Cool nights on Nyika Plateau."
+      },
+      {
+        "name": "Festival Season (Sep)",
+        "icon": "🎵",
+        "desc": "Lake of Stars music festival on the lakeshore. Warm days, ideal for trekking Mulanje."
+      }
+    ],
+    "packing": [
+      "Binoculars",
+      "Swimsuit & snorkel gear",
+      "DEET insect repellent",
+      "Malaria prophylaxis",
+      "Sun hat & SPF 50",
+      "Hiking boots (for Mulanje)",
+      "Warm fleece (Nyika nights)",
+      "Waterproof dry bag",
+      "Camera",
+      "Kwacha cash and USD backup"
+    ],
+    "dayNarrative": [
+      "Morning snorkel at Cape Maclear among hundreds of colourful endemic cichlids in crystal water.",
+      "Kayak across to Domwe Island for a picnic on an uninhabited shore in Lake Malawi National Park.",
+      "Afternoon boat safari on the Shire River — elephants wade past your bow in Liwonde.",
+      "Sunset dhow cruise with the golden lake stretching to the horizon and fishermen in dugouts."
+    ],
+    "practical": {
+      "language": "English and Chichewa are official languages. Chitumbuka in the north. Malawians are famously welcoming.",
+      "electricity": "230V. Type G plugs (British standard). Frequent power cuts; lodges have solar backup.",
+      "sim": "Airtel and TNM SIM widely available. Buy bundles in Lilongwe or Blantyre.",
+      "time": "UTC+2 (CAT). Bilharzia risk in stagnant lake water — stick to open, moving water for swimming."
+    }
   },
   "lesotho": {
     "wildlife": "Lesotho's alpine ecosystems support bearded vultures, black eagles, and the endemic Maluti minnow. Sehlabathebe National Park protects unique high-altitude wetlands and endemic flora. The rugged mountains are home to hardy Basotho ponies rather than big game.",
@@ -419,31 +620,79 @@
         "name": "Mountain",
         "icon": "⛰️",
         "items": [
-          "Sani Pass 4×4 ascent",
-          "Pony trekking in Malealea",
+          "Sani Pass 4x4 ascent",
+          "Pony trekking from Malealea",
           "Drakensberg peak hiking",
-          "Seasonal skiing at Afriski"
+          "Seasonal skiing at Afriski",
+          "Katse Dam scenic drives"
         ]
       },
       {
         "name": "Adventure",
         "icon": "🧗",
         "items": [
-          "Abseiling Maletsunyane Falls",
+          "Abseiling Maletsunyane Falls (world's longest commercial)",
           "Mountain biking trails",
-          "Rock climbing at Waterval Boven"
+          "Rock climbing",
+          "Single-track pony trails"
         ]
       },
       {
         "name": "Culture",
         "icon": "🏛️",
         "items": [
-          "Thaba Bosiu historical fortress",
+          "Thaba Bosiu fortress tour",
           "Basotho hat and blanket workshops",
-          "San rock art tours"
+          "San rock art in remote caves",
+          "Morija Museum and Archives"
         ]
       }
-    ]
+    ],
+    "seasons": [
+      {
+        "name": "Summer (Nov–Mar)",
+        "icon": "🌧️",
+        "desc": "Warm afternoons with dramatic thunderstorms. Green mountain landscapes. Pony trekking at its best."
+      },
+      {
+        "name": "Autumn (Apr–May)",
+        "icon": "🍂",
+        "desc": "Clear skies and golden light. Ideal hiking weather. Waterfalls at peak flow after rains."
+      },
+      {
+        "name": "Winter (Jun–Aug)",
+        "icon": "❄️",
+        "desc": "Snow on the peaks. Skiing at Afriski. Crisp, clear days but freezing nights. Bring serious warm layers."
+      },
+      {
+        "name": "Spring (Sep–Oct)",
+        "icon": "🌸",
+        "desc": "Wildflowers on the highlands. Mild temperatures. Excellent for Sani Pass and pony trekking."
+      }
+    ],
+    "packing": [
+      "Warm layers & down jacket",
+      "Waterproof rain shell",
+      "Hiking boots (broken in)",
+      "Sun hat & SPF 50 (high altitude sun)",
+      "Gloves and beanie (year-round)",
+      "Headlamp",
+      "Reusable water bottle",
+      "Travel adapter (Type M)",
+      "Basotho blanket (buy locally)"
+    ],
+    "dayNarrative": [
+      "Ascend Sani Pass in a 4x4 through hairpin bends as the Drakensberg drops away below you.",
+      "Pony trek with a local guide through remote highland villages unreachable by road.",
+      "Pause at a shepherd's hut for pap and moroho, watching eagles soar above the Maloti peaks.",
+      "Night in a mountain lodge as temperatures plunge and the Milky Way blazes overhead."
+    ],
+    "practical": {
+      "language": "Sesotho and English are official languages. Most guides speak both fluently.",
+      "electricity": "220V. Type M plugs (same as South Africa). Remote lodges use solar power.",
+      "sim": "Econet and Vodacom Lesotho SIM. Coverage in towns; limited in remote highlands.",
+      "time": "UTC+2 (SAST). Entry is via South Africa — ensure your SA visa allows multiple entries."
+    }
   },
   "eswatini": {
     "wildlife": "Despite its small size, Eswatini protects remarkable biodiversity. Hlane and Mkhaya are among Africa's best rhino tracking destinations. Mlilwane offers vehicle-free walking and horseback safaris among zebra and wildebeest.",
@@ -455,17 +704,19 @@
           "Rhino tracking on foot at Mkhaya",
           "Big Five in Hlane Royal NP",
           "Horseback safari in Mlilwane",
-          "Night drives for leopard"
+          "Night drives for leopard",
+          "Guided walks in Mlawula"
         ]
       },
       {
         "name": "Culture",
         "icon": "🏛️",
         "items": [
-          "Umhlanga Reed Dance (August/September)",
-          "Mantenga cultural village",
+          "Umhlanga Reed Dance (Aug/Sep)",
+          "Mantenga Cultural Village",
           "Ngwenya Glass workshop tour",
-          "Swazi craft market trail"
+          "Swazi craft markets in Mbabane",
+          "Royal palace grounds (exterior)"
         ]
       },
       {
@@ -474,9 +725,56 @@
         "items": [
           "Gobholo cave exploration",
           "White-water rafting on the Usutu",
-          "Zip-lining in the Ezulwini Valley"
+          "Zip-lining in Ezulwini Valley",
+          "Sibebe Rock hike"
         ]
       }
-    ]
+    ],
+    "seasons": [
+      {
+        "name": "Summer (Nov–Mar)",
+        "icon": "🌧️",
+        "desc": "Hot and wet. Malaria risk in lowveld. Umhlanga Reed Dance (Aug/Sep). Lush landscapes."
+      },
+      {
+        "name": "Autumn (Apr–May)",
+        "icon": "🍂",
+        "desc": "Rains taper. Pleasant temperatures. Good for combining culture and wildlife."
+      },
+      {
+        "name": "Dry Winter (Jun–Aug)",
+        "icon": "☀️",
+        "desc": "Best wildlife viewing in Hlane and Mkhaya. Mild days, cool nights. Peak rhino tracking season."
+      },
+      {
+        "name": "Spring (Sep–Oct)",
+        "icon": "🌸",
+        "desc": "Umhlanga Reed Dance ceremonies. Warm weather. Excellent for Ezulwini Valley exploration."
+      }
+    ],
+    "packing": [
+      "Binoculars",
+      "Neutral safari clothing",
+      "DEET insect repellent",
+      "Malaria prophylaxis (lowveld)",
+      "Sun hat & SPF 50",
+      "Comfortable walking shoes",
+      "Camera",
+      "Warm layer for winter evenings",
+      "South African Rand (widely accepted)",
+      "Travel adapter (Type M)"
+    ],
+    "dayNarrative": [
+      "Morning rhino tracking on foot in Mkhaya — approach within metres of white rhino with expert rangers.",
+      "Visit Mantenga Cultural Village for traditional Swazi song, dance, and craft demonstrations.",
+      "Horseback safari through Mlilwane as zebra and warthog graze in the Valley of Heaven.",
+      "Sunset over Ezulwini with the Lebombo Mountains turning purple as hippos grunt in the ponds below."
+    ],
+    "practical": {
+      "language": "SiSwati and English are official languages. Everyone in tourism speaks English.",
+      "electricity": "230V. Type M plugs (same as South Africa). Reliable in towns and lodges.",
+      "sim": "MTN Eswatini SIM available at border posts and Mbabane. Good coverage nationwide.",
+      "time": "UTC+2 (SAST). Lilangeni pegged 1:1 with ZAR. Both currencies accepted everywhere."
+    }
   }
 }

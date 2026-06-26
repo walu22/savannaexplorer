@@ -36,6 +36,18 @@ function openItineraryDetail(id) {
         : '<i class="fas fa-lock"></i> Fixed Departure';
     document.getElementById('itin-description').textContent = data.description;
 
+    const mapBlock = document.getElementById('itin-route-map');
+    const mapImg = document.getElementById('itin-map-img');
+    const mapCaption = document.getElementById('itin-map-caption');
+    if (data.mapImage && mapBlock && mapImg) {
+        mapImg.src = data.mapImage;
+        mapImg.alt = `${data.title} route overview`;
+        if (mapCaption) mapCaption.textContent = data.mapCaption || '';
+        mapBlock.hidden = false;
+    } else if (mapBlock) {
+        mapBlock.hidden = true;
+    }
+
     document.getElementById('itin-highlights').innerHTML = `
         <h4>Highlights</h4>
         <ul>${data.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
