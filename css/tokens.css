@@ -1,31 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-    /* Refined Color Palette — Warm Safari Luxe */
-    --primary: #B8860B;         /* Safari Gold (DarkGoldenrod) */
-    --primary-light: #D4A855;
-    --primary-dark: #8B6914;
-    --accent: #2D5016;          /* Deep Savanna Green */
-    --bg-dark: #141418;         /* Rich Ebony */
-    --bg-warm: #F9F7F2;         /* Warm Sand */
-    --bg-cream: #FDFCF9;        /* Lighter Cream */
-    --bg-light: #F5F0E8;
+    /* Southern Africa DMO palette */
+    --primary: #C4672A;
+    --primary-light: #E08B52;
+    --primary-dark: #9A4E1C;
+    --accent: #1A3D32;
+    --accent-light: #2A5C4A;
+    --accent-muted: #4A7A68;
+
+    --bg-dark: #0C1210;
+    --bg-warm: #F7F3ED;
+    --bg-cream: #FDFBF7;
+    --bg-light: #F0EBE3;
+    --bg-surface: #FFFFFF;
     --white: #FFFFFF;
-    --text-dark: #1A1A1A;       /* Deep Ebony */
-    --text-body: #3D3D3D;       /* Softer body text */
-    --text-muted: #7A7A7A;
-    --border-subtle: rgba(0, 0, 0, 0.06);
-    --overlay: rgba(0, 0, 0, 0.4);
-    --shadow-sm: 0 2px 12px rgba(0,0,0,0.04);
-    --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
-    --shadow-lg: 0 16px 50px rgba(0,0,0,0.12);
-    
-    /* Spacing & Sizing */
-    --container-width: 1240px;
-    --header-height: 80px;
-    --section-pad: 8rem;
-    
-    /* Transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    --transition-fast: all 0.25s ease;
+
+    --text-dark: #0C1210;
+    --text-body: #3A403D;
+    --text-muted: #6B7280;
+    --text-inverse: #F7F3ED;
+
+    --border-subtle: rgba(12, 18, 16, 0.08);
+    --border-strong: rgba(12, 18, 16, 0.14);
+    --overlay: rgba(12, 18, 16, 0.55);
+
+    --shadow-sm: 0 2px 8px rgba(12, 18, 16, 0.06);
+    --shadow-md: 0 8px 30px rgba(12, 18, 16, 0.1);
+    --shadow-lg: 0 20px 60px rgba(12, 18, 16, 0.14);
+
+    --container-width: 1200px;
+    --header-height: 76px;
+    --section-pad: 6rem;
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-pill: 100px;
+
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-accent: var(--font-body);
+
+    --transition-smooth: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-fast: all 0.2s ease;
 }

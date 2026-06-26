@@ -9,6 +9,7 @@ import { initContact } from './modules/contact.js';
 import { initParks } from './modules/parks.js';
 import { initBorders } from './modules/borders.js';
 import { initDiscover } from './modules/discover.js';
+import { initDestinations } from './modules/destinations.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const versionEl = document.getElementById('app-version');
@@ -26,4 +27,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initParks();
     initBorders();
     initDiscover();
+    initDestinations();
 });

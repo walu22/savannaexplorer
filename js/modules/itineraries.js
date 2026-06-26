@@ -3,6 +3,31 @@ import { CONFIG } from '../config.js';
 
 let currentItineraryId = null;
 
+function renderItineraryGrid() {
+    const grid = document.querySelector('.itinerary-grid');
+    if (!grid) return;
+
+    grid.innerHTML = Object.entries(itineraryData).map(([id, data]) => `
+        <article class="itinerary-card" data-itinerary-id="${id}">
+            <div class="itinerary-header">
+                <span class="itinerary-type">${data.type}</span>
+                <span class="itinerary-tag">${data.duration}</span>
+                <h3>${data.title}</h3>
+                <p>${data.countries}</p>
+            </div>
+            <p class="itinerary-blurb">${data.description}</p>
+            <div class="itinerary-meta">
+                <span><i class="far fa-clock"></i> ${data.duration}</span>
+                <span><i class="fas fa-tag"></i> From ${data.priceFrom}</span>
+            </div>
+            <div class="itinerary-actions">
+                <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="${id}">View Route</button>
+                <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="${data.title}" data-journey-route="${data.countries}"><i class="fab fa-whatsapp"></i> Inquire</button>
+            </div>
+        </article>
+    `).join('');
+}
+
 export function inquireJourney(journeyName, route) {
     const msg = encodeURIComponent(
         `Hi! I'm interested in the "${journeyName}" journey (${route}) from Savanna Explorer. Could you help me plan this trip?`
@@ -91,6 +116,8 @@ function requestItineraryQuote() {
 }
 
 export function initItineraries() {
+    renderItineraryGrid();
+
     document.querySelectorAll('.itin-close').forEach(btn => {
         btn.addEventListener('click', closeItineraryModal);
     });

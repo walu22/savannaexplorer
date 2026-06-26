@@ -3,30 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savanna Explorer | Official Tourism Guide</title>
+    <title>Savanna Explorer | Southern Africa, Endless Horizons</title>
     <meta name="description" content="Explore the breathtaking landscapes, diverse wildlife, and rich cultures of Southern Africa. Your ultimate guide to safari, adventure, and relaxation.">
     <link rel="stylesheet" href="/css/main.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body class="site-v2">
 
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container">
-            <a href="#" class="logo">SAVANNA EXPLORER</a>
+            <a href="#home" class="logo">SAVANNA EXPLORER</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#destinations">Destinations</a></li>
-                <li><a href="#experiences">Experiences</a></li>
-                <li><a href="#cultures">Cultures</a></li>
-                <li><a href="#parks">Parks</a></li>
-                <li><a href="#borders">Borders</a></li>
-                <li><a href="#itineraries">Itineraries</a></li>
-                <li><a href="#plan">Plan Your Trip</a></li>
-                <li><a href="#top-destinations">Highlights</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-drop-toggle">Explore <i class="fas fa-chevron-down"></i></button>
+                    <div class="nav-drop-menu">
+                        <a href="#top-destinations">Top Highlights</a>
+                        <a href="#experiences">Experiences</a>
+                        <a href="#parks">National Parks</a>
+                        <a href="#cultures">Cultures</a>
+                        <a href="#gastronomy">Gastronomy</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-drop-toggle">Plan <i class="fas fa-chevron-down"></i></button>
+                    <div class="nav-drop-menu">
+                        <a href="#itineraries">Itineraries</a>
+                        <a href="#borders">Border Crossings</a>
+                        <a href="#plan">Travel Tools</a>
+                        <a href="#guides">Planning Guides</a>
+                        <a href="#faq">FAQ</a>
+                    </div>
+                </li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact" class="nav-cta">Plan Your Trip</a></li>
             </ul>
             <div class="menu-toggle" id="mobile-menu">
                 <i class="fa-solid fa-bars"></i>
@@ -34,14 +46,23 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
-        <img src="https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1920" alt="African Savanna Sunset" class="hero-bg" id="hero-img">
-        <div class="hero-content">
-            <span class="hero-tagline">Southern Africa's Premier Discovery Platform</span>
-            <h1>Where the Wild Meets the Extraordinary</h1>
-            <p>Nine countries. Infinite horizons. From the thundering Victoria Falls to the ancient dunes of the Namib — discover Africa's most captivating region.</p>
-            <a href="#destinations" class="btn">Start Planning</a>
+        <img src="https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1920" alt="Southern Africa savanna at sunset" class="hero-bg" id="hero-img">
+        <div class="hero-content container">
+            <span class="hero-eyebrow">Southern Africa</span>
+            <h1>Endless Horizons</h1>
+            <p class="hero-tagline">Nine countries. Ancient deserts, thundering falls, and wildlife corridors that span a continent. Your official guide to planning the journey of a lifetime.</p>
+            <div class="hero-actions">
+                <a href="#destinations" class="btn">Explore Destinations</a>
+                <a href="#plan" class="btn btn-outline">Plan Your Trip</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><strong>9</strong><span>Countries</span></div>
+                <div class="hero-stat"><strong>27+</strong><span>National Parks</span></div>
+                <div class="hero-stat"><strong>15</strong><span>Border Guides</span></div>
+                <div class="hero-stat"><strong>6</strong><span>Cross-border Routes</span></div>
+            </div>
         </div>
     </section>
 
@@ -150,114 +171,15 @@
         </div>
     </section>
 
-    <!-- Destinations Section -->
+    <!-- Destinations -->
     <section id="destinations" class="destinations">
         <div class="container">
             <div class="section-header">
+                <span class="section-eyebrow">Where to Go</span>
                 <h2>Explore Our Destinations</h2>
-                <p>9 Countries. Countless Wonders.</p>
+                <p>Nine countries across Southern Africa — each with its own landscapes, wildlife, and culture waiting to be discovered.</p>
             </div>
-
-            <div class="destinations-grid">
-                <!-- South Africa -->
-                <div class="country-card" data-country-id="south-africa">
-                    <img src="https://images.unsplash.com/photo-1549076656-10360fa2333c?auto=format&fit=crop&q=80&w=800" alt="South Africa" loading="lazy">
-                    <div class="card-overlay">
-                        <h3>South Africa</h3>
-                        <p class="tagline-overlay">A World in One Country</p>
-                        <p class="attractions">Kruger Park • Cape Town • Garden Route • Drakensberg • Winelands</p>
-                        <button class="btn btn-sm btn-explore">Discover More</button>
-                    </div>
-                </div>
-
-                <!-- Botswana -->
-                <div class="country-card" data-country-id="botswana">
-                    <img src="https://images.unsplash.com/photo-1551323330-918809e5352c?auto=format&fit=crop&q=80&w=800" alt="Botswana" loading="lazy">
-                    <div class="card-overlay">
-                        <h3>Botswana</h3>
-                        <p class="tagline-overlay">The Pristine Heart of the Wild</p>
-                        <p class="attractions">Okavango Delta • Chobe • Moremi • Makgadikgadi • Central Kalahari</p>
-                        <button class="btn btn-sm btn-explore">Discover More</button>
-                    </div>
-                </div>
-
-                <!-- Namibia -->
-                <div class="country-card" data-country-id="namibia">
-                    <img src="https://images.unsplash.com/photo-1448831338187-78296e6fdc4d?auto=format&fit=crop&q=80&w=800" alt="Namibia" loading="lazy">
-                    <div class="card-overlay">
-                        <h3>Namibia</h3>
-                        <p class="tagline-overlay">A Realm of Endless Horizons</p>
-                        <p class="attractions">Sossusvlei • Etosha • Fish River Canyon • Skeleton Coast • Spitzkoppe • Swakopmund</p>
-                        <button class="btn btn-sm btn-explore">Discover More</button>
-                    </div>
-                </div>
-
-                <!-- Zambia -->
-                <div class="country-card" data-country-id="zambia">
-                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=800" alt="Zambia" loading="lazy">
-                    <div class="card-overlay">
-                        <h3>Zambia</h3>
-                        <p class="tagline-overlay">The Spirit of the Real Africa</p>
-                        <p class="attractions">Victoria Falls • South Luangwa • Lower Zambezi • Kafue • Lake Kariba • Liuwa Plain</p>
-                        <button class="btn btn-sm btn-explore">Discover More</button>
-                    </div>
-                </div>
-
-                <!-- Zimbabwe -->
-                <div class="country-card" data-country-id="zimbabwe">
-                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=800" alt="Zimbabwe" loading="lazy">
-                    <div class="card-overlay">
-                        <h3>Zimbabwe</h3>
-                        <p class="tagline-overlay">A World of Wonders</p>
-                        <p class="attractions">Victoria Falls • Hwange • Mana Pools • Lake Kariba • Matobo Hills</p>
-                        <button class="btn btn-sm btn-explore">Discover More</button>
-                    </div>
-                </div>
-
-                <!-- Mozambique -->
-                <div class="country-card" data-country-id="mozambique">
-                    <img src="https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=800" alt="Mozambique" loading="lazy">
-                    <div class="card-overlay">
-                        <h3>Mozambique</h3>
-                        <p class="tagline-overlay">Tropical Shores & Vibrant Fusion</p>
-                        <p class="attractions">Bazaruto • Tofo Beach • Gorongosa • Maputo • Ibo Island</p>
-                        <button class="btn btn-sm btn-explore">Discover More</button>
-                    </div>
-                </div>
-
-                <!-- Malawi -->
-                <div class="country-card" data-country-id="malawi">
-                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Malawi" loading="lazy">
-                    <div class="card-overlay">
-                        <h3>Malawi</h3>
-                        <p class="tagline-overlay">The Warm Heart of Africa</p>
-                        <p class="attractions">Lake Malawi • Mount Mulanje • Liwonde Park • Majete • Nyika Plateau</p>
-                        <button class="btn btn-sm btn-explore">Discover More</button>
-                    </div>
-                </div>
-
-                <!-- Lesotho -->
-                <div class="country-card" data-country-id="lesotho">
-                    <img src="https://images.unsplash.com/photo-1541414779316-956a5084c0d4?q=80&w=800&auto=format&fit=crop" alt="Lesotho" loading="lazy">
-                    <div class="card-overlay">
-                        <h3>Lesotho</h3>
-                        <p class="tagline-overlay">The Kingdom in the Sky</p>
-                        <p class="attractions">Maletsunyane Falls • Sani Pass • Sehlabathebe • Thaba Bosiu • Katse Dam</p>
-                        <button class="btn btn-sm btn-explore">Discover More</button>
-                    </div>
-                </div>
-
-                <!-- Eswatini -->
-                <div class="country-card" data-country-id="eswatini">
-                    <img src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80&w=800&auto=format&fit=crop" alt="Eswatini" loading="lazy">
-                    <div class="card-overlay">
-                        <h3>Eswatini</h3>
-                        <p class="tagline-overlay">Rich Traditions & Royal Heritage</p>
-                        <p class="attractions">Hlane Royal Park • Mlilwane Sanctuary • Mantenga Cultural Village • Mkhaya</p>
-                        <button class="btn btn-sm btn-explore">Discover More</button>
-                    </div>
-                </div>
-            </div>
+            <div class="destinations-grid" id="destinations-grid"></div>
         </div>
     </section>
 
@@ -321,29 +243,6 @@
         </div>
     </section>
 
-    <!-- Facts Section -->
-    <section class="facts">
-        <div class="container">
-            <div class="facts-grid">
-                <div class="fact-item">
-                    <i class="fa-solid fa-earth-africa"></i>
-                    <h3>9</h3>
-                    <p>Southern African Countries</p>
-                </div>
-                <div class="fact-item">
-                    <i class="fa-solid fa-tree"></i>
-                    <h3>30+</h3>
-                    <p>National Parks & Reserves</p>
-                </div>
-                <div class="fact-item">
-                    <i class="fa-solid fa-paw"></i>
-                    <h3>1000+</h3>
-                    <p>Wildlife Species</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Journey Engine -->
     <section id="itineraries" class="itineraries">
         <div class="container">
@@ -352,116 +251,7 @@
                 <h2>Curated Cross-Border Routes</h2>
                 <p>Fully customizable journeys — book as-is or use them as inspiration for your tailor-made adventure.</p>
             </div>
-            <div class="itinerary-grid">
-                <!-- Route 1: Desert to Delta -->
-                <div class="itinerary-card" data-itinerary-id="desert-to-delta">
-                    <div class="itinerary-header">
-                        <span class="itinerary-type">Self-Drive Route</span>
-                        <span class="itinerary-tag">14–21 Days</span>
-                        <h3>The Desert to Delta</h3>
-                        <p>🇳🇦 Namibia <i class="fas fa-arrow-right"></i> 🇧🇼 Botswana</p>
-                    </div>
-                    <p class="itinerary-blurb">From the world's oldest desert through Etosha's waterholes to the Okavango Delta's mokoro channels.</p>
-                    <div class="itinerary-meta">
-                        <span><i class="far fa-clock"></i> 14–21 Days</span>
-                        <span><i class="fas fa-tag"></i> From $2,450 USD</span>
-                    </div>
-                    <div class="itinerary-actions">
-                        <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="desert-to-delta">View Route</button>
-                        <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="Desert to Delta" data-journey-route="Namibia → Botswana"><i class="fab fa-whatsapp"></i> Inquire</button>
-                    </div>
-                </div>
-                <!-- Route 2: Coastal Explorer -->
-                <div class="itinerary-card" data-itinerary-id="coastal-explorer">
-                    <div class="itinerary-header">
-                        <span class="itinerary-type">Self-Drive Route</span>
-                        <span class="itinerary-tag">15–20 Days</span>
-                        <h3>The Coastal Explorer</h3>
-                        <p>🇿🇦 South Africa <i class="fas fa-arrow-right"></i> 🇲🇿 Mozambique</p>
-                    </div>
-                    <p class="itinerary-blurb">Cape Town's mountains to Mozambique's turquoise archipelagos — the ultimate Indian Ocean odyssey.</p>
-                    <div class="itinerary-meta">
-                        <span><i class="far fa-clock"></i> 15–20 Days</span>
-                        <span><i class="fas fa-tag"></i> From $2,890 USD</span>
-                    </div>
-                    <div class="itinerary-actions">
-                        <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="coastal-explorer">View Route</button>
-                        <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="Coastal Explorer" data-journey-route="South Africa → Mozambique"><i class="fab fa-whatsapp"></i> Inquire</button>
-                    </div>
-                </div>
-                <!-- Route 3: The Falls & Beyond -->
-                <div class="itinerary-card" data-itinerary-id="falls-beyond">
-                    <div class="itinerary-header">
-                        <span class="itinerary-type">Guided & Self-Drive</span>
-                        <span class="itinerary-tag">10–14 Days</span>
-                        <h3>The Falls & Beyond</h3>
-                        <p>🇿🇲 Zambia <i class="fas fa-arrow-right"></i> 🇿🇼 Zimbabwe <i class="fas fa-arrow-right"></i> 🇧🇼 Botswana</p>
-                    </div>
-                    <p class="itinerary-blurb">Victoria Falls, walking safaris in Luangwa, Hwange's elephants, and Chobe river cruises.</p>
-                    <div class="itinerary-meta">
-                        <span><i class="far fa-clock"></i> 10–14 Days</span>
-                        <span><i class="fas fa-tag"></i> From $3,150 USD</span>
-                    </div>
-                    <div class="itinerary-actions">
-                        <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="falls-beyond">View Route</button>
-                        <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="Falls & Beyond" data-journey-route="Zambia → Zimbabwe → Botswana"><i class="fab fa-whatsapp"></i> Inquire</button>
-                    </div>
-                </div>
-                <!-- Route 4: Kingdom Circuit -->
-                <div class="itinerary-card" data-itinerary-id="kingdom-circuit">
-                    <div class="itinerary-header">
-                        <span class="itinerary-type">Mountain & Culture</span>
-                        <span class="itinerary-tag">7–10 Days</span>
-                        <h3>The Kingdom Circuit</h3>
-                        <p>🇱🇸 Lesotho <i class="fas fa-arrow-right"></i> 🇸🇿 Eswatini <i class="fas fa-arrow-right"></i> 🇿🇦 South Africa</p>
-                    </div>
-                    <p class="itinerary-blurb">High-altitude pony trekking, royal game reserves, and a Big Five finale in Kruger.</p>
-                    <div class="itinerary-meta">
-                        <span><i class="far fa-clock"></i> 7–10 Days</span>
-                        <span><i class="fas fa-tag"></i> From $1,680 USD</span>
-                    </div>
-                    <div class="itinerary-actions">
-                        <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="kingdom-circuit">View Route</button>
-                        <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="Kingdom Circuit" data-journey-route="Lesotho → Eswatini → South Africa"><i class="fab fa-whatsapp"></i> Inquire</button>
-                    </div>
-                </div>
-                <!-- Route 5: Lake & Mountain -->
-                <div class="itinerary-card" data-itinerary-id="lake-mountain">
-                    <div class="itinerary-header">
-                        <span class="itinerary-type">Adventure Route</span>
-                        <span class="itinerary-tag">10–14 Days</span>
-                        <h3>Lake & Mountain</h3>
-                        <p>🇲🇼 Malawi <i class="fas fa-arrow-right"></i> 🇲🇿 Mozambique</p>
-                    </div>
-                    <p class="itinerary-blurb">Lake Malawi's cichlids, Mount Mulanje's peaks, and Mozambique's historic island coast.</p>
-                    <div class="itinerary-meta">
-                        <span><i class="far fa-clock"></i> 10–14 Days</span>
-                        <span><i class="fas fa-tag"></i> From $1,950 USD</span>
-                    </div>
-                    <div class="itinerary-actions">
-                        <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="lake-mountain">View Route</button>
-                        <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="Lake & Mountain" data-journey-route="Malawi → Mozambique"><i class="fab fa-whatsapp"></i> Inquire</button>
-                    </div>
-                </div>
-                <!-- Route 6: The Grand Safari -->
-                <div class="itinerary-card" data-itinerary-id="grand-safari">
-                    <div class="itinerary-header">
-                        <span class="itinerary-type">Signature Safari</span>
-                        <span class="itinerary-tag">21–28 Days</span>
-                        <h3>The Grand Safari</h3>
-                        <p>🇿🇦 South Africa <i class="fas fa-arrow-right"></i> 🇳🇦 Namibia <i class="fas fa-arrow-right"></i> 🇧🇼 Botswana</p>
-                    </div>
-                    <p class="itinerary-blurb">The definitive Southern African safari — Kruger, Etosha, Skeleton Coast, and the Okavango Delta.</p>
-                    <div class="itinerary-meta">
-                        <span><i class="far fa-clock"></i> 21–28 Days</span>
-                        <span><i class="fas fa-tag"></i> From $5,200 USD</span>
-                    </div>
-                    <div class="itinerary-actions">
-                        <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="grand-safari">View Route</button>
-                        <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="Grand Safari" data-journey-route="South Africa → Namibia → Botswana"><i class="fab fa-whatsapp"></i> Inquire</button>
-                    </div>
-                </div>
-            </div>
+            <div class="itinerary-grid"></div>
         </div>
     </section>
 

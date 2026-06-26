@@ -12,7 +12,7 @@ export function initNav() {
             icon?.classList.toggle('fa-xmark');
         });
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        navLinksContainer.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinksContainer.classList.remove('active');
                 const icon = menuToggle.querySelector('i');
@@ -22,13 +22,27 @@ export function initNav() {
         });
     }
 
+    document.querySelectorAll('.nav-drop-toggle').forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const parent = toggle.closest('.nav-dropdown');
+            const isOpen = parent?.classList.contains('open');
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+            if (!isOpen) parent?.classList.add('open');
+        });
+    });
+
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    });
+
     window.addEventListener('scroll', () => {
         navbar?.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     window.addEventListener('scroll', () => {
         if (heroImg) {
-            heroImg.style.transform = `scale(${1 + window.pageYOffset * 0.0005})`;
+            heroImg.style.transform = `scale(${1 + window.pageYOffset * 0.0004})`;
         }
     });
 }
