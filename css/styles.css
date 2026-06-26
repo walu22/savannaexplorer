@@ -1004,6 +1004,12 @@ footer {
     font-size: 0.9rem;
 }
 
+.app-version {
+    opacity: 0.65;
+    font-size: 0.8rem;
+    margin-left: 0.35rem;
+}
+
 .social-links {
     display: flex;
     gap: 1.5rem;
