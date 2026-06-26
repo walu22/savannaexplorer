@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savanna Explorer | Official Tourism Guide</title>
     <meta name="description" content="Explore the breathtaking landscapes, diverse wildlife, and rich cultures of Southern Africa. Your ultimate guide to safari, adventure, and relaxation.">
-    <link rel="stylesheet" href="savanna-luxe.css?v=v3.0">
+    <link rel="stylesheet" href="/css/main.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -329,8 +329,8 @@
                         <span><i class="fas fa-tag"></i> From $2,450 USD</span>
                     </div>
                     <div class="itinerary-actions">
-                        <button class="btn btn-primary" onclick="openItineraryDetail('desert-to-delta')">View Route</button>
-                        <button class="btn btn-outline" onclick="inquireJourney('Desert to Delta', 'Namibia → Botswana')"><i class="fab fa-whatsapp"></i> Inquire</button>
+                        <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="desert-to-delta">View Route</button>
+                        <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="Desert to Delta" data-journey-route="Namibia → Botswana"><i class="fab fa-whatsapp"></i> Inquire</button>
                     </div>
                 </div>
                 <!-- Route 2: Coastal Explorer -->
@@ -347,8 +347,8 @@
                         <span><i class="fas fa-tag"></i> From $2,890 USD</span>
                     </div>
                     <div class="itinerary-actions">
-                        <button class="btn btn-primary" onclick="openItineraryDetail('coastal-explorer')">View Route</button>
-                        <button class="btn btn-outline" onclick="inquireJourney('Coastal Explorer', 'South Africa → Mozambique')"><i class="fab fa-whatsapp"></i> Inquire</button>
+                        <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="coastal-explorer">View Route</button>
+                        <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="Coastal Explorer" data-journey-route="South Africa → Mozambique"><i class="fab fa-whatsapp"></i> Inquire</button>
                     </div>
                 </div>
                 <!-- Route 3: The Falls & Beyond -->
@@ -365,8 +365,8 @@
                         <span><i class="fas fa-tag"></i> From $3,150 USD</span>
                     </div>
                     <div class="itinerary-actions">
-                        <button class="btn btn-primary" onclick="openItineraryDetail('falls-beyond')">View Route</button>
-                        <button class="btn btn-outline" onclick="inquireJourney('Falls & Beyond', 'Zambia → Zimbabwe → Botswana')"><i class="fab fa-whatsapp"></i> Inquire</button>
+                        <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="falls-beyond">View Route</button>
+                        <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="Falls & Beyond" data-journey-route="Zambia → Zimbabwe → Botswana"><i class="fab fa-whatsapp"></i> Inquire</button>
                     </div>
                 </div>
                 <!-- Route 4: Kingdom Circuit -->
@@ -383,8 +383,8 @@
                         <span><i class="fas fa-tag"></i> From $1,680 USD</span>
                     </div>
                     <div class="itinerary-actions">
-                        <button class="btn btn-primary" onclick="openItineraryDetail('kingdom-circuit')">View Route</button>
-                        <button class="btn btn-outline" onclick="inquireJourney('Kingdom Circuit', 'Lesotho → Eswatini → South Africa')"><i class="fab fa-whatsapp"></i> Inquire</button>
+                        <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="kingdom-circuit">View Route</button>
+                        <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="Kingdom Circuit" data-journey-route="Lesotho → Eswatini → South Africa"><i class="fab fa-whatsapp"></i> Inquire</button>
                     </div>
                 </div>
                 <!-- Route 5: Lake & Mountain -->
@@ -401,8 +401,8 @@
                         <span><i class="fas fa-tag"></i> From $1,950 USD</span>
                     </div>
                     <div class="itinerary-actions">
-                        <button class="btn btn-primary" onclick="openItineraryDetail('lake-mountain')">View Route</button>
-                        <button class="btn btn-outline" onclick="inquireJourney('Lake & Mountain', 'Malawi → Mozambique')"><i class="fab fa-whatsapp"></i> Inquire</button>
+                        <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="lake-mountain">View Route</button>
+                        <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="Lake & Mountain" data-journey-route="Malawi → Mozambique"><i class="fab fa-whatsapp"></i> Inquire</button>
                     </div>
                 </div>
                 <!-- Route 6: The Grand Safari -->
@@ -419,8 +419,8 @@
                         <span><i class="fas fa-tag"></i> From $5,200 USD</span>
                     </div>
                     <div class="itinerary-actions">
-                        <button class="btn btn-primary" onclick="openItineraryDetail('grand-safari')">View Route</button>
-                        <button class="btn btn-outline" onclick="inquireJourney('Grand Safari', 'South Africa → Namibia → Botswana')"><i class="fab fa-whatsapp"></i> Inquire</button>
+                        <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="grand-safari">View Route</button>
+                        <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="Grand Safari" data-journey-route="South Africa → Namibia → Botswana"><i class="fab fa-whatsapp"></i> Inquire</button>
                     </div>
                 </div>
             </div>
@@ -806,14 +806,14 @@
                         <span class="hub-progress-text" id="pack-progress-text">0 of 8 packed</span>
                     </div>
                     <div class="hub-pack-list" id="hub-pack-list">
-                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Binoculars</span></label>
-                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Neutral-tone clothing</span></label>
-                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Insect repellent (DEET)</span></label>
-                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Headlamp / torch</span></label>
-                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Power bank</span></label>
-                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Sun hat & SPF 50</span></label>
-                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Camera + zoom lens</span></label>
-                        <label class="hub-pack-item"><input type="checkbox" onchange="updatePackProgress()"> <span>Reusable water bottle</span></label>
+                        <label class="hub-pack-item"><input type="checkbox"> <span>Binoculars</span></label>
+                        <label class="hub-pack-item"><input type="checkbox"> <span>Neutral-tone clothing</span></label>
+                        <label class="hub-pack-item"><input type="checkbox"> <span>Insect repellent (DEET)</span></label>
+                        <label class="hub-pack-item"><input type="checkbox"> <span>Headlamp / torch</span></label>
+                        <label class="hub-pack-item"><input type="checkbox"> <span>Power bank</span></label>
+                        <label class="hub-pack-item"><input type="checkbox"> <span>Sun hat & SPF 50</span></label>
+                        <label class="hub-pack-item"><input type="checkbox"> <span>Camera + zoom lens</span></label>
+                        <label class="hub-pack-item"><input type="checkbox"> <span>Reusable water bottle</span></label>
                     </div>
                 </div>
 
@@ -856,7 +856,7 @@
                         </div>
                     </div>
                 </div>
-                <form class="quotation-form" id="quotation-form" onsubmit="submitQuotation(event)">
+                <form class="quotation-form" id="quotation-form">
                     <h3>Request a Quotation</h3>
                     <div class="form-row">
                         <div class="form-group">
@@ -1075,7 +1075,7 @@
         <!-- Final Journey CTA Section -->
         <div class="final-cta-section">
             <div class="container">
-                <button class="btn btn-primary enlarge-on-hover" onclick="document.getElementById('close-detail').click(); window.location.hash='#contact';">
+                <button type="button" class="btn btn-primary enlarge-on-hover" id="country-plan-cta">
                     Plan My Trip to <span class="cta-country-name">this Destination</span>
                 </button>
             </div>
@@ -1113,8 +1113,8 @@
                     </div>
                 </div>
                 <div class="itin-actions-bar">
-                    <button class="btn btn-primary" onclick="requestItineraryQuote()"><i class="fas fa-paper-plane"></i> Request Quote</button>
-                    <button class="btn btn-outline" id="itin-whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp Us</button>
+                    <button type="button" class="btn btn-primary" id="itin-request-quote"><i class="fas fa-paper-plane"></i> Request Quote</button>
+                    <button type="button" class="btn btn-outline" id="itin-whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp Us</button>
                 </div>
             </div>
         </div>
@@ -1137,10 +1137,7 @@
         </div>
     </div>
 
-    <!-- Load Supabase JS API -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="itinerary-data.js?v=1.0"></script>
-    <script src="country-guide.js?v=1.0"></script>
-    <script src="main.js?v=savanna-v3.0"></script>
+    <script type="module" src="/js/app.js"></script>
 </body>
 </html>
