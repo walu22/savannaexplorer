@@ -2,15 +2,25 @@ import itineraryData from '../../data/itineraries.json';
 import { CONFIG } from '../config.js';
 
 let currentItineraryId = null;
+let activeScopeFilter = 'all';
 
 function renderItineraryGrid() {
     const grid = document.querySelector('.itinerary-grid');
     if (!grid) return;
 
-    grid.innerHTML = Object.entries(itineraryData).map(([id, data]) => `
-        <article class="itinerary-card" data-itinerary-id="${id}">
+    grid.innerHTML = Object.entries(itineraryData)
+        .filter(([, data]) => {
+            if (activeScopeFilter === 'all') return true;
+            return data.scope === activeScopeFilter;
+        })
+        .map(([id, data]) => {
+            const scopeLabel = data.scope === 'single' ? 'Single Country' : 'Cross-Border';
+            const scopeClass = data.scope === 'single' ? 'itinerary-scope--single' : 'itinerary-scope--multi';
+            return `
+        <article class="itinerary-card" data-itinerary-id="${id}" data-scope="${data.scope || 'multi'}">
             <div class="itinerary-header">
                 <span class="itinerary-type">${data.type}</span>
+                <span class="itinerary-scope ${scopeClass}">${scopeLabel}</span>
                 <span class="itinerary-tag">${data.duration}</span>
                 <h3>${data.title}</h3>
                 <p>${data.countries}</p>
@@ -25,7 +35,16 @@ function renderItineraryGrid() {
                 <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="${data.title}" data-journey-route="${data.countries}"><i class="fab fa-whatsapp"></i> Inquire</button>
             </div>
         </article>
-    `).join('');
+    `;
+        }).join('');
+}
+
+function setScopeFilter(scope) {
+    activeScopeFilter = scope;
+    document.querySelectorAll('.itinerary-filter').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.scope === scope);
+    });
+    renderItineraryGrid();
 }
 
 export function inquireJourney(journeyName, route) {
@@ -117,6 +136,10 @@ function requestItineraryQuote() {
 
 export function initItineraries() {
     renderItineraryGrid();
+
+    document.querySelectorAll('.itinerary-filter').forEach(btn => {
+        btn.addEventListener('click', () => setScopeFilter(btn.dataset.scope));
+    });
 
     document.querySelectorAll('.itin-close').forEach(btn => {
         btn.addEventListener('click', closeItineraryModal);

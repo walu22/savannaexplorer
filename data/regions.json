@@ -2,42 +2,276 @@
   "namibia": [
     {
       "name": "Fish River Canyon",
-      "desc": "Found in southern Namibia along the country's longest river — Africa's largest canyon and a premier hiking destination.",
-      "spots": ["Fish River Canyon"]
+      "desc": "Southern Namibia's dramatic canyon \u2014 Africa's largest and a premier multi-day hike.",
+      "spots": [
+        "Fish River Canyon"
+      ]
     },
     {
       "name": "Damaraland & Kaokoland",
-      "desc": "A destination in its own right — desert-adapted elephants, rhino tracking, and Himba culture between Etosha and the Skeleton Coast.",
-      "spots": ["Spitzkoppe"]
+      "desc": "Desert-adapted elephants, rhino tracking, and Himba culture in the northwest.",
+      "spots": [
+        "Spitzkoppe"
+      ]
     },
     {
-      "name": "Namib-Naukluft Park",
-      "desc": "One of the world's largest conservation areas — stretching from the central plateau to the iconic dunes of Sossusvlei.",
-      "spots": ["Sossusvlei & Deadvlei"]
+      "name": "Namib-Naukluft",
+      "desc": "Sossusvlei's red dunes in one of the world's largest conservation areas.",
+      "spots": [
+        "Sossusvlei & Deadvlei"
+      ]
     },
     {
       "name": "Swakopmund & Walvis Bay",
-      "desc": "Coastal resort towns where the Atlantic meets the desert — adventure sports, colonial architecture, and fresh seafood.",
-      "spots": ["Swakopmund"]
-    },
-    {
-      "name": "Kavango & Zambezi",
-      "desc": "A lush riverine region with summer rainfall — crocodiles, hippos, and a tropical contrast to the arid south.",
-      "spots": ["Zambezi Region"]
-    },
-    {
-      "name": "Kalahari Desert",
-      "desc": "Eastern Namibia's red sand sea — home to San culture, solitude, and surprising wildlife around ephemeral rivers.",
-      "spots": []
+      "desc": "Atlantic coast adventure hub \u2014 dunes, skydiving, and fresh seafood.",
+      "spots": [
+        "Swakopmund"
+      ]
     },
     {
       "name": "Etosha National Park",
-      "desc": "One of the greatest and oldest game parks in Africa — Namibia's premier wildlife sanctuary centred on a vast salt pan.",
-      "spots": ["Etosha National Park"]
+      "desc": "Namibia's premier wildlife sanctuary centred on a vast salt pan.",
+      "spots": [
+        "Etosha National Park"
+      ]
     },
     {
-      "name": "Skeleton Coast Park",
-      "desc": "Where the desert meets the Atlantic — shipwrecks, seal colonies, and desert-adapted lions along an eerie coastline.",
+      "name": "Kavango & Zambezi",
+      "desc": "Lush riverine northeast \u2014 hippos, crocs, and mokoro trips near Botswana.",
+      "spots": [
+        "Zambezi Region"
+      ]
+    }
+  ],
+  "south-africa": [
+    {
+      "name": "Cape Town & Peninsula",
+      "desc": "Table Mountain, V&A Waterfront, Cape Point, and Boulders penguins.",
+      "spots": [
+        "Cape Town & Table Mountain"
+      ]
+    },
+    {
+      "name": "Winelands & West Coast",
+      "desc": "Stellenbosch and Franschhoek estates plus wildflower coast in spring.",
+      "spots": [
+        "Cape Winelands"
+      ]
+    },
+    {
+      "name": "Garden Route",
+      "desc": "Forests, lagoons, and coastal towns from Mossel Bay to Storms River.",
+      "spots": [
+        "The Garden Route"
+      ]
+    },
+    {
+      "name": "Kruger & Lowveld",
+      "desc": "Big Five bushveld and private reserves along the park's western edge.",
+      "spots": [
+        "Kruger National Park"
+      ]
+    },
+    {
+      "name": "Drakensberg & KZN",
+      "desc": "Amphitheatre hikes, battlefields history, and iSimangaliso wetlands.",
+      "spots": [
+        "The Drakensberg (uKhahlamba)"
+      ]
+    }
+  ],
+  "botswana": [
+    {
+      "name": "Okavango Delta",
+      "desc": "UNESCO wetland \u2014 mokoro channels, Moremi, and exclusive concessions.",
+      "spots": [
+        "Okavango Delta (UNESCO)"
+      ]
+    },
+    {
+      "name": "Chobe & Kasane",
+      "desc": "Africa's greatest elephant concentrations along the Chobe River.",
+      "spots": [
+        "Chobe National Park"
+      ]
+    },
+    {
+      "name": "Makgadikgadi Pans",
+      "desc": "Vast salt pans, meerkats, and zebra migration after rains.",
+      "spots": [
+        "Makgadikgadi salt pans"
+      ]
+    },
+    {
+      "name": "Central Kalahari",
+      "desc": "Remote black-maned lions and raw desert wilderness.",
+      "spots": [
+        "Central Kalahari"
+      ]
+    }
+  ],
+  "zambia": [
+    {
+      "name": "Victoria Falls & Livingstone",
+      "desc": "The Smoke That Thunders \u2014 rafting, flights, and Devil's Pool seasonally.",
+      "spots": [
+        "Victoria Falls (Mosi-oa-Tunya)"
+      ]
+    },
+    {
+      "name": "Luangwa Valley",
+      "desc": "Birthplace of the walking safari \u2014 leopards and hippo-filled rivers.",
+      "spots": [
+        "South Luangwa National Park"
+      ]
+    },
+    {
+      "name": "Lower Zambezi",
+      "desc": "Canoe safaris and escarpment views along the Zambezi.",
+      "spots": [
+        "Lower Zambezi National Park"
+      ]
+    },
+    {
+      "name": "Kafue & Busanga",
+      "desc": "Vast wilderness with cheetah on the Busanga Plains.",
+      "spots": [
+        "Bangweulu (The Shoebill Stork)"
+      ]
+    }
+  ],
+  "zimbabwe": [
+    {
+      "name": "Victoria Falls",
+      "desc": "Panoramic gorge views, bungee, and rainforest walks on the Zimbabwe side.",
+      "spots": [
+        "Victoria Falls (Mosi-oa-Tunya)"
+      ]
+    },
+    {
+      "name": "Hwange",
+      "desc": "Zimbabwe's largest park \u2014 legendary elephant herds and predator action.",
+      "spots": [
+        "Hwange National Park"
+      ]
+    },
+    {
+      "name": "Mana Pools",
+      "desc": "UNESCO Zambezi floodplain \u2014 walking safaris among albida trees.",
+      "spots": [
+        "Mana Pools (UNESCO)"
+      ]
+    },
+    {
+      "name": "Eastern Highlands",
+      "desc": "Cool mountain retreats, trout fishing, and Nyanga vistas.",
+      "spots": [
+        "Matobo Hills"
+      ]
+    }
+  ],
+  "mozambique": [
+    {
+      "name": "Maputo & South Coast",
+      "desc": "Capital culture, fresh prawns, and gateway to southern beaches.",
+      "spots": [
+        "Maputo"
+      ]
+    },
+    {
+      "name": "Bazaruto Archipelago",
+      "desc": "Dugongs, diving, and dhow sails on the Indian Ocean.",
+      "spots": [
+        "Bazaruto Archipelago"
+      ]
+    },
+    {
+      "name": "Tofo & Inhambane",
+      "desc": "Whale sharks, relaxed beach lodges, and authentic coastal life.",
+      "spots": [
+        "Tofo Beach & Vilanculos"
+      ]
+    },
+    {
+      "name": "Gorongosa & Central",
+      "desc": "Restored wilderness and Mount Gorongosa biodiversity.",
+      "spots": [
+        "Gorongosa National Park"
+      ]
+    },
+    {
+      "name": "Quirimbas North",
+      "desc": "Remote islands, mangroves, and Swahili-influenced culture.",
+      "spots": [
+        "Ibo Island (Quirimbas)"
+      ]
+    }
+  ],
+  "malawi": [
+    {
+      "name": "Lake Malawi South",
+      "desc": "Cape Maclear snorkelling, beach lodges, and lakeside villages.",
+      "spots": [
+        "Nsumbu & Lake Tanganyika"
+      ]
+    },
+    {
+      "name": "Liwonde & Shire Valley",
+      "desc": "Boat safaris with elephants and crocs on the Shire River.",
+      "spots": []
+    },
+    {
+      "name": "Nyika Plateau",
+      "desc": "Rolling grasslands, zebras, and wild orchids at altitude.",
+      "spots": []
+    },
+    {
+      "name": "Lilongwe & Central",
+      "desc": "Capital markets, craft centres, and gateway to the lake.",
+      "spots": []
+    }
+  ],
+  "lesotho": [
+    {
+      "name": "Sani Pass & Drakensberg",
+      "desc": "Iconic 4x4 pass and highest pub in Africa at the summit.",
+      "spots": []
+    },
+    {
+      "name": "Malealea & Highlands",
+      "desc": "Pony trekking through Basotho villages and mountain valleys.",
+      "spots": []
+    },
+    {
+      "name": "Afriski & Oxbow",
+      "desc": "Winter skiing and summer mountain biking on the plateau.",
+      "spots": []
+    },
+    {
+      "name": "Katse Dam & Bokong",
+      "desc": "Engineering marvel and plateau vulture viewpoints.",
+      "spots": []
+    }
+  ],
+  "eswatini": [
+    {
+      "name": "Hlane & Lowveld",
+      "desc": "Lions, rhinos, and big game in royal bushveld.",
+      "spots": []
+    },
+    {
+      "name": "Mlilwane Sanctuary",
+      "desc": "Walk and cycle among antelope \u2014 Eswatini's pioneer reserve.",
+      "spots": []
+    },
+    {
+      "name": "Ezulwini Valley",
+      "desc": "Craft markets, cultural villages, and valley lodges near Mbabane.",
+      "spots": []
+    },
+    {
+      "name": "Malolotja Highlands",
+      "desc": "Canopy tours, hiking trails, and montane wilderness.",
       "spots": []
     }
   ]

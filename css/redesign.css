@@ -454,6 +454,28 @@ body.site-v2 .itinerary-type {
     color: white;
 }
 
+body.site-v2 .itinerary-filter {
+    border-color: var(--border-subtle);
+    color: var(--text-dark);
+}
+
+body.site-v2 .itinerary-filter:hover,
+body.site-v2 .itinerary-filter.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+body.site-v2 .itinerary-scope--single {
+    background: rgba(46, 125, 50, 0.15);
+    color: #1b5e20;
+}
+
+body.site-v2 .itinerary-scope--multi {
+    background: rgba(21, 101, 192, 0.15);
+    color: #0d47a1;
+}
+
 /* --- Parks, borders, utility --- */
 body.site-v2 .parks-hub,
 body.site-v2 .borders-hub {

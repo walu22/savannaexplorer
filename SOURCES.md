@@ -25,6 +25,8 @@ This document records where practical travel data comes from and how we keep con
 | `data/faqs.json` | Per-country FAQs | Original answers based on official facts |
 | `data/guides.json` | Seasons, packing, wildlife | Original editorial |
 | `data/itineraries.json` | Route templates | Original editorial |
+| `data/regions.json` | Per-country regional breakdowns for country guides | Original editorial informed by official tourism boards |
+| `data/marketplace.json` | Curated experience listings | Original editorial; representative pricing tiers |
 | `data/discover.json` | Homepage facts, news, guides | Original editorial; news items should cite policy changes, not reproduce press releases |
 
 ## Visa & entry (high-change items)

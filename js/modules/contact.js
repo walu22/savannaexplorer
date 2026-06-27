@@ -1,3 +1,4 @@
+import itineraryData from '../../data/itineraries.json';
 import { CONFIG, isSupabaseConfigured } from '../config.js';
 import { getSupabaseClient } from '../lib/supabase.js';
 import { showFormFeedback, clearFormFeedback } from '../lib/form-feedback.js';
@@ -10,7 +11,14 @@ function submitViaMailto({ name, email, travelers, style, itineraries, message }
 export function initContact() {
     const form = document.getElementById('quotation-form');
     const feedback = document.getElementById('quotation-feedback');
+    const checkboxGrid = document.getElementById('itinerary-checkboxes');
     if (!form) return;
+
+    if (checkboxGrid) {
+        checkboxGrid.innerHTML = Object.values(itineraryData)
+            .map(data => `<label><input type="checkbox" name="itinerary" value="${data.title}"> ${data.title}</label>`)
+            .join('');
+    }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();

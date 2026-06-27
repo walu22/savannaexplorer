@@ -44,11 +44,14 @@ function renderTopDestinations() {
 
     grid.innerHTML = discover.topDestinations.map(dest => {
         const meta = getCountryMeta(dest.country);
+        const badge = dest.mustVisit !== false
+            ? '<span class="top-dest-badge">Must Visit</span>'
+            : '';
         return `
             <a href="#${dest.country}" class="top-dest-card" data-country-link="${dest.country}">
                 <img src="${imageUrl(dest.image)}" alt="${dest.name}" loading="lazy">
                 <div class="top-dest-overlay">
-                    <span class="top-dest-badge">Must Visit</span>
+                    ${badge}
                     <span class="top-dest-region">${meta.flag} ${dest.region}</span>
                     <h3>${dest.name}</h3>
                     <p>${dest.desc}</p>

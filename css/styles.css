@@ -1745,6 +1745,50 @@ footer {
 }
 
 /* --- JOURNEY ENGINE (enhanced itinerary grid) --- */
+.itinerary-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+.itinerary-filter {
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    color: var(--text-dark);
+}
+.itinerary-filter:hover,
+.itinerary-filter.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+}
+.itinerary-scope {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+.itinerary-scope--single {
+    background: rgba(46, 125, 50, 0.12);
+    color: #2e7d32;
+}
+.itinerary-scope--multi {
+    background: rgba(21, 101, 192, 0.12);
+    color: #1565c0;
+}
 .itineraries .itinerary-grid {
     grid-template-columns: repeat(3, 1fr);
 }

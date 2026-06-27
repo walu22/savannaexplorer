@@ -30,7 +30,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.4.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.5.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -43,8 +43,10 @@ The old root files `main.js`, `country-guide.js`, and `itinerary-data.js` were r
 ### What to look for
 
 - Country detail pages with tabs: **About**, **Travelling**, **Attractions**, **Activities**, **Routes**
-- **Itineraries** section with **View Route** buttons and route maps in the detail modal
-- **Contact** section (`#contact`) with quotation form
+- **Itineraries** section with filter tabs (All / Single Country / Cross-Border), **View Route** buttons, and route maps in the detail modal
+- **Marketplace** experiences across all 9 countries (31 curated listings)
+- **Country guides** with regional breakdowns for every destination
+- **Contact** section (`#contact`) with quotation form and dynamic itinerary checkboxes
 - Enriched guides for Zambia, Zimbabwe, Mozambique, Malawi, Lesotho, and Eswatini
 
 ### Production build
