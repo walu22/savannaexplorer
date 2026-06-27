@@ -11,12 +11,12 @@
       {
         "name": "Sossusvlei & Deadvlei",
         "desc": "Towering apricot-colored dunes and ancient, skeletal trees. Home to \"Big Daddy\" and the iconic \"Dune 45\".",
-        "image": "1504107123655-081832049e37"
+        "image": "1772289325999-0583c98396ef"
       },
       {
         "name": "Etosha National Park",
         "desc": "A premier wildlife sanctuary centered around a massive salt pan. Famous for rare black rhino and elephant sightings.",
-        "image": "1549219355-66779e9508d4"
+        "image": "1549366021-9f761d450615"
       },
       {
         "name": "Fish River Canyon",
@@ -31,34 +31,34 @@
       {
         "name": "Zambezi Region",
         "desc": "A lush, river-swung oasis in the far north that provides a tropical contrast to the Namib desert.",
-        "image": "1454486326938-e6727284ea44"
+        "image": "1559827260-dc66d52bef19"
       },
       {
         "name": "Swakopmund",
         "desc": "A coastal adventure hub where German colonial history meets adrenaline-fueled sandboarding and skydiving.",
-        "image": "1612450531505-181cf3a60424"
+        "image": "1448831338187-78296e6fdc4d"
       }
     ],
     "activities": [
       {
         "name": "Sandboarding & Quad Biking",
         "desc": "Feel the adrenaline on the sheer slipfaces of the Swakopmund dunes.",
-        "image": "1583271167909-5e263fa7bce3"
+        "image": "1776347164697-110b417abd4e"
       },
       {
         "name": "Rhino Tracking",
         "desc": "Join expert conservationists on foot in Damaraland to track rare desert-adapted black rhinos.",
-        "image": "1612140403750-13f69b821034"
+        "image": "1549366021-9f761d450615"
       },
       {
         "name": "Aerial Sossusvlei",
         "desc": "Experience the desert from above with a sunrise hot air balloon flight or scenic light aircraft tour.",
-        "image": "1611181829676-d3929e061807"
+        "image": "1639402478840-1f531c8cd989"
       },
       {
         "name": "Skeleton Coast Fly-in",
         "desc": "Explore the shipwrecks and seal colonies of this misty, rugged Atlantic shoreline.",
-        "image": "1611181829285-d3929e061807"
+        "image": "1544716278-ca5e3f4abd8c"
       },
       {
         "name": "Desert Safari",
@@ -113,12 +113,12 @@
       {
         "name": "Cape Town & Table Mountain",
         "desc": "A stunning coastal city dominated by a UNESCO-listed flat-topped mountain, offering a mix of high-culture and rugged nature.",
-        "image": "1580060839134-75a5edca2d99"
+        "image": "1547036967-23d11aacaee0"
       },
       {
         "name": "The Garden Route",
         "desc": "300km of breathtaking coastline, featuring ancient forests, secluded beaches, and the dramatic Storms River Mouth.",
-        "image": "1506905925344-21ddaec4d32d"
+        "image": "1505142468610-359e7d316be0"
       },
       {
         "name": "The Drakensberg (uKhahlamba)",
@@ -135,12 +135,12 @@
       {
         "name": "Big Five Safari",
         "desc": "Track the Big Five in the world-renowned private reserves of Sabi Sands or the flagship Kruger National Park.",
-        "image": "1547970810-dc1eef37d176"
+        "image": "1547448415-e9f5b28e570d"
       },
       {
         "name": "Shark Cage Diving",
         "desc": "Face-to-face encounters with Great White Sharks in the turquoise waters of Gansbaai.",
-        "image": "1568249761-0ae12982d60d"
+        "image": "1566073771259-6a8506099945"
       },
       {
         "name": "Marine Big Five Cruise",
@@ -150,12 +150,12 @@
       {
         "name": "Robben Island Tour",
         "desc": "A poignant journey through South Africa's history at the former prison of Nelson Mandela.",
-        "image": "1589182337358-2cb6309475e8"
+        "image": "1547036967-23d11aacaee0"
       },
       {
         "name": "Wine Tasting Safaris",
         "desc": "Explore historic estates by tram or bicycle while tasting world-class Pinotage and Chenin Blanc.",
-        "image": "1553331621-df65d21a2283"
+        "image": "1576485375217-d6a95e34d043"
       }
     ],
     "routes": [
@@ -205,17 +205,17 @@
       {
         "name": "Chobe National Park",
         "desc": "The elephant capital of Africa. Witness massive herds gathering at the Chobe River and experience incredible boat-based wildlife viewing.",
-        "image": "1545199912-39077ce682b1"
+        "image": "1549366021-9f761d450615"
       },
       {
         "name": "Makgadikgadi salt pans",
         "desc": "An otherworldly landscape of shimmering salt crusts, home to ancient baobabs and the spectacular zebra migration.",
-        "image": "1519181245277-cffeb31da2e3"
+        "image": "1500530855697-b586d89ba3ee"
       },
       {
         "name": "Moremi Game Reserve",
         "desc": "The predator capital of the Delta, where lush wetlands meet dry mopane woodland, offering unparalleled Big Five sightings.",
-        "image": "1518709766631-a6a7f45921c3"
+        "image": "1519181245277-cffeb31da2e3"
       },
       {
         "name": "Central Kalahari",
@@ -227,17 +227,17 @@
       {
         "name": "Mokoro Safaris",
         "desc": "Glide silently through the Delta's waterways, spotting tiny reed frogs and thirsty elephants at water level.",
-        "image": "1591143890184-7f15e83ec90d"
+        "image": "1547471080-7cc2caa01a7e"
       },
       {
         "name": "Fly-in Safaris",
         "desc": "Experience the sheer scale of the landscape with light aircraft transfers between remote, luxury bush camps.",
-        "image": "1448831338187-78296e6fdc4d"
+        "image": "1639402478840-1f531c8cd989"
       },
       {
         "name": "Baobab Camping",
         "desc": "Sleep under the stars among ancient trees in the middle of the vast, silent salt pans.",
-        "image": "1504107123655-081832049e37"
+        "image": "1500530855697-b586d89ba3ee"
       },
       {
         "name": "Chobe Boat Cruise",
@@ -247,7 +247,7 @@
       {
         "name": "San Cultural Walk",
         "desc": "Learn ancient desert survival skills from the master trackers of the Kalahari.",
-        "image": "1516426122078-c23e76319801"
+        "image": "1518709766631-a6a7f45921c3"
       }
     ],
     "routes": [
@@ -297,44 +297,44 @@
       {
         "name": "South Luangwa National Park",
         "desc": "The birthplace of the walking safari. Famous for its high concentration of leopards and the winding Luangwa river teeming with hippos.",
-        "image": "1581850106622-cf8f3a382ec3"
+        "image": "1519181245277-cffeb31da2e3"
       },
       {
         "name": "Lower Zambezi National Park",
         "desc": "A spectacular wilderness where the Zambezi river meets the escarpment. Best for canoeing safaris and seeing elephants swim across the channels.",
-        "image": "1516246062751-beda751bedaf"
+        "image": "1559827260-dc66d52bef19"
       },
       {
         "name": "Kasanka (The Bat Migration)",
         "desc": "Witness the world's largest mammal migration (Oct-Dec) as 10 million straw-colored fruit bats darken the sky at sunset.",
-        "image": "1583271167909-5e263fa7bce3"
+        "image": "1469474968028-56623f02e42e"
       },
       {
         "name": "Bangweulu (The Shoebill Stork)",
         "desc": "A mystical wetland ecosystem where the rare, prehistoric-looking Shoebill stork can be found among the papyrus reeds.",
-        "image": "1516026672322-bc52d61a55d5"
+        "image": "1559827260-dc66d52bef19"
       },
       {
         "name": "Nsumbu & Lake Tanganyika",
         "desc": "An inland sea of crystal blue water. Snorkel with endemic cichlid fish or watch elephants wander the white sandy shores.",
-        "image": "1519066629447-267fffa62d4b"
+        "image": "1658221744192-00e3770b8625"
       }
     ],
     "activities": [
       {
         "name": "Walking Safaris",
         "desc": "Immerse yourself in the wild on foot with expert local guides and scouts. South Luangwa is the world-renowned home of this authentic experience.",
-        "image": "1581850106622-cf8f3a382ec3"
+        "image": "1519181245277-cffeb31da2e3"
       },
       {
         "name": "The Kuomboka Festival",
         "desc": "A spectacular Lozi tradition where the King (Litunga) moves his court to higher ground in a massive ceremonial barge (March/April).",
-        "image": "1581850106622-cf8f3a382ec3"
+        "image": "1518709766631-a6a7f45921c3"
       },
       {
         "name": "Canoeing Safaris",
         "desc": "Paddle past pods of hippos and bathing elephants in the Lower Zambezi for the ultimate \"silent\" wildlife encounter.",
-        "image": "1516246062751-beda751bedaf"
+        "image": "1559827260-dc66d52bef19"
       },
       {
         "name": "Devil's Pool Swim",
@@ -344,7 +344,7 @@
       {
         "name": "Conservation Tracking",
         "desc": "Join the Carnivore Programme in South Luangwa to track wild dogs and lions with real-time research telemetry.",
-        "image": "1547970810-dc1eef37d176"
+        "image": "1549366021-9f761d450615"
       }
     ],
     "routes": [
@@ -394,17 +394,17 @@
       {
         "name": "Hwange National Park",
         "desc": "The flagship wildlife reserve. Famous for its massive elephant population and the \"presidential\" lion prides around its diverse waterholes.",
-        "image": "1547970810-dc1eef37d176"
+        "image": "1549366021-9f761d450615"
       },
       {
         "name": "Mana Pools (UNESCO)",
         "desc": "A remote walking safari paradise in the Zambezi Valley, where elephants are known to stand on their hind legs to reach acacia pods.",
-        "image": "1516246062751-beda751bedaf"
+        "image": "1559827260-dc66d52bef19"
       },
       {
         "name": "Lake Kariba",
         "desc": "A vast inland sea known for its \"drowning forests\" and spectacular sunset safaris by boat or luxury houseboat.",
-        "image": "1519066629447-267fffa62d4b"
+        "image": "1520690214124-2405c5217036"
       },
       {
         "name": "Matobo Hills",
@@ -416,27 +416,27 @@
       {
         "name": "Walking Safaris",
         "desc": "Zimbabwe trains some of Africa's most elite guides. Mana Pools is the world center for safe, up-close walking encounters.",
-        "image": "1516026672322-bc52d61a55d5"
+        "image": "1519181245277-cffeb31da2e3"
       },
       {
         "name": "Bungee & Bridge Jump",
         "desc": "Leap into the abyss from the Victoria Falls bridge with the legendary falls as your backdrop.",
-        "image": "1547970810-dc1eef37d176"
+        "image": "1516026672322-bc52d61a55d5"
       },
       {
         "name": "Elephant Interaction",
         "desc": "Hwange offers unique opportunities to observe massive herds from \"log-pile\" hides at water level.",
-        "image": "1516246062751-beda751bedaf"
+        "image": "1549366021-9f761d450615"
       },
       {
         "name": "Great Zimbabwe Tour",
         "desc": "Explore the massive stone ruins of an ancient empire that gave the modern nation its name.",
-        "image": "1519066629447-267fffa62d4b"
+        "image": "1502675135487-e971002a6adb"
       },
       {
         "name": "Tiger Fishing",
         "desc": "Lake Kariba and the Upper Zambezi offer world-class challenges for this legendary freshwater predator.",
-        "image": "1502675135487-e971002a6adb"
+        "image": "1559827260-dc66d52bef19"
       }
     ],
     "routes": [
@@ -481,12 +481,12 @@
       {
         "name": "Bazaruto Archipelago",
         "desc": "Dazzling turquoise waters and high-end luxury island lodges. A paradise for snorkeling and sunset dhow sailing.",
-        "image": "1519066629447-267fffa62d4b"
+        "image": "1505142468610-359e7d316be0"
       },
       {
         "name": "Tofo Beach & Vilanculos",
         "desc": "The world's capital for manta ray and whale shark encounters. A vibrant, laid-back hub for diving and surfing.",
-        "image": "1568249761-0ae12982d60d"
+        "image": "1566073771259-6a8506099945"
       },
       {
         "name": "Gorongosa National Park",
@@ -496,39 +496,39 @@
       {
         "name": "Maputo",
         "desc": "The \"City of Acacia\"—an Art Deco urban gem famous for its Latin-flavored jazz scene and vibrant seafood markets.",
-        "image": "1580060839134-75a5edca2d99"
+        "image": "1547036967-23d11aacaee0"
       },
       {
         "name": "Ibo Island (Quirimbas)",
         "desc": "Step back in time among crumbling Portuguese ruins, ancient forts, and traditional silver-smiths on this remote isle.",
-        "image": "1506905925344-21ddaec4d32d"
+        "image": "1505142468610-359e7d316be0"
       }
     ],
     "activities": [
       {
         "name": "Swimming with Whale Sharks",
         "desc": "Experience the sheer scale of the ocean's giants in the crystal-clear waters of Tofo.",
-        "image": "1519066629447-267fffa62d4b"
+        "image": "1566073771259-6a8506099945"
       },
       {
         "name": "Sunset Dhow Sailing",
         "desc": "Navigate the coastal archipelagos at sunset on a traditional wooden sailing vessel.",
-        "image": "1568249761-0ae12982d60d"
+        "image": "1520690214124-2405c5217036"
       },
       {
         "name": "Scuba Diving & Snorkeling",
         "desc": "Explore pristine coral reefs teeming with biodiversity, including rare sea turtles and dugongs.",
-        "image": "1516426122078-c23e76319801"
+        "image": "1544716278-ca5e3f4abd8c"
       },
       {
         "name": "Peri-Peri Seafood Trail",
         "desc": "Sample famous Mozambican prawns and grilled chicken at beachside markets in Maputo or Vilanculos.",
-        "image": "1580060839134-75a5edca2d99"
+        "image": "1547036967-23d11aacaee0"
       },
       {
         "name": "Island Hopping",
         "desc": "Travel between remote islands in the Quirimbas or Bazaruto by speedboat or dhow.",
-        "image": "1506905925344-21ddaec4d32d"
+        "image": "1505142468610-359e7d316be0"
       }
     ],
     "routes": [
@@ -573,7 +573,7 @@
       {
         "name": "Lake Malawi (UNESCO)",
         "desc": "The \"Lake of Stars\"—a vast inland sea home to over 1,000 species of colorful cichlid fish. Perfect for kayaking, snorkeling, and sunset dhow cruises.",
-        "image": "1519066629447-267fffa62d4b"
+        "image": "1658221744192-00e3770b8625"
       },
       {
         "name": "Mount Mulanje",
@@ -583,7 +583,7 @@
       {
         "name": "Liwonde National Park",
         "desc": "A premier wildlife sanctuary centered on the Shire River, famous for its dense populations of elephants, hippos, and rare black rhinos.",
-        "image": "1547970810-dc1eef37d176"
+        "image": "1549366021-9f761d450615"
       },
       {
         "name": "Majete Wildlife Reserve",
@@ -593,14 +593,14 @@
       {
         "name": "Nyika Plateau",
         "desc": "A mystical high-altitude grassland resembling the Scottish Highlands, famous for its high concentration of leopards and rare orchids.",
-        "image": "1504107123655-081832049e37"
+        "image": "1469474968028-56623f02e42e"
       }
     ],
     "activities": [
       {
         "name": "Snorkeling with Cichlids",
         "desc": "Swim in the crystal-clear waters of Cape Maclear amidst hundreds of vibrant, endemic fish species.",
-        "image": "1519066629447-267fffa62d4b"
+        "image": "1658221744192-00e3770b8625"
       },
       {
         "name": "Mulanje Peak Trek",
@@ -610,17 +610,17 @@
       {
         "name": "Shire River Boat Safari",
         "desc": "Glide past massive herds of elephants and pods of hippos in the heart of Liwonde.",
-        "image": "1547970810-dc1eef37d176"
+        "image": "1559827260-dc66d52bef19"
       },
       {
         "name": "Tea Estate Tasting",
         "desc": "Tour the historic colonial-era tea plantations of Thyolo for a taste of Malawi's agricultural heritage.",
-        "image": "1516426122078-c23e76319801"
+        "image": "1469474968028-56623f02e42e"
       },
       {
         "name": "Kayaking to Domwe Island",
         "desc": "Escape to a remote, uninhabited island inside the Lake Malawi National Park for a night under the stars.",
-        "image": "1504107123655-081832049e37"
+        "image": "1658221744192-00e3770b8625"
       }
     ],
     "routes": [
@@ -675,44 +675,44 @@
       {
         "name": "Sehlabathebe National Park",
         "desc": "A remote UNESCO-listed wilderness of unique rock formations, alpine flora, and high-altitude wetlands.",
-        "image": "1502675135487-e971002a6adb"
+        "image": "1469474968028-56623f02e42e"
       },
       {
         "name": "Katse Dam",
         "desc": "An engineering marvel nestled deep in the mountains, forming a massive sapphire-blue lake amidst the peaks.",
-        "image": "1454486326938-e6727284ea44"
+        "image": "1541414779316-956a5084c0d4"
       },
       {
         "name": "Thaba Bosiu",
         "desc": "The \"Mountain at Night\"—the historic sandstone plateau that served as the impenetrable fortress of the first Basotho King.",
-        "image": "1504107123655-081832049e37"
+        "image": "1502675135487-e971002a6adb"
       }
     ],
     "activities": [
       {
         "name": "Pony Trekking",
         "desc": "Explore the rugged highlands on a sturdy Basotho pony, the traditional and most reliable \"4x4\" of the mountains.",
-        "image": "1519408299519-b7a0274f7d67"
+        "image": "1541414779316-956a5084c0d4"
       },
       {
         "name": "Abseiling the Falls",
         "desc": "Tackle the world's longest commercially operated abseil alongside the thundering Maletsunyane Falls.",
-        "image": "1541414779316-956a5084c0d4"
+        "image": "1519408299519-b7a0274f7d67"
       },
       {
         "name": "Drakensberg Alpine Hiking",
         "desc": "Follow ancient trails across the \"Roof of Africa,\" reaching peaks over 3,400m high.",
-        "image": "1502675135487-e971002a6adb"
+        "image": "1541414779316-956a5084c0d4"
       },
       {
         "name": "Snow Skiing (Seasonal)",
         "desc": "Experience Southern Africa's unique winter destination at Afriski Mountain Resort (June - August).",
-        "image": "1454486326938-e6727284ea44"
+        "image": "1541414779316-956a5084c0d4"
       },
       {
         "name": "San Rock Art Tours",
         "desc": "Discover ancient rock art sites hidden in the remote overhangs and caves of the Maloti Mountains.",
-        "image": "1504107123655-081832049e37"
+        "image": "1502675135487-e971002a6adb"
       }
     ],
     "routes": [
@@ -757,12 +757,12 @@
       {
         "name": "Hlane Royal National Park",
         "desc": "Eswatini's largest protected area and home to the Big Five. Famous for its high concentration of white rhino and majestic lions.",
-        "image": "1547970810-dc1eef37d176"
+        "image": "1516426122078-c23e76319801"
       },
       {
         "name": "Mlilwane Wildlife Sanctuary",
         "desc": "A peaceful, vehicle-free sanctuary in the beautiful Ezulwini Valley, perfect for walking, cycling, and horse-riding safaris.",
-        "image": "1516426122078-c23e76319801"
+        "image": "1500530855697-b586d89ba3ee"
       },
       {
         "name": "Mantenga Cultural Village",
@@ -772,39 +772,39 @@
       {
         "name": "Mkhaya Game Reserve",
         "desc": "Renowned as one of Africa's best places for rhino tracking. Each visit supports critical conservation efforts for black and white rhinos.",
-        "image": "1612140403750-13f69b821034"
+        "image": "1549366021-9f761d450615"
       },
       {
         "name": "Ngwenya Glass & Craft Markets",
         "desc": "Visit the world's oldest mine and see artisans transform recycled glass into world-class art at the Ngwenya workshops.",
-        "image": "1576485375217-d6a95e34d043"
+        "image": "1518709766631-a6a7f45921c3"
       }
     ],
     "activities": [
       {
         "name": "Rhino Tracking on Foot",
         "desc": "Get heart-stoppingly close to black and white rhinos with expert rangers in the Mkhaya Game Reserve.",
-        "image": "1547970810-dc1eef37d176"
+        "image": "1549366021-9f761d450615"
       },
       {
         "name": "The Umhlanga (Reed Dance)",
         "desc": "Experience one of Africa's most spectacular cultural festivals (usually in late August/early September).",
-        "image": "1516426122078-c23e76319801"
+        "image": "1518709766631-a6a7f45921c3"
       },
       {
         "name": "Ezulwini Valley Horse Back Safari",
         "desc": "Ride through the \"Valley of Heaven\" among zebras and warthogs in Mlilwane Sanctuary.",
-        "image": "1518709766631-a6a7f45921c3"
+        "image": "1500530855697-b586d89ba3ee"
       },
       {
         "name": "Adventure Caving",
         "desc": "Explore the unique granite caves of Gobholo, navigating deep tunnels and subterranean streams.",
-        "image": "1612140403750-13f69b821034"
+        "image": "1502675135487-e971002a6adb"
       },
       {
         "name": "Swazi Craft Trail",
         "desc": "Tour the vibrant markets of Mbabane and Manzini for world-famous handmade candles, glass, and baskets.",
-        "image": "1576485375217-d6a95e34d043"
+        "image": "1518709766631-a6a7f45921c3"
       }
     ],
     "routes": [

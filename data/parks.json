@@ -3,35 +3,37 @@
     "id": "kruger",
     "name": "Kruger National Park",
     "country": "south-africa",
-    "description": "Africa's greatest game reserve \u2014 Big Five, 500+ bird species, and 2 million hectares of wilderness.",
+    "description": "Africa's greatest game reserve — Big Five, 500+ bird species, and 2 million hectares of wilderness.",
     "tags": [
       "Big Five",
       "Self-drive"
     ],
-    "bestSeason": "May\u2013Oct",
+    "bestSeason": "May–Oct",
     "fees": "From R486/day (SADC)",
-    "difficulty": "Easy\u2013Moderate",
+    "difficulty": "Easy–Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.sanparks.org/",
     "feeDetail": "Standard conservation fee ~R486/day for international adults (2025/26 SANParks tariff). Wild Card available.",
-    "gateHours": "05:30\u201318:30 summer \u00b7 06:00\u201317:30 winter"
+    "gateHours": "05:30–18:30 summer · 06:00–17:30 winter",
+    "bookingUrl": "https://www.sanparks.org/reservations/"
   },
   {
     "id": "table-mountain",
     "name": "Table Mountain National Park",
     "country": "south-africa",
-    "description": "Iconic flat-topped mountain overlooking Cape Town \u2014 fynbos, penguins at Boulders Beach, and dramatic coastal trails.",
+    "description": "Iconic flat-topped mountain overlooking Cape Town — fynbos, penguins at Boulders Beach, and dramatic coastal trails.",
     "tags": [
       "Landscapes",
       "Hiking"
     ],
-    "bestSeason": "Sep\u2013Apr",
+    "bestSeason": "Sep–Apr",
     "fees": "Cableway from R420",
-    "difficulty": "Easy\u2013Moderate",
+    "difficulty": "Easy–Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.sanparks.org/",
     "feeDetail": "Table Mountain Cableway from ~R420 return (2025). Park entry at Boulders penguin beach separate.",
-    "gateHours": "Cableway: first car ~08:00"
+    "gateHours": "Cableway: first car ~08:00",
+    "bookingUrl": "https://www.sanparks.org/reservations/"
   },
   {
     "id": "addo",
@@ -48,387 +50,410 @@
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.sanparks.org/",
     "feeDetail": "Conservation fee ~R376/day international adults. Marine eco-tours extra.",
-    "gateHours": "07:00\u201319:00 (seasonal)"
+    "gateHours": "07:00–19:00 (seasonal)",
+    "bookingUrl": "https://www.sanparks.org/reservations/"
   },
   {
     "id": "etosha",
     "name": "Etosha National Park",
     "country": "namibia",
-    "description": "One of Africa's oldest parks \u2014 centred on a vast salt pan, with legendary floodlit waterhole viewing.",
+    "description": "One of Africa's oldest parks — centred on a vast salt pan, with legendary floodlit waterhole viewing.",
     "tags": [
       "Big Five",
       "Self-drive"
     ],
-    "bestSeason": "Jul\u2013Oct",
+    "bestSeason": "Jul–Oct",
     "fees": "From N$142/day",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.nwr.com.na/",
     "feeDetail": "NWR park fee ~N$142/person/day + N$30/vehicle (2025 rates).",
-    "gateHours": "Sunrise\u2013sunset; gates close strictly"
+    "gateHours": "Sunrise–sunset; gates close strictly",
+    "bookingUrl": "https://www.nwr.com.na/"
   },
   {
     "id": "namib-naukluft",
     "name": "Namib-Naukluft Park",
     "country": "namibia",
-    "description": "One of the world's largest conservation areas \u2014 Sossusvlei's red dunes and the oldest desert on Earth.",
+    "description": "One of the world's largest conservation areas — Sossusvlei's red dunes and the oldest desert on Earth.",
     "tags": [
       "Landscapes",
       "Photography"
     ],
-    "bestSeason": "May\u2013Sep",
+    "bestSeason": "May–Sep",
     "fees": "From N$142/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.nwr.com.na/",
     "feeDetail": "Sesriem/Sossusvlei access ~N$142/person + vehicle fee. Sossusvlei gate opens before sunrise for dune visits.",
-    "gateHours": "Sesriem gate ~06:00 (check NWR seasonal times)"
+    "gateHours": "Sesriem gate ~06:00 (check NWR seasonal times)",
+    "bookingUrl": "https://www.nwr.com.na/"
   },
   {
     "id": "skeleton-coast",
     "name": "Skeleton Coast Park",
     "country": "namibia",
-    "description": "Where desert meets the Atlantic \u2014 shipwrecks, fur seal colonies, and desert-adapted lions.",
+    "description": "Where desert meets the Atlantic — shipwrecks, fur seal colonies, and desert-adapted lions.",
     "tags": [
       "Remote",
       "4x4 required"
     ],
-    "bestSeason": "May\u2013Oct",
+    "bestSeason": "May–Oct",
     "fees": "Permit required",
     "difficulty": "Advanced",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.nwr.com.na/",
-    "feeDetail": "Restricted access \u2014 permit via NWR/Dorob-Skeleton Coast. Tour operators arrange access.",
-    "gateHours": "Permit-dependent"
+    "feeDetail": "Restricted access — permit via NWR/Dorob-Skeleton Coast. Tour operators arrange access.",
+    "gateHours": "Permit-dependent",
+    "bookingUrl": "https://www.nwr.com.na/"
   },
   {
     "id": "chobe",
     "name": "Chobe National Park",
     "country": "botswana",
-    "description": "Africa's largest elephant population \u2014 120,000 elephants and spectacular Chobe River cruises.",
+    "description": "Africa's largest elephant population — 120,000 elephants and spectacular Chobe River cruises.",
     "tags": [
       "Elephants",
       "Boat safari"
     ],
-    "bestSeason": "May\u2013Oct",
+    "bestSeason": "May–Oct",
     "fees": "From P120/day",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.gov.bw/tourism",
     "feeDetail": "Park fee ~P120/person/day + P$10 vehicle (approx. 2025). River cruise fees separate.",
-    "gateHours": "06:00\u201318:30"
+    "gateHours": "06:00–18:30",
+    "bookingUrl": "https://www.botswanatourism.co.bw/"
   },
   {
     "id": "moremi",
     "name": "Moremi Game Reserve",
     "country": "botswana",
-    "description": "The Okavango Delta's wildlife heartland \u2014 mokoro trips, leopard sightings, and pristine floodplains.",
+    "description": "The Okavango Delta's wildlife heartland — mokoro trips, leopard sightings, and pristine floodplains.",
     "tags": [
       "Big Five",
       "Mokoro"
     ],
-    "bestSeason": "Jul\u2013Oct",
+    "bestSeason": "Jul–Oct",
     "fees": "From P120/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.gov.bw/tourism",
     "feeDetail": "Moremi Game Reserve fee ~P120/person/day. Mokoro trips booked via lodges.",
-    "gateHours": "06:00\u201318:30"
+    "gateHours": "06:00–18:30",
+    "bookingUrl": "https://www.botswanatourism.co.bw/"
   },
   {
     "id": "central-kalahari",
     "name": "Central Kalahari Game Reserve",
     "country": "botswana",
-    "description": "Vast semi-arid wilderness \u2014 black-maned lions, brown hyenas, and the raw Kalahari experience.",
+    "description": "Vast semi-arid wilderness — black-maned lions, brown hyenas, and the raw Kalahari experience.",
     "tags": [
       "Remote",
       "Self-drive"
     ],
-    "bestSeason": "Dec\u2013Apr",
+    "bestSeason": "Dec–Apr",
     "fees": "From P50/day",
     "difficulty": "Advanced",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.gov.bw/tourism",
-    "feeDetail": "Lower park fees but remote \u2014 fuel and self-sufficiency essential.",
-    "gateHours": "06:00\u201318:30"
+    "feeDetail": "Lower park fees but remote — fuel and self-sufficiency essential.",
+    "gateHours": "06:00–18:30",
+    "bookingUrl": "https://www.botswanatourism.co.bw/"
   },
   {
     "id": "south-luangwa",
     "name": "South Luangwa National Park",
     "country": "zambia",
-    "description": "Birthplace of the walking safari \u2014 legendary leopard sightings and hippo-filled Luangwa River.",
+    "description": "Birthplace of the walking safari — legendary leopard sightings and hippo-filled Luangwa River.",
     "tags": [
       "Leopards",
       "Walking safari"
     ],
-    "bestSeason": "May\u2013Oct",
+    "bestSeason": "May–Oct",
     "fees": "From $30/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.znp.co.zm/",
     "feeDetail": "Park fee ~$30/day international visitors. Walking safaris require licensed guide.",
-    "gateHours": "06:00\u201318:00"
+    "gateHours": "06:00–18:00",
+    "bookingUrl": "https://www.znp.co.zm/"
   },
   {
     "id": "kafue",
     "name": "Kafue National Park",
     "country": "zambia",
-    "description": "One of Africa's largest parks \u2014 Busanga Plains cheetah, tree-climbing lions, and remote wilderness.",
+    "description": "One of Africa's largest parks — Busanga Plains cheetah, tree-climbing lions, and remote wilderness.",
     "tags": [
       "Big cats",
       "Remote"
     ],
-    "bestSeason": "Jul\u2013Oct",
+    "bestSeason": "Jul–Oct",
     "fees": "From $20/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.znp.co.zm/",
     "feeDetail": "Park entry ~$20/day. Busanga Plains seasonal (dry season only).",
-    "gateHours": "06:00\u201318:00"
+    "gateHours": "06:00–18:00",
+    "bookingUrl": "https://www.znp.co.zm/"
   },
   {
     "id": "lower-zambezi",
     "name": "Lower Zambezi National Park",
     "country": "zambia",
-    "description": "Canoe safaris along the Zambezi \u2014 elephants, hippos, and stunning escarpment views.",
+    "description": "Canoe safaris along the Zambezi — elephants, hippos, and stunning escarpment views.",
     "tags": [
       "Canoe safari",
       "Elephants"
     ],
-    "bestSeason": "May\u2013Oct",
+    "bestSeason": "May–Oct",
     "fees": "From $20/day",
-    "difficulty": "Easy\u2013Moderate",
+    "difficulty": "Easy–Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.znp.co.zm/",
     "feeDetail": "Park fee ~$20/day. Canoe safaris arranged via lodges.",
-    "gateHours": "06:00\u201318:00"
+    "gateHours": "06:00–18:00",
+    "bookingUrl": "https://www.znp.co.zm/"
   },
   {
     "id": "hwange",
     "name": "Hwange National Park",
     "country": "zimbabwe",
-    "description": "Zimbabwe's largest reserve \u2014 100+ mammal species across ancient elephant migration corridors.",
+    "description": "Zimbabwe's largest reserve — 100+ mammal species across ancient elephant migration corridors.",
     "tags": [
       "Elephants",
       "Self-drive"
     ],
-    "bestSeason": "Jul\u2013Oct",
+    "bestSeason": "Jul–Oct",
     "fees": "From $15/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.zimparks.org/",
     "feeDetail": "Park fee ~$15/day. Main camp waterholes best at dry season dusk.",
-    "gateHours": "06:00\u201318:00"
+    "gateHours": "06:00–18:00",
+    "bookingUrl": "https://www.zimparks.org/"
   },
   {
     "id": "mana-pools",
     "name": "Mana Pools National Park",
     "country": "zimbabwe",
-    "description": "UNESCO World Heritage wilderness \u2014 walking safaris among elephants and albida trees on the Zambezi floodplain.",
+    "description": "UNESCO World Heritage wilderness — walking safaris among elephants and albida trees on the Zambezi floodplain.",
     "tags": [
       "Walking safari",
       "UNESCO"
     ],
-    "bestSeason": "May\u2013Oct",
+    "bestSeason": "May–Oct",
     "fees": "From $15/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.zimparks.org/",
-    "feeDetail": "UNESCO wilderness \u2014 walking permits required. Book camps in advance.",
-    "gateHours": "06:00\u201318:00"
+    "feeDetail": "UNESCO wilderness — walking permits required. Book camps in advance.",
+    "gateHours": "06:00–18:00",
+    "bookingUrl": "https://www.zimparks.org/"
   },
   {
     "id": "gonarezhou",
     "name": "Gonarezhou National Park",
     "country": "zimbabwe",
-    "description": "Remote wilderness in the Great Limpopo Transfrontier Park \u2014 Chilojo Cliffs and untamed bush.",
+    "description": "Remote wilderness in the Great Limpopo Transfrontier Park — Chilojo Cliffs and untamed bush.",
     "tags": [
       "Remote",
       "4x4 required"
     ],
-    "bestSeason": "May\u2013Oct",
+    "bestSeason": "May–Oct",
     "fees": "From $15/day",
     "difficulty": "Advanced",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.zimparks.org/",
     "feeDetail": "Remote 4x4 park. Chilojo Cliffs viewpoint highlight.",
-    "gateHours": "06:00\u201318:00"
+    "gateHours": "06:00–18:00",
+    "bookingUrl": "https://www.zimparks.org/"
   },
   {
     "id": "gorongosa",
     "name": "Gorongosa National Park",
     "country": "mozambique",
-    "description": "Africa's greatest wildlife restoration story \u2014 lions, elephants, and thriving ecosystems reborn.",
+    "description": "Africa's greatest wildlife restoration story — lions, elephants, and thriving ecosystems reborn.",
     "tags": [
       "Lions",
       "Conservation"
     ],
-    "bestSeason": "May\u2013Nov",
+    "bestSeason": "May–Nov",
     "fees": "From $20/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.anac.gov.mz/",
-    "feeDetail": "Park fee ~$20/day. Restoration success story \u2014 guided drives recommended.",
-    "gateHours": "06:00\u201318:00"
+    "feeDetail": "Park fee ~$20/day. Restoration success story — guided drives recommended.",
+    "gateHours": "06:00–18:00",
+    "bookingUrl": "https://www.anac.gov.mz/"
   },
   {
     "id": "bazaruto",
     "name": "Bazaruto Archipelago National Park",
     "country": "mozambique",
-    "description": "Turquoise Indian Ocean islands \u2014 dugongs, whale sharks, and world-class diving.",
+    "description": "Turquoise Indian Ocean islands — dugongs, whale sharks, and world-class diving.",
     "tags": [
       "Marine",
       "Diving"
     ],
-    "bestSeason": "May\u2013Nov",
+    "bestSeason": "May–Nov",
     "fees": "Park fee + lodge",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.anac.gov.mz/",
     "feeDetail": "Marine park fees vary by activity. Dhow and dive permits through operators.",
-    "gateHours": "Boat-dependent"
+    "gateHours": "Boat-dependent",
+    "bookingUrl": "https://www.anac.gov.mz/"
   },
   {
     "id": "quirimbas",
     "name": "Quirimbas National Park",
     "country": "mozambique",
-    "description": "Remote northern archipelago \u2014 mangroves, coral reefs, and Swahili-influenced island culture.",
+    "description": "Remote northern archipelago — mangroves, coral reefs, and Swahili-influenced island culture.",
     "tags": [
       "Marine",
       "Remote"
     ],
-    "bestSeason": "May\u2013Dec",
+    "bestSeason": "May–Dec",
     "fees": "Park fee + lodge",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.anac.gov.mz/",
-    "feeDetail": "Remote northern archipelago \u2014 fly-in lodges include park access.",
-    "gateHours": "Boat-dependent"
+    "feeDetail": "Remote northern archipelago — fly-in lodges include park access.",
+    "gateHours": "Boat-dependent",
+    "bookingUrl": "https://www.anac.gov.mz/"
   },
   {
     "id": "liwonde",
     "name": "Liwonde National Park",
     "country": "malawi",
-    "description": "Malawi's premier wildlife reserve \u2014 boat safaris on the Shire River alongside elephants and crocs.",
+    "description": "Malawi's premier wildlife reserve — boat safaris on the Shire River alongside elephants and crocs.",
     "tags": [
       "Elephants",
       "Boat safari"
     ],
-    "bestSeason": "May\u2013Oct",
+    "bestSeason": "May–Oct",
     "fees": "From $25/day",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.malawiparks.org/",
     "feeDetail": "Park fee ~$25/day. Boat safaris on Shire River extra.",
-    "gateHours": "06:00\u201318:00"
+    "gateHours": "06:00–18:00",
+    "bookingUrl": "https://www.malawiparks.org/"
   },
   {
     "id": "nyika",
     "name": "Nyika National Park",
     "country": "malawi",
-    "description": "High-altitude plateau of rolling grasslands \u2014 zebras, antelope, and wild orchids.",
+    "description": "High-altitude plateau of rolling grasslands — zebras, antelope, and wild orchids.",
     "tags": [
       "Landscapes",
       "Hiking"
     ],
-    "bestSeason": "May\u2013Oct",
+    "bestSeason": "May–Oct",
     "fees": "From $20/day",
-    "difficulty": "Easy\u2013Moderate",
+    "difficulty": "Easy–Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.malawiparks.org/",
-    "feeDetail": "Plateau park ~$20/day. Cool climate \u2014 pack layers.",
-    "gateHours": "06:00\u201318:00"
+    "feeDetail": "Plateau park ~$20/day. Cool climate — pack layers.",
+    "gateHours": "06:00–18:00",
+    "bookingUrl": "https://www.malawiparks.org/"
   },
   {
     "id": "lake-malawi",
     "name": "Lake Malawi National Park",
     "country": "malawi",
-    "description": "UNESCO site on the lake shore \u2014 1,000+ cichlid species and crystal-clear snorkelling.",
+    "description": "UNESCO site on the lake shore — 1,000+ cichlid species and crystal-clear snorkelling.",
     "tags": [
       "UNESCO",
       "Snorkelling"
     ],
-    "bestSeason": "May\u2013Oct",
+    "bestSeason": "May–Oct",
     "fees": "From $10/day",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.malawiparks.org/",
     "feeDetail": "Lake shore park ~$10/day. Snorkelling fees at Cape Maclear.",
-    "gateHours": "06:00\u201318:00"
+    "gateHours": "06:00–18:00",
+    "bookingUrl": "https://www.malawiparks.org/"
   },
   {
     "id": "sehlathebe",
     "name": "Sehlabathebe National Park",
     "country": "lesotho",
-    "description": "Remote highland wilderness \u2014 rock art, wild horses, and dramatic Drakensberg escarpment scenery.",
+    "description": "Remote highland wilderness — rock art, wild horses, and dramatic Drakensberg escarpment scenery.",
     "tags": [
       "Hiking",
       "Remote"
     ],
-    "bestSeason": "Oct\u2013Apr",
+    "bestSeason": "Oct–Apr",
     "fees": "From M100/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.forestry.gov.ls/",
-    "feeDetail": "Remote highland park \u2014 4x4 recommended.",
-    "gateHours": "08:00\u201317:00"
+    "feeDetail": "Remote highland park — 4x4 recommended.",
+    "gateHours": "08:00–17:00",
+    "bookingUrl": "https://www.forestry.gov.ls/"
   },
   {
     "id": "tsenhlanyane",
     "name": "Tse'ehlanyane National Park",
     "country": "lesotho",
-    "description": "Maloti Mountains sanctuary \u2014 indigenous forests, trout fishing, and alpine hiking trails.",
+    "description": "Maloti Mountains sanctuary — indigenous forests, trout fishing, and alpine hiking trails.",
     "tags": [
       "Mountains",
       "Hiking"
     ],
-    "bestSeason": "Oct\u2013Apr",
+    "bestSeason": "Oct–Apr",
     "fees": "From M50/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.forestry.gov.ls/",
     "feeDetail": "Maloti Mountains entry ~M50/day.",
-    "gateHours": "08:00\u201317:00"
+    "gateHours": "08:00–17:00",
+    "bookingUrl": "https://www.forestry.gov.ls/"
   },
   {
     "id": "bokong",
     "name": "Bokong Nature Reserve",
     "country": "lesotho",
-    "description": "Stunning plateau above the Katse Dam \u2014 bearded vultures, alpine flowers, and panoramic views.",
+    "description": "Stunning plateau above the Katse Dam — bearded vultures, alpine flowers, and panoramic views.",
     "tags": [
       "Birding",
       "Landscapes"
     ],
-    "bestSeason": "Nov\u2013Mar",
+    "bestSeason": "Nov–Mar",
     "fees": "From M50/day",
-    "difficulty": "Easy\u2013Moderate",
+    "difficulty": "Easy–Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.forestry.gov.ls/",
     "feeDetail": "Katse Dam plateau reserve ~M50/day.",
-    "gateHours": "08:00\u201317:00"
+    "gateHours": "08:00–17:00",
+    "bookingUrl": "https://www.forestry.gov.ls/"
   },
   {
     "id": "hlane",
     "name": "Hlane Royal National Park",
     "country": "eswatini",
-    "description": "Eswatini's largest park \u2014 lions, rhinos, and guided game drives in royal bushveld.",
+    "description": "Eswatini's largest park — lions, rhinos, and guided game drives in royal bushveld.",
     "tags": [
       "Big Five",
       "Guided drives"
     ],
-    "bestSeason": "May\u2013Sep",
+    "bestSeason": "May–Sep",
     "fees": "From E250/day",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.biggameparks.org/",
     "feeDetail": "Big Game Parks fee ~E250/day. Guided drives for lion enclosure.",
-    "gateHours": "06:00\u201318:00"
+    "gateHours": "06:00–18:00",
+    "bookingUrl": "https://www.biggameparks.org/"
   },
   {
     "id": "mlilwane",
     "name": "Mlilwane Wildlife Sanctuary",
     "country": "eswatini",
-    "description": "Eswatini's pioneer conservation area \u2014 walk or cycle among antelope, hippos, and crocodiles.",
+    "description": "Eswatini's pioneer conservation area — walk or cycle among antelope, hippos, and crocodiles.",
     "tags": [
       "Walking",
       "Family-friendly"
@@ -439,23 +464,25 @@
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.biggameparks.org/",
     "feeDetail": "Sanctuary entry ~E80/day. Walking and cycling included.",
-    "gateHours": "07:00\u201318:00"
+    "gateHours": "07:00–18:00",
+    "bookingUrl": "https://www.biggameparks.org/"
   },
   {
     "id": "malolotja",
     "name": "Malolotja Nature Reserve",
     "country": "eswatini",
-    "description": "Pristine montane wilderness \u2014 canopy tours, hiking trails, and the Malolotja Falls.",
+    "description": "Pristine montane wilderness — canopy tours, hiking trails, and the Malolotja Falls.",
     "tags": [
       "Hiking",
       "Adventure"
     ],
-    "bestSeason": "Apr\u2013Oct",
+    "bestSeason": "Apr–Oct",
     "fees": "From E50/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
     "sourceUrl": "https://www.biggameparks.org/",
     "feeDetail": "Nature reserve ~E50/day. Canopy tour separate booking.",
-    "gateHours": "08:00\u201317:00"
+    "gateHours": "08:00–17:00",
+    "bookingUrl": "https://www.biggameparks.org/"
   }
 ]

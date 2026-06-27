@@ -4,7 +4,6 @@
     "title": "The Desert to Delta",
     "countries": "🇳🇦 Namibia → 🇧🇼 Botswana",
     "duration": "14–21 Days",
-    "priceFrom": "$2,450 USD",
     "customizable": true,
     "description": "Journey from the rust-red dunes of Sossusvlei through Etosha's legendary waterholes to the emerald channels of the Okavango Delta. This cross-border route captures the full spectrum of Southern Africa's desert-to-wetland transformation.",
     "highlights": [
@@ -52,31 +51,33 @@
         "narrative": "Fly or drive to Maun and enter the Delta. Glide through papyrus channels in a traditional mokoro, then enjoy guided bush walks and 4×4 game drives in Moremi."
       }
     ],
-    "included": [
-      "4×4 rental vehicle with unlimited kilometres",
-      "Pre-booked accommodation (lodges, guesthouses, or campsites)",
-      "Cross-border paperwork assistance",
-      "Detailed route maps and GPS waypoints",
-      "24-hour emergency support hotline",
-      "Personal travel planning app access"
+    "mapImage": "https://images.unsplash.com/photo-1772289093245-218447e77b64?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey.",
+    "scope": "multi",
+    "typicalBudget": "$2,450 USD",
+    "budgetNote": "Per person, mid-range self-drive — excludes international flights",
+    "planningNotes": [
+      "Plan for 4×4 rental — compare unlimited-km deals at pick-up city",
+      "Suggested lodging stops — book camps and lodges directly",
+      "Cross-border document checklist — carnet, insurance, and permits",
+      "Route maps and GPS waypoints for self-navigation",
+      "Emergency numbers and embassy contacts reference",
+      "Day-by-day route notes"
     ],
-    "excluded": [
+    "arrangeYourself": [
       "International flights",
       "Fuel and park entrance fees",
       "Meals (unless specified at lodge)",
       "Travel and cancellation insurance",
       "Optional activities (balloon rides, scenic flights)",
       "Visa fees and border crossing charges"
-    ],
-    "mapImage": "https://images.unsplash.com/photo-1504107123655-081832049e37?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Route overview — illustrative map showing key stops along this journey."
+    ]
   },
   "coastal-explorer": {
     "type": "Self-Drive Route",
     "title": "The Coastal Explorer",
     "countries": "🇿🇦 South Africa → 🇲🇿 Mozambique",
     "duration": "15–20 Days",
-    "priceFrom": "$2,890 USD",
     "customizable": true,
     "description": "From Cape Town's Table Mountain along the Garden Route and Wild Coast to Mozambique's Bazaruto Archipelago — the ultimate Indian Ocean adventure combining mountains, forests, and tropical islands.",
     "highlights": [
@@ -118,31 +119,33 @@
         "narrative": "Speedboat to the Bazaruto Archipelago. Snorkel pristine reefs, spot dugongs, and sail into the sunset on a traditional dhow."
       }
     ],
-    "included": [
+    "mapImage": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey.",
+    "scope": "multi",
+    "typicalBudget": "$2,890 USD",
+    "budgetNote": "Per person, mid-range self-drive — excludes international flights",
+    "planningNotes": [
       "Rental vehicle with comprehensive insurance",
-      "Accommodation bookings along the route",
+      "Suggested lodging areas along the route",
       "Border crossing documentation support",
       "Island transfer arrangements (Bazaruto)",
       "Route guide with restaurant recommendations",
-      "24-hour support while travelling"
+      "Border crossing timing notes"
     ],
-    "excluded": [
+    "arrangeYourself": [
       "International and domestic flights",
       "Fuel, tolls, and border fees",
       "Diving, snorkelling, and dhow excursion fees",
       "Meals and personal expenses",
       "Travel insurance",
       "Mozambique visa fees"
-    ],
-    "mapImage": "https://images.unsplash.com/photo-1506905925344-21ddaec4d32d?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Route overview — illustrative map showing key stops along this journey."
+    ]
   },
   "falls-beyond": {
     "type": "Guided & Self-Drive",
     "title": "The Falls & Beyond",
     "countries": "🇿🇲 Zambia → 🇿🇼 Zimbabwe → 🇧🇼 Botswana",
     "duration": "10–14 Days",
-    "priceFrom": "$3,150 USD",
     "customizable": true,
     "description": "Experience the thunder of Victoria Falls, walk among leopards in South Luangwa, track elephants in Hwange, and cruise the Chobe River — the quintessential Zambezi basin safari circuit.",
     "highlights": [
@@ -178,30 +181,32 @@
         "narrative": "Enter Botswana for a finale on the Chobe River. Boat cruises at sunset reveal elephant herds swimming between islands."
       }
     ],
-    "included": [
-      "All accommodation (mid-range lodges and camps)",
-      "Internal flights (Livingstone–Mfuwe)",
-      "Guided walking safaris in South Luangwa",
-      "Park fees and conservation levies",
+    "mapImage": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey.",
+    "scope": "multi",
+    "typicalBudget": "$3,150 USD",
+    "budgetNote": "Per person mix of guided activities and self-drive — excludes flights",
+    "planningNotes": [
+      "Mid-range lodge and camp options along the route",
+      "Suggested internal flight route (Livingstone–Mfuwe)",
+      "South Luangwa walking safari — book with licensed operators",
+      "Park fee and conservation levy budget line",
       "Chobe river cruise",
-      "KAZA Univisa assistance"
+      "KAZA Univisa eligibility notes for Zambia/Zimbabwe"
     ],
-    "excluded": [
+    "arrangeYourself": [
       "International flights",
       "Adventure activities at Victoria Falls",
       "Premium spirits and personal purchases",
       "Travel insurance",
       "Gratuities for guides and lodge staff"
-    ],
-    "mapImage": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Route overview — illustrative map showing key stops along this journey."
+    ]
   },
   "kingdom-circuit": {
     "type": "Mountain & Culture Route",
     "title": "The Kingdom Circuit",
     "countries": "🇱🇸 Lesotho → 🇸🇿 Eswatini → 🇿🇦 South Africa",
     "duration": "7–10 Days",
-    "priceFrom": "$1,680 USD",
     "customizable": true,
     "description": "A compact highland adventure through two mountain kingdoms — pony trekking in Lesotho, royal game reserves in Eswatini, and a Big Five finale in Kruger National Park.",
     "highlights": [
@@ -237,7 +242,12 @@
         "narrative": "Cross back into South Africa for a Big Five finale. Full-day game drives in Kruger's central region around Satara and Orpen."
       }
     ],
-    "included": [
+    "mapImage": "https://images.unsplash.com/photo-1541414779316-956a5084c0d4?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey.",
+    "scope": "multi",
+    "typicalBudget": "$1,680 USD",
+    "budgetNote": "Per person budget trip — guesthouses, camps, and park fees extra",
+    "planningNotes": [
       "4×4 vehicle rental (high-clearance for Sani Pass)",
       "Accommodation in lodges and guesthouses",
       "Pony trekking excursion in Malealea",
@@ -245,22 +255,19 @@
       "Kruger park entry fees",
       "Route maps and border guidance"
     ],
-    "excluded": [
+    "arrangeYourself": [
       "International flights",
       "Fuel and meals",
       "Optional abseiling at Maletsunyane Falls",
       "Travel insurance",
       "Lesotho/Eswatini border fees"
-    ],
-    "mapImage": "https://images.unsplash.com/photo-1541414779316-956a5084c0d4?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Route overview — illustrative map showing key stops along this journey."
+    ]
   },
   "lake-mountain": {
     "type": "Adventure Route",
     "title": "Lake & Mountain",
     "countries": "🇲🇼 Malawi → 🇲🇿 Mozambique",
     "duration": "10–14 Days",
-    "priceFrom": "$1,950 USD",
     "customizable": true,
     "description": "Snorkel among a thousand cichlid species in Lake Malawi, summit Mount Mulanje's peaks, safari along the Shire River, and explore Mozambique's UNESCO-listed Ilha de Moçambique.",
     "highlights": [
@@ -296,7 +303,12 @@
         "narrative": "Cross into Mozambique and fly or drive to the coast. Explore the UNESCO World Heritage island — crumbling Portuguese forts, dhow harbour, and pristine reefs."
       }
     ],
-    "included": [
+    "mapImage": "https://images.unsplash.com/photo-1658221744192-00e3770b8625?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey.",
+    "scope": "multi",
+    "typicalBudget": "$1,950 USD",
+    "budgetNote": "Per person active travel — mixed camping and lodges",
+    "planningNotes": [
       "Accommodation (beach lodges and mountain huts)",
       "Lake Malawi snorkelling gear rental",
       "Mulanje mountain guide and hut fees",
@@ -304,22 +316,19 @@
       "Internal transport arrangements",
       "Border crossing assistance"
     ],
-    "excluded": [
+    "arrangeYourself": [
       "International flights",
       "Meals and personal expenses",
       "Mulanje peak summit attempt (optional guide upgrade)",
       "Mozambique visa fees",
       "Travel insurance"
-    ],
-    "mapImage": "https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Route overview — illustrative map showing key stops along this journey."
+    ]
   },
   "grand-safari": {
     "type": "Signature Safari",
     "title": "The Grand Safari",
     "countries": "🇿🇦 South Africa → 🇳🇦 Namibia → 🇧🇼 Botswana",
     "duration": "21–28 Days",
-    "priceFrom": "$5,200 USD",
     "customizable": true,
     "description": "The definitive three-country Southern African safari. From Kruger's Big Five through Namibia's desert wonders to Botswana's pristine Okavango Delta — the journey of a lifetime.",
     "highlights": [
@@ -367,23 +376,547 @@
         "narrative": "The grand finale in the Okavango Delta. Mokoro excursions, guided bush walks, and 4×4 drives in Moremi — Africa's predator capital."
       }
     ],
-    "included": [
-      "4×4 rental or light aircraft transfers between regions",
-      "All accommodation (mix of lodges and camps)",
-      "Guided game drives in Kruger, Etosha, and Moremi",
-      "Scenic flight over Skeleton Coast",
-      "Mokoro excursion in the Delta",
-      "24-hour support and comprehensive route planning"
+    "mapImage": "https://images.unsplash.com/photo-1547448415-e9f5b28e570d?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey.",
+    "scope": "multi",
+    "typicalBudget": "$5,200 USD",
+    "budgetNote": "Per person fly-in safari estimate — lodge rates vary by season",
+    "planningNotes": [
+      "Mix of 4×4 rental or light aircraft between regions",
+      "Mix of lodge and camp options by region",
+      "Guided drive options in Kruger, Etosha, and Moremi",
+      "Optional scenic flight over Skeleton Coast",
+      "Mokoro excursion planning in the Delta",
+      "Comprehensive route planning notes"
     ],
-    "excluded": [
+    "arrangeYourself": [
       "International flights",
       "Fuel, park fees, and conservation levies",
       "Premium lodge upgrades",
       "Meals not specified as included",
       "Travel and cancellation insurance",
       "Visa fees for three countries"
+    ]
+  },
+  "namibia-essentials": {
+    "scope": "single",
+    "type": "Single-Country Route",
+    "title": "Namibia Essentials",
+    "countries": "🇳🇦 Namibia",
+    "duration": "10–12 Days",
+    "customizable": true,
+    "description": "The definitive Namibia loop — dunes, coast, Damaraland, and Etosha in under two weeks. Perfect for first-time visitors with a 4x4.",
+    "highlights": [
+      "Sunrise at Dune 45 and Deadvlei",
+      "Swakopmund adventure activities",
+      "Desert-adapted elephant tracking",
+      "Etosha floodlit waterholes"
     ],
-    "mapImage": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Route overview — illustrative map showing key stops along this journey."
+    "days": [
+      {
+        "range": "Day 1–2",
+        "title": "Windhoek to Sossusvlei",
+        "places": "Windhoek, Sesriem",
+        "narrative": "Collect your vehicle and drive south to the Namib. Pre-dawn entry for Dune 45 and the white clay pan of Deadvlei."
+      },
+      {
+        "range": "Day 3–4",
+        "title": "Coast & Swakopmund",
+        "places": "Walvis Bay, Swakopmund",
+        "narrative": "Cross the Namib to the Atlantic. Kayak with seals, sandboard the dunes, and explore colonial Swakopmund."
+      },
+      {
+        "range": "Day 5–6",
+        "title": "Damaraland",
+        "places": "Twyfelfontein, Palmwag",
+        "narrative": "Track desert-adapted elephants and visit UNESCO rock engravings among granite kopjes."
+      },
+      {
+        "range": "Day 7–10",
+        "title": "Etosha Safari",
+        "places": "Etosha National Park",
+        "narrative": "Game drive the park's waterholes — rhino, elephant, lion, and giraffe concentrations in dry season."
+      },
+      {
+        "range": "Day 11–12",
+        "title": "Return via Windhoek",
+        "places": "Windhoek",
+        "narrative": "Drive south through Otjiwarongo to Windhoek. Optional craft market and departure."
+      }
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1772289325999-0583c98396ef?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Classic Namibia circuit — Sossusvlei, coast, Damaraland, and Etosha.",
+    "typicalBudget": "$1,890 USD",
+    "budgetNote": "Per person planning estimate — excludes international flights",
+    "planningNotes": [
+      "4x4 rental",
+      "Suggested accommodation stops",
+      "Route maps and GPS waypoints",
+      "Practical on-route planning notes"
+    ],
+    "arrangeYourself": [
+      "Flights",
+      "Fuel and park fees",
+      "Meals",
+      "Insurance",
+      "Visa fees"
+    ]
+  },
+  "south-africa-classic": {
+    "scope": "single",
+    "type": "Single-Country Route",
+    "title": "South Africa Classic",
+    "countries": "🇿🇦 South Africa",
+    "duration": "12–14 Days",
+    "customizable": true,
+    "description": "Cape Town, the Winelands, Garden Route, and Kruger — the essential South Africa triangle for first-time visitors.",
+    "highlights": [
+      "Table Mountain and Cape Peninsula",
+      "Stellenbosch wine estates",
+      "Garden Route forests and coast",
+      "Kruger Big Five self-drive"
+    ],
+    "days": [
+      {
+        "range": "Day 1–4",
+        "title": "Cape Town",
+        "places": "Cape Town, Peninsula",
+        "narrative": "Table Mountain, V&A Waterfront, Cape Point, and Boulders penguins."
+      },
+      {
+        "range": "Day 5",
+        "title": "Winelands",
+        "places": "Stellenbosch, Franschhoek",
+        "narrative": "Estate tastings and mountain passes through the Cape's wine country."
+      },
+      {
+        "range": "Day 6–8",
+        "title": "Garden Route",
+        "places": "Knysna, Tsitsikamma",
+        "narrative": "Lagoon cruises, forest walks, and Storms River bridge."
+      },
+      {
+        "range": "Day 9–13",
+        "title": "Kruger Safari",
+        "places": "Kruger NP",
+        "narrative": "Self-drive the park's main camps — Big Five and birding at waterholes."
+      },
+      {
+        "range": "Day 14",
+        "title": "Departure",
+        "places": "Johannesburg or Cape Town",
+        "narrative": "Domestic flight connection for international departure."
+      }
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1576485375217-d6a95e34d043?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Cape to Kruger — South Africa's greatest hits.",
+    "typicalBudget": "$2,150 USD",
+    "budgetNote": "Per person planning estimate — excludes international flights",
+    "planningNotes": [
+      "Suggested accommodation options",
+      "Kruger rest camp booking tips",
+      "Route planning",
+      "Practical on-route planning notes"
+    ],
+    "arrangeYourself": [
+      "International flights",
+      "Car rental or domestic flights",
+      "Park fees",
+      "Meals",
+      "Insurance"
+    ]
+  },
+  "botswana-delta-focus": {
+    "scope": "single",
+    "type": "Single-Country Route",
+    "title": "Botswana Delta Focus",
+    "countries": "🇧🇼 Botswana",
+    "duration": "8–10 Days",
+    "customizable": true,
+    "description": "Okavango mokoro trails, Moremi game drives, and Chobe river cruises — Botswana's wetland and elephant heartland.",
+    "highlights": [
+      "Mokoro through Okavango channels",
+      "Moremi predator viewing",
+      "Chobe sunset boat cruise",
+      "Makgadikgadi meerkats (seasonal)"
+    ],
+    "days": [
+      {
+        "range": "Day 1–2",
+        "title": "Maun & Delta",
+        "places": "Maun, Okavango",
+        "narrative": "Fly or drive to Maun. Enter the Delta by mokoro for birding and hippo encounters."
+      },
+      {
+        "range": "Day 3–5",
+        "title": "Moremi Game Reserve",
+        "places": "Moremi GR",
+        "narrative": "4x4 drives and bush walks on the Delta's wildlife-rich islands."
+      },
+      {
+        "range": "Day 6–8",
+        "title": "Chobe Riverfront",
+        "places": "Kasane, Chobe NP",
+        "narrative": "Elephant herds along the river — afternoon boat cruises at golden hour."
+      },
+      {
+        "range": "Day 9–10",
+        "title": "Optional Makgadikgadi",
+        "places": "Ntwetwe Pan",
+        "narrative": "Seasonal extension for meerkats and zebra migration on the salt pans."
+      }
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Delta waterways to Chobe elephants.",
+    "typicalBudget": "$3,200 USD",
+    "budgetNote": "Per person planning estimate — excludes international flights",
+    "planningNotes": [
+      "Lodge and camp recommendations",
+      "Mokoro and boat activities",
+      "Park fees guidance",
+      "Practical on-route planning notes"
+    ],
+    "arrangeYourself": [
+      "International flights",
+      "Light aircraft transfers",
+      "Premium lodges",
+      "Meals unless specified",
+      "Insurance"
+    ]
+  },
+  "zambia-falls-safari": {
+    "scope": "single",
+    "type": "Single-Country Route",
+    "title": "Zambia Falls & Safari",
+    "countries": "🇿🇲 Zambia",
+    "duration": "9–11 Days",
+    "customizable": true,
+    "description": "Victoria Falls adventures combined with South Luangwa walking safaris — Zambia's two world-class experiences in one trip.",
+    "highlights": [
+      "Victoria Falls viewpoints and Devil's Pool (seasonal)",
+      "White-water rafting below the Falls",
+      "Walking safari in South Luangwa",
+      "Night drives for leopards"
+    ],
+    "days": [
+      {
+        "range": "Day 1–3",
+        "title": "Livingstone & Falls",
+        "places": "Victoria Falls",
+        "narrative": "Falls viewpoints, bridge activities, and optional helicopter flight."
+      },
+      {
+        "range": "Day 4",
+        "title": "Transfer to Luangwa",
+        "places": "Mfuwe",
+        "narrative": "Fly or drive to the Luangwa Valley — Africa's walking safari birthplace."
+      },
+      {
+        "range": "Day 5–9",
+        "title": "South Luangwa",
+        "places": "South Luangwa NP",
+        "narrative": "Morning walks and afternoon drives along the Luangwa River."
+      },
+      {
+        "range": "Day 10–11",
+        "title": "Return via Lusaka",
+        "places": "Lusaka",
+        "narrative": "Domestic connection and departure."
+      }
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1679713594549-ec393ce9c909?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Falls thunder to Luangwa leopards.",
+    "typicalBudget": "$2,350 USD",
+    "budgetNote": "Per person planning estimate — excludes international flights",
+    "planningNotes": [
+      "Park and lodge planning notes",
+      "Guided walking safaris",
+      "Airport transfers",
+      "Practical on-route planning notes"
+    ],
+    "arrangeYourself": [
+      "International flights",
+      "KAZA visa",
+      "Adventure activities at Falls",
+      "Meals",
+      "Insurance"
+    ]
+  },
+  "zimbabwe-wilderness": {
+    "scope": "single",
+    "type": "Single-Country Route",
+    "title": "Zimbabwe Wilderness",
+    "countries": "🇿🇼 Zimbabwe",
+    "duration": "8–10 Days",
+    "customizable": true,
+    "description": "Victoria Falls, Hwange's elephant herds, and Mana Pools wilderness — Zimbabwe's golden triangle.",
+    "highlights": [
+      "Victoria Falls gorge walk",
+      "Hwange waterhole game viewing",
+      "Mana Pools canoe and walking",
+      "Great Zimbabwe optional extension"
+    ],
+    "days": [
+      {
+        "range": "Day 1–2",
+        "title": "Victoria Falls",
+        "places": "Victoria Falls town",
+        "narrative": "Rainforest walk, gorge viewpoints, and optional rafting or bungee."
+      },
+      {
+        "range": "Day 3–5",
+        "title": "Hwange",
+        "places": "Hwange NP",
+        "narrative": "Self-drive or guided drives to pumped waterholes — elephant herds at dusk."
+      },
+      {
+        "range": "Day 6–9",
+        "title": "Mana Pools",
+        "places": "Mana Pools NP",
+        "narrative": "Canoe the Zambezi and walk among albida trees — UNESCO wilderness."
+      },
+      {
+        "range": "Day 10",
+        "title": "Departure",
+        "places": "Harare or Victoria Falls",
+        "narrative": "Domestic connection for international flight."
+      }
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1519181245277-cffeb31da2e3?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Falls, Hwange elephants, and Mana Pools.",
+    "typicalBudget": "$2,100 USD",
+    "budgetNote": "Per person planning estimate — excludes international flights",
+    "planningNotes": [
+      "Camp and lodge recommendations",
+      "Guided Mana activities",
+      "Route planning",
+      "Practical on-route planning notes"
+    ],
+    "arrangeYourself": [
+      "Flights",
+      "Park fees in USD cash",
+      "Meals",
+      "Insurance",
+      "Visa"
+    ]
+  },
+  "mozambique-bush-beach": {
+    "scope": "single",
+    "type": "Single-Country Route",
+    "title": "Mozambique Bush & Beach",
+    "countries": "🇲🇿 Mozambique",
+    "duration": "10–12 Days",
+    "customizable": true,
+    "description": "Gorongosa's restored wildlife followed by Indian Ocean beaches — Mozambique's ultimate combination.",
+    "highlights": [
+      "Gorongosa game drives",
+      "Mount Gorongosa day hike",
+      "Vilanculos dhow cruise",
+      "Bazaruto snorkelling"
+    ],
+    "days": [
+      {
+        "range": "Day 1–4",
+        "title": "Gorongosa",
+        "places": "Gorongosa NP",
+        "narrative": "Lion and elephant sightings in Africa's great restoration story."
+      },
+      {
+        "range": "Day 5",
+        "title": "Transfer to coast",
+        "places": "Beira to Vilanculos",
+        "narrative": "Domestic flight or road transfer to the Indian Ocean."
+      },
+      {
+        "range": "Day 6–11",
+        "title": "Bazaruto coast",
+        "places": "Vilanculos, Bazaruto",
+        "narrative": "Dhow sailing, diving, and beach relaxation on the archipelago."
+      },
+      {
+        "range": "Day 12",
+        "title": "Departure",
+        "places": "Maputo or Vilanculos",
+        "narrative": "Connection for international flight."
+      }
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Gorongosa bush to Bazaruto blues.",
+    "typicalBudget": "$2,450 USD",
+    "budgetNote": "Per person planning estimate — excludes international flights",
+    "planningNotes": [
+      "Lodge recommendations",
+      "Gorongosa drives",
+      "Coastal activities guidance",
+      "Practical on-route planning notes"
+    ],
+    "arrangeYourself": [
+      "International flights",
+      "E-visa",
+      "Domestic flights",
+      "Diving fees",
+      "Insurance"
+    ]
+  },
+  "malawi-lake-safari": {
+    "scope": "single",
+    "type": "Single-Country Route",
+    "title": "Malawi Lake & Safari",
+    "countries": "🇲🇼 Malawi",
+    "duration": "8–10 Days",
+    "customizable": true,
+    "description": "Liwonde river safaris and Lake Malawi beaches — affordable warmth and wildlife in the Warm Heart of Africa.",
+    "highlights": [
+      "Shire River boat safari",
+      "Cape Maclear snorkelling",
+      "Community lakeshore culture",
+      "Optional Nyika day trip"
+    ],
+    "days": [
+      {
+        "range": "Day 1–4",
+        "title": "Liwonde",
+        "places": "Liwonde NP",
+        "narrative": "Boat safaris among elephants and hippos on the Shire River."
+      },
+      {
+        "range": "Day 5–9",
+        "title": "Lake Malawi",
+        "places": "Cape Maclear",
+        "narrative": "Snorkel among cichlids, kayak the bays, and relax on sandy beaches."
+      },
+      {
+        "range": "Day 10",
+        "title": "Departure",
+        "places": "Lilongwe",
+        "narrative": "Transfer to Kamuzu International Airport."
+      }
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1658221744192-00e3770b8625?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "River safari to freshwater paradise.",
+    "typicalBudget": "$1,750 USD",
+    "budgetNote": "Per person planning estimate — excludes international flights",
+    "planningNotes": [
+      "Lodge and camp recommendations",
+      "Boat safari arrangements",
+      "Lake activity guidance",
+      "Practical on-route planning notes"
+    ],
+    "arrangeYourself": [
+      "Flights",
+      "E-visa",
+      "Meals",
+      "Insurance",
+      "Park fees"
+    ]
+  },
+  "lesotho-highlands": {
+    "scope": "single",
+    "type": "Single-Country Route",
+    "title": "Lesotho Highlands",
+    "countries": "🇱🇸 Lesotho",
+    "duration": "5–7 Days",
+    "customizable": true,
+    "description": "Sani Pass, pony trekking, and mountain villages — the ultimate highland add-on from South Africa.",
+    "highlights": [
+      "Sani Pass 4x4 ascent",
+      "Basotho pony trek",
+      "Malealea village stay",
+      "Katse Dam viewpoint"
+    ],
+    "days": [
+      {
+        "range": "Day 1",
+        "title": "Sani Pass",
+        "places": "Sani Pass, Mokhotlong",
+        "narrative": "4x4 from KwaZulu-Natal to the highest pub in Africa."
+      },
+      {
+        "range": "Day 2–4",
+        "title": "Pony trekking",
+        "places": "Malealea or Semonkong",
+        "narrative": "Multi-day rides through mountain villages with local guides."
+      },
+      {
+        "range": "Day 5–6",
+        "title": "Central highlands",
+        "places": "Katse Dam, Bokong",
+        "narrative": "Dam wall viewpoints and plateau hiking."
+      },
+      {
+        "range": "Day 7",
+        "title": "Return to SA",
+        "places": "Maseru Bridge",
+        "narrative": "Descent via Maseru to South Africa."
+      }
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1541414779316-956a5084c0d4?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Kingdom in the Sky mountain circuit.",
+    "typicalBudget": "$980 USD",
+    "budgetNote": "Per person planning estimate — excludes international flights",
+    "planningNotes": [
+      "Pony trek planning notes",
+      "Guesthouse reservations",
+      "Route advice",
+      "Practical on-route planning notes"
+    ],
+    "arrangeYourself": [
+      "4x4 rental",
+      "Border fees",
+      "Meals",
+      "Insurance",
+      "SA re-entry visa check"
+    ]
+  },
+  "eswatini-kingdom": {
+    "scope": "single",
+    "type": "Single-Country Route",
+    "title": "Eswatini Kingdom",
+    "countries": "🇸🇿 Eswatini",
+    "duration": "4–5 Days",
+    "customizable": true,
+    "description": "Big game, walking safaris, and craft markets — the perfect Kruger add-on through Africa's last absolute monarchy.",
+    "highlights": [
+      "Hlane lion and rhino drives",
+      "Mlilwane walking among wildlife",
+      "Swazi craft markets",
+      "Reed Dance (Aug–Sep, seasonal)"
+    ],
+    "days": [
+      {
+        "range": "Day 1–2",
+        "title": "Hlane",
+        "places": "Hlane Royal NP",
+        "narrative": "Guided drives for lion, rhino, and vultures in the lowveld."
+      },
+      {
+        "range": "Day 3",
+        "title": "Mlilwane",
+        "places": "Mlilwane Sanctuary",
+        "narrative": "Walk or cycle among antelope, hippos, and crocodiles."
+      },
+      {
+        "range": "Day 4–5",
+        "title": "Craft & culture",
+        "places": "Ezulwini Valley",
+        "narrative": "Candle factory, glass blowing, and markets before exit via Oshoek."
+      }
+    ],
+    "mapImage": "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Royal reserves and Swazi culture.",
+    "typicalBudget": "$750 USD",
+    "budgetNote": "Per person planning estimate — excludes international flights",
+    "planningNotes": [
+      "Reserve entry planning notes",
+      "Guided drives at Hlane",
+      "Cultural stop recommendations",
+      "Practical on-route planning notes"
+    ],
+    "arrangeYourself": [
+      "Transport from Kruger",
+      "Meals",
+      "Park fees",
+      "Insurance"
+    ]
   }
 }

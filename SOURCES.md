@@ -4,6 +4,8 @@ This document records where practical travel data comes from and how we keep con
 
 **Last reviewed:** March 2026
 
+A visitor-facing summary also lives on the site at **About This Site** (`#about` / `#about-sources`).
+
 ## Editorial policy
 
 - Descriptions, tips, and narratives are **written in our own words**.
@@ -25,6 +27,9 @@ This document records where practical travel data comes from and how we keep con
 | `data/faqs.json` | Per-country FAQs | Original answers based on official facts |
 | `data/guides.json` | Seasons, packing, wildlife | Original editorial |
 | `data/itineraries.json` | Route templates | Original editorial |
+| `data/regions.json` | Per-country regional breakdowns for country guides | Original editorial informed by official tourism boards |
+| `data/marketplace.json` | Curated experience listings | Original editorial; representative pricing tiers |
+| `data/image-catalog.json` | Verified Unsplash stock photo IDs | [Unsplash License](https://unsplash.com/license) — free for commercial use with attribution appreciated |
 | `data/discover.json` | Homepage facts, news, guides | Original editorial; news items should cite policy changes, not reproduce press releases |
 
 ## Visa & entry (high-change items)
@@ -78,6 +83,18 @@ This document records where practical travel data comes from and how we keep con
 | Events calendar | Annually (before each travel season) |
 | Currency rates | Monthly (planning approximations only) |
 | Emergency numbers | Annually |
+
+## Supabase (hub mode v4.11+)
+
+Backend tables align with the independent planning hub — no booking or WhatsApp inquiry tracking.
+
+| Table | Purpose |
+|-------|---------|
+| `site_messages` | Contact form (corrections, feedback, partnerships) |
+| `experiences` | Marketplace inspiration (public read) |
+| `newsletter_subscribers` | Email signups |
+
+Schema: `supabase/schema.sql`. Upgrading from pre-v4.11: run `supabase/migrate-phase-e.sql`.
 
 ## Reporting issues
 

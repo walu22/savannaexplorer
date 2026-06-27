@@ -2,25 +2,25 @@ export const COUNTRY_META = {
     'south-africa': {
         name: 'South Africa',
         flag: '🇿🇦',
-        cardImage: '1549076656-10360fa2333c',
+        cardImage: '1547448415-e9f5b28e570d',
         highlights: 'Kruger Park • Cape Town • Garden Route • Drakensberg • Winelands',
     },
     namibia: {
         name: 'Namibia',
         flag: '🇳🇦',
-        cardImage: '1448831338187-78296e6fdc4d',
+        cardImage: '1772289093245-218447e77b64',
         highlights: 'Sossusvlei • Etosha • Fish River Canyon • Skeleton Coast • Swakopmund',
     },
     botswana: {
         name: 'Botswana',
         flag: '🇧🇼',
-        cardImage: '1551323330-918809e5352c',
+        cardImage: '1547471080-7cc2caa01a7e',
         highlights: 'Okavango Delta • Chobe • Moremi • Makgadikgadi • Central Kalahari',
     },
     zambia: {
         name: 'Zambia',
         flag: '🇿🇲',
-        cardImage: '1516026672322-bc52d61a55d5',
+        cardImage: '1679713594549-ec393ce9c909',
         highlights: 'Victoria Falls • South Luangwa • Lower Zambezi • Kafue • Lake Kariba',
     },
     zimbabwe: {
@@ -32,13 +32,13 @@ export const COUNTRY_META = {
     mozambique: {
         name: 'Mozambique',
         flag: '🇲🇿',
-        cardImage: '1519066629447-267fffa62d4b',
+        cardImage: '1505142468610-359e7d316be0',
         highlights: 'Bazaruto • Tofo Beach • Gorongosa • Maputo • Ibo Island',
     },
     malawi: {
         name: 'Malawi',
         flag: '🇲🇼',
-        cardImage: '1549366021-9f761d450615',
+        cardImage: '1658221744192-00e3770b8625',
         highlights: 'Lake Malawi • Mount Mulanje • Liwonde • Majete • Nyika Plateau',
     },
     lesotho: {

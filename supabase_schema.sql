@@ -1,3 +1,6 @@
+-- DEPRECATED: use supabase/schema.sql (hub mode v4.11+) instead.
+-- This file is kept for historical reference only.
+
 -- Create the UUID extension if not already enabled
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 

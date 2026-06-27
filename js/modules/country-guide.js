@@ -4,6 +4,16 @@ import regions from '../../data/regions.json';
 import { getFullCountryData } from '../lib/merge-country.js';
 import { getCountryGuide } from '../lib/guide.js';
 import { spotImageUrl, activityImageUrl } from '../lib/images.js';
+import { getCountryMeta, cardImageUrl } from '../lib/country-meta.js';
+import {
+    getBordersForCountry,
+    getCountryResourcePack,
+    getParksForCountry,
+    getVisaRow,
+    renderCountryBorderRow,
+    renderCountryParkRow,
+    renderOfficialResourceCard,
+} from '../lib/country-resources.js';
 
 const detailView = document.getElementById('country-detail-view');
 const closeDetailBtn = document.getElementById('close-detail');
@@ -46,6 +56,28 @@ function populateCountryPage(countryId) {
     detailView.scrollTop = 0;
     detailTitle.textContent = data.name;
     detailTagline.textContent = data.tagline;
+    const breadcrumbName = document.getElementById('detail-breadcrumb-name');
+    if (breadcrumbName) breadcrumbName.textContent = data.name;
+
+    const meta = getCountryMeta(countryId);
+    const heroImg = document.getElementById('detail-hero-img');
+    if (heroImg) {
+        heroImg.src = cardImageUrl(countryId);
+        heroImg.alt = `${data.name} — travel destination`;
+    }
+    const flagEl = document.getElementById('detail-flag');
+    if (flagEl) flagEl.textContent = meta.flag || '🌍';
+
+    const statsEl = document.getElementById('detail-quick-stats');
+    if (statsEl) {
+        const regionCount = regions[countryId]?.length || 0;
+        statsEl.innerHTML = `
+            <div class="detail-stat"><strong>${data.spots.length}</strong><span>Top Spots</span></div>
+            <div class="detail-stat"><strong>${data.activities.length}</strong><span>Activities</span></div>
+            <div class="detail-stat"><strong>${data.routes?.length || 0}</strong><span>Routes</span></div>
+            ${regionCount ? `<div class="detail-stat"><strong>${regionCount}</strong><span>Regions</span></div>` : ''}
+        `;
+    }
 
     const aboutHeading = document.getElementById('detail-about-heading');
     const aboutIntro = document.getElementById('detail-about-intro');
@@ -94,10 +126,13 @@ function populateCountryPage(countryId) {
     }
 
     detailActivities.innerHTML = data.activities.map(act => `
-        <div class="activity-detail-item">
+        <article class="activity-detail-card">
             <img src="${activityImageUrl(act)}" alt="${act.name}" loading="lazy">
-            <div class="activity-text"><h3>${act.name}</h3><p>${act.desc}</p></div>
-        </div>
+            <div class="activity-detail-body">
+                <h3>${act.name}</h3>
+                <p>${act.desc}</p>
+            </div>
+        </article>
     `).join('');
 
     const actCategories = document.getElementById('detail-activity-categories');
@@ -139,6 +174,73 @@ function populateCountryPage(countryId) {
         <div class="practical-card"><i class="fas fa-clock"></i><h4>Time Zone</h4><p>${p.time}</p></div>
     `;
 
+    const resourcePack = getCountryResourcePack(countryId);
+    const visaRow = getVisaRow(countryId);
+    const resourcesSection = document.getElementById('detail-resources-section');
+    const resourcesGrid = document.getElementById('detail-official-resources');
+    const resourcesNote = document.getElementById('detail-resources-note');
+
+    if (resourcesSection && resourcesGrid) {
+        const links = [...(resourcePack?.links || [])];
+        if (visaRow?.sourceUrl && !links.some(link => link.id === 'immigration')) {
+            links.push({
+                id: 'immigration',
+                icon: 'fa-passport',
+                label: 'Immigration — official source',
+                url: visaRow.sourceUrl,
+                desc: 'Visa and entry requirements from our visa matrix source',
+            });
+        }
+
+        if (links.length) {
+            resourcesSection.hidden = false;
+            resourcesGrid.innerHTML = links.map(renderOfficialResourceCard).join('');
+            if (resourcesNote) {
+                const verified = resourcePack?.lastVerified || visaRow?.lastVerified || '2026-03';
+                const planningNote = resourcePack?.planningNote || '';
+                resourcesNote.innerHTML = `${planningNote ? `${planningNote} ` : ''}<span class="resource-verified">Links verified ${verified} — always confirm before you travel.</span>`;
+            }
+        } else {
+            resourcesSection.hidden = true;
+            resourcesGrid.innerHTML = '';
+        }
+    }
+
+    const countryParks = getParksForCountry(countryId);
+    const parksSection = document.getElementById('detail-parks-section');
+    const parksList = document.getElementById('detail-country-parks');
+    if (parksSection && parksList) {
+        if (countryParks.length) {
+            parksSection.hidden = false;
+            parksList.innerHTML = countryParks.map(park => renderCountryParkRow(park, countryId)).join('');
+        } else {
+            parksSection.hidden = true;
+            parksList.innerHTML = '';
+        }
+    }
+
+    const countryBorders = getBordersForCountry(countryId);
+    const bordersSection = document.getElementById('detail-borders-section');
+    const bordersList = document.getElementById('detail-country-borders');
+    if (bordersSection && bordersList) {
+        if (countryBorders.length) {
+            bordersSection.hidden = false;
+            bordersList.innerHTML = countryBorders
+                .slice(0, 6)
+                .map(border => renderCountryBorderRow(border, countryId))
+                .join('');
+            const moreEl = document.getElementById('detail-borders-more');
+            if (moreEl) {
+                moreEl.textContent = countryBorders.length > 6
+                    ? `+ ${countryBorders.length - 6} more crossings in the full border guide`
+                    : '';
+            }
+        } else {
+            bordersSection.hidden = true;
+            bordersList.innerHTML = '';
+        }
+    }
+
     const detailRoutesGrid = document.getElementById('detail-routes-grid');
     if (detailRoutesGrid && data.routes) {
         detailRoutesGrid.innerHTML = data.routes.map(route => {
@@ -167,7 +269,11 @@ function populateCountryPage(countryId) {
         `;
     }
 
-    if (ctaCountryName) ctaCountryName.textContent = data.name;
+    if (ctaCountryName) {
+        document.querySelectorAll('.cta-country-name').forEach(el => {
+            el.textContent = data.name;
+        });
+    }
 
     const faqList = document.getElementById('detail-faq-list');
     if (faqList) {
@@ -209,11 +315,19 @@ function showCountryPage(countryId) {
     document.body.style.overflow = 'hidden';
 }
 
-function closeCountryPage() {
+function closeCountryPage(scrollTarget) {
     detailView.classList.add('hidden');
     document.body.style.overflow = '';
+
     const hash = window.location.hash.substring(1);
-    if (hash && Object.keys(countries).includes(hash)) {
+    const onCountryHash = hash && Object.keys(countries).includes(hash);
+
+    if (scrollTarget) {
+        window.location.hash = scrollTarget;
+        requestAnimationFrame(() => {
+            document.getElementById(scrollTarget)?.scrollIntoView({ behavior: 'smooth' });
+        });
+    } else if (onCountryHash) {
         history.pushState('', document.title, window.location.pathname + window.location.search);
     }
 }
@@ -225,27 +339,43 @@ function handleRouting() {
 }
 
 export function initCountryGuide() {
-    document.querySelectorAll('.country-card').forEach(card => {
-        card.addEventListener('click', () => {
-            window.location.hash = card.getAttribute('data-country-id');
-        });
+    document.getElementById('destinations-grid')?.addEventListener('click', (e) => {
+        const card = e.target.closest('.country-card');
+        if (!card) return;
+        const countryId = card.getAttribute('data-country-id');
+        if (countryId) window.location.hash = countryId;
     });
 
-    closeDetailBtn?.addEventListener('click', closeCountryPage);
-
-    document.getElementById('country-plan-cta')?.addEventListener('click', () => {
-        closeCountryPage();
-        window.location.hash = 'contact';
-        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-    });
+    closeDetailBtn?.addEventListener('click', () => closeCountryPage('destinations'));
 
     detailView?.addEventListener('click', (e) => {
+        if (e.target.closest('[data-action="back-home"]')) {
+            closeCountryPage('home');
+            return;
+        }
+        if (e.target.closest('[data-action="back-destinations"]')) {
+            closeCountryPage('destinations');
+            return;
+        }
         const btn = e.target.closest('[data-action="view-itineraries"]');
         if (btn) {
-            closeCountryPage();
-            history.pushState('', document.title, window.location.pathname);
-            document.getElementById('itineraries')?.scrollIntoView({ behavior: 'smooth' });
+            closeCountryPage('itineraries');
+            return;
         }
+        const parksBtn = e.target.closest('[data-action="view-parks"]');
+        if (parksBtn) {
+            closeCountryPage('parks');
+            return;
+        }
+        const bordersBtn = e.target.closest('[data-action="view-borders"]');
+        if (bordersBtn) {
+            closeCountryPage('borders');
+        }
+    });
+
+    document.getElementById('country-plan-cta')?.addEventListener('click', () => {
+        closeCountryPage('plan');
+        document.getElementById('plan')?.scrollIntoView({ behavior: 'smooth' });
     });
 
     document.querySelectorAll('.guide-tab').forEach(tab => {
@@ -270,6 +400,12 @@ export function initCountryGuide() {
 
     window.addEventListener('hashchange', handleRouting);
     handleRouting();
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !detailView.classList.contains('hidden')) {
+            closeCountryPage('destinations');
+        }
+    });
 }
 
 export { closeCountryPage };

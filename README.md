@@ -1,6 +1,10 @@
 # Savanna Explorer
 
-Southern Africa tourism guide — country pages, itineraries, parks, and trip planning.
+Southern Africa independent travel planning hub — country guides, route templates, parks, borders, and official resource links.
+
+## About this site
+
+On the live site, open **About This Site** (`#about`) for our editorial policy, data sourcing, partner guidelines, and hub FAQs (including “Can you book my trip?”). Developer reference: `SOURCES.md` and `data/about.json`.
 
 ## Local preview (required after June 2026 refactor)
 
@@ -30,7 +34,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.4.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.11.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -42,9 +46,11 @@ The old root files `main.js`, `country-guide.js`, and `itinerary-data.js` were r
 
 ### What to look for
 
-- Country detail pages with tabs: **About**, **Travelling**, **Attractions**, **Activities**, **Routes**
-- **Itineraries** section with **View Route** buttons and route maps in the detail modal
-- **Contact** section (`#contact`) with quotation form
+- Country detail pages with tabs: **About**, **Travelling**, **Attractions**, **Activities**, **Routes**, plus **official resource links** (tourism, immigration, parks) on the Travelling tab
+- **Itineraries** section with filter tabs (All / Single Country / Cross-Border), **View Route** planning templates, and indicative budgets (not quotes)
+- **Marketplace** activity inspiration with cost bands, planning tips, and official resource links (31 listings)
+- **Country guides** with regional breakdowns for every destination
+- **Contact** section (`#contact`) for corrections, partner suggestions, and feedback (not trip bookings)
 - Enriched guides for Zambia, Zimbabwe, Mozambique, Malawi, Lesotho, and Eswatini
 
 ### Production build
@@ -58,15 +64,16 @@ Preview runs at **http://localhost:4173** by default.
 
 ## Supabase (optional backend)
 
-The site works offline with local JSON data. Connect **Supabase** to store marketplace listings, quotation requests, newsletter signups, and WhatsApp inquiry tracking.
+The site works offline with local JSON data. Connect **Supabase** to store marketplace listings, contact form messages, and newsletter signups.
 
 ### Setup
 
 1. Create a free project at [supabase.com](https://supabase.com)
 2. Copy `.env.example` to `.env` and add your project URL and anon key (Dashboard → **Project Settings** → **API**)
 3. In the Supabase **SQL Editor**, run:
-   - `supabase/schema.sql` — creates tables and row-level security policies
-   - `supabase/seed.sql` — loads marketplace experiences
+   - `supabase/schema.sql` — creates tables and row-level security policies (fresh installs)
+   - `supabase/migrate-phase-e.sql` — only if upgrading from pre-v4.11 (`quotations` / `inquiries` tables)
+   - `supabase/seed.sql` — loads marketplace inspiration listings
 4. Restart the dev server: `npm run dev`
 
 Without `.env`, forms fall back to **mailto** and marketplace data loads from `data/marketplace.json`.
@@ -75,9 +82,8 @@ Without `.env`, forms fall back to **mailto** and marketplace data loads from `d
 
 | Table | Purpose |
 |-------|---------|
-| `experiences` | Marketplace tours (public read) |
-| `inquiries` | WhatsApp inquiry tracking |
-| `quotations` | Contact / quote form submissions |
+| `experiences` | Marketplace inspiration listings (public read) |
+| `site_messages` | Contact form submissions (corrections, feedback, partnerships) |
 | `newsletter_subscribers` | Email signups |
 
 ## Scripts
