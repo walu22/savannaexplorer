@@ -211,11 +211,19 @@ function showCountryPage(countryId) {
     document.body.style.overflow = 'hidden';
 }
 
-function closeCountryPage() {
+function closeCountryPage(scrollTarget) {
     detailView.classList.add('hidden');
     document.body.style.overflow = '';
+
     const hash = window.location.hash.substring(1);
-    if (hash && Object.keys(countries).includes(hash)) {
+    const onCountryHash = hash && Object.keys(countries).includes(hash);
+
+    if (scrollTarget) {
+        window.location.hash = scrollTarget;
+        requestAnimationFrame(() => {
+            document.getElementById(scrollTarget)?.scrollIntoView({ behavior: 'smooth' });
+        });
+    } else if (onCountryHash) {
         history.pushState('', document.title, window.location.pathname + window.location.search);
     }
 }
@@ -234,25 +242,26 @@ export function initCountryGuide() {
         if (countryId) window.location.hash = countryId;
     });
 
-    closeDetailBtn?.addEventListener('click', closeCountryPage);
+    closeDetailBtn?.addEventListener('click', () => closeCountryPage('destinations'));
 
-    document.querySelectorAll('[data-action="back-destinations"]').forEach(btn => {
-        btn.addEventListener('click', closeCountryPage);
+    detailView?.addEventListener('click', (e) => {
+        if (e.target.closest('[data-action="back-home"]')) {
+            closeCountryPage('home');
+            return;
+        }
+        if (e.target.closest('[data-action="back-destinations"]')) {
+            closeCountryPage('destinations');
+            return;
+        }
+        const btn = e.target.closest('[data-action="view-itineraries"]');
+        if (btn) {
+            closeCountryPage('itineraries');
+        }
     });
 
     document.getElementById('country-plan-cta')?.addEventListener('click', () => {
-        closeCountryPage();
-        window.location.hash = 'contact';
+        closeCountryPage('contact');
         document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-    });
-
-    detailView?.addEventListener('click', (e) => {
-        const btn = e.target.closest('[data-action="view-itineraries"]');
-        if (btn) {
-            closeCountryPage();
-            history.pushState('', document.title, window.location.pathname);
-            document.getElementById('itineraries')?.scrollIntoView({ behavior: 'smooth' });
-        }
     });
 
     document.querySelectorAll('.guide-tab').forEach(tab => {
