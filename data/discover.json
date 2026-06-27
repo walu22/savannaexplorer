@@ -60,8 +60,8 @@
       "title": "Where to Stay",
       "subtitle": "Lodges, camps & guesthouses",
       "icon": "fa-bed",
-      "href": "#contact",
-      "description": "From community campsites to 5-star lodges — find accommodation across nine countries."
+      "href": "#guides",
+      "description": "From community campsites to luxury lodges — accommodation types and regions across nine countries."
     },
     {
       "title": "What to See",
@@ -75,7 +75,7 @@
       "subtitle": "Activities & experiences",
       "icon": "fa-hiking",
       "href": "#experiences",
-      "description": "Safari, adventure, culture, and nature — bookable experiences for every traveller."
+      "description": "Safari, adventure, culture, and nature — inspiration for every style of traveller."
     },
     {
       "title": "Travel Info",

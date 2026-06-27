@@ -545,6 +545,35 @@ body.site-v2 .service-icon {
     border-radius: var(--radius-md);
 }
 
+/* --- Hub notice banner --- */
+body.site-v2 .hub-notice {
+    background: var(--bg-warm);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 1rem 0;
+}
+
+body.site-v2 .hub-notice p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    text-align: center;
+    max-width: 52rem;
+    margin-inline: auto;
+}
+
+body.site-v2 .hub-notice strong {
+    color: var(--accent);
+}
+
+body.site-v2 .market-inspire-note {
+    margin: 0.75rem 0 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.55);
+    font-style: italic;
+}
+
 /* --- Footer v4 --- */
 body.site-v2 footer {
     background: var(--bg-dark);

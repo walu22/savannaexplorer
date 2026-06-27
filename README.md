@@ -46,7 +46,7 @@ The old root files `main.js`, `country-guide.js`, and `itinerary-data.js` were r
 - **Itineraries** section with filter tabs (All / Single Country / Cross-Border), **View Route** buttons, and route maps in the detail modal
 - **Marketplace** experiences across all 9 countries (31 curated listings)
 - **Country guides** with regional breakdowns for every destination
-- **Contact** section (`#contact`) with quotation form and dynamic itinerary checkboxes
+- **Contact** section (`#contact`) for corrections, partner suggestions, and feedback (not trip bookings)
 - Enriched guides for Zambia, Zimbabwe, Mozambique, Malawi, Lesotho, and Eswatini
 
 ### Production build
@@ -60,7 +60,7 @@ Preview runs at **http://localhost:4173** by default.
 
 ## Supabase (optional backend)
 
-The site works offline with local JSON data. Connect **Supabase** to store marketplace listings, quotation requests, newsletter signups, and WhatsApp inquiry tracking.
+The site works offline with local JSON data. Connect **Supabase** to store marketplace listings, contact form messages, and newsletter signups.
 
 ### Setup
 
@@ -79,7 +79,7 @@ Without `.env`, forms fall back to **mailto** and marketplace data loads from `d
 |-------|---------|
 | `experiences` | Marketplace tours (public read) |
 | `inquiries` | WhatsApp inquiry tracking |
-| `quotations` | Contact / quote form submissions |
+| `quotations` | Contact form submissions (corrections, feedback, partnerships) |
 | `newsletter_subscribers` | Email signups |
 
 ## Scripts

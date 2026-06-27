@@ -288,8 +288,8 @@ export function initCountryGuide() {
     });
 
     document.getElementById('country-plan-cta')?.addEventListener('click', () => {
-        closeCountryPage('contact');
-        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+        closeCountryPage('plan');
+        document.getElementById('plan')?.scrollIntoView({ behavior: 'smooth' });
     });
 
     document.querySelectorAll('.guide-tab').forEach(tab => {

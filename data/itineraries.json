@@ -54,11 +54,11 @@
     ],
     "included": [
       "4×4 rental vehicle with unlimited kilometres",
-      "Pre-booked accommodation (lodges, guesthouses, or campsites)",
+      "Suggested accommodation stops (lodges, guesthouses, or campsites)",
       "Cross-border paperwork assistance",
       "Detailed route maps and GPS waypoints",
-      "24-hour emergency support hotline",
-      "Personal travel planning app access"
+      "Emergency numbers and embassy contacts reference",
+      "Day-by-day route notes"
     ],
     "excluded": [
       "International flights",
@@ -121,11 +121,11 @@
     ],
     "included": [
       "Rental vehicle with comprehensive insurance",
-      "Accommodation bookings along the route",
+      "Suggested lodging areas along the route",
       "Border crossing documentation support",
       "Island transfer arrangements (Bazaruto)",
       "Route guide with restaurant recommendations",
-      "24-hour support while travelling"
+      "Border crossing timing notes"
     ],
     "excluded": [
       "International and domestic flights",
@@ -378,7 +378,7 @@
       "Guided game drives in Kruger, Etosha, and Moremi",
       "Scenic flight over Skeleton Coast",
       "Mokoro excursion in the Delta",
-      "24-hour support and comprehensive route planning"
+      "Comprehensive route planning notes"
     ],
     "excluded": [
       "International flights",
@@ -441,9 +441,9 @@
     ],
     "included": [
       "4x4 rental",
-      "Pre-booked accommodation",
+      "Suggested accommodation stops",
       "Route maps and GPS waypoints",
-      "24-hour support"
+      "Practical on-route planning notes"
     ],
     "excluded": [
       "Flights",
@@ -503,10 +503,10 @@
       }
     ],
     "included": [
-      "Accommodation bookings",
-      "Kruger rest camp reservations",
+      "Suggested accommodation options",
+      "Kruger rest camp booking tips",
       "Route planning",
-      "24-hour support"
+      "Practical on-route planning notes"
     ],
     "excluded": [
       "International flights",
@@ -560,10 +560,10 @@
       }
     ],
     "included": [
-      "Lodges and camp bookings",
+      "Lodge and camp recommendations",
       "Mokoro and boat activities",
       "Park fees guidance",
-      "24-hour support"
+      "Practical on-route planning notes"
     ],
     "excluded": [
       "International flights",
@@ -617,10 +617,10 @@
       }
     ],
     "included": [
-      "Park and lodge bookings",
+      "Park and lodge planning notes",
       "Guided walking safaris",
       "Airport transfers",
-      "24-hour support"
+      "Practical on-route planning notes"
     ],
     "excluded": [
       "International flights",
@@ -674,10 +674,10 @@
       }
     ],
     "included": [
-      "Camp and lodge bookings",
+      "Camp and lodge recommendations",
       "Guided Mana activities",
       "Route planning",
-      "24-hour support"
+      "Practical on-route planning notes"
     ],
     "excluded": [
       "Flights",
@@ -731,10 +731,10 @@
       }
     ],
     "included": [
-      "Lodge bookings",
+      "Lodge recommendations",
       "Gorongosa drives",
       "Coastal activities guidance",
-      "24-hour support"
+      "Practical on-route planning notes"
     ],
     "excluded": [
       "International flights",
@@ -782,10 +782,10 @@
       }
     ],
     "included": [
-      "Lodge and camp bookings",
+      "Lodge and camp recommendations",
       "Boat safari arrangements",
       "Lake activity guidance",
-      "24-hour support"
+      "Practical on-route planning notes"
     ],
     "excluded": [
       "Flights",
@@ -839,10 +839,10 @@
       }
     ],
     "included": [
-      "Pony trek booking",
+      "Pony trek planning notes",
       "Guesthouse reservations",
       "Route advice",
-      "24-hour support"
+      "Practical on-route planning notes"
     ],
     "excluded": [
       "4x4 rental",
@@ -890,10 +890,10 @@
       }
     ],
     "included": [
-      "Reserve bookings",
+      "Reserve entry planning notes",
       "Guided drives at Hlane",
       "Cultural stop recommendations",
-      "24-hour support"
+      "Practical on-route planning notes"
     ],
     "excluded": [
       "Transport from Kruger",

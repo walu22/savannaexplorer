@@ -1,25 +1,5 @@
 import marketplaceData from '../../data/marketplace.json';
-import { CONFIG } from '../config.js';
 import { getSupabaseClient } from '../lib/supabase.js';
-
-async function handleInquiry(id, title, duration, location) {
-    const msg = `Hello, I'm interested in the ${title} (${duration}) in ${location}.\n\nPlease share:\n- Availability\n- Pricing details\n- What's included\n\nThank you.`;
-
-    const supabase = getSupabaseClient();
-    if (supabase) {
-        try {
-            await supabase.from('inquiries').insert([{
-                experience_id: id || null,
-                message: msg,
-                source: 'whatsapp',
-            }]);
-        } catch (err) {
-            console.error('Inquiry tracking failed:', err);
-        }
-    }
-
-    window.open(`https://wa.me/${CONFIG.supportPhone}?text=${encodeURIComponent(msg)}`, '_blank');
-}
 
 async function openMarketplace(theme) {
     const marketModal = document.getElementById('marketplace-modal');
@@ -29,7 +9,7 @@ async function openMarketplace(theme) {
     marketModal.classList.add('active');
     document.body.style.overflow = 'hidden';
     marketTitle.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
-    marketGrid.innerHTML = '<div style="color:white;text-align:center;width:100%;padding:2rem;">Fetching curated experiences...</div>';
+    marketGrid.innerHTML = '<div style="color:white;text-align:center;width:100%;padding:2rem;">Loading inspiration…</div>';
 
     let items = [];
     const supabase = getSupabaseClient();
@@ -55,7 +35,7 @@ async function openMarketplace(theme) {
         <div class="market-card">
             <div class="market-img">
                 <img src="${item.image_url || item.image}" alt="${item.title}" loading="lazy">
-                <span class="market-badge">${item.badge || 'Available'}</span>
+                <span class="market-badge">${item.badge || 'Inspiration'}</span>
             </div>
             <div class="market-info">
                 <h3>${item.title}</h3>
@@ -68,15 +48,7 @@ async function openMarketplace(theme) {
                     <span class="m-price">${item.price_range}</span>
                     <span class="m-rating"><i class="fas fa-star"></i> ${item.rating || 4.5}</span>
                 </div>
-                <div class="market-action">
-                    <button class="btn btn-primary btn-inquire" data-inquire
-                        data-id="${item.id}"
-                        data-title="${item.title.replace(/"/g, '&quot;')}"
-                        data-duration="${item.duration}"
-                        data-location="${item.location.replace(/"/g, '&quot;')}">
-                        <i class="fab fa-whatsapp"></i> Inquire Now
-                    </button>
-                </div>
+                <p class="market-inspire-note">Typical price range for planning — book directly with local operators when you travel.</p>
             </div>
         </div>
     `).join('');
@@ -98,11 +70,5 @@ export function initMarketplace() {
             const theme = link.getAttribute('data-theme');
             if (theme) openMarketplace(theme);
         });
-    });
-
-    document.getElementById('marketplace-grid')?.addEventListener('click', (e) => {
-        const btn = e.target.closest('[data-inquire]');
-        if (!btn) return;
-        handleInquiry(btn.dataset.id, btn.dataset.title, btn.dataset.duration, btn.dataset.location);
     });
 }

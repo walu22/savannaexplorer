@@ -1,5 +1,4 @@
 import itineraryData from '../../data/itineraries.json';
-import { CONFIG } from '../config.js';
 
 let currentItineraryId = null;
 let activeScopeFilter = 'all';
@@ -32,7 +31,6 @@ function renderItineraryGrid() {
             </div>
             <div class="itinerary-actions">
                 <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="${id}">View Route</button>
-                <button type="button" class="btn btn-outline" data-action="inquire-journey" data-journey-name="${data.title}" data-journey-route="${data.countries}"><i class="fab fa-whatsapp"></i> Inquire</button>
             </div>
         </article>
     `;
@@ -47,11 +45,9 @@ function setScopeFilter(scope) {
     renderItineraryGrid();
 }
 
-export function inquireJourney(journeyName, route) {
-    const msg = encodeURIComponent(
-        `Hi! I'm interested in the "${journeyName}" journey (${route}) from Savanna Explorer. Could you help me plan this trip?`
-    );
-    window.open(`https://wa.me/${CONFIG.supportPhone}?text=${msg}`, '_blank');
+function openPlanningTools() {
+    closeItineraryModal();
+    document.getElementById('plan')?.scrollIntoView({ behavior: 'smooth' });
 }
 
 function toggleAccordion(btn) {
@@ -76,8 +72,8 @@ function openItineraryDetail(id) {
     document.getElementById('itin-duration').innerHTML = `<i class="far fa-clock"></i> ${data.duration}`;
     document.getElementById('itin-price').innerHTML = `<i class="fas fa-tag"></i> From ${data.priceFrom}`;
     document.getElementById('itin-customizable').innerHTML = data.customizable
-        ? '<i class="fas fa-sliders-h"></i> Fully Customizable'
-        : '<i class="fas fa-lock"></i> Fixed Departure';
+        ? '<i class="fas fa-sliders-h"></i> Adapt to your dates'
+        : '<i class="fas fa-route"></i> Suggested pacing';
     document.getElementById('itin-description').textContent = data.description;
 
     const mapBlock = document.getElementById('itin-route-map');
@@ -124,16 +120,6 @@ function closeItineraryModal() {
     currentItineraryId = null;
 }
 
-function requestItineraryQuote() {
-    const data = itineraryData[currentItineraryId];
-    closeItineraryModal();
-    if (data) {
-        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-        const msg = document.getElementById('q-message');
-        if (msg) msg.value = `I'm interested in the "${data.title}" itinerary (${data.duration}, ${data.countries}).`;
-    }
-}
-
 export function initItineraries() {
     renderItineraryGrid();
 
@@ -145,12 +131,7 @@ export function initItineraries() {
         btn.addEventListener('click', closeItineraryModal);
     });
 
-    document.getElementById('itin-whatsapp-btn')?.addEventListener('click', () => {
-        const data = itineraryData[currentItineraryId];
-        if (data) inquireJourney(data.title, data.countries);
-    });
-
-    document.getElementById('itin-request-quote')?.addEventListener('click', requestItineraryQuote);
+    document.getElementById('itin-plan-tools')?.addEventListener('click', openPlanningTools);
 
     document.getElementById('itinerary-modal')?.addEventListener('click', (e) => {
         const accordionBtn = e.target.closest('[data-accordion]');
@@ -159,13 +140,6 @@ export function initItineraries() {
 
     document.querySelector('.itinerary-grid')?.addEventListener('click', (e) => {
         const viewBtn = e.target.closest('[data-action="view-itinerary"]');
-        if (viewBtn) {
-            openItineraryDetail(viewBtn.dataset.itineraryId);
-            return;
-        }
-        const inquireBtn = e.target.closest('[data-action="inquire-journey"]');
-        if (inquireBtn) {
-            inquireJourney(inquireBtn.dataset.journeyName, inquireBtn.dataset.journeyRoute);
-        }
+        if (viewBtn) openItineraryDetail(viewBtn.dataset.itineraryId);
     });
 }
