@@ -780,25 +780,38 @@
                 </div>
             </div>
             <div class="detail-hero">
-                <div class="container">
-                    <span class="section-eyebrow detail-eyebrow">Country Guide</span>
-                    <h1 id="detail-title">Country Name</h1>
-                    <p id="detail-tagline" class="detail-tagline">Premium Tagline</p>
+                <div class="detail-hero-media" aria-hidden="true">
+                    <img id="detail-hero-img" class="detail-hero-img" src="" alt="">
+                    <div class="detail-hero-gradient"></div>
                 </div>
+                <div class="container detail-hero-inner">
+                    <div class="detail-hero-text">
+                        <div class="detail-hero-meta">
+                            <span id="detail-flag" class="detail-flag" aria-hidden="true"></span>
+                            <span class="section-eyebrow detail-eyebrow">Country Guide</span>
+                        </div>
+                        <h1 id="detail-title">Country Name</h1>
+                        <p id="detail-tagline" class="detail-tagline">Premium Tagline</p>
+                    </div>
+                    <div class="detail-quick-stats" id="detail-quick-stats" aria-label="Country highlights"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-tabs-wrap">
+            <div class="container">
+                <nav class="guide-tabs" id="guide-tabs" aria-label="Country guide sections">
+                    <button class="guide-tab active" data-tab="about"><i class="fas fa-compass"></i> About</button>
+                    <button class="guide-tab" data-tab="travelling"><i class="fas fa-suitcase"></i> Travelling</button>
+                    <button class="guide-tab" data-tab="attractions"><i class="fas fa-map-marked-alt"></i> Attractions</button>
+                    <button class="guide-tab" data-tab="activities"><i class="fas fa-hiking"></i> Activities</button>
+                    <button class="guide-tab" data-tab="routes"><i class="fas fa-route"></i> Routes</button>
+                </nav>
             </div>
         </div>
 
         <div class="detail-content">
             <div class="container">
-                <!-- Tab Navigation (Explore Namibia-style country guide) -->
-                <nav class="guide-tabs" id="guide-tabs">
-                    <button class="guide-tab active" data-tab="about">About</button>
-                    <button class="guide-tab" data-tab="travelling">Travelling</button>
-                    <button class="guide-tab" data-tab="attractions">Attractions</button>
-                    <button class="guide-tab" data-tab="activities">Activities</button>
-                    <button class="guide-tab" data-tab="routes">Routes</button>
-                </nav>
-
                 <!-- Tab: About -->
                 <div class="guide-panel active" id="panel-about">
                     <div class="guide-intro">
@@ -903,10 +916,12 @@
         </div>
         
         <!-- Final Journey CTA Section -->
-        <div class="final-cta-section">
-            <div class="container">
+        <div class="final-cta-section country-detail-cta">
+            <div class="container final-cta-inner">
+                <h2>Ready to explore <span class="cta-country-name">this destination</span>?</h2>
+                <p>Get a custom itinerary, local tips, and transparent pricing from our Southern Africa specialists.</p>
                 <button type="button" class="btn btn-primary enlarge-on-hover" id="country-plan-cta">
-                    Plan My Trip to <span class="cta-country-name">this Destination</span>
+                    Plan My Trip <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
         </div>

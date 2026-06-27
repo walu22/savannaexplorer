@@ -4,6 +4,7 @@ import regions from '../../data/regions.json';
 import { getFullCountryData } from '../lib/merge-country.js';
 import { getCountryGuide } from '../lib/guide.js';
 import { spotImageUrl, activityImageUrl } from '../lib/images.js';
+import { getCountryMeta, cardImageUrl } from '../lib/country-meta.js';
 
 const detailView = document.getElementById('country-detail-view');
 const closeDetailBtn = document.getElementById('close-detail');
@@ -48,6 +49,26 @@ function populateCountryPage(countryId) {
     detailTagline.textContent = data.tagline;
     const breadcrumbName = document.getElementById('detail-breadcrumb-name');
     if (breadcrumbName) breadcrumbName.textContent = data.name;
+
+    const meta = getCountryMeta(countryId);
+    const heroImg = document.getElementById('detail-hero-img');
+    if (heroImg) {
+        heroImg.src = cardImageUrl(countryId);
+        heroImg.alt = `${data.name} — travel destination`;
+    }
+    const flagEl = document.getElementById('detail-flag');
+    if (flagEl) flagEl.textContent = meta.flag || '🌍';
+
+    const statsEl = document.getElementById('detail-quick-stats');
+    if (statsEl) {
+        const regionCount = regions[countryId]?.length || 0;
+        statsEl.innerHTML = `
+            <div class="detail-stat"><strong>${data.spots.length}</strong><span>Top Spots</span></div>
+            <div class="detail-stat"><strong>${data.activities.length}</strong><span>Activities</span></div>
+            <div class="detail-stat"><strong>${data.routes?.length || 0}</strong><span>Routes</span></div>
+            ${regionCount ? `<div class="detail-stat"><strong>${regionCount}</strong><span>Regions</span></div>` : ''}
+        `;
+    }
 
     const aboutHeading = document.getElementById('detail-about-heading');
     const aboutIntro = document.getElementById('detail-about-intro');
@@ -96,10 +117,13 @@ function populateCountryPage(countryId) {
     }
 
     detailActivities.innerHTML = data.activities.map(act => `
-        <div class="activity-detail-item">
+        <article class="activity-detail-card">
             <img src="${activityImageUrl(act)}" alt="${act.name}" loading="lazy">
-            <div class="activity-text"><h3>${act.name}</h3><p>${act.desc}</p></div>
-        </div>
+            <div class="activity-detail-body">
+                <h3>${act.name}</h3>
+                <p>${act.desc}</p>
+            </div>
+        </article>
     `).join('');
 
     const actCategories = document.getElementById('detail-activity-categories');
@@ -169,7 +193,11 @@ function populateCountryPage(countryId) {
         `;
     }
 
-    if (ctaCountryName) ctaCountryName.textContent = data.name;
+    if (ctaCountryName) {
+        document.querySelectorAll('.cta-country-name').forEach(el => {
+            el.textContent = data.name;
+        });
+    }
 
     const faqList = document.getElementById('detail-faq-list');
     if (faqList) {
