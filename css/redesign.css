@@ -140,9 +140,12 @@ body.site-v2 .menu-toggle {
 /* --- Hero v4 --- */
 body.site-v2 .hero {
     min-height: 92vh;
+    display: grid;
+    grid-template-columns: clamp(2.5rem, 11vw, 9rem) min(640px, 48vw) 1fr;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: stretch;
     padding-bottom: 0;
+    padding-right: 1.5rem;
     text-align: left;
 }
 
@@ -157,12 +160,17 @@ body.site-v2 .hero::after {
 }
 
 body.site-v2 .hero-content {
-    max-width: 620px;
+    grid-column: 2;
+    max-width: 640px;
     width: 100%;
-    margin-right: auto;
-    margin-left: 0;
+    margin: 0;
     padding: 2rem 0;
     text-align: left;
+}
+
+body.site-v2 .hero-content.container {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 body.site-v2 .hero-eyebrow {
@@ -216,27 +224,40 @@ body.site-v2 .hero-lead {
     margin-bottom: 2rem;
 }
 
-body.site-v2 .hero-about {
-    margin: 0.75rem 0 0;
-    font-size: 0.9rem;
-}
-
-body.site-v2 .hero-about a {
-    color: rgba(255, 255, 255, 0.75);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: color 0.2s ease;
-}
-
-body.site-v2 .hero-about a:hover {
-    color: white;
-}
-
 body.site-v2 .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    align-items: center;
+    gap: 0.85rem 1rem;
     justify-content: flex-start;
+}
+
+body.site-v2 .hero-about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.65rem 1.15rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    border-radius: var(--radius-pill);
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+body.site-v2 .hero-about-link i {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+body.site-v2 .hero-about-link:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.55);
+    transform: translateY(-1px);
 }
 
 body.site-v2 .hero-stats {
@@ -1749,6 +1770,15 @@ body.site-v2 .trust-feature-label {
 
 /* --- Mobile --- */
 @media (max-width: 992px) {
+    body.site-v2 .hero {
+        grid-template-columns: clamp(1.5rem, 5vw, 3rem) 1fr;
+        padding-right: 1.5rem;
+    }
+
+    body.site-v2 .hero-content {
+        grid-column: 2;
+    }
+
     body.site-v2 .destinations-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1883,6 +1913,17 @@ body.site-v2 .guide-article-grid {
     body.site-v2 .planning-guides-grid,
     body.site-v2 .facts-grid {
         grid-template-columns: 1fr;
+    }
+
+    body.site-v2 .hero {
+        grid-template-columns: 1fr;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    body.site-v2 .hero-content {
+        grid-column: 1;
+        max-width: 100%;
     }
 
     body.site-v2 .hero h1 {
