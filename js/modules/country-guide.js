@@ -5,6 +5,15 @@ import { getFullCountryData } from '../lib/merge-country.js';
 import { getCountryGuide } from '../lib/guide.js';
 import { spotImageUrl, activityImageUrl } from '../lib/images.js';
 import { getCountryMeta, cardImageUrl } from '../lib/country-meta.js';
+import {
+    getBordersForCountry,
+    getCountryResourcePack,
+    getParksForCountry,
+    getVisaRow,
+    renderCountryBorderRow,
+    renderCountryParkRow,
+    renderOfficialResourceCard,
+} from '../lib/country-resources.js';
 
 const detailView = document.getElementById('country-detail-view');
 const closeDetailBtn = document.getElementById('close-detail');
@@ -165,6 +174,73 @@ function populateCountryPage(countryId) {
         <div class="practical-card"><i class="fas fa-clock"></i><h4>Time Zone</h4><p>${p.time}</p></div>
     `;
 
+    const resourcePack = getCountryResourcePack(countryId);
+    const visaRow = getVisaRow(countryId);
+    const resourcesSection = document.getElementById('detail-resources-section');
+    const resourcesGrid = document.getElementById('detail-official-resources');
+    const resourcesNote = document.getElementById('detail-resources-note');
+
+    if (resourcesSection && resourcesGrid) {
+        const links = [...(resourcePack?.links || [])];
+        if (visaRow?.sourceUrl && !links.some(link => link.id === 'immigration')) {
+            links.push({
+                id: 'immigration',
+                icon: 'fa-passport',
+                label: 'Immigration — official source',
+                url: visaRow.sourceUrl,
+                desc: 'Visa and entry requirements from our visa matrix source',
+            });
+        }
+
+        if (links.length) {
+            resourcesSection.hidden = false;
+            resourcesGrid.innerHTML = links.map(renderOfficialResourceCard).join('');
+            if (resourcesNote) {
+                const verified = resourcePack?.lastVerified || visaRow?.lastVerified || '2026-03';
+                const planningNote = resourcePack?.planningNote || '';
+                resourcesNote.innerHTML = `${planningNote ? `${planningNote} ` : ''}<span class="resource-verified">Links verified ${verified} — always confirm before you travel.</span>`;
+            }
+        } else {
+            resourcesSection.hidden = true;
+            resourcesGrid.innerHTML = '';
+        }
+    }
+
+    const countryParks = getParksForCountry(countryId);
+    const parksSection = document.getElementById('detail-parks-section');
+    const parksList = document.getElementById('detail-country-parks');
+    if (parksSection && parksList) {
+        if (countryParks.length) {
+            parksSection.hidden = false;
+            parksList.innerHTML = countryParks.map(park => renderCountryParkRow(park, countryId)).join('');
+        } else {
+            parksSection.hidden = true;
+            parksList.innerHTML = '';
+        }
+    }
+
+    const countryBorders = getBordersForCountry(countryId);
+    const bordersSection = document.getElementById('detail-borders-section');
+    const bordersList = document.getElementById('detail-country-borders');
+    if (bordersSection && bordersList) {
+        if (countryBorders.length) {
+            bordersSection.hidden = false;
+            bordersList.innerHTML = countryBorders
+                .slice(0, 6)
+                .map(border => renderCountryBorderRow(border, countryId))
+                .join('');
+            const moreEl = document.getElementById('detail-borders-more');
+            if (moreEl) {
+                moreEl.textContent = countryBorders.length > 6
+                    ? `+ ${countryBorders.length - 6} more crossings in the full border guide`
+                    : '';
+            }
+        } else {
+            bordersSection.hidden = true;
+            bordersList.innerHTML = '';
+        }
+    }
+
     const detailRoutesGrid = document.getElementById('detail-routes-grid');
     if (detailRoutesGrid && data.routes) {
         detailRoutesGrid.innerHTML = data.routes.map(route => {
@@ -284,6 +360,16 @@ export function initCountryGuide() {
         const btn = e.target.closest('[data-action="view-itineraries"]');
         if (btn) {
             closeCountryPage('itineraries');
+            return;
+        }
+        const parksBtn = e.target.closest('[data-action="view-parks"]');
+        if (parksBtn) {
+            closeCountryPage('parks');
+            return;
+        }
+        const bordersBtn = e.target.closest('[data-action="view-borders"]');
+        if (bordersBtn) {
+            closeCountryPage('borders');
         }
     });
 

@@ -78,6 +78,13 @@
       "description": "Safari, adventure, culture, and nature — inspiration for every style of traveller."
     },
     {
+      "title": "Official Sources",
+      "subtitle": "Tourism boards & park bookings",
+      "icon": "fa-external-link-alt",
+      "href": "#destinations",
+      "description": "Open any country page for official tourism, immigration, and park authority links."
+    },
+    {
       "title": "Travel Info",
       "subtitle": "Visas, borders & planning",
       "icon": "fa-passport",

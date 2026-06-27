@@ -42,7 +42,7 @@ The old root files `main.js`, `country-guide.js`, and `itinerary-data.js` were r
 
 ### What to look for
 
-- Country detail pages with tabs: **About**, **Travelling**, **Attractions**, **Activities**, **Routes**
+- Country detail pages with tabs: **About**, **Travelling**, **Attractions**, **Activities**, **Routes**, plus **official resource links** (tourism, immigration, parks) on the Travelling tab
 - **Itineraries** section with filter tabs (All / Single Country / Cross-Border), **View Route** planning templates, and indicative budgets (not quotes)
 - **Marketplace** activity inspiration with cost bands, planning tips, and official resource links (31 listings)
 - **Country guides** with regional breakdowns for every destination

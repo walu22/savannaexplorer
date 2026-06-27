@@ -1,5 +1,6 @@
 import parks from '../../data/parks.json';
 import { COUNTRY_META } from '../lib/country-meta.js';
+import { getParkBookingUrl } from '../lib/country-resources.js';
 
 function tagIcon(tag) {
     const lower = tag.toLowerCase();
@@ -16,6 +17,14 @@ function renderParkCard(park) {
     const tags = park.tags.map(tag =>
         `<span><i class="fa-solid ${tagIcon(tag)}"></i> ${tag}</span>`
     ).join('');
+    const bookingUrl = getParkBookingUrl(park, park.country);
+    const links = [];
+    if (bookingUrl) {
+        links.push(`<a class="data-source-link data-source-link--primary" href="${bookingUrl}" target="_blank" rel="noopener noreferrer">Book / reserve <i class="fas fa-external-link-alt"></i></a>`);
+    }
+    if (park.sourceUrl) {
+        links.push(`<a class="data-source-link" href="${park.sourceUrl}" target="_blank" rel="noopener noreferrer">Fees source · verified ${park.lastVerified || '—'}</a>`);
+    }
 
     return `
         <div class="park-card" data-country="${park.country}">
@@ -29,7 +38,7 @@ function renderParkCard(park) {
             </div>
             ${park.gateHours ? `<p class="park-gate-hours"><i class="fa-solid fa-clock"></i> ${park.gateHours}</p>` : ''}
             ${park.feeDetail ? `<p class="park-fee-detail">${park.feeDetail}</p>` : ''}
-            ${park.sourceUrl ? `<a class="data-source-link" href="${park.sourceUrl}" target="_blank" rel="noopener noreferrer">Fees source · verified ${park.lastVerified || '—'}</a>` : ''}
+            ${links.length ? `<div class="park-source-links">${links.join('')}</div>` : ''}
         </div>
     `;
 }

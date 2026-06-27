@@ -1,0 +1,259 @@
+{
+  "south-africa": {
+    "lastVerified": "2026-03",
+    "planningNote": "Book SANParks camps and day visits online — Kruger peak season (June–July, December) fills months ahead.",
+    "links": [
+      {
+        "id": "tourism",
+        "icon": "fa-globe-africa",
+        "label": "South Africa Tourism",
+        "url": "https://www.southafrica.net/",
+        "desc": "Official destination information and trip ideas"
+      },
+      {
+        "id": "immigration",
+        "icon": "fa-passport",
+        "label": "Department of Home Affairs",
+        "url": "https://www.dha.gov.za/index.php/immigration-services",
+        "desc": "Visa categories and entry requirements"
+      },
+      {
+        "id": "parks",
+        "icon": "fa-tree",
+        "label": "SANParks reservations",
+        "url": "https://www.sanparks.org/reservations/",
+        "desc": "Book Kruger camps, Addo, Table Mountain, and other national parks"
+      },
+      {
+        "id": "roads",
+        "icon": "fa-road",
+        "label": "SANRAL toll roads",
+        "url": "https://www.nra.co.za/",
+        "desc": "Toll routes, e-tags, and major highway info"
+      }
+    ]
+  },
+  "namibia": {
+    "lastVerified": "2026-03",
+    "planningNote": "NWR manages most park camps inside Etosha and Namib-Naukluft — book early for July–October.",
+    "links": [
+      {
+        "id": "tourism",
+        "icon": "fa-globe-africa",
+        "label": "Namibia Tourism Board",
+        "url": "https://www.namibiatourism.com.na/",
+        "desc": "Official travel information and routes"
+      },
+      {
+        "id": "immigration",
+        "icon": "fa-passport",
+        "label": "Ministry of Home Affairs",
+        "url": "https://eservices.mhaiss.gov.na/",
+        "desc": "E-visa applications and entry rules"
+      },
+      {
+        "id": "parks",
+        "icon": "fa-campground",
+        "label": "Namibia Wildlife Resorts",
+        "url": "https://www.nwr.com.na/",
+        "desc": "Park accommodation and campsite bookings"
+      },
+      {
+        "id": "roads",
+        "icon": "fa-road",
+        "label": "Roads Authority Namibia",
+        "url": "https://www.ra.org.na/",
+        "desc": "Road conditions and travel permits"
+      }
+    ]
+  },
+  "botswana": {
+    "lastVerified": "2026-03",
+    "planningNote": "Okavango and Chobe lodges book through operators in Maun and Kasane — public Moremi camps have limited sites.",
+    "links": [
+      {
+        "id": "tourism",
+        "icon": "fa-globe-africa",
+        "label": "Botswana Tourism",
+        "url": "https://www.botswanatourism.co.bw/",
+        "desc": "Official destination and operator guidance"
+      },
+      {
+        "id": "immigration",
+        "icon": "fa-passport",
+        "label": "Government of Botswana",
+        "url": "https://www.gov.bw/",
+        "desc": "Immigration and visa information"
+      },
+      {
+        "id": "parks",
+        "icon": "fa-tree",
+        "label": "Department of Wildlife & National Parks",
+        "url": "https://www.gov.bw/tourism",
+        "desc": "Park fees and reserve information"
+      }
+    ]
+  },
+  "zambia": {
+    "lastVerified": "2026-03",
+    "planningNote": "KAZA UniVisa (USD 50) covers Zambia and Zimbabwe for Victoria Falls circuits — confirm eligibility for your passport.",
+    "links": [
+      {
+        "id": "tourism",
+        "icon": "fa-globe-africa",
+        "label": "Zambia Tourism Agency",
+        "url": "https://www.zambiatourism.com/",
+        "desc": "Official destinations and activities"
+      },
+      {
+        "id": "immigration",
+        "icon": "fa-passport",
+        "label": "Zambia Immigration",
+        "url": "https://www.zambiaimmigration.gov.zm/",
+        "desc": "E-visa and KAZA UniVisa information"
+      },
+      {
+        "id": "parks",
+        "icon": "fa-tree",
+        "label": "Zambia National Parks",
+        "url": "https://www.znp.co.zm/",
+        "desc": "South Luangwa, Kafue, and other park fees"
+      }
+    ]
+  },
+  "zimbabwe": {
+    "lastVerified": "2026-03",
+    "planningNote": "Victoria Falls and Mana Pools park fees are often paid in USD cash — carry small notes for gates.",
+    "links": [
+      {
+        "id": "tourism",
+        "icon": "fa-globe-africa",
+        "label": "Zimbabwe Tourism Authority",
+        "url": "https://www.zimbabwetourism.net/",
+        "desc": "Official destination information"
+      },
+      {
+        "id": "immigration",
+        "icon": "fa-passport",
+        "label": "Zimbabwe E-visa portal",
+        "url": "https://www.evisa.gov.zw/",
+        "desc": "Online visa applications and KAZA UniVisa"
+      },
+      {
+        "id": "parks",
+        "icon": "fa-tree",
+        "label": "Zimbabwe Parks & Wildlife",
+        "url": "https://www.zimparks.org/",
+        "desc": "Hwange, Mana Pools, and Victoria Falls park fees"
+      }
+    ]
+  },
+  "mozambique": {
+    "lastVerified": "2026-03",
+    "planningNote": "Most visitors need a visa — apply via the e-visa portal before travel when possible.",
+    "links": [
+      {
+        "id": "tourism",
+        "icon": "fa-globe-africa",
+        "label": "Visit Mozambique",
+        "url": "https://www.visitmozambique.net/",
+        "desc": "Official tourism board"
+      },
+      {
+        "id": "immigration",
+        "icon": "fa-passport",
+        "label": "Mozambique E-visa",
+        "url": "https://www.evisa.gov.mz/",
+        "desc": "Visa-on-arrival and e-visa applications"
+      },
+      {
+        "id": "parks",
+        "icon": "fa-tree",
+        "label": "ANAC — conservation areas",
+        "url": "https://www.anac.gov.mz/",
+        "desc": "Gorongosa, Bazaruto, and national reserve info"
+      }
+    ]
+  },
+  "malawi": {
+    "lastVerified": "2026-03",
+    "planningNote": "Lake Malawi park fees and Liwonde boat safaris are booked through park offices or lodges on arrival.",
+    "links": [
+      {
+        "id": "tourism",
+        "icon": "fa-globe-africa",
+        "label": "Malawi Tourism",
+        "url": "https://www.malawitourism.com/",
+        "desc": "Official travel information"
+      },
+      {
+        "id": "immigration",
+        "icon": "fa-passport",
+        "label": "Malawi Immigration",
+        "url": "https://www.immigration.gov.mw/",
+        "desc": "E-visa and entry requirements"
+      },
+      {
+        "id": "parks",
+        "icon": "fa-tree",
+        "label": "Department of National Parks",
+        "url": "https://www.malawiparks.org/",
+        "desc": "Liwonde, Nyika, and Lake Malawi National Park"
+      }
+    ]
+  },
+  "lesotho": {
+    "lastVerified": "2026-03",
+    "planningNote": "Entry is almost always via South Africa — confirm your SA visa allows re-entry after visiting Lesotho.",
+    "links": [
+      {
+        "id": "tourism",
+        "icon": "fa-globe-africa",
+        "label": "Visit Lesotho",
+        "url": "https://www.visitlesotho.travel/",
+        "desc": "Official tourism board"
+      },
+      {
+        "id": "immigration",
+        "icon": "fa-passport",
+        "label": "Lesotho Home Affairs",
+        "url": "https://homeaffairs.gov.ls/",
+        "desc": "Visa and border entry rules"
+      },
+      {
+        "id": "parks",
+        "icon": "fa-mountain",
+        "label": "Lesotho Forestry & parks",
+        "url": "https://www.forestry.gov.ls/",
+        "desc": "Sehlabathebe, Ts'ehlanyane, and nature reserves"
+      }
+    ]
+  },
+  "eswatini": {
+    "lastVerified": "2026-03",
+    "planningNote": "Hlane and Mkhaya are run by Big Game Parks — central booking through their Ezulwini office.",
+    "links": [
+      {
+        "id": "tourism",
+        "icon": "fa-globe-africa",
+        "label": "Eswatini Tourism",
+        "url": "https://www.thekingdomofeswatini.com/",
+        "desc": "Official destination information"
+      },
+      {
+        "id": "immigration",
+        "icon": "fa-passport",
+        "label": "Government of Eswatini",
+        "url": "https://www.gov.sz/",
+        "desc": "Immigration and entry requirements"
+      },
+      {
+        "id": "parks",
+        "icon": "fa-tree",
+        "label": "Big Game Parks",
+        "url": "https://www.biggameparks.org/",
+        "desc": "Hlane, Mkhaya, and Mlilwane reserve bookings"
+      }
+    ]
+  }
+}
