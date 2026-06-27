@@ -84,6 +84,18 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 | Currency rates | Monthly (planning approximations only) |
 | Emergency numbers | Annually |
 
+## Supabase (hub mode v4.11+)
+
+Backend tables align with the independent planning hub — no booking or WhatsApp inquiry tracking.
+
+| Table | Purpose |
+|-------|---------|
+| `site_messages` | Contact form (corrections, feedback, partnerships) |
+| `experiences` | Marketplace inspiration (public read) |
+| `newsletter_subscribers` | Email signups |
+
+Schema: `supabase/schema.sql`. Upgrading from pre-v4.11: run `supabase/migrate-phase-e.sql`.
+
 ## Reporting issues
 
 If you find outdated or incorrect information, note the page, field, and a link to the official source so we can update `lastVerified` and the content.

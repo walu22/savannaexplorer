@@ -1431,17 +1431,6 @@ footer {
     font-weight: 600;
 }
 
-.btn-whatsapp {
-    background: #25D366;
-    color: var(--white);
-}
-
-.btn-whatsapp:hover {
-    background: #1DA851;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-}
-
 .btn-email {
     background: transparent;
     color: var(--white);
@@ -1617,28 +1606,6 @@ footer {
     margin-right: 0.3rem;
 }
 
-.market-action .btn-inquire {
-    width: 100%;
-    justify-content: center;
-    border-radius: 8px;
-    padding: 0.8rem;
-    background: #25D366;
-    color: white;
-    font-weight: 600;
-    transition: var(--transition-smooth);
-    border: none;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.market-action .btn-inquire:hover {
-    background: #1DA851;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-}
-
 @media (max-width: 768px) {
     .modal-container {
         width: 100%;
@@ -1797,11 +1764,6 @@ footer {
 .itineraries .itinerary-grid {
     grid-template-columns: repeat(3, 1fr);
 }
-.itinerary-card .btn-outline .fab.fa-whatsapp {
-    margin-left: 0.5rem;
-    color: #25D366;
-}
-
 /* --- CULTURAL MOSAIC --- */
 .cultural-mosaic {
     padding: 5rem 0;
@@ -3728,15 +3690,15 @@ footer {
     color: #888;
 }
 
-/* Quotation Form */
-.quotation-form {
+/* Contact Form */
+.contact-form {
     background: white;
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.06);
 }
 
-.quotation-form h3 {
+.contact-form h3 {
     font-size: 1.5rem;
     color: var(--accent);
     margin-bottom: 25px;

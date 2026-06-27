@@ -34,7 +34,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.6.1** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.11.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -71,8 +71,9 @@ The site works offline with local JSON data. Connect **Supabase** to store marke
 1. Create a free project at [supabase.com](https://supabase.com)
 2. Copy `.env.example` to `.env` and add your project URL and anon key (Dashboard → **Project Settings** → **API**)
 3. In the Supabase **SQL Editor**, run:
-   - `supabase/schema.sql` — creates tables and row-level security policies
-   - `supabase/seed.sql` — loads marketplace experiences
+   - `supabase/schema.sql` — creates tables and row-level security policies (fresh installs)
+   - `supabase/migrate-phase-e.sql` — only if upgrading from pre-v4.11 (`quotations` / `inquiries` tables)
+   - `supabase/seed.sql` — loads marketplace inspiration listings
 4. Restart the dev server: `npm run dev`
 
 Without `.env`, forms fall back to **mailto** and marketplace data loads from `data/marketplace.json`.
@@ -81,9 +82,8 @@ Without `.env`, forms fall back to **mailto** and marketplace data loads from `d
 
 | Table | Purpose |
 |-------|---------|
-| `experiences` | Marketplace tours (public read) |
-| `inquiries` | WhatsApp inquiry tracking |
-| `quotations` | Contact form submissions (corrections, feedback, partnerships) |
+| `experiences` | Marketplace inspiration listings (public read) |
+| `site_messages` | Contact form submissions (corrections, feedback, partnerships) |
 | `newsletter_subscribers` | Email signups |
 
 ## Scripts

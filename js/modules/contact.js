@@ -8,8 +8,8 @@ function submitViaMailto({ name, email, topic, message }) {
 }
 
 export function initContact() {
-    const form = document.getElementById('quotation-form');
-    const feedback = document.getElementById('quotation-feedback');
+    const form = document.getElementById('contact-form');
+    const feedback = document.getElementById('contact-feedback');
     if (!form) return;
 
     form.addEventListener('submit', async (e) => {
@@ -28,12 +28,10 @@ export function initContact() {
 
         const supabase = getSupabaseClient();
         if (supabase) {
-            const { error } = await supabase.from('quotations').insert([{
+            const { error } = await supabase.from('site_messages').insert([{
                 name: payload.name,
                 email: payload.email,
-                travelers: null,
-                travel_style: payload.topic,
-                itineraries: [],
+                topic: payload.topic,
                 message: payload.message,
             }]);
 

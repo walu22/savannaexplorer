@@ -1,5 +1,5 @@
 export const CONFIG = {
-    appVersion: '4.10.0',
+    appVersion: '4.11.0',
     siteMode: 'hub',
     supportPhone: '260977123456',
     supportEmail: 'info@savannaexplorer.com',

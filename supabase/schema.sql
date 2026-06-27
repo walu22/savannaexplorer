@@ -1,7 +1,10 @@
--- Savanna Explorer — Supabase schema
+-- Savanna Explorer — Supabase schema (hub mode v4.11+)
 -- Run in Supabase SQL Editor (Dashboard → SQL → New query)
+--
+-- Upgrading from pre-v4.11 (quotations / inquiries tables)?
+-- Run supabase/migrate-phase-e.sql first, then this file is optional for fresh installs.
 
--- Experiences (marketplace listings)
+-- Marketplace inspiration listings (planning reference — not products for sale)
 create table if not exists public.experiences (
     id text primary key,
     title text not null,
@@ -19,24 +22,13 @@ create table if not exists public.experiences (
 
 create index if not exists experiences_category_idx on public.experiences (category);
 
--- WhatsApp inquiry tracking
-create table if not exists public.inquiries (
-    id uuid primary key default gen_random_uuid(),
-    experience_id text references public.experiences (id) on delete set null,
-    message text,
-    source text not null default 'whatsapp',
-    created_at timestamptz not null default now()
-);
-
--- Contact / quotation form submissions
-create table if not exists public.quotations (
+-- Contact form messages (corrections, feedback, partnerships — not trip bookings)
+create table if not exists public.site_messages (
     id uuid primary key default gen_random_uuid(),
     name text not null,
     email text not null,
-    travelers text,
-    travel_style text,
-    itineraries text[],
-    message text,
+    topic text not null,
+    message text not null,
     created_at timestamptz not null default now()
 );
 
@@ -49,22 +41,17 @@ create table if not exists public.newsletter_subscribers (
 
 -- Row Level Security
 alter table public.experiences enable row level security;
-alter table public.inquiries enable row level security;
-alter table public.quotations enable row level security;
+alter table public.site_messages enable row level security;
 alter table public.newsletter_subscribers enable row level security;
 
--- Public read for marketplace experiences
+-- Public read for marketplace inspiration
 create policy "Anyone can read experiences"
     on public.experiences for select
     using (true);
 
--- Anonymous inserts for lead capture (no public reads)
-create policy "Anyone can submit inquiries"
-    on public.inquiries for insert
-    with check (true);
-
-create policy "Anyone can submit quotations"
-    on public.quotations for insert
+-- Anonymous inserts for contact and newsletter (no public reads)
+create policy "Anyone can submit site messages"
+    on public.site_messages for insert
     with check (true);
 
 create policy "Anyone can subscribe to newsletter"
