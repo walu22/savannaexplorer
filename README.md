@@ -22,6 +22,8 @@ npm install
 npm run dev
 ```
 
+`npm install` automatically creates `.env` with the Supabase credentials (or run `npm run setup:env` manually).
+
 Then open **http://localhost:5173** in your browser (not port 3000 or 5500).
 
 Use a hard refresh if the page looks stale: **Ctrl + Shift + R**

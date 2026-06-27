@@ -4,6 +4,8 @@
   "version": "4.2.0",
   "type": "module",
   "scripts": {
+    "setup:env": "node scripts/setup-env.mjs",
+    "postinstall": "node scripts/setup-env.mjs",
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
