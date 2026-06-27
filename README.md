@@ -34,7 +34,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.12.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.13.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -77,6 +77,15 @@ The site works offline with local JSON data. Connect **Supabase** to store marke
 4. Restart the dev server: `npm run dev`
 
 Without `.env`, forms fall back to **mailto** and marketplace data loads from `data/marketplace.json`.
+
+Set `VITE_SITE_URL` in `.env` before `npm run build` so `sitemap.xml` and canonical URLs use your production domain.
+
+### SEO & routing (v4.13+)
+
+- Country pages use real paths: `/countries/namibia` (legacy `#namibia` hashes redirect automatically)
+- Per-country `<title>`, meta description, Open Graph, Twitter Card, and JSON-LD
+- `public/sitemap.xml` and `public/robots.txt` generated at build time
+- SPA hosting: `public/_redirects` included for Netlify-style hosts (all routes → `index.html`)
 
 ### Tables
 

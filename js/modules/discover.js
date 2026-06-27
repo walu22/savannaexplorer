@@ -1,6 +1,8 @@
 import discover from '../../data/discover.json';
 import faqs from '../../data/faqs.json';
 import { getCountryMeta } from '../lib/country-meta.js';
+import { countryPath } from '../lib/router.js';
+import { openCountryPage } from './country-guide.js';
 
 function imageUrl(imageId) {
     return `https://images.unsplash.com/photo-${imageId}?auto=format&fit=crop&q=80&w=800`;
@@ -13,7 +15,7 @@ function renderFacts() {
     grid.innerHTML = discover.facts.map(fact => {
         const meta = getCountryMeta(fact.country);
         return `
-            <a href="#${fact.country}" class="fact-card" data-country-link="${fact.country}">
+            <a href="${countryPath(fact.country)}" class="fact-card" data-country-link="${fact.country}">
                 <div class="fact-icon"><i class="fas ${fact.icon}"></i></div>
                 <h3>${fact.title}</h3>
                 <p>${fact.description}</p>
@@ -48,7 +50,7 @@ function renderTopDestinations() {
             ? '<span class="top-dest-badge">Must Visit</span>'
             : '';
         return `
-            <a href="#${dest.country}" class="top-dest-card" data-country-link="${dest.country}">
+            <a href="${countryPath(dest.country)}" class="top-dest-card" data-country-link="${dest.country}">
                 <img src="${imageUrl(dest.image)}" alt="${dest.name}" loading="lazy">
                 <div class="top-dest-overlay">
                     ${badge}
@@ -67,7 +69,7 @@ function renderTravelNews() {
 
     grid.innerHTML = discover.travelNews.map(item => {
         const meta = item.country ? getCountryMeta(item.country) : null;
-        const link = item.country ? `#${item.country}` : '#plan';
+        const link = item.country ? countryPath(item.country) : '#plan';
         return `
             <article class="news-card">
                 <div class="news-meta">
@@ -102,7 +104,7 @@ function renderPlanningGuides() {
                     </div>
                 </div>
                 <ul class="guide-download-topics">${topics}</ul>
-                <a href="#${guide.country}" class="btn btn-outline btn-sm" data-country-link="${guide.country}">
+                <a href="${countryPath(guide.country)}" class="btn btn-outline btn-sm" data-country-link="${guide.country}">
                     View Country Guide
                 </a>
             </div>
@@ -158,7 +160,7 @@ function bindCountryLinks() {
             const countryId = el.getAttribute('data-country-link');
             if (!countryId) return;
             e.preventDefault();
-            window.location.hash = countryId;
+            openCountryPage(countryId);
         });
     });
 }

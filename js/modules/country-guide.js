@@ -14,6 +14,16 @@ import {
     renderCountryParkRow,
     renderOfficialResourceCard,
 } from '../lib/country-resources.js';
+import {
+    parseLocation,
+    navigateToCountry,
+    navigateHome,
+    replaceWithCountryPath,
+    scrollToSection,
+    countryPath,
+    COUNTRY_IDS,
+} from '../lib/router.js';
+import { setCountryMeta, setHomeMeta } from '../lib/page-meta.js';
 
 const detailView = document.getElementById('country-detail-view');
 const closeDetailBtn = document.getElementById('close-detail');
@@ -313,29 +323,45 @@ function showCountryPage(countryId) {
     populateCountryPage(countryId);
     detailView.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
+    setCountryMeta(countryId);
+}
+
+function hideCountryPage() {
+    detailView.classList.add('hidden');
+    document.body.style.overflow = '';
+    setHomeMeta();
 }
 
 function closeCountryPage(scrollTarget) {
-    detailView.classList.add('hidden');
-    document.body.style.overflow = '';
-
-    const hash = window.location.hash.substring(1);
-    const onCountryHash = hash && Object.keys(countries).includes(hash);
-
+    hideCountryPage();
+    navigateHome(scrollTarget);
     if (scrollTarget) {
-        window.location.hash = scrollTarget;
-        requestAnimationFrame(() => {
-            document.getElementById(scrollTarget)?.scrollIntoView({ behavior: 'smooth' });
-        });
-    } else if (onCountryHash) {
-        history.pushState('', document.title, window.location.pathname + window.location.search);
+        requestAnimationFrame(() => scrollToSection(scrollTarget));
     }
 }
 
-function handleRouting() {
-    const hash = window.location.hash.substring(1);
-    if (hash && countries[hash]) showCountryPage(hash);
-    else closeCountryPage();
+export function openCountryPage(countryId, { replace = false } = {}) {
+    if (!countries[countryId]) return;
+    navigateToCountry(countryId, { replace });
+    showCountryPage(countryId);
+}
+
+function handleRoute(route) {
+    if (route.type === 'legacy-country-hash') {
+        replaceWithCountryPath(route.countryId);
+        showCountryPage(route.countryId);
+        return;
+    }
+
+    if (route.type === 'country') {
+        showCountryPage(route.countryId);
+        return;
+    }
+
+    hideCountryPage();
+    if (route.sectionHash && !COUNTRY_IDS.includes(route.sectionHash)) {
+        requestAnimationFrame(() => scrollToSection(route.sectionHash));
+    }
 }
 
 export function initCountryGuide() {
@@ -343,7 +369,7 @@ export function initCountryGuide() {
         const card = e.target.closest('.country-card');
         if (!card) return;
         const countryId = card.getAttribute('data-country-id');
-        if (countryId) window.location.hash = countryId;
+        if (countryId) openCountryPage(countryId);
     });
 
     closeDetailBtn?.addEventListener('click', () => closeCountryPage('destinations'));
@@ -375,7 +401,6 @@ export function initCountryGuide() {
 
     document.getElementById('country-plan-cta')?.addEventListener('click', () => {
         closeCountryPage('plan');
-        document.getElementById('plan')?.scrollIntoView({ behavior: 'smooth' });
     });
 
     document.querySelectorAll('.guide-tab').forEach(tab => {
@@ -388,18 +413,27 @@ export function initCountryGuide() {
         });
     });
 
+    document.querySelectorAll('a[href^="/countries/"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const match = link.getAttribute('href')?.match(/^\/countries\/([a-z-]+)\/?$/);
+            if (!match || !countries[match[1]]) return;
+            e.preventDefault();
+            openCountryPage(match[1]);
+        });
+    });
+
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         const id = link.getAttribute('href').slice(1);
         if (countries[id]) {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                window.location.hash = id;
+                openCountryPage(id);
             });
         }
     });
 
-    window.addEventListener('hashchange', handleRouting);
-    handleRouting();
+    window.addEventListener('popstate', () => handleRoute(parseLocation()));
+    handleRoute(parseLocation());
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && !detailView.classList.contains('hidden')) {
@@ -408,4 +442,4 @@ export function initCountryGuide() {
     });
 }
 
-export { closeCountryPage };
+export { closeCountryPage, openCountryPage };
