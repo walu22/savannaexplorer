@@ -1,7 +1,7 @@
 {
   "name": "savannaexplorer",
   "private": true,
-  "version": "4.12.0",
+  "version": "4.13.0",
   "type": "module",
   "scripts": {
     "setup:env": "node scripts/setup-env.mjs",
@@ -10,6 +10,7 @@
     "postinstall": "node scripts/setup-env.mjs",
     "start": "vite",
     "dev": "vite",
+    "prebuild": "node scripts/generate-sitemap.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },

@@ -1,6 +1,7 @@
 export const CONFIG = {
-    appVersion: '4.12.0',
+    appVersion: '4.13.0',
     siteMode: 'hub',
+    siteUrl: import.meta.env.VITE_SITE_URL || '',
     supportPhone: '260977123456',
     supportEmail: 'info@savannaexplorer.com',
     supabase: {
