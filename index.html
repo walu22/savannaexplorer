@@ -441,11 +441,9 @@
         <div class="container">
             <div class="section-header">
                 <h2>Traveler Utility Hub</h2>
-                <p>Everything you need to plan your Southern African adventure — in one place.</p>
+                <p>Practical planning tools with source links and verification dates — always confirm visa and health rules before travel.</p>
             </div>
             <div class="hub-grid">
-
-                <!-- 1. Currency Converter — Large Card -->
                 <div class="hub-card hub-card--lg" id="hub-currency">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-coins"></i></span>
@@ -459,33 +457,18 @@
                             </div>
                             <div class="hub-input-group">
                                 <label>From</label>
-                                <select id="hub-from-currency">
-                                    <option value="USD">🇺🇸 USD</option>
-                                    <option value="EUR">🇪🇺 EUR</option>
-                                    <option value="GBP">🇬🇧 GBP</option>
-                                </select>
+                                <select id="hub-from-currency"></select>
                             </div>
                         </div>
-                        <div class="hub-currency-results" id="hub-results">
-                            <div class="hub-cur-row"><span class="hub-flag">🇿🇦</span><span class="hub-cur-name">South African Rand</span><span class="hub-cur-val" data-rate-usd="18.50" data-rate-eur="20.00" data-rate-gbp="23.50">1,850.00</span></div>
-                            <div class="hub-cur-row"><span class="hub-flag">🇳🇦</span><span class="hub-cur-name">Namibian Dollar</span><span class="hub-cur-val" data-rate-usd="18.50" data-rate-eur="20.00" data-rate-gbp="23.50">1,850.00</span></div>
-                            <div class="hub-cur-row"><span class="hub-flag">🇧🇼</span><span class="hub-cur-name">Botswana Pula</span><span class="hub-cur-val" data-rate-usd="13.50" data-rate-eur="14.60" data-rate-gbp="17.10">1,350.00</span></div>
-                            <div class="hub-cur-row"><span class="hub-flag">🇿🇲</span><span class="hub-cur-name">Zambian Kwacha</span><span class="hub-cur-val" data-rate-usd="25.00" data-rate-eur="27.00" data-rate-gbp="31.80">2,500.00</span></div>
-                            <div class="hub-cur-row"><span class="hub-flag">🇿🇼</span><span class="hub-cur-name">Zimbabwe Gold (ZiG)</span><span class="hub-cur-val" data-rate-usd="13.56" data-rate-eur="14.65" data-rate-gbp="17.20">1,356.00</span></div>
-                            <div class="hub-cur-row"><span class="hub-flag">🇲🇿</span><span class="hub-cur-name">Mozambican Metical</span><span class="hub-cur-val" data-rate-usd="63.90" data-rate-eur="69.00" data-rate-gbp="81.00">6,390.00</span></div>
-                            <div class="hub-cur-row"><span class="hub-flag">🇲🇼</span><span class="hub-cur-name">Malawian Kwacha</span><span class="hub-cur-val" data-rate-usd="1735" data-rate-eur="1880" data-rate-gbp="2200">173,500</span></div>
-                            <div class="hub-cur-row"><span class="hub-flag">🇱🇸</span><span class="hub-cur-name">Lesotho Loti</span><span class="hub-cur-val" data-rate-usd="18.50" data-rate-eur="20.00" data-rate-gbp="23.50">1,850.00</span></div>
-                            <div class="hub-cur-row"><span class="hub-flag">🇸🇿</span><span class="hub-cur-name">Swazi Lilangeni</span><span class="hub-cur-val" data-rate-usd="18.50" data-rate-eur="20.00" data-rate-gbp="23.50">1,850.00</span></div>
-                        </div>
-                        <div class="hub-converter-note">Approximate rates · Updated Mar 2026</div>
+                        <div class="hub-currency-results" id="hub-results"></div>
+                        <p class="hub-data-note" id="hub-currency-note"></p>
                     </div>
                 </div>
 
-                <!-- 2. Visa & Health Matrix — Large Card -->
                 <div class="hub-card hub-card--lg" id="hub-visa">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-passport"></i></span>
-                        <h3>Visa & Health Matrix</h3>
+                        <h3>Visa &amp; Health Matrix</h3>
                     </div>
                     <div class="hub-search">
                         <i class="fas fa-search"></i>
@@ -495,19 +478,12 @@
                         <div class="hub-matrix-head">
                             <span>Country</span><span>Visa</span><span>Health</span><span>Advisory</span>
                         </div>
-                        <div class="hub-matrix-row" data-country="south africa"><span>🇿🇦 South Africa</span><span class="badge badge--green">Visa Free</span><span class="badge badge--yellow">Yellow Fever*</span><span class="badge badge--green">Low Risk</span></div>
-                        <div class="hub-matrix-row" data-country="namibia"><span>🇳🇦 Namibia</span><span class="badge badge--green">Visa Free 90d</span><span class="badge badge--yellow">Malaria (N)</span><span class="badge badge--green">Low Risk</span></div>
-                        <div class="hub-matrix-row" data-country="botswana"><span>🇧🇼 Botswana</span><span class="badge badge--green">Visa Free 90d</span><span class="badge badge--yellow">Malaria (N)</span><span class="badge badge--green">Low Risk</span></div>
-                        <div class="hub-matrix-row" data-country="zambia"><span>🇿🇲 Zambia</span><span class="badge badge--yellow">KAZA UniVisa</span><span class="badge badge--red">Yellow Fever</span><span class="badge badge--green">Low Risk</span></div>
-                        <div class="hub-matrix-row" data-country="zimbabwe"><span>🇿🇼 Zimbabwe</span><span class="badge badge--yellow">KAZA UniVisa</span><span class="badge badge--yellow">Malaria Risk</span><span class="badge badge--yellow">Moderate</span></div>
-                        <div class="hub-matrix-row" data-country="mozambique"><span>🇲🇿 Mozambique</span><span class="badge badge--yellow">Visa on Arrival</span><span class="badge badge--red">Malaria High</span><span class="badge badge--yellow">Moderate</span></div>
-                        <div class="hub-matrix-row" data-country="malawi"><span>🇲🇼 Malawi</span><span class="badge badge--yellow">E-Visa</span><span class="badge badge--yellow">Bilharzia</span><span class="badge badge--green">Low Risk</span></div>
-                        <div class="hub-matrix-row" data-country="lesotho"><span>🇱🇸 Lesotho</span><span class="badge badge--green">Visa Free</span><span class="badge badge--green">Low Risk</span><span class="badge badge--green">Low Risk</span></div>
-                        <div class="hub-matrix-row" data-country="eswatini"><span>🇸🇿 Eswatini</span><span class="badge badge--green">Visa Free</span><span class="badge badge--green">Low Malaria</span><span class="badge badge--green">Low Risk</span></div>
+                        <div id="hub-visa-matrix"></div>
                     </div>
+                    <div class="hub-visa-notes" id="hub-visa-notes"></div>
+                    <p class="hub-matrix-footnote">* VOA = visa-on-arrival where eligible. Rules depend on your passport — see official links below.</p>
                 </div>
 
-                <!-- 3. Best Time to Visit — Medium Card -->
                 <div class="hub-card hub-card--md" id="hub-seasons">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-sun"></i></span>
@@ -518,60 +494,26 @@
                         <span class="legend-dot legend-shoulder"></span> Shoulder
                         <span class="legend-dot legend-off"></span> Off-Season
                     </div>
-                    <div class="hub-season-grid">
-                        <div class="season-head"><span></span><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div>
-                        <div class="season-row"><span>🇿🇦 SA</span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-peak"></span></div>
-                        <div class="season-row"><span>🇳🇦 NAM</span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-off"></span></div>
-                        <div class="season-row"><span>🇧🇼 BWA</span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-off"></span></div>
-                        <div class="season-row"><span>🇿🇲 ZMB</span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-off"></span></div>
-                        <div class="season-row"><span>🇿🇼 ZWE</span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-off"></span></div>
-                        <div class="season-row"><span>🇲🇿 MOZ</span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-off"></span></div>
-                        <div class="season-row"><span>🇲🇼 MWI</span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-off"></span></div>
-                        <div class="season-row"><span>🇱🇸 LSO</span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-off"></span><span class="s-off"></span><span class="s-off"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span></div>
-                        <div class="season-row"><span>🇸🇿 SWZ</span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-shoulder"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-peak"></span><span class="s-shoulder"></span></div>
-                    </div>
+                    <div class="hub-season-grid" id="hub-season-grid"></div>
                 </div>
 
-                <!-- 4. Weather Dashboard — Medium Card -->
                 <div class="hub-card hub-card--md" id="hub-weather">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-cloud-sun"></i></span>
-                        <h3>Weather Now</h3>
+                        <h3>Typical Weather</h3>
                     </div>
-                    <div class="hub-weather-grid">
-                        <div class="weather-city"><span class="weather-flag">🇿🇦</span><span class="weather-name">Cape Town</span><span class="weather-temp">22°C</span><span class="weather-icon">☀️</span></div>
-                        <div class="weather-city"><span class="weather-flag">🇳🇦</span><span class="weather-name">Windhoek</span><span class="weather-temp">28°C</span><span class="weather-icon">⛅</span></div>
-                        <div class="weather-city"><span class="weather-flag">🇧🇼</span><span class="weather-name">Gaborone</span><span class="weather-temp">30°C</span><span class="weather-icon">☀️</span></div>
-                        <div class="weather-city"><span class="weather-flag">🇿🇲</span><span class="weather-name">Lusaka</span><span class="weather-temp">26°C</span><span class="weather-icon">🌧️</span></div>
-                        <div class="weather-city"><span class="weather-flag">🇿🇼</span><span class="weather-name">Harare</span><span class="weather-temp">25°C</span><span class="weather-icon">⛅</span></div>
-                        <div class="weather-city"><span class="weather-flag">🇲🇿</span><span class="weather-name">Maputo</span><span class="weather-temp">31°C</span><span class="weather-icon">🌤️</span></div>
-                        <div class="weather-city"><span class="weather-flag">🇲🇼</span><span class="weather-name">Lilongwe</span><span class="weather-temp">24°C</span><span class="weather-icon">🌧️</span></div>
-                        <div class="weather-city"><span class="weather-flag">🇱🇸</span><span class="weather-name">Maseru</span><span class="weather-temp">20°C</span><span class="weather-icon">☀️</span></div>
-                        <div class="weather-city"><span class="weather-flag">🇸🇿</span><span class="weather-name">Mbabane</span><span class="weather-temp">22°C</span><span class="weather-icon">⛅</span></div>
-                    </div>
-                    <div class="hub-converter-note">Typical March conditions</div>
+                    <div class="hub-weather-grid" id="hub-weather-grid"></div>
+                    <p class="hub-data-note" id="hub-weather-note"></p>
                 </div>
 
-                <!-- 5. Emergency Contacts — Small Card -->
                 <div class="hub-card hub-card--sm" id="hub-emergency">
                     <div class="hub-card-header">
                         <span class="hub-icon hub-icon--red"><i class="fas fa-phone-alt"></i></span>
                         <h3>Emergency Contacts</h3>
                     </div>
-                    <div class="hub-emergency-list">
-                        <div class="emg-row"><span class="emg-flag">🇿🇦</span><span class="emg-country">South Africa</span><span class="emg-nums">Police 10111 · Ambulance 10177</span></div>
-                        <div class="emg-row"><span class="emg-flag">🇳🇦</span><span class="emg-country">Namibia</span><span class="emg-nums">Police 10111 · Ambulance 211111</span></div>
-                        <div class="emg-row"><span class="emg-flag">🇧🇼</span><span class="emg-country">Botswana</span><span class="emg-nums">Police 999 · Ambulance 997</span></div>
-                        <div class="emg-row"><span class="emg-flag">🇿🇲</span><span class="emg-country">Zambia</span><span class="emg-nums">Police 999 · Ambulance 992</span></div>
-                        <div class="emg-row"><span class="emg-flag">🇿🇼</span><span class="emg-country">Zimbabwe</span><span class="emg-nums">Police 995 · Ambulance 994</span></div>
-                        <div class="emg-row"><span class="emg-flag">🇲🇿</span><span class="emg-country">Mozambique</span><span class="emg-nums">Police 119 · Ambulance 117</span></div>
-                        <div class="emg-row"><span class="emg-flag">🇲🇼</span><span class="emg-country">Malawi</span><span class="emg-nums">Police 997 · Ambulance 998</span></div>
-                        <div class="emg-row"><span class="emg-flag">🇱🇸</span><span class="emg-country">Lesotho</span><span class="emg-nums">Police 123 · Ambulance 121</span></div>
-                        <div class="emg-row"><span class="emg-flag">🇸🇿</span><span class="emg-country">Eswatini</span><span class="emg-nums">Police 999 · Ambulance 977</span></div>
-                    </div>
+                    <div class="hub-emergency-list" id="hub-emergency-list"></div>
                 </div>
 
-                <!-- 6. Packing Wizard — Small Card -->
                 <div class="hub-card hub-card--sm" id="hub-packing">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-suitcase-rolling"></i></span>
@@ -587,19 +529,10 @@
                         <div class="hub-progress-bar"><div class="hub-progress-fill" id="pack-progress"></div></div>
                         <span class="hub-progress-text" id="pack-progress-text">0 of 8 packed</span>
                     </div>
-                    <div class="hub-pack-list" id="hub-pack-list">
-                        <label class="hub-pack-item"><input type="checkbox"> <span>Binoculars</span></label>
-                        <label class="hub-pack-item"><input type="checkbox"> <span>Neutral-tone clothing</span></label>
-                        <label class="hub-pack-item"><input type="checkbox"> <span>Insect repellent (DEET)</span></label>
-                        <label class="hub-pack-item"><input type="checkbox"> <span>Headlamp / torch</span></label>
-                        <label class="hub-pack-item"><input type="checkbox"> <span>Power bank</span></label>
-                        <label class="hub-pack-item"><input type="checkbox"> <span>Sun hat & SPF 50</span></label>
-                        <label class="hub-pack-item"><input type="checkbox"> <span>Camera + zoom lens</span></label>
-                        <label class="hub-pack-item"><input type="checkbox"> <span>Reusable water bottle</span></label>
-                    </div>
+                    <div class="hub-pack-list" id="hub-pack-list"></div>
                 </div>
-
             </div>
+            <p class="hub-disclaimer" id="hub-disclaimer"></p>
         </div>
     </section>
 
@@ -770,7 +703,10 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Savanna Explorer. All Rights Reserved. <span id="app-version" class="app-version"></span></p>
+                <div>
+                    <p>&copy; 2026 Savanna Explorer. All Rights Reserved. <span id="app-version" class="app-version"></span></p>
+                    <p class="footer-disclaimer">Editorial travel planning information — not legal or medical advice. Verify visa, health, and safety requirements with official government sources before you travel. See SOURCES.md in the project repository for data citations.</p>
+                </div>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>

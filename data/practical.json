@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "lastUpdated": "2026-03",
+    "disclaimer": "Savanna Explorer provides planning information in our own words, based on publicly available official sources. Visa rules, fees, and health guidance change frequently. Always verify requirements with your government's travel advice and the relevant immigration authority before you book or travel.",
+    "sourcesPage": "SOURCES.md"
+  },
+  "currency": {
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.xe.com/currencyconverter/",
+    "sourceLabel": "XE.com (reference rates)",
+    "note": "Approximate planning rates only — not live. Confirm with your bank before exchanging money.",
+    "baseCurrencies": [
+      { "code": "USD", "label": "🇺🇸 USD" },
+      { "code": "EUR", "label": "🇪🇺 EUR" },
+      { "code": "GBP", "label": "🇬🇧 GBP" }
+    ],
+    "rates": [
+      { "flag": "🇿🇦", "name": "South African Rand", "code": "ZAR", "rates": { "USD": 18.5, "EUR": 20.0, "GBP": 23.5 } },
+      { "flag": "🇳🇦", "name": "Namibian Dollar", "code": "NAD", "rates": { "USD": 18.5, "EUR": 20.0, "GBP": 23.5 } },
+      { "flag": "🇧🇼", "name": "Botswana Pula", "code": "BWP", "rates": { "USD": 13.5, "EUR": 14.6, "GBP": 17.1 } },
+      { "flag": "🇿🇲", "name": "Zambian Kwacha", "code": "ZMW", "rates": { "USD": 25.0, "EUR": 27.0, "GBP": 31.8 } },
+      { "flag": "🇿🇼", "name": "Zimbabwe Gold (ZiG)", "code": "ZIG", "rates": { "USD": 13.56, "EUR": 14.65, "GBP": 17.2 } },
+      { "flag": "🇲🇿", "name": "Mozambican Metical", "code": "MZN", "rates": { "USD": 63.9, "EUR": 69.0, "GBP": 81.0 } },
+      { "flag": "🇲🇼", "name": "Malawian Kwacha", "code": "MWK", "rates": { "USD": 1735, "EUR": 1880, "GBP": 2200 } },
+      { "flag": "🇱🇸", "name": "Lesotho Loti", "code": "LSL", "rates": { "USD": 18.5, "EUR": 20.0, "GBP": 23.5 } },
+      { "flag": "🇸🇿", "name": "Swazi Lilangeni", "code": "SZL", "rates": { "USD": 18.5, "EUR": 20.0, "GBP": 23.5 } }
+    ]
+  },
+  "visaHealth": [
+    {
+      "id": "south-africa",
+      "flag": "🇿🇦",
+      "name": "South Africa",
+      "visa": { "label": "Varies by passport", "badgeClass": "yellow" },
+      "health": { "label": "Yellow Fever*", "badgeClass": "yellow" },
+      "advisory": { "label": "Exercise caution", "badgeClass": "yellow" },
+      "note": "Many EU, UK, US, and SADC passport holders receive 90-day visa-free tourism. Yellow fever certificate required if arriving from endemic countries.",
+      "sourceUrl": "https://www.dha.gov.za/index.php/immigration-services",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "namibia",
+      "flag": "🇳🇦",
+      "name": "Namibia",
+      "visa": { "label": "E-visa / VOA*", "badgeClass": "yellow" },
+      "health": { "label": "Malaria (north)", "badgeClass": "yellow" },
+      "advisory": { "label": "Low risk", "badgeClass": "green" },
+      "note": "From 1 Apr 2025: nationals of UK, US, EU, Australia, Canada, and others without reciprocal exemption must apply for an e-visa or obtain visa-on-arrival (N$1,200–1,600). Many SADC nationals remain visa-free. Apply early at eservices.mhaiss.gov.na.",
+      "sourceUrl": "https://mha.gov.na",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "botswana",
+      "flag": "🇧🇼",
+      "name": "Botswana",
+      "visa": { "label": "Varies by passport", "badgeClass": "yellow" },
+      "health": { "label": "Malaria (north)", "badgeClass": "yellow" },
+      "advisory": { "label": "Low risk", "badgeClass": "green" },
+      "note": "EU, UK, US, and many SADC citizens typically receive 90-day visa-free entry. Confirm your passport category before travel.",
+      "sourceUrl": "https://www.gov.bw/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "zambia",
+      "flag": "🇿🇲",
+      "name": "Zambia",
+      "visa": { "label": "KAZA / E-visa", "badgeClass": "yellow" },
+      "health": { "label": "Malaria risk", "badgeClass": "yellow" },
+      "advisory": { "label": "Low risk", "badgeClass": "green" },
+      "note": "KAZA UniVisa (USD 50) covers Zambia and Zimbabwe for Victoria Falls circuits. E-visa available online for many nationalities.",
+      "sourceUrl": "https://www.zambiaimmigration.gov.zm/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "zimbabwe",
+      "flag": "🇿🇼",
+      "name": "Zimbabwe",
+      "visa": { "label": "KAZA / E-visa", "badgeClass": "yellow" },
+      "health": { "label": "Malaria risk", "badgeClass": "yellow" },
+      "advisory": { "label": "Moderate", "badgeClass": "yellow" },
+      "note": "KAZA UniVisa available at Victoria Falls and Livingstone. E-visa portal open for many nationalities — rules vary by passport.",
+      "sourceUrl": "https://www.evisa.gov.zw/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "mozambique",
+      "flag": "🇲🇿",
+      "name": "Mozambique",
+      "visa": { "label": "E-visa / VOA*", "badgeClass": "yellow" },
+      "health": { "label": "Malaria high", "badgeClass": "red" },
+      "advisory": { "label": "Moderate", "badgeClass": "yellow" },
+      "note": "Most visitors need a visa — e-visa or visa-on-arrival for many nationalities (around USD 50). Malaria prophylaxis recommended for most regions.",
+      "sourceUrl": "https://www.evisa.gov.mz/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "malawi",
+      "flag": "🇲🇼",
+      "name": "Malawi",
+      "visa": { "label": "E-visa", "badgeClass": "yellow" },
+      "health": { "label": "Malaria / bilharzia", "badgeClass": "yellow" },
+      "advisory": { "label": "Low risk", "badgeClass": "green" },
+      "note": "E-visa required for many nationalities. Lake Malawi carries bilharzia risk in some areas — seek local advice before swimming.",
+      "sourceUrl": "https://www.immigration.gov.mw/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "lesotho",
+      "flag": "🇱🇸",
+      "name": "Lesotho",
+      "visa": { "label": "Varies by passport", "badgeClass": "yellow" },
+      "health": { "label": "Low malaria", "badgeClass": "green" },
+      "advisory": { "label": "Low risk", "badgeClass": "green" },
+      "note": "Many Commonwealth and EU nationals visa-free 14–90 days. Entry is almost always via South Africa — plan SA visa re-entry.",
+      "sourceUrl": "https://homeaffairs.gov.ls/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "eswatini",
+      "flag": "🇸🇿",
+      "name": "Eswatini",
+      "visa": { "label": "Varies by passport", "badgeClass": "yellow" },
+      "health": { "label": "Low malaria", "badgeClass": "green" },
+      "advisory": { "label": "Low risk", "badgeClass": "green" },
+      "note": "Many Commonwealth and EU nationals receive 30-day visa-free entry. Access is via South Africa or Mozambique borders.",
+      "sourceUrl": "https://www.gov.sz/",
+      "lastVerified": "2026-03"
+    }
+  ],
+  "seasons": {
+    "legend": [
+      { "class": "peak", "label": "Peak" },
+      { "class": "shoulder", "label": "Shoulder" },
+      { "class": "off", "label": "Off-Season" }
+    ],
+    "countries": [
+      { "label": "🇿🇦 SA", "months": ["peak", "peak", "shoulder", "shoulder", "peak", "peak", "peak", "peak", "peak", "peak", "shoulder", "peak"] },
+      { "label": "🇳🇦 NAM", "months": ["off", "off", "shoulder", "shoulder", "peak", "peak", "peak", "peak", "peak", "peak", "shoulder", "off"] },
+      { "label": "🇧🇼 BWA", "months": ["off", "off", "shoulder", "shoulder", "peak", "peak", "peak", "peak", "peak", "peak", "shoulder", "off"] },
+      { "label": "🇿🇲 ZMB", "months": ["off", "off", "shoulder", "shoulder", "peak", "peak", "peak", "peak", "peak", "peak", "shoulder", "off"] },
+      { "label": "🇿🇼 ZWE", "months": ["off", "off", "shoulder", "shoulder", "peak", "peak", "peak", "peak", "peak", "peak", "shoulder", "off"] },
+      { "label": "🇲🇿 MOZ", "months": ["off", "off", "shoulder", "shoulder", "peak", "peak", "peak", "peak", "peak", "shoulder", "shoulder", "off"] },
+      { "label": "🇲🇼 MWI", "months": ["off", "off", "shoulder", "shoulder", "peak", "peak", "peak", "peak", "peak", "peak", "shoulder", "off"] },
+      { "label": "🇱🇸 LSO", "months": ["shoulder", "shoulder", "peak", "peak", "peak", "off", "off", "off", "shoulder", "peak", "peak", "shoulder"] },
+      { "label": "🇸🇿 SWZ", "months": ["shoulder", "shoulder", "peak", "peak", "peak", "shoulder", "shoulder", "shoulder", "peak", "peak", "peak", "shoulder"] }
+    ]
+  },
+  "weather": {
+    "label": "Typical seasonal conditions — not live weather",
+    "referenceMonth": "March",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.worldweatheronline.com/",
+    "sourceLabel": "Historical climate averages",
+    "cities": [
+      { "flag": "🇿🇦", "name": "Cape Town", "temp": "22°C", "icon": "☀️" },
+      { "flag": "🇳🇦", "name": "Windhoek", "temp": "28°C", "icon": "⛅" },
+      { "flag": "🇧🇼", "name": "Gaborone", "temp": "30°C", "icon": "☀️" },
+      { "flag": "🇿🇲", "name": "Lusaka", "temp": "26°C", "icon": "🌧️" },
+      { "flag": "🇿🇼", "name": "Harare", "temp": "25°C", "icon": "⛅" },
+      { "flag": "🇲🇿", "name": "Maputo", "temp": "31°C", "icon": "🌤️" },
+      { "flag": "🇲🇼", "name": "Lilongwe", "temp": "24°C", "icon": "🌧️" },
+      { "flag": "🇱🇸", "name": "Maseru", "temp": "20°C", "icon": "☀️" },
+      { "flag": "🇸🇿", "name": "Mbabane", "temp": "22°C", "icon": "⛅" }
+    ]
+  },
+  "emergencies": [
+    { "flag": "🇿🇦", "country": "South Africa", "numbers": "Police 10111 · Ambulance 10177", "sourceUrl": "https://www.saps.gov.za/", "lastVerified": "2026-03" },
+    { "flag": "🇳🇦", "country": "Namibia", "numbers": "Police 10111 · Ambulance 211111", "sourceUrl": "https://www.nampol.gov.na/", "lastVerified": "2026-03" },
+    { "flag": "🇧🇼", "country": "Botswana", "numbers": "Police 999 · Ambulance 997", "sourceUrl": "https://www.gov.bw/", "lastVerified": "2026-03" },
+    { "flag": "🇿🇲", "country": "Zambia", "numbers": "Police 999 · Ambulance 992", "sourceUrl": "https://www.zambiapolice.gov.zm/", "lastVerified": "2026-03" },
+    { "flag": "🇿🇼", "country": "Zimbabwe", "numbers": "Police 995 · Ambulance 994", "sourceUrl": "https://www.zrp.gov.zw/", "lastVerified": "2026-03" },
+    { "flag": "🇲🇿", "country": "Mozambique", "numbers": "Police 119 · Ambulance 117", "sourceUrl": "https://www.policiam.gov.mz/", "lastVerified": "2026-03" },
+    { "flag": "🇲🇼", "country": "Malawi", "numbers": "Police 997 · Ambulance 998", "sourceUrl": "https://www.malawipolice.gov.mw/", "lastVerified": "2026-03" },
+    { "flag": "🇱🇸", "country": "Lesotho", "numbers": "Police 123 · Ambulance 121", "sourceUrl": "https://www.lmps.org.ls/", "lastVerified": "2026-03" },
+    { "flag": "🇸🇿", "country": "Eswatini", "numbers": "Police 999 · Ambulance 977", "sourceUrl": "https://www.gov.sz/", "lastVerified": "2026-03" }
+  ]
+}

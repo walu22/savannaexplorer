@@ -3,270 +3,405 @@
     "id": "kruger",
     "name": "Kruger National Park",
     "country": "south-africa",
-    "description": "Africa's greatest game reserve — Big Five, 500+ bird species, and 2 million hectares of wilderness.",
-    "tags": ["Big Five", "Self-drive"],
-    "bestSeason": "May–Oct",
+    "description": "Africa's greatest game reserve \u2014 Big Five, 500+ bird species, and 2 million hectares of wilderness.",
+    "tags": [
+      "Big Five",
+      "Self-drive"
+    ],
+    "bestSeason": "May\u2013Oct",
     "fees": "From R440/day",
-    "difficulty": "Easy–Moderate"
+    "difficulty": "Easy\u2013Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.sanparks.org/"
   },
   {
     "id": "table-mountain",
     "name": "Table Mountain National Park",
     "country": "south-africa",
-    "description": "Iconic flat-topped mountain overlooking Cape Town — fynbos, penguins at Boulders Beach, and dramatic coastal trails.",
-    "tags": ["Landscapes", "Hiking"],
-    "bestSeason": "Sep–Apr",
+    "description": "Iconic flat-topped mountain overlooking Cape Town \u2014 fynbos, penguins at Boulders Beach, and dramatic coastal trails.",
+    "tags": [
+      "Landscapes",
+      "Hiking"
+    ],
+    "bestSeason": "Sep\u2013Apr",
     "fees": "Cableway from R400",
-    "difficulty": "Easy–Moderate"
+    "difficulty": "Easy\u2013Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.sanparks.org/"
   },
   {
     "id": "addo",
     "name": "Addo Elephant National Park",
     "country": "south-africa",
     "description": "Home to over 600 elephants and the only park offering Big Seven (including great white sharks and southern right whales).",
-    "tags": ["Elephants", "Self-drive"],
+    "tags": [
+      "Elephants",
+      "Self-drive"
+    ],
     "bestSeason": "Year-round",
     "fees": "From R376/day",
-    "difficulty": "Easy"
+    "difficulty": "Easy",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.sanparks.org/"
   },
   {
     "id": "etosha",
     "name": "Etosha National Park",
     "country": "namibia",
-    "description": "One of Africa's oldest parks — centred on a vast salt pan, with legendary floodlit waterhole viewing.",
-    "tags": ["Big Five", "Self-drive"],
-    "bestSeason": "Jul–Oct",
+    "description": "One of Africa's oldest parks \u2014 centred on a vast salt pan, with legendary floodlit waterhole viewing.",
+    "tags": [
+      "Big Five",
+      "Self-drive"
+    ],
+    "bestSeason": "Jul\u2013Oct",
     "fees": "From N$100/day",
-    "difficulty": "Easy"
+    "difficulty": "Easy",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.nwr.com.na/"
   },
   {
     "id": "namib-naukluft",
     "name": "Namib-Naukluft Park",
     "country": "namibia",
-    "description": "One of the world's largest conservation areas — Sossusvlei's red dunes and the oldest desert on Earth.",
-    "tags": ["Landscapes", "Photography"],
-    "bestSeason": "May–Sep",
+    "description": "One of the world's largest conservation areas \u2014 Sossusvlei's red dunes and the oldest desert on Earth.",
+    "tags": [
+      "Landscapes",
+      "Photography"
+    ],
+    "bestSeason": "May\u2013Sep",
     "fees": "From N$150/day",
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.nwr.com.na/"
   },
   {
     "id": "skeleton-coast",
     "name": "Skeleton Coast Park",
     "country": "namibia",
-    "description": "Where desert meets the Atlantic — shipwrecks, fur seal colonies, and desert-adapted lions.",
-    "tags": ["Remote", "4x4 required"],
-    "bestSeason": "May–Oct",
+    "description": "Where desert meets the Atlantic \u2014 shipwrecks, fur seal colonies, and desert-adapted lions.",
+    "tags": [
+      "Remote",
+      "4x4 required"
+    ],
+    "bestSeason": "May\u2013Oct",
     "fees": "Permit required",
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.nwr.com.na/"
   },
   {
     "id": "chobe",
     "name": "Chobe National Park",
     "country": "botswana",
-    "description": "Africa's largest elephant population — 120,000 elephants and spectacular Chobe River cruises.",
-    "tags": ["Elephants", "Boat safari"],
-    "bestSeason": "May–Oct",
+    "description": "Africa's largest elephant population \u2014 120,000 elephants and spectacular Chobe River cruises.",
+    "tags": [
+      "Elephants",
+      "Boat safari"
+    ],
+    "bestSeason": "May\u2013Oct",
     "fees": "From P120/day",
-    "difficulty": "Easy"
+    "difficulty": "Easy",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.gov.bw/tourism"
   },
   {
     "id": "moremi",
     "name": "Moremi Game Reserve",
     "country": "botswana",
-    "description": "The Okavango Delta's wildlife heartland — mokoro trips, leopard sightings, and pristine floodplains.",
-    "tags": ["Big Five", "Mokoro"],
-    "bestSeason": "Jul–Oct",
+    "description": "The Okavango Delta's wildlife heartland \u2014 mokoro trips, leopard sightings, and pristine floodplains.",
+    "tags": [
+      "Big Five",
+      "Mokoro"
+    ],
+    "bestSeason": "Jul\u2013Oct",
     "fees": "From P120/day",
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.gov.bw/tourism"
   },
   {
     "id": "central-kalahari",
     "name": "Central Kalahari Game Reserve",
     "country": "botswana",
-    "description": "Vast semi-arid wilderness — black-maned lions, brown hyenas, and the raw Kalahari experience.",
-    "tags": ["Remote", "Self-drive"],
-    "bestSeason": "Dec–Apr",
+    "description": "Vast semi-arid wilderness \u2014 black-maned lions, brown hyenas, and the raw Kalahari experience.",
+    "tags": [
+      "Remote",
+      "Self-drive"
+    ],
+    "bestSeason": "Dec\u2013Apr",
     "fees": "From P50/day",
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.gov.bw/tourism"
   },
   {
     "id": "south-luangwa",
     "name": "South Luangwa National Park",
     "country": "zambia",
-    "description": "Birthplace of the walking safari — legendary leopard sightings and hippo-filled Luangwa River.",
-    "tags": ["Leopards", "Walking safari"],
-    "bestSeason": "May–Oct",
+    "description": "Birthplace of the walking safari \u2014 legendary leopard sightings and hippo-filled Luangwa River.",
+    "tags": [
+      "Leopards",
+      "Walking safari"
+    ],
+    "bestSeason": "May\u2013Oct",
     "fees": "From $25/day",
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.znp.co.zm/"
   },
   {
     "id": "kafue",
     "name": "Kafue National Park",
     "country": "zambia",
-    "description": "One of Africa's largest parks — Busanga Plains cheetah, tree-climbing lions, and remote wilderness.",
-    "tags": ["Big cats", "Remote"],
-    "bestSeason": "Jul–Oct",
+    "description": "One of Africa's largest parks \u2014 Busanga Plains cheetah, tree-climbing lions, and remote wilderness.",
+    "tags": [
+      "Big cats",
+      "Remote"
+    ],
+    "bestSeason": "Jul\u2013Oct",
     "fees": "From $20/day",
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.znp.co.zm/"
   },
   {
     "id": "lower-zambezi",
     "name": "Lower Zambezi National Park",
     "country": "zambia",
-    "description": "Canoe safaris along the Zambezi — elephants, hippos, and stunning escarpment views.",
-    "tags": ["Canoe safari", "Elephants"],
-    "bestSeason": "May–Oct",
+    "description": "Canoe safaris along the Zambezi \u2014 elephants, hippos, and stunning escarpment views.",
+    "tags": [
+      "Canoe safari",
+      "Elephants"
+    ],
+    "bestSeason": "May\u2013Oct",
     "fees": "From $20/day",
-    "difficulty": "Easy–Moderate"
+    "difficulty": "Easy\u2013Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.znp.co.zm/"
   },
   {
     "id": "hwange",
     "name": "Hwange National Park",
     "country": "zimbabwe",
-    "description": "Zimbabwe's largest reserve — 100+ mammal species across ancient elephant migration corridors.",
-    "tags": ["Elephants", "Self-drive"],
-    "bestSeason": "Jul–Oct",
+    "description": "Zimbabwe's largest reserve \u2014 100+ mammal species across ancient elephant migration corridors.",
+    "tags": [
+      "Elephants",
+      "Self-drive"
+    ],
+    "bestSeason": "Jul\u2013Oct",
     "fees": "From $15/day",
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.zimparks.org/"
   },
   {
     "id": "mana-pools",
     "name": "Mana Pools National Park",
     "country": "zimbabwe",
-    "description": "UNESCO World Heritage wilderness — walking safaris among elephants and albida trees on the Zambezi floodplain.",
-    "tags": ["Walking safari", "UNESCO"],
-    "bestSeason": "May–Oct",
+    "description": "UNESCO World Heritage wilderness \u2014 walking safaris among elephants and albida trees on the Zambezi floodplain.",
+    "tags": [
+      "Walking safari",
+      "UNESCO"
+    ],
+    "bestSeason": "May\u2013Oct",
     "fees": "From $15/day",
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.zimparks.org/"
   },
   {
     "id": "gonarezhou",
     "name": "Gonarezhou National Park",
     "country": "zimbabwe",
-    "description": "Remote wilderness in the Great Limpopo Transfrontier Park — Chilojo Cliffs and untamed bush.",
-    "tags": ["Remote", "4x4 required"],
-    "bestSeason": "May–Oct",
+    "description": "Remote wilderness in the Great Limpopo Transfrontier Park \u2014 Chilojo Cliffs and untamed bush.",
+    "tags": [
+      "Remote",
+      "4x4 required"
+    ],
+    "bestSeason": "May\u2013Oct",
     "fees": "From $15/day",
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.zimparks.org/"
   },
   {
     "id": "gorongosa",
     "name": "Gorongosa National Park",
     "country": "mozambique",
-    "description": "Africa's greatest wildlife restoration story — lions, elephants, and thriving ecosystems reborn.",
-    "tags": ["Lions", "Conservation"],
-    "bestSeason": "May–Nov",
+    "description": "Africa's greatest wildlife restoration story \u2014 lions, elephants, and thriving ecosystems reborn.",
+    "tags": [
+      "Lions",
+      "Conservation"
+    ],
+    "bestSeason": "May\u2013Nov",
     "fees": "From $20/day",
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.anac.gov.mz/"
   },
   {
     "id": "bazaruto",
     "name": "Bazaruto Archipelago National Park",
     "country": "mozambique",
-    "description": "Turquoise Indian Ocean islands — dugongs, whale sharks, and world-class diving.",
-    "tags": ["Marine", "Diving"],
-    "bestSeason": "May–Nov",
+    "description": "Turquoise Indian Ocean islands \u2014 dugongs, whale sharks, and world-class diving.",
+    "tags": [
+      "Marine",
+      "Diving"
+    ],
+    "bestSeason": "May\u2013Nov",
     "fees": "Park fees vary",
-    "difficulty": "Easy"
+    "difficulty": "Easy",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.anac.gov.mz/"
   },
   {
     "id": "quirimbas",
     "name": "Quirimbas National Park",
     "country": "mozambique",
-    "description": "Remote northern archipelago — mangroves, coral reefs, and Swahili-influenced island culture.",
-    "tags": ["Marine", "Remote"],
-    "bestSeason": "May–Dec",
+    "description": "Remote northern archipelago \u2014 mangroves, coral reefs, and Swahili-influenced island culture.",
+    "tags": [
+      "Marine",
+      "Remote"
+    ],
+    "bestSeason": "May\u2013Dec",
     "fees": "Park fees vary",
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.anac.gov.mz/"
   },
   {
     "id": "liwonde",
     "name": "Liwonde National Park",
     "country": "malawi",
-    "description": "Malawi's premier wildlife reserve — boat safaris on the Shire River alongside elephants and crocs.",
-    "tags": ["Elephants", "Boat safari"],
-    "bestSeason": "May–Oct",
+    "description": "Malawi's premier wildlife reserve \u2014 boat safaris on the Shire River alongside elephants and crocs.",
+    "tags": [
+      "Elephants",
+      "Boat safari"
+    ],
+    "bestSeason": "May\u2013Oct",
     "fees": "From $25/day",
-    "difficulty": "Easy"
+    "difficulty": "Easy",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.malawiparks.org/"
   },
   {
     "id": "nyika",
     "name": "Nyika National Park",
     "country": "malawi",
-    "description": "High-altitude plateau of rolling grasslands — zebras, antelope, and wild orchids.",
-    "tags": ["Landscapes", "Hiking"],
-    "bestSeason": "May–Oct",
+    "description": "High-altitude plateau of rolling grasslands \u2014 zebras, antelope, and wild orchids.",
+    "tags": [
+      "Landscapes",
+      "Hiking"
+    ],
+    "bestSeason": "May\u2013Oct",
     "fees": "From $20/day",
-    "difficulty": "Easy–Moderate"
+    "difficulty": "Easy\u2013Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.malawiparks.org/"
   },
   {
     "id": "lake-malawi",
     "name": "Lake Malawi National Park",
     "country": "malawi",
-    "description": "UNESCO site on the lake shore — 1,000+ cichlid species and crystal-clear snorkelling.",
-    "tags": ["UNESCO", "Snorkelling"],
-    "bestSeason": "May–Oct",
+    "description": "UNESCO site on the lake shore \u2014 1,000+ cichlid species and crystal-clear snorkelling.",
+    "tags": [
+      "UNESCO",
+      "Snorkelling"
+    ],
+    "bestSeason": "May\u2013Oct",
     "fees": "From $10/day",
-    "difficulty": "Easy"
+    "difficulty": "Easy",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.malawiparks.org/"
   },
   {
     "id": "sehlathebe",
     "name": "Sehlabathebe National Park",
     "country": "lesotho",
-    "description": "Remote highland wilderness — rock art, wild horses, and dramatic Drakensberg escarpment scenery.",
-    "tags": ["Hiking", "Remote"],
-    "bestSeason": "Oct–Apr",
+    "description": "Remote highland wilderness \u2014 rock art, wild horses, and dramatic Drakensberg escarpment scenery.",
+    "tags": [
+      "Hiking",
+      "Remote"
+    ],
+    "bestSeason": "Oct\u2013Apr",
     "fees": "From M100/day",
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.forestry.gov.ls/"
   },
   {
     "id": "tsenhlanyane",
     "name": "Tse'ehlanyane National Park",
     "country": "lesotho",
-    "description": "Maloti Mountains sanctuary — indigenous forests, trout fishing, and alpine hiking trails.",
-    "tags": ["Mountains", "Hiking"],
-    "bestSeason": "Oct–Apr",
+    "description": "Maloti Mountains sanctuary \u2014 indigenous forests, trout fishing, and alpine hiking trails.",
+    "tags": [
+      "Mountains",
+      "Hiking"
+    ],
+    "bestSeason": "Oct\u2013Apr",
     "fees": "From M50/day",
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.forestry.gov.ls/"
   },
   {
     "id": "bokong",
     "name": "Bokong Nature Reserve",
     "country": "lesotho",
-    "description": "Stunning plateau above the Katse Dam — bearded vultures, alpine flowers, and panoramic views.",
-    "tags": ["Birding", "Landscapes"],
-    "bestSeason": "Nov–Mar",
+    "description": "Stunning plateau above the Katse Dam \u2014 bearded vultures, alpine flowers, and panoramic views.",
+    "tags": [
+      "Birding",
+      "Landscapes"
+    ],
+    "bestSeason": "Nov\u2013Mar",
     "fees": "From M50/day",
-    "difficulty": "Easy–Moderate"
+    "difficulty": "Easy\u2013Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.forestry.gov.ls/"
   },
   {
     "id": "hlane",
     "name": "Hlane Royal National Park",
     "country": "eswatini",
-    "description": "Eswatini's largest park — lions, rhinos, and guided game drives in royal bushveld.",
-    "tags": ["Big Five", "Guided drives"],
-    "bestSeason": "May–Sep",
+    "description": "Eswatini's largest park \u2014 lions, rhinos, and guided game drives in royal bushveld.",
+    "tags": [
+      "Big Five",
+      "Guided drives"
+    ],
+    "bestSeason": "May\u2013Sep",
     "fees": "From E250/day",
-    "difficulty": "Easy"
+    "difficulty": "Easy",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.biggameparks.org/"
   },
   {
     "id": "mlilwane",
     "name": "Mlilwane Wildlife Sanctuary",
     "country": "eswatini",
-    "description": "Eswatini's pioneer conservation area — walk or cycle among antelope, hippos, and crocodiles.",
-    "tags": ["Walking", "Family-friendly"],
+    "description": "Eswatini's pioneer conservation area \u2014 walk or cycle among antelope, hippos, and crocodiles.",
+    "tags": [
+      "Walking",
+      "Family-friendly"
+    ],
     "bestSeason": "Year-round",
     "fees": "From E80/day",
-    "difficulty": "Easy"
+    "difficulty": "Easy",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.biggameparks.org/"
   },
   {
     "id": "malolotja",
     "name": "Malolotja Nature Reserve",
     "country": "eswatini",
-    "description": "Pristine montane wilderness — canopy tours, hiking trails, and the Malolotja Falls.",
-    "tags": ["Hiking", "Adventure"],
-    "bestSeason": "Apr–Oct",
+    "description": "Pristine montane wilderness \u2014 canopy tours, hiking trails, and the Malolotja Falls.",
+    "tags": [
+      "Hiking",
+      "Adventure"
+    ],
+    "bestSeason": "Apr\u2013Oct",
     "fees": "From E50/day",
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.biggameparks.org/"
   }
 ]

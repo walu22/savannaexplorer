@@ -2,181 +2,381 @@
   {
     "id": "vioolsdrift",
     "name": "Vioolsdrift / Noordoewer",
-    "countries": ["south-africa", "namibia"],
-    "route": "N7 Cape Town → Windhoek",
+    "countries": [
+      "south-africa",
+      "namibia"
+    ],
+    "route": "N7 Cape Town \u2192 Windhoek",
     "hours": "24 hours",
-    "typicalWait": "15–45 min",
+    "typicalWait": "15\u201345 min",
     "vehicleCrossing": true,
-    "fees": "R200–R400 vehicle fees",
-    "documents": ["Valid passport", "Vehicle registration", "ZA sticker", "Cross-border letter if financed"],
-    "tips": ["Quietest major SA–Namibia crossing", "Orange River bridge — scenic stop", "Fuel up before crossing"]
+    "fees": "R200\u2013R400 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "ZA sticker",
+      "Cross-border letter if financed"
+    ],
+    "tips": [
+      "Quietest major SA\u2013Namibia crossing",
+      "Orange River bridge \u2014 scenic stop",
+      "Fuel up before crossing"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://mha.gov.na/"
   },
   {
     "id": "martins-drift",
     "name": "Martin's Drift",
-    "countries": ["south-africa", "botswana"],
-    "route": "N1 north → central Botswana",
-    "hours": "06:00–22:00",
-    "typicalWait": "30–90 min",
+    "countries": [
+      "south-africa",
+      "botswana"
+    ],
+    "route": "N1 north \u2192 central Botswana",
+    "hours": "06:00\u201322:00",
+    "typicalWait": "30\u201390 min",
     "vehicleCrossing": true,
-    "fees": "R200–R500 vehicle + road tax",
-    "documents": ["Valid passport", "Vehicle registration", "Proof of insurance", "Cross-border permit if rented"],
-    "tips": ["Standard entry for the overland loop", "Busy during school holidays", "No fresh meat/dairy into Botswana"]
+    "fees": "R200\u2013R500 vehicle + road tax",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "Proof of insurance",
+      "Cross-border permit if rented"
+    ],
+    "tips": [
+      "Standard entry for the overland loop",
+      "Busy during school holidays",
+      "No fresh meat/dairy into Botswana"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.gov.bw/"
   },
   {
     "id": "beitbridge",
     "name": "Beitbridge",
-    "countries": ["south-africa", "zimbabwe"],
-    "route": "N1 → Harare / Victoria Falls",
+    "countries": [
+      "south-africa",
+      "zimbabwe"
+    ],
+    "route": "N1 \u2192 Harare / Victoria Falls",
     "hours": "24 hours",
-    "typicalWait": "1–3 hours (peak)",
+    "typicalWait": "1\u20133 hours (peak)",
     "vehicleCrossing": true,
-    "fees": "R300–R600+ vehicle fees",
-    "documents": ["Valid passport", "Vehicle registration", "Third-party insurance", "Temporary import permit"],
-    "tips": ["Busiest border in Southern Africa", "Cross early morning on weekdays", "Have every document ready before the queue"]
+    "fees": "R300\u2013R600+ vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "Third-party insurance",
+      "Temporary import permit"
+    ],
+    "tips": [
+      "Busiest border in Southern Africa",
+      "Cross early morning on weekdays",
+      "Have every document ready before the queue"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.evisa.gov.zw/"
   },
   {
     "id": "kazungula",
     "name": "Kazungula Bridge",
-    "countries": ["botswana", "zambia", "zimbabwe"],
+    "countries": [
+      "botswana",
+      "zambia",
+      "zimbabwe"
+    ],
     "route": "Chobe day trips / Victoria Falls circuit",
-    "hours": "06:00–20:00",
-    "typicalWait": "30–90 min",
+    "hours": "06:00\u201320:00",
+    "typicalWait": "30\u201390 min",
     "vehicleCrossing": true,
-    "fees": "R200–R500 per vehicle",
-    "documents": ["Valid passport", "KAZA UniVisa or valid visas", "Vehicle papers if driving"],
-    "tips": ["Bridge replaced the old pontoon in 2021", "Gateway to Chobe from Victoria Falls", "Popular for same-day Chobe safaris"]
+    "fees": "R200\u2013R500 per vehicle",
+    "documents": [
+      "Valid passport",
+      "KAZA UniVisa or valid visas",
+      "Vehicle papers if driving"
+    ],
+    "tips": [
+      "Bridge replaced the old pontoon in 2021",
+      "Gateway to Chobe from Victoria Falls",
+      "Popular for same-day Chobe safaris"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.zambiaimmigration.gov.zm/"
   },
   {
     "id": "vic-falls-bridge",
     "name": "Victoria Falls Bridge",
-    "countries": ["zimbabwe", "zambia"],
-    "route": "Victoria Falls town ↔ Livingstone",
-    "hours": "06:00–20:00",
-    "typicalWait": "15–30 min",
+    "countries": [
+      "zimbabwe",
+      "zambia"
+    ],
+    "route": "Victoria Falls town \u2194 Livingstone",
+    "hours": "06:00\u201320:00",
+    "typicalWait": "15\u201330 min",
     "vehicleCrossing": false,
     "fees": "Walk across free; day visa may apply",
-    "documents": ["Valid passport", "KAZA UniVisa or single/double-entry visa"],
-    "tips": ["Most photographed border in Africa", "Bungee jumping available on the bridge", "UniVisa covers both sides for 30 days"]
+    "documents": [
+      "Valid passport",
+      "KAZA UniVisa or single/double-entry visa"
+    ],
+    "tips": [
+      "Most photographed border in Africa",
+      "Bungee jumping available on the bridge",
+      "UniVisa covers both sides for 30 days"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.kazavisa.info/"
   },
   {
     "id": "ngoma",
     "name": "Ngoma Bridge",
-    "countries": ["namibia", "botswana"],
-    "route": "Caprivi / Zambezi region → Chobe",
-    "hours": "06:00–18:00",
-    "typicalWait": "20–60 min",
+    "countries": [
+      "namibia",
+      "botswana"
+    ],
+    "route": "Caprivi / Zambezi region \u2192 Chobe",
+    "hours": "06:00\u201318:00",
+    "typicalWait": "20\u201360 min",
     "vehicleCrossing": true,
-    "fees": "R200–R400 vehicle fees",
-    "documents": ["Valid passport", "Vehicle registration", "Veterinary check possible"],
-    "tips": ["Foot-and-mouth controls common", "No fresh meat into Botswana", "Links Caprivi Strip to Kasane"]
+    "fees": "R200\u2013R400 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "Veterinary check possible"
+    ],
+    "tips": [
+      "Foot-and-mouth controls common",
+      "No fresh meat into Botswana",
+      "Links Caprivi Strip to Kasane"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.gov.bw/"
   },
   {
     "id": "lebombo",
     "name": "Lebombo / Ressano Garcia",
-    "countries": ["south-africa", "mozambique"],
-    "route": "Kruger → Maputo coast",
-    "hours": "06:00–22:00",
-    "typicalWait": "45–120 min",
+    "countries": [
+      "south-africa",
+      "mozambique"
+    ],
+    "route": "Kruger \u2192 Maputo coast",
+    "hours": "06:00\u201322:00",
+    "typicalWait": "45\u2013120 min",
     "vehicleCrossing": true,
-    "fees": "R200–R500 vehicle fees",
-    "documents": ["Valid passport", "Mozambique visa or e-visa", "Vehicle registration", "Insurance"],
-    "tips": ["Main gateway to Maputo and beaches", "Check Mozambique visa rules before travel", "Malaria prophylaxis recommended"]
+    "fees": "R200\u2013R500 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Mozambique visa or e-visa",
+      "Vehicle registration",
+      "Insurance"
+    ],
+    "tips": [
+      "Main gateway to Maputo and beaches",
+      "Check Mozambique visa rules before travel",
+      "Malaria prophylaxis recommended"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.evisa.gov.mz/"
   },
   {
     "id": "maseru-bridge",
     "name": "Maseru Bridge",
-    "countries": ["south-africa", "lesotho"],
-    "route": "Free State → Maseru",
+    "countries": [
+      "south-africa",
+      "lesotho"
+    ],
+    "route": "Free State \u2192 Maseru",
     "hours": "24 hours",
-    "typicalWait": "15–30 min",
+    "typicalWait": "15\u201330 min",
     "vehicleCrossing": true,
     "fees": "Minimal vehicle fees",
-    "documents": ["Valid passport", "Vehicle registration"],
-    "tips": ["Lesotho is visa-free for most visitors", "Mountain roads beyond border require caution", "Snow possible in winter"]
+    "documents": [
+      "Valid passport",
+      "Vehicle registration"
+    ],
+    "tips": [
+      "Lesotho is visa-free for most visitors",
+      "Mountain roads beyond border require caution",
+      "Snow possible in winter"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://homeaffairs.gov.ls/"
   },
   {
     "id": "oshoek",
     "name": "Oshoek / Ngwenya",
-    "countries": ["south-africa", "eswatini"],
-    "route": "Mpumalanga → Mbabane / Ezulwini",
-    "hours": "06:00–22:00",
-    "typicalWait": "15–45 min",
+    "countries": [
+      "south-africa",
+      "eswatini"
+    ],
+    "route": "Mpumalanga \u2192 Mbabane / Ezulwini",
+    "hours": "06:00\u201322:00",
+    "typicalWait": "15\u201345 min",
     "vehicleCrossing": true,
     "fees": "Minimal vehicle fees",
-    "documents": ["Valid passport", "Vehicle registration"],
-    "tips": ["Closest border to Kruger and Eswatini game reserves", "Often combined with Kingdom Circuit itineraries", "Eswatini uses the lilangeni (pegged to rand)"]
+    "documents": [
+      "Valid passport",
+      "Vehicle registration"
+    ],
+    "tips": [
+      "Closest border to Kruger and Eswatini game reserves",
+      "Often combined with Kingdom Circuit itineraries",
+      "Eswatini uses the lilangeni (pegged to rand)"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.gov.sz/"
   },
   {
     "id": "nakonde",
     "name": "Nakonde / Tunduma",
-    "countries": ["zambia", "malawi"],
-    "route": "Lusaka → Lilongwe corridor",
-    "hours": "06:00–18:00",
-    "typicalWait": "30–90 min",
+    "countries": [
+      "zambia",
+      "malawi"
+    ],
+    "route": "Lusaka \u2192 Lilongwe corridor",
+    "hours": "06:00\u201318:00",
+    "typicalWait": "30\u201390 min",
     "vehicleCrossing": true,
-    "fees": "$20–$50 vehicle fees",
-    "documents": ["Valid passport", "Zambia e-visa if required", "Malawi e-visa if required", "Vehicle papers"],
-    "tips": ["Key link for Lake Malawi itineraries", "Allow extra time for cargo traffic", "Check both countries' e-visa portals"]
+    "fees": "$20\u2013$50 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Zambia e-visa if required",
+      "Malawi e-visa if required",
+      "Vehicle papers"
+    ],
+    "tips": [
+      "Key link for Lake Malawi itineraries",
+      "Allow extra time for cargo traffic",
+      "Check both countries' e-visa portals"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.immigration.gov.mw/"
   },
   {
     "id": "chirundu",
     "name": "Chirundu",
-    "countries": ["zambia", "zimbabwe"],
-    "route": "Lusaka → Harare",
-    "hours": "06:00–18:00",
-    "typicalWait": "30–60 min",
+    "countries": [
+      "zambia",
+      "zimbabwe"
+    ],
+    "route": "Lusaka \u2192 Harare",
+    "hours": "06:00\u201318:00",
+    "typicalWait": "30\u201360 min",
     "vehicleCrossing": true,
-    "fees": "$20–$50 vehicle fees",
-    "documents": ["Valid passport", "KAZA UniVisa or valid visas", "Vehicle registration"],
-    "tips": ["Zambezi River crossing on the Lusaka–Harare route", "Less busy than Beitbridge", "Malaria zone — take precautions"]
+    "fees": "$20\u2013$50 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "KAZA UniVisa or valid visas",
+      "Vehicle registration"
+    ],
+    "tips": [
+      "Zambezi River crossing on the Lusaka\u2013Harare route",
+      "Less busy than Beitbridge",
+      "Malaria zone \u2014 take precautions"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.zambiaimmigration.gov.zm/"
   },
   {
     "id": "plumtree",
     "name": "Plumtree / Ramokgwebana",
-    "countries": ["botswana", "zimbabwe"],
-    "route": "Bulawayo → Francistown",
-    "hours": "06:00–18:00",
-    "typicalWait": "20–45 min",
+    "countries": [
+      "botswana",
+      "zimbabwe"
+    ],
+    "route": "Bulawayo \u2192 Francistown",
+    "hours": "06:00\u201318:00",
+    "typicalWait": "20\u201345 min",
     "vehicleCrossing": true,
-    "fees": "R200–R400 vehicle fees",
-    "documents": ["Valid passport", "Valid visas", "Vehicle registration", "Insurance"],
-    "tips": ["Useful for Zimbabwe–Botswana overland routes", "Quieter than Kazungula for some itineraries", "Fuel available in Plumtree town"]
+    "fees": "R200\u2013R400 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Valid visas",
+      "Vehicle registration",
+      "Insurance"
+    ],
+    "tips": [
+      "Useful for Zimbabwe\u2013Botswana overland routes",
+      "Quieter than Kazungula for some itineraries",
+      "Fuel available in Plumtree town"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.zimparks.org/"
   },
   {
     "id": "mamuno",
     "name": "Mamuno / Trans-Kalahari",
-    "countries": ["namibia", "botswana"],
-    "route": "Windhoek → Gaborone (Trans-Kalahari Highway)",
-    "hours": "06:00–22:00",
-    "typicalWait": "20–45 min",
+    "countries": [
+      "namibia",
+      "botswana"
+    ],
+    "route": "Windhoek \u2192 Gaborone (Trans-Kalahari Highway)",
+    "hours": "06:00\u201322:00",
+    "typicalWait": "20\u201345 min",
     "vehicleCrossing": true,
-    "fees": "R200–R400 vehicle fees",
-    "documents": ["Valid passport", "Vehicle registration", "Insurance"],
-    "tips": ["Paved highway through the Kalahari", "Fastest Windhoek–Gaborone route", "Watch for wildlife near the road at dusk"]
+    "fees": "R200\u2013R400 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "Insurance"
+    ],
+    "tips": [
+      "Paved highway through the Kalahari",
+      "Fastest Windhoek\u2013Gaborone route",
+      "Watch for wildlife near the road at dusk"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://mha.gov.na/"
   },
   {
     "id": "pafuri-sengwe",
-    "name": "Pafuri–Sengwe (Gonarezhou)",
-    "countries": ["south-africa", "zimbabwe"],
-    "route": "Kruger → Gonarezhou (tourism corridor)",
-    "hours": "Seasonal — check SANParks",
-    "typicalWait": "45–90 min",
+    "name": "Pafuri\u2013Sengwe (Gonarezhou)",
+    "countries": [
+      "south-africa",
+      "zimbabwe"
+    ],
+    "route": "Kruger \u2192 Gonarezhou (tourism corridor)",
+    "hours": "Seasonal \u2014 check SANParks",
+    "typicalWait": "45\u201390 min",
     "vehicleCrossing": true,
     "fees": "Park fees + border fees",
-    "documents": ["Valid passport", "Pre-booked 4-night itinerary", "4x4 vehicle", "SANParks & ZIMParks registration"],
-    "tips": ["Tourism-only pilot crossing", "4x4 mandatory", "Must book minimum 4 nights in advance", "Remote wilderness experience"]
+    "documents": [
+      "Valid passport",
+      "Pre-booked 4-night itinerary",
+      "4x4 vehicle",
+      "SANParks & ZIMParks registration"
+    ],
+    "tips": [
+      "Tourism-only pilot crossing",
+      "4x4 mandatory",
+      "Must book minimum 4 nights in advance",
+      "Remote wilderness experience"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.sanparks.org/"
   },
   {
     "id": "wenela",
     "name": "Wenela / Sesheke",
-    "countries": ["zambia", "namibia"],
-    "route": "Caprivi ↔ western Zambia",
-    "hours": "06:00–18:00",
-    "typicalWait": "20–45 min",
+    "countries": [
+      "zambia",
+      "namibia"
+    ],
+    "route": "Caprivi \u2194 western Zambia",
+    "hours": "06:00\u201318:00",
+    "typicalWait": "20\u201345 min",
     "vehicleCrossing": true,
-    "fees": "$20–$40 vehicle fees",
-    "documents": ["Valid passport", "Vehicle registration"],
-    "tips": ["Useful for Caprivi–Kafue corridor", "Ferry or bridge depending on season — verify locally", "Remote but scenic route"]
+    "fees": "$20\u2013$40 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration"
+    ],
+    "tips": [
+      "Useful for Caprivi\u2013Kafue corridor",
+      "Ferry or bridge depending on season \u2014 verify locally",
+      "Remote but scenic route"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://mha.gov.na/"
   }
 ]

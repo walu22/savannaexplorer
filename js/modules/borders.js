@@ -34,6 +34,7 @@ function renderBorderCard(border) {
                     <h4>Local tips</h4>
                     <ul>${tips}</ul>
                 </div>
+                ${border.sourceUrl ? `<a class="data-source-link" href="${border.sourceUrl}" target="_blank" rel="noopener noreferrer">Border info source · verified ${border.lastVerified || '—'}</a>` : ''}
             </div>
         </article>
     `;
