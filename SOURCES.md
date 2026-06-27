@@ -4,6 +4,8 @@ This document records where practical travel data comes from and how we keep con
 
 **Last reviewed:** March 2026
 
+A visitor-facing summary also lives on the site at **About This Site** (`#about` / `#about-sources`).
+
 ## Editorial policy
 
 - Descriptions, tips, and narratives are **written in our own words**.

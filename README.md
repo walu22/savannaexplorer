@@ -1,6 +1,10 @@
 # Savanna Explorer
 
-Southern Africa tourism guide — country pages, itineraries, parks, and trip planning.
+Southern Africa independent travel planning hub — country guides, route templates, parks, borders, and official resource links.
+
+## About this site
+
+On the live site, open **About This Site** (`#about`) for our editorial policy, data sourcing, partner guidelines, and hub FAQs (including “Can you book my trip?”). Developer reference: `SOURCES.md` and `data/about.json`.
 
 ## Local preview (required after June 2026 refactor)
 

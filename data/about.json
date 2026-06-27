@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "lastReviewed": "2026-03"
+  },
+  "intro": {
+    "eyebrow": "About This Site",
+    "title": "An Independent Southern Africa Planning Hub",
+    "lead": "Savanna Explorer is a free editorial reference for researching trips across nine countries. We help you compare destinations, understand visas and borders, and find official booking links — then you arrange travel directly with parks, lodges, and local operators."
+  },
+  "publish": {
+    "title": "What we publish",
+    "items": [
+      "Country guides with geography, culture, seasons, and practical travel advice",
+      "Route templates and day-by-day itineraries you adapt to your own dates",
+      "National park and border crossing guides with official source links",
+      "Travel tools: visa matrix, currency converter, packing lists, and health zones",
+      "Activity inspiration with typical cost bands — not live availability or quotes"
+    ]
+  },
+  "dont": {
+    "title": "What we don't do",
+    "items": [
+      "Sell tours, take payments, or act as a travel agent",
+      "Provide personalised quotes, bookings, or on-trip support",
+      "Guarantee visa outcomes, park availability, or operator quality",
+      "Replace official government immigration, health, or safety advisories"
+    ]
+  },
+  "howToUse": {
+    "title": "How to plan your trip here",
+    "steps": [
+      {
+        "icon": "fa-map-marked-alt",
+        "title": "Pick countries & regions",
+        "desc": "Browse destination cards and country pages to compare parks, seasons, and entry rules."
+      },
+      {
+        "icon": "fa-route",
+        "title": "Choose a route template",
+        "desc": "Open an itinerary for pacing ideas — budgets shown are planning estimates, not quotes."
+      },
+      {
+        "icon": "fa-tools",
+        "title": "Use travel tools",
+        "desc": "Check the visa matrix, borders guide, and currency converter before you commit to dates."
+      },
+      {
+        "icon": "fa-external-link-alt",
+        "title": "Book with official sources",
+        "desc": "Use country resource links for SANParks, immigration portals, and park authorities."
+      }
+    ]
+  },
+  "dataPolicy": {
+    "title": "How we source information",
+    "paragraphs": [
+      "Descriptions, tips, and narratives are written in our own words. Facts such as fees, hours, and visa categories are taken from official or primary sources and tagged with lastVerified dates and sourceUrl fields in our data files where possible.",
+      "We do not copy text from commercial guidebooks or other tourism websites. Rules change frequently — always confirm requirements with the relevant authority before you travel."
+    ],
+    "principles": [
+      "Original editorial copy informed by official tourism and immigration sites",
+      "Per-item source links on parks, borders, and visa rows",
+      "Indicative budgets and price bands for planning only",
+      "Quarterly review target for visa data; annual review for park fees"
+    ]
+  },
+  "dataFiles": [
+    { "file": "Parks & reserves", "content": "Fees, seasons, gate hours", "sources": "SANParks, NWR, Zimparks, Malawi Parks, etc." },
+    { "file": "Border crossings", "content": "Hours, documents, typical waits", "sources": "National immigration authorities" },
+    { "file": "Visa & health matrix", "content": "Entry categories and health notes", "sources": "Government immigration portals" },
+    { "file": "Country guides", "content": "Attractions, advice, routes", "sources": "Original editorial + official tourism boards" },
+    { "file": "Itineraries", "content": "Route templates and budgets", "sources": "Original editorial planning notes" },
+    { "file": "Marketplace inspiration", "content": "Activity ideas and cost bands", "sources": "Official tourism links per item" }
+  ],
+  "maintenance": [
+    { "type": "Visa & entry rules", "frequency": "Quarterly" },
+    { "type": "Park fees & gate hours", "frequency": "Annually" },
+    { "type": "Border hours & fees", "frequency": "Annually" },
+    { "type": "Health zone summaries", "frequency": "Annually" }
+  ],
+  "partners": {
+    "title": "Corrections, partners & listings",
+    "paragraphs": [
+      "We welcome factual corrections, broken-link reports, and suggestions for community lodges or ethical operators worth mentioning.",
+      "We do not sell placement, charge commission, or accept payment for listings. Suggestions are reviewed for editorial fit and must be useful to independent travellers."
+    ],
+    "topics": [
+      { "label": "Data correction", "desc": "Outdated visa rule, park fee, or border hour" },
+      { "label": "Partner suggestion", "desc": "Community lodge, conservancy, or ethical operator" },
+      { "label": "Site feedback", "desc": "Usability, missing content, or broken links" }
+    ],
+    "contactHref": "#contact"
+  },
+  "hubFaqs": [
+    {
+      "q": "Can you book my trip?",
+      "a": "No. Savanna Explorer is an independent planning reference only. We do not sell tours, take payments, or make reservations on your behalf. Use official park booking sites (such as SANParks or Namibia Wildlife Resorts), immigration portals, and local operators linked from our country pages."
+    },
+    {
+      "q": "Are itinerary prices real quotes?",
+      "a": "No. Typical budgets on route templates are planning estimates to help you compare trip styles — they are not live quotes from us or any operator. Costs vary by season, accommodation choice, and how you book."
+    },
+    {
+      "q": "How do marketplace activity cards work?",
+      "a": "They are inspiration only. Each card shows a typical cost band, a planning tip, and a link to an official tourism or park authority. You book activities directly with licensed operators when you travel."
+    },
+    {
+      "q": "How often is visa information updated?",
+      "a": "We aim to review visa and entry data quarterly. Each country row in the travel tools visa matrix links to an official immigration source with a last verified date. Always confirm rules for your passport before booking flights."
+    },
+    {
+      "q": "Can lodges or operators pay to be listed?",
+      "a": "No. We do not sell listings or charge commission. Partner suggestions are accepted via the contact form for editorial review — we only include operators that are useful for independent travellers."
+    },
+    {
+      "q": "How do I report an error?",
+      "a": "Use the contact form and choose \"Data correction\". Include the page, what looks wrong, and a link to an official source if you have one. We prioritise visa, fee, and border information."
+    },
+    {
+      "q": "Is Savanna Explorer affiliated with a tour company?",
+      "a": "No. We are an editorial travel planning site with no booking backend, no travel-agent licence, and no commercial tour operation."
+    },
+    {
+      "q": "Where should I start planning a self-drive safari?",
+      "a": "Pick a country page, read the Travelling tab for visas and official resource links, browse a route template under Itineraries, then use the Border Crossings and National Parks sections to book camps and plan crossings yourself."
+    }
+  ]
+}

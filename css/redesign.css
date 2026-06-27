@@ -637,6 +637,278 @@ body.site-v2 .itin-arrange-yourself h4 {
     color: #8a5a2b;
 }
 
+/* --- About section --- */
+body.site-v2 .about-section {
+    padding: var(--section-pad) 0;
+    background: var(--bg-light);
+}
+
+body.site-v2 .about-lead {
+    max-width: 46rem;
+    margin: 0.75rem auto 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+body.site-v2 .about-publish-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+}
+
+body.site-v2 .about-publish-card {
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+    background: white;
+}
+
+body.site-v2 .about-publish-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+body.site-v2 .about-publish-card--yes h3 i { color: #2d7a2d; }
+body.site-v2 .about-publish-card--no h3 i { color: #a04545; }
+
+body.site-v2 .about-bullet-list {
+    margin: 0;
+    padding-left: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+body.site-v2 .about-bullet-list li {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+}
+
+body.site-v2 .about-block {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+body.site-v2 .about-block-title {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.25rem;
+    color: var(--accent);
+}
+
+body.site-v2 .about-how-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+body.site-v2 .about-step-card {
+    position: relative;
+    padding: 1.25rem 1.15rem 1.35rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+    background: white;
+}
+
+body.site-v2 .about-step-num {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    opacity: 0.55;
+}
+
+body.site-v2 .about-step-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius-md);
+    background: var(--bg-warm);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.85rem;
+}
+
+body.site-v2 .about-step-card h3 {
+    font-size: 0.98rem;
+    margin-bottom: 0.45rem;
+    color: var(--accent);
+}
+
+body.site-v2 .about-step-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+}
+
+body.site-v2 .about-data-intro p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin: 0 0 1rem;
+}
+
+body.site-v2 .about-principles-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1.5rem;
+    margin: 0 0 1.5rem;
+    padding-left: 1.15rem;
+}
+
+body.site-v2 .about-principles-list li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+body.site-v2 .about-data-table {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: white;
+}
+
+body.site-v2 .about-data-table-head,
+body.site-v2 .about-data-table-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1.2fr 1.2fr;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    font-size: 0.85rem;
+}
+
+body.site-v2 .about-data-table-head {
+    background: var(--bg-warm);
+    font-weight: 700;
+    color: var(--accent);
+}
+
+body.site-v2 .about-data-table-row {
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    line-height: 1.45;
+}
+
+body.site-v2 .about-maintenance {
+    margin-top: 1.25rem;
+    padding: 1rem 1.15rem;
+    border-radius: var(--radius-md);
+    background: var(--bg-warm);
+}
+
+body.site-v2 .about-maintenance h4 {
+    margin: 0 0 0.65rem;
+    font-size: 0.95rem;
+    color: var(--accent);
+}
+
+body.site-v2 .about-maintenance ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+body.site-v2 .about-maintenance li {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+body.site-v2 .about-reviewed {
+    margin: 0.75rem 0 0;
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+body.site-v2 .about-partners-copy p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin: 0 0 0.85rem;
+}
+
+body.site-v2 .about-partner-topics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+}
+
+body.site-v2 .about-partner-topic {
+    padding: 0.9rem 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+body.site-v2 .about-partner-topic strong {
+    font-size: 0.92rem;
+    color: var(--accent);
+}
+
+body.site-v2 .about-partner-topic span {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+}
+
+body.site-v2 .about-faq-intro {
+    margin: -0.5rem 0 1rem;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+body.site-v2 .about-hub-faq-list {
+    max-width: 52rem;
+}
+
+body.site-v2 .footer-disclaimer a {
+    color: var(--primary-light);
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    body.site-v2 .about-publish-grid,
+    body.site-v2 .about-how-grid,
+    body.site-v2 .about-partner-topics {
+        grid-template-columns: 1fr;
+    }
+
+    body.site-v2 .about-principles-list {
+        grid-template-columns: 1fr;
+    }
+
+    body.site-v2 .about-data-table-head,
+    body.site-v2 .about-data-table-row {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+    }
+
+    body.site-v2 .about-data-table-head span:not(:first-child),
+    body.site-v2 .about-data-table-row span:not(:first-child) {
+        font-size: 0.8rem;
+    }
+}
+
 /* --- Footer v4 --- */
 body.site-v2 footer {
     background: var(--bg-dark);

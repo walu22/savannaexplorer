@@ -10,6 +10,7 @@ import { initNewsletter } from './modules/newsletter.js';
 import { initParks } from './modules/parks.js';
 import { initBorders } from './modules/borders.js';
 import { initDiscover } from './modules/discover.js';
+import { initAbout } from './modules/about.js';
 import { initHealth } from './modules/health.js';
 import { initEvents } from './modules/events.js';
 import { initDestinations } from './modules/destinations.js';
@@ -34,4 +35,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initHealth();
     initEvents();
     initDiscover();
+    initAbout();
 });
