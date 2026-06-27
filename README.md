@@ -56,11 +56,48 @@ The old root files `main.js`, `country-guide.js`, and `itinerary-data.js` were r
 ### Production build
 
 ```powershell
+$env:VITE_SITE_URL="https://savannaexplorer.com"
 npm run build
 npm run preview
 ```
 
 Preview runs at **http://localhost:4173** by default.
+
+### Deploy to https://savannaexplorer.com
+
+Production runs on a **Hostinger VPS** (nginx). The live site is updated by uploading the Vite `dist/` folder — there is no auto-deploy until GitHub Actions secrets are configured.
+
+#### Option A — GitHub Actions (recommended)
+
+1. In GitHub → **Settings → Secrets and variables → Actions**, add:
+
+   | Secret | Example |
+   |--------|---------|
+   | `DEPLOY_HOST` | `31.97.56.157` or `savannaexplorer.com` |
+   | `DEPLOY_USER` | SSH user from Hostinger hPanel (often `root` or your VPS user) |
+   | `DEPLOY_PATH` | Web root, e.g. `/home/u123456789/domains/savannaexplorer.com/public_html` |
+   | `DEPLOY_SSH_KEY` | Private key (PEM) that matches the public key on the VPS |
+   | `VITE_SUPABASE_URL` | (optional) defaults match `scripts/setup-env.mjs` |
+   | `VITE_SUPABASE_ANON_KEY` | (optional) publishable anon key |
+
+2. Merge to `master` or run **Actions → Deploy to production → Run workflow**.
+
+3. Confirm the footer shows **v4.13.0** and `/countries/namibia` loads after a hard refresh.
+
+#### Option B — Manual rsync from your machine
+
+```powershell
+$env:VITE_SITE_URL="https://savannaexplorer.com"
+npm run build
+$env:DEPLOY_HOST="31.97.56.157"
+$env:DEPLOY_USER="YOUR_SSH_USER"
+$env:DEPLOY_PATH="/path/to/public_html"
+npm run deploy:rsync
+```
+
+#### nginx SPA routing
+
+After the first Vite deploy, ensure nginx serves `index.html` for client routes (`/countries/*`). See `deploy/nginx-savannaexplorer.conf` and reload nginx after editing.
 
 ## Supabase (optional backend)
 
