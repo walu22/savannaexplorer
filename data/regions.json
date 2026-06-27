@@ -212,67 +212,93 @@
       "name": "Lake Malawi South",
       "desc": "Cape Maclear snorkelling, beach lodges, and lakeside villages.",
       "spots": [
-        "Nsumbu & Lake Tanganyika"
+        "Lake Malawi (UNESCO)"
       ]
     },
     {
       "name": "Liwonde & Shire Valley",
       "desc": "Boat safaris with elephants and crocs on the Shire River.",
-      "spots": []
+      "spots": [
+        "Liwonde National Park"
+      ]
     },
     {
       "name": "Nyika Plateau",
       "desc": "Rolling grasslands, zebras, and wild orchids at altitude.",
-      "spots": []
+      "spots": [
+        "Nyika Plateau"
+      ]
     },
     {
       "name": "Lilongwe & Central",
       "desc": "Capital markets, craft centres, and gateway to the lake.",
-      "spots": []
+      "spots": [
+        "Majete Wildlife Reserve",
+        "Mount Mulanje"
+      ]
     }
   ],
   "lesotho": [
     {
       "name": "Sani Pass & Drakensberg",
       "desc": "Iconic 4x4 pass and highest pub in Africa at the summit.",
-      "spots": []
+      "spots": [
+        "Sani Pass"
+      ]
     },
     {
       "name": "Malealea & Highlands",
       "desc": "Pony trekking through Basotho villages and mountain valleys.",
-      "spots": []
+      "spots": [
+        "Maletsunyane Falls",
+        "Sehlabathebe National Park"
+      ]
     },
     {
       "name": "Afriski & Oxbow",
       "desc": "Winter skiing and summer mountain biking on the plateau.",
-      "spots": []
+      "spots": [
+        "Sehlabathebe National Park"
+      ]
     },
     {
       "name": "Katse Dam & Bokong",
       "desc": "Engineering marvel and plateau vulture viewpoints.",
-      "spots": []
+      "spots": [
+        "Katse Dam",
+        "Thaba Bosiu"
+      ]
     }
   ],
   "eswatini": [
     {
       "name": "Hlane & Lowveld",
       "desc": "Lions, rhinos, and big game in royal bushveld.",
-      "spots": []
+      "spots": [
+        "Hlane Royal National Park"
+      ]
     },
     {
       "name": "Mlilwane Sanctuary",
-      "desc": "Walk and cycle among antelope \u2014 Eswatini's pioneer reserve.",
-      "spots": []
+      "desc": "Walk and cycle among antelope — Eswatini's pioneer reserve.",
+      "spots": [
+        "Mlilwane Wildlife Sanctuary"
+      ]
     },
     {
       "name": "Ezulwini Valley",
       "desc": "Craft markets, cultural villages, and valley lodges near Mbabane.",
-      "spots": []
+      "spots": [
+        "Mantenga Cultural Village",
+        "Ngwenya Glass & Craft Markets"
+      ]
     },
     {
       "name": "Malolotja Highlands",
       "desc": "Canopy tours, hiking trails, and montane wilderness.",
-      "spots": []
+      "spots": [
+        "Mkhaya Game Reserve"
+      ]
     }
   ]
 }

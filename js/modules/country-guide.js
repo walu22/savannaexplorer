@@ -286,6 +286,12 @@ export function initCountryGuide() {
 
     window.addEventListener('hashchange', handleRouting);
     handleRouting();
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !detailView.classList.contains('hidden')) {
+            closeCountryPage('destinations');
+        }
+    });
 }
 
 export { closeCountryPage };
