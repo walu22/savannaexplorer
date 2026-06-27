@@ -625,6 +625,38 @@ body.site-v2 .newsletter h2 {
     font-style: italic;
 }
 
+body.site-v2 .newsletter .form-feedback {
+    color: white;
+    margin-top: 1rem;
+}
+
+/* --- Form feedback --- */
+.form-feedback {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm, 8px);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.form-feedback--success {
+    background: rgba(34, 139, 34, 0.12);
+    color: #1a6b1a;
+    border: 1px solid rgba(34, 139, 34, 0.25);
+}
+
+.form-feedback--error {
+    background: rgba(200, 50, 50, 0.1);
+    color: #a32020;
+    border: 1px solid rgba(200, 50, 50, 0.25);
+}
+
+.form-feedback--info {
+    background: rgba(0, 80, 160, 0.08);
+    color: #1a4d80;
+    border: 1px solid rgba(0, 80, 160, 0.2);
+}
+
 /* --- Modals --- */
 body.site-v2 .modal-container {
     border-radius: var(--radius-lg);

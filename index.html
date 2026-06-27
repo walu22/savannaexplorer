@@ -645,10 +645,11 @@
         <div class="container">
             <h2>Get Traveler Updates</h2>
             <p>Join our newsletter for insider tips, exclusive offers, and the latest travel news from Southern Africa.</p>
-            <form class="signup-form">
-                <input type="email" placeholder="Your Email Address" required>
+            <form class="signup-form" id="newsletter-form">
+                <input type="email" id="newsletter-email" placeholder="Your Email Address" required>
                 <button type="submit" class="btn">Subscribe</button>
             </form>
+            <p class="form-feedback" id="newsletter-feedback" hidden></p>
         </div>
     </section>
 
@@ -725,6 +726,7 @@
                         <textarea id="q-message" rows="4" placeholder="Preferred dates, countries, budget, special interests..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-paper-plane"></i> Send Quotation Request</button>
+                    <p class="form-feedback" id="quotation-feedback" hidden></p>
                 </form>
             </div>
         </div>
@@ -976,7 +978,6 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script type="module" src="/js/app.js"></script>
 </body>
 </html>

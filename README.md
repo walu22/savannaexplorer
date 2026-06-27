@@ -28,7 +28,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.0.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.2.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -53,6 +53,30 @@ npm run preview
 ```
 
 Preview runs at **http://localhost:4173** by default.
+
+## Supabase (optional backend)
+
+The site works offline with local JSON data. Connect **Supabase** to store marketplace listings, quotation requests, newsletter signups, and WhatsApp inquiry tracking.
+
+### Setup
+
+1. Create a free project at [supabase.com](https://supabase.com)
+2. Copy `.env.example` to `.env` and add your project URL and anon key (Dashboard → **Project Settings** → **API**)
+3. In the Supabase **SQL Editor**, run:
+   - `supabase/schema.sql` — creates tables and row-level security policies
+   - `supabase/seed.sql` — loads marketplace experiences
+4. Restart the dev server: `npm run dev`
+
+Without `.env`, forms fall back to **mailto** and marketplace data loads from `data/marketplace.json`.
+
+### Tables
+
+| Table | Purpose |
+|-------|---------|
+| `experiences` | Marketplace tours (public read) |
+| `inquiries` | WhatsApp inquiry tracking |
+| `quotations` | Contact / quote form submissions |
+| `newsletter_subscribers` | Email signups |
 
 ## Scripts
 

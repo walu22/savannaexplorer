@@ -1,29 +1,20 @@
 import marketplaceData from '../../data/marketplace.json';
-import { CONFIG, isSupabaseConfigured } from '../config.js';
-
-let supabaseClient = null;
-
-function initSupabase() {
-    if (!window.supabase || !isSupabaseConfigured()) return;
-    try {
-        supabaseClient = window.supabase.createClient(CONFIG.supabase.url, CONFIG.supabase.anonKey);
-    } catch {
-        console.warn('Supabase client not initialized. Using local JSON fallback.');
-    }
-}
+import { CONFIG } from '../config.js';
+import { getSupabaseClient } from '../lib/supabase.js';
 
 async function handleInquiry(id, title, duration, location) {
     const msg = `Hello, I'm interested in the ${title} (${duration}) in ${location}.\n\nPlease share:\n- Availability\n- Pricing details\n- What's included\n\nThank you.`;
 
-    if (supabaseClient) {
+    const supabase = getSupabaseClient();
+    if (supabase) {
         try {
-            await supabaseClient.from('inquiries').insert([{
-                experience_id: isNaN(id) ? null : id,
+            await supabase.from('inquiries').insert([{
+                experience_id: id || null,
                 message: msg,
                 source: 'whatsapp',
             }]);
         } catch (err) {
-            console.error('Tracking insertion failed:', err);
+            console.error('Inquiry tracking failed:', err);
         }
     }
 
@@ -41,9 +32,10 @@ async function openMarketplace(theme) {
     marketGrid.innerHTML = '<div style="color:white;text-align:center;width:100%;padding:2rem;">Fetching curated experiences...</div>';
 
     let items = [];
+    const supabase = getSupabaseClient();
 
-    if (supabaseClient) {
-        const { data, error } = await supabaseClient
+    if (supabase) {
+        const { data, error } = await supabase
             .from('experiences')
             .select('*')
             .eq('category', theme)
@@ -96,8 +88,6 @@ function closeMarketplace() {
 }
 
 export function initMarketplace() {
-    initSupabase();
-
     document.querySelectorAll('.market-close').forEach(btn => {
         btn.addEventListener('click', closeMarketplace);
     });

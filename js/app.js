@@ -6,6 +6,7 @@ import { initItineraries } from './modules/itineraries.js';
 import { initMarketplace } from './modules/marketplace.js';
 import { initUtilityHub } from './modules/utility-hub.js';
 import { initContact } from './modules/contact.js';
+import { initNewsletter } from './modules/newsletter.js';
 import { initParks } from './modules/parks.js';
 import { initBorders } from './modules/borders.js';
 import { initDiscover } from './modules/discover.js';
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMarketplace();
     initUtilityHub();
     initContact();
+    initNewsletter();
     initParks();
     initBorders();
     initDiscover();
