@@ -27,6 +27,8 @@ function renderParkCard(park) {
                 <span><i class="fa-solid fa-calendar"></i> ${park.bestSeason}</span>
                 <span><i class="fa-solid fa-ticket"></i> ${park.fees}</span>
             </div>
+            ${park.gateHours ? `<p class="park-gate-hours"><i class="fa-solid fa-clock"></i> ${park.gateHours}</p>` : ''}
+            ${park.feeDetail ? `<p class="park-fee-detail">${park.feeDetail}</p>` : ''}
             ${park.sourceUrl ? `<a class="data-source-link" href="${park.sourceUrl}" target="_blank" rel="noopener noreferrer">Fees source · verified ${park.lastVerified || '—'}</a>` : ''}
         </div>
     `;

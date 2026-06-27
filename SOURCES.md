@@ -16,6 +16,8 @@ This document records where practical travel data comes from and how we keep con
 | File | Content | Primary sources |
 |------|---------|-----------------|
 | `data/practical.json` | Utility hub: currency, visa/health matrix, seasons, typical weather, emergencies | Government immigration portals; XE.com (currency reference); WHO / national health advisories (health summaries) |
+| `data/health.json` | Malaria zones, yellow fever notes, regional health summaries | WHO malaria programme; national health ministries (reference) |
+| `data/events.json` | Festivals, wildlife peaks, seasonal highlights | National tourism boards; public event calendars |
 | `data/parks.json` | National park listings, fees, seasons | SANParks, Namibia Wildlife Resorts, Zimparks, Malawi Parks, etc. (`sourceUrl` per park) |
 | `data/borders.json` | Border crossing practical info | National immigration and cross-border authority pages (`sourceUrl` per crossing) |
 | `data/countries.json` | Country profiles, advice summaries | Original editorial copy informed by official tourism and immigration sites |
@@ -72,6 +74,8 @@ This document records where practical travel data comes from and how we keep con
 | Visa / entry | Quarterly |
 | Park fees | Annually (or when authorities publish changes) |
 | Border hours / fees | Annually |
+| Health zones | Annually |
+| Events calendar | Annually (before each travel season) |
 | Currency rates | Monthly (planning approximations only) |
 | Emergency numbers | Annually |
 

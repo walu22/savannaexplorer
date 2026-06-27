@@ -9,10 +9,12 @@
       "Self-drive"
     ],
     "bestSeason": "May\u2013Oct",
-    "fees": "From R440/day",
+    "fees": "From R486/day (SADC)",
     "difficulty": "Easy\u2013Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.sanparks.org/"
+    "sourceUrl": "https://www.sanparks.org/",
+    "feeDetail": "Standard conservation fee ~R486/day for international adults (2025/26 SANParks tariff). Wild Card available.",
+    "gateHours": "05:30\u201318:30 summer \u00b7 06:00\u201317:30 winter"
   },
   {
     "id": "table-mountain",
@@ -24,10 +26,12 @@
       "Hiking"
     ],
     "bestSeason": "Sep\u2013Apr",
-    "fees": "Cableway from R400",
+    "fees": "Cableway from R420",
     "difficulty": "Easy\u2013Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.sanparks.org/"
+    "sourceUrl": "https://www.sanparks.org/",
+    "feeDetail": "Table Mountain Cableway from ~R420 return (2025). Park entry at Boulders penguin beach separate.",
+    "gateHours": "Cableway: first car ~08:00"
   },
   {
     "id": "addo",
@@ -42,7 +46,9 @@
     "fees": "From R376/day",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.sanparks.org/"
+    "sourceUrl": "https://www.sanparks.org/",
+    "feeDetail": "Conservation fee ~R376/day international adults. Marine eco-tours extra.",
+    "gateHours": "07:00\u201319:00 (seasonal)"
   },
   {
     "id": "etosha",
@@ -54,10 +60,12 @@
       "Self-drive"
     ],
     "bestSeason": "Jul\u2013Oct",
-    "fees": "From N$100/day",
+    "fees": "From N$142/day",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.nwr.com.na/"
+    "sourceUrl": "https://www.nwr.com.na/",
+    "feeDetail": "NWR park fee ~N$142/person/day + N$30/vehicle (2025 rates).",
+    "gateHours": "Sunrise\u2013sunset; gates close strictly"
   },
   {
     "id": "namib-naukluft",
@@ -69,10 +77,12 @@
       "Photography"
     ],
     "bestSeason": "May\u2013Sep",
-    "fees": "From N$150/day",
+    "fees": "From N$142/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.nwr.com.na/"
+    "sourceUrl": "https://www.nwr.com.na/",
+    "feeDetail": "Sesriem/Sossusvlei access ~N$142/person + vehicle fee. Sossusvlei gate opens before sunrise for dune visits.",
+    "gateHours": "Sesriem gate ~06:00 (check NWR seasonal times)"
   },
   {
     "id": "skeleton-coast",
@@ -87,7 +97,9 @@
     "fees": "Permit required",
     "difficulty": "Advanced",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.nwr.com.na/"
+    "sourceUrl": "https://www.nwr.com.na/",
+    "feeDetail": "Restricted access \u2014 permit via NWR/Dorob-Skeleton Coast. Tour operators arrange access.",
+    "gateHours": "Permit-dependent"
   },
   {
     "id": "chobe",
@@ -102,7 +114,9 @@
     "fees": "From P120/day",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.gov.bw/tourism"
+    "sourceUrl": "https://www.gov.bw/tourism",
+    "feeDetail": "Park fee ~P120/person/day + P$10 vehicle (approx. 2025). River cruise fees separate.",
+    "gateHours": "06:00\u201318:30"
   },
   {
     "id": "moremi",
@@ -117,7 +131,9 @@
     "fees": "From P120/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.gov.bw/tourism"
+    "sourceUrl": "https://www.gov.bw/tourism",
+    "feeDetail": "Moremi Game Reserve fee ~P120/person/day. Mokoro trips booked via lodges.",
+    "gateHours": "06:00\u201318:30"
   },
   {
     "id": "central-kalahari",
@@ -132,7 +148,9 @@
     "fees": "From P50/day",
     "difficulty": "Advanced",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.gov.bw/tourism"
+    "sourceUrl": "https://www.gov.bw/tourism",
+    "feeDetail": "Lower park fees but remote \u2014 fuel and self-sufficiency essential.",
+    "gateHours": "06:00\u201318:30"
   },
   {
     "id": "south-luangwa",
@@ -144,10 +162,12 @@
       "Walking safari"
     ],
     "bestSeason": "May\u2013Oct",
-    "fees": "From $25/day",
+    "fees": "From $30/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.znp.co.zm/"
+    "sourceUrl": "https://www.znp.co.zm/",
+    "feeDetail": "Park fee ~$30/day international visitors. Walking safaris require licensed guide.",
+    "gateHours": "06:00\u201318:00"
   },
   {
     "id": "kafue",
@@ -162,7 +182,9 @@
     "fees": "From $20/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.znp.co.zm/"
+    "sourceUrl": "https://www.znp.co.zm/",
+    "feeDetail": "Park entry ~$20/day. Busanga Plains seasonal (dry season only).",
+    "gateHours": "06:00\u201318:00"
   },
   {
     "id": "lower-zambezi",
@@ -177,7 +199,9 @@
     "fees": "From $20/day",
     "difficulty": "Easy\u2013Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.znp.co.zm/"
+    "sourceUrl": "https://www.znp.co.zm/",
+    "feeDetail": "Park fee ~$20/day. Canoe safaris arranged via lodges.",
+    "gateHours": "06:00\u201318:00"
   },
   {
     "id": "hwange",
@@ -192,7 +216,9 @@
     "fees": "From $15/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.zimparks.org/"
+    "sourceUrl": "https://www.zimparks.org/",
+    "feeDetail": "Park fee ~$15/day. Main camp waterholes best at dry season dusk.",
+    "gateHours": "06:00\u201318:00"
   },
   {
     "id": "mana-pools",
@@ -207,7 +233,9 @@
     "fees": "From $15/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.zimparks.org/"
+    "sourceUrl": "https://www.zimparks.org/",
+    "feeDetail": "UNESCO wilderness \u2014 walking permits required. Book camps in advance.",
+    "gateHours": "06:00\u201318:00"
   },
   {
     "id": "gonarezhou",
@@ -222,7 +250,9 @@
     "fees": "From $15/day",
     "difficulty": "Advanced",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.zimparks.org/"
+    "sourceUrl": "https://www.zimparks.org/",
+    "feeDetail": "Remote 4x4 park. Chilojo Cliffs viewpoint highlight.",
+    "gateHours": "06:00\u201318:00"
   },
   {
     "id": "gorongosa",
@@ -237,7 +267,9 @@
     "fees": "From $20/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.anac.gov.mz/"
+    "sourceUrl": "https://www.anac.gov.mz/",
+    "feeDetail": "Park fee ~$20/day. Restoration success story \u2014 guided drives recommended.",
+    "gateHours": "06:00\u201318:00"
   },
   {
     "id": "bazaruto",
@@ -249,10 +281,12 @@
       "Diving"
     ],
     "bestSeason": "May\u2013Nov",
-    "fees": "Park fees vary",
+    "fees": "Park fee + lodge",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.anac.gov.mz/"
+    "sourceUrl": "https://www.anac.gov.mz/",
+    "feeDetail": "Marine park fees vary by activity. Dhow and dive permits through operators.",
+    "gateHours": "Boat-dependent"
   },
   {
     "id": "quirimbas",
@@ -264,10 +298,12 @@
       "Remote"
     ],
     "bestSeason": "May\u2013Dec",
-    "fees": "Park fees vary",
+    "fees": "Park fee + lodge",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.anac.gov.mz/"
+    "sourceUrl": "https://www.anac.gov.mz/",
+    "feeDetail": "Remote northern archipelago \u2014 fly-in lodges include park access.",
+    "gateHours": "Boat-dependent"
   },
   {
     "id": "liwonde",
@@ -282,7 +318,9 @@
     "fees": "From $25/day",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.malawiparks.org/"
+    "sourceUrl": "https://www.malawiparks.org/",
+    "feeDetail": "Park fee ~$25/day. Boat safaris on Shire River extra.",
+    "gateHours": "06:00\u201318:00"
   },
   {
     "id": "nyika",
@@ -297,7 +335,9 @@
     "fees": "From $20/day",
     "difficulty": "Easy\u2013Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.malawiparks.org/"
+    "sourceUrl": "https://www.malawiparks.org/",
+    "feeDetail": "Plateau park ~$20/day. Cool climate \u2014 pack layers.",
+    "gateHours": "06:00\u201318:00"
   },
   {
     "id": "lake-malawi",
@@ -312,7 +352,9 @@
     "fees": "From $10/day",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.malawiparks.org/"
+    "sourceUrl": "https://www.malawiparks.org/",
+    "feeDetail": "Lake shore park ~$10/day. Snorkelling fees at Cape Maclear.",
+    "gateHours": "06:00\u201318:00"
   },
   {
     "id": "sehlathebe",
@@ -327,7 +369,9 @@
     "fees": "From M100/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.forestry.gov.ls/"
+    "sourceUrl": "https://www.forestry.gov.ls/",
+    "feeDetail": "Remote highland park \u2014 4x4 recommended.",
+    "gateHours": "08:00\u201317:00"
   },
   {
     "id": "tsenhlanyane",
@@ -342,7 +386,9 @@
     "fees": "From M50/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.forestry.gov.ls/"
+    "sourceUrl": "https://www.forestry.gov.ls/",
+    "feeDetail": "Maloti Mountains entry ~M50/day.",
+    "gateHours": "08:00\u201317:00"
   },
   {
     "id": "bokong",
@@ -357,7 +403,9 @@
     "fees": "From M50/day",
     "difficulty": "Easy\u2013Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.forestry.gov.ls/"
+    "sourceUrl": "https://www.forestry.gov.ls/",
+    "feeDetail": "Katse Dam plateau reserve ~M50/day.",
+    "gateHours": "08:00\u201317:00"
   },
   {
     "id": "hlane",
@@ -372,7 +420,9 @@
     "fees": "From E250/day",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.biggameparks.org/"
+    "sourceUrl": "https://www.biggameparks.org/",
+    "feeDetail": "Big Game Parks fee ~E250/day. Guided drives for lion enclosure.",
+    "gateHours": "06:00\u201318:00"
   },
   {
     "id": "mlilwane",
@@ -387,7 +437,9 @@
     "fees": "From E80/day",
     "difficulty": "Easy",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.biggameparks.org/"
+    "sourceUrl": "https://www.biggameparks.org/",
+    "feeDetail": "Sanctuary entry ~E80/day. Walking and cycling included.",
+    "gateHours": "07:00\u201318:00"
   },
   {
     "id": "malolotja",
@@ -402,6 +454,8 @@
     "fees": "From E50/day",
     "difficulty": "Moderate",
     "lastVerified": "2026-03",
-    "sourceUrl": "https://www.biggameparks.org/"
+    "sourceUrl": "https://www.biggameparks.org/",
+    "feeDetail": "Nature reserve ~E50/day. Canopy tour separate booking.",
+    "gateHours": "08:00\u201317:00"
   }
 ]

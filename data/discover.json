@@ -221,6 +221,24 @@
       "title": "Mozambique Coast Guide",
       "topics": ["Beach Resorts", "Gorongosa", "Diving & Marine", "E-Visa"],
       "pages": 18
+    },
+    {
+      "country": "malawi",
+      "title": "Malawi Lake & Safari Guide",
+      "topics": ["Lake Malawi", "Liwonde", "Nyika Plateau", "E-Visa"],
+      "pages": 18
+    },
+    {
+      "country": "lesotho",
+      "title": "Lesotho Highlands Guide",
+      "topics": ["Sani Pass", "Pony Trekking", "Ski Season", "Border Entry"],
+      "pages": 16
+    },
+    {
+      "country": "eswatini",
+      "title": "Eswatini Kingdom Guide",
+      "topics": ["Game Reserves", "Reed Dance", "Craft Markets", "Kruger Add-on"],
+      "pages": 14
     }
   ]
 }

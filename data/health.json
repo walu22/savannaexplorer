@@ -1,0 +1,154 @@
+{
+  "meta": {
+    "lastUpdated": "2026-03",
+    "disclaimer": "Health summaries are for trip planning only. Consult a travel-health clinic or your doctor for personalised medical advice, vaccinations, and malaria prophylaxis.",
+    "sourceUrl": "https://www.who.int/teams/global-malaria-programme",
+    "sourceLabel": "WHO malaria programme (reference)"
+  },
+  "countries": [
+    {
+      "id": "south-africa",
+      "flag": "🇿🇦",
+      "name": "South Africa",
+      "malariaRisk": "low",
+      "malariaSummary": "Low risk in most tourist areas. Risk exists in northeastern Limpopo and Mpumalanga (Kruger fringe) and northern KwaZulu-Natal — especially Nov–May.",
+      "yellowFever": "Certificate required if arriving from a yellow-fever endemic country within the past 6 days.",
+      "otherRisks": ["HIV awareness in urban areas", "Tick bite fever in bushveld", "Sun exposure at altitude and coast"],
+      "zones": [
+        { "region": "Cape Town, Garden Route, Drakensberg", "malaria": "None", "notes": "No prophylaxis typically needed." },
+        { "region": "Kruger & Lowveld", "malaria": "Low–moderate", "notes": "Prophylaxis sometimes advised Nov–May — ask your doctor." },
+        { "region": "Northern KZN (iSimangaliso)", "malaria": "Moderate", "notes": "Higher risk in summer rainy season." }
+      ],
+      "sourceUrl": "https://www.nicd.ac.za/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "namibia",
+      "flag": "🇳🇦",
+      "name": "Namibia",
+      "malariaRisk": "moderate",
+      "malariaSummary": "Low in central and coastal areas. Moderate risk in the north (Etosha fringe, Kavango, Zambezi/Caprivi) during rainy season Nov–Jun.",
+      "yellowFever": "Certificate required if entering from endemic countries.",
+      "otherRisks": ["Dehydration in desert", "Extreme UV — high SPF essential", "Schistosomiasis in some freshwater (Caprivi)"],
+      "zones": [
+        { "region": "Windhoek, coast, Sossusvlei", "malaria": "Low", "notes": "Standard repellent sufficient for most visitors." },
+        { "region": "Etosha (summer)", "malaria": "Low–moderate", "notes": "Risk rises with rains Nov–Apr." },
+        { "region": "Caprivi / Zambezi region", "malaria": "Moderate", "notes": "Prophylaxis commonly recommended — consult clinic." }
+      ],
+      "sourceUrl": "https://mha.gov.na/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "botswana",
+      "flag": "🇧🇼",
+      "name": "Botswana",
+      "malariaRisk": "moderate",
+      "malariaSummary": "Risk in northern Botswana (Okavango, Chobe, Moremi) year-round, peaking Nov–Apr. Low in Gaborone and Kalahari south.",
+      "yellowFever": "Required if travelling from endemic areas.",
+      "otherRisks": ["Bilharzia in some delta channels", "Hippos and crocs — follow guide instructions"],
+      "zones": [
+        { "region": "Okavango & Chobe", "malaria": "Moderate–high", "notes": "Prophylaxis usually advised." },
+        { "region": "Central Kalahari", "malaria": "Low", "notes": "Minimal risk in dry season." },
+        { "region": "Gaborone & south", "malaria": "Low", "notes": "Urban and southern routes generally safe." }
+      ],
+      "sourceUrl": "https://www.gov.bw/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "zambia",
+      "flag": "🇿🇲",
+      "name": "Zambia",
+      "malariaRisk": "high",
+      "malariaSummary": "Malaria present throughout including Victoria Falls and all major safari areas. Prophylaxis recommended for most visitors.",
+      "yellowFever": "Risk country — vaccination may be required depending on your travel history.",
+      "otherRisks": ["Bilharzia in Lake Kariba and river systems", "Victoria Falls spray — slippery paths"],
+      "zones": [
+        { "region": "Livingstone / Victoria Falls", "malaria": "Moderate", "notes": "Year-round risk; peak in rainy season." },
+        { "region": "Luangwa Valley", "malaria": "High", "notes": "Prophylaxis strongly recommended." },
+        { "region": "Lusaka", "malaria": "Moderate", "notes": "Urban risk lower than valleys but not zero." }
+      ],
+      "sourceUrl": "https://www.zambiaimmigration.gov.zm/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "zimbabwe",
+      "flag": "🇿🇼",
+      "name": "Zimbabwe",
+      "malariaRisk": "moderate",
+      "malariaSummary": "Risk in Victoria Falls, Zambezi Valley, Hwange (summer), and Mana Pools. Lower in Harare and highveld.",
+      "yellowFever": "Certificate required from endemic transit countries.",
+      "otherRisks": ["Bilharzia in Zambezi", "Cash economy — carry USD small notes"],
+      "zones": [
+        { "region": "Victoria Falls", "malaria": "Moderate", "notes": "Prophylaxis often advised Nov–Apr." },
+        { "region": "Hwange & Mana Pools", "malaria": "Moderate", "notes": "Higher in wet season." },
+        { "region": "Harare & Eastern Highlands", "malaria": "Low", "notes": "Cooler highveld — lower risk." }
+      ],
+      "sourceUrl": "https://www.evisa.gov.zw/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "mozambique",
+      "flag": "🇲🇿",
+      "name": "Mozambique",
+      "malariaRisk": "high",
+      "malariaSummary": "High risk nationwide including Maputo, coast, and Gorongosa. Prophylaxis recommended for essentially all visits.",
+      "yellowFever": "Vaccination certificate required for travellers from endemic countries.",
+      "otherRisks": ["Marine stings and currents", "Cyclone season Jan–Mar in north", "Road travel at night not advised"],
+      "zones": [
+        { "region": "Maputo & southern coast", "malaria": "High", "notes": "Coastal humidity sustains year-round risk." },
+        { "region": "Bazaruto & Vilanculos", "malaria": "High", "notes": "Use nets and repellent even in beach lodges." },
+        { "region": "Gorongosa & central", "malaria": "High", "notes": "Peak in rainy season Nov–Apr." }
+      ],
+      "sourceUrl": "https://www.evisa.gov.mz/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "malawi",
+      "flag": "🇲🇼",
+      "name": "Malawi",
+      "malariaRisk": "high",
+      "malariaSummary": "Risk throughout the country including Lilongwe and Lake Malawi shore. Prophylaxis recommended year-round.",
+      "yellowFever": "Required if arriving from endemic countries.",
+      "otherRisks": ["Bilharzia in lake shallows and reedy bays", "Lake swimming — ask locally about safe beaches"],
+      "zones": [
+        { "region": "Lake Malawi", "malaria": "High", "notes": "Combine prophylaxis with repellent at dusk." },
+        { "region": "Liwonde & Shire Valley", "malaria": "High", "notes": "Riverine areas — peak mosquito activity." },
+        { "region": "Nyika Plateau", "malaria": "Low–moderate", "notes": "Cooler altitude reduces but does not eliminate risk." }
+      ],
+      "sourceUrl": "https://www.immigration.gov.mw/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "lesotho",
+      "flag": "🇱🇸",
+      "name": "Lesotho",
+      "malariaRisk": "low",
+      "malariaSummary": "Very low malaria risk due to altitude. Main health concerns are altitude, cold exposure, and road safety on mountain passes.",
+      "yellowFever": "Required only if entering from endemic countries.",
+      "otherRisks": ["Altitude above 1,400m throughout", "Winter snow on Sani Pass", "Limited medical facilities in highlands"],
+      "zones": [
+        { "region": "Lowlands (Maseru)", "malaria": "Very low", "notes": "Prophylaxis rarely needed." },
+        { "region": "Highlands & passes", "malaria": "None", "notes": "Pack warm layers year-round." },
+        { "region": "Sani Pass", "malaria": "None", "notes": "4x4 required; check pass open status in winter." }
+      ],
+      "sourceUrl": "https://homeaffairs.gov.ls/",
+      "lastVerified": "2026-03"
+    },
+    {
+      "id": "eswatini",
+      "flag": "🇸🇿",
+      "name": "Eswatini",
+      "malariaRisk": "low",
+      "malariaSummary": "Low risk in most areas. Lowveld reserves (Hlane, Mkhaya) have moderate seasonal risk Nov–Apr.",
+      "yellowFever": "Required if arriving from endemic countries.",
+      "otherRisks": ["Bilharzia in some rivers", "Hlane — malaria in lowveld summer"],
+      "zones": [
+        { "region": "Mbabane & highveld", "malaria": "Low", "notes": "Minimal prophylaxis need." },
+        { "region": "Hlane & lowveld", "malaria": "Moderate (seasonal)", "notes": "Consider prophylaxis in summer months." },
+        { "region": "Mlilwane", "malaria": "Low", "notes": "Walking sanctuary — standard precautions." }
+      ],
+      "sourceUrl": "https://www.gov.sz/",
+      "lastVerified": "2026-03"
+    }
+  ]
+}

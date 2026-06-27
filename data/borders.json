@@ -378,5 +378,305 @@
     ],
     "lastVerified": "2026-03",
     "sourceUrl": "https://mha.gov.na/"
+  },
+  {
+    "id": "kopfontein",
+    "name": "Kopfontein",
+    "countries": [
+      "south-africa",
+      "botswana"
+    ],
+    "route": "North West \u2192 eastern Botswana",
+    "hours": "06:00\u201322:00",
+    "typicalWait": "20\u201345 min",
+    "vehicleCrossing": true,
+    "fees": "R200\u2013R400 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "Proof of insurance"
+    ],
+    "tips": [
+      "Quieter alternative to Skilpadshek for some routes",
+      "Useful for Madikwe and eastern Botswana",
+      "Veterinary checks possible"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.gov.bw/"
+  },
+  {
+    "id": "skilpadshek",
+    "name": "Skilpadshek",
+    "countries": [
+      "south-africa",
+      "botswana"
+    ],
+    "route": "Rustenburg \u2192 Gaborone corridor",
+    "hours": "06:00\u201322:00",
+    "typicalWait": "30\u201360 min",
+    "vehicleCrossing": true,
+    "fees": "R200\u2013R500 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "Cross-border letter if financed"
+    ],
+    "tips": [
+      "Busy weekend gateway to Gaborone",
+      "No fresh meat into Botswana",
+      "ATM available on SA side"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.gov.bw/"
+  },
+  {
+    "id": "nakop",
+    "name": "Nakop",
+    "countries": [
+      "south-africa",
+      "namibia"
+    ],
+    "route": "Upington \u2192 Karas region",
+    "hours": "24 hours",
+    "typicalWait": "15\u201330 min",
+    "vehicleCrossing": true,
+    "fees": "R200\u2013R400 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "ZA sticker"
+    ],
+    "tips": [
+      "Quiet desert crossing via Northern Cape",
+      "Good for Cape\u2013Fish River Canyon routes",
+      "Fuel in Upington before crossing"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://mha.gov.na/"
+  },
+  {
+    "id": "calelonspoort",
+    "name": "Caledonspoort",
+    "countries": [
+      "south-africa",
+      "lesotho"
+    ],
+    "route": "Free State highlands \u2192 eastern Lesotho",
+    "hours": "24 hours",
+    "typicalWait": "15\u201330 min",
+    "vehicleCrossing": true,
+    "fees": "Minimal vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration"
+    ],
+    "tips": [
+      "Scenic mountain approach to Lesotho",
+      "Snow possible Jun\u2013Aug",
+      "Gateway to Afriski in winter"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://homeaffairs.gov.ls/"
+  },
+  {
+    "id": "qachas-nek",
+    "name": "Qacha's Nek",
+    "countries": [
+      "south-africa",
+      "lesotho"
+    ],
+    "route": "Southern Drakensberg \u2192 eastern Lesotho",
+    "hours": "06:00\u201322:00",
+    "typicalWait": "20\u201345 min",
+    "vehicleCrossing": true,
+    "fees": "Minimal vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration"
+    ],
+    "tips": [
+      "Remote pass \u2014 allow extra time",
+      "Stunning highland scenery",
+      "Check road conditions after rain"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://homeaffairs.gov.ls/"
+  },
+  {
+    "id": "giriyondo",
+    "name": "Giriyondo",
+    "countries": [
+      "south-africa",
+      "mozambique"
+    ],
+    "route": "Kruger \u2192 Limpopo National Park (Mozambique)",
+    "hours": "08:00\u201315:00",
+    "typicalWait": "45\u201390 min",
+    "vehicleCrossing": true,
+    "fees": "Park + border fees apply",
+    "documents": [
+      "Valid passport",
+      "Mozambique visa/e-visa",
+      "SANParks Giriyondo permit",
+      "4x4 recommended"
+    ],
+    "tips": [
+      "Tourism access point into Great Limpopo",
+      "Book SANParks transit in advance",
+      "Malaria zone \u2014 take precautions"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.sanparks.org/"
+  },
+  {
+    "id": "komatipoort",
+    "name": "Komatipoort / Ressano Garcia",
+    "countries": [
+      "south-africa",
+      "mozambique"
+    ],
+    "route": "Mpumalanga \u2192 Maputo",
+    "hours": "06:00\u201322:00",
+    "typicalWait": "45\u2013120 min",
+    "vehicleCrossing": true,
+    "fees": "R200\u2013R500 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Mozambique visa/e-visa",
+      "Vehicle registration",
+      "Insurance"
+    ],
+    "tips": [
+      "Main Maputo corridor from Kruger",
+      "Very busy \u2014 cross early weekday mornings",
+      "Have printed e-visa confirmation"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.evisa.gov.mz/"
+  },
+  {
+    "id": "lomahasha",
+    "name": "Lomahasha / Namaacha",
+    "countries": [
+      "mozambique",
+      "eswatini"
+    ],
+    "route": "Maputo \u2192 Mbabane",
+    "hours": "06:00\u201322:00",
+    "typicalWait": "20\u201345 min",
+    "vehicleCrossing": true,
+    "fees": "$20\u2013$40 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "Insurance for both countries"
+    ],
+    "tips": [
+      "Links Mozambique coast to Eswatini highlands",
+      "Alternative to routing via South Africa",
+      "Mountain road beyond border is scenic"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.gov.sz/"
+  },
+  {
+    "id": "mchinji",
+    "name": "Mchinji / Z\u00f3bu\u00e8",
+    "countries": [
+      "malawi",
+      "mozambique"
+    ],
+    "route": "Central Malawi \u2194 Tete corridor",
+    "hours": "06:00\u201318:00",
+    "typicalWait": "30\u201360 min",
+    "vehicleCrossing": true,
+    "fees": "$20\u2013$50 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Both countries' visas if required",
+      "Vehicle papers"
+    ],
+    "tips": [
+      "Useful for lake-to-Mozambique overland routes",
+      "Cargo traffic can slow crossings",
+      "Carry USD cash for fees"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.immigration.gov.mw/"
+  },
+  {
+    "id": "forbes",
+    "name": "Forbes / Mukumbura",
+    "countries": [
+      "zimbabwe",
+      "mozambique"
+    ],
+    "route": "Harare \u2192 central Mozambique",
+    "hours": "06:00\u201318:00",
+    "typicalWait": "30\u201360 min",
+    "vehicleCrossing": true,
+    "fees": "$20\u2013$50 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Valid visas",
+      "Vehicle registration"
+    ],
+    "tips": [
+      "Eastern Zimbabwe\u2013Mozambique link",
+      "Less touristy than southern borders",
+      "Confirm road security locally"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.evisa.gov.zw/"
+  },
+  {
+    "id": "groblersbrug",
+    "name": "Groblersbrug",
+    "countries": [
+      "south-africa",
+      "botswana"
+    ],
+    "route": "Free State \u2192 central Botswana",
+    "hours": "06:00\u201322:00",
+    "typicalWait": "20\u201340 min",
+    "vehicleCrossing": true,
+    "fees": "R200\u2013R400 vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "Insurance"
+    ],
+    "tips": [
+      "Quiet crossing east of Palapye route",
+      "Good for Botswana interior loops",
+      "Cattle country \u2014 veterinary checks"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.gov.bw/"
+  },
+  {
+    "id": "ponta-do-ouro",
+    "name": "Kosi Bay / Ponta do Ouro",
+    "countries": [
+      "south-africa",
+      "mozambique"
+    ],
+    "route": "iSimangaliso \u2192 southern Mozambique coast",
+    "hours": "08:00\u201317:00",
+    "typicalWait": "30\u201360 min",
+    "vehicleCrossing": true,
+    "fees": "Conservation + border fees",
+    "documents": [
+      "Valid passport",
+      "Mozambique visa/e-visa",
+      "4x4 recommended for sand track"
+    ],
+    "tips": [
+      "4x4 only on the sand track to Ponta",
+      "Popular dive and beach gateway",
+      "Check tide times for border track"
+    ],
+    "lastVerified": "2026-03",
+    "sourceUrl": "https://www.evisa.gov.mz/"
   }
 ]
