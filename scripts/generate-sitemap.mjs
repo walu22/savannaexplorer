@@ -4,6 +4,7 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { sitemapEntries } from './lib/seo-data.mjs';
 
 function loadEnv() {
     const envPath = resolve(process.cwd(), '.env');
@@ -25,23 +26,13 @@ function loadEnv() {
 loadEnv();
 
 const siteUrl = (process.env.VITE_SITE_URL || 'https://savannaexplorer.com').replace(/\/$/, '');
-const countries = JSON.parse(readFileSync(resolve(process.cwd(), 'data/countries.json'), 'utf8'));
-const today = new Date().toISOString().slice(0, 10);
-
-const urls = [
-    { loc: `${siteUrl}/`, changefreq: 'weekly', priority: '1.0' },
-    ...Object.keys(countries).map(id => ({
-        loc: `${siteUrl}/countries/${id}`,
-        changefreq: 'monthly',
-        priority: '0.9',
-    })),
-];
+const urls = sitemapEntries(siteUrl);
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map(u => `  <url>
     <loc>${u.loc}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${u.lastmod}</lastmod>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
   </url>`).join('\n')}

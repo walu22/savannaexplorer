@@ -24,6 +24,8 @@ import {
     COUNTRY_IDS,
 } from '../lib/router.js';
 import { setCountryMeta, setHomeMeta } from '../lib/page-meta.js';
+import { dismissSeoPrerender } from '../lib/seo-prerender.js';
+import { handleSeoRoute } from './seo-routes.js';
 
 const detailView = document.getElementById('country-detail-view');
 const closeDetailBtn = document.getElementById('close-detail');
@@ -320,6 +322,7 @@ function populateCountryPage(countryId) {
 
 function showCountryPage(countryId) {
     if (!countries[countryId]) return;
+    dismissSeoPrerender();
     populateCountryPage(countryId);
     detailView.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
@@ -358,7 +361,15 @@ function handleRoute(route) {
         return;
     }
 
+    if (route.type === 'park' || route.type === 'border' || route.type === 'itinerary') {
+        hideCountryPage();
+        handleSeoRoute(route);
+        return;
+    }
+
     hideCountryPage();
+    dismissSeoPrerender();
+    setHomeMeta();
     if (route.sectionHash && !COUNTRY_IDS.includes(route.sectionHash)) {
         requestAnimationFrame(() => scrollToSection(route.sectionHash));
     }

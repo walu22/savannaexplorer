@@ -15,10 +15,9 @@ import { initHealth } from './modules/health.js';
 import { initEvents } from './modules/events.js';
 import { initDestinations } from './modules/destinations.js';
 import { initTripPlanner } from './modules/trip-planner.js';
-import { initPageMeta } from './lib/page-meta.js';
+import { initSeoRoutes } from './modules/seo-routes.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    initPageMeta();
 
     const versionEl = document.getElementById('app-version');
     if (versionEl && CONFIG.appVersion) {
@@ -41,4 +40,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initEvents();
     initDiscover();
     initAbout();
+    initSeoRoutes();
 });
