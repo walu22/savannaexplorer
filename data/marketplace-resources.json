@@ -1,0 +1,157 @@
+{
+  "saf1": {
+    "planning_tip": "Book SANParks rest camps online for self-drive, or compare private concessions on the park edge.",
+    "resource_url": "https://www.sanparks.org/parks/kruger",
+    "resource_label": "SANParks — Kruger"
+  },
+  "saf2": {
+    "planning_tip": "Mokoro trips are arranged through Maun operators or Delta lodges — fly-in camps include transfers.",
+    "resource_url": "https://www.botswanatourism.co.bw/",
+    "resource_label": "Botswana Tourism"
+  },
+  "saf3": {
+    "planning_tip": "Stay inside Etosha gates for waterhole access — NWR camps book months ahead in peak season.",
+    "resource_url": "https://www.nwr.com.na/",
+    "resource_label": "Namibia Wildlife Resorts"
+  },
+  "saf4": {
+    "planning_tip": "Hwange lodges and self-catering camps sit near Main Camp — compare guided drives vs self-drive.",
+    "resource_url": "https://www.zimbabwetourism.net/",
+    "resource_label": "Zimbabwe Tourism"
+  },
+  "saf5": {
+    "planning_tip": "Gorongosa is best reached via Beira or Chimoio — book drives through the park directly.",
+    "resource_url": "https://gorongosa.org/",
+    "resource_label": "Gorongosa National Park"
+  },
+  "saf6": {
+    "planning_tip": "Liwonde boat safaris depart from Mvuu Camp area — combine with Lake Malawi shoreline stays.",
+    "resource_url": "https://www.malawitourism.com/",
+    "resource_label": "Malawi Tourism"
+  },
+  "saf7": {
+    "planning_tip": "Hlane is run by Big Game Parks — guided drives are mandatory; book through their central office.",
+    "resource_url": "https://www.biggameparks.org/",
+    "resource_label": "Big Game Parks Eswatini"
+  },
+  "saf8": {
+    "planning_tip": "Walking safaris require licensed operators in South Luangwa — dry season offers best walking conditions.",
+    "resource_url": "https://www.zambiatourism.com/",
+    "resource_label": "Zambia Tourism"
+  },
+  "adv1": {
+    "planning_tip": "Sandboarding operators base in Swakopmund and Walvis Bay — half-day trips run year-round.",
+    "resource_url": "https://www.namibiatourism.com.na/",
+    "resource_label": "Namibia Tourism"
+  },
+  "adv2": {
+    "planning_tip": "Rafting below Victoria Falls runs when water is low enough — compare Zambia vs Zimbabwe operators.",
+    "resource_url": "https://www.zambiatourism.com/destination/victoria-falls/",
+    "resource_label": "Victoria Falls — Zambia"
+  },
+  "adv3": {
+    "planning_tip": "Tofo operators run whale-shark snorkel trips in season — check Cabo Delgado travel advisories.",
+    "resource_url": "https://www.visitmozambique.net/",
+    "resource_label": "Mozambique Tourism"
+  },
+  "adv4": {
+    "planning_tip": "Sani Pass requires 4x4 and a Lesotho border crossing — guided tours depart from Underberg.",
+    "resource_url": "https://www.visitlesotho.travel/",
+    "resource_label": "Visit Lesotho"
+  },
+  "adv5": {
+    "planning_tip": "Kayak trails run from Cape Maclear and other lakeshore villages — hire gear locally.",
+    "resource_url": "https://www.malawitourism.com/",
+    "resource_label": "Malawi Tourism"
+  },
+  "adv6": {
+    "planning_tip": "Malolotja canopy tour books through the nature reserve — combine with highland hiking.",
+    "resource_url": "https://www.thekingdomofeswatini.com/",
+    "resource_label": "Eswatini Tourism"
+  },
+  "adv7": {
+    "planning_tip": "Chobe river activities base in Kasane — book boat or kayak trips with licensed operators.",
+    "resource_url": "https://www.botswanatourism.co.bw/",
+    "resource_label": "Botswana Tourism"
+  },
+  "cul1": {
+    "planning_tip": "Choose community-run Himba experiences near Opuwo — avoid unsolicited roadside photo stops.",
+    "resource_url": "https://www.namibiatourism.com.na/",
+    "resource_label": "Namibia Tourism"
+  },
+  "cul2": {
+    "planning_tip": "Stellenbosch and Franschhoek estates offer tastings by appointment — designate a driver or use transfers.",
+    "resource_url": "https://www.southafrica.net/",
+    "resource_label": "South Africa Tourism"
+  },
+  "cul3": {
+    "planning_tip": "Great Zimbabwe is a day trip from Masvingo — hire a local guide at the UNESCO site entrance.",
+    "resource_url": "https://www.zimbabwetourism.net/",
+    "resource_label": "Zimbabwe Tourism"
+  },
+  "cul4": {
+    "planning_tip": "Maputo food tours focus on the fish market and downtown — use registered guides after dark.",
+    "resource_url": "https://www.visitmozambique.net/",
+    "resource_label": "Mozambique Tourism"
+  },
+  "cul5": {
+    "planning_tip": "Community homestays on Lake Malawi book through village tourism committees — bring cash for hosts.",
+    "resource_url": "https://www.malawitourism.com/",
+    "resource_label": "Malawi Tourism"
+  },
+  "cul6": {
+    "planning_tip": "Pony treks from Malealea or Semonkong include guides and pack animals — book a day ahead.",
+    "resource_url": "https://www.visitlesotho.travel/",
+    "resource_label": "Visit Lesotho"
+  },
+  "cul7": {
+    "planning_tip": "Swazi craft studios cluster in the Ezulwini Valley — combine with a cultural village visit.",
+    "resource_url": "https://www.thekingdomofeswatini.com/",
+    "resource_label": "Eswatini Tourism"
+  },
+  "cul8": {
+    "planning_tip": "Livingstone Island trips run from the Zambian side in low-water season — book through licensed operators.",
+    "resource_url": "https://www.zambiatourism.com/destination/victoria-falls/",
+    "resource_label": "Victoria Falls — Zambia"
+  },
+  "nat1": {
+    "planning_tip": "Helicopter flights over the Falls book from Livingstone or Victoria Falls town — morning flights have clearer views.",
+    "resource_url": "https://www.zambiatourism.com/destination/victoria-falls/",
+    "resource_label": "Victoria Falls — Zambia"
+  },
+  "nat2": {
+    "planning_tip": "Amphitheatre hikes start from Royal Natal or Sentinel car park — use a registered mountain guide.",
+    "resource_url": "https://www.sanparks.org/parks/golden-gate",
+    "resource_label": "SANParks — uKhahlamba region"
+  },
+  "nat3": {
+    "planning_tip": "Meerkat experiences run from lodges near Ntwetwe Pan — dry season (Apr–Sep) is most reliable.",
+    "resource_url": "https://www.botswanatourism.co.bw/",
+    "resource_label": "Botswana Tourism"
+  },
+  "nat4": {
+    "planning_tip": "Bazaruto trips launch from Vilankulo or Inhassoro — check marine park fees and island lodge transfers.",
+    "resource_url": "https://www.visitmozambique.net/",
+    "resource_label": "Mozambique Tourism"
+  },
+  "nat5": {
+    "planning_tip": "Snorkelling is best from Cape Maclear and Otter Point — hire mask and fins from lakeshore lodges.",
+    "resource_url": "https://www.malawitourism.com/",
+    "resource_label": "Malawi Tourism"
+  },
+  "nat6": {
+    "planning_tip": "Nyika access is from the Chelinda or Livingstonia side — 4x4 recommended in wet season.",
+    "resource_url": "https://www.malawitourism.com/",
+    "resource_label": "Malawi Tourism"
+  },
+  "nat7": {
+    "planning_tip": "Balloon flights over Sossusvlei launch near Sesriem — book well ahead in peak season.",
+    "resource_url": "https://www.namibiatourism.com.na/",
+    "resource_label": "Namibia Tourism"
+  },
+  "nat8": {
+    "planning_tip": "Mana Pools canoe trails need licensed guides and park permits — book months ahead in peak season.",
+    "resource_url": "https://www.zimbabwetourism.net/",
+    "resource_label": "Zimbabwe Tourism"
+  }
+}

@@ -574,6 +574,69 @@ body.site-v2 .market-inspire-note {
     font-style: italic;
 }
 
+body.site-v2 .market-planning-tip {
+    margin: 0.85rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+body.site-v2 .market-planning-tip i {
+    color: var(--primary-light);
+    margin-right: 0.35rem;
+}
+
+body.site-v2 .market-resource-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-light);
+    text-decoration: none;
+}
+
+body.site-v2 .market-resource-link:hover {
+    text-decoration: underline;
+}
+
+body.site-v2 .itinerary-template-note {
+    margin: 0.5rem 0 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+body.site-v2 .itin-budget-note,
+body.site-v2 .itin-template-disclaimer {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+}
+
+body.site-v2 .itin-budget-note {
+    margin: 0.75rem 0 0;
+    padding: 0.75rem 1rem;
+    background: var(--bg-warm);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--primary);
+}
+
+body.site-v2 .itin-template-disclaimer {
+    margin: 1rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+body.site-v2 .itin-planning-notes h4 {
+    color: var(--accent);
+}
+
+body.site-v2 .itin-arrange-yourself h4 {
+    color: #8a5a2b;
+}
+
 /* --- Footer v4 --- */
 body.site-v2 footer {
     background: var(--bg-dark);

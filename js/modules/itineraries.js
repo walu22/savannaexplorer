@@ -1,4 +1,10 @@
 import itineraryData from '../../data/itineraries.json';
+import {
+    formatBudgetDetail,
+    formatBudgetLabel,
+    getArrangeYourself,
+    getPlanningNotes,
+} from '../lib/planning-format.js';
 
 let currentItineraryId = null;
 let activeScopeFilter = 'all';
@@ -15,6 +21,7 @@ function renderItineraryGrid() {
         .map(([id, data]) => {
             const scopeLabel = data.scope === 'single' ? 'Single Country' : 'Cross-Border';
             const scopeClass = data.scope === 'single' ? 'itinerary-scope--single' : 'itinerary-scope--multi';
+            const budgetLabel = formatBudgetLabel(data);
             return `
         <article class="itinerary-card" data-itinerary-id="${id}" data-scope="${data.scope || 'multi'}">
             <div class="itinerary-header">
@@ -27,8 +34,9 @@ function renderItineraryGrid() {
             <p class="itinerary-blurb">${data.description}</p>
             <div class="itinerary-meta">
                 <span><i class="far fa-clock"></i> ${data.duration}</span>
-                <span><i class="fas fa-tag"></i> From ${data.priceFrom}</span>
+                ${budgetLabel ? `<span><i class="fas fa-coins"></i> ${budgetLabel}</span>` : ''}
             </div>
+            <p class="itinerary-template-note">Planning template — not a package or quote.</p>
             <div class="itinerary-actions">
                 <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="${id}">View Route</button>
             </div>
@@ -70,7 +78,23 @@ function openItineraryDetail(id) {
     document.getElementById('itin-title').textContent = data.title;
     document.getElementById('itin-countries').textContent = data.countries;
     document.getElementById('itin-duration').innerHTML = `<i class="far fa-clock"></i> ${data.duration}`;
-    document.getElementById('itin-price').innerHTML = `<i class="fas fa-tag"></i> From ${data.priceFrom}`;
+
+    const budgetDetail = formatBudgetDetail(data);
+    const priceEl = document.getElementById('itin-price');
+    if (priceEl) {
+        priceEl.innerHTML = budgetDetail
+            ? `<i class="fas fa-coins"></i> ${budgetDetail}`
+            : '';
+    }
+
+    const budgetNoteEl = document.getElementById('itin-budget-note');
+    if (budgetNoteEl) {
+        budgetNoteEl.textContent = budgetDetail
+            ? 'Indicative budget for trip planning — not a price quote. Book transport, lodges, and activities directly.'
+            : '';
+        budgetNoteEl.hidden = !budgetDetail;
+    }
+
     document.getElementById('itin-customizable').innerHTML = data.customizable
         ? '<i class="fas fa-sliders-h"></i> Adapt to your dates'
         : '<i class="fas fa-route"></i> Suggested pacing';
@@ -107,8 +131,8 @@ function openItineraryDetail(id) {
         </div>
     `).join('');
 
-    document.getElementById('itin-included').innerHTML = data.included.map(i => `<li>${i}</li>`).join('');
-    document.getElementById('itin-excluded').innerHTML = data.excluded.map(i => `<li>${i}</li>`).join('');
+    document.getElementById('itin-planning-notes').innerHTML = getPlanningNotes(data).map(i => `<li>${i}</li>`).join('');
+    document.getElementById('itin-arrange-yourself').innerHTML = getArrangeYourself(data).map(i => `<li>${i}</li>`).join('');
 
     document.getElementById('itinerary-modal').classList.add('active');
     document.body.style.overflow = 'hidden';

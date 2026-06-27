@@ -1,5 +1,47 @@
 import marketplaceData from '../../data/marketplace.json';
+import marketplaceResources from '../../data/marketplace-resources.json';
 import { getSupabaseClient } from '../lib/supabase.js';
+import { formatCostBand } from '../lib/planning-format.js';
+
+function getResourceMeta(item) {
+    const byId = marketplaceResources[item.id] || {};
+    return {
+        planningTip: item.planning_tip || byId.planning_tip || 'Compare licensed local operators and confirm seasonal availability before you travel.',
+        resourceUrl: item.resource_url || byId.resource_url || '',
+        resourceLabel: item.resource_label || byId.resource_label || 'Official tourism info',
+    };
+}
+
+function renderMarketCard(item) {
+    const { planningTip, resourceUrl, resourceLabel } = getResourceMeta(item);
+    const costBand = formatCostBand(item.price_range);
+    const resourceLink = resourceUrl
+        ? `<a class="market-resource-link" href="${resourceUrl}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> ${resourceLabel}</a>`
+        : '';
+
+    return `
+        <div class="market-card">
+            <div class="market-img">
+                <img src="${item.image_url || item.image}" alt="${item.title}" loading="lazy">
+                <span class="market-badge">${item.badge || 'Inspiration'}</span>
+            </div>
+            <div class="market-info">
+                <h3>${item.title}</h3>
+                <div class="market-meta">
+                    <span><i class="fas fa-map-marker-alt"></i> ${item.location}</span>
+                    <span><i class="far fa-clock"></i> ${item.duration}</span>
+                    ${item.best_time ? `<span><i class="fas fa-sun"></i> ${item.best_time}</span>` : ''}
+                </div>
+                <p class="market-desc">${item.description}</p>
+                <div class="market-meta-bottom">
+                    ${costBand ? `<span class="m-price" title="Typical cost band for planning">${costBand}</span>` : ''}
+                </div>
+                <p class="market-planning-tip"><i class="fas fa-lightbulb"></i> ${planningTip}</p>
+                ${resourceLink}
+            </div>
+        </div>
+    `;
+}
 
 async function openMarketplace(theme) {
     const marketModal = document.getElementById('marketplace-modal');
@@ -19,7 +61,7 @@ async function openMarketplace(theme) {
             .from('experiences')
             .select('*')
             .eq('category', theme)
-            .order('rating', { ascending: false });
+            .order('title', { ascending: true });
 
         items = (!error && data?.length) ? data : (marketplaceData[theme] || []);
     } else {
@@ -31,27 +73,7 @@ async function openMarketplace(theme) {
         return;
     }
 
-    marketGrid.innerHTML = items.map(item => `
-        <div class="market-card">
-            <div class="market-img">
-                <img src="${item.image_url || item.image}" alt="${item.title}" loading="lazy">
-                <span class="market-badge">${item.badge || 'Inspiration'}</span>
-            </div>
-            <div class="market-info">
-                <h3>${item.title}</h3>
-                <div class="market-meta">
-                    <span><i class="fas fa-map-marker-alt"></i> ${item.location}</span>
-                    <span><i class="far fa-clock"></i> ${item.duration}</span>
-                </div>
-                <p class="market-desc">${item.description}</p>
-                <div class="market-meta-bottom">
-                    <span class="m-price">${item.price_range}</span>
-                    <span class="m-rating"><i class="fas fa-star"></i> ${item.rating || 4.5}</span>
-                </div>
-                <p class="market-inspire-note">Typical price range for planning — book directly with local operators when you travel.</p>
-            </div>
-        </div>
-    `).join('');
+    marketGrid.innerHTML = items.map(renderMarketCard).join('');
 }
 
 function closeMarketplace() {

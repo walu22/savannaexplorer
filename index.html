@@ -209,7 +209,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Top Experiences</h2>
-                <p>31 curated experiences across all nine countries — safari, adventure, culture, and nature.</p>
+                <p>31 curated activity ideas across all nine countries — typical cost bands and how to book locally.</p>
             </div>
             <div class="experiences-grid">
                 <div class="experience-card">
@@ -258,7 +258,7 @@
             <div class="section-header">
                 <span class="section-eyebrow">Southern Africa Itineraries</span>
                 <h2>Curated Routes & Country Journeys</h2>
-                <p>Cross-border adventures and single-country deep dives — planning templates you can adapt to your own dates and travel style.</p>
+                <p>Cross-border adventures and single-country deep dives — planning templates with indicative budgets, not packaged tours.</p>
             </div>
             <div class="itinerary-filters">
                 <button type="button" class="itinerary-filter active" data-scope="all">All Routes</button>
@@ -924,9 +924,10 @@
                 <p id="itin-countries" class="itin-countries"></p>
                 <div class="itin-meta-bar">
                     <span id="itin-duration"><i class="far fa-clock"></i> 14 Days</span>
-                    <span id="itin-price"><i class="fas fa-tag"></i> From $2,450</span>
+                    <span id="itin-price"><i class="fas fa-coins"></i> Typical budget</span>
                     <span id="itin-customizable"><i class="fas fa-sliders-h"></i> Adapt to your dates</span>
                 </div>
+                <p class="itin-budget-note" id="itin-budget-note" hidden></p>
             </div>
             <div class="itin-body">
                 <p id="itin-description" class="itin-description"></p>
@@ -938,15 +939,16 @@
                 <h3>Day-by-Day Itinerary</h3>
                 <div class="itin-accordion" id="itin-accordion"></div>
                 <div class="itin-includes-grid">
-                    <div class="itin-includes">
-                        <h4><i class="fas fa-check-circle"></i> Included</h4>
-                        <ul id="itin-included"></ul>
+                    <div class="itin-includes itin-planning-notes">
+                        <h4><i class="fas fa-map"></i> This route covers</h4>
+                        <ul id="itin-planning-notes"></ul>
                     </div>
-                    <div class="itin-excludes">
-                        <h4><i class="fas fa-times-circle"></i> Not Included</h4>
-                        <ul id="itin-excluded"></ul>
+                    <div class="itin-excludes itin-arrange-yourself">
+                        <h4><i class="fas fa-suitcase"></i> Arrange yourself</h4>
+                        <ul id="itin-arrange-yourself"></ul>
                     </div>
                 </div>
+                <p class="itin-template-disclaimer">Planning template only — Savanna Explorer does not sell or book any of the items above.</p>
                 <div class="itin-actions-bar">
                     <button type="button" class="btn btn-primary" id="itin-plan-tools"><i class="fas fa-tools"></i> Open Travel Tools</button>
                 </div>
@@ -961,7 +963,7 @@
             <button class="modal-close market-close">&times;</button>
             <div class="modal-header">
                 <h2><span id="market-title">Marketplace</span> Inspiration</h2>
-                <p>Example activities and typical price ranges for trip planning — book directly with local operators when you travel.</p>
+                <p>Activity ideas with typical cost bands and official resources — book directly with local operators when you travel.</p>
             </div>
             <div class="modal-body">
                 <div id="marketplace-grid" class="marketplace-grid">

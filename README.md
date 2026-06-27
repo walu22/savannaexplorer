@@ -43,8 +43,8 @@ The old root files `main.js`, `country-guide.js`, and `itinerary-data.js` were r
 ### What to look for
 
 - Country detail pages with tabs: **About**, **Travelling**, **Attractions**, **Activities**, **Routes**
-- **Itineraries** section with filter tabs (All / Single Country / Cross-Border), **View Route** buttons, and route maps in the detail modal
-- **Marketplace** experiences across all 9 countries (31 curated listings)
+- **Itineraries** section with filter tabs (All / Single Country / Cross-Border), **View Route** planning templates, and indicative budgets (not quotes)
+- **Marketplace** activity inspiration with cost bands, planning tips, and official resource links (31 listings)
 - **Country guides** with regional breakdowns for every destination
 - **Contact** section (`#contact`) for corrections, partner suggestions, and feedback (not trip bookings)
 - Enriched guides for Zambia, Zimbabwe, Mozambique, Malawi, Lesotho, and Eswatini
