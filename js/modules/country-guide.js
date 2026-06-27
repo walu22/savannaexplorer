@@ -442,4 +442,4 @@ export function initCountryGuide() {
     });
 }
 
-export { closeCountryPage, openCountryPage };
+export { closeCountryPage };
