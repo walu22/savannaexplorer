@@ -1,11 +1,12 @@
 {
   "name": "savannaexplorer",
   "private": true,
-  "version": "4.5.1",
+  "version": "4.6.0",
   "type": "module",
   "scripts": {
     "setup:env": "node scripts/setup-env.mjs",
     "seed:supabase": "node scripts/seed-supabase.mjs",
+    "seed:images": "node scripts/apply-stock-images.mjs",
     "postinstall": "node scripts/setup-env.mjs",
     "start": "vite",
     "dev": "vite",

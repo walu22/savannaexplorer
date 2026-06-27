@@ -2,25 +2,25 @@
   "facts": [
     {
       "title": "Oldest Desert on Earth",
-      "description": "Namibia's Namib is the world's oldest desert \u2014 elephants, rhinos, and lions survive in its dunes and gravel plains.",
+      "description": "Namibia's Namib is the world's oldest desert — elephants, rhinos, and lions survive in its dunes and gravel plains.",
       "icon": "fa-sun",
       "country": "namibia"
     },
     {
       "title": "Africa's Flagship Safari",
-      "description": "South Africa's Kruger National Park protects nearly 2 million hectares \u2014 one of the continent's best self-drive Big Five destinations.",
+      "description": "South Africa's Kruger National Park protects nearly 2 million hectares — one of the continent's best self-drive Big Five destinations.",
       "icon": "fa-paw",
       "country": "south-africa"
     },
     {
       "title": "Largest Inland Delta",
-      "description": "Botswana's Okavango Delta floods each year from Angolan rains \u2014 22,000 km\u00b2 of channels, islands, and wildlife.",
+      "description": "Botswana's Okavango Delta floods each year from Angolan rains — 22,000 km² of channels, islands, and wildlife.",
       "icon": "fa-leaf",
       "country": "botswana"
     },
     {
       "title": "Smoke That Thunders",
-      "description": "Victoria Falls creates a mist visible for kilometres. Locals call it Mosi-oa-Tunya \u2014 the smoke that thunders.",
+      "description": "Victoria Falls creates a mist visible for kilometres. Locals call it Mosi-oa-Tunya — the smoke that thunders.",
       "icon": "fa-cloud",
       "country": "zambia"
     },
@@ -32,19 +32,19 @@
     },
     {
       "title": "Gorongosa Reborn",
-      "description": "Mozambique's Gorongosa National Park is one of Africa's great conservation comebacks \u2014 lions and elephants thriving again.",
+      "description": "Mozambique's Gorongosa National Park is one of Africa's great conservation comebacks — lions and elephants thriving again.",
       "icon": "fa-seedling",
       "country": "mozambique"
     },
     {
       "title": "The Calendar Lake",
-      "description": "Lake Malawi stretches roughly 365 miles by 52 miles wide \u2014 a UNESCO freshwater sea with over 1,000 cichlid species.",
+      "description": "Lake Malawi stretches roughly 365 miles by 52 miles wide — a UNESCO freshwater sea with over 1,000 cichlid species.",
       "icon": "fa-water",
       "country": "malawi"
     },
     {
       "title": "Kingdom in the Sky",
-      "description": "Lesotho is the only country entirely above 1,000 metres \u2014 mountain passes, pony treks, and winter snow.",
+      "description": "Lesotho is the only country entirely above 1,000 metres — mountain passes, pony treks, and winter snow.",
       "icon": "fa-mountain",
       "country": "lesotho"
     },
@@ -61,7 +61,7 @@
       "subtitle": "Lodges, camps & guesthouses",
       "icon": "fa-bed",
       "href": "#contact",
-      "description": "From community campsites to 5-star lodges \u2014 find accommodation across nine countries."
+      "description": "From community campsites to 5-star lodges — find accommodation across nine countries."
     },
     {
       "title": "What to See",
@@ -75,7 +75,7 @@
       "subtitle": "Activities & experiences",
       "icon": "fa-hiking",
       "href": "#experiences",
-      "description": "Safari, adventure, culture, and nature \u2014 bookable experiences for every traveller."
+      "description": "Safari, adventure, culture, and nature — bookable experiences for every traveller."
     },
     {
       "title": "Travel Info",
@@ -90,23 +90,23 @@
       "name": "Kruger National Park",
       "country": "south-africa",
       "region": "Mpumalanga & Limpopo",
-      "desc": "Africa's flagship self-drive safari \u2014 Big Five, 500+ birds, and vast bushveld wilderness.",
-      "image": "1516426122078-c23e76319801",
+      "desc": "Africa's flagship self-drive safari — Big Five, 500+ birds, and vast bushveld wilderness.",
+      "image": "1547448415-e9f5b28e570d",
       "mustVisit": true
     },
     {
       "name": "Etosha National Park",
       "country": "namibia",
       "region": "Northern Namibia",
-      "desc": "Legendary waterhole viewing around a vast salt pan \u2014 one of Africa's greatest game parks.",
-      "image": "1549219355-66779e9508d4",
+      "desc": "Legendary waterhole viewing around a vast salt pan — one of Africa's greatest game parks.",
+      "image": "1549366021-9f761d450615",
       "mustVisit": true
     },
     {
       "name": "Okavango Delta",
       "country": "botswana",
       "region": "Northern Botswana",
-      "desc": "UNESCO wetland wilderness \u2014 mokoro safaris through papyrus channels teeming with wildlife.",
+      "desc": "UNESCO wetland wilderness — mokoro safaris through papyrus channels teeming with wildlife.",
       "image": "1547471080-7cc2caa01a7e",
       "mustVisit": true
     },
@@ -114,7 +114,7 @@
       "name": "Victoria Falls",
       "country": "zambia",
       "region": "Livingstone",
-      "desc": "One of the Seven Natural Wonders \u2014 thundering cascades on the Zambia\u2013Zimbabwe border.",
+      "desc": "One of the Seven Natural Wonders — thundering cascades on the Zambia–Zimbabwe border.",
       "image": "1516026672322-bc52d61a55d5",
       "mustVisit": true
     },
@@ -122,7 +122,7 @@
       "name": "Hwange National Park",
       "country": "zimbabwe",
       "region": "Western Zimbabwe",
-      "desc": "Massive elephant herds and excellent predator viewing \u2014 pairs perfectly with Victoria Falls.",
+      "desc": "Massive elephant herds and excellent predator viewing — pairs perfectly with Victoria Falls.",
       "image": "1519181245277-cffeb31da2e3",
       "mustVisit": true
     },
@@ -130,8 +130,8 @@
       "name": "Bazaruto Archipelago",
       "country": "mozambique",
       "region": "Inhambane",
-      "desc": "Turquoise Indian Ocean islands \u2014 dugongs, whale sharks, and world-class diving.",
-      "image": "1516026672322-bc52d61a55d5",
+      "desc": "Turquoise Indian Ocean islands — dugongs, whale sharks, and world-class diving.",
+      "image": "1505142468610-359e7d316be0",
       "mustVisit": true
     },
     {
@@ -139,7 +139,7 @@
       "country": "malawi",
       "region": "Central & South Lakeshore",
       "desc": "Crystal-clear freshwater, golden beaches, and snorkelling among colourful cichlids.",
-      "image": "1541414779316-956a5084c0d4",
+      "image": "1658221744192-00e3770b8625",
       "mustVisit": true
     },
     {
@@ -154,7 +154,7 @@
       "name": "Hlane Royal National Park",
       "country": "eswatini",
       "region": "Lowveld",
-      "desc": "Eswatini's largest reserve \u2014 lions, rhinos, and guided drives in royal bushveld.",
+      "desc": "Eswatini's largest reserve — lions, rhinos, and guided drives in royal bushveld.",
       "image": "1516426122078-c23e76319801",
       "mustVisit": true
     }
@@ -171,21 +171,21 @@
       "date": "Apr 2025",
       "category": "Travel Update",
       "title": "Namibia visa rules updated from 1 April 2025",
-      "excerpt": "Many nationals (including UK, US, EU, and Australia) now need an e-visa or visa-on-arrival. SADC visitors are often still exempt \u2014 confirm on mha.gov.na before travel.",
+      "excerpt": "Many nationals (including UK, US, EU, and Australia) now need an e-visa or visa-on-arrival. SADC visitors are often still exempt — confirm on mha.gov.na before travel.",
       "country": "namibia"
     },
     {
       "date": "Mar 2026",
       "category": "Conservation",
       "title": "Gorongosa reports record predator sightings",
-      "excerpt": "Mozambique's restored wilderness continues its remarkable recovery \u2014 lion and elephant populations reach new highs.",
+      "excerpt": "Mozambique's restored wilderness continues its remarkable recovery — lion and elephant populations reach new highs.",
       "country": "mozambique"
     },
     {
       "date": "Feb 2026",
       "category": "Infrastructure",
       "title": "Kazungula Bridge cuts Chobe crossing times",
-      "excerpt": "The modern bridge linking Botswana, Zambia, and Zimbabwe has replaced the slow pontoon \u2014 plan Victoria Falls circuit day trips with confidence.",
+      "excerpt": "The modern bridge linking Botswana, Zambia, and Zimbabwe has replaced the slow pontoon — plan Victoria Falls circuit day trips with confidence.",
       "country": "botswana"
     },
     {
@@ -199,7 +199,7 @@
       "date": "Dec 2025",
       "category": "Travel Tip",
       "title": "Self-drive season peaks across Southern Africa",
-      "excerpt": "Dry-season wildlife viewing (May\u2013October) is underway \u2014 book park accommodation and 4x4 rentals early for peak months.",
+      "excerpt": "Dry-season wildlife viewing (May–October) is underway — book park accommodation and 4x4 rentals early for peak months.",
       "country": null
     }
   ],

@@ -27,6 +27,7 @@ This document records where practical travel data comes from and how we keep con
 | `data/itineraries.json` | Route templates | Original editorial |
 | `data/regions.json` | Per-country regional breakdowns for country guides | Original editorial informed by official tourism boards |
 | `data/marketplace.json` | Curated experience listings | Original editorial; representative pricing tiers |
+| `data/image-catalog.json` | Verified Unsplash stock photo IDs | [Unsplash License](https://unsplash.com/license) — free for commercial use with attribution appreciated |
 | `data/discover.json` | Homepage facts, news, guides | Original editorial; news items should cite policy changes, not reproduce press releases |
 
 ## Visa & entry (high-change items)

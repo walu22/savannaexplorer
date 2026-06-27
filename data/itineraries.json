@@ -2,8 +2,8 @@
   "desert-to-delta": {
     "type": "Self-Drive Route",
     "title": "The Desert to Delta",
-    "countries": "\ud83c\uddf3\ud83c\udde6 Namibia \u2192 \ud83c\udde7\ud83c\uddfc Botswana",
-    "duration": "14\u201321 Days",
+    "countries": "🇳🇦 Namibia → 🇧🇼 Botswana",
+    "duration": "14–21 Days",
     "priceFrom": "$2,450 USD",
     "customizable": true,
     "description": "Journey from the rust-red dunes of Sossusvlei through Etosha's legendary waterholes to the emerald channels of the Okavango Delta. This cross-border route captures the full spectrum of Southern Africa's desert-to-wetland transformation.",
@@ -16,44 +16,44 @@
     ],
     "days": [
       {
-        "range": "Day 1\u20132",
+        "range": "Day 1–2",
         "title": "Windhoek & Sossusvlei",
         "places": "Windhoek, Namib-Naukluft Park",
-        "narrative": "Collect your 4\u00d74 in Windhoek and head south into the Namib Desert. Arrive at Sossusvlei for a pre-dawn climb of Dune 45 and explore the surreal white clay pan of Deadvlei with its ancient camelthorn skeletons."
+        "narrative": "Collect your 4×4 in Windhoek and head south into the Namib Desert. Arrive at Sossusvlei for a pre-dawn climb of Dune 45 and explore the surreal white clay pan of Deadvlei with its ancient camelthorn skeletons."
       },
       {
-        "range": "Day 3\u20134",
+        "range": "Day 3–4",
         "title": "Swakopmund & Skeleton Coast",
         "places": "Swakopmund, Walvis Bay",
         "narrative": "Drive through the Gaub and Kuiseb passes to the Atlantic coast. Enjoy sandboarding, quad biking, or a catamaran cruise among dolphins and seals at Walvis Bay."
       },
       {
-        "range": "Day 5\u20137",
+        "range": "Day 5–7",
         "title": "Damaraland & Etosha",
         "places": "Twyfelfontein, Etosha National Park",
-        "narrative": "Track desert-adapted elephants in Damaraland and visit UNESCO-listed rock engravings at Twyfelfontein. Enter Etosha for world-class game viewing at its famous waterholes \u2014 rhino, elephant, and lion sightings are common."
+        "narrative": "Track desert-adapted elephants in Damaraland and visit UNESCO-listed rock engravings at Twyfelfontein. Enter Etosha for world-class game viewing at its famous waterholes — rhino, elephant, and lion sightings are common."
       },
       {
-        "range": "Day 8\u20139",
+        "range": "Day 8–9",
         "title": "Caprivi Strip",
         "places": "Rundu, Divundu, Mahango",
-        "narrative": "Head north into the tropical Zambezi region \u2014 a lush contrast to the desert south. Birding, river cruises, and hippo pods await along the Kavango River."
+        "narrative": "Head north into the tropical Zambezi region — a lush contrast to the desert south. Birding, river cruises, and hippo pods await along the Kavango River."
       },
       {
-        "range": "Day 10\u201312",
+        "range": "Day 10–12",
         "title": "Chobe National Park",
         "places": "Kasane, Chobe Riverfront",
         "narrative": "Cross the border into Botswana. Chobe is home to Africa's largest elephant population. Afternoon boat cruises offer intimate wildlife encounters at water level."
       },
       {
-        "range": "Day 13\u201314",
+        "range": "Day 13–14",
         "title": "Okavango Delta",
         "places": "Maun, Moremi Game Reserve",
-        "narrative": "Fly or drive to Maun and enter the Delta. Glide through papyrus channels in a traditional mokoro, then enjoy guided bush walks and 4\u00d74 game drives in Moremi."
+        "narrative": "Fly or drive to Maun and enter the Delta. Glide through papyrus channels in a traditional mokoro, then enjoy guided bush walks and 4×4 game drives in Moremi."
       }
     ],
     "included": [
-      "4\u00d74 rental vehicle with unlimited kilometres",
+      "4×4 rental vehicle with unlimited kilometres",
       "Pre-booked accommodation (lodges, guesthouses, or campsites)",
       "Cross-border paperwork assistance",
       "Detailed route maps and GPS waypoints",
@@ -68,52 +68,52 @@
       "Optional activities (balloon rides, scenic flights)",
       "Visa fees and border crossing charges"
     ],
-    "mapImage": "https://images.unsplash.com/photo-1504107123655-081832049e37?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Route overview \u2014 illustrative map showing key stops along this journey.",
+    "mapImage": "https://images.unsplash.com/photo-1772289093245-218447e77b64?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey.",
     "scope": "multi"
   },
   "coastal-explorer": {
     "type": "Self-Drive Route",
     "title": "The Coastal Explorer",
-    "countries": "\ud83c\uddff\ud83c\udde6 South Africa \u2192 \ud83c\uddf2\ud83c\uddff Mozambique",
-    "duration": "15\u201320 Days",
+    "countries": "🇿🇦 South Africa → 🇲🇿 Mozambique",
+    "duration": "15–20 Days",
     "priceFrom": "$2,890 USD",
     "customizable": true,
-    "description": "From Cape Town's Table Mountain along the Garden Route and Wild Coast to Mozambique's Bazaruto Archipelago \u2014 the ultimate Indian Ocean adventure combining mountains, forests, and tropical islands.",
+    "description": "From Cape Town's Table Mountain along the Garden Route and Wild Coast to Mozambique's Bazaruto Archipelago — the ultimate Indian Ocean adventure combining mountains, forests, and tropical islands.",
     "highlights": [
       "Table Mountain cable car and Cape Winelands tasting",
       "Garden Route forests, lagoons, and Storms River Mouth",
-      "iSimangaliso Wetland Park \u2014 UNESCO World Heritage",
+      "iSimangaliso Wetland Park — UNESCO World Heritage",
       "Maputo's vibrant markets and peri-peri seafood",
       "Dhow sailing and snorkelling in the Bazaruto Archipelago"
     ],
     "days": [
       {
-        "range": "Day 1\u20133",
+        "range": "Day 1–3",
         "title": "Cape Town & Peninsula",
         "places": "Cape Town, Cape Point",
-        "narrative": "Explore Table Mountain, the V&A Waterfront, and the Cape Peninsula \u2014 penguins at Boulders Beach, Chapman's Peak drive, and Cape Point where two oceans meet."
+        "narrative": "Explore Table Mountain, the V&A Waterfront, and the Cape Peninsula — penguins at Boulders Beach, Chapman's Peak drive, and Cape Point where two oceans meet."
       },
       {
-        "range": "Day 4\u20136",
+        "range": "Day 4–6",
         "title": "Garden Route",
         "places": "Hermanus, Knysna, Tsitsikamma",
         "narrative": "Whale watching in Hermanus, canopy tours in Tsitsikamma, and the dramatic Knysna Heads. Ancient forests and secluded beaches define this legendary coastal drive."
       },
       {
-        "range": "Day 7\u20139",
+        "range": "Day 7–9",
         "title": "Wild Coast & Durban",
         "places": "Coffee Bay, Durban",
         "narrative": "Trace the rugged Eastern Cape coastline through traditional Xhosa villages. Continue to Durban for its Indian-influenced cuisine and golden beaches."
       },
       {
-        "range": "Day 10\u201312",
+        "range": "Day 10–12",
         "title": "Kosi Bay & Maputo",
         "places": "St Lucia, Kosi Bay, Maputo",
         "narrative": "Snorkel the coral reefs of Kosi Bay and cross into Mozambique. Explore Maputo's art deco architecture and feast on tiger prawns at the fish market."
       },
       {
-        "range": "Day 13\u201315",
+        "range": "Day 13–15",
         "title": "Vilanculos & Bazaruto",
         "places": "Vilanculos, Bazaruto Island",
         "narrative": "Speedboat to the Bazaruto Archipelago. Snorkel pristine reefs, spot dugongs, and sail into the sunset on a traditional dhow."
@@ -135,46 +135,46 @@
       "Travel insurance",
       "Mozambique visa fees"
     ],
-    "mapImage": "https://images.unsplash.com/photo-1506905925344-21ddaec4d32d?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Route overview \u2014 illustrative map showing key stops along this journey.",
+    "mapImage": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey.",
     "scope": "multi"
   },
   "falls-beyond": {
     "type": "Guided & Self-Drive",
     "title": "The Falls & Beyond",
-    "countries": "\ud83c\uddff\ud83c\uddf2 Zambia \u2192 \ud83c\uddff\ud83c\uddfc Zimbabwe \u2192 \ud83c\udde7\ud83c\uddfc Botswana",
-    "duration": "10\u201314 Days",
+    "countries": "🇿🇲 Zambia → 🇿🇼 Zimbabwe → 🇧🇼 Botswana",
+    "duration": "10–14 Days",
     "priceFrom": "$3,150 USD",
     "customizable": true,
-    "description": "Experience the thunder of Victoria Falls, walk among leopards in South Luangwa, track elephants in Hwange, and cruise the Chobe River \u2014 the quintessential Zambezi basin safari circuit.",
+    "description": "Experience the thunder of Victoria Falls, walk among leopards in South Luangwa, track elephants in Hwange, and cruise the Chobe River — the quintessential Zambezi basin safari circuit.",
     "highlights": [
       "Helicopter \"Flight of Angels\" over Victoria Falls",
-      "Walking safari in the birthplace of the genre \u2014 South Luangwa",
+      "Walking safari in the birthplace of the genre — South Luangwa",
       "Devil's Pool swim at the edge of the falls (seasonal)",
       "Hwange's massive elephant herds at waterholes",
       "Chobe sunset river cruise among hippos and crocs"
     ],
     "days": [
       {
-        "range": "Day 1\u20133",
+        "range": "Day 1–3",
         "title": "Livingstone & Victoria Falls",
         "places": "Livingstone, Mosi-oa-Tunya",
         "narrative": "Witness the world's largest sheet of falling water from the Zambian side. Optional bungee, white-water rafting, or helicopter flight over the \"Smoke That Thunders\"."
       },
       {
-        "range": "Day 4\u20136",
+        "range": "Day 4–6",
         "title": "South Luangwa",
         "places": "Mfuwe, South Luangwa NP",
         "narrative": "Fly to Mfuwe for the ultimate walking safari experience. South Luangwa has one of Africa's highest leopard densities and exceptional night drives."
       },
       {
-        "range": "Day 7\u20139",
+        "range": "Day 7–9",
         "title": "Hwange & Matobo",
         "places": "Hwange NP, Matobo Hills",
         "narrative": "Cross into Zimbabwe. Hwange's waterholes attract hundreds of elephants. Visit Matobo Hills for rhino tracking and ancient San rock art."
       },
       {
-        "range": "Day 10\u201312",
+        "range": "Day 10–12",
         "title": "Chobe River",
         "places": "Kasane, Chobe NP",
         "narrative": "Enter Botswana for a finale on the Chobe River. Boat cruises at sunset reveal elephant herds swimming between islands."
@@ -182,7 +182,7 @@
     ],
     "included": [
       "All accommodation (mid-range lodges and camps)",
-      "Internal flights (Livingstone\u2013Mfuwe)",
+      "Internal flights (Livingstone–Mfuwe)",
       "Guided walking safaris in South Luangwa",
       "Park fees and conservation levies",
       "Chobe river cruise",
@@ -196,17 +196,17 @@
       "Gratuities for guides and lodge staff"
     ],
     "mapImage": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Route overview \u2014 illustrative map showing key stops along this journey.",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey.",
     "scope": "multi"
   },
   "kingdom-circuit": {
     "type": "Mountain & Culture Route",
     "title": "The Kingdom Circuit",
-    "countries": "\ud83c\uddf1\ud83c\uddf8 Lesotho \u2192 \ud83c\uddf8\ud83c\uddff Eswatini \u2192 \ud83c\uddff\ud83c\udde6 South Africa",
-    "duration": "7\u201310 Days",
+    "countries": "🇱🇸 Lesotho → 🇸🇿 Eswatini → 🇿🇦 South Africa",
+    "duration": "7–10 Days",
     "priceFrom": "$1,680 USD",
     "customizable": true,
-    "description": "A compact highland adventure through two mountain kingdoms \u2014 pony trekking in Lesotho, royal game reserves in Eswatini, and a Big Five finale in Kruger National Park.",
+    "description": "A compact highland adventure through two mountain kingdoms — pony trekking in Lesotho, royal game reserves in Eswatini, and a Big Five finale in Kruger National Park.",
     "highlights": [
       "Ascend the legendary Sani Pass into the \"Kingdom in the Sky\"",
       "Pony trekking through Lesotho's highland villages",
@@ -216,32 +216,32 @@
     ],
     "days": [
       {
-        "range": "Day 1\u20132",
+        "range": "Day 1–2",
         "title": "Sani Pass & Malealea",
         "places": "Sani Pass, Malealea",
         "narrative": "Cross from South Africa into Lesotho via the dramatic Sani Pass. Pony trek through remote highland villages and overnight in a traditional lodge."
       },
       {
-        "range": "Day 3\u20134",
+        "range": "Day 3–4",
         "title": "Afriski & Katse Dam",
         "places": "Afriski, Katse Dam",
         "narrative": "Visit Africa's only ski resort (winter) or hike the surrounding peaks. Marvel at the engineering feat of Katse Dam nestled in the mountains."
       },
       {
-        "range": "Day 5\u20136",
+        "range": "Day 5–6",
         "title": "Eswatini Kingdom",
         "places": "Hlane, Mkhaya, Mantenga",
         "narrative": "Enter the Kingdom of Eswatini. Track rhinos on foot in Mkhaya, visit the Mantenga cultural village, and spot lions in Hlane Royal National Park."
       },
       {
-        "range": "Day 7\u20138",
+        "range": "Day 7–8",
         "title": "Kruger National Park",
         "places": "Kruger NP (Orpen Gate)",
         "narrative": "Cross back into South Africa for a Big Five finale. Full-day game drives in Kruger's central region around Satara and Orpen."
       }
     ],
     "included": [
-      "4\u00d74 vehicle rental (high-clearance for Sani Pass)",
+      "4×4 vehicle rental (high-clearance for Sani Pass)",
       "Accommodation in lodges and guesthouses",
       "Pony trekking excursion in Malealea",
       "Mkhaya rhino tracking activity",
@@ -256,48 +256,48 @@
       "Lesotho/Eswatini border fees"
     ],
     "mapImage": "https://images.unsplash.com/photo-1541414779316-956a5084c0d4?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Route overview \u2014 illustrative map showing key stops along this journey.",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey.",
     "scope": "multi"
   },
   "lake-mountain": {
     "type": "Adventure Route",
     "title": "Lake & Mountain",
-    "countries": "\ud83c\uddf2\ud83c\uddfc Malawi \u2192 \ud83c\uddf2\ud83c\uddff Mozambique",
-    "duration": "10\u201314 Days",
+    "countries": "🇲🇼 Malawi → 🇲🇿 Mozambique",
+    "duration": "10–14 Days",
     "priceFrom": "$1,950 USD",
     "customizable": true,
-    "description": "Snorkel among a thousand cichlid species in Lake Malawi, summit Mount Mulanje's peaks, safari along the Shire River, and explore Mozambique's UNESCO-listed Ilha de Mo\u00e7ambique.",
+    "description": "Snorkel among a thousand cichlid species in Lake Malawi, summit Mount Mulanje's peaks, safari along the Shire River, and explore Mozambique's UNESCO-listed Ilha de Moçambique.",
     "highlights": [
       "Snorkelling with endemic cichlids at Cape Maclear",
-      "Multi-day trek on Mount Mulanje \u2014 the \"Island in the Sky\"",
+      "Multi-day trek on Mount Mulanje — the \"Island in the Sky\"",
       "Boat safari among elephants on the Shire River",
       "Kayak to uninhabited Domwe Island",
-      "Explore the historic stone town of Ilha de Mo\u00e7ambique"
+      "Explore the historic stone town of Ilha de Moçambique"
     ],
     "days": [
       {
-        "range": "Day 1\u20133",
+        "range": "Day 1–3",
         "title": "Lake Malawi",
         "places": "Cape Maclear, Nkhata Bay",
         "narrative": "Arrive at the \"Lake of Stars\". Snorkel among hundreds of colourful cichlid species, kayak to Domwe Island, and enjoy sunset dhow cruises."
       },
       {
-        "range": "Day 4\u20135",
+        "range": "Day 4–5",
         "title": "Mount Mulanje",
         "places": "Mulanje Massif",
-        "narrative": "Trek through tea estates to the base of Mulanje. Hike to Chambe Basin and optionally summit Sapitwa Peak (3,002m) \u2014 the highest point in the region."
+        "narrative": "Trek through tea estates to the base of Mulanje. Hike to Chambe Basin and optionally summit Sapitwa Peak (3,002m) — the highest point in the region."
       },
       {
-        "range": "Day 6\u20137",
+        "range": "Day 6–7",
         "title": "Liwonde National Park",
         "places": "Liwonde NP",
         "narrative": "Boat safari on the Shire River among dense elephant and hippo populations. Optional rhino tracking in the sanctuary."
       },
       {
-        "range": "Day 8\u201310",
-        "title": "Ilha de Mo\u00e7ambique",
-        "places": "Nampula, Ilha de Mo\u00e7ambique",
-        "narrative": "Cross into Mozambique and fly or drive to the coast. Explore the UNESCO World Heritage island \u2014 crumbling Portuguese forts, dhow harbour, and pristine reefs."
+        "range": "Day 8–10",
+        "title": "Ilha de Moçambique",
+        "places": "Nampula, Ilha de Moçambique",
+        "narrative": "Cross into Mozambique and fly or drive to the coast. Explore the UNESCO World Heritage island — crumbling Portuguese forts, dhow harbour, and pristine reefs."
       }
     ],
     "included": [
@@ -315,18 +315,18 @@
       "Mozambique visa fees",
       "Travel insurance"
     ],
-    "mapImage": "https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Route overview \u2014 illustrative map showing key stops along this journey.",
+    "mapImage": "https://images.unsplash.com/photo-1658221744192-00e3770b8625?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey.",
     "scope": "multi"
   },
   "grand-safari": {
     "type": "Signature Safari",
     "title": "The Grand Safari",
-    "countries": "\ud83c\uddff\ud83c\udde6 South Africa \u2192 \ud83c\uddf3\ud83c\udde6 Namibia \u2192 \ud83c\udde7\ud83c\uddfc Botswana",
-    "duration": "21\u201328 Days",
+    "countries": "🇿🇦 South Africa → 🇳🇦 Namibia → 🇧🇼 Botswana",
+    "duration": "21–28 Days",
     "priceFrom": "$5,200 USD",
     "customizable": true,
-    "description": "The definitive three-country Southern African safari. From Kruger's Big Five through Namibia's desert wonders to Botswana's pristine Okavango Delta \u2014 the journey of a lifetime.",
+    "description": "The definitive three-country Southern African safari. From Kruger's Big Five through Namibia's desert wonders to Botswana's pristine Okavango Delta — the journey of a lifetime.",
     "highlights": [
       "Big Five safari in Kruger and Sabi Sands",
       "Etosha's floodlit waterhole game viewing",
@@ -336,44 +336,44 @@
     ],
     "days": [
       {
-        "range": "Day 1\u20134",
+        "range": "Day 1–4",
         "title": "Kruger National Park",
         "places": "Kruger NP, Sabi Sands",
         "narrative": "Begin in South Africa's flagship reserve. Expert-guided game drives in search of the Big Five, with optional luxury extension into Sabi Sands for leopard encounters."
       },
       {
-        "range": "Day 5\u20137",
+        "range": "Day 5–7",
         "title": "Etosha & Damaraland",
         "places": "Etosha NP, Damaraland",
         "narrative": "Fly or drive to Namibia. Game drives around Etosha's vast salt pan and track rare desert-adapted elephants and rhinos on foot in Damaraland."
       },
       {
-        "range": "Day 8\u201310",
+        "range": "Day 8–10",
         "title": "Skeleton Coast & Sossusvlei",
         "places": "Swakopmund, Sossusvlei",
         "narrative": "Explore the haunting Skeleton Coast by scenic flight. Climb the towering dunes of Sossusvlei and discover the ancient dead trees of Deadvlei."
       },
       {
-        "range": "Day 11\u201313",
+        "range": "Day 11–13",
         "title": "Swakopmund & Walvis Bay",
         "places": "Swakopmund, Walvis Bay",
-        "narrative": "Coastal adventure interlude \u2014 sandboarding, kayaking with seals, and fresh Atlantic oysters in Namibia's adventure capital."
+        "narrative": "Coastal adventure interlude — sandboarding, kayaking with seals, and fresh Atlantic oysters in Namibia's adventure capital."
       },
       {
-        "range": "Day 14\u201316",
+        "range": "Day 14–16",
         "title": "Caprivi & Chobe",
         "places": "Caprivi Strip, Chobe NP",
         "narrative": "Head north through the lush Caprivi into Botswana. Chobe's elephant herds gather along the riverfront in their hundreds."
       },
       {
-        "range": "Day 17\u201321",
+        "range": "Day 17–21",
         "title": "Okavango Delta & Moremi",
         "places": "Maun, Moremi GR",
-        "narrative": "The grand finale in the Okavango Delta. Mokoro excursions, guided bush walks, and 4\u00d74 drives in Moremi \u2014 Africa's predator capital."
+        "narrative": "The grand finale in the Okavango Delta. Mokoro excursions, guided bush walks, and 4×4 drives in Moremi — Africa's predator capital."
       }
     ],
     "included": [
-      "4\u00d74 rental or light aircraft transfers between regions",
+      "4×4 rental or light aircraft transfers between regions",
       "All accommodation (mix of lodges and camps)",
       "Guided game drives in Kruger, Etosha, and Moremi",
       "Scenic flight over Skeleton Coast",
@@ -388,19 +388,19 @@
       "Travel and cancellation insurance",
       "Visa fees for three countries"
     ],
-    "mapImage": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Route overview \u2014 illustrative map showing key stops along this journey.",
+    "mapImage": "https://images.unsplash.com/photo-1547448415-e9f5b28e570d?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Route overview — illustrative map showing key stops along this journey.",
     "scope": "multi"
   },
   "namibia-essentials": {
     "scope": "single",
     "type": "Single-Country Route",
     "title": "Namibia Essentials",
-    "countries": "\ud83c\uddf3\ud83c\udde6 Namibia",
-    "duration": "10\u201312 Days",
+    "countries": "🇳🇦 Namibia",
+    "duration": "10–12 Days",
     "priceFrom": "$1,890 USD",
     "customizable": true,
-    "description": "The definitive Namibia loop \u2014 dunes, coast, Damaraland, and Etosha in under two weeks. Perfect for first-time visitors with a 4x4.",
+    "description": "The definitive Namibia loop — dunes, coast, Damaraland, and Etosha in under two weeks. Perfect for first-time visitors with a 4x4.",
     "highlights": [
       "Sunrise at Dune 45 and Deadvlei",
       "Swakopmund adventure activities",
@@ -409,31 +409,31 @@
     ],
     "days": [
       {
-        "range": "Day 1\u20132",
+        "range": "Day 1–2",
         "title": "Windhoek to Sossusvlei",
         "places": "Windhoek, Sesriem",
         "narrative": "Collect your vehicle and drive south to the Namib. Pre-dawn entry for Dune 45 and the white clay pan of Deadvlei."
       },
       {
-        "range": "Day 3\u20134",
+        "range": "Day 3–4",
         "title": "Coast & Swakopmund",
         "places": "Walvis Bay, Swakopmund",
         "narrative": "Cross the Namib to the Atlantic. Kayak with seals, sandboard the dunes, and explore colonial Swakopmund."
       },
       {
-        "range": "Day 5\u20136",
+        "range": "Day 5–6",
         "title": "Damaraland",
         "places": "Twyfelfontein, Palmwag",
         "narrative": "Track desert-adapted elephants and visit UNESCO rock engravings among granite kopjes."
       },
       {
-        "range": "Day 7\u201310",
+        "range": "Day 7–10",
         "title": "Etosha Safari",
         "places": "Etosha National Park",
-        "narrative": "Game drive the park's waterholes \u2014 rhino, elephant, lion, and giraffe concentrations in dry season."
+        "narrative": "Game drive the park's waterholes — rhino, elephant, lion, and giraffe concentrations in dry season."
       },
       {
-        "range": "Day 11\u201312",
+        "range": "Day 11–12",
         "title": "Return via Windhoek",
         "places": "Windhoek",
         "narrative": "Drive south through Otjiwarongo to Windhoek. Optional craft market and departure."
@@ -452,18 +452,18 @@
       "Insurance",
       "Visa fees"
     ],
-    "mapImage": "https://images.unsplash.com/photo-1504107123655-081832049e37?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Classic Namibia circuit \u2014 Sossusvlei, coast, Damaraland, and Etosha."
+    "mapImage": "https://images.unsplash.com/photo-1772289325999-0583c98396ef?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Classic Namibia circuit — Sossusvlei, coast, Damaraland, and Etosha."
   },
   "south-africa-classic": {
     "scope": "single",
     "type": "Single-Country Route",
     "title": "South Africa Classic",
-    "countries": "\ud83c\uddff\ud83c\udde6 South Africa",
-    "duration": "12\u201314 Days",
+    "countries": "🇿🇦 South Africa",
+    "duration": "12–14 Days",
     "priceFrom": "$2,150 USD",
     "customizable": true,
-    "description": "Cape Town, the Winelands, Garden Route, and Kruger \u2014 the essential South Africa triangle for first-time visitors.",
+    "description": "Cape Town, the Winelands, Garden Route, and Kruger — the essential South Africa triangle for first-time visitors.",
     "highlights": [
       "Table Mountain and Cape Peninsula",
       "Stellenbosch wine estates",
@@ -472,7 +472,7 @@
     ],
     "days": [
       {
-        "range": "Day 1\u20134",
+        "range": "Day 1–4",
         "title": "Cape Town",
         "places": "Cape Town, Peninsula",
         "narrative": "Table Mountain, V&A Waterfront, Cape Point, and Boulders penguins."
@@ -484,16 +484,16 @@
         "narrative": "Estate tastings and mountain passes through the Cape's wine country."
       },
       {
-        "range": "Day 6\u20138",
+        "range": "Day 6–8",
         "title": "Garden Route",
         "places": "Knysna, Tsitsikamma",
         "narrative": "Lagoon cruises, forest walks, and Storms River bridge."
       },
       {
-        "range": "Day 9\u201313",
+        "range": "Day 9–13",
         "title": "Kruger Safari",
         "places": "Kruger NP",
-        "narrative": "Self-drive the park's main camps \u2014 Big Five and birding at waterholes."
+        "narrative": "Self-drive the park's main camps — Big Five and birding at waterholes."
       },
       {
         "range": "Day 14",
@@ -515,18 +515,18 @@
       "Meals",
       "Insurance"
     ],
-    "mapImage": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=1200",
-    "mapCaption": "Cape to Kruger \u2014 South Africa's greatest hits."
+    "mapImage": "https://images.unsplash.com/photo-1576485375217-d6a95e34d043?auto=format&fit=crop&q=80&w=1200",
+    "mapCaption": "Cape to Kruger — South Africa's greatest hits."
   },
   "botswana-delta-focus": {
     "scope": "single",
     "type": "Single-Country Route",
     "title": "Botswana Delta Focus",
-    "countries": "\ud83c\udde7\ud83c\uddfc Botswana",
-    "duration": "8\u201310 Days",
+    "countries": "🇧🇼 Botswana",
+    "duration": "8–10 Days",
     "priceFrom": "$3,200 USD",
     "customizable": true,
-    "description": "Okavango mokoro trails, Moremi game drives, and Chobe river cruises \u2014 Botswana's wetland and elephant heartland.",
+    "description": "Okavango mokoro trails, Moremi game drives, and Chobe river cruises — Botswana's wetland and elephant heartland.",
     "highlights": [
       "Mokoro through Okavango channels",
       "Moremi predator viewing",
@@ -535,25 +535,25 @@
     ],
     "days": [
       {
-        "range": "Day 1\u20132",
+        "range": "Day 1–2",
         "title": "Maun & Delta",
         "places": "Maun, Okavango",
         "narrative": "Fly or drive to Maun. Enter the Delta by mokoro for birding and hippo encounters."
       },
       {
-        "range": "Day 3\u20135",
+        "range": "Day 3–5",
         "title": "Moremi Game Reserve",
         "places": "Moremi GR",
         "narrative": "4x4 drives and bush walks on the Delta's wildlife-rich islands."
       },
       {
-        "range": "Day 6\u20138",
+        "range": "Day 6–8",
         "title": "Chobe Riverfront",
         "places": "Kasane, Chobe NP",
-        "narrative": "Elephant herds along the river \u2014 afternoon boat cruises at golden hour."
+        "narrative": "Elephant herds along the river — afternoon boat cruises at golden hour."
       },
       {
-        "range": "Day 9\u201310",
+        "range": "Day 9–10",
         "title": "Optional Makgadikgadi",
         "places": "Ntwetwe Pan",
         "narrative": "Seasonal extension for meerkats and zebra migration on the salt pans."
@@ -579,11 +579,11 @@
     "scope": "single",
     "type": "Single-Country Route",
     "title": "Zambia Falls & Safari",
-    "countries": "\ud83c\uddff\ud83c\uddf2 Zambia",
-    "duration": "9\u201311 Days",
+    "countries": "🇿🇲 Zambia",
+    "duration": "9–11 Days",
     "priceFrom": "$2,350 USD",
     "customizable": true,
-    "description": "Victoria Falls adventures combined with South Luangwa walking safaris \u2014 Zambia's two world-class experiences in one trip.",
+    "description": "Victoria Falls adventures combined with South Luangwa walking safaris — Zambia's two world-class experiences in one trip.",
     "highlights": [
       "Victoria Falls viewpoints and Devil's Pool (seasonal)",
       "White-water rafting below the Falls",
@@ -592,7 +592,7 @@
     ],
     "days": [
       {
-        "range": "Day 1\u20133",
+        "range": "Day 1–3",
         "title": "Livingstone & Falls",
         "places": "Victoria Falls",
         "narrative": "Falls viewpoints, bridge activities, and optional helicopter flight."
@@ -601,16 +601,16 @@
         "range": "Day 4",
         "title": "Transfer to Luangwa",
         "places": "Mfuwe",
-        "narrative": "Fly or drive to the Luangwa Valley \u2014 Africa's walking safari birthplace."
+        "narrative": "Fly or drive to the Luangwa Valley — Africa's walking safari birthplace."
       },
       {
-        "range": "Day 5\u20139",
+        "range": "Day 5–9",
         "title": "South Luangwa",
         "places": "South Luangwa NP",
         "narrative": "Morning walks and afternoon drives along the Luangwa River."
       },
       {
-        "range": "Day 10\u201311",
+        "range": "Day 10–11",
         "title": "Return via Lusaka",
         "places": "Lusaka",
         "narrative": "Domestic connection and departure."
@@ -629,18 +629,18 @@
       "Meals",
       "Insurance"
     ],
-    "mapImage": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=1200",
+    "mapImage": "https://images.unsplash.com/photo-1679713594549-ec393ce9c909?auto=format&fit=crop&q=80&w=1200",
     "mapCaption": "Falls thunder to Luangwa leopards."
   },
   "zimbabwe-wilderness": {
     "scope": "single",
     "type": "Single-Country Route",
     "title": "Zimbabwe Wilderness",
-    "countries": "\ud83c\uddff\ud83c\uddfc Zimbabwe",
-    "duration": "8\u201310 Days",
+    "countries": "🇿🇼 Zimbabwe",
+    "duration": "8–10 Days",
     "priceFrom": "$2,100 USD",
     "customizable": true,
-    "description": "Victoria Falls, Hwange's elephant herds, and Mana Pools wilderness \u2014 Zimbabwe's golden triangle.",
+    "description": "Victoria Falls, Hwange's elephant herds, and Mana Pools wilderness — Zimbabwe's golden triangle.",
     "highlights": [
       "Victoria Falls gorge walk",
       "Hwange waterhole game viewing",
@@ -649,22 +649,22 @@
     ],
     "days": [
       {
-        "range": "Day 1\u20132",
+        "range": "Day 1–2",
         "title": "Victoria Falls",
         "places": "Victoria Falls town",
         "narrative": "Rainforest walk, gorge viewpoints, and optional rafting or bungee."
       },
       {
-        "range": "Day 3\u20135",
+        "range": "Day 3–5",
         "title": "Hwange",
         "places": "Hwange NP",
-        "narrative": "Self-drive or guided drives to pumped waterholes \u2014 elephant herds at dusk."
+        "narrative": "Self-drive or guided drives to pumped waterholes — elephant herds at dusk."
       },
       {
-        "range": "Day 6\u20139",
+        "range": "Day 6–9",
         "title": "Mana Pools",
         "places": "Mana Pools NP",
-        "narrative": "Canoe the Zambezi and walk among albida trees \u2014 UNESCO wilderness."
+        "narrative": "Canoe the Zambezi and walk among albida trees — UNESCO wilderness."
       },
       {
         "range": "Day 10",
@@ -693,11 +693,11 @@
     "scope": "single",
     "type": "Single-Country Route",
     "title": "Mozambique Bush & Beach",
-    "countries": "\ud83c\uddf2\ud83c\uddff Mozambique",
-    "duration": "10\u201312 Days",
+    "countries": "🇲🇿 Mozambique",
+    "duration": "10–12 Days",
     "priceFrom": "$2,450 USD",
     "customizable": true,
-    "description": "Gorongosa's restored wildlife followed by Indian Ocean beaches \u2014 Mozambique's ultimate combination.",
+    "description": "Gorongosa's restored wildlife followed by Indian Ocean beaches — Mozambique's ultimate combination.",
     "highlights": [
       "Gorongosa game drives",
       "Mount Gorongosa day hike",
@@ -706,7 +706,7 @@
     ],
     "days": [
       {
-        "range": "Day 1\u20134",
+        "range": "Day 1–4",
         "title": "Gorongosa",
         "places": "Gorongosa NP",
         "narrative": "Lion and elephant sightings in Africa's great restoration story."
@@ -718,7 +718,7 @@
         "narrative": "Domestic flight or road transfer to the Indian Ocean."
       },
       {
-        "range": "Day 6\u201311",
+        "range": "Day 6–11",
         "title": "Bazaruto coast",
         "places": "Vilanculos, Bazaruto",
         "narrative": "Dhow sailing, diving, and beach relaxation on the archipelago."
@@ -743,18 +743,18 @@
       "Diving fees",
       "Insurance"
     ],
-    "mapImage": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=1200",
+    "mapImage": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=1200",
     "mapCaption": "Gorongosa bush to Bazaruto blues."
   },
   "malawi-lake-safari": {
     "scope": "single",
     "type": "Single-Country Route",
     "title": "Malawi Lake & Safari",
-    "countries": "\ud83c\uddf2\ud83c\uddfc Malawi",
-    "duration": "8\u201310 Days",
+    "countries": "🇲🇼 Malawi",
+    "duration": "8–10 Days",
     "priceFrom": "$1,750 USD",
     "customizable": true,
-    "description": "Liwonde river safaris and Lake Malawi beaches \u2014 affordable warmth and wildlife in the Warm Heart of Africa.",
+    "description": "Liwonde river safaris and Lake Malawi beaches — affordable warmth and wildlife in the Warm Heart of Africa.",
     "highlights": [
       "Shire River boat safari",
       "Cape Maclear snorkelling",
@@ -763,13 +763,13 @@
     ],
     "days": [
       {
-        "range": "Day 1\u20134",
+        "range": "Day 1–4",
         "title": "Liwonde",
         "places": "Liwonde NP",
         "narrative": "Boat safaris among elephants and hippos on the Shire River."
       },
       {
-        "range": "Day 5\u20139",
+        "range": "Day 5–9",
         "title": "Lake Malawi",
         "places": "Cape Maclear",
         "narrative": "Snorkel among cichlids, kayak the bays, and relax on sandy beaches."
@@ -794,18 +794,18 @@
       "Insurance",
       "Park fees"
     ],
-    "mapImage": "https://images.unsplash.com/photo-1541414779316-956a5084c0d4?auto=format&fit=crop&q=80&w=1200",
+    "mapImage": "https://images.unsplash.com/photo-1658221744192-00e3770b8625?auto=format&fit=crop&q=80&w=1200",
     "mapCaption": "River safari to freshwater paradise."
   },
   "lesotho-highlands": {
     "scope": "single",
     "type": "Single-Country Route",
     "title": "Lesotho Highlands",
-    "countries": "\ud83c\uddf1\ud83c\uddf8 Lesotho",
-    "duration": "5\u20137 Days",
+    "countries": "🇱🇸 Lesotho",
+    "duration": "5–7 Days",
     "priceFrom": "$980 USD",
     "customizable": true,
-    "description": "Sani Pass, pony trekking, and mountain villages \u2014 the ultimate highland add-on from South Africa.",
+    "description": "Sani Pass, pony trekking, and mountain villages — the ultimate highland add-on from South Africa.",
     "highlights": [
       "Sani Pass 4x4 ascent",
       "Basotho pony trek",
@@ -820,13 +820,13 @@
         "narrative": "4x4 from KwaZulu-Natal to the highest pub in Africa."
       },
       {
-        "range": "Day 2\u20134",
+        "range": "Day 2–4",
         "title": "Pony trekking",
         "places": "Malealea or Semonkong",
         "narrative": "Multi-day rides through mountain villages with local guides."
       },
       {
-        "range": "Day 5\u20136",
+        "range": "Day 5–6",
         "title": "Central highlands",
         "places": "Katse Dam, Bokong",
         "narrative": "Dam wall viewpoints and plateau hiking."
@@ -858,20 +858,20 @@
     "scope": "single",
     "type": "Single-Country Route",
     "title": "Eswatini Kingdom",
-    "countries": "\ud83c\uddf8\ud83c\uddff Eswatini",
-    "duration": "4\u20135 Days",
+    "countries": "🇸🇿 Eswatini",
+    "duration": "4–5 Days",
     "priceFrom": "$750 USD",
     "customizable": true,
-    "description": "Big game, walking safaris, and craft markets \u2014 the perfect Kruger add-on through Africa's last absolute monarchy.",
+    "description": "Big game, walking safaris, and craft markets — the perfect Kruger add-on through Africa's last absolute monarchy.",
     "highlights": [
       "Hlane lion and rhino drives",
       "Mlilwane walking among wildlife",
       "Swazi craft markets",
-      "Reed Dance (Aug\u2013Sep, seasonal)"
+      "Reed Dance (Aug–Sep, seasonal)"
     ],
     "days": [
       {
-        "range": "Day 1\u20132",
+        "range": "Day 1–2",
         "title": "Hlane",
         "places": "Hlane Royal NP",
         "narrative": "Guided drives for lion, rhino, and vultures in the lowveld."
@@ -883,7 +883,7 @@
         "narrative": "Walk or cycle among antelope, hippos, and crocodiles."
       },
       {
-        "range": "Day 4\u20135",
+        "range": "Day 4–5",
         "title": "Craft & culture",
         "places": "Ezulwini Valley",
         "narrative": "Candle factory, glass blowing, and markets before exit via Oshoek."
@@ -901,7 +901,7 @@
       "Park fees",
       "Insurance"
     ],
-    "mapImage": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=1200",
+    "mapImage": "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?auto=format&fit=crop&q=80&w=1200",
     "mapCaption": "Royal reserves and Swazi culture."
   }
 }
