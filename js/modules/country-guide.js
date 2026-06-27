@@ -46,6 +46,8 @@ function populateCountryPage(countryId) {
     detailView.scrollTop = 0;
     detailTitle.textContent = data.name;
     detailTagline.textContent = data.tagline;
+    const breadcrumbName = document.getElementById('detail-breadcrumb-name');
+    if (breadcrumbName) breadcrumbName.textContent = data.name;
 
     const aboutHeading = document.getElementById('detail-about-heading');
     const aboutIntro = document.getElementById('detail-about-intro');
@@ -232,6 +234,10 @@ export function initCountryGuide() {
     });
 
     closeDetailBtn?.addEventListener('click', closeCountryPage);
+
+    document.querySelectorAll('[data-action="back-destinations"]').forEach(btn => {
+        btn.addEventListener('click', closeCountryPage);
+    });
 
     document.getElementById('country-plan-cta')?.addEventListener('click', () => {
         closeCountryPage();

@@ -581,16 +581,51 @@ body.site-v2 .country-detail-view {
 }
 
 body.site-v2 .detail-header {
-    background: var(--bg-surface);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 6rem 0 2rem;
+    background: var(--bg-cream);
+    border-bottom: none;
 }
 
-body.site-v2 .detail-page-title h1 {
+body.site-v2 .detail-toolbar {
+    background: rgba(247, 243, 237, 0.95);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+body.site-v2 .detail-hero {
+    padding: 2.75rem 0 2.25rem;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+body.site-v2 .detail-hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-style: italic;
     color: var(--accent);
+}
+
+body.site-v2 .detail-eyebrow {
+    color: var(--primary);
+}
+
+body.site-v2 .detail-tagline {
+    font-family: var(--font-body);
+    font-style: normal;
+    color: rgba(26, 26, 46, 0.72);
+}
+
+body.site-v2 .detail-breadcrumb-current {
+    color: var(--accent);
+}
+
+body.site-v2 .btn-back-main {
+    border-radius: var(--radius-pill);
+    color: var(--accent);
+    border-color: var(--border-strong);
+    background: white;
+}
+
+body.site-v2 .btn-back-main:hover {
+    background: var(--accent);
+    color: white;
 }
 
 body.site-v2 .guide-tabs {
@@ -608,17 +643,6 @@ body.site-v2 .guide-tab {
 }
 
 body.site-v2 .guide-tab.active {
-    background: var(--accent);
-    color: white;
-}
-
-body.site-v2 .btn-back-main {
-    border-radius: var(--radius-pill);
-    color: var(--accent);
-    border-color: var(--border-strong);
-}
-
-body.site-v2 .btn-back-main:hover {
     background: var(--accent);
     color: white;
 }
