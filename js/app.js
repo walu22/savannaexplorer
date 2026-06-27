@@ -13,7 +13,7 @@ import { initDiscover } from './modules/discover.js';
 import { initAbout } from './modules/about.js';
 import { initHealth } from './modules/health.js';
 import { initEvents } from './modules/events.js';
-import { initDestinations } from './modules/destinations.js';
+import { initTripPlanner } from './modules/trip-planner.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const versionEl = document.getElementById('app-version');
@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initItineraries();
     initMarketplace();
     initUtilityHub();
+    initTripPlanner();
     initContact();
     initNewsletter();
     initParks();

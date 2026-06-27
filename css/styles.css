@@ -4251,3 +4251,356 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* --- Trip Planner --- */
+.hub-card--full {
+    grid-column: 1 / -1;
+}
+
+.trip-planner-intro {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: -0.5rem 0 1.5rem;
+    max-width: 720px;
+}
+
+.trip-planner-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.trip-planner-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.trip-optional {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.trip-country-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.trip-country-chip {
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.trip-country-chip input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.trip-country-chip span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius-pill, 999px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.88rem;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.trip-country-chip input:checked + span {
+    background: rgba(184, 134, 11, 0.25);
+    border-color: var(--primary-light, #d4a017);
+    color: white;
+}
+
+.trip-country-chip:hover span {
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.trip-planner-select {
+    width: 100%;
+    max-width: 480px;
+    padding: 0.65rem 0.85rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
+    font-size: 0.95rem;
+}
+
+.trip-planner-select option {
+    color: #111;
+}
+
+.trip-pack-list {
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.trip-planner-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    align-items: center;
+}
+
+.utility-hub .trip-planner-actions .btn-outline {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.45);
+    background: transparent;
+}
+
+.utility-hub .trip-planner-actions .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+}
+
+.trip-planner-feedback {
+    color: #ffb4b4;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.trip-planner-preview-panel {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.trip-preview-heading {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.trip-planner-preview {
+    background: white;
+    color: #1a1a1a;
+    border-radius: 12px;
+    padding: 2rem;
+    max-height: 520px;
+    overflow-y: auto;
+}
+
+.trip-planner-preview .print-checklist-doc {
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.trip-planner-preview .print-header h1 {
+    font-size: 1.6rem;
+    color: var(--accent, #1b4332);
+    margin: 0.25rem 0;
+}
+
+.trip-planner-preview .print-brand {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    margin: 0;
+}
+
+.trip-planner-preview .print-section,
+.trip-planner-preview .print-country {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #e8e8e8;
+}
+
+.trip-planner-preview .print-country h2,
+.trip-planner-preview .print-section h2 {
+    font-size: 1.15rem;
+    color: var(--accent, #1b4332);
+    margin-bottom: 0.5rem;
+}
+
+.trip-planner-preview .print-meta {
+    color: #555;
+    font-size: 0.85rem;
+}
+
+.trip-planner-preview .print-source {
+    font-size: 0.82rem;
+    color: #444;
+    word-break: break-all;
+}
+
+.trip-planner-preview .print-links {
+    margin: 0.5rem 0 0;
+    padding-left: 1.2rem;
+}
+
+.trip-planner-preview .print-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.trip-planner-preview .print-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.trip-planner-preview .print-box {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #333;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.trip-planner-preview .print-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+    font-size: 0.82rem;
+    color: #555;
+}
+
+.trip-planner-print-root {
+    display: none;
+}
+
+/* Print layout */
+@media print {
+    body.trip-planner-printing * {
+        visibility: hidden;
+    }
+
+    body.trip-planner-printing #trip-planner-print-root,
+    body.trip-planner-printing #trip-planner-print-root * {
+        visibility: visible;
+    }
+
+    body.trip-planner-printing #trip-planner-print-root {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    body.trip-planner-printing .print-checklist-doc {
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 11pt;
+        line-height: 1.45;
+        color: #111;
+        max-width: 100%;
+        padding: 0.5in;
+    }
+
+    body.trip-planner-printing .print-header {
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid #1b4332;
+    }
+
+    body.trip-planner-printing .print-brand {
+        font-family: Arial, sans-serif;
+        font-size: 8pt;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #666;
+    }
+
+    body.trip-planner-printing .print-header h1 {
+        font-size: 22pt;
+        color: #1b4332;
+        margin: 0.15rem 0;
+    }
+
+    body.trip-planner-printing .print-subtitle {
+        font-size: 12pt;
+        margin: 0;
+    }
+
+    body.trip-planner-printing .print-generated {
+        font-size: 9pt;
+        color: #666;
+        margin: 0.35rem 0 0;
+    }
+
+    body.trip-planner-printing .print-section,
+    body.trip-planner-printing .print-country {
+        break-inside: avoid;
+        margin-top: 1rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid #ccc;
+    }
+
+    body.trip-planner-printing .print-country h2,
+    body.trip-planner-printing .print-section h2 {
+        font-size: 13pt;
+        color: #1b4332;
+        margin: 0 0 0.35rem;
+    }
+
+    body.trip-planner-printing .print-meta {
+        font-size: 9pt;
+        color: #444;
+    }
+
+    body.trip-planner-printing .print-verified {
+        color: #666;
+    }
+
+    body.trip-planner-printing .print-source {
+        font-size: 8.5pt;
+        word-break: break-all;
+    }
+
+    body.trip-planner-printing .print-links,
+    body.trip-planner-printing .print-borders,
+    body.trip-planner-printing ul {
+        margin: 0.35rem 0;
+        padding-left: 1.1rem;
+    }
+
+    body.trip-planner-printing .print-checklist {
+        list-style: none;
+        padding: 0;
+    }
+
+    body.trip-planner-printing .print-checklist li {
+        display: flex;
+        gap: 0.4rem;
+        margin-bottom: 0.25rem;
+    }
+
+    body.trip-planner-printing .print-box {
+        width: 12px;
+        height: 12px;
+        border: 1px solid #333;
+        flex-shrink: 0;
+    }
+
+    body.trip-planner-printing .print-footer {
+        margin-top: 1.25rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid #999;
+        font-size: 8.5pt;
+        color: #444;
+    }
+
+    body.trip-planner-printing .print-note {
+        font-size: 9pt;
+        font-style: italic;
+        color: #555;
+    }
+}

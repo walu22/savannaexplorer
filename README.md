@@ -34,7 +34,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.11.1** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.12.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -50,7 +50,7 @@ The old root files `main.js`, `country-guide.js`, and `itinerary-data.js` were r
 - **Itineraries** section with filter tabs (All / Single Country / Cross-Border), **View Route** planning templates, and indicative budgets (not quotes)
 - **Marketplace** activity inspiration with cost bands, planning tips, and official resource links (31 listings)
 - **Country guides** with regional breakdowns for every destination
-- **Contact** section (`#contact`) for corrections, partner suggestions, and feedback (not trip bookings)
+- **Trip checklist** — printable planner in Travel Tools (`#plan`): countries, route template, visa notes, official links, borders, packing
 - Enriched guides for Zambia, Zimbabwe, Mozambique, Malawi, Lesotho, and Eswatini
 
 ### Production build
