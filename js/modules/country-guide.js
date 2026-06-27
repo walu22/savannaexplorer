@@ -227,10 +227,11 @@ function handleRouting() {
 }
 
 export function initCountryGuide() {
-    document.querySelectorAll('.country-card').forEach(card => {
-        card.addEventListener('click', () => {
-            window.location.hash = card.getAttribute('data-country-id');
-        });
+    document.getElementById('destinations-grid')?.addEventListener('click', (e) => {
+        const card = e.target.closest('.country-card');
+        if (!card) return;
+        const countryId = card.getAttribute('data-country-id');
+        if (countryId) window.location.hash = countryId;
     });
 
     closeDetailBtn?.addEventListener('click', closeCountryPage);

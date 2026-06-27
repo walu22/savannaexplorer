@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initNav();
     initReveal();
+    initDestinations();
     initCountryGuide();
     initItineraries();
     initMarketplace();
@@ -33,5 +34,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initHealth();
     initEvents();
     initDiscover();
-    initDestinations();
 });
