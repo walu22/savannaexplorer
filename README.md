@@ -34,7 +34,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.11.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.11.1** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
