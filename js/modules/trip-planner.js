@@ -1,0 +1,265 @@
+import itineraries from '../../data/itineraries.json';
+import packingData from '../../data/packing.json';
+import practical from '../../data/practical.json';
+import bordersData from '../../data/borders.json';
+import { COUNTRY_META, COUNTRY_ORDER } from '../lib/country-meta.js';
+import { getCountryResourcePack, getVisaRow } from '../lib/country-resources.js';
+
+const ITINERARY_COUNTRIES = {
+    'desert-to-delta': ['namibia', 'botswana'],
+    'coastal-explorer': ['south-africa', 'mozambique'],
+    'falls-beyond': ['zambia', 'zimbabwe'],
+    'kingdom-circuit': ['south-africa', 'lesotho', 'eswatini'],
+    'lake-mountain': ['malawi', 'zambia'],
+    'grand-safari': ['botswana', 'zimbabwe', 'zambia'],
+    'namibia-essentials': ['namibia'],
+    'south-africa-classic': ['south-africa'],
+    'botswana-delta-focus': ['botswana'],
+    'zambia-falls-safari': ['zambia'],
+    'zimbabwe-wilderness': ['zimbabwe'],
+    'mozambique-bush-beach': ['mozambique'],
+    'malawi-lake-safari': ['malawi'],
+    'lesotho-highlands': ['lesotho'],
+    'eswatini-kingdom': ['eswatini'],
+};
+
+function escapeHtml(text) {
+    return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function getEmergency(countryId) {
+    const name = COUNTRY_META[countryId]?.name;
+    return practical.emergencies.find(row => row.country === name) || null;
+}
+
+function getRelevantBorders(countryIds) {
+    const set = new Set(countryIds);
+    return bordersData.filter(border => border.countries.every(id => set.has(id)));
+}
+
+function getSelectedCountries() {
+    return [...document.querySelectorAll('#trip-country-picker input[type="checkbox"]:checked')]
+        .map(input => input.value);
+}
+
+function getSelectedPackingItems() {
+    return [...document.querySelectorAll('#trip-pack-list input[type="checkbox"]:checked')]
+        .map(input => input.dataset.item);
+}
+
+function setCountrySelection(countryIds) {
+    document.querySelectorAll('#trip-country-picker input[type="checkbox"]').forEach(input => {
+        input.checked = countryIds.includes(input.value);
+    });
+}
+
+function renderPackList(type) {
+    const list = document.getElementById('trip-pack-list');
+    if (!list) return;
+    const items = packingData[type] || packingData.safari;
+    list.innerHTML = items.map(item =>
+        `<label class="hub-pack-item"><input type="checkbox" data-item="${escapeHtml(item)}" checked> <span>${escapeHtml(item)}</span></label>`
+    ).join('');
+}
+
+function buildChecklistHtml({ countryIds, routeId, packType, packingItems }) {
+    const route = routeId ? itineraries[routeId] : null;
+    const generated = new Date().toLocaleDateString('en-GB', {
+        day: 'numeric', month: 'long', year: 'numeric',
+    });
+
+    const countryBlocks = countryIds.map(countryId => {
+        const meta = COUNTRY_META[countryId] || { name: countryId, flag: '🌍' };
+        const visa = getVisaRow(countryId);
+        const resources = getCountryResourcePack(countryId);
+        const emergency = getEmergency(countryId);
+
+        const linksHtml = (resources?.links || []).slice(0, 4).map(link => `
+            <li><strong>${escapeHtml(link.label)}</strong> — ${escapeHtml(link.url)}</li>
+        `).join('');
+
+        return `
+            <section class="print-country">
+                <h2>${escapeHtml(meta.flag)} ${escapeHtml(meta.name)}</h2>
+                ${visa ? `
+                    <p class="print-meta"><strong>Visa:</strong> ${escapeHtml(visa.visa.label)} ·
+                    <strong>Health:</strong> ${escapeHtml(visa.health.label)} ·
+                    <strong>Advisory:</strong> ${escapeHtml(visa.advisory.label)}
+                    <span class="print-verified">(verified ${escapeHtml(visa.lastVerified)})</span></p>
+                    <p>${escapeHtml(visa.note)}</p>
+                    <p class="print-source"><strong>Official immigration:</strong> ${escapeHtml(visa.sourceUrl)}</p>
+                ` : ''}
+                ${resources?.planningNote ? `<p class="print-tip"><strong>Planning tip:</strong> ${escapeHtml(resources.planningNote)}</p>` : ''}
+                ${linksHtml ? `<ul class="print-links">${linksHtml}</ul>` : ''}
+                ${emergency ? `<p class="print-emergency"><strong>Emergency:</strong> ${escapeHtml(emergency.numbers)}</p>` : ''}
+            </section>
+        `;
+    }).join('');
+
+    const borders = getRelevantBorders(countryIds);
+    const bordersHtml = borders.length ? `
+        <section class="print-section">
+            <h2>Border crossings on this route</h2>
+            <ul class="print-borders">
+                ${borders.slice(0, 10).map(border => `
+                    <li>
+                        <strong>${escapeHtml(border.name)}</strong> — ${escapeHtml(border.route)} ·
+                        ${escapeHtml(border.hours)} · typical wait ${escapeHtml(border.typicalWait)}
+                        ${border.sourceUrl ? `<br><span class="print-source">${escapeHtml(border.sourceUrl)}</span>` : ''}
+                    </li>
+                `).join('')}
+            </ul>
+        </section>
+    ` : '';
+
+    const routeHtml = route ? `
+        <section class="print-section print-route">
+            <h2>Route template: ${escapeHtml(route.title)}</h2>
+            <p class="print-meta">${escapeHtml(route.duration)} · ${escapeHtml(route.countries)}</p>
+            <p>${escapeHtml(route.description)}</p>
+            ${route.highlights?.length ? `
+                <h3>Highlights</h3>
+                <ul>${route.highlights.map(h => `<li>${escapeHtml(h)}</li>`).join('')}</ul>
+            ` : ''}
+            <p class="print-note">Template only — not a quote. Adapt dates and bookings yourself.</p>
+        </section>
+    ` : '';
+
+    const packingHtml = packingItems.length ? `
+        <section class="print-section">
+            <h2>Packing checklist (${escapeHtml(packType)})</h2>
+            <ul class="print-checklist">
+                ${packingItems.map(item => `<li><span class="print-box" aria-hidden="true"></span> ${escapeHtml(item)}</li>`).join('')}
+            </ul>
+        </section>
+    ` : '';
+
+    const countryNames = countryIds.map(id => COUNTRY_META[id]?.name || id).join(', ');
+
+    return `
+        <article class="print-checklist-doc">
+            <header class="print-header">
+                <p class="print-brand">Savanna Explorer</p>
+                <h1>Trip planning checklist</h1>
+                <p class="print-subtitle">${escapeHtml(countryNames || 'Southern Africa')}</p>
+                <p class="print-generated">Generated ${escapeHtml(generated)} · savannaexplorer.com</p>
+            </header>
+            ${routeHtml}
+            ${countryBlocks}
+            ${bordersHtml}
+            ${packingHtml}
+            <footer class="print-footer">
+                <p><strong>Planning reference only.</strong> ${escapeHtml(practical.meta.disclaimer)}</p>
+                <p>Savanna Explorer does not sell tours, take payments, or make bookings on your behalf.</p>
+            </footer>
+        </article>
+    `;
+}
+
+function collectPlannerState() {
+    const countryIds = getSelectedCountries();
+    const routeId = document.getElementById('trip-route-select')?.value || '';
+    const packType = document.querySelector('#trip-planner .hub-tab.active')?.dataset.pack || 'safari';
+    const packingItems = getSelectedPackingItems();
+
+    return { countryIds, routeId, packType, packingItems };
+}
+
+function validateState(state) {
+    if (!state.countryIds.length) {
+        return 'Select at least one country to build your checklist.';
+    }
+    return null;
+}
+
+function renderPreview(html) {
+    const preview = document.getElementById('trip-planner-preview');
+    const panel = document.getElementById('trip-planner-preview-panel');
+    if (!preview || !panel) return;
+    preview.innerHTML = html;
+    panel.hidden = false;
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function printChecklist(html) {
+    const root = document.getElementById('trip-planner-print-root');
+    if (!root) return;
+    root.innerHTML = html;
+    document.body.classList.add('trip-planner-printing');
+    window.print();
+    window.addEventListener('afterprint', () => {
+        document.body.classList.remove('trip-planner-printing');
+    }, { once: true });
+}
+
+export function initTripPlanner() {
+    const picker = document.getElementById('trip-country-picker');
+    const routeSelect = document.getElementById('trip-route-select');
+    if (!picker || !routeSelect) return;
+
+    picker.innerHTML = COUNTRY_ORDER.map(id => {
+        const meta = COUNTRY_META[id];
+        return `
+            <label class="trip-country-chip">
+                <input type="checkbox" name="trip-country" value="${escapeHtml(id)}">
+                <span>${escapeHtml(meta.flag)} ${escapeHtml(meta.name)}</span>
+            </label>
+        `;
+    }).join('');
+
+    const routeOptions = Object.entries(itineraries).map(([id, route]) =>
+        `<option value="${escapeHtml(id)}">${escapeHtml(route.title)} (${escapeHtml(route.duration)})</option>`
+    ).join('');
+    routeSelect.innerHTML = `<option value="">No route template</option>${routeOptions}`;
+
+    renderPackList('safari');
+
+    routeSelect.addEventListener('change', () => {
+        const ids = ITINERARY_COUNTRIES[routeSelect.value];
+        if (ids?.length) setCountrySelection(ids);
+    });
+
+    document.querySelectorAll('#trip-planner .hub-tab').forEach(tab => {
+        tab.addEventListener('click', function () {
+            document.querySelectorAll('#trip-planner .hub-tab').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            renderPackList(this.dataset.pack);
+        });
+    });
+
+    document.getElementById('trip-preview-btn')?.addEventListener('click', () => {
+        const state = collectPlannerState();
+        const error = validateState(state);
+        const feedback = document.getElementById('trip-planner-feedback');
+        if (error) {
+            if (feedback) {
+                feedback.textContent = error;
+                feedback.hidden = false;
+            }
+            return;
+        }
+        if (feedback) feedback.hidden = true;
+        renderPreview(buildChecklistHtml(state));
+    });
+
+    document.getElementById('trip-print-btn')?.addEventListener('click', () => {
+        const state = collectPlannerState();
+        const error = validateState(state);
+        const feedback = document.getElementById('trip-planner-feedback');
+        if (error) {
+            if (feedback) {
+                feedback.textContent = error;
+                feedback.hidden = false;
+            }
+            return;
+        }
+        if (feedback) feedback.hidden = true;
+        const html = buildChecklistHtml(state);
+        renderPreview(html);
+        printChecklist(html);
+    });
+}

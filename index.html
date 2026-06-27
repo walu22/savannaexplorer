@@ -35,6 +35,7 @@
                         <a href="#health">Health & Safety</a>
                         <a href="#events">Events Calendar</a>
                         <a href="#plan">Travel Tools</a>
+                        <a href="#plan">Trip Checklist</a>
                         <a href="#guides">Planning Guides</a>
                         <a href="#about">About This Site</a>
                         <a href="#faq">Travel FAQ</a>
@@ -495,6 +496,39 @@
                 <p>Practical planning tools with source links and verification dates — always confirm visa and health rules before travel.</p>
             </div>
             <div class="hub-grid">
+                <div class="hub-card hub-card--full" id="hub-trip-planner">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-clipboard-list"></i></span>
+                        <h3>Trip Planner — Print Your Checklist</h3>
+                    </div>
+                    <p class="trip-planner-intro">Select countries and an optional route template, then print or save as PDF. Includes visa notes, official links, borders, and packing — for planning only, not a booking.</p>
+                    <div id="trip-planner" class="trip-planner-form">
+                        <div class="trip-planner-block">
+                            <h4 class="trip-planner-label">Countries on your trip</h4>
+                            <div class="trip-country-picker" id="trip-country-picker"></div>
+                        </div>
+                        <div class="trip-planner-row">
+                            <label class="trip-planner-label" for="trip-route-select">Route template <span class="trip-optional">(optional)</span></label>
+                            <select id="trip-route-select" class="trip-planner-select"></select>
+                        </div>
+                        <div class="trip-planner-block">
+                            <h4 class="trip-planner-label">Packing list</h4>
+                            <div class="hub-pack-tabs">
+                                <button type="button" class="hub-tab active" data-pack="safari">🦁 Safari</button>
+                                <button type="button" class="hub-tab" data-pack="beach">🏖️ Beach</button>
+                                <button type="button" class="hub-tab" data-pack="city">🏙️ City</button>
+                                <button type="button" class="hub-tab" data-pack="mountain">⛰️ Mountain</button>
+                            </div>
+                            <div class="hub-pack-list trip-pack-list" id="trip-pack-list"></div>
+                        </div>
+                        <div class="trip-planner-actions">
+                            <button type="button" class="btn btn-outline" id="trip-preview-btn"><i class="fas fa-eye"></i> Preview checklist</button>
+                            <button type="button" class="btn" id="trip-print-btn"><i class="fas fa-print"></i> Print / Save PDF</button>
+                        </div>
+                        <p class="trip-planner-feedback" id="trip-planner-feedback" hidden></p>
+                    </div>
+                </div>
+
                 <div class="hub-card hub-card--lg" id="hub-currency">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-coins"></i></span>
@@ -584,8 +618,14 @@
                 </div>
             </div>
             <p class="hub-disclaimer" id="hub-disclaimer"></p>
+            <div class="trip-planner-preview-panel" id="trip-planner-preview-panel" hidden>
+                <h3 class="trip-preview-heading">Checklist preview</h3>
+                <div id="trip-planner-preview" class="trip-planner-preview"></div>
+            </div>
         </div>
     </section>
+
+    <div id="trip-planner-print-root" class="trip-planner-print-root" aria-hidden="true"></div>
 
     <!-- Travel News — Visit Namibia latest updates -->
     <section id="news" class="travel-news-section">
