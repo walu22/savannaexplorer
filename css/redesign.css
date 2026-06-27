@@ -140,22 +140,29 @@ body.site-v2 .menu-toggle {
 /* --- Hero v4 --- */
 body.site-v2 .hero {
     min-height: 92vh;
-    align-items: flex-end;
-    padding-bottom: 5rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 0;
+    text-align: left;
 }
 
 body.site-v2 .hero::after {
     background: linear-gradient(
-        180deg,
-        rgba(12, 18, 16, 0.35) 0%,
-        rgba(12, 18, 16, 0.15) 45%,
-        rgba(12, 18, 16, 0.75) 100%
+        105deg,
+        rgba(12, 18, 16, 0.88) 0%,
+        rgba(12, 18, 16, 0.55) 38%,
+        rgba(12, 18, 16, 0.2) 62%,
+        rgba(12, 18, 16, 0.35) 100%
     );
 }
 
 body.site-v2 .hero-content {
-    max-width: 680px;
-    padding: 2rem 1.5rem;
+    max-width: 620px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: 0;
+    padding: 2rem 0;
+    text-align: left;
 }
 
 body.site-v2 .hero-eyebrow {
@@ -174,23 +181,27 @@ body.site-v2 .hero h1 {
     color: white;
     margin-bottom: 1.25rem;
     font-style: italic;
+    text-align: left;
 }
 
 body.site-v2 .hero-tagline {
     display: block;
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.85);
-    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.88);
+    letter-spacing: 0.2px;
     text-transform: none;
     margin-bottom: 2rem;
-    line-height: 1.6;
+    line-height: 1.65;
+    max-width: 540px;
+    text-align: left;
 }
 
 body.site-v2 .hero-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    justify-content: flex-start;
 }
 
 body.site-v2 .hero-stats {
@@ -200,6 +211,7 @@ body.site-v2 .hero-stats {
     margin-top: 2.5rem;
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+    justify-content: flex-start;
 }
 
 body.site-v2 .hero-stat strong {
@@ -1268,6 +1280,10 @@ body.site-v2 .guide-article-grid {
 
     body.site-v2 .hero h1 {
         font-size: 2.4rem;
+    }
+
+    body.site-v2 .hero-content {
+        max-width: 100%;
     }
 
     body.site-v2 .hero-stats {
