@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "lastVerified": "2026-06",
+    "disclaimer": "Passport-specific summaries are for trip planning only. Immigration rules change without notice — always confirm with the official source for your nationality before booking flights."
+  },
+  "passports": [
+    { "id": "uk", "label": "🇬🇧 United Kingdom", "short": "UK" },
+    { "id": "us", "label": "🇺🇸 United States", "short": "US" },
+    { "id": "eu", "label": "🇪🇺 EU / Schengen", "short": "EU" },
+    { "id": "au", "label": "🇦🇺 Australia", "short": "AU" },
+    { "id": "ca", "label": "🇨🇦 Canada", "short": "CA" },
+    { "id": "za", "label": "🇿🇦 South Africa", "short": "SA" },
+    { "id": "sadc", "label": "🌍 Other SADC", "short": "SADC" },
+    { "id": "in", "label": "🇮🇳 India", "short": "IN" },
+    { "id": "other", "label": "🌐 Other passport", "short": "Other" }
+  ],
+  "rules": {
+    "south-africa": {
+      "uk": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Tourism up to 90 days. Passport valid 30 days beyond departure; two blank pages. Minors need unabridged birth certificate." },
+      "us": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Same as UK — 90-day tourism. Yellow fever certificate if arriving from endemic countries." },
+      "eu": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "EU/Schengen passport holders typically receive 90-day visa-free entry." },
+      "au": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "90-day tourism standard for Australian passports." },
+      "ca": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Canadian passport holders typically visa-free 90 days." },
+      "za": { "status": "visa-free", "label": "Citizen / resident", "badgeClass": "green", "note": "South African citizens — ID or passport. SADC visitors check DHA list for visa-free days." },
+      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Most SADC nationals visa-free for tourism — confirm days allowed on DHA list." },
+      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require a visa before travel — apply via VFS or DHA channels." },
+      "other": { "status": "verify", "label": "Check official list", "badgeClass": "yellow", "note": "Verify your nationality on the Department of Home Affairs visa exemption list." }
+    },
+    "namibia": {
+      "uk": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "From 1 Apr 2025: UK nationals need e-visa or visa-on-arrival (approx. N$1,200–1,600). Apply at eservices.mhaiss.gov.na." },
+      "us": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "US nationals require e-visa or VOA from Apr 2025 — not visa-free. Apply early online." },
+      "eu": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Most EU nationals need e-visa or VOA from Apr 2025 unless on reciprocal exemption list." },
+      "au": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Australian nationals need e-visa or VOA from Apr 2025." },
+      "ca": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Canadian nationals need e-visa or VOA from Apr 2025." },
+      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South African passport holders visa-free — common self-drive loop with SA." },
+      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Many SADC nationals remain visa-free — confirm on mha.gov.na." },
+      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require visa — check Namibia e-visa portal." },
+      "other": { "status": "verify", "label": "Check official list", "badgeClass": "yellow", "note": "Rules changed Apr 2025 — verify exemption status on mha.gov.na before travel." }
+    },
+    "botswana": {
+      "uk": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "UK passport holders typically 90-day visa-free tourism." },
+      "us": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "US citizens visa-free up to 90 days for tourism." },
+      "eu": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "EU/Schengen passport holders typically visa-free 90 days." },
+      "au": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Australian passport holders typically visa-free 90 days." },
+      "ca": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Canadian passport holders typically visa-free 90 days." },
+      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — Martin's Drift and Tlokweng common entry points." },
+      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "SADC nationals generally visa-free — confirm on gov.bw." },
+      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require visa before travel." },
+      "other": { "status": "verify", "label": "Check official list", "badgeClass": "yellow", "note": "Confirm visa requirements on Botswana immigration guidance." }
+    },
+    "zambia": {
+      "uk": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "UK nationals visa-free 90 days. KAZA UniVisa (USD 50) useful for Zimbabwe side of Victoria Falls." },
+      "us": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "US citizens visa-free 90 days. KAZA UniVisa covers Zambia + Zimbabwe for Falls circuits." },
+      "eu": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "EU passport holders typically visa-free 90 days." },
+      "au": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Australian passport holders typically visa-free 90 days." },
+      "ca": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Canadian passport holders typically visa-free 90 days." },
+      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — Kazungula bridge from Botswana." },
+      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Most SADC nationals visa-free — verify on zambiaimmigration.gov.zm." },
+      "in": { "status": "e-visa", "label": "E-visa", "badgeClass": "yellow", "note": "Indian nationals apply e-visa online before travel." },
+      "other": { "status": "verify", "label": "Check / e-visa", "badgeClass": "yellow", "note": "E-visa available for many nationalities — check zambiaimmigration.gov.zm." }
+    },
+    "zimbabwe": {
+      "uk": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "UK nationals visa-free 90 days. KAZA UniVisa (USD 50) at Victoria Falls if also visiting Zambia." },
+      "us": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "US citizens visa-free 90 days for tourism." },
+      "eu": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "EU passport holders typically visa-free 90 days." },
+      "au": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Australian passport holders typically visa-free 90 days." },
+      "ca": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Canadian passport holders typically visa-free 90 days." },
+      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — Beitbridge busiest SA entry." },
+      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Most SADC nationals visa-free — carry USD cash for park fees." },
+      "in": { "status": "e-visa", "label": "E-visa", "badgeClass": "yellow", "note": "Indian nationals apply via evisa.gov.zw before travel." },
+      "other": { "status": "verify", "label": "Check / e-visa", "badgeClass": "yellow", "note": "E-visa portal open for many nationalities — rules vary by passport." }
+    },
+    "mozambique": {
+      "uk": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "UK nationals: e-visa or visa-on-arrival (~USD 50). Apply online before travel when possible." },
+      "us": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "US citizens: e-visa or VOA required — confirm approval before non-refundable lodge bookings." },
+      "eu": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "EU nationals: e-visa or VOA typically required." },
+      "au": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Australian nationals: e-visa or VOA required." },
+      "ca": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Canadian nationals: e-visa or VOA required." },
+      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — Lebombo/Ressano Garcia from Kruger popular." },
+      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Many SADC nationals visa-free — confirm on evisa.gov.mz." },
+      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require visa — apply via e-visa portal." },
+      "other": { "status": "verify", "label": "E-visa likely", "badgeClass": "yellow", "note": "Most visitors need visa — e-visa at evisa.gov.mz." }
+    },
+    "malawi": {
+      "uk": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "UK nationals: e-visa or visa-on-arrival for most visits." },
+      "us": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "US citizens: e-visa or VOA available." },
+      "eu": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "EU nationals: e-visa or VOA available." },
+      "au": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Australian nationals: e-visa or VOA available." },
+      "ca": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Canadian nationals: e-visa or VOA available." },
+      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — Mwanza and Dedza borders from SA/Zambia." },
+      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Many SADC nationals visa-free — verify on immigration.gov.mw." },
+      "in": { "status": "e-visa", "label": "E-visa", "badgeClass": "yellow", "note": "Indian nationals apply e-visa before travel." },
+      "other": { "status": "verify", "label": "E-visa likely", "badgeClass": "yellow", "note": "E-visa required for many nationalities — immigration.gov.mw." }
+    },
+    "lesotho": {
+      "uk": { "status": "visa-free", "label": "Visa-free 14–90 days", "badgeClass": "green", "note": "UK nationals visa-free. Entry only via South Africa — ensure SA visa allows re-entry." },
+      "us": { "status": "visa-free", "label": "Visa-free 14–90 days", "badgeClass": "green", "note": "US citizens visa-free. Must enter through South Africa." },
+      "eu": { "status": "visa-free", "label": "Visa-free 14–90 days", "badgeClass": "green", "note": "EU passport holders typically visa-free." },
+      "au": { "status": "visa-free", "label": "Visa-free 14–90 days", "badgeClass": "green", "note": "Australian passport holders typically visa-free." },
+      "ca": { "status": "visa-free", "label": "Visa-free 14–90 days", "badgeClass": "green", "note": "Canadian passport holders typically visa-free." },
+      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — Maseru Bridge and Sani Pass entries." },
+      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "SADC nationals generally visa-free — entry via SA only." },
+      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require visa — apply before travel." },
+      "other": { "status": "verify", "label": "Check official list", "badgeClass": "yellow", "note": "Verify on homeaffairs.gov.ls — entry always via South Africa." }
+    },
+    "eswatini": {
+      "uk": { "status": "visa-free", "label": "Visa-free 30 days", "badgeClass": "green", "note": "UK nationals visa-free 30 days. Enter via Oshoek or Golela from South Africa." },
+      "us": { "status": "visa-free", "label": "Visa-free 30 days", "badgeClass": "green", "note": "US citizens visa-free 30 days for tourism." },
+      "eu": { "status": "visa-free", "label": "Visa-free 30 days", "badgeClass": "green", "note": "EU passport holders typically visa-free 30 days." },
+      "au": { "status": "visa-free", "label": "Visa-free 30 days", "badgeClass": "green", "note": "Australian passport holders typically visa-free 30 days." },
+      "ca": { "status": "visa-free", "label": "Visa-free 30 days", "badgeClass": "green", "note": "Canadian passport holders typically visa-free 30 days." },
+      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — day trip from Kruger/Mpumalanga common." },
+      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Most SADC nationals visa-free — verify on gov.sz." },
+      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require visa before travel." },
+      "other": { "status": "verify", "label": "Check official list", "badgeClass": "yellow", "note": "Verify on gov.sz — access via South Africa or Mozambique." }
+    }
+  },
+  "kazaTip": {
+    "passports": ["uk", "us", "eu", "au", "ca"],
+    "countries": ["zambia", "zimbabwe"],
+    "label": "KAZA UniVisa tip",
+    "note": "Eligible passports can buy the KAZA UniVisa (USD 50) on arrival at Livingstone or Victoria Falls — covers Zambia and Zimbabwe for Victoria Falls circuits. See kazavisa.info."
+  }
+}

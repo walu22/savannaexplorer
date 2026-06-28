@@ -535,6 +535,10 @@
                             <h4 class="trip-planner-label">Countries on your trip</h4>
                             <div class="trip-country-picker" id="trip-country-picker"></div>
                         </div>
+                    <div class="trip-planner-row trip-planner-row--passport">
+                            <label class="trip-planner-label" for="trip-passport-select">Your passport</label>
+                            <select id="trip-passport-select" class="trip-planner-select" data-passport-select aria-label="Passport nationality for visa summary"></select>
+                        </div>
                         <div class="trip-planner-row">
                             <label class="trip-planner-label" for="trip-route-select">Route template <span class="trip-optional">(optional)</span></label>
                             <select id="trip-route-select" class="trip-planner-select"></select>
@@ -584,6 +588,11 @@
                         <span class="hub-icon"><i class="fas fa-passport"></i></span>
                         <h3>Visa &amp; Health Matrix</h3>
                     </div>
+                    <div class="hub-passport-row">
+                        <label class="hub-passport-label" for="hub-passport-select">Your passport</label>
+                        <select id="hub-passport-select" class="hub-passport-select" data-passport-select aria-label="Passport nationality"></select>
+                    </div>
+                    <div class="hub-visa-summary" id="hub-visa-summary" hidden></div>
                     <div class="hub-search">
                         <i class="fas fa-search"></i>
                         <input type="text" id="hub-visa-search" placeholder="Search country...">
@@ -595,7 +604,7 @@
                         <div id="hub-visa-matrix"></div>
                     </div>
                     <div class="hub-visa-notes" id="hub-visa-notes"></div>
-                    <p class="hub-matrix-footnote">* VOA = visa-on-arrival where eligible. Rules depend on your passport — see official links below.</p>
+                    <p class="hub-matrix-footnote">Visa column updates for your passport. Health and advisory are general — see official links below.</p>
                 </div>
 
                 <div class="hub-card hub-card--md" id="hub-seasons">

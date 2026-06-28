@@ -1,6 +1,7 @@
 import packingData from '../../data/packing.json';
 import practical from '../../data/practical.json';
 import { fetchLiveCurrencyRates, fetchCityWeather, apiCodeForCurrency } from './transport-logistics.js';
+import { initPassportVisaHelper } from './visa-passport-ui.js';
 
 const MONTH_LABELS = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
 const SEASON_CLASS = { peak: 's-peak', shoulder: 's-shoulder', off: 's-off' };
@@ -75,30 +76,6 @@ async function loadLiveCurrencyRates() {
     updateCurrency();
     if (status && Object.keys(liveRatesByBase).length) {
         status.textContent = `Live mid-market rates loaded (${practical.currency.liveApiLabel}). Confirm with your bank before exchanging.`;
-    }
-}
-
-function renderVisaMatrix() {
-    const matrix = document.getElementById('hub-visa-matrix');
-    const notes = document.getElementById('hub-visa-notes');
-    if (!matrix) return;
-
-    matrix.innerHTML = practical.visaHealth.map(row => `
-        <div class="hub-matrix-row" data-country="${row.name.toLowerCase()} ${row.id}">
-            <span>${row.flag} ${row.name}</span>
-            <span class="badge badge--${row.visa.badgeClass}">${row.visa.label}</span>
-            <span class="badge badge--${row.health.badgeClass}">${row.health.label}</span>
-            <span class="badge badge--${row.advisory.badgeClass}">${row.advisory.label}</span>
-        </div>
-    `).join('');
-
-    if (notes) {
-        notes.innerHTML = practical.visaHealth.map(row => `
-            <details class="hub-visa-detail">
-                <summary>${row.flag} ${row.name} — <a href="${row.sourceUrl}" target="_blank" rel="noopener noreferrer">Official source</a> · verified ${row.lastVerified}</summary>
-                <p>${row.note}</p>
-            </details>
-        `).join('');
     }
 }
 
@@ -198,7 +175,7 @@ function updateCurrency() {
 
 export function initUtilityHub() {
     renderCurrency();
-    renderVisaMatrix();
+    initPassportVisaHelper();
     renderSeasons();
     renderWeather();
     renderEmergencies();
