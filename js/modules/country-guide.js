@@ -394,8 +394,15 @@ function handleRoute(route) {
     dismissSeoPrerender();
     setHomeMeta();
     if (route.sectionHash && !COUNTRY_IDS.includes(route.sectionHash)) {
-        requestAnimationFrame(() => scrollToSection(route.sectionHash));
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => scrollToSection(route.sectionHash));
+        });
     }
+}
+
+export function bootstrapRouting() {
+    window.addEventListener('popstate', () => handleRoute(parseLocation()));
+    handleRoute(parseLocation());
 }
 
 export function initCountryGuide() {
@@ -470,9 +477,6 @@ export function initCountryGuide() {
             });
         }
     });
-
-    window.addEventListener('popstate', () => handleRoute(parseLocation()));
-    handleRoute(parseLocation());
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && !detailView.classList.contains('hidden')) {

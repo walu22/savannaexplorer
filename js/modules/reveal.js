@@ -1,3 +1,14 @@
+/** Reveal target section and every section above it (for hash / hub deep links). */
+export function revealThroughSection(sectionId) {
+    if (!sectionId) return;
+    let reached = false;
+    document.querySelectorAll('section.reveal-item').forEach(section => {
+        if (!reached) section.classList.add('reveal-active');
+        if (section.id === sectionId) reached = true;
+    });
+    document.getElementById(sectionId)?.classList.add('reveal-active');
+}
+
 export function initReveal() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

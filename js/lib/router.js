@@ -3,6 +3,7 @@ import parks from '../../data/parks.json';
 import borders from '../../data/borders.json';
 import itineraries from '../../data/itineraries.json';
 import listings from '../../data/stays-operators.json';
+import { revealThroughSection } from '../modules/reveal.js';
 
 export const COUNTRY_IDS = Object.keys(countries);
 
@@ -10,6 +11,14 @@ const parkIds = new Set(parks.map(p => p.id));
 const borderIds = new Set(borders.map(b => b.id));
 const itineraryIds = new Set(Object.keys(itineraries));
 const listingById = new Map(listings.map(item => [item.id, item]));
+
+/** Pathnames that map to homepage sections (SPA hub deep links). */
+export const HUB_SECTIONS = new Set([
+    'parks', 'embassies', 'borders', 'transport', 'health', 'events',
+    'book-direct', 'plan', 'guides', 'itineraries', 'destinations',
+    'home', 'about', 'news', 'contact', 'cultures', 'gastronomy',
+    'experiences', 'top-destinations',
+]);
 
 export function countryPath(countryId) {
     return `/countries/${countryId}`;
@@ -65,6 +74,11 @@ export function parseLocation(loc = window.location) {
     const operatorMatch = pathname.match(/^\/operators\/([a-z0-9-]+)\/?$/);
     if (operatorMatch && listingById.get(operatorMatch[1])?.kind === 'operator') {
         return { type: 'listing', listingId: operatorMatch[1] };
+    }
+
+    const hubMatch = pathname.match(/^\/([a-z0-9-]+)\/?$/);
+    if (hubMatch && HUB_SECTIONS.has(hubMatch[1])) {
+        return { type: 'home', sectionHash: hubMatch[1] === 'home' ? null : hubMatch[1] };
     }
 
     const hashId = hash.slice(1);
@@ -130,6 +144,7 @@ export function replaceWithCountryPath(countryId) {
 
 export function scrollToSection(sectionId) {
     if (!sectionId) return;
+    revealThroughSection(sectionId);
     const el = document.getElementById(sectionId);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
 }

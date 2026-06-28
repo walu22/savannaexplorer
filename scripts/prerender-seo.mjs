@@ -102,3 +102,12 @@ for (const page of pages) {
 }
 
 console.log(`Prerendered ${written} SEO pages into dist/ (${baseUrl})`);
+
+// SPA fallbacks for hub section directories (nginx 403 when folder exists without index)
+const hubFallbackSections = ['parks', 'embassies', 'borders', 'transport', 'health', 'events', 'book-direct', 'plan'];
+for (const section of hubFallbackSections) {
+    const outPath = resolve(distDir, section, 'index.html');
+    mkdirSync(dirname(outPath), { recursive: true });
+    writeFileSync(outPath, template, 'utf8');
+}
+console.log(`Wrote ${hubFallbackSections.length} hub SPA fallbacks.`);
