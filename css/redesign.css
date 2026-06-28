@@ -92,6 +92,12 @@ body.site-v2 .nav-cta:hover {
     background: var(--primary-dark) !important;
 }
 
+/* Hide site nav while country detail overlay is open (avoids double-header / tab bleed-through) */
+body.site-v2.country-detail-open #navbar {
+    visibility: hidden;
+    pointer-events: none;
+}
+
 body.site-v2 .nav-dropdown {
     position: relative;
 }
@@ -1300,7 +1306,7 @@ body.site-v2 .btn-back-main:hover {
 
 body.site-v2 .guide-tabs-wrap {
     position: sticky;
-    top: 60px;
+    top: var(--detail-toolbar-height, 60px);
     z-index: 9;
     background: rgba(247, 243, 237, 0.95);
     backdrop-filter: blur(12px);
@@ -1758,10 +1764,6 @@ body.site-v2 .country-detail-cta .btn-primary i {
 
     body.site-v2 .guide-practical-row {
         grid-template-columns: 1fr 1fr;
-    }
-
-    body.site-v2 .guide-tabs-wrap {
-        top: 56px;
     }
 }
 
