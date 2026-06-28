@@ -1150,19 +1150,23 @@ body.site-v2 .country-detail-view {
     background: var(--bg-cream);
 }
 
-body.site-v2 .detail-header {
-    background: transparent;
-    border-bottom: none;
-}
-
 body.site-v2 .detail-toolbar {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 11;
     background: rgba(247, 243, 237, 0.92);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-subtle);
+}
+
+body.site-v2 .country-detail-view.country-guide-pinned .detail-toolbar {
+    border-bottom-color: transparent;
+}
+
+body.site-v2 .detail-header {
+    background: transparent;
+    border-bottom: none;
 }
 
 body.site-v2 .detail-hero {
@@ -1307,12 +1311,20 @@ body.site-v2 .btn-back-main:hover {
 body.site-v2 .guide-tabs-wrap {
     position: sticky;
     top: var(--detail-toolbar-height, 60px);
-    z-index: 9;
+    z-index: 10;
     background: rgba(247, 243, 237, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-subtle);
     padding: 0.75rem 0;
+}
+
+body.site-v2 .country-detail-view.country-guide-pinned .guide-tabs-wrap {
+    box-shadow: 0 6px 20px rgba(12, 18, 16, 0.08);
+}
+
+body.site-v2 .country-detail-view.country-guide-pinned .detail-toolbar {
+    background: rgba(247, 243, 237, 0.98);
 }
 
 body.site-v2 .guide-tabs {
