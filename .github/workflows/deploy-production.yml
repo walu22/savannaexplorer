@@ -37,34 +37,68 @@ jobs:
       - name: Configure SSH
         env:
           DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
         run: |
           install -m 700 -d ~/.ssh
           printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          echo "${{ secrets.DEPLOY_HOST }} ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6dMEVBHX3GAnyQVN3aKPCBLB1unfoDUeExlBApadCv" >> ~/.ssh/known_hosts
+          echo "${DEPLOY_HOST} ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6dMEVBHX3GAnyQVN3aKPCBLB1unfoDUeExlBApadCv" >> ~/.ssh/known_hosts
+          cat >> ~/.ssh/config <<EOF
+          Host deploy-host
+            HostName ${DEPLOY_HOST}
+            User ${DEPLOY_USER}
+            IdentityFile ~/.ssh/deploy_key
+            ConnectTimeout 45
+            ServerAliveInterval 15
+            ServerAliveCountMax 3
+            StrictHostKeyChecking yes
+          EOF
+          chmod 600 ~/.ssh/config
 
       - name: Backup current site on server
         env:
-          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
-          ssh -i ~/.ssh/deploy_key "${DEPLOY_USER}@${DEPLOY_HOST}" \
-            "test -d '${DEPLOY_PATH}' && cp -a '${DEPLOY_PATH}' '${DEPLOY_PATH}_backup_$(date +%Y%m%d_%H%M%S)' || mkdir -p '${DEPLOY_PATH}'"
+          attempt=0
+          max=5
+          while [ "$attempt" -lt "$max" ]; do
+            attempt=$((attempt + 1))
+            if ssh deploy-host \
+              "test -d '${DEPLOY_PATH}' && cp -a '${DEPLOY_PATH}' '${DEPLOY_PATH}_backup_$(date +%Y%m%d_%H%M%S)' || mkdir -p '${DEPLOY_PATH}'"; then
+              exit 0
+            fi
+            echo "SSH backup attempt ${attempt}/${max} failed; retrying in $((attempt * 10))s..."
+            sleep $((attempt * 10))
+          done
+          echo "Backup failed after ${max} attempts."
+          exit 1
 
       - name: Upload build to Hostinger
         env:
-          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
-          rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key" \
-            dist/ \
-            "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
+          attempt=0
+          max=5
+          while [ "$attempt" -lt "$max" ]; do
+            attempt=$((attempt + 1))
+            if rsync -avz --delete \
+              -e "ssh -F ~/.ssh/config" \
+              dist/ \
+              "deploy-host:${DEPLOY_PATH}/"; then
+              exit 0
+            fi
+            echo "Rsync attempt ${attempt}/${max} failed; retrying in $((attempt * 10))s..."
+            sleep $((attempt * 10))
+          done
+          echo "Upload failed after ${max} attempts."
+          exit 1
 
       - name: Verify deployment
         run: |
+          VERSION=$(node -p "require('./package.json').version")
           curl -fsSL "https://savannaexplorer.com/" | grep -q 'Book Direct'
           curl -fsSL "https://savannaexplorer.com/sitemap.xml" | grep -q 'stays/sanparks'
-          echo "Production homepage and sitemap verified."
+          JS=$(curl -fsSL "https://savannaexplorer.com/" | grep -oE 'assets/index-[^"]+\.js' | head -1)
+          curl -fsSL "https://savannaexplorer.com/${JS}" | grep -q "${VERSION}"
+          echo "Production verified at v${VERSION} (${JS})."
