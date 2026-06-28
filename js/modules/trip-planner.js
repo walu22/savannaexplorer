@@ -10,6 +10,7 @@ import {
     buildTripVisaSummaryBlock,
     getActivePassportId,
 } from './visa-passport-ui.js';
+import printCss from '../../css/print-checklist.css?inline';
 
 const ITINERARY_COUNTRIES = {
     'desert-to-delta': ['namibia', 'botswana'],
@@ -144,11 +145,16 @@ function buildChecklistHtml({ countryIds, routeId, packType, packingItems, passp
     return `
         <article class="print-checklist-doc">
             <header class="print-header">
+                <div class="print-header-bar" aria-hidden="true"></div>
                 <p class="print-brand">Savanna Explorer</p>
-                <h1>Trip planning checklist</h1>
+                <h1>Trip Planning Checklist</h1>
                 <p class="print-subtitle">${escapeHtml(countryNames || 'Southern Africa')}</p>
-                <p class="print-meta">Passport: ${escapeHtml(passportMeta.label)}</p>
-                <p class="print-generated">Generated ${escapeHtml(generated)} · savannaexplorer.com</p>
+                <div class="print-meta-row">
+                    <span><strong>Passport:</strong> ${escapeHtml(passportMeta.label)}</span>
+                    ${route ? `<span><strong>Route:</strong> ${escapeHtml(route.title)}</span>` : ''}
+                    <span><strong>Countries:</strong> ${countryIds.length}</span>
+                </div>
+                <p class="print-generated">Generated ${escapeHtml(generated)} · savannaexplorer.com · Planning reference only</p>
             </header>
             ${visaSummaryHtml}
             ${routeHtml}
@@ -156,8 +162,8 @@ function buildChecklistHtml({ countryIds, routeId, packType, packingItems, passp
             ${bordersHtml}
             ${packingHtml}
             <footer class="print-footer">
-                <p><strong>Planning reference only.</strong> ${escapeHtml(practical.meta.disclaimer)}</p>
-                <p>Savanna Explorer does not sell tours, take payments, or make bookings on your behalf.</p>
+                <p><strong>Not a booking or quote.</strong> ${escapeHtml(practical.meta.disclaimer)}</p>
+                <p>Savanna Explorer is an independent planning hub — we do not sell tours, take payments, or act as a travel agent.</p>
             </footer>
         </article>
     `;
@@ -192,14 +198,52 @@ function renderPreview(html) {
 }
 
 function printChecklist(html) {
-    const root = document.getElementById('trip-planner-print-root');
-    if (!root) return;
-    root.innerHTML = html;
-    document.body.classList.add('trip-planner-printing');
-    window.print();
-    window.addEventListener('afterprint', () => {
-        document.body.classList.remove('trip-planner-printing');
-    }, { once: true });
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('title', 'Trip checklist print preview');
+    iframe.setAttribute('aria-hidden', 'true');
+    Object.assign(iframe.style, {
+        position: 'fixed',
+        right: '0',
+        bottom: '0',
+        width: '0',
+        height: '0',
+        border: '0',
+        opacity: '0',
+        pointerEvents: 'none',
+    });
+    document.body.appendChild(iframe);
+
+    const doc = iframe.contentDocument;
+    doc.open();
+    doc.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Savanna Explorer — Trip Checklist</title>
+    <style>${printCss.replace(/<\/style/gi, '<\\/style')}</style>
+</head>
+<body>${html}</body>
+</html>`);
+    doc.close();
+
+    const win = iframe.contentWindow;
+    const cleanup = () => {
+        iframe.remove();
+    };
+
+    win.addEventListener('afterprint', cleanup, { once: true });
+
+    const triggerPrint = () => {
+        win.focus();
+        win.print();
+        setTimeout(cleanup, 8000);
+    };
+
+    if (doc.readyState === 'complete') {
+        setTimeout(triggerPrint, 150);
+    } else {
+        win.addEventListener('load', () => setTimeout(triggerPrint, 150), { once: true });
+    }
 }
 
 export function initTripPlanner() {
