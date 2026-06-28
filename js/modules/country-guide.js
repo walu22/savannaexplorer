@@ -58,29 +58,11 @@ function activateGuideTab(tabId) {
 }
 
 function updateStickyCountryNav(heroVisible) {
-    const stickyNav = document.getElementById('sticky-country-nav');
-    if (!stickyNav || !detailView) return;
-
-    const wasHidden = stickyNav.hidden;
-    if (!wasHidden && heroVisible) {
-        const navHeight = stickyNav.offsetHeight;
-        stickyNav.hidden = true;
-        stickyNav.setAttribute('aria-hidden', 'true');
-        detailView.classList.remove('country-sticky-nav-active');
-        if (navHeight) {
-            detailView.scrollTop = Math.max(0, detailView.scrollTop - navHeight);
-        }
-        return;
-    }
-
-    stickyNav.hidden = heroVisible;
-    stickyNav.setAttribute('aria-hidden', heroVisible ? 'true' : 'false');
+    const backRow = document.getElementById('sticky-country-back');
+    if (!backRow || !detailView) return;
+    backRow.hidden = heroVisible;
+    backRow.setAttribute('aria-hidden', heroVisible ? 'true' : 'false');
     detailView.classList.toggle('country-sticky-nav-active', !heroVisible);
-
-    if (wasHidden && !heroVisible) {
-        const navHeight = stickyNav.offsetHeight;
-        if (navHeight) detailView.scrollTop += navHeight;
-    }
 }
 
 function bindCountryStickyNav() {
