@@ -38,24 +38,24 @@ Track verification and indexing progress for https://savannaexplorer.com/
 
 | Item | Status | Date |
 |------|--------|------|
-| Sitemap submitted (`sitemap.xml`) | ☐ Pending | June 28, 2026 |
-| GSC status | ☐ Pending | |
-| Discovered pages | ☐ Pending | |
+| Sitemap submitted (`sitemap.xml`) | ☑ Done | June 28, 2026 |
+| GSC status | ☑ Success | |
+| Discovered pages | ☑ 97 | |
 
 ### Priority URL indexing requests
 
 Use GSC → URL inspection → Request indexing:
 
-- [ ] `https://savannaexplorer.com/`
-- [ ] `https://savannaexplorer.com/countries/namibia`
-- [ ] `https://savannaexplorer.com/countries/south-africa`
-- [ ] `https://savannaexplorer.com/countries/botswana`
-- [ ] `https://savannaexplorer.com/parks/kruger`
-- [ ] `https://savannaexplorer.com/parks/etosha`
-- [ ] `https://savannaexplorer.com/borders/vioolsdrift`
-- [ ] `https://savannaexplorer.com/itineraries/desert-to-delta`
-- [ ] `https://savannaexplorer.com/stays/sanparks-reservations`
-- [ ] `https://savannaexplorer.com/operators/botswana-tourism-operators`
+- [x] `https://savannaexplorer.com/`
+- [x] `https://savannaexplorer.com/countries/namibia`
+- [x] `https://savannaexplorer.com/countries/south-africa`
+- [x] `https://savannaexplorer.com/countries/botswana`
+- [x] `https://savannaexplorer.com/parks/kruger`
+- [x] `https://savannaexplorer.com/parks/etosha`
+- [x] `https://savannaexplorer.com/borders/vioolsdrift`
+- [x] `https://savannaexplorer.com/itineraries/desert-to-delta`
+- [x] `https://savannaexplorer.com/stays/sanparks-reservations`
+- [x] `https://savannaexplorer.com/operators/botswana-tourism-operators`
 
 ### Weekly check (after setup)
 
