@@ -14,6 +14,8 @@ const parks = loadJson('parks.json');
 const borders = loadJson('borders.json');
 const itineraries = loadJson('itineraries.json');
 const listings = loadJson('stays-operators.json');
+const countryResources = loadJson('country-resources.json');
+const siteLastReviewed = loadJson('about.json').meta?.lastReviewed || '2026-06';
 
 const COUNTRY_META = {
     'south-africa': { name: 'South Africa', cardImage: '1547448415-e9f5b28e570d' },
@@ -87,6 +89,30 @@ function escapeHtml(str) {
         .replace(/"/g, '&quot;');
 }
 
+const MONTH_NAMES = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December',
+];
+
+function formatReviewDate(ym) {
+    if (!ym || !/^\d{4}-\d{2}$/.test(ym)) return '';
+    const [year, month] = ym.split('-');
+    const idx = parseInt(month, 10) - 1;
+    return `${MONTH_NAMES[idx]} ${year}`;
+}
+
+function reviewedLine(ym) {
+    if (!ym) return '';
+    const iso = /^\d{4}-\d{2}$/.test(ym) ? `${ym}-01` : ym;
+    const label = formatReviewDate(ym);
+    if (!label) return '';
+    return `<p class="last-reviewed"><time datetime="${iso}">Last reviewed ${label}</time></p>`;
+}
+
+function isoReviewDate(ym) {
+    return ym && /^\d{4}-\d{2}$/.test(ym) ? `${ym}-01` : undefined;
+}
+
 export function countryPages(baseUrl) {
     return Object.keys(countries).map(id => {
         const data = getFullCountryData(id);
@@ -96,11 +122,13 @@ export function countryPages(baseUrl) {
             || `Travel guide for ${data.name} — visas, parks, routes, and official planning links.`;
         const title = `${data.name} Travel Guide | ${SITE_NAME}`;
         const spots = data.spots.slice(0, 6).map(s => `<li><strong>${escapeHtml(s.name)}</strong> — ${escapeHtml(s.desc)}</li>`).join('');
+        const reviewed = countryResources[id]?.lastVerified || siteLastReviewed;
         const bodyHtml = `
 <main id="seo-prerender" class="seo-prerender">
   <article>
     <nav aria-label="Breadcrumb"><a href="/">Home</a> › ${escapeHtml(data.name)}</nav>
     <h1>${escapeHtml(data.name)} Travel Guide</h1>
+    ${reviewedLine(reviewed)}
     <p class="seo-lead">${escapeHtml(data.tagline || summary)}</p>
     ${summary ? `<p>${escapeHtml(summary)}</p>` : ''}
     <h2>Landscapes &amp; geography</h2>
@@ -124,6 +152,7 @@ export function countryPages(baseUrl) {
                 description,
                 url: `${siteUrl(baseUrl)}${path}`,
                 touristType: 'Independent traveller',
+                ...(isoReviewDate(reviewed) && { dateModified: isoReviewDate(reviewed) }),
             },
             breadcrumb: [
                 { name: 'Home', path: '/' },
@@ -145,6 +174,7 @@ export function parkPages(baseUrl) {
   <article>
     <nav aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/countries/${park.country}">${escapeHtml(meta.name)}</a> › ${escapeHtml(park.name)}</nav>
     <h1>${escapeHtml(park.name)}</h1>
+    ${reviewedLine(park.lastVerified)}
     <p class="seo-lead">${escapeHtml(park.description)}</p>
     <ul>
       <li><strong>Country:</strong> ${escapeHtml(meta.name)}</li>
@@ -169,6 +199,7 @@ export function parkPages(baseUrl) {
                 name: park.name,
                 description: park.description,
                 url: `${siteUrl(baseUrl)}${path}`,
+                ...(isoReviewDate(park.lastVerified) && { dateModified: isoReviewDate(park.lastVerified) }),
             },
             breadcrumb: [
                 { name: 'Home', path: '/' },
@@ -193,6 +224,7 @@ export function borderPages(baseUrl) {
   <article>
     <nav aria-label="Breadcrumb"><a href="/">Home</a> › Border crossings › ${escapeHtml(border.name)}</nav>
     <h1>${escapeHtml(border.name)}</h1>
+    ${reviewedLine(border.lastVerified)}
     <p class="seo-lead">${escapeHtml(border.route)} — ${escapeHtml(countryNames)}</p>
     <ul>
       <li><strong>Hours:</strong> ${escapeHtml(border.hours)}</li>
@@ -220,6 +252,7 @@ export function borderPages(baseUrl) {
                 headline: title,
                 description,
                 url: `${siteUrl(baseUrl)}${path}`,
+                ...(isoReviewDate(border.lastVerified) && { dateModified: isoReviewDate(border.lastVerified) }),
             },
             breadcrumb: [
                 { name: 'Home', path: '/' },
@@ -242,6 +275,7 @@ export function itineraryPages(baseUrl) {
   <article>
     <nav aria-label="Breadcrumb"><a href="/">Home</a> › Route templates › ${escapeHtml(data.title)}</nav>
     <h1>${escapeHtml(data.title)}</h1>
+    ${reviewedLine(siteLastReviewed)}
     <p class="seo-lead">${escapeHtml(data.type)} · ${escapeHtml(data.duration)} · ${escapeHtml(data.countries)}</p>
     <p>${escapeHtml(data.description)}</p>
     <h2>Highlights</h2>
@@ -263,6 +297,7 @@ export function itineraryPages(baseUrl) {
                 name: data.title,
                 description: data.description,
                 url: `${siteUrl(baseUrl)}${path}`,
+                ...(isoReviewDate(siteLastReviewed) && { dateModified: isoReviewDate(siteLastReviewed) }),
                 itinerary: (data.days || []).map(day => ({
                     '@type': 'ItemList',
                     name: day.title,
@@ -292,6 +327,7 @@ export function listingPages(baseUrl) {
   <article>
     <nav aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/#book-direct">Book direct</a> › ${escapeHtml(item.title)}</nav>
     <h1>${escapeHtml(item.title)}</h1>
+    ${reviewedLine(item.lastVerified)}
     <p class="seo-lead">${escapeHtml(item.region)} · ${escapeHtml(meta.name)}</p>
     <p>${escapeHtml(item.description)}</p>
     <p><strong>Planning tip:</strong> ${escapeHtml(item.planningTip)}</p>
@@ -313,6 +349,7 @@ export function listingPages(baseUrl) {
                 description: item.description,
                 url: `${siteUrl(baseUrl)}${path}`,
                 sameAs: item.url,
+                ...(isoReviewDate(item.lastVerified) && { dateModified: isoReviewDate(item.lastVerified) }),
             },
             breadcrumb: [
                 { name: 'Home', path: '/' },
