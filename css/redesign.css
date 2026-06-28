@@ -92,12 +92,6 @@ body.site-v2 .nav-cta:hover {
     background: var(--primary-dark) !important;
 }
 
-/* Hide site nav while country detail overlay is open (avoids double-header / tab bleed-through) */
-body.site-v2.country-detail-open #navbar {
-    visibility: hidden;
-    pointer-events: none;
-}
-
 body.site-v2 .nav-dropdown {
     position: relative;
 }
@@ -1155,49 +1149,14 @@ body.site-v2 .detail-header {
     border-bottom: none;
 }
 
-body.site-v2 .detail-toolbar--flow {
-    background: var(--bg-cream);
-    border-bottom: 1px solid var(--border-subtle);
-}
-
-body.site-v2 .country-guide-sticky {
+body.site-v2 .detail-toolbar {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: var(--bg-cream);
-}
-
-body.site-v2 .country-guide-sticky.is-pinned {
-    background: rgba(247, 243, 237, 0.98);
+    background: rgba(247, 243, 237, 0.92);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 6px 20px rgba(12, 18, 16, 0.08);
-}
-
-body.site-v2 .detail-toolbar--pinned {
     border-bottom: 1px solid var(--border-subtle);
-}
-
-body.site-v2 .detail-toolbar-inner--pinned {
-    min-height: 52px;
-    padding: 0.5rem 0;
-}
-
-body.site-v2 .detail-toolbar-country {
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--accent);
-}
-
-body.site-v2 .guide-tabs-wrap {
-    position: static;
-    background: transparent;
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 0.75rem 0;
-}
-
-body.site-v2 .country-guide-sticky.is-pinned .guide-tabs-wrap {
-    border-bottom-color: transparent;
 }
 
 body.site-v2 .detail-hero {
@@ -1337,6 +1296,17 @@ body.site-v2 .btn-back-main {
 body.site-v2 .btn-back-main:hover {
     background: var(--accent);
     color: white;
+}
+
+body.site-v2 .guide-tabs-wrap {
+    position: sticky;
+    top: 60px;
+    z-index: 9;
+    background: rgba(247, 243, 237, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.75rem 0;
 }
 
 body.site-v2 .guide-tabs {
@@ -1788,6 +1758,10 @@ body.site-v2 .country-detail-cta .btn-primary i {
 
     body.site-v2 .guide-practical-row {
         grid-template-columns: 1fr 1fr;
+    }
+
+    body.site-v2 .guide-tabs-wrap {
+        top: 56px;
     }
 }
 

@@ -28,7 +28,6 @@ import { dismissSeoPrerender } from '../lib/seo-prerender.js';
 import { handleSeoRoute } from './seo-routes.js';
 import { getCountryLastReviewed, lastReviewedLabel, toIsoReviewDate } from '../lib/content-meta.js';
 import { getListingsForCountry, renderCountryBookRows } from './book-direct.js';
-import { closeMobileNav, setMainNavSuppressed } from './nav.js';
 
 const detailView = document.getElementById('country-detail-view');
 const closeDetailBtn = document.getElementById('close-detail');
@@ -45,47 +44,6 @@ const detailSafety = document.getElementById('detail-safety');
 const detailMoney = document.getElementById('detail-money');
 const detailFlavorInline = document.getElementById('detail-flavor-inline');
 const ctaCountryName = document.querySelector('.cta-country-name');
-
-let countryScrollBound = false;
-
-function updateCountryGuideSticky() {
-    if (!detailView || detailView.classList.contains('hidden')) return;
-    const heroBlock = document.getElementById('country-hero-block');
-    const sticky = document.getElementById('country-guide-sticky');
-    const pinnedToolbar = sticky?.querySelector('.detail-toolbar--pinned');
-    if (!heroBlock || !sticky) return;
-
-    const pinned = detailView.scrollTop >= heroBlock.offsetHeight - 1;
-    sticky.classList.toggle('is-pinned', pinned);
-    detailView.classList.toggle('country-guide-sticky-active', pinned);
-    if (pinnedToolbar) {
-        pinnedToolbar.hidden = !pinned;
-        pinnedToolbar.setAttribute('aria-hidden', pinned ? 'false' : 'true');
-    }
-}
-
-function onCountryDetailScroll() {
-    updateCountryGuideSticky();
-}
-
-function bindCountryGuideScroll() {
-    if (countryScrollBound || !detailView) return;
-    detailView.addEventListener('scroll', onCountryDetailScroll, { passive: true });
-    countryScrollBound = true;
-}
-
-function unbindCountryGuideScroll() {
-    if (!detailView) return;
-    detailView.removeEventListener('scroll', onCountryDetailScroll);
-    countryScrollBound = false;
-    detailView.classList.remove('country-guide-sticky-active');
-    document.getElementById('country-guide-sticky')?.classList.remove('is-pinned');
-    const pinnedToolbar = detailView.querySelector('.detail-toolbar--pinned');
-    if (pinnedToolbar) {
-        pinnedToolbar.hidden = true;
-        pinnedToolbar.setAttribute('aria-hidden', 'true');
-    }
-}
 
 function resetGuideTabs() {
     document.querySelectorAll('.guide-tab').forEach(t => t.classList.remove('active'));
@@ -122,8 +80,6 @@ function populateCountryPage(countryId) {
     }
     const breadcrumbName = document.getElementById('detail-breadcrumb-name');
     if (breadcrumbName) breadcrumbName.textContent = data.name;
-    const pinnedName = document.getElementById('detail-pinned-country-name');
-    if (pinnedName) pinnedName.textContent = data.name;
 
     const meta = getCountryMeta(countryId);
     const heroImg = document.getElementById('detail-hero-img');
@@ -391,23 +347,13 @@ function showCountryPage(countryId) {
     if (!countries[countryId]) return;
     dismissSeoPrerender();
     populateCountryPage(countryId);
-    closeMobileNav();
-    setMainNavSuppressed(true);
     detailView.classList.remove('hidden');
-    detailView.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     setCountryMeta(countryId);
-    requestAnimationFrame(() => {
-        bindCountryGuideScroll();
-        updateCountryGuideSticky();
-    });
 }
 
 function hideCountryPage() {
-    unbindCountryGuideScroll();
-    setMainNavSuppressed(false);
     detailView.classList.add('hidden');
-    detailView.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     setHomeMeta();
 }
@@ -468,7 +414,6 @@ export function initCountryGuide() {
     });
 
     closeDetailBtn?.addEventListener('click', () => closeCountryPage('destinations'));
-    document.getElementById('close-detail-pinned')?.addEventListener('click', () => closeCountryPage('destinations'));
 
     detailView?.addEventListener('click', (e) => {
         if (e.target.closest('[data-action="back-home"]')) {

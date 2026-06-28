@@ -2626,22 +2626,13 @@ footer {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.detail-toolbar--flow {
-    background: rgba(253, 252, 249, 0.96);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.country-guide-sticky {
+.detail-toolbar {
     position: sticky;
     top: 0;
-    z-index: 10;
-}
-
-.detail-toolbar--pinned {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.guide-tabs-wrap {
+    z-index: 5;
+    background: rgba(253, 252, 249, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
