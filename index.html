@@ -1007,26 +1007,17 @@
                     <div class="detail-quick-stats" id="detail-quick-stats" aria-label="Country highlights"></div>
                 </div>
             </div>
-            <div class="guide-tabs-wrap guide-tabs-wrap--hero">
-                <div class="container">
-                    <nav class="guide-tabs" id="guide-tabs-hero" aria-label="Country guide sections">
-                        <button type="button" class="guide-tab active" data-tab="about"><i class="fas fa-compass"></i> About</button>
-                        <button type="button" class="guide-tab" data-tab="travelling"><i class="fas fa-suitcase"></i> Travelling</button>
-                        <button type="button" class="guide-tab" data-tab="attractions"><i class="fas fa-map-marked-alt"></i> Attractions</button>
-                        <button type="button" class="guide-tab" data-tab="activities"><i class="fas fa-hiking"></i> Activities</button>
-                        <button type="button" class="guide-tab" data-tab="routes"><i class="fas fa-route"></i> Routes</button>
-                    </nav>
-                </div>
-            </div>
         </div>
 
-        <div id="sticky-country-nav" class="sticky-country-nav" hidden aria-hidden="true">
+        <div id="sticky-country-nav" class="sticky-country-nav">
             <div class="container sticky-country-nav__inner">
-                <button type="button" id="close-detail-sticky" class="btn-back-compact btn-back-main" aria-label="Back to destinations">
-                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
-                    <span id="detail-sticky-country-name">Country</span>
-                </button>
-                <nav class="guide-tabs guide-tabs--sticky" id="guide-tabs-sticky" aria-label="Country guide sections (pinned)">
+                <div id="sticky-country-back" class="sticky-country-nav__back" hidden aria-hidden="true">
+                    <button type="button" id="close-detail-sticky" class="btn-back-compact btn-back-main" aria-label="Back to destinations">
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        <span id="detail-sticky-country-name">Country</span>
+                    </button>
+                </div>
+                <nav class="guide-tabs" id="guide-tabs" aria-label="Country guide sections">
                     <button type="button" class="guide-tab active" data-tab="about"><i class="fas fa-compass"></i> About</button>
                     <button type="button" class="guide-tab" data-tab="travelling"><i class="fas fa-suitcase"></i> Travelling</button>
                     <button type="button" class="guide-tab" data-tab="attractions"><i class="fas fa-map-marked-alt"></i> Attractions</button>

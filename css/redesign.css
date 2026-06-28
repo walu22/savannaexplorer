@@ -1163,22 +1163,30 @@ body.site-v2 .sticky-country-nav {
     position: sticky;
     top: 0;
     z-index: 50;
+    background: var(--bg-cream);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+body.site-v2 .country-detail-view.country-sticky-nav-active .sticky-country-nav {
     background: rgba(247, 243, 237, 0.98);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border-subtle);
     box-shadow: 0 4px 16px rgba(12, 18, 16, 0.08);
-}
-
-body.site-v2 .sticky-country-nav[hidden] {
-    display: none !important;
 }
 
 body.site-v2 .sticky-country-nav__inner {
     display: flex;
     flex-direction: column;
     gap: 0;
+    padding: 0.75rem 0 1rem;
+}
+
+body.site-v2 .country-sticky-nav-active .sticky-country-nav__inner {
     padding: 0.5rem 0 0.65rem;
+}
+
+body.site-v2 .sticky-country-nav__back[hidden] {
+    display: none !important;
 }
 
 body.site-v2 .btn-back-compact {
@@ -1189,16 +1197,6 @@ body.site-v2 .btn-back-compact {
 
 body.site-v2 .btn-back-compact span {
     font-size: 0.95rem;
-}
-
-body.site-v2 .guide-tabs-wrap--hero {
-    background: var(--bg-cream);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 0.75rem 0 1rem;
-}
-
-body.site-v2 .guide-tabs--sticky {
-    margin: 0;
 }
 
 body.site-v2 .detail-header {
