@@ -80,12 +80,23 @@ Without `.env`, forms fall back to **mailto** and marketplace data loads from `d
 
 Set `VITE_SITE_URL` in `.env` before `npm run build` so `sitemap.xml` and canonical URLs use your production domain.
 
+### Production deploy (Vercel)
+
+See **`docs/vercel-deploy.md`** for full setup. Summary:
+
+1. Import the GitHub repo at [vercel.com/new](https://vercel.com/new)
+2. Add `VITE_*` environment variables in the Vercel project settings
+3. Point `savannaexplorer.com` DNS to Vercel
+4. Every push to `master` deploys automatically
+
+Legacy Hostinger SSH deploy has been removed from CI in favour of Vercel.
+
 ### SEO & routing (v4.13+)
 
 - Country pages use real paths: `/countries/namibia` (legacy `#namibia` hashes redirect automatically)
 - Per-country `<title>`, meta description, Open Graph, Twitter Card, and JSON-LD
 - `public/sitemap.xml` and `public/robots.txt` generated at build time
-- SPA hosting: `public/_redirects` included for Netlify-style hosts (all routes → `index.html`)
+- SPA hosting: `vercel.json` rewrites + prerendered HTML in `dist/` (see `docs/vercel-deploy.md`)
 
 ### SEO Phase 3 (v4.14+)
 

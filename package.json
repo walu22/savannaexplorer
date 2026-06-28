@@ -1,7 +1,10 @@
 {
   "name": "savannaexplorer",
   "private": true,
-  "version": "4.21.3",
+  "version": "4.22.0",
+  "engines": {
+    "node": "22.x"
+  },
   "type": "module",
   "scripts": {
     "setup:env": "node scripts/setup-env.mjs",

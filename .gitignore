@@ -93,6 +93,9 @@ dist
 # vuepress build output
 .vuepress/dist
 
+# Vercel local link metadata
+.vercel
+
 # Serverless Webpack directories
 .webpack/
 
