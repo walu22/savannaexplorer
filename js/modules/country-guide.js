@@ -28,6 +28,7 @@ import { dismissSeoPrerender } from '../lib/seo-prerender.js';
 import { handleSeoRoute } from './seo-routes.js';
 import { getCountryLastReviewed, lastReviewedLabel, toIsoReviewDate } from '../lib/content-meta.js';
 import { getListingsForCountry, renderCountryBookRows } from './book-direct.js';
+import { closeMobileNav, setMainNavSuppressed } from './nav.js';
 
 const detailView = document.getElementById('country-detail-view');
 const closeDetailBtn = document.getElementById('close-detail');
@@ -44,6 +45,28 @@ const detailSafety = document.getElementById('detail-safety');
 const detailMoney = document.getElementById('detail-money');
 const detailFlavorInline = document.getElementById('detail-flavor-inline');
 const ctaCountryName = document.querySelector('.cta-country-name');
+
+let toolbarHeightObserver;
+
+function syncCountryToolbarHeight() {
+    const toolbar = detailView?.querySelector('.detail-toolbar');
+    if (!toolbar || !detailView) return;
+    detailView.style.setProperty('--detail-toolbar-height', `${Math.ceil(toolbar.offsetHeight)}px`);
+}
+
+function bindCountryToolbarHeight() {
+    const toolbar = detailView?.querySelector('.detail-toolbar');
+    if (!toolbar) return;
+    syncCountryToolbarHeight();
+    toolbarHeightObserver?.disconnect();
+    toolbarHeightObserver = new ResizeObserver(syncCountryToolbarHeight);
+    toolbarHeightObserver.observe(toolbar);
+}
+
+function unbindCountryToolbarHeight() {
+    toolbarHeightObserver?.disconnect();
+    toolbarHeightObserver = null;
+}
 
 function resetGuideTabs() {
     document.querySelectorAll('.guide-tab').forEach(t => t.classList.remove('active'));
@@ -347,13 +370,23 @@ function showCountryPage(countryId) {
     if (!countries[countryId]) return;
     dismissSeoPrerender();
     populateCountryPage(countryId);
+    closeMobileNav();
+    setMainNavSuppressed(true);
     detailView.classList.remove('hidden');
+    detailView.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     setCountryMeta(countryId);
+    requestAnimationFrame(() => {
+        syncCountryToolbarHeight();
+        bindCountryToolbarHeight();
+    });
 }
 
 function hideCountryPage() {
+    unbindCountryToolbarHeight();
+    setMainNavSuppressed(false);
     detailView.classList.add('hidden');
+    detailView.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     setHomeMeta();
 }
