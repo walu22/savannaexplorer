@@ -1144,54 +1144,54 @@ body.site-v2 .footer-bottom {
     color: rgba(247, 243, 237, 0.5);
 }
 
-/* --- Country detail v5 — modern cover hero layout --- */
+/* --- Country detail — fixed header + scrollable body (matches landing nav) --- */
 body.site-v2 .country-detail-view {
     background: var(--bg-cream);
 }
 
-/* --- Country detail — two-phase header (hero scrolls, then single sticky nav) --- */
 body.site-v2 .country-hero-section {
     background: var(--bg-cream);
 }
 
-body.site-v2 .country-chrome {
-    background: var(--bg-cream);
-    border-bottom: 1px solid var(--border-subtle);
-}
-
-body.site-v2 .sticky-country-nav {
-    position: sticky;
-    top: 0;
+body.site-v2 .country-page-header {
+    flex-shrink: 0;
     z-index: 50;
-    background: var(--bg-cream);
+    background: rgba(253, 251, 247, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-subtle);
+    transition: var(--transition-smooth);
 }
 
-body.site-v2 .country-detail-view.country-sticky-nav-active .sticky-country-nav {
-    background: rgba(247, 243, 237, 0.98);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 4px 16px rgba(12, 18, 16, 0.08);
+body.site-v2 .country-page-header.scrolled {
+    box-shadow: var(--shadow-sm);
 }
 
-body.site-v2 .sticky-country-nav__inner {
+body.site-v2 .country-page-header__inner {
     display: flex;
     flex-direction: column;
     gap: 0;
-    padding: 0.75rem 0 1rem;
+    padding: 0.65rem 0 0.85rem;
 }
 
-body.site-v2 .country-sticky-nav-active .sticky-country-nav__inner {
-    padding: 0.5rem 0 0.65rem;
+body.site-v2 .country-page-header__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 44px;
+    margin-bottom: 0.5rem;
 }
 
-body.site-v2 .sticky-country-nav__back[hidden] {
-    display: none !important;
+body.site-v2 .country-detail-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 body.site-v2 .btn-back-compact {
     align-self: flex-start;
-    margin-bottom: 0.35rem;
     font-weight: 700;
 }
 

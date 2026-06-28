@@ -31,6 +31,7 @@ import { getListingsForCountry, renderCountryBookRows } from './book-direct.js';
 import { closeMobileNav, setMainNavSuppressed } from './nav.js';
 
 const detailView = document.getElementById('country-detail-view');
+const countryScroll = document.getElementById('country-detail-scroll');
 const closeDetailBtn = document.getElementById('close-detail');
 const detailTitle = document.getElementById('detail-title');
 const detailTagline = document.getElementById('detail-tagline');
@@ -46,8 +47,28 @@ const detailMoney = document.getElementById('detail-money');
 const detailFlavorInline = document.getElementById('detail-flavor-inline');
 const ctaCountryName = document.querySelector('.cta-country-name');
 
-let heroSectionObserver;
+let countryHeaderScrollHandler;
 
+function bindCountryPageHeader() {
+    const header = document.getElementById('country-page-header');
+    const scrollEl = countryScroll;
+    if (!header || !scrollEl) return;
+
+    countryHeaderScrollHandler = () => {
+        header.classList.toggle('scrolled', scrollEl.scrollTop > 50);
+    };
+    scrollEl.addEventListener('scroll', countryHeaderScrollHandler, { passive: true });
+    countryHeaderScrollHandler();
+}
+
+function unbindCountryPageHeader() {
+    const scrollEl = countryScroll;
+    if (scrollEl && countryHeaderScrollHandler) {
+        scrollEl.removeEventListener('scroll', countryHeaderScrollHandler);
+    }
+    countryHeaderScrollHandler = null;
+    document.getElementById('country-page-header')?.classList.remove('scrolled');
+}
 function activateGuideTab(tabId) {
     if (!tabId) return;
     document.querySelectorAll('#country-detail-view .guide-tab').forEach(tab => {
@@ -55,33 +76,6 @@ function activateGuideTab(tabId) {
     });
     document.querySelectorAll('.guide-panel').forEach(panel => panel.classList.remove('active'));
     document.getElementById(`panel-${tabId}`)?.classList.add('active');
-}
-
-function updateStickyCountryNav(heroVisible) {
-    const backRow = document.getElementById('sticky-country-back');
-    if (!backRow || !detailView) return;
-    backRow.hidden = heroVisible;
-    backRow.setAttribute('aria-hidden', heroVisible ? 'true' : 'false');
-    detailView.classList.toggle('country-sticky-nav-active', !heroVisible);
-}
-
-function bindCountryStickyNav() {
-    const heroSection = document.getElementById('country-hero-section');
-    if (!heroSection || !detailView) return;
-
-    heroSectionObserver?.disconnect();
-    heroSectionObserver = new IntersectionObserver(
-        ([entry]) => updateStickyCountryNav(entry.isIntersecting),
-        { root: detailView, threshold: 0 },
-    );
-    heroSectionObserver.observe(heroSection);
-    updateStickyCountryNav(true);
-}
-
-function unbindCountryStickyNav() {
-    heroSectionObserver?.disconnect();
-    heroSectionObserver = null;
-    updateStickyCountryNav(true);
 }
 
 function resetGuideTabs() {
@@ -103,7 +97,7 @@ function populateCountryPage(countryId) {
     if (!data) return;
     const guide = getCountryGuide(countryId, data);
 
-    detailView.scrollTop = 0;
+    if (countryScroll) countryScroll.scrollTop = 0;
     detailTitle.textContent = data.name;
     detailTagline.textContent = data.tagline;
     const reviewedEl = document.getElementById('detail-last-reviewed');
@@ -116,8 +110,8 @@ function populateCountryPage(countryId) {
     }
     const breadcrumbName = document.getElementById('detail-breadcrumb-name');
     if (breadcrumbName) breadcrumbName.textContent = data.name;
-    const stickyName = document.getElementById('detail-sticky-country-name');
-    if (stickyName) stickyName.textContent = data.name;
+    const headerName = document.getElementById('detail-header-country-name');
+    if (headerName) headerName.textContent = data.name;
 
     const meta = getCountryMeta(countryId);
     const heroImg = document.getElementById('detail-hero-img');
@@ -391,11 +385,11 @@ function showCountryPage(countryId) {
     detailView.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     setCountryMeta(countryId);
-    requestAnimationFrame(() => bindCountryStickyNav());
+    requestAnimationFrame(() => bindCountryPageHeader());
 }
 
 function hideCountryPage() {
-    unbindCountryStickyNav();
+    unbindCountryPageHeader();
     setMainNavSuppressed(false);
     detailView.classList.add('hidden');
     detailView.setAttribute('aria-hidden', 'true');
@@ -459,7 +453,6 @@ export function initCountryGuide() {
     });
 
     closeDetailBtn?.addEventListener('click', () => closeCountryPage('destinations'));
-    document.getElementById('close-detail-sticky')?.addEventListener('click', () => closeCountryPage('destinations'));
 
     detailView?.addEventListener('click', (e) => {
         const tab = e.target.closest('.guide-tab');
