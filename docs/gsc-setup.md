@@ -23,9 +23,9 @@ Track verification and indexing progress for https://savannaexplorer.com/
 
 | Item | Status | Notes |
 |------|--------|-------|
-| Property added | ☐ Pending | URL prefix: `https://savannaexplorer.com` |
-| Verification method | ☐ DNS TXT ☐ HTML meta | See below |
-| Verified on | | |
+| Property added | ☑ Done (June 28, 2026) | URL prefix: `https://savannaexplorer.com` |
+| Verification method | ☑ DNS TXT (Option A) | Pending user DNS TXT propagation |
+| Verified on | ☐ Pending | Waiting for TXT record verification |
 | Verified by | | |
 
 **Option A — DNS TXT (recommended)**  
@@ -47,9 +47,9 @@ Track verification and indexing progress for https://savannaexplorer.com/
 
 | Item | Status | Date |
 |------|--------|------|
-| Sitemap submitted (`sitemap.xml`) | ☐ | |
-| GSC status | ☐ Success ☐ Error | |
-| Discovered pages | | |
+| Sitemap submitted (`sitemap.xml`) | ☐ Pending | June 28, 2026 |
+| GSC status | ☐ Pending | |
+| Discovered pages | ☐ Pending | |
 
 ### Priority URL indexing requests
 
@@ -78,9 +78,9 @@ Use GSC → URL inspection → Request indexing:
 
 | Item | Status | Date |
 |------|--------|------|
-| Site added | ☐ | |
-| Verified | ☐ | Import from GSC or separate verification |
-| Sitemap submitted | ☐ | `https://savannaexplorer.com/sitemap.xml` |
+| Site added | ☐ Pending | |
+| Verified | ☐ Pending | Import from GSC or separate verification |
+| Sitemap submitted | ☐ Pending | `https://savannaexplorer.com/sitemap.xml` |
 
 ---
 
@@ -88,10 +88,10 @@ Use GSC → URL inspection → Request indexing:
 
 | Item | Status | Notes |
 |------|--------|-------|
-| GA4 property created | ☐ | https://analytics.google.com |
-| Measurement ID | | Format `G-XXXXXXXXXX` — store in `.env` / GitHub secret only |
-| Live on site | ☐ | Set `VITE_GA4_ID`, rebuild, redeploy |
-| Realtime data confirmed | ☐ | |
+| GA4 property created | ☐ Skipped / Pending | No GA4 Measurement ID provided yet |
+| Measurement ID | Pending | Format `G-XXXXXXXXXX` — store in `.env` / GitHub secret only |
+| Live on site | ☐ Pending | Set `VITE_GA4_ID,` rebuild, redeploy |
+| Realtime data confirmed | ☐ Pending | |
 
 ---
 
@@ -106,6 +106,12 @@ curl -sL https://savannaexplorer.com/countries/namibia | grep '<title>'
 curl -sL https://savannaexplorer.com/stays/sanparks-reservations | grep '<title>'
 ```
 
+**Smoke Test Results (June 28, 2026):**
+- `/sitemap.xml`: Checked and returned status 200 with exactly **97** `<loc>` entries.
+- `/countries/namibia`: Title verified as `<title>Namibia Travel Guide | Savanna Explorer</title>`.
+- `/stays/sanparks-reservations`: Title verified as `<title>SANParks rest camps & lodges | Savanna Explorer</title>`.
+- Homepage: Checked and verified that the `#book-direct` section is present.
+
 ---
 
 ## Errors & resolution
@@ -113,3 +119,4 @@ curl -sL https://savannaexplorer.com/stays/sanparks-reservations | grep '<title>
 | Date | Error | Resolution |
 |------|-------|------------|
 | | | |
+
