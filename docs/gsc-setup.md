@@ -118,5 +118,7 @@ curl -sL https://savannaexplorer.com/stays/sanparks-reservations | grep '<title>
 
 | Date | Error | Resolution |
 |------|-------|------------|
-| | | |
+| June 28, 2026 | GitHub Actions Deploy timeout: `ssh: connect to host 31.97.56.157 port 22: Connection timed out` | The Hostinger hPanel VPS firewall is blocking inbound port 22 traffic from the dynamic IP ranges of the GitHub Actions runners. **Resolution**: Go to Hostinger hPanel -> VPS -> Firewall, and add a rule to allow TCP port 22 for `0.0.0.0/0` (all IPs). Authentication remains secure since we set up private key auth. |
+| June 28, 2026 | `ssh-keyscan` exited with code 1 in GitHub Actions | Bypassed by statically declaring the verified host public key in the workflow's `known_hosts` file. |
+
 
