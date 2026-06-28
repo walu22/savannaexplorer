@@ -1,8 +1,12 @@
 import packingData from '../../data/packing.json';
 import practical from '../../data/practical.json';
+import { fetchLiveCurrencyRates, fetchCityWeather, apiCodeForCurrency } from './transport-logistics.js';
 
 const MONTH_LABELS = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
 const SEASON_CLASS = { peak: 's-peak', shoulder: 's-shoulder', off: 's-off' };
+
+/** @type {Record<string, number> | null} */
+let liveRatesByBase = null;
 
 function updatePackProgress() {
     const total = document.querySelectorAll('#hub-pack-list input[type="checkbox"]').length;
@@ -38,11 +42,39 @@ function renderCurrency() {
         const attrs = Object.entries(row.rates)
             .map(([code, rate]) => `data-rate-${code.toLowerCase()}="${rate}"`)
             .join(' ');
-        return `<div class="hub-cur-row"><span class="hub-flag">${row.flag}</span><span class="hub-cur-name">${row.name}</span><span class="hub-cur-val" ${attrs}>—</span></div>`;
+        return `<div class="hub-cur-row" data-currency-code="${row.code}"><span class="hub-flag">${row.flag}</span><span class="hub-cur-name">${row.name}</span><span class="hub-cur-val" ${attrs}>—</span></div>`;
     }).join('');
 
     if (note) {
-        note.innerHTML = `${currency.note} · Verified <time datetime="${currency.lastVerified}">${currency.lastVerified}</time> · <a href="${currency.sourceUrl}" target="_blank" rel="noopener noreferrer">${currency.sourceLabel}</a>`;
+        note.innerHTML = `<span id="hub-currency-status">${currency.note}</span> · Verified <time datetime="${currency.lastVerified}">${currency.lastVerified}</time> · <a href="${currency.sourceUrl}" target="_blank" rel="noopener noreferrer">${currency.sourceLabel}</a>`;
+    }
+}
+
+async function loadLiveCurrencyRates() {
+    const status = document.getElementById('hub-currency-status');
+    const bases = practical.currency.baseCurrencies.map(c => c.code);
+    liveRatesByBase = {};
+
+    for (const base of bases) {
+        try {
+            const rates = await fetchLiveCurrencyRates(base);
+            liveRatesByBase[base] = rates;
+
+            document.querySelectorAll('.hub-cur-row').forEach(row => {
+                const targetCode = apiCodeForCurrency(row.dataset.currencyCode);
+                const rate = rates[targetCode];
+                if (rate) {
+                    row.querySelector('.hub-cur-val')?.setAttribute(`data-rate-${base.toLowerCase()}`, String(rate));
+                }
+            });
+        } catch {
+            // keep static fallback rates for this base
+        }
+    }
+
+    updateCurrency();
+    if (status && Object.keys(liveRatesByBase).length) {
+        status.textContent = `Live mid-market rates loaded (${practical.currency.liveApiLabel}). Confirm with your bank before exchanging.`;
     }
 }
 
@@ -91,8 +123,8 @@ function renderWeather() {
     if (!grid) return;
 
     const { weather } = practical;
-    grid.innerHTML = weather.cities.map(city => `
-        <div class="weather-city">
+    grid.innerHTML = weather.cities.map((city, index) => `
+        <div class="weather-city" data-weather-index="${index}">
             <span class="weather-flag">${city.flag}</span>
             <span class="weather-name">${city.name}</span>
             <span class="weather-temp">${city.temp}</span>
@@ -101,7 +133,32 @@ function renderWeather() {
     `).join('');
 
     if (note) {
-        note.innerHTML = `${weather.label} (${weather.referenceMonth} averages) · Verified ${weather.lastVerified} · <a href="${weather.sourceUrl}" target="_blank" rel="noopener noreferrer">${weather.sourceLabel}</a>`;
+        note.innerHTML = `<span id="hub-weather-status">${weather.label}</span> · Verified ${weather.lastVerified} · <a href="${weather.sourceUrl}" target="_blank" rel="noopener noreferrer">${weather.sourceLabel}</a>`;
+    }
+}
+
+async function loadLiveWeather() {
+    const { weather } = practical;
+    const status = document.getElementById('hub-weather-status');
+    let liveCount = 0;
+
+    await Promise.all(weather.cities.map(async (city, index) => {
+        if (city.lat == null || city.lon == null) return;
+        try {
+            const live = await fetchCityWeather(city.lat, city.lon);
+            const el = document.querySelector(`.weather-city[data-weather-index="${index}"]`);
+            if (!el) return;
+            el.querySelector('.weather-temp').textContent = `${live.temp}°C`;
+            el.querySelector('.weather-icon').textContent = live.icon;
+            el.classList.add('weather-city--live');
+            liveCount += 1;
+        } catch {
+            // keep static fallback
+        }
+    }));
+
+    if (status && liveCount > 0) {
+        status.textContent = `Live now at ${liveCount} capitals (${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })})`;
     }
 }
 
@@ -148,6 +205,8 @@ export function initUtilityHub() {
     renderDisclaimer();
     renderPackList('safari');
     updateCurrency();
+    loadLiveCurrencyRates();
+    loadLiveWeather();
 
     document.getElementById('hub-amount')?.addEventListener('input', updateCurrency);
     document.getElementById('hub-from-currency')?.addEventListener('change', updateCurrency);

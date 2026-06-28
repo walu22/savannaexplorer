@@ -5,10 +5,12 @@
     "sourcesPage": "SOURCES.md"
   },
   "currency": {
-    "lastVerified": "2026-03",
+    "lastVerified": "2026-06",
     "sourceUrl": "https://www.xe.com/currencyconverter/",
     "sourceLabel": "XE.com (reference rates)",
-    "note": "Approximate planning rates only — not live. Confirm with your bank before exchanging money.",
+    "liveApiUrl": "https://open.er-api.com/v6/latest/",
+    "liveApiLabel": "ExchangeRate-API (live mid-market)",
+    "note": "Live rates load when online; static fallback used if unavailable. Confirm with your bank before exchanging money.",
     "baseCurrencies": [
       { "code": "USD", "label": "🇺🇸 USD" },
       { "code": "EUR", "label": "🇪🇺 EUR" },
@@ -146,21 +148,21 @@
     ]
   },
   "weather": {
-    "label": "Typical seasonal conditions — not live weather",
-    "referenceMonth": "March",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.worldweatheronline.com/",
-    "sourceLabel": "Historical climate averages",
+    "label": "Live current conditions via Open-Meteo; seasonal averages as fallback",
+    "referenceMonth": "June",
+    "lastVerified": "2026-06",
+    "sourceUrl": "https://open-meteo.com/",
+    "sourceLabel": "Open-Meteo forecast",
     "cities": [
-      { "flag": "🇿🇦", "name": "Cape Town", "temp": "22°C", "icon": "☀️" },
-      { "flag": "🇳🇦", "name": "Windhoek", "temp": "28°C", "icon": "⛅" },
-      { "flag": "🇧🇼", "name": "Gaborone", "temp": "30°C", "icon": "☀️" },
-      { "flag": "🇿🇲", "name": "Lusaka", "temp": "26°C", "icon": "🌧️" },
-      { "flag": "🇿🇼", "name": "Harare", "temp": "25°C", "icon": "⛅" },
-      { "flag": "🇲🇿", "name": "Maputo", "temp": "31°C", "icon": "🌤️" },
-      { "flag": "🇲🇼", "name": "Lilongwe", "temp": "24°C", "icon": "🌧️" },
-      { "flag": "🇱🇸", "name": "Maseru", "temp": "20°C", "icon": "☀️" },
-      { "flag": "🇸🇿", "name": "Mbabane", "temp": "22°C", "icon": "⛅" }
+      { "flag": "🇿🇦", "name": "Cape Town", "temp": "22°C", "icon": "☀️", "lat": -33.92, "lon": 18.42 },
+      { "flag": "🇳🇦", "name": "Windhoek", "temp": "28°C", "icon": "⛅", "lat": -22.56, "lon": 17.08 },
+      { "flag": "🇧🇼", "name": "Gaborone", "temp": "30°C", "icon": "☀️", "lat": -24.63, "lon": 25.91 },
+      { "flag": "🇿🇲", "name": "Lusaka", "temp": "26°C", "icon": "🌧️", "lat": -15.39, "lon": 28.32 },
+      { "flag": "🇿🇼", "name": "Harare", "temp": "25°C", "icon": "⛅", "lat": -17.83, "lon": 31.05 },
+      { "flag": "🇲🇿", "name": "Maputo", "temp": "31°C", "icon": "🌤️", "lat": -25.97, "lon": 32.57 },
+      { "flag": "🇲🇼", "name": "Lilongwe", "temp": "24°C", "icon": "🌧️", "lat": -13.97, "lon": 33.78 },
+      { "flag": "🇱🇸", "name": "Maseru", "temp": "20°C", "icon": "☀️", "lat": -29.32, "lon": 27.48 },
+      { "flag": "🇸🇿", "name": "Mbabane", "temp": "22°C", "icon": "⛅", "lat": -26.32, "lon": 31.13 }
     ]
   },
   "emergencies": [
