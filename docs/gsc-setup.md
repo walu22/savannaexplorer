@@ -24,24 +24,15 @@ Track verification and indexing progress for https://savannaexplorer.com/
 | Item | Status | Notes |
 |------|--------|-------|
 | Property added | ☑ Done (June 28, 2026) | URL prefix: `https://savannaexplorer.com` |
-| Verification method | ☑ DNS TXT (Option A) | Pending user DNS TXT propagation |
-| Verified on | ☐ Pending | Waiting for TXT record verification |
-| Verified by | | |
+| Verification method | ☑ HTML File | `google017a1951885e383b.html` generated and deployed via CI |
+| Verified on | ☑ June 28, 2026 | Verified by user in GSC UI |
+| Verified by | Antigravity / User | |
 
-**Option A — DNS TXT (recommended)**  
-1. GSC → Add property → URL prefix  
-2. Choose **Domain name provider** verification  
-3. Copy TXT record (`google-site-verification=...`)  
-4. Hostinger hPanel → Domains → savannaexplorer.com → DNS → Add TXT at `@`  
-5. Wait 5–30 min → Verify in GSC  
+**Option C — HTML File (Used)**  
+1. User provided HTML file name (`google017a1951885e383b.html`).
+2. Added file to `public/` and deployed via GitHub Actions.
+3. User verified in GSC.
 
-**Option B — HTML meta tag**  
-1. GSC gives token in `content="..."`  
-2. Set `VITE_GSC_VERIFICATION=TOKEN` in `.env` (local only)  
-3. `VITE_SITE_URL=https://savannaexplorer.com npm run build`  
-4. Deploy `dist/` to `/var/www/savannaexplorer`  
-5. Confirm: `curl -s https://savannaexplorer.com/ | grep google-site-verification`  
-6. Verify in GSC  
 
 ### Sitemap
 
