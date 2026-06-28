@@ -554,10 +554,12 @@ body.site-v2 .book-direct-hub {
 
 body.site-v2 .parks-hub {
     background: var(--bg-warm);
+    padding-bottom: 2.5rem;
 }
 
 body.site-v2 .book-direct-hub {
     background: var(--bg-light);
+    padding-top: 2.5rem;
 }
 
 body.site-v2 .borders-hub {
