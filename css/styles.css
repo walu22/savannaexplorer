@@ -2604,7 +2604,6 @@ footer {
     z-index: 2000;
     overflow-y: auto;
     overflow-x: hidden;
-    --detail-toolbar-height: 60px;
     transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
     transform: translateX(100%);
     opacity: 0;
@@ -2627,13 +2626,22 @@ footer {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.detail-toolbar {
+.detail-toolbar--flow {
+    background: rgba(253, 252, 249, 0.96);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.country-guide-sticky {
     position: sticky;
     top: 0;
-    z-index: 5;
-    background: rgba(253, 252, 249, 0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    z-index: 10;
+}
+
+.detail-toolbar--pinned {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.guide-tabs-wrap {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 

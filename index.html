@@ -973,22 +973,22 @@
 
     <!-- Country Detail View (Full Page) -->
     <section id="country-detail-view" class="country-detail-view hidden" aria-hidden="true">
-        <div class="detail-toolbar">
-            <div class="container detail-toolbar-inner">
-                <button type="button" id="close-detail" class="btn-back-main" aria-label="Back to destinations">
-                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
-                    <span>Back to Destinations</span>
-                </button>
-                <nav class="detail-breadcrumb" aria-label="Breadcrumb">
-                    <button type="button" class="detail-breadcrumb-link" data-action="back-home">Home</button>
-                    <span class="detail-breadcrumb-sep" aria-hidden="true">/</span>
-                    <button type="button" class="detail-breadcrumb-link" data-action="back-destinations">Destinations</button>
-                    <span class="detail-breadcrumb-sep" aria-hidden="true">/</span>
-                    <span class="detail-breadcrumb-current" id="detail-breadcrumb-name">Country</span>
-                </nav>
+        <div class="detail-header" id="country-hero-block">
+            <div class="detail-toolbar detail-toolbar--flow">
+                <div class="container detail-toolbar-inner">
+                    <button type="button" id="close-detail" class="btn-back-main" aria-label="Back to destinations">
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        <span>Back to Destinations</span>
+                    </button>
+                    <nav class="detail-breadcrumb" aria-label="Breadcrumb">
+                        <button type="button" class="detail-breadcrumb-link" data-action="back-home">Home</button>
+                        <span class="detail-breadcrumb-sep" aria-hidden="true">/</span>
+                        <button type="button" class="detail-breadcrumb-link" data-action="back-destinations">Destinations</button>
+                        <span class="detail-breadcrumb-sep" aria-hidden="true">/</span>
+                        <span class="detail-breadcrumb-current" id="detail-breadcrumb-name">Country</span>
+                    </nav>
+                </div>
             </div>
-        </div>
-        <div class="detail-header">
             <div class="detail-hero">
                 <div class="detail-hero-media" aria-hidden="true">
                     <img id="detail-hero-img" class="detail-hero-img" src="" alt="">
@@ -1009,15 +1009,25 @@
             </div>
         </div>
 
-        <div class="guide-tabs-wrap">
-            <div class="container">
-                <nav class="guide-tabs" id="guide-tabs" aria-label="Country guide sections">
-                    <button class="guide-tab active" data-tab="about"><i class="fas fa-compass"></i> About</button>
-                    <button class="guide-tab" data-tab="travelling"><i class="fas fa-suitcase"></i> Travelling</button>
-                    <button class="guide-tab" data-tab="attractions"><i class="fas fa-map-marked-alt"></i> Attractions</button>
-                    <button class="guide-tab" data-tab="activities"><i class="fas fa-hiking"></i> Activities</button>
-                    <button class="guide-tab" data-tab="routes"><i class="fas fa-route"></i> Routes</button>
-                </nav>
+        <div class="country-guide-sticky" id="country-guide-sticky">
+            <div class="detail-toolbar detail-toolbar--pinned" hidden aria-hidden="true">
+                <div class="container detail-toolbar-inner detail-toolbar-inner--pinned">
+                    <button type="button" id="close-detail-pinned" class="btn-back-main" aria-label="Back to destinations">
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        <span class="detail-toolbar-country" id="detail-pinned-country-name">Country</span>
+                    </button>
+                </div>
+            </div>
+            <div class="guide-tabs-wrap">
+                <div class="container">
+                    <nav class="guide-tabs" id="guide-tabs" aria-label="Country guide sections">
+                        <button class="guide-tab active" data-tab="about"><i class="fas fa-compass"></i> About</button>
+                        <button class="guide-tab" data-tab="travelling"><i class="fas fa-suitcase"></i> Travelling</button>
+                        <button class="guide-tab" data-tab="attractions"><i class="fas fa-map-marked-alt"></i> Attractions</button>
+                        <button class="guide-tab" data-tab="activities"><i class="fas fa-hiking"></i> Activities</button>
+                        <button class="guide-tab" data-tab="routes"><i class="fas fa-route"></i> Routes</button>
+                    </nav>
+                </div>
             </div>
         </div>
 

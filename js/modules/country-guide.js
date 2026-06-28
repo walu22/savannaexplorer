@@ -46,27 +46,26 @@ const detailMoney = document.getElementById('detail-money');
 const detailFlavorInline = document.getElementById('detail-flavor-inline');
 const ctaCountryName = document.querySelector('.cta-country-name');
 
-let toolbarHeightObserver;
 let countryScrollBound = false;
 
-function syncCountryToolbarHeight() {
-    const toolbar = detailView?.querySelector('.detail-toolbar');
-    if (!toolbar || !detailView) return;
-    detailView.style.setProperty('--detail-toolbar-height', `${Math.ceil(toolbar.offsetHeight)}px`);
-    updateCountryGuidePinned();
-}
-
-function updateCountryGuidePinned() {
+function updateCountryGuideSticky() {
     if (!detailView || detailView.classList.contains('hidden')) return;
-    const tabsWrap = detailView.querySelector('.guide-tabs-wrap');
-    const toolbarHeight = parseFloat(getComputedStyle(detailView).getPropertyValue('--detail-toolbar-height')) || 60;
-    if (!tabsWrap) return;
-    const pinned = tabsWrap.getBoundingClientRect().top <= toolbarHeight + 1;
-    detailView.classList.toggle('country-guide-pinned', pinned);
+    const heroBlock = document.getElementById('country-hero-block');
+    const sticky = document.getElementById('country-guide-sticky');
+    const pinnedToolbar = sticky?.querySelector('.detail-toolbar--pinned');
+    if (!heroBlock || !sticky) return;
+
+    const pinned = detailView.scrollTop >= heroBlock.offsetHeight - 1;
+    sticky.classList.toggle('is-pinned', pinned);
+    detailView.classList.toggle('country-guide-sticky-active', pinned);
+    if (pinnedToolbar) {
+        pinnedToolbar.hidden = !pinned;
+        pinnedToolbar.setAttribute('aria-hidden', pinned ? 'false' : 'true');
+    }
 }
 
 function onCountryDetailScroll() {
-    updateCountryGuidePinned();
+    updateCountryGuideSticky();
 }
 
 function bindCountryGuideScroll() {
@@ -79,21 +78,13 @@ function unbindCountryGuideScroll() {
     if (!detailView) return;
     detailView.removeEventListener('scroll', onCountryDetailScroll);
     countryScrollBound = false;
-    detailView.classList.remove('country-guide-pinned');
-}
-
-function bindCountryToolbarHeight() {
-    const toolbar = detailView?.querySelector('.detail-toolbar');
-    if (!toolbar) return;
-    syncCountryToolbarHeight();
-    toolbarHeightObserver?.disconnect();
-    toolbarHeightObserver = new ResizeObserver(syncCountryToolbarHeight);
-    toolbarHeightObserver.observe(toolbar);
-}
-
-function unbindCountryToolbarHeight() {
-    toolbarHeightObserver?.disconnect();
-    toolbarHeightObserver = null;
+    detailView.classList.remove('country-guide-sticky-active');
+    document.getElementById('country-guide-sticky')?.classList.remove('is-pinned');
+    const pinnedToolbar = detailView.querySelector('.detail-toolbar--pinned');
+    if (pinnedToolbar) {
+        pinnedToolbar.hidden = true;
+        pinnedToolbar.setAttribute('aria-hidden', 'true');
+    }
 }
 
 function resetGuideTabs() {
@@ -131,6 +122,8 @@ function populateCountryPage(countryId) {
     }
     const breadcrumbName = document.getElementById('detail-breadcrumb-name');
     if (breadcrumbName) breadcrumbName.textContent = data.name;
+    const pinnedName = document.getElementById('detail-pinned-country-name');
+    if (pinnedName) pinnedName.textContent = data.name;
 
     const meta = getCountryMeta(countryId);
     const heroImg = document.getElementById('detail-hero-img');
@@ -405,15 +398,12 @@ function showCountryPage(countryId) {
     document.body.style.overflow = 'hidden';
     setCountryMeta(countryId);
     requestAnimationFrame(() => {
-        syncCountryToolbarHeight();
-        bindCountryToolbarHeight();
         bindCountryGuideScroll();
-        updateCountryGuidePinned();
+        updateCountryGuideSticky();
     });
 }
 
 function hideCountryPage() {
-    unbindCountryToolbarHeight();
     unbindCountryGuideScroll();
     setMainNavSuppressed(false);
     detailView.classList.add('hidden');
@@ -478,6 +468,7 @@ export function initCountryGuide() {
     });
 
     closeDetailBtn?.addEventListener('click', () => closeCountryPage('destinations'));
+    document.getElementById('close-detail-pinned')?.addEventListener('click', () => closeCountryPage('destinations'));
 
     detailView?.addEventListener('click', (e) => {
         if (e.target.closest('[data-action="back-home"]')) {
