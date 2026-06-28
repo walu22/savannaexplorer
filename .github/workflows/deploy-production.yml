@@ -40,21 +40,22 @@ jobs:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
         run: |
-          install -m 700 -d ~/.ssh
-          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          echo "${DEPLOY_HOST} ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6dMEVBHX3GAnyQVN3aKPCBLB1unfoDUeExlBApadCv" >> ~/.ssh/known_hosts
-          cat >> ~/.ssh/config <<EOF
+          install -m 700 -d "$HOME/.ssh"
+          printf '%s\n' "$DEPLOY_SSH_KEY" > "$HOME/.ssh/deploy_key"
+          chmod 600 "$HOME/.ssh/deploy_key"
+          echo "${DEPLOY_HOST} ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6dMEVBHX3GAnyQVN3aKPCBLB1unfoDUeExlBApadCv" >> "$HOME/.ssh/known_hosts"
+          cat > "$HOME/.ssh/config" <<EOF
           Host deploy-host
             HostName ${DEPLOY_HOST}
             User ${DEPLOY_USER}
-            IdentityFile ~/.ssh/deploy_key
+            IdentityFile ${HOME}/.ssh/deploy_key
             ConnectTimeout 45
             ServerAliveInterval 15
             ServerAliveCountMax 3
             StrictHostKeyChecking yes
           EOF
-          chmod 600 ~/.ssh/config
+          sed -i 's/^[[:space:]]*//' "$HOME/.ssh/config"
+          chmod 600 "$HOME/.ssh/config"
 
       - name: Backup current site on server
         env:
@@ -64,7 +65,7 @@ jobs:
           max=5
           while [ "$attempt" -lt "$max" ]; do
             attempt=$((attempt + 1))
-            if ssh deploy-host \
+            if ssh -F "$HOME/.ssh/config" deploy-host \
               "test -d '${DEPLOY_PATH}' && cp -a '${DEPLOY_PATH}' '${DEPLOY_PATH}_backup_$(date +%Y%m%d_%H%M%S)' || mkdir -p '${DEPLOY_PATH}'"; then
               exit 0
             fi
@@ -83,7 +84,7 @@ jobs:
           while [ "$attempt" -lt "$max" ]; do
             attempt=$((attempt + 1))
             if rsync -avz --delete \
-              -e "ssh -F ~/.ssh/config" \
+              -e "ssh -F ${HOME}/.ssh/config" \
               dist/ \
               "deploy-host:${DEPLOY_PATH}/"; then
               exit 0
