@@ -975,20 +975,17 @@
     <section id="country-detail-view" class="country-detail-view hidden" aria-hidden="true">
         <header id="country-page-header" class="country-page-header">
             <div class="container country-page-header__inner">
-                <div class="country-page-header__top">
-                    <button type="button" id="close-detail" class="btn-back-compact btn-back-main" aria-label="Back to destinations">
+                <div class="country-page-header__nav">
+                    <button type="button" class="country-nav-home" data-action="back-home" aria-label="Back to home page">
+                        <i class="fas fa-house" aria-hidden="true"></i>
+                        <span>Home</span>
+                    </button>
+                    <button type="button" id="close-detail" class="country-nav-back btn-back-main" aria-label="Back to destinations">
                         <i class="fas fa-arrow-left" aria-hidden="true"></i>
                         <span id="detail-header-country-name">Country</span>
                     </button>
-                    <nav class="detail-breadcrumb" aria-label="Breadcrumb">
-                        <button type="button" class="detail-breadcrumb-link" data-action="back-home">Home</button>
-                        <span class="detail-breadcrumb-sep" aria-hidden="true">/</span>
-                        <button type="button" class="detail-breadcrumb-link" data-action="back-destinations">Destinations</button>
-                        <span class="detail-breadcrumb-sep" aria-hidden="true">/</span>
-                        <span class="detail-breadcrumb-current" id="detail-breadcrumb-name">Country</span>
-                    </nav>
                 </div>
-                <nav class="guide-tabs" id="guide-tabs" aria-label="Country guide sections">
+                <nav class="guide-tabs country-page-header__tabs" id="guide-tabs" aria-label="Country guide sections">
                     <button type="button" class="guide-tab active" data-tab="about"><i class="fas fa-compass"></i> About</button>
                     <button type="button" class="guide-tab" data-tab="travelling"><i class="fas fa-suitcase"></i> Travelling</button>
                     <button type="button" class="guide-tab" data-tab="attractions"><i class="fas fa-map-marked-alt"></i> Attractions</button>
