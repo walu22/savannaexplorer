@@ -47,11 +47,39 @@ const detailFlavorInline = document.getElementById('detail-flavor-inline');
 const ctaCountryName = document.querySelector('.cta-country-name');
 
 let toolbarHeightObserver;
+let countryScrollBound = false;
 
 function syncCountryToolbarHeight() {
     const toolbar = detailView?.querySelector('.detail-toolbar');
     if (!toolbar || !detailView) return;
     detailView.style.setProperty('--detail-toolbar-height', `${Math.ceil(toolbar.offsetHeight)}px`);
+    updateCountryGuidePinned();
+}
+
+function updateCountryGuidePinned() {
+    if (!detailView || detailView.classList.contains('hidden')) return;
+    const tabsWrap = detailView.querySelector('.guide-tabs-wrap');
+    const toolbarHeight = parseFloat(getComputedStyle(detailView).getPropertyValue('--detail-toolbar-height')) || 60;
+    if (!tabsWrap) return;
+    const pinned = tabsWrap.getBoundingClientRect().top <= toolbarHeight + 1;
+    detailView.classList.toggle('country-guide-pinned', pinned);
+}
+
+function onCountryDetailScroll() {
+    updateCountryGuidePinned();
+}
+
+function bindCountryGuideScroll() {
+    if (countryScrollBound || !detailView) return;
+    detailView.addEventListener('scroll', onCountryDetailScroll, { passive: true });
+    countryScrollBound = true;
+}
+
+function unbindCountryGuideScroll() {
+    if (!detailView) return;
+    detailView.removeEventListener('scroll', onCountryDetailScroll);
+    countryScrollBound = false;
+    detailView.classList.remove('country-guide-pinned');
 }
 
 function bindCountryToolbarHeight() {
@@ -379,11 +407,14 @@ function showCountryPage(countryId) {
     requestAnimationFrame(() => {
         syncCountryToolbarHeight();
         bindCountryToolbarHeight();
+        bindCountryGuideScroll();
+        updateCountryGuidePinned();
     });
 }
 
 function hideCountryPage() {
     unbindCountryToolbarHeight();
+    unbindCountryGuideScroll();
     setMainNavSuppressed(false);
     detailView.classList.add('hidden');
     detailView.setAttribute('aria-hidden', 'true');
