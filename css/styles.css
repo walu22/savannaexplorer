@@ -4782,3 +4782,89 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* Passport-specific visa helper */
+.hub-passport-row,
+.trip-planner-row--passport {
+    margin-bottom: 1rem;
+}
+
+.hub-passport-label,
+.trip-planner-row--passport .trip-planner-label {
+    display: block;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0.35rem;
+}
+
+.hub-passport-select,
+#trip-passport-select {
+    width: 100%;
+    max-width: 320px;
+    padding: 0.55rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
+    font-size: 0.92rem;
+}
+
+.trip-planner-row--passport .trip-planner-label {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+#trip-passport-select {
+    max-width: 100%;
+}
+
+.hub-visa-summary {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hub-visa-summary-head {
+    margin: 0 0 0.65rem;
+    line-height: 1.45;
+}
+
+.hub-visa-summary-list {
+    margin: 0 0 0.65rem;
+    padding-left: 1.2rem;
+    line-height: 1.5;
+}
+
+.hub-visa-kaza {
+    margin: 0.5rem 0;
+    padding: 0.65rem 0.75rem;
+    background: rgba(149, 213, 178, 0.12);
+    border-radius: 8px;
+    line-height: 1.45;
+}
+
+.hub-visa-summary-meta {
+    margin: 0.5rem 0 0;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.hub-matrix-row--action {
+    background: rgba(255, 193, 7, 0.08);
+    border-radius: 6px;
+}
+
+.hub-visa-detail--action summary {
+    color: #ffd166;
+}
+
+.trip-planner-preview .print-visa-summary {
+    background: #f4f8f5;
+    border: 1px solid #c8e6d0;
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin-top: 1rem;
+}

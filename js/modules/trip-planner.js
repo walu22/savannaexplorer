@@ -3,7 +3,13 @@ import packingData from '../../data/packing.json';
 import practical from '../../data/practical.json';
 import bordersData from '../../data/borders.json';
 import { COUNTRY_META, COUNTRY_ORDER } from '../lib/country-meta.js';
-import { getCountryResourcePack, getVisaRow } from '../lib/country-resources.js';
+import { getCountryResourcePack } from '../lib/country-resources.js';
+import { getDefaultPassportId, getPassportMeta } from '../lib/visa-passport.js';
+import {
+    buildTripVisaBlock,
+    buildTripVisaSummaryBlock,
+    getActivePassportId,
+} from './visa-passport-ui.js';
 
 const ITINERARY_COUNTRIES = {
     'desert-to-delta': ['namibia', 'botswana'],
@@ -66,15 +72,15 @@ function renderPackList(type) {
     ).join('');
 }
 
-function buildChecklistHtml({ countryIds, routeId, packType, packingItems }) {
+function buildChecklistHtml({ countryIds, routeId, packType, packingItems, passportId }) {
     const route = routeId ? itineraries[routeId] : null;
+    const passportMeta = getPassportMeta(passportId) || { label: passportId };
     const generated = new Date().toLocaleDateString('en-GB', {
         day: 'numeric', month: 'long', year: 'numeric',
     });
 
     const countryBlocks = countryIds.map(countryId => {
         const meta = COUNTRY_META[countryId] || { name: countryId, flag: '🌍' };
-        const visa = getVisaRow(countryId);
         const resources = getCountryResourcePack(countryId);
         const emergency = getEmergency(countryId);
 
@@ -85,14 +91,7 @@ function buildChecklistHtml({ countryIds, routeId, packType, packingItems }) {
         return `
             <section class="print-country">
                 <h2>${escapeHtml(meta.flag)} ${escapeHtml(meta.name)}</h2>
-                ${visa ? `
-                    <p class="print-meta"><strong>Visa:</strong> ${escapeHtml(visa.visa.label)} ·
-                    <strong>Health:</strong> ${escapeHtml(visa.health.label)} ·
-                    <strong>Advisory:</strong> ${escapeHtml(visa.advisory.label)}
-                    <span class="print-verified">(verified ${escapeHtml(visa.lastVerified)})</span></p>
-                    <p>${escapeHtml(visa.note)}</p>
-                    <p class="print-source"><strong>Official immigration:</strong> ${escapeHtml(visa.sourceUrl)}</p>
-                ` : ''}
+                ${buildTripVisaBlock(countryId, passportId)}
                 ${resources?.planningNote ? `<p class="print-tip"><strong>Planning tip:</strong> ${escapeHtml(resources.planningNote)}</p>` : ''}
                 ${linksHtml ? `<ul class="print-links">${linksHtml}</ul>` : ''}
                 ${emergency ? `<p class="print-emergency"><strong>Emergency:</strong> ${escapeHtml(emergency.numbers)}</p>` : ''}
@@ -140,14 +139,18 @@ function buildChecklistHtml({ countryIds, routeId, packType, packingItems }) {
 
     const countryNames = countryIds.map(id => COUNTRY_META[id]?.name || id).join(', ');
 
+    const visaSummaryHtml = buildTripVisaSummaryBlock(countryIds, passportId);
+
     return `
         <article class="print-checklist-doc">
             <header class="print-header">
                 <p class="print-brand">Savanna Explorer</p>
                 <h1>Trip planning checklist</h1>
                 <p class="print-subtitle">${escapeHtml(countryNames || 'Southern Africa')}</p>
+                <p class="print-meta">Passport: ${escapeHtml(passportMeta.label)}</p>
                 <p class="print-generated">Generated ${escapeHtml(generated)} · savannaexplorer.com</p>
             </header>
+            ${visaSummaryHtml}
             ${routeHtml}
             ${countryBlocks}
             ${bordersHtml}
@@ -165,8 +168,11 @@ function collectPlannerState() {
     const routeId = document.getElementById('trip-route-select')?.value || '';
     const packType = document.querySelector('#trip-planner .hub-tab.active')?.dataset.pack || 'safari';
     const packingItems = getSelectedPackingItems();
+    const passportId = document.getElementById('trip-passport-select')?.value
+        || getActivePassportId()
+        || getDefaultPassportId();
 
-    return { countryIds, routeId, packType, packingItems };
+    return { countryIds, routeId, packType, packingItems, passportId };
 }
 
 function validateState(state) {
