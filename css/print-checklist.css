@@ -1,0 +1,278 @@
+/**
+ * Trip planner checklist — preview on screen and PDF/print output.
+ * Loaded in-page for preview and in a print iframe for clean PDFs.
+ */
+
+.print-checklist-doc {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    max-width: 100%;
+}
+
+/* ── Header ── */
+.print-header {
+    border-bottom: 2pt solid #1b4332;
+    padding-bottom: 12pt;
+    margin-bottom: 14pt;
+}
+
+.print-header-bar {
+    height: 4pt;
+    background: #1b4332;
+    margin: 0 0 10pt;
+    border-radius: 1pt;
+}
+
+.print-brand {
+    font-size: 8pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #40916c;
+    font-weight: 700;
+    margin: 0 0 4pt;
+}
+
+.print-header h1 {
+    font-size: 20pt;
+    font-weight: 700;
+    color: #1b4332;
+    margin: 0 0 6pt;
+    line-height: 1.15;
+}
+
+.print-subtitle {
+    font-size: 12pt;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8pt;
+}
+
+.print-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt 20pt;
+    font-size: 9pt;
+    color: #444;
+}
+
+.print-meta-row span strong {
+    color: #1b4332;
+    font-weight: 600;
+}
+
+.print-generated {
+    font-size: 8.5pt;
+    color: #777;
+    margin: 8pt 0 0;
+}
+
+/* ── Sections ── */
+.print-section,
+.print-country {
+    margin-top: 14pt;
+    padding-top: 12pt;
+    border-top: 1pt solid #ddd;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+}
+
+.print-section:first-of-type,
+.print-country:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.print-section h2,
+.print-country h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #1b4332;
+    margin: 0 0 8pt;
+    line-height: 1.25;
+}
+
+.print-section h3 {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #333;
+    margin: 10pt 0 6pt;
+}
+
+.print-visa-summary {
+    background: #f0f7f3;
+    border: 1pt solid #c8e0d4;
+    border-left: 4pt solid #1b4332;
+    padding: 10pt 12pt;
+    margin-bottom: 4pt;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+}
+
+.print-visa-summary h2 {
+    font-size: 11pt;
+    margin-bottom: 6pt;
+}
+
+.print-visa-summary ul {
+    margin: 0;
+    padding-left: 16pt;
+}
+
+.print-visa-summary li {
+    margin-bottom: 3pt;
+}
+
+/* ── Body text ── */
+.print-meta {
+    font-size: 9pt;
+    color: #444;
+    margin: 0 0 6pt;
+}
+
+.print-meta strong {
+    color: #222;
+}
+
+.print-verified {
+    color: #777;
+}
+
+.print-tip {
+    font-size: 9pt;
+    background: #faf8f0;
+    border-left: 3pt solid #d4a843;
+    padding: 6pt 10pt;
+    margin: 8pt 0;
+}
+
+.print-emergency {
+    font-size: 9pt;
+    background: #fdf2f2;
+    border-left: 3pt solid #c0392b;
+    padding: 6pt 10pt;
+    margin: 8pt 0;
+}
+
+.print-source {
+    font-size: 8.5pt;
+    color: #555;
+    word-break: break-all;
+    margin: 4pt 0 0;
+}
+
+.print-note {
+    font-size: 8.5pt;
+    font-style: italic;
+    color: #666;
+    margin: 8pt 0 0;
+}
+
+.print-links,
+.print-borders {
+    margin: 6pt 0 0;
+    padding-left: 16pt;
+    font-size: 9pt;
+}
+
+.print-links li,
+.print-borders li {
+    margin-bottom: 4pt;
+}
+
+.print-links strong {
+    color: #1b4332;
+}
+
+/* ── Packing checklist ── */
+.print-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 8pt 0 0;
+    columns: 2;
+    column-gap: 20pt;
+}
+
+.print-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6pt;
+    margin-bottom: 5pt;
+    break-inside: avoid;
+    font-size: 9.5pt;
+}
+
+.print-box {
+    width: 11pt;
+    height: 11pt;
+    border: 1pt solid #333;
+    flex-shrink: 0;
+    margin-top: 2pt;
+}
+
+/* ── Footer ── */
+.print-footer {
+    margin-top: 18pt;
+    padding-top: 10pt;
+    border-top: 1pt solid #bbb;
+    font-size: 8pt;
+    color: #555;
+    line-height: 1.45;
+}
+
+.print-footer p {
+    margin: 0 0 4pt;
+}
+
+/* ── In-page preview (dark hub panel) ── */
+.trip-planner-preview .print-checklist-doc {
+    font-size: 0.92rem;
+}
+
+.trip-planner-preview .print-header h1 {
+    font-size: 1.5rem;
+}
+
+/* ── Print / PDF only ── */
+@media print {
+    @page {
+        size: A4;
+        margin: 14mm 16mm 18mm;
+    }
+
+    html, body {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        background: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .print-checklist-doc {
+        padding: 0;
+    }
+
+    .print-checklist {
+        columns: 2;
+    }
+
+    .print-section,
+    .print-country,
+    .print-visa-summary,
+    .print-header {
+        break-inside: avoid-page;
+        page-break-inside: avoid;
+    }
+
+    a {
+        color: #1b4332;
+        text-decoration: none;
+    }
+
+    .print-source {
+        word-break: break-all;
+    }
+}
