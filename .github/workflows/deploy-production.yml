@@ -41,7 +41,7 @@ jobs:
           install -m 700 -d ~/.ssh
           printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts
+          echo "${{ secrets.DEPLOY_HOST }} ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6dMEVBHX3GAnyQVN3aKPCBLB1unfoDUeExlBApadCv" >> ~/.ssh/known_hosts
 
       - name: Backup current site on server
         env:
