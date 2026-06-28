@@ -96,6 +96,8 @@ Set `VITE_SITE_URL` in `.env` before `npm run build` so `sitemap.xml` and canoni
 
 After deploying, submit `https://savannaexplorer.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console).
 
+**Handoff docs for operators:** see `docs/ANTIGRAVITY-HANDOFF.md` and log progress in `docs/gsc-setup.md`.
+
 ### Book Direct index (v4.15+)
 
 - **Stays & operators** hub at `#book-direct` — 18 official link-only directories (park camps, lodge booking portals, licensed operators)
