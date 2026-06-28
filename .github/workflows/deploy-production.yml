@@ -35,11 +35,83 @@ jobs:
         run: npm run build
 
       - name: Deploy to Vercel
+        id: vercel
+        continue-on-error: true
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: npx vercel@latest deploy dist --prod --token "$VERCEL_TOKEN" --yes
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "VERCEL_TOKEN not set — skipping Vercel."
+            exit 1
+          fi
+          npx vercel@latest deploy dist --prod --token "$VERCEL_TOKEN" --yes
+
+      - name: Configure SSH
+        if: steps.vercel.outcome != 'success'
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        run: |
+          install -m 700 -d "$HOME/.ssh"
+          printf '%s\n' "$DEPLOY_SSH_KEY" > "$HOME/.ssh/deploy_key"
+          chmod 600 "$HOME/.ssh/deploy_key"
+          echo "${DEPLOY_HOST} ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6dMEVBHX3GAnyQVN3aKPCBLB1unfoDUeExlBApadCv" >> "$HOME/.ssh/known_hosts"
+          cat > "$HOME/.ssh/config" <<EOF
+          Host deploy-host
+            HostName ${DEPLOY_HOST}
+            User ${DEPLOY_USER}
+            IdentityFile ${HOME}/.ssh/deploy_key
+            ConnectTimeout 45
+            ServerAliveInterval 15
+            ServerAliveCountMax 3
+            StrictHostKeyChecking yes
+          EOF
+          sed -i 's/^[[:space:]]*//' "$HOME/.ssh/config"
+          chmod 600 "$HOME/.ssh/config"
+
+      - name: Backup current site on server
+        if: steps.vercel.outcome != 'success'
+        continue-on-error: true
+        env:
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          attempt=0
+          max=5
+          while [ "$attempt" -lt "$max" ]; do
+            attempt=$((attempt + 1))
+            if ssh -F "$HOME/.ssh/config" deploy-host \
+              "test -d '${DEPLOY_PATH}' && cp -a '${DEPLOY_PATH}' '${DEPLOY_PATH}_backup_$(date +%Y%m%d_%H%M%S)' || mkdir -p '${DEPLOY_PATH}'"; then
+              exit 0
+            fi
+            echo "SSH backup attempt ${attempt}/${max} failed; retrying in $((attempt * 10))s..."
+            sleep $((attempt * 10))
+          done
+          echo "Backup skipped after ${max} attempts — continuing to upload."
+          exit 0
+
+      - name: Upload build to Hostinger
+        if: steps.vercel.outcome != 'success'
+        env:
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          attempt=0
+          max=5
+          while [ "$attempt" -lt "$max" ]; do
+            attempt=$((attempt + 1))
+            if rsync -avz --delete \
+              -e "ssh -F ${HOME}/.ssh/config" \
+              dist/ \
+              "deploy-host:${DEPLOY_PATH}/"; then
+              exit 0
+            fi
+            echo "Rsync attempt ${attempt}/${max} failed; retrying in $((attempt * 10))s..."
+            sleep $((attempt * 10))
+          done
+          echo "Upload failed after ${max} attempts."
+          exit 1
 
       - name: Verify deployment
         run: |
