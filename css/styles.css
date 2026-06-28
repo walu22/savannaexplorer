@@ -2099,6 +2099,78 @@ footer {
     font-style: italic;
 }
 
+.park-fee-table-wrap {
+    margin: 0.65rem 0 0;
+    overflow-x: auto;
+}
+
+.park-fee-table-wrap--compact {
+    margin-top: 0.5rem;
+}
+
+.park-fee-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.74rem;
+    line-height: 1.4;
+}
+
+.park-fee-table caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    padding-bottom: 0.35rem;
+}
+
+.park-fee-table th,
+.park-fee-table td {
+    padding: 0.35rem 0.45rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    vertical-align: top;
+}
+
+.park-fee-table th {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.park-fee-cat {
+    color: var(--primary);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.park-fee-amt {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.park-fee-unit {
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.park-fee-note {
+    display: block;
+    font-weight: 400;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+}
+
+.country-resource-row--park .park-fee-table-wrap {
+    max-width: 100%;
+}
+
+.country-resource-row--park {
+    align-items: flex-start;
+}
+
 /* --- HEALTH HUB --- */
 .health-hub {
     padding: 5rem 0;
@@ -4573,6 +4645,232 @@ footer {
     .transport-crossborder-layout {
         grid-template-columns: 1fr;
     }
+}
+
+/* --- EMBASSIES / FOREIGN MISSIONS --- */
+.embassies-section {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.embassies-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.embassies-tab {
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.12);
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.embassies-tab:hover,
+.embassies-tab.active {
+    border-color: var(--primary);
+    background: rgba(45, 106, 79, 0.08);
+}
+
+.embassies-panel-intro {
+    text-align: center;
+    max-width: 42rem;
+    margin: 0 auto 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.embassies-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.embassy-filter {
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.12);
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+
+.embassy-filter.active {
+    border-color: var(--primary);
+    background: rgba(45, 106, 79, 0.08);
+}
+
+.embassies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: 1.25rem;
+}
+
+.embassy-card {
+    background: #fafafa;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.embassy-card-header {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.embassy-flag {
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.embassy-card h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1.05rem;
+}
+
+.embassy-verified {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.embassy-link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.embassy-link-card {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 8px;
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s;
+}
+
+.embassy-link-card:hover {
+    border-color: var(--primary);
+}
+
+.embassy-link-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.embassy-link-body strong {
+    font-size: 0.85rem;
+}
+
+.embassy-link-body span {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.embassy-link-action {
+    font-size: 0.75rem;
+    color: var(--primary);
+    white-space: nowrap;
+}
+
+.embassy-emergency {
+    margin: 1rem 0 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+}
+
+.embassy-emergency i {
+    color: var(--primary);
+    margin-right: 0.35rem;
+}
+
+.embassies-passport-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    max-width: 20rem;
+    margin: 0 auto 1.25rem;
+    font-size: 0.85rem;
+}
+
+.embassies-passport-label select {
+    padding: 0.55rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    font-size: 0.9rem;
+}
+
+.embassies-traveler-grid {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.embassy-traveler-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.embassy-traveler-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 1.1rem;
+    border-radius: 10px;
+    background: #fafafa;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s;
+}
+
+.embassy-traveler-link:hover {
+    border-color: var(--primary);
+}
+
+.embassy-traveler-link strong {
+    font-size: 0.92rem;
+}
+
+.embassy-traveler-link span {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+}
+
+.embassy-traveler-link em {
+    font-style: normal;
+    font-size: 0.78rem;
+    color: var(--primary);
+    margin-top: 0.25rem;
+}
+
+.embassies-disclaimer {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-style: italic;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Passport-specific visa helper */

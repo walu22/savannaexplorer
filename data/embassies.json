@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "lastUpdated": "2026-06",
+    "disclaimer": "Embassy and consular links point to official government directories. Savanna Explorer does not provide consular services — register with your embassy where advised and carry emergency contacts offline."
+  },
+  "travelerSources": [
+    {
+      "id": "uk",
+      "label": "🇬🇧 United Kingdom",
+      "short": "UK",
+      "links": [
+        {
+          "title": "FCDO travel advice — Southern Africa",
+          "description": "Country-specific safety, entry rules, and embassy contact details for British nationals.",
+          "url": "https://www.gov.uk/foreign-travel-advice",
+          "linkLabel": "GOV.UK travel advice"
+        },
+        {
+          "title": "Find a British embassy or consulate",
+          "description": "Official locator for UK missions worldwide.",
+          "url": "https://www.gov.uk/world/embassies",
+          "linkLabel": "UK missions abroad"
+        }
+      ]
+    },
+    {
+      "id": "us",
+      "label": "🇺🇸 United States",
+      "short": "US",
+      "links": [
+        {
+          "title": "US travel advisories",
+          "description": "State Department country pages with embassy locations and STEP enrollment.",
+          "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories.html",
+          "linkLabel": "Travel.State.gov"
+        },
+        {
+          "title": "Smart Traveler Enrollment (STEP)",
+          "description": "Register your trip to receive alerts and help embassies reach you in an emergency.",
+          "url": "https://step.state.gov/",
+          "linkLabel": "Enroll in STEP"
+        }
+      ]
+    },
+    {
+      "id": "eu",
+      "label": "🇪🇺 EU / Schengen",
+      "short": "EU",
+      "links": [
+        {
+          "title": "EU consular protection abroad",
+          "description": "How EU citizens can get help from any EU member embassy when their country has no local mission.",
+          "url": "https://europa.eu/youreurope/citizens/travel/travel-emergency/index_en.htm",
+          "linkLabel": "EU emergency travel help"
+        },
+        {
+          "title": "EEAS diplomatic missions",
+          "description": "European External Action Service overview of EU delegations.",
+          "url": "https://www.eeas.europa.eu/eeas/european-union-delegations_en",
+          "linkLabel": "EU delegations"
+        }
+      ]
+    },
+    {
+      "id": "au",
+      "label": "🇦🇺 Australia",
+      "short": "AU",
+      "links": [
+        {
+          "title": "Smartraveller — Africa",
+          "description": "Official Australian government travel advice and embassy contacts.",
+          "url": "https://www.smartraveller.gov.au/",
+          "linkLabel": "Smartraveller"
+        }
+      ]
+    },
+    {
+      "id": "ca",
+      "label": "🇨🇦 Canada",
+      "short": "CA",
+      "links": [
+        {
+          "title": "Travel advice and advisories",
+          "description": "Government of Canada country pages with embassy and consulate listings.",
+          "url": "https://travel.gc.ca/travelling/advisories",
+          "linkLabel": "Travel.gc.ca"
+        }
+      ]
+    },
+    {
+      "id": "za",
+      "label": "🇿🇦 South Africa",
+      "short": "SA",
+      "links": [
+        {
+          "title": "DIRCO — South African missions abroad",
+          "description": "Directory of South African embassies and high commissions.",
+          "url": "https://www.dirco.gov.za/foreign/sa_abroad/",
+          "linkLabel": "SA missions abroad"
+        }
+      ]
+    },
+    {
+      "id": "in",
+      "label": "🇮🇳 India",
+      "short": "IN",
+      "links": [
+        {
+          "title": "MEA — Indian missions abroad",
+          "description": "Ministry of External Affairs locator for embassies and consulates.",
+          "url": "https://www.mea.gov.in/indian-missions-abroad.htm",
+          "linkLabel": "Indian missions"
+        }
+      ]
+    }
+  ],
+  "destinations": [
+    {
+      "id": "south-africa",
+      "lastVerified": "2026-06",
+      "directories": [
+        {
+          "title": "Foreign missions in South Africa",
+          "description": "Embassies and consulates accredited to Pretoria, Cape Town, Johannesburg, and Durban.",
+          "url": "https://www.dirco.gov.za/foreign/forrep/",
+          "linkLabel": "DIRCO directory"
+        },
+        {
+          "title": "Department of Home Affairs",
+          "description": "Immigration services, visa status, and border entry guidance.",
+          "url": "https://www.dha.gov.za/index.php/immigration-services",
+          "linkLabel": "DHA immigration"
+        }
+      ],
+      "emergencyNote": "Police 10111 · Ambulance 10177 · Private medical evacuation via your travel insurer"
+    },
+    {
+      "id": "namibia",
+      "lastVerified": "2026-06",
+      "directories": [
+        {
+          "title": "Ministry of Home Affairs, Immigration & Safety",
+          "description": "Visa rules, e-visa portal, and immigration contacts.",
+          "url": "https://mha.gov.na/",
+          "linkLabel": "MHA Namibia"
+        },
+        {
+          "title": "Namibia e-visa services",
+          "description": "Online visa applications and status checks.",
+          "url": "https://eservices.mhaiss.gov.na/",
+          "linkLabel": "E-visa portal"
+        }
+      ],
+      "emergencyNote": "Police 10111 · Ambulance 211111 · Windhoek hosts most foreign missions"
+    },
+    {
+      "id": "botswana",
+      "lastVerified": "2026-06",
+      "directories": [
+        {
+          "title": "Government of Botswana",
+          "description": "Official portal — immigration and consular information.",
+          "url": "https://www.gov.bw/",
+          "linkLabel": "gov.bw"
+        },
+        {
+          "title": "Botswana Tourism",
+          "description": "Travel guidance and links to government services.",
+          "url": "https://www.botswanatourism.co.bw/",
+          "linkLabel": "Tourism board"
+        }
+      ],
+      "emergencyNote": "Police 999 · Ambulance 997 · Gaborone is the main diplomatic hub"
+    },
+    {
+      "id": "zambia",
+      "lastVerified": "2026-06",
+      "directories": [
+        {
+          "title": "Zambia Immigration Department",
+          "description": "Visa requirements, e-visa, and border entry rules.",
+          "url": "https://www.zambiaimmigration.gov.zm/",
+          "linkLabel": "Immigration portal"
+        },
+        {
+          "title": "Ministry of Foreign Affairs",
+          "description": "Diplomatic missions and consular services.",
+          "url": "https://www.mofa.gov.zm/",
+          "linkLabel": "MOFA Zambia"
+        }
+      ],
+      "emergencyNote": "Police 991 · Ambulance 992 · Lusaka hosts most embassies"
+    },
+    {
+      "id": "zimbabwe",
+      "lastVerified": "2026-06",
+      "directories": [
+        {
+          "title": "Zimbabwe Immigration",
+          "description": "Visa categories, e-visa, and entry requirements.",
+          "url": "http://www.zimimmigration.gov.zw/",
+          "linkLabel": "Immigration department"
+        },
+        {
+          "title": "Ministry of Foreign Affairs",
+          "description": "Foreign missions accredited to Zimbabwe.",
+          "url": "https://www.zimfa.gov.zw/",
+          "linkLabel": "Foreign affairs"
+        }
+      ],
+      "emergencyNote": "Police 999 · Ambulance 994 · Harare is the main diplomatic centre"
+    },
+    {
+      "id": "mozambique",
+      "lastVerified": "2026-06",
+      "directories": [
+        {
+          "title": "Ministry of Foreign Affairs",
+          "description": "Consular services and diplomatic missions in Mozambique.",
+          "url": "https://www.minec.gov.mz/",
+          "linkLabel": "MINEC"
+        },
+        {
+          "title": "Mozambique e-visa",
+          "description": "Online visa applications for eligible nationalities.",
+          "url": "https://evisa.gov.mz/",
+          "linkLabel": "E-visa portal"
+        }
+      ],
+      "emergencyNote": "Police 112 · Maputo hosts most foreign missions"
+    },
+    {
+      "id": "malawi",
+      "lastVerified": "2026-06",
+      "directories": [
+        {
+          "title": "Government of Malawi",
+          "description": "Official portal — immigration and consular guidance.",
+          "url": "https://www.malawi.gov.mw/",
+          "linkLabel": "malawi.gov.mw"
+        },
+        {
+          "title": "Department of Immigration",
+          "description": "Visa requirements and border entry rules.",
+          "url": "https://www.immigration.gov.mw/",
+          "linkLabel": "Immigration"
+        }
+      ],
+      "emergencyNote": "Police 997 · Ambulance 998 · Lilongwe is the diplomatic hub"
+    },
+    {
+      "id": "lesotho",
+      "lastVerified": "2026-06",
+      "directories": [
+        {
+          "title": "Government of Lesotho",
+          "description": "Official portal — immigration and foreign affairs contacts.",
+          "url": "https://www.gov.ls/",
+          "linkLabel": "gov.ls"
+        },
+        {
+          "title": "Ministry of Home Affairs",
+          "description": "Border and immigration services for the mountain kingdom.",
+          "url": "https://www.gov.ls/home-affairs/",
+          "linkLabel": "Home affairs"
+        }
+      ],
+      "emergencyNote": "Police 123/124 · Maseru hosts foreign missions — many travelers also use SA consular services"
+    },
+    {
+      "id": "eswatini",
+      "lastVerified": "2026-06",
+      "directories": [
+        {
+          "title": "Government of Eswatini",
+          "description": "Official portal — immigration and consular information.",
+          "url": "https://www.gov.sz/",
+          "linkLabel": "gov.sz"
+        },
+        {
+          "title": "Ministry of Home Affairs",
+          "description": "Border entry and visa guidance for the kingdom.",
+          "url": "https://www.gov.sz/index.php/ministries-departments/ministry-of-home-affairs",
+          "linkLabel": "Home affairs"
+        }
+      ],
+      "emergencyNote": "Police 999 · Ambulance 977 · Mbabane / Manzini area — SA missions nearby for some nationals"
+    }
+  ]
+}

@@ -15,7 +15,46 @@
     "sourceUrl": "https://www.sanparks.org/",
     "feeDetail": "Standard conservation fee ~R486/day for international adults (2025/26 SANParks tariff). Wild Card available.",
     "gateHours": "05:30–18:30 summer · 06:00–17:30 winter",
-    "bookingUrl": "https://www.sanparks.org/reservations/"
+    "bookingUrl": "https://www.sanparks.org/reservations/",
+    "feeTable": {
+      "currency": "ZAR",
+      "symbol": "R",
+      "period": "2025/26",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "486",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "243",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "Child (2–11)",
+          "amount": "243",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "Included",
+          "unit": "day",
+          "note": "In daily conservation fee"
+        },
+        {
+          "category": "camping",
+          "label": "Rest camp site",
+          "amount": "400+",
+          "unit": "night",
+          "note": "Plus conservation fee; Wild Card available"
+        }
+      ]
+    }
   },
   {
     "id": "table-mountain",
@@ -33,7 +72,32 @@
     "sourceUrl": "https://www.sanparks.org/",
     "feeDetail": "Table Mountain Cableway from ~R420 return (2025). Park entry at Boulders penguin beach separate.",
     "gateHours": "Cableway: first car ~08:00",
-    "bookingUrl": "https://www.sanparks.org/reservations/"
+    "bookingUrl": "https://www.sanparks.org/reservations/",
+    "feeTable": {
+      "currency": "ZAR",
+      "symbol": "R",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "activity",
+          "label": "Cableway return (international)",
+          "amount": "420+",
+          "unit": "trip"
+        },
+        {
+          "category": "person",
+          "label": "Boulders Beach entry",
+          "amount": "190+",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "TMNP conservation (where applicable)",
+          "amount": "Varies",
+          "unit": "day"
+        }
+      ]
+    }
   },
   {
     "id": "addo",
@@ -51,7 +115,39 @@
     "sourceUrl": "https://www.sanparks.org/",
     "feeDetail": "Conservation fee ~R376/day international adults. Marine eco-tours extra.",
     "gateHours": "07:00–19:00 (seasonal)",
-    "bookingUrl": "https://www.sanparks.org/reservations/"
+    "bookingUrl": "https://www.sanparks.org/reservations/",
+    "feeTable": {
+      "currency": "ZAR",
+      "symbol": "R",
+      "period": "2025/26",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "376",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "188",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "Included",
+          "unit": "day"
+        },
+        {
+          "category": "camping",
+          "label": "Camp site",
+          "amount": "350+",
+          "unit": "night",
+          "note": "Plus conservation fee"
+        }
+      ]
+    }
   },
   {
     "id": "etosha",
@@ -69,7 +165,39 @@
     "sourceUrl": "https://www.nwr.com.na/",
     "feeDetail": "NWR park fee ~N$142/person/day + N$30/vehicle (2025 rates).",
     "gateHours": "Sunrise–sunset; gates close strictly",
-    "bookingUrl": "https://www.nwr.com.na/"
+    "bookingUrl": "https://www.nwr.com.na/",
+    "feeTable": {
+      "currency": "NAD",
+      "symbol": "N$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "142",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "80",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "30",
+          "unit": "day"
+        },
+        {
+          "category": "camping",
+          "label": "Camp site",
+          "amount": "300+",
+          "unit": "night",
+          "note": "Plus park fees"
+        }
+      ]
+    }
   },
   {
     "id": "namib-naukluft",
@@ -87,7 +215,39 @@
     "sourceUrl": "https://www.nwr.com.na/",
     "feeDetail": "Sesriem/Sossusvlei access ~N$142/person + vehicle fee. Sossusvlei gate opens before sunrise for dune visits.",
     "gateHours": "Sesriem gate ~06:00 (check NWR seasonal times)",
-    "bookingUrl": "https://www.nwr.com.na/"
+    "bookingUrl": "https://www.nwr.com.na/",
+    "feeTable": {
+      "currency": "NAD",
+      "symbol": "N$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "142",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "80",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "30",
+          "unit": "day"
+        },
+        {
+          "category": "camping",
+          "label": "Sesriem camp",
+          "amount": "350+",
+          "unit": "night",
+          "note": "Book via NWR"
+        }
+      ]
+    }
   },
   {
     "id": "skeleton-coast",
@@ -105,7 +265,33 @@
     "sourceUrl": "https://www.nwr.com.na/",
     "feeDetail": "Restricted access — permit via NWR/Dorob-Skeleton Coast. Tour operators arrange access.",
     "gateHours": "Permit-dependent",
-    "bookingUrl": "https://www.nwr.com.na/"
+    "bookingUrl": "https://www.nwr.com.na/",
+    "feeTable": {
+      "currency": "NAD",
+      "symbol": "N$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "permit",
+          "label": "Park permit",
+          "amount": "Required",
+          "unit": "trip",
+          "note": "Via NWR or licensed operator"
+        },
+        {
+          "category": "person",
+          "label": "International adult (where applicable)",
+          "amount": "142+",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "4×4 vehicle fee",
+          "amount": "30+",
+          "unit": "day"
+        }
+      ]
+    }
   },
   {
     "id": "chobe",
@@ -123,7 +309,39 @@
     "sourceUrl": "https://www.gov.bw/tourism",
     "feeDetail": "Park fee ~P120/person/day + P$10 vehicle (approx. 2025). River cruise fees separate.",
     "gateHours": "06:00–18:30",
-    "bookingUrl": "https://www.botswanatourism.co.bw/"
+    "bookingUrl": "https://www.botswanatourism.co.bw/",
+    "feeTable": {
+      "currency": "BWP",
+      "symbol": "P",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "120",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "60",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "10",
+          "unit": "day"
+        },
+        {
+          "category": "activity",
+          "label": "River cruise",
+          "amount": "Separate",
+          "unit": "trip",
+          "note": "Book via operators"
+        }
+      ]
+    }
   },
   {
     "id": "moremi",
@@ -141,7 +359,38 @@
     "sourceUrl": "https://www.gov.bw/tourism",
     "feeDetail": "Moremi Game Reserve fee ~P120/person/day. Mokoro trips booked via lodges.",
     "gateHours": "06:00–18:30",
-    "bookingUrl": "https://www.botswanatourism.co.bw/"
+    "bookingUrl": "https://www.botswanatourism.co.bw/",
+    "feeTable": {
+      "currency": "BWP",
+      "symbol": "P",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "120",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "60",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "10",
+          "unit": "day"
+        },
+        {
+          "category": "activity",
+          "label": "Mokoro excursion",
+          "amount": "Via lodge",
+          "unit": "trip"
+        }
+      ]
+    }
   },
   {
     "id": "central-kalahari",
@@ -159,7 +408,39 @@
     "sourceUrl": "https://www.gov.bw/tourism",
     "feeDetail": "Lower park fees but remote — fuel and self-sufficiency essential.",
     "gateHours": "06:00–18:30",
-    "bookingUrl": "https://www.botswanatourism.co.bw/"
+    "bookingUrl": "https://www.botswanatourism.co.bw/",
+    "feeTable": {
+      "currency": "BWP",
+      "symbol": "P",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "50",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "30",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "10",
+          "unit": "day"
+        },
+        {
+          "category": "camping",
+          "label": "Remote camp",
+          "amount": "Minimal",
+          "unit": "night",
+          "note": "Self-sufficient 4×4 required"
+        }
+      ]
+    }
   },
   {
     "id": "south-luangwa",
@@ -177,7 +458,38 @@
     "sourceUrl": "https://www.znp.co.zm/",
     "feeDetail": "Park fee ~$30/day international visitors. Walking safaris require licensed guide.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.znp.co.zm/"
+    "bookingUrl": "https://www.znp.co.zm/",
+    "feeTable": {
+      "currency": "USD",
+      "symbol": "$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "30",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC / resident",
+          "amount": "15",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "15",
+          "unit": "day"
+        },
+        {
+          "category": "activity",
+          "label": "Walking safari",
+          "amount": "Guide required",
+          "unit": "trip"
+        }
+      ]
+    }
   },
   {
     "id": "kafue",
@@ -195,7 +507,39 @@
     "sourceUrl": "https://www.znp.co.zm/",
     "feeDetail": "Park entry ~$20/day. Busanga Plains seasonal (dry season only).",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.znp.co.zm/"
+    "bookingUrl": "https://www.znp.co.zm/",
+    "feeTable": {
+      "currency": "USD",
+      "symbol": "$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "20",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC / resident",
+          "amount": "10",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "10",
+          "unit": "day"
+        },
+        {
+          "category": "camping",
+          "label": "Busanga Plains (seasonal)",
+          "amount": "Via lodge",
+          "unit": "night",
+          "note": "Dry season only"
+        }
+      ]
+    }
   },
   {
     "id": "lower-zambezi",
@@ -213,7 +557,38 @@
     "sourceUrl": "https://www.znp.co.zm/",
     "feeDetail": "Park fee ~$20/day. Canoe safaris arranged via lodges.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.znp.co.zm/"
+    "bookingUrl": "https://www.znp.co.zm/",
+    "feeTable": {
+      "currency": "USD",
+      "symbol": "$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "20",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC / resident",
+          "amount": "10",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "10",
+          "unit": "day"
+        },
+        {
+          "category": "activity",
+          "label": "Canoe safari",
+          "amount": "Via lodge",
+          "unit": "trip"
+        }
+      ]
+    }
   },
   {
     "id": "hwange",
@@ -231,7 +606,39 @@
     "sourceUrl": "https://www.zimparks.org/",
     "feeDetail": "Park fee ~$15/day. Main camp waterholes best at dry season dusk.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.zimparks.org/"
+    "bookingUrl": "https://www.zimparks.org/",
+    "feeTable": {
+      "currency": "USD",
+      "symbol": "$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "15",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "7",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "5",
+          "unit": "day"
+        },
+        {
+          "category": "camping",
+          "label": "Main camp site",
+          "amount": "15+",
+          "unit": "night",
+          "note": "Plus park fees"
+        }
+      ]
+    }
   },
   {
     "id": "mana-pools",
@@ -249,7 +656,39 @@
     "sourceUrl": "https://www.zimparks.org/",
     "feeDetail": "UNESCO wilderness — walking permits required. Book camps in advance.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.zimparks.org/"
+    "bookingUrl": "https://www.zimparks.org/",
+    "feeTable": {
+      "currency": "USD",
+      "symbol": "$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "15",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "7",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "5",
+          "unit": "day"
+        },
+        {
+          "category": "permit",
+          "label": "Walking permit",
+          "amount": "Required",
+          "unit": "trip",
+          "note": "Licensed guide mandatory"
+        }
+      ]
+    }
   },
   {
     "id": "gonarezhou",
@@ -267,7 +706,39 @@
     "sourceUrl": "https://www.zimparks.org/",
     "feeDetail": "Remote 4x4 park. Chilojo Cliffs viewpoint highlight.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.zimparks.org/"
+    "bookingUrl": "https://www.zimparks.org/",
+    "feeTable": {
+      "currency": "USD",
+      "symbol": "$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "15",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "7",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "4×4 vehicle",
+          "amount": "5",
+          "unit": "day"
+        },
+        {
+          "category": "camping",
+          "label": "Remote camp",
+          "amount": "10+",
+          "unit": "night",
+          "note": "Self-drive 4×4 essential"
+        }
+      ]
+    }
   },
   {
     "id": "gorongosa",
@@ -285,7 +756,38 @@
     "sourceUrl": "https://www.anac.gov.mz/",
     "feeDetail": "Park fee ~$20/day. Restoration success story — guided drives recommended.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.anac.gov.mz/"
+    "bookingUrl": "https://www.anac.gov.mz/",
+    "feeTable": {
+      "currency": "USD",
+      "symbol": "$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "20",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "Resident / SADC",
+          "amount": "10",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "5",
+          "unit": "day"
+        },
+        {
+          "category": "activity",
+          "label": "Guided game drive",
+          "amount": "Recommended",
+          "unit": "trip"
+        }
+      ]
+    }
   },
   {
     "id": "bazaruto",
@@ -303,7 +805,32 @@
     "sourceUrl": "https://www.anac.gov.mz/",
     "feeDetail": "Marine park fees vary by activity. Dhow and dive permits through operators.",
     "gateHours": "Boat-dependent",
-    "bookingUrl": "https://www.anac.gov.mz/"
+    "bookingUrl": "https://www.anac.gov.mz/",
+    "feeTable": {
+      "currency": "MZN",
+      "symbol": "MT",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "700+",
+          "unit": "day"
+        },
+        {
+          "category": "activity",
+          "label": "Dive / snorkel permit",
+          "amount": "Varies",
+          "unit": "trip"
+        },
+        {
+          "category": "activity",
+          "label": "Dhow excursion",
+          "amount": "Via operator",
+          "unit": "trip"
+        }
+      ]
+    }
   },
   {
     "id": "quirimbas",
@@ -321,7 +848,27 @@
     "sourceUrl": "https://www.anac.gov.mz/",
     "feeDetail": "Remote northern archipelago — fly-in lodges include park access.",
     "gateHours": "Boat-dependent",
-    "bookingUrl": "https://www.anac.gov.mz/"
+    "bookingUrl": "https://www.anac.gov.mz/",
+    "feeTable": {
+      "currency": "MZN",
+      "symbol": "MT",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "Park entry",
+          "amount": "Via lodge",
+          "unit": "day",
+          "note": "Fly-in packages often include fees"
+        },
+        {
+          "category": "activity",
+          "label": "Boat transfer",
+          "amount": "Operator rate",
+          "unit": "trip"
+        }
+      ]
+    }
   },
   {
     "id": "liwonde",
@@ -339,7 +886,38 @@
     "sourceUrl": "https://www.malawiparks.org/",
     "feeDetail": "Park fee ~$25/day. Boat safaris on Shire River extra.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.malawiparks.org/"
+    "bookingUrl": "https://www.malawiparks.org/",
+    "feeTable": {
+      "currency": "USD",
+      "symbol": "$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "25",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC / resident",
+          "amount": "12",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "5",
+          "unit": "day"
+        },
+        {
+          "category": "activity",
+          "label": "Boat safari",
+          "amount": "Separate",
+          "unit": "trip"
+        }
+      ]
+    }
   },
   {
     "id": "nyika",
@@ -357,7 +935,38 @@
     "sourceUrl": "https://www.malawiparks.org/",
     "feeDetail": "Plateau park ~$20/day. Cool climate — pack layers.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.malawiparks.org/"
+    "bookingUrl": "https://www.malawiparks.org/",
+    "feeTable": {
+      "currency": "USD",
+      "symbol": "$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "20",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC / resident",
+          "amount": "10",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "5",
+          "unit": "day"
+        },
+        {
+          "category": "camping",
+          "label": "Plateau camp",
+          "amount": "15+",
+          "unit": "night"
+        }
+      ]
+    }
   },
   {
     "id": "lake-malawi",
@@ -375,7 +984,32 @@
     "sourceUrl": "https://www.malawiparks.org/",
     "feeDetail": "Lake shore park ~$10/day. Snorkelling fees at Cape Maclear.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.malawiparks.org/"
+    "bookingUrl": "https://www.malawiparks.org/",
+    "feeTable": {
+      "currency": "USD",
+      "symbol": "$",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "10",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC / resident",
+          "amount": "5",
+          "unit": "day"
+        },
+        {
+          "category": "activity",
+          "label": "Snorkelling (Cape Maclear)",
+          "amount": "5+",
+          "unit": "day"
+        }
+      ]
+    }
   },
   {
     "id": "sehlathebe",
@@ -393,7 +1027,38 @@
     "sourceUrl": "https://www.forestry.gov.ls/",
     "feeDetail": "Remote highland park — 4x4 recommended.",
     "gateHours": "08:00–17:00",
-    "bookingUrl": "https://www.forestry.gov.ls/"
+    "bookingUrl": "https://www.forestry.gov.ls/",
+    "feeTable": {
+      "currency": "LSL",
+      "symbol": "M",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "100",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "50",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "4×4 vehicle",
+          "amount": "50",
+          "unit": "day"
+        },
+        {
+          "category": "camping",
+          "label": "Backpack camp",
+          "amount": "80+",
+          "unit": "night"
+        }
+      ]
+    }
   },
   {
     "id": "tsenhlanyane",
@@ -411,7 +1076,32 @@
     "sourceUrl": "https://www.forestry.gov.ls/",
     "feeDetail": "Maloti Mountains entry ~M50/day.",
     "gateHours": "08:00–17:00",
-    "bookingUrl": "https://www.forestry.gov.ls/"
+    "bookingUrl": "https://www.forestry.gov.ls/",
+    "feeTable": {
+      "currency": "LSL",
+      "symbol": "M",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "50",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "25",
+          "unit": "day"
+        },
+        {
+          "category": "camping",
+          "label": "Camp site",
+          "amount": "60+",
+          "unit": "night"
+        }
+      ]
+    }
   },
   {
     "id": "bokong",
@@ -429,7 +1119,32 @@
     "sourceUrl": "https://www.forestry.gov.ls/",
     "feeDetail": "Katse Dam plateau reserve ~M50/day.",
     "gateHours": "08:00–17:00",
-    "bookingUrl": "https://www.forestry.gov.ls/"
+    "bookingUrl": "https://www.forestry.gov.ls/",
+    "feeTable": {
+      "currency": "LSL",
+      "symbol": "M",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "50",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "25",
+          "unit": "day"
+        },
+        {
+          "category": "camping",
+          "label": "Plateau camp",
+          "amount": "60+",
+          "unit": "night"
+        }
+      ]
+    }
   },
   {
     "id": "hlane",
@@ -447,7 +1162,38 @@
     "sourceUrl": "https://www.biggameparks.org/",
     "feeDetail": "Big Game Parks fee ~E250/day. Guided drives for lion enclosure.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.biggameparks.org/"
+    "bookingUrl": "https://www.biggameparks.org/",
+    "feeTable": {
+      "currency": "SZL",
+      "symbol": "E",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "250",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "125",
+          "unit": "day"
+        },
+        {
+          "category": "vehicle",
+          "label": "Foreign vehicle",
+          "amount": "50",
+          "unit": "day"
+        },
+        {
+          "category": "activity",
+          "label": "Guided lion drive",
+          "amount": "Extra",
+          "unit": "trip"
+        }
+      ]
+    }
   },
   {
     "id": "mlilwane",
@@ -465,7 +1211,32 @@
     "sourceUrl": "https://www.biggameparks.org/",
     "feeDetail": "Sanctuary entry ~E80/day. Walking and cycling included.",
     "gateHours": "07:00–18:00",
-    "bookingUrl": "https://www.biggameparks.org/"
+    "bookingUrl": "https://www.biggameparks.org/",
+    "feeTable": {
+      "currency": "SZL",
+      "symbol": "E",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "80",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "40",
+          "unit": "day"
+        },
+        {
+          "category": "activity",
+          "label": "Walking / cycling",
+          "amount": "Included",
+          "unit": "day"
+        }
+      ]
+    }
   },
   {
     "id": "malolotja",
@@ -483,6 +1254,37 @@
     "sourceUrl": "https://www.biggameparks.org/",
     "feeDetail": "Nature reserve ~E50/day. Canopy tour separate booking.",
     "gateHours": "08:00–17:00",
-    "bookingUrl": "https://www.biggameparks.org/"
+    "bookingUrl": "https://www.biggameparks.org/",
+    "feeTable": {
+      "currency": "SZL",
+      "symbol": "E",
+      "period": "2025",
+      "rows": [
+        {
+          "category": "person",
+          "label": "International adult",
+          "amount": "50",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "SADC adult",
+          "amount": "25",
+          "unit": "day"
+        },
+        {
+          "category": "activity",
+          "label": "Canopy tour",
+          "amount": "Separate",
+          "unit": "trip"
+        },
+        {
+          "category": "camping",
+          "label": "Camp site",
+          "amount": "40+",
+          "unit": "night"
+        }
+      ]
+    }
   }
 ]
