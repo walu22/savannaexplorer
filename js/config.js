@@ -1,5 +1,5 @@
 export const CONFIG = {
-    appVersion: '4.14.0',
+    appVersion: '4.15.0',
     siteMode: 'hub',
     siteUrl: import.meta.env.VITE_SITE_URL || '',
     supportPhone: '260977123456',

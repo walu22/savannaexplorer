@@ -13,6 +13,7 @@ const countryDepth = loadJson('country-depth.json');
 const parks = loadJson('parks.json');
 const borders = loadJson('borders.json');
 const itineraries = loadJson('itineraries.json');
+const listings = loadJson('stays-operators.json');
 
 const COUNTRY_META = {
     'south-africa': { name: 'South Africa', cardImage: '1547448415-e9f5b28e570d' },
@@ -278,12 +279,58 @@ export function itineraryPages(baseUrl) {
     });
 }
 
+export function listingPages(baseUrl) {
+    return listings.map(item => {
+        const segment = item.kind === 'stay' ? 'stays' : 'operators';
+        const path = `/${segment}/${item.id}`;
+        const meta = getCountryMeta(item.country);
+        const kindLabel = item.kind === 'stay' ? 'Stay & lodge directory' : 'Licensed operator directory';
+        const title = `${item.title} | ${SITE_NAME}`;
+        const description = truncate(`${item.description} ${kindLabel} for ${meta.name}. Verified ${item.lastVerified}.`);
+        const bodyHtml = `
+<main id="seo-prerender" class="seo-prerender">
+  <article>
+    <nav aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/#book-direct">Book direct</a> › ${escapeHtml(item.title)}</nav>
+    <h1>${escapeHtml(item.title)}</h1>
+    <p class="seo-lead">${escapeHtml(item.region)} · ${escapeHtml(meta.name)}</p>
+    <p>${escapeHtml(item.description)}</p>
+    <p><strong>Planning tip:</strong> ${escapeHtml(item.planningTip)}</p>
+    <p><a href="${item.url}" rel="noopener">Official link: ${escapeHtml(item.linkLabel)}</a></p>
+    <p><a href="${path}">View on Savanna Explorer</a></p>
+  </article>
+</main>`;
+
+        return {
+            path,
+            title,
+            description,
+            ogType: 'article',
+            image: cardImageUrl(item.country),
+            jsonLd: {
+                '@context': 'https://schema.org',
+                '@type': item.kind === 'stay' ? 'LodgingBusiness' : 'TravelAgency',
+                name: item.title,
+                description: item.description,
+                url: `${siteUrl(baseUrl)}${path}`,
+                sameAs: item.url,
+            },
+            breadcrumb: [
+                { name: 'Home', path: '/' },
+                { name: 'Book direct', path: '/#book-direct' },
+                { name: item.title, path },
+            ],
+            bodyHtml,
+        };
+    });
+}
+
 export function allSeoPages(baseUrl) {
     return [
         ...countryPages(baseUrl),
         ...parkPages(baseUrl),
         ...borderPages(baseUrl),
         ...itineraryPages(baseUrl),
+        ...listingPages(baseUrl),
     ];
 }
 
@@ -298,5 +345,9 @@ export function sitemapEntries(baseUrl) {
         ...parks.map(p => entry(`${origin}/parks/${p.id}`, '0.8')),
         ...borders.map(b => entry(`${origin}/borders/${b.id}`, '0.8')),
         ...Object.keys(itineraries).map(id => entry(`${origin}/itineraries/${id}`, '0.8')),
+        ...listings.map(item => {
+            const segment = item.kind === 'stay' ? 'stays' : 'operators';
+            return entry(`${origin}/${segment}/${item.id}`, '0.75');
+        }),
     ];
 }

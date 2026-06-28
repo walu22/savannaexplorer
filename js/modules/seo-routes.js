@@ -2,11 +2,14 @@ import {
     borderPath,
     getBorderById,
     getItineraryById,
+    getListingById,
     getParkById,
     itineraryPath,
+    listingPath,
     navigateHome,
     navigateToBorder,
     navigateToItinerary,
+    navigateToListing,
     navigateToPark,
     parkPath,
     scrollToSection,
@@ -16,9 +19,11 @@ import {
     setBorderMeta,
     setHomeMeta,
     setItineraryMeta,
+    setListingMeta,
     setParkMeta,
 } from '../lib/page-meta.js';
 import { openItineraryDetail } from './itineraries.js';
+import { handleListingRoute } from './book-direct.js';
 
 function highlightCard(selector) {
     document.querySelectorAll('.seo-highlight').forEach(el => el.classList.remove('seo-highlight'));
@@ -31,12 +36,14 @@ function highlightCard(selector) {
 
 function bindSeoLinks() {
     document.addEventListener('click', (e) => {
-        const link = e.target.closest('a[href^="/parks/"], a[href^="/borders/"], a[href^="/itineraries/"]');
+        const link = e.target.closest('a[href^="/parks/"], a[href^="/borders/"], a[href^="/itineraries/"], a[href^="/stays/"], a[href^="/operators/"]');
         if (!link) return;
         const href = link.getAttribute('href');
         const parkMatch = href.match(/^\/parks\/([a-z0-9-]+)\/?$/);
         const borderMatch = href.match(/^\/borders\/([a-z0-9-]+)\/?$/);
         const itinMatch = href.match(/^\/itineraries\/([a-z0-9-]+)\/?$/);
+        const stayMatch = href.match(/^\/stays\/([a-z0-9-]+)\/?$/);
+        const operatorMatch = href.match(/^\/operators\/([a-z0-9-]+)\/?$/);
         if (parkMatch && getParkById(parkMatch[1])) {
             e.preventDefault();
             navigateToPark(parkMatch[1]);
@@ -49,6 +56,14 @@ function bindSeoLinks() {
             e.preventDefault();
             navigateToItinerary(itinMatch[1]);
             handleSeoRoute({ type: 'itinerary', itineraryId: itinMatch[1] });
+        } else if (stayMatch && getListingById(stayMatch[1])?.kind === 'stay') {
+            e.preventDefault();
+            navigateToListing(stayMatch[1]);
+            handleSeoRoute({ type: 'listing', listingId: stayMatch[1] });
+        } else if (operatorMatch && getListingById(operatorMatch[1])?.kind === 'operator') {
+            e.preventDefault();
+            navigateToListing(operatorMatch[1]);
+            handleSeoRoute({ type: 'listing', listingId: operatorMatch[1] });
         }
     });
 }
@@ -83,6 +98,11 @@ export function handleSeoRoute(route) {
         return;
     }
 
+    if (route.type === 'listing') {
+        handleListingRoute(route);
+        return;
+    }
+
     setHomeMeta();
 }
 
@@ -98,4 +118,4 @@ export function closeSeoRoute(sectionId = null) {
     }
 }
 
-export { parkPath, borderPath, itineraryPath };
+export { parkPath, borderPath, itineraryPath, listingPath };
