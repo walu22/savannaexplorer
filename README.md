@@ -34,7 +34,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.14.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.15.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -95,6 +95,13 @@ Set `VITE_SITE_URL` in `.env` before `npm run build` so `sitemap.xml` and canoni
 - **Optional analytics** — set `VITE_GA4_ID` and `VITE_GSC_VERIFICATION` in `.env` before `npm run build`
 
 After deploying, submit `https://savannaexplorer.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console).
+
+### Book Direct index (v4.15+)
+
+- **Stays & operators** hub at `#book-direct` — 18 official link-only directories (park camps, lodge booking portals, licensed operators)
+- SEO URLs: `/stays/sanparks-reservations`, `/operators/botswana-tourism-operators`, etc.
+- Country Travelling tab shows per-country stay/operator links
+- Sitemap now includes **97 URLs** (79 + 18 book-direct pages)
 
 ### Tables
 

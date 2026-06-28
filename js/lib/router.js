@@ -2,12 +2,14 @@ import countries from '../../data/countries.json';
 import parks from '../../data/parks.json';
 import borders from '../../data/borders.json';
 import itineraries from '../../data/itineraries.json';
+import listings from '../../data/stays-operators.json';
 
 export const COUNTRY_IDS = Object.keys(countries);
 
 const parkIds = new Set(parks.map(p => p.id));
 const borderIds = new Set(borders.map(b => b.id));
 const itineraryIds = new Set(Object.keys(itineraries));
+const listingById = new Map(listings.map(item => [item.id, item]));
 
 export function countryPath(countryId) {
     return `/countries/${countryId}`;
@@ -23,6 +25,13 @@ export function borderPath(borderId) {
 
 export function itineraryPath(itineraryId) {
     return `/itineraries/${itineraryId}`;
+}
+
+export function listingPath(itemOrId) {
+    const item = typeof itemOrId === 'string' ? getListingById(itemOrId) : itemOrId;
+    if (!item) return '/';
+    const segment = item.kind === 'stay' ? 'stays' : 'operators';
+    return `/${segment}/${item.id}`;
 }
 
 export function parseLocation(loc = window.location) {
@@ -46,6 +55,16 @@ export function parseLocation(loc = window.location) {
     const itineraryMatch = pathname.match(/^\/itineraries\/([a-z0-9-]+)\/?$/);
     if (itineraryMatch && itineraryIds.has(itineraryMatch[1])) {
         return { type: 'itinerary', itineraryId: itineraryMatch[1] };
+    }
+
+    const stayMatch = pathname.match(/^\/stays\/([a-z0-9-]+)\/?$/);
+    if (stayMatch && listingById.get(stayMatch[1])?.kind === 'stay') {
+        return { type: 'listing', listingId: stayMatch[1] };
+    }
+
+    const operatorMatch = pathname.match(/^\/operators\/([a-z0-9-]+)\/?$/);
+    if (operatorMatch && listingById.get(operatorMatch[1])?.kind === 'operator') {
+        return { type: 'listing', listingId: operatorMatch[1] };
     }
 
     const hashId = hash.slice(1);
@@ -88,6 +107,15 @@ export function navigateToItinerary(itineraryId, { replace = false } = {}) {
     else history.pushState(state, '', url);
 }
 
+export function navigateToListing(listingId, { replace = false } = {}) {
+    const item = getListingById(listingId);
+    if (!item) return;
+    const url = listingPath(item);
+    const state = { view: 'listing', listingId };
+    if (replace) history.replaceState(state, '', url);
+    else history.pushState(state, '', url);
+}
+
 export function navigateHome(sectionId = null, { replace = false } = {}) {
     const url = sectionId ? `/#${sectionId}` : '/';
     const state = { view: 'home', sectionId };
@@ -116,4 +144,8 @@ export function getBorderById(borderId) {
 
 export function getItineraryById(itineraryId) {
     return itineraries[itineraryId] || null;
+}
+
+export function getListingById(listingId) {
+    return listingById.get(listingId) || null;
 }

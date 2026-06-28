@@ -26,6 +26,7 @@ import {
 import { setCountryMeta, setHomeMeta } from '../lib/page-meta.js';
 import { dismissSeoPrerender } from '../lib/seo-prerender.js';
 import { handleSeoRoute } from './seo-routes.js';
+import { getListingsForCountry, renderCountryBookRows } from './book-direct.js';
 
 const detailView = document.getElementById('country-detail-view');
 const closeDetailBtn = document.getElementById('close-detail');
@@ -231,6 +232,19 @@ function populateCountryPage(countryId) {
         }
     }
 
+    const countryBookings = getListingsForCountry(countryId);
+    const bookSection = document.getElementById('detail-book-section');
+    const bookList = document.getElementById('detail-country-book');
+    if (bookSection && bookList) {
+        if (countryBookings.length) {
+            bookSection.hidden = false;
+            bookList.innerHTML = renderCountryBookRows(countryBookings);
+        } else {
+            bookSection.hidden = true;
+            bookList.innerHTML = '';
+        }
+    }
+
     const countryBorders = getBordersForCountry(countryId);
     const bordersSection = document.getElementById('detail-borders-section');
     const bordersList = document.getElementById('detail-country-borders');
@@ -361,7 +375,7 @@ function handleRoute(route) {
         return;
     }
 
-    if (route.type === 'park' || route.type === 'border' || route.type === 'itinerary') {
+    if (route.type === 'park' || route.type === 'border' || route.type === 'itinerary' || route.type === 'listing') {
         hideCountryPage();
         handleSeoRoute(route);
         return;
@@ -407,6 +421,11 @@ export function initCountryGuide() {
         const bordersBtn = e.target.closest('[data-action="view-borders"]');
         if (bordersBtn) {
             closeCountryPage('borders');
+            return;
+        }
+        const bookBtn = e.target.closest('[data-action="view-book-direct"]');
+        if (bookBtn) {
+            closeCountryPage('book-direct');
         }
     });
 

@@ -7,8 +7,10 @@ import {
     countryPath,
     getBorderById,
     getItineraryById,
+    getListingById,
     getParkById,
     itineraryPath,
+    listingPath,
     parkPath,
 } from './router.js';
 
@@ -247,6 +249,43 @@ export function setItineraryMeta(itineraryId) {
             { name: 'Home', path: '/' },
             { name: 'Route templates', path: '/#itineraries' },
             { name: data.title, path },
+        ]),
+    ]);
+}
+
+export function setListingMeta(itemOrId) {
+    const item = typeof itemOrId === 'string' ? getListingById(itemOrId) : itemOrId;
+    if (!item) {
+        setHomeMeta();
+        return;
+    }
+
+    const meta = getCountryMeta(item.country);
+    const path = listingPath(item);
+    const kindLabel = item.kind === 'stay' ? 'Stay & lodge directory' : 'Licensed operator directory';
+    const description = truncate(`${item.description} ${kindLabel} for ${meta.name}. Verified ${item.lastVerified}.`);
+
+    applyMeta({
+        title: `${item.title} | ${SITE_NAME}`,
+        description,
+        path,
+        image: cardImageUrl(item.country),
+        type: 'article',
+    });
+
+    upsertJsonLd([
+        {
+            '@context': 'https://schema.org',
+            '@type': item.kind === 'stay' ? 'LodgingBusiness' : 'TravelAgency',
+            name: item.title,
+            description: item.description,
+            url: absoluteUrl(path),
+            sameAs: item.url,
+        },
+        breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Book direct', path: '/#book-direct' },
+            { name: item.title, path },
         ]),
     ]);
 }
