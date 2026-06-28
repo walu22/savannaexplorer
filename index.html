@@ -40,6 +40,7 @@
                     <div class="nav-drop-menu">
                         <a href="#itineraries">Itineraries</a>
                         <a href="#book-direct">Book Direct</a>
+                        <a href="#transport">Transport &amp; Logistics</a>
                         <a href="#borders">Border Crossings</a>
                         <a href="#health">Health & Safety</a>
                         <a href="#events">Events Calendar</a>
@@ -561,6 +562,7 @@
                         <span class="hub-icon"><i class="fas fa-coins"></i></span>
                         <h3>Currency Converter</h3>
                     </div>
+                    <p class="hub-card-lead">Live mid-market rates when online; static planning fallback if unavailable.</p>
                     <div class="hub-converter">
                         <div class="hub-input-row">
                             <div class="hub-input-group">
@@ -612,7 +614,7 @@
                 <div class="hub-card hub-card--md" id="hub-weather">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-cloud-sun"></i></span>
-                        <h3>Typical Weather</h3>
+                        <h3>Weather — Live &amp; Typical</h3>
                     </div>
                     <div class="hub-weather-grid" id="hub-weather-grid"></div>
                     <p class="hub-data-note" id="hub-weather-note"></p>
@@ -649,6 +651,61 @@
                 <h3 class="trip-preview-heading">Checklist preview</h3>
                 <div id="trip-planner-preview" class="trip-planner-preview"></div>
             </div>
+        </div>
+    </section>
+
+    <!-- Transport & Logistics -->
+    <section id="transport" class="transport-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Getting there &amp; around</span>
+                <h2>Transport &amp; Logistics</h2>
+                <p>Official gateways, regional flights, car hire, mobile data, and cross-border self-drive prep — link out and book direct with providers.</p>
+            </div>
+
+            <div class="transport-tabs" role="tablist" aria-label="Transport categories">
+                <button type="button" class="transport-tab active" data-transport-tab="gateways" role="tab">✈️ Air gateways</button>
+                <button type="button" class="transport-tab" data-transport-tab="routes" role="tab">🛫 Regional flights</button>
+                <button type="button" class="transport-tab" data-transport-tab="car" role="tab">🚗 Car &amp; 4×4</button>
+                <button type="button" class="transport-tab" data-transport-tab="sim" role="tab">📱 SIM &amp; data</button>
+                <button type="button" class="transport-tab" data-transport-tab="crossborder" role="tab">🛂 Cross-border</button>
+            </div>
+
+            <div class="transport-panels">
+                <div class="transport-panel active" id="transport-panel-gateways" role="tabpanel">
+                    <p class="transport-panel-intro">International airports and aviation authorities — start here for visa-on-arrival timing and domestic connections.</p>
+                    <div class="transport-grid transport-grid--compact" id="transport-gateways"></div>
+                </div>
+                <div class="transport-panel" id="transport-panel-routes" role="tabpanel" hidden>
+                    <p class="transport-panel-intro">Regional and bush-flight operators for Livingstone–Mfuwe, Maun Delta, and Kruger connections.</p>
+                    <div class="transport-grid" id="transport-routes"></div>
+                </div>
+                <div class="transport-panel" id="transport-panel-car" role="tabpanel" hidden>
+                    <p class="transport-panel-intro">Self-drive rentals and official tourism transport guidance — cross-border letters required for most rental vehicles.</p>
+                    <div class="transport-grid" id="transport-car-rental"></div>
+                </div>
+                <div class="transport-panel" id="transport-panel-sim" role="tabpanel" hidden>
+                    <p class="transport-panel-intro">Prepaid SIM and eSIM options — register with your passport where required by local law.</p>
+                    <div class="transport-grid transport-grid--compact" id="transport-sim"></div>
+                </div>
+                <div class="transport-panel" id="transport-panel-crossborder" role="tabpanel" hidden>
+                    <div class="transport-crossborder-layout">
+                        <div class="transport-crossborder-main">
+                            <h3>Self-drive cross-border checklist</h3>
+                            <p class="transport-panel-intro">Tick off before the border queue. See <a href="#borders">border guides</a> for post-specific wait times and fees.</p>
+                            <p class="transport-progress" id="transport-crossborder-progress">0 of 10 ready</p>
+                            <div class="transport-checklist" id="transport-crossborder-list"></div>
+                            <div class="transport-resource-links" id="transport-crossborder-resources"></div>
+                        </div>
+                        <aside class="transport-crossborder-aside">
+                            <h3>High-traffic borders</h3>
+                            <p class="hub-data-note">Typical wait estimates — not live queue data. See border guides for fees and documents.</p>
+                            <div id="transport-border-links"></div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+            <p class="transport-disclaimer" id="transport-disclaimer"></p>
         </div>
     </section>
 
@@ -851,6 +908,7 @@
                         <li><a href="#borders">Border Posts</a></li>
                         <li><a href="#health">Health Zones</a></li>
                         <li><a href="#events">Events</a></li>
+                        <li><a href="#transport">Transport &amp; Logistics</a></li>
                         <li><a href="#plan">Travel Planning</a></li>
                         <li><a href="tel:+264816766747">+264 81 676 6747</a></li>
                         <li><a href="#">Foreign Missions</a></li>

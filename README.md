@@ -100,6 +100,7 @@ After deploying, submit `https://savannaexplorer.com/sitemap.xml` in [Google Sea
 
 ### Book Direct index (v4.15+)
 
+- **Transport & logistics** hub at `#transport` — air gateways, regional flights, car hire, SIM/data, cross-border checklist (v4.18)
 - **Stays & operators** hub at `#book-direct` — 46 official link-only directories (park camps, private concessions, regional tourism boards, licensed operators)
 - SEO URLs: `/stays/sanparks-reservations`, `/operators/botswana-tourism-operators`, etc.
 - Country Travelling tab shows per-country stay/operator links

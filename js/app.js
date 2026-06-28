@@ -17,6 +17,7 @@ import { initDestinations } from './modules/destinations.js';
 import { initTripPlanner } from './modules/trip-planner.js';
 import { initSeoRoutes } from './modules/seo-routes.js';
 import { initBookDirect } from './modules/book-direct.js';
+import { initTransportLogistics } from './modules/transport-logistics.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -43,4 +44,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initAbout();
     initSeoRoutes();
     initBookDirect();
+    initTransportLogistics();
 });

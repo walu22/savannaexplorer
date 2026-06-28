@@ -1,0 +1,354 @@
+{
+  "meta": {
+    "lastUpdated": "2026-06",
+    "disclaimer": "Transport links point to official airlines, airports, tourism boards, and licensed operators. Savanna Explorer does not sell tickets, rentals, or SIM cards — book directly with the provider."
+  },
+  "gateways": [
+    {
+      "id": "jnb",
+      "flag": "🇿🇦",
+      "country": "south-africa",
+      "city": "Johannesburg (OR Tambo)",
+      "code": "JNB",
+      "role": "Main hub for Southern Africa — long-haul and regional connections",
+      "url": "https://www.airports.co.za/airports/or-tambo-international",
+      "linkLabel": "OR Tambo Airport",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "cpt",
+      "flag": "🇿🇦",
+      "country": "south-africa",
+      "city": "Cape Town",
+      "code": "CPT",
+      "role": "Western Cape gateway — Europe and domestic links",
+      "url": "https://www.airports.co.za/airports/cape-town-international",
+      "linkLabel": "Cape Town International",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "wdh",
+      "flag": "🇳🇦",
+      "country": "namibia",
+      "city": "Windhoek (Hosea Kutako)",
+      "code": "WDH",
+      "role": "Primary Namibia international airport",
+      "url": "https://www.airports.com.na/",
+      "linkLabel": "Namibia Airports Company",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "mub",
+      "flag": "🇧🇼",
+      "country": "botswana",
+      "city": "Maun",
+      "code": "MUB",
+      "role": "Okavango Delta fly-in and safari charter hub",
+      "url": "https://www.caab.co.bw/",
+      "linkLabel": "Civil Aviation Authority Botswana",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "lvi",
+      "flag": "🇿🇲",
+      "country": "zambia",
+      "city": "Livingstone",
+      "code": "LVI",
+      "role": "Victoria Falls gateway — links from Johannesburg and Kruger",
+      "url": "https://www.zacl.co.zm/",
+      "linkLabel": "Zambia Airports Corporation",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "vfa",
+      "flag": "🇿🇼",
+      "country": "zimbabwe",
+      "city": "Victoria Falls",
+      "code": "VFA",
+      "role": "Zimbabwe side of Victoria Falls — regional flights",
+      "url": "https://www.caaz.co.zw/",
+      "linkLabel": "Civil Aviation Authority of Zimbabwe",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "mpm",
+      "flag": "🇲🇿",
+      "country": "mozambique",
+      "city": "Maputo",
+      "code": "MPM",
+      "role": "Capital gateway — regional and some long-haul",
+      "url": "https://www.aeroportos.co.mz/",
+      "linkLabel": "Aeroportos de Moçambique",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "llw",
+      "flag": "🇲🇼",
+      "country": "malawi",
+      "city": "Lilongwe",
+      "code": "LLW",
+      "role": "Central Malawi international hub",
+      "url": "https://www.malawitourism.com/travel-info/getting-there/",
+      "linkLabel": "Malawi Tourism — getting there",
+      "lastVerified": "2026-06"
+    }
+  ],
+  "domesticRoutes": [
+    {
+      "id": "airlink-regional",
+      "title": "Airlink — regional Southern Africa",
+      "region": "JNB hub to WDH, MUB, LVI, VFA, CPT and more",
+      "description": "Major regional carrier connecting Johannesburg to Namibia, Botswana, Zambia, Zimbabwe, and Mozambique safari gateways.",
+      "url": "https://www.flyairlink.com/",
+      "linkLabel": "Airlink routes",
+      "lastVerified": "2026-06",
+      "planningTip": "Book internal legs early in peak safari season (June–October) — Maun and Livingstone seats fill quickly."
+    },
+    {
+      "id": "proflight-zambia",
+      "title": "Proflight Zambia",
+      "region": "Lusaka · Livingstone · Mfuwe · Lower Zambezi",
+      "description": "Domestic Zambia network — Lusaka to Mfuwe (South Luangwa) and Lower Zambezi bush strips.",
+      "url": "https://www.proflight-zambia.com/",
+      "linkLabel": "Proflight Zambia",
+      "lastVerified": "2026-06",
+      "planningTip": "Soft bags under 15 kg required on bush flights to Mfuwe and Lower Zambezi airstrips."
+    },
+    {
+      "id": "flysafair-sa",
+      "title": "FlySafair & CemAir (South Africa)",
+      "region": "CPT · JNB · DUR · Kruger gateways",
+      "description": "Low-cost and regional domestic flights within South Africa — useful for Cape Town ↔ Kruger connections via JNB or direct.",
+      "url": "https://www.flysafair.co.za/",
+      "linkLabel": "FlySafair",
+      "lastVerified": "2026-06",
+      "planningTip": "Compare FlySafair, Airlink, and Lift for CPT–JNB–MQP (Kruger) routing vs self-drive time."
+    },
+    {
+      "id": "federal-air-charters",
+      "title": "Federal Air — safari charters",
+      "region": "Johannesburg · Kruger · Botswana · Victoria Falls",
+      "description": "Licensed charter operator for lodge transfers and cross-border bush flights in the greater safari circuit.",
+      "url": "https://www.fedair.com/",
+      "linkLabel": "Federal Air",
+      "lastVerified": "2026-06",
+      "planningTip": "Many Okavango and Linyanti camps include charter transfers from Maun — confirm with your lodge before booking separate flights."
+    }
+  ],
+  "carRental": [
+    {
+      "id": "sa-tourism-transport",
+      "flag": "🇿🇦",
+      "country": "south-africa",
+      "title": "South Africa — getting around",
+      "description": "Official tourism guidance on self-drive, toll roads, and licensed transport options nationwide.",
+      "url": "https://www.southafrica.net/gl/en/travel/article/getting-around-south-africa",
+      "linkLabel": "SA Tourism transport",
+      "lastVerified": "2026-06",
+      "planningTip": "SANRAL e-tags speed up Gauteng tolls — cross-border renters need a letter of authorization from the rental company."
+    },
+    {
+      "id": "namibia2go",
+      "flag": "🇳🇦",
+      "country": "namibia",
+      "title": "Namibia2Go (Gondwana)",
+      "description": "Namibia-focused rental fleet with camping-equipped 4×4 options — Windhoek, Swakopmund, and one-way routes.",
+      "url": "https://www.namibia2go.com/",
+      "linkLabel": "Namibia2Go rentals",
+      "lastVerified": "2026-06",
+      "planningTip": "Book two spare tyres and a compressor for gravel routes — punctures are common on C19 and Damaraland tracks."
+    },
+    {
+      "id": "namibia-tourism-drive",
+      "flag": "🇳🇦",
+      "country": "namibia",
+      "title": "Namibia Tourism — self-drive",
+      "description": "Official self-drive route planning, road conditions, and rental guidance from the Namibia Tourism Board.",
+      "url": "https://www.namibiatourism.com.na/",
+      "linkLabel": "Namibia Tourism Board",
+      "lastVerified": "2026-06",
+      "planningTip": "Avoid night driving outside towns — wildlife on tar roads is a serious hazard after dark."
+    },
+    {
+      "id": "botswana-tourism-transport",
+      "flag": "🇧🇼",
+      "country": "botswana",
+      "title": "Botswana Tourism — transport",
+      "description": "Getting to and around Botswana — Maun and Kasane access, mokoro transfers, and mobile safari logistics.",
+      "url": "https://www.botswanatourism.co.bw/",
+      "linkLabel": "Botswana Tourism",
+      "lastVerified": "2026-06",
+      "planningTip": "Most Okavango camps are fly-in only — 4×4 self-drive suits Moremi public camps and Chobe edges."
+    },
+    {
+      "id": "zambia-tourism-transport",
+      "flag": "🇿🇲",
+      "country": "zambia",
+      "title": "Zambia Tourism — travel info",
+      "description": "Official transport and access guidance for Livingstone, Lusaka, and Luangwa Valley routes.",
+      "url": "https://www.zambiatourism.com/travel-info/",
+      "linkLabel": "Zambia travel info",
+      "lastVerified": "2026-06",
+      "planningTip": "Livingstone to Mfuwe is often faster by Proflight than two days on the Great North Road."
+    },
+    {
+      "id": "aa-cross-border-sa",
+      "flag": "🇿🇦",
+      "country": "south-africa",
+      "title": "AA South Africa — cross-border travel",
+      "description": "Automobile Association guidance on cross-border vehicle paperwork, carnets, and route preparation from South Africa.",
+      "url": "https://www.aa.co.za/",
+      "linkLabel": "AA South Africa",
+      "lastVerified": "2026-06",
+      "planningTip": "Get your rental cross-border letter before leaving the depot — border posts check financing and authorization."
+    }
+  ],
+  "mobileSim": [
+    {
+      "id": "vodacom-sa",
+      "flag": "🇿🇦",
+      "country": "south-africa",
+      "operator": "Vodacom",
+      "description": "Widest coverage for Kruger, Garden Route, and major cities — prepaid SIM at airport or mall.",
+      "url": "https://www.vodacom.co.za/",
+      "linkLabel": "Vodacom SA",
+      "lastVerified": "2026-06",
+      "planningTip": "Register SIM with passport at purchase — required by South African regulations."
+    },
+    {
+      "id": "mtc-namibia",
+      "flag": "🇳🇦",
+      "country": "namibia",
+      "operator": "MTC",
+      "description": "Best coverage for Namibian self-drive routes — buy at Hosea Kutako airport or Windhoek.",
+      "url": "https://www.mtc.com.na/",
+      "linkLabel": "MTC Namibia",
+      "lastVerified": "2026-06",
+      "planningTip": "Coverage drops on Skeleton Coast and remote Damaraland — download offline maps before leaving towns."
+    },
+    {
+      "id": "orange-botswana",
+      "flag": "🇧🇼",
+      "country": "botswana",
+      "operator": "Orange Botswana",
+      "description": "Prepaid data for Maun, Kasane, and Gaborone — useful between Delta camps with patchy lodge Wi‑Fi.",
+      "url": "https://www.orange.co.bw/",
+      "linkLabel": "Orange Botswana",
+      "lastVerified": "2026-06",
+      "planningTip": "Botswana SIMs work in most Delta gateway towns; remote camps rely on satellite or lodge Wi‑Fi."
+    },
+    {
+      "id": "airtel-zambia",
+      "flag": "🇿🇲",
+      "country": "zambia",
+      "operator": "Airtel Zambia",
+      "description": "Strong coverage in Lusaka, Livingstone, and Mfuwe gateway — prepaid data bundles for safari weeks.",
+      "url": "https://www.airtel.co.zm/",
+      "linkLabel": "Airtel Zambia",
+      "lastVerified": "2026-06",
+      "planningTip": "Buy a SIM in Livingstone before heading to remote Luangwa bushcamps."
+    },
+    {
+      "id": "econet-zimbabwe",
+      "flag": "🇿🇼",
+      "country": "zimbabwe",
+      "operator": "Econet",
+      "description": "Primary prepaid network for Victoria Falls, Hwange, and Harare — USD cash for top-ups common.",
+      "url": "https://www.econet.co.zw/",
+      "linkLabel": "Econet Zimbabwe",
+      "lastVerified": "2026-06",
+      "planningTip": "Victoria Falls town has multiple SIM vendors — carry small USD notes for airtime."
+    },
+    {
+      "id": "vodacom-mozambique",
+      "flag": "🇲🇿",
+      "country": "mozambique",
+      "operator": "Vodacom Mozambique",
+      "description": "Coastal and Maputo coverage — essential for Tofo, Vilanculos, and overland Maputo routes.",
+      "url": "https://vodacom.co.mz/",
+      "linkLabel": "Vodacom Mozambique",
+      "lastVerified": "2026-06",
+      "planningTip": "Register with passport — island lodges may only have intermittent signal."
+    },
+    {
+      "id": "airtel-malawi",
+      "flag": "🇲🇼",
+      "country": "malawi",
+      "operator": "Airtel Malawi",
+      "description": "Lake Malawi and Lilongwe coverage — prepaid for Cape Maclear and Liwonde loops.",
+      "url": "https://www.airtel.mw/",
+      "linkLabel": "Airtel Malawi",
+      "lastVerified": "2026-06",
+      "planningTip": "Lake shore villages have better signal than Nyika Plateau highlands."
+    },
+    {
+      "id": "esim-global",
+      "flag": "🌍",
+      "country": "south-africa",
+      "operator": "eSIM (multi-country)",
+      "description": "Compare regional eSIM providers if your phone supports it — often easier than nine separate SIMs on multi-country loops.",
+      "url": "https://www.airalo.com/regional/esim-africa",
+      "linkLabel": "Airalo Africa eSIM (compare)",
+      "lastVerified": "2026-06",
+      "planningTip": "Verify eSIM covers your exact countries — regional Africa packs vary. Local SIMs are usually cheaper for single-country trips."
+    }
+  ],
+  "vehicleCrossBorder": {
+    "title": "Self-drive cross-border checklist",
+    "intro": "Tick off before you reach the border queue. Requirements vary by post and vehicle — see our border guides for post-specific tips.",
+    "items": [
+      "Valid passport (6+ months remaining recommended)",
+      "Driver's licence in English or International Driving Permit",
+      "Original vehicle registration certificate",
+      "Rental cross-border letter / owner authorization if not your vehicle",
+      "Third-party insurance valid for destination country (COMESA yellow disc where required)",
+      "Temporary vehicle import permit (Zimbabwe, Zambia, Botswana as applicable)",
+      "ZA sticker on rear if registered in South Africa",
+      "Fire extinguisher and warning triangle (SA cross-border requirement)",
+      "Cash in USD or local currency for road tolls and border fees",
+      "Unabridged birth certificate for minors (South Africa exit/entry rules)"
+    ],
+    "resources": [
+      {
+        "label": "Border crossing guides",
+        "url": "#borders",
+        "internal": true
+      },
+      {
+        "label": "AA South Africa cross-border",
+        "url": "https://www.aa.co.za/",
+        "internal": false
+      },
+      {
+        "label": "SADC tourism vehicle guidelines",
+        "url": "https://www.sadc.int/",
+        "internal": false
+      }
+    ],
+    "lastVerified": "2026-06"
+  },
+  "borderStatus": {
+    "label": "Border wait times are typical estimates only — not live data",
+    "lastVerified": "2026-06",
+    "links": [
+      {
+        "name": "Beitbridge (SA–Zimbabwe)",
+        "note": "Busiest post in the region — cross early weekday mornings",
+        "url": "#borders",
+        "internal": true
+      },
+      {
+        "name": "Kazungula Bridge (Botswana–Zambia)",
+        "note": "Replaced the ferry — faster Victoria Falls to Chobe routing",
+        "url": "#borders",
+        "internal": true
+      },
+      {
+        "name": "Vioolsdrift (SA–Namibia)",
+        "note": "Quietest major SA–Namibia crossing for Cape–Windhoek routes",
+        "url": "#borders",
+        "internal": true
+      }
+    ]
+  }
+}
