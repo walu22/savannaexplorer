@@ -1150,23 +1150,54 @@ body.site-v2 .country-detail-view {
     background: var(--bg-cream);
 }
 
-body.site-v2 .detail-toolbar {
-    position: sticky;
-    top: 0;
-    z-index: 11;
-    background: rgba(247, 243, 237, 0.92);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border-subtle);
-}
-
-body.site-v2 .country-detail-view.country-guide-pinned .detail-toolbar {
-    border-bottom-color: transparent;
-}
-
 body.site-v2 .detail-header {
     background: transparent;
     border-bottom: none;
+}
+
+body.site-v2 .detail-toolbar--flow {
+    background: var(--bg-cream);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+body.site-v2 .country-guide-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg-cream);
+}
+
+body.site-v2 .country-guide-sticky.is-pinned {
+    background: rgba(247, 243, 237, 0.98);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 6px 20px rgba(12, 18, 16, 0.08);
+}
+
+body.site-v2 .detail-toolbar--pinned {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+body.site-v2 .detail-toolbar-inner--pinned {
+    min-height: 52px;
+    padding: 0.5rem 0;
+}
+
+body.site-v2 .detail-toolbar-country {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--accent);
+}
+
+body.site-v2 .guide-tabs-wrap {
+    position: static;
+    background: transparent;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.75rem 0;
+}
+
+body.site-v2 .country-guide-sticky.is-pinned .guide-tabs-wrap {
+    border-bottom-color: transparent;
 }
 
 body.site-v2 .detail-hero {
@@ -1306,25 +1337,6 @@ body.site-v2 .btn-back-main {
 body.site-v2 .btn-back-main:hover {
     background: var(--accent);
     color: white;
-}
-
-body.site-v2 .guide-tabs-wrap {
-    position: sticky;
-    top: var(--detail-toolbar-height, 60px);
-    z-index: 10;
-    background: rgba(247, 243, 237, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 0.75rem 0;
-}
-
-body.site-v2 .country-detail-view.country-guide-pinned .guide-tabs-wrap {
-    box-shadow: 0 6px 20px rgba(12, 18, 16, 0.08);
-}
-
-body.site-v2 .country-detail-view.country-guide-pinned .detail-toolbar {
-    background: rgba(247, 243, 237, 0.98);
 }
 
 body.site-v2 .guide-tabs {
