@@ -1,16 +1,30 @@
-export function closeMobileNav() {
+function setMobileNavOpen(open) {
     const menuToggle = document.getElementById('mobile-menu');
-    const navLinksContainer = document.querySelector('.nav-links');
-    navLinksContainer?.classList.remove('active');
-    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    const navLinksContainer = document.getElementById('nav-links');
+    if (!navLinksContainer) return;
+
+    navLinksContainer.classList.toggle('active', open);
+    document.body.classList.toggle('nav-open', open);
+    menuToggle?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuToggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+
     const icon = menuToggle?.querySelector('i');
-    icon?.classList.add('fa-bars');
-    icon?.classList.remove('fa-xmark');
+    icon?.classList.toggle('fa-bars', !open);
+    icon?.classList.toggle('fa-xmark', open);
+
+    if (!open) {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    }
+}
+
+export function closeMobileNav() {
+    setMobileNavOpen(false);
 }
 
 export function setMainNavSuppressed(suppressed) {
     const navbar = document.getElementById('navbar');
     document.body.classList.toggle('country-detail-open', suppressed);
+    if (suppressed) closeMobileNav();
     if (navbar) navbar.setAttribute('aria-hidden', suppressed ? 'true' : 'false');
 }
 
@@ -18,20 +32,16 @@ export function initNav() {
     const navbar = document.getElementById('navbar');
     const heroImg = document.getElementById('hero-img');
     const menuToggle = document.getElementById('mobile-menu');
-    const navLinksContainer = document.querySelector('.nav-links');
+    const navLinksContainer = document.getElementById('nav-links');
 
     if (menuToggle && navLinksContainer) {
-        menuToggle.addEventListener('click', () => {
-            navLinksContainer.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon?.classList.toggle('fa-bars');
-            icon?.classList.toggle('fa-xmark');
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            setMobileNavOpen(!navLinksContainer.classList.contains('active'));
         });
 
         navLinksContainer.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                closeMobileNav();
-            });
+            link.addEventListener('click', () => closeMobileNav());
         });
     }
 
@@ -45,8 +55,21 @@ export function initNav() {
         });
     });
 
-    document.addEventListener('click', () => {
-        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-dropdown')) {
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        }
+        if (
+            document.body.classList.contains('nav-open')
+            && !e.target.closest('#nav-links')
+            && !e.target.closest('#mobile-menu')
+        ) {
+            closeMobileNav();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMobileNav();
     });
 
     window.addEventListener('scroll', () => {
