@@ -2642,6 +2642,7 @@ footer {
 .country-page-header {
     flex-shrink: 0;
     z-index: 50;
+    height: var(--header-height);
     background: rgba(253, 251, 247, 0.9);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -2650,20 +2651,57 @@ footer {
 }
 
 .country-page-header.scrolled {
+    height: 68px;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
 }
 
 .country-page-header__inner {
-    padding: 0.65rem 0 0.85rem;
-}
-
-.country-page-header__top {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    min-height: 44px;
-    margin-bottom: 0.5rem;
+    height: 100%;
+    padding: 0;
+}
+
+.country-page-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+}
+
+.country-nav-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.85rem;
+    border: none;
+    border-radius: 50px;
+    background: none;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-body);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.country-nav-home:hover {
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--accent);
+}
+
+.country-page-header__tabs {
+    flex: 1;
+    min-width: 0;
+    justify-content: flex-end;
+}
+
+.country-page-header .guide-tab {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.82rem;
 }
 
 .detail-toolbar-inner {
@@ -3029,12 +3067,23 @@ footer {
 }
 
 @media (max-width: 576px) {
-    .btn-back-main span {
+    .btn-back-main span,
+    .country-nav-home span {
         display: none;
     }
 
-    .btn-back-main {
-        padding: 0.55rem 0.75rem;
+    .btn-back-main,
+    .country-nav-home {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .country-page-header .guide-tab {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.78rem;
+    }
+
+    .country-page-header .guide-tab i {
+        display: none;
     }
 
     .detail-breadcrumb {
@@ -3054,9 +3103,8 @@ footer {
     }
 
     .detail-toolbar-inner,
-    .country-page-header__top {
-        flex-wrap: wrap;
-        align-items: flex-start;
+    .country-page-header__inner {
+        gap: 0.5rem;
     }
 
     .detail-breadcrumb {

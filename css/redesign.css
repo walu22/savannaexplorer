@@ -1156,6 +1156,7 @@ body.site-v2 .country-hero-section {
 body.site-v2 .country-page-header {
     flex-shrink: 0;
     z-index: 50;
+    height: var(--header-height);
     background: rgba(253, 251, 247, 0.9);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -1164,23 +1165,66 @@ body.site-v2 .country-page-header {
 }
 
 body.site-v2 .country-page-header.scrolled {
+    height: 68px;
     box-shadow: var(--shadow-sm);
 }
 
 body.site-v2 .country-page-header__inner {
     display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding: 0.65rem 0 0.85rem;
-}
-
-body.site-v2 .country-page-header__top {
-    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    min-height: 44px;
-    margin-bottom: 0.5rem;
+    height: 100%;
+    padding: 0;
+}
+
+body.site-v2 .country-page-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+}
+
+body.site-v2 .country-nav-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.85rem;
+    border: none;
+    border-radius: var(--radius-pill);
+    background: none;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-body);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+body.site-v2 .country-nav-home:hover {
+    background: var(--bg-light);
+    color: var(--accent);
+}
+
+body.site-v2 .country-nav-home i {
+    font-size: 0.75rem;
+}
+
+body.site-v2 .country-page-header__tabs {
+    flex: 1;
+    min-width: 0;
+    justify-content: flex-end;
+}
+
+body.site-v2 .country-page-header .guide-tab {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.82rem;
+}
+
+body.site-v2 .country-page-header .btn-back-main {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.82rem;
 }
 
 body.site-v2 .country-detail-scroll {
@@ -1190,13 +1234,8 @@ body.site-v2 .country-detail-scroll {
     overflow-x: hidden;
 }
 
-body.site-v2 .btn-back-compact {
-    align-self: flex-start;
-    font-weight: 700;
-}
-
 body.site-v2 .btn-back-compact span {
-    font-size: 0.95rem;
+    font-size: 0.82rem;
 }
 
 body.site-v2 .detail-header {
@@ -2067,6 +2106,20 @@ body.site-v2 .guide-article-grid {
 }
 
 @media (max-width: 576px) {
+    body.site-v2 .country-nav-home span,
+    body.site-v2 .country-page-header .btn-back-main span {
+        display: none;
+    }
+
+    body.site-v2 .country-page-header .guide-tab i {
+        display: none;
+    }
+
+    body.site-v2 .country-page-header .guide-tab {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.78rem;
+    }
+
     body.site-v2 .destinations-grid,
     body.site-v2 .plan-trip-grid,
     body.site-v2 .top-destinations-grid,

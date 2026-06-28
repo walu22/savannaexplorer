@@ -108,8 +108,6 @@ function populateCountryPage(countryId) {
         const iso = toIsoReviewDate(reviewed);
         if (iso) reviewedEl.dateTime = iso;
     }
-    const breadcrumbName = document.getElementById('detail-breadcrumb-name');
-    if (breadcrumbName) breadcrumbName.textContent = data.name;
     const headerName = document.getElementById('detail-header-country-name');
     if (headerName) headerName.textContent = data.name;
 
