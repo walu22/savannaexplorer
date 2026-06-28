@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { renderParkFeeTable } from '../../js/lib/park-fees.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -182,6 +183,7 @@ export function parkPages(baseUrl) {
       <li><strong>Fees:</strong> ${escapeHtml(park.fees)}</li>
       ${park.gateHours ? `<li><strong>Gate hours:</strong> ${escapeHtml(park.gateHours)}</li>` : ''}
     </ul>
+    ${renderParkFeeTable(park)}
     ${park.feeDetail ? `<p>${escapeHtml(park.feeDetail)}</p>` : ''}
     <p><a href="${path}">View ${escapeHtml(park.name)} on Savanna Explorer</a></p>
   </article>

@@ -43,6 +43,7 @@
                         <a href="#transport">Transport &amp; Logistics</a>
                         <a href="#borders">Border Crossings</a>
                         <a href="#health">Health & Safety</a>
+                        <a href="#embassies">Foreign Missions</a>
                         <a href="#events">Events Calendar</a>
                         <a href="#plan">Travel Tools</a>
                         <a href="#plan">Trip Checklist</a>
@@ -663,6 +664,39 @@
         </div>
     </section>
 
+    <!-- Foreign Missions & Consular -->
+    <section id="embassies" class="embassies-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Consular planning</span>
+                <h2>Foreign Missions &amp; Embassies</h2>
+                <p>Official embassy directories and your home government&apos;s travel advice — link out to register trips and find help abroad.</p>
+            </div>
+
+            <div class="embassies-tabs" role="tablist" aria-label="Embassy categories">
+                <button type="button" class="embassies-tab active" data-embassy-tab="destinations" role="tab" aria-selected="true">🌍 In-country directories</button>
+                <button type="button" class="embassies-tab" data-embassy-tab="traveler" role="tab" aria-selected="false">🛂 Your passport</button>
+            </div>
+
+            <div class="embassies-panels">
+                <div class="embassies-panel active" data-embassy-panel="destinations" role="tabpanel">
+                    <p class="embassies-panel-intro">Find foreign embassies and consulates accredited to each destination — useful for lost passports, legal help, and emergency registration.</p>
+                    <div class="embassies-filters" id="embassies-country-filters"></div>
+                    <div class="embassies-grid" id="embassies-destinations"></div>
+                </div>
+                <div class="embassies-panel" data-embassy-panel="traveler" role="tabpanel" hidden>
+                    <p class="embassies-panel-intro">Before you fly, check your government&apos;s travel advice and enroll where offered (e.g. US STEP). Select your passport:</p>
+                    <label class="embassies-passport-label">
+                        <span>Passport</span>
+                        <select id="embassies-passport-select" aria-label="Select your passport"></select>
+                    </label>
+                    <div class="embassies-traveler-grid" id="embassies-traveler-sources"></div>
+                </div>
+            </div>
+            <p class="embassies-disclaimer" id="embassies-disclaimer"></p>
+        </div>
+    </section>
+
     <!-- Transport & Logistics -->
     <section id="transport" class="transport-section">
         <div class="container">
@@ -918,7 +952,7 @@
                         <li><a href="#transport">Transport &amp; Logistics</a></li>
                         <li><a href="#plan">Travel Planning</a></li>
                         <li><a href="tel:+264816766747">+264 81 676 6747</a></li>
-                        <li><a href="#">Foreign Missions</a></li>
+                        <li><a href="#embassies">Foreign Missions</a></li>
                     </ul>
                 </div>
             </div>

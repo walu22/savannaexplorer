@@ -2,6 +2,7 @@ import countryResources from '../../data/country-resources.json';
 import parksData from '../../data/parks.json';
 import bordersData from '../../data/borders.json';
 import practicalData from '../../data/practical.json';
+import { renderParkFeeTable } from './park-fees.js';
 
 export function getCountryResourcePack(countryId) {
     return countryResources[countryId] || null;
@@ -54,10 +55,11 @@ export function renderCountryParkRow(park, countryId) {
         : '';
 
     return `
-        <article class="country-resource-row">
+        <article class="country-resource-row country-resource-row--park">
             <div>
                 <h4>${escapeHtml(park.name)}</h4>
                 <p>${escapeHtml(park.fees)} · ${escapeHtml(park.bestSeason)}</p>
+                ${renderParkFeeTable(park, { compact: true })}
             </div>
             ${bookingLink}
         </article>

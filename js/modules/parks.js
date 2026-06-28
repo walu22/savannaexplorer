@@ -1,6 +1,7 @@
 import parks from '../../data/parks.json';
 import { COUNTRY_META } from '../lib/country-meta.js';
 import { getParkBookingUrl } from '../lib/country-resources.js';
+import { renderParkFeeTable } from '../lib/park-fees.js';
 
 function tagIcon(tag) {
     const lower = tag.toLowerCase();
@@ -37,6 +38,7 @@ function renderParkCard(park) {
                 <span><i class="fa-solid fa-ticket"></i> ${park.fees}</span>
             </div>
             ${park.gateHours ? `<p class="park-gate-hours"><i class="fa-solid fa-clock"></i> ${park.gateHours}</p>` : ''}
+            ${renderParkFeeTable(park)}
             ${park.feeDetail ? `<p class="park-fee-detail">${park.feeDetail}</p>` : ''}
             ${links.length ? `<div class="park-source-links">${links.join('')}</div>` : ''}
         </div>
