@@ -1830,7 +1830,7 @@ footer {
 
 /* --- NATIONAL PARKS HUB --- */
 .parks-hub {
-    padding: 5rem 0;
+    padding: 5rem 0 2.5rem;
     background: var(--bg-light);
 }
 .parks-filters {
