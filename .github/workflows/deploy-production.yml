@@ -34,22 +34,7 @@ jobs:
           VITE_GA4_ID: ${{ secrets.VITE_GA4_ID }}
         run: npm run build
 
-      - name: Deploy to Vercel
-        id: vercel
-        continue-on-error: true
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          if [ -z "$VERCEL_TOKEN" ]; then
-            echo "VERCEL_TOKEN not set — skipping Vercel."
-            exit 1
-          fi
-          npx vercel@latest deploy dist --prod --token "$VERCEL_TOKEN" --yes
-
       - name: Configure SSH
-        if: steps.vercel.outcome != 'success'
         env:
           DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
@@ -73,7 +58,6 @@ jobs:
           chmod 600 "$HOME/.ssh/config"
 
       - name: Backup current site on server
-        if: steps.vercel.outcome != 'success'
         continue-on-error: true
         env:
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
@@ -93,7 +77,6 @@ jobs:
           exit 0
 
       - name: Upload build to Hostinger
-        if: steps.vercel.outcome != 'success'
         env:
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
