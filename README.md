@@ -100,10 +100,10 @@ After deploying, submit `https://savannaexplorer.com/sitemap.xml` in [Google Sea
 
 ### Book Direct index (v4.15+)
 
-- **Stays & operators** hub at `#book-direct` — 18 official link-only directories (park camps, lodge booking portals, licensed operators)
+- **Stays & operators** hub at `#book-direct` — 46 official link-only directories (park camps, private concessions, regional tourism boards, licensed operators)
 - SEO URLs: `/stays/sanparks-reservations`, `/operators/botswana-tourism-operators`, etc.
 - Country Travelling tab shows per-country stay/operator links
-- Sitemap now includes **109 URLs** (97 + 12 new book-direct pages)
+- Sitemap grows automatically with each new listing (46 book-direct SEO pages at v4.17)
 
 ### Tables
 
