@@ -141,10 +141,15 @@ nav.scrolled .nav-links a {
 /* --- Menu Toggle --- */
 .menu-toggle {
     display: none;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     color: var(--white);
     cursor: pointer;
     transition: var(--transition-fast);
+    border: none;
+    background: none;
+    padding: 0;
+    font-family: inherit;
+    line-height: 1;
 }
 
 nav.scrolled .menu-toggle {
@@ -1143,35 +1148,35 @@ footer {
     .timeline {
         padding-left: 2rem;
     }
-    nav {
+    body:not(.site-v2) nav {
         background: rgba(0,0,0,0.95);
         backdrop-filter: blur(20px);
         height: auto;
         padding: 0.8rem 0;
     }
-    nav .container {
+    body:not(.site-v2) nav .container {
         flex-direction: column;
         gap: 0.8rem;
     }
-    .logo {
+    body:not(.site-v2) .logo {
         font-size: 1.1rem;
     }
-    .nav-links {
+    body:not(.site-v2) .nav-links {
         display: flex !important;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         gap: 0.8rem;
     }
-    .nav-links a {
+    body:not(.site-v2) .nav-links a {
         font-size: 0.7rem;
         padding: 0.3rem 0.5rem;
     }
-    .hero h1 {
+    body:not(.site-v2) .hero h1 {
         font-size: 2.2rem;
         margin-top: 1rem;
     }
-    .hero p {
+    body:not(.site-v2) .hero p {
         font-size: 0.9rem;
     }
     .destinations-grid {
@@ -2512,13 +2517,12 @@ footer {
 @media (max-width: 768px) {
     :root { --section-pad: 4rem; }
 
-    /* Navigation Overlay */
-    .menu-toggle { 
+    body:not(.site-v2) .menu-toggle { 
         display: block; 
         z-index: 1001; 
     }
 
-    .nav-links {
+    body:not(.site-v2) .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
@@ -2534,11 +2538,11 @@ footer {
         padding: 4rem 2rem;
     }
 
-    .nav-links.active {
+    body:not(.site-v2) .nav-links.active {
         right: 0;
     }
 
-    .nav-links a {
+    body:not(.site-v2) .nav-links a {
         color: var(--text-dark) !important;
         font-size: 1.2rem;
         text-shadow: none !important;
@@ -2547,14 +2551,14 @@ footer {
         padding-bottom: 1rem;
     }
 
-    nav { height: 70px; }
-    .logo { font-size: 1.3rem; }
+    body:not(.site-v2) nav { height: 70px; }
+    body:not(.site-v2) .logo { font-size: 1.3rem; }
 
     /* Hero */
-    .hero { height: auto; min-height: 85vh; padding-top: 120px; align-items: center; }
-    .hero-content { padding: 0 0 4rem; max-width: 100%; text-align: left; }
-    .hero h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 1rem; }
-    .hero p { font-size: 1rem; margin-bottom: 2rem; max-width: 100%; }
+    body:not(.site-v2) .hero { height: auto; min-height: 85vh; padding-top: 120px; align-items: center; }
+    body:not(.site-v2) .hero-content { padding: 0 0 4rem; max-width: 100%; text-align: left; }
+    body:not(.site-v2) .hero h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 1rem; }
+    body:not(.site-v2) .hero p { font-size: 1rem; margin-bottom: 2rem; max-width: 100%; }
 
     /* Sections */
     .section-header { margin-bottom: 3rem; }
@@ -2578,9 +2582,9 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .logo { font-size: 1.1rem; }
-    .nav-links { gap: 0.6rem; }
-    .nav-links a { font-size: 0.6rem; letter-spacing: 0; }
+    body:not(.site-v2) .logo { font-size: 1.1rem; }
+    body:not(.site-v2) .nav-links { gap: 0.6rem; }
+    body:not(.site-v2) .nav-links a { font-size: 0.6rem; letter-spacing: 0; }
     
     .hero h1 { font-size: 2.2rem; }
     .hero p { font-size: 0.95rem; }
