@@ -69,7 +69,7 @@ function toggleAccordion(btn) {
     }
 }
 
-function openItineraryDetail(id) {
+export function openItineraryDetail(id) {
     const data = itineraryData[id];
     if (!data) return;
     currentItineraryId = id;

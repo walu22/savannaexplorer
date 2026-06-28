@@ -34,7 +34,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.13.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.14.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -86,6 +86,15 @@ Set `VITE_SITE_URL` in `.env` before `npm run build` so `sitemap.xml` and canoni
 - Per-country `<title>`, meta description, Open Graph, Twitter Card, and JSON-LD
 - `public/sitemap.xml` and `public/robots.txt` generated at build time
 - SPA hosting: `public/_redirects` included for Netlify-style hosts (all routes → `index.html`)
+
+### SEO Phase 3 (v4.14+)
+
+- **Build-time prerender** — `postbuild` writes `dist/countries/*`, `dist/parks/*`, `dist/borders/*`, and `dist/itineraries/*` with correct meta tags and crawlable HTML (78 URLs in sitemap)
+- **Expanded routes** — `/parks/kruger`, `/borders/vioolsdrift`, `/itineraries/desert-to-delta` scroll to or open the matching section in the SPA
+- **BreadcrumbList** JSON-LD on detail pages
+- **Optional analytics** — set `VITE_GA4_ID` and `VITE_GSC_VERIFICATION` in `.env` before `npm run build`
+
+After deploying, submit `https://savannaexplorer.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console).
 
 ### Tables
 

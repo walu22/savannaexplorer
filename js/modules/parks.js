@@ -27,7 +27,7 @@ function renderParkCard(park) {
     }
 
     return `
-        <div class="park-card" data-country="${park.country}">
+        <div class="park-card" id="park-${park.id}" data-country="${park.country}">
             <div class="park-badge">${meta.flag || '🌍'}</div>
             <h3>${park.name}</h3>
             <p>${park.description}</p>

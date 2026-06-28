@@ -1,8 +1,18 @@
 import countries from '../../data/countries.json';
 import { CONFIG } from '../config.js';
 import { getFullCountryData } from './merge-country.js';
-import { cardImageUrl } from './country-meta.js';
-import { countryPath } from './router.js';
+import { cardImageUrl, getCountryMeta } from './country-meta.js';
+import {
+    borderPath,
+    countryPath,
+    getBorderById,
+    getItineraryById,
+    getParkById,
+    itineraryPath,
+    parkPath,
+} from './router.js';
+
+const SITE_NAME = 'Savanna Explorer';
 
 const HOME_META = {
     title: 'Savanna Explorer | Southern Africa, Endless Horizons',
@@ -18,6 +28,12 @@ function siteOrigin() {
 
 function absoluteUrl(path) {
     return `${siteOrigin()}${path}`;
+}
+
+function truncate(text, max = 155) {
+    const t = (text || '').trim();
+    if (t.length <= max) return t;
+    return `${t.slice(0, max - 1)}…`;
 }
 
 function upsertMeta(attr, key, content, isProperty = false) {
@@ -54,6 +70,19 @@ function upsertJsonLd(data) {
     el.textContent = JSON.stringify(data);
 }
 
+function breadcrumbJsonLd(items) {
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: items.map((item, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: item.name,
+            item: absoluteUrl(item.path),
+        })),
+    };
+}
+
 function applyMeta({ title, description, path, image, type = 'website' }) {
     document.title = title;
     upsertMeta('name', 'description', description);
@@ -76,7 +105,7 @@ export function setHomeMeta() {
     upsertJsonLd({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        name: 'Savanna Explorer',
+        name: SITE_NAME,
         description: HOME_META.description,
         url: absoluteUrl('/'),
     });
@@ -91,25 +120,135 @@ export function setCountryMeta(countryId) {
 
     const path = countryPath(countryId);
     const summary = data.about?.summary || data.tagline || '';
-    const description = `${summary.slice(0, 155)}${summary.length > 155 ? '…' : ''}`.trim()
+    const description = truncate(summary)
         || `Travel guide for ${data.name} — visas, parks, routes, and official planning links.`;
 
     applyMeta({
-        title: `${data.name} Travel Guide | Savanna Explorer`,
+        title: `${data.name} Travel Guide | ${SITE_NAME}`,
         description,
         path,
         image: cardImageUrl(countryId),
         type: 'article',
     });
 
-    upsertJsonLd({
-        '@context': 'https://schema.org',
-        '@type': 'TouristDestination',
-        name: data.name,
+    upsertJsonLd([
+        {
+            '@context': 'https://schema.org',
+            '@type': 'TouristDestination',
+            name: data.name,
+            description,
+            url: absoluteUrl(path),
+            touristType: 'Independent traveller',
+        },
+        breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: data.name, path },
+        ]),
+    ]);
+}
+
+export function setParkMeta(parkId) {
+    const park = getParkById(parkId);
+    if (!park) {
+        setHomeMeta();
+        return;
+    }
+
+    const meta = getCountryMeta(park.country);
+    const path = parkPath(parkId);
+    const description = truncate(`${park.description} Best season: ${park.bestSeason}. Fees: ${park.fees}.`);
+
+    applyMeta({
+        title: `${park.name} | ${SITE_NAME}`,
         description,
-        url: absoluteUrl(path),
-        touristType: 'Independent traveller',
+        path,
+        image: cardImageUrl(park.country),
+        type: 'article',
     });
+
+    upsertJsonLd([
+        {
+            '@context': 'https://schema.org',
+            '@type': 'TouristAttraction',
+            name: park.name,
+            description: park.description,
+            url: absoluteUrl(path),
+        },
+        breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: meta.name, path: countryPath(park.country) },
+            { name: park.name, path },
+        ]),
+    ]);
+}
+
+export function setBorderMeta(borderId) {
+    const border = getBorderById(borderId);
+    if (!border) {
+        setHomeMeta();
+        return;
+    }
+
+    const path = borderPath(borderId);
+    const countryNames = border.countries.map(id => getCountryMeta(id).name).join(' ↔ ');
+    const description = truncate(`${border.name}: ${border.route}. Hours ${border.hours}. Wait ${border.typicalWait}. Documents and fees for ${countryNames}.`);
+
+    applyMeta({
+        title: `${border.name} Border Crossing | ${SITE_NAME}`,
+        description,
+        path,
+        image: cardImageUrl(border.countries[0]),
+        type: 'article',
+    });
+
+    upsertJsonLd([
+        {
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: `${border.name} Border Crossing`,
+            description,
+            url: absoluteUrl(path),
+        },
+        breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Border crossings', path: '/#borders' },
+            { name: border.name, path },
+        ]),
+    ]);
+}
+
+export function setItineraryMeta(itineraryId) {
+    const data = getItineraryById(itineraryId);
+    if (!data) {
+        setHomeMeta();
+        return;
+    }
+
+    const path = itineraryPath(itineraryId);
+    const description = truncate(`${data.description} ${data.duration}. ${data.countries}.`);
+
+    applyMeta({
+        title: `${data.title} Route Template | ${SITE_NAME}`,
+        description,
+        path,
+        image: 'https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200',
+        type: 'article',
+    });
+
+    upsertJsonLd([
+        {
+            '@context': 'https://schema.org',
+            '@type': 'Trip',
+            name: data.title,
+            description: data.description,
+            url: absoluteUrl(path),
+        },
+        breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Route templates', path: '/#itineraries' },
+            { name: data.title, path },
+        ]),
+    ]);
 }
 
 export function initPageMeta() {

@@ -13,7 +13,7 @@ function renderBorderCard(border) {
     const tips = border.tips.map(t => `<li>${t}</li>`).join('');
 
     return `
-        <article class="border-card" data-countries="${border.countries.join(' ')}">
+        <article class="border-card" id="border-${border.id}" data-countries="${border.countries.join(' ')}">
             <div class="border-card-header">
                 <span class="border-flags">${flags}</span>
                 <h3>${border.name}</h3>
