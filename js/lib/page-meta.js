@@ -13,6 +13,7 @@ import {
     listingPath,
     parkPath,
 } from './router.js';
+import { getCountryLastReviewed, getSiteLastReviewed, toIsoReviewDate } from './content-meta.js';
 
 const SITE_NAME = 'Savanna Explorer';
 
@@ -141,6 +142,9 @@ export function setCountryMeta(countryId) {
             description,
             url: absoluteUrl(path),
             touristType: 'Independent traveller',
+            ...(toIsoReviewDate(getCountryLastReviewed(countryId)) && {
+                dateModified: toIsoReviewDate(getCountryLastReviewed(countryId)),
+            }),
         },
         breadcrumbJsonLd([
             { name: 'Home', path: '/' },
@@ -175,6 +179,7 @@ export function setParkMeta(parkId) {
             name: park.name,
             description: park.description,
             url: absoluteUrl(path),
+            ...(toIsoReviewDate(park.lastVerified) && { dateModified: toIsoReviewDate(park.lastVerified) }),
         },
         breadcrumbJsonLd([
             { name: 'Home', path: '/' },
@@ -210,6 +215,7 @@ export function setBorderMeta(borderId) {
             headline: `${border.name} Border Crossing`,
             description,
             url: absoluteUrl(path),
+            ...(toIsoReviewDate(border.lastVerified) && { dateModified: toIsoReviewDate(border.lastVerified) }),
         },
         breadcrumbJsonLd([
             { name: 'Home', path: '/' },
@@ -244,6 +250,7 @@ export function setItineraryMeta(itineraryId) {
             name: data.title,
             description: data.description,
             url: absoluteUrl(path),
+            ...(toIsoReviewDate(getSiteLastReviewed()) && { dateModified: toIsoReviewDate(getSiteLastReviewed()) }),
         },
         breadcrumbJsonLd([
             { name: 'Home', path: '/' },
@@ -281,6 +288,7 @@ export function setListingMeta(itemOrId) {
             description: item.description,
             url: absoluteUrl(path),
             sameAs: item.url,
+            ...(toIsoReviewDate(item.lastVerified) && { dateModified: toIsoReviewDate(item.lastVerified) }),
         },
         breadcrumbJsonLd([
             { name: 'Home', path: '/' },

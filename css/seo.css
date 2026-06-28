@@ -34,6 +34,17 @@
     color: var(--accent, #b45309);
 }
 
+.last-reviewed,
+.detail-last-reviewed {
+    font-size: 0.875rem;
+    color: var(--text-muted, #666);
+    margin: 0.35rem 0 0.75rem;
+}
+
+.detail-last-reviewed {
+    color: rgba(255, 255, 255, 0.82);
+}
+
 .seo-highlight {
     outline: 2px solid var(--accent, #b45309);
     outline-offset: 4px;

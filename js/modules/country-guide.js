@@ -26,6 +26,7 @@ import {
 import { setCountryMeta, setHomeMeta } from '../lib/page-meta.js';
 import { dismissSeoPrerender } from '../lib/seo-prerender.js';
 import { handleSeoRoute } from './seo-routes.js';
+import { getCountryLastReviewed, lastReviewedLabel, toIsoReviewDate } from '../lib/content-meta.js';
 import { getListingsForCountry, renderCountryBookRows } from './book-direct.js';
 
 const detailView = document.getElementById('country-detail-view');
@@ -69,6 +70,14 @@ function populateCountryPage(countryId) {
     detailView.scrollTop = 0;
     detailTitle.textContent = data.name;
     detailTagline.textContent = data.tagline;
+    const reviewedEl = document.getElementById('detail-last-reviewed');
+    if (reviewedEl) {
+        const reviewed = getCountryLastReviewed(countryId);
+        reviewedEl.textContent = lastReviewedLabel(reviewed);
+        reviewedEl.hidden = !reviewedEl.textContent;
+        const iso = toIsoReviewDate(reviewed);
+        if (iso) reviewedEl.dateTime = iso;
+    }
     const breadcrumbName = document.getElementById('detail-breadcrumb-name');
     if (breadcrumbName) breadcrumbName.textContent = data.name;
 
