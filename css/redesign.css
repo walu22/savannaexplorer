@@ -92,6 +92,11 @@ body.site-v2 .nav-cta:hover {
     background: var(--primary-dark) !important;
 }
 
+body.site-v2.country-detail-open #navbar {
+    visibility: hidden;
+    pointer-events: none;
+}
+
 body.site-v2 .nav-dropdown {
     position: relative;
 }
@@ -1144,19 +1149,61 @@ body.site-v2 .country-detail-view {
     background: var(--bg-cream);
 }
 
-body.site-v2 .detail-header {
-    background: transparent;
-    border-bottom: none;
+/* --- Country detail — two-phase header (hero scrolls, then single sticky nav) --- */
+body.site-v2 .country-hero-section {
+    background: var(--bg-cream);
 }
 
-body.site-v2 .detail-toolbar {
+body.site-v2 .country-chrome {
+    background: var(--bg-cream);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+body.site-v2 .sticky-country-nav {
     position: sticky;
     top: 0;
-    z-index: 10;
-    background: rgba(247, 243, 237, 0.92);
+    z-index: 50;
+    background: rgba(247, 243, 237, 0.98);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 4px 16px rgba(12, 18, 16, 0.08);
+}
+
+body.site-v2 .sticky-country-nav[hidden] {
+    display: none !important;
+}
+
+body.site-v2 .sticky-country-nav__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 0 0.65rem;
+}
+
+body.site-v2 .btn-back-compact {
+    align-self: flex-start;
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+}
+
+body.site-v2 .btn-back-compact span {
+    font-size: 0.95rem;
+}
+
+body.site-v2 .guide-tabs-wrap--hero {
+    background: var(--bg-cream);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.75rem 0 1rem;
+}
+
+body.site-v2 .guide-tabs--sticky {
+    margin: 0;
+}
+
+body.site-v2 .detail-header {
+    background: transparent;
+    border-bottom: none;
 }
 
 body.site-v2 .detail-hero {
@@ -1296,17 +1343,6 @@ body.site-v2 .btn-back-main {
 body.site-v2 .btn-back-main:hover {
     background: var(--accent);
     color: white;
-}
-
-body.site-v2 .guide-tabs-wrap {
-    position: sticky;
-    top: 60px;
-    z-index: 9;
-    background: rgba(247, 243, 237, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 0.75rem 0;
 }
 
 body.site-v2 .guide-tabs {
@@ -1758,10 +1794,6 @@ body.site-v2 .country-detail-cta .btn-primary i {
 
     body.site-v2 .guide-practical-row {
         grid-template-columns: 1fr 1fr;
-    }
-
-    body.site-v2 .guide-tabs-wrap {
-        top: 56px;
     }
 }
 

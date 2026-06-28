@@ -28,6 +28,7 @@ import { dismissSeoPrerender } from '../lib/seo-prerender.js';
 import { handleSeoRoute } from './seo-routes.js';
 import { getCountryLastReviewed, lastReviewedLabel, toIsoReviewDate } from '../lib/content-meta.js';
 import { getListingsForCountry, renderCountryBookRows } from './book-direct.js';
+import { closeMobileNav, setMainNavSuppressed } from './nav.js';
 
 const detailView = document.getElementById('country-detail-view');
 const closeDetailBtn = document.getElementById('close-detail');
@@ -45,11 +46,64 @@ const detailMoney = document.getElementById('detail-money');
 const detailFlavorInline = document.getElementById('detail-flavor-inline');
 const ctaCountryName = document.querySelector('.cta-country-name');
 
+let heroSectionObserver;
+
+function activateGuideTab(tabId) {
+    if (!tabId) return;
+    document.querySelectorAll('#country-detail-view .guide-tab').forEach(tab => {
+        tab.classList.toggle('active', tab.getAttribute('data-tab') === tabId);
+    });
+    document.querySelectorAll('.guide-panel').forEach(panel => panel.classList.remove('active'));
+    document.getElementById(`panel-${tabId}`)?.classList.add('active');
+}
+
+function updateStickyCountryNav(heroVisible) {
+    const stickyNav = document.getElementById('sticky-country-nav');
+    if (!stickyNav || !detailView) return;
+
+    const wasHidden = stickyNav.hidden;
+    if (!wasHidden && heroVisible) {
+        const navHeight = stickyNav.offsetHeight;
+        stickyNav.hidden = true;
+        stickyNav.setAttribute('aria-hidden', 'true');
+        detailView.classList.remove('country-sticky-nav-active');
+        if (navHeight) {
+            detailView.scrollTop = Math.max(0, detailView.scrollTop - navHeight);
+        }
+        return;
+    }
+
+    stickyNav.hidden = heroVisible;
+    stickyNav.setAttribute('aria-hidden', heroVisible ? 'true' : 'false');
+    detailView.classList.toggle('country-sticky-nav-active', !heroVisible);
+
+    if (wasHidden && !heroVisible) {
+        const navHeight = stickyNav.offsetHeight;
+        if (navHeight) detailView.scrollTop += navHeight;
+    }
+}
+
+function bindCountryStickyNav() {
+    const heroSection = document.getElementById('country-hero-section');
+    if (!heroSection || !detailView) return;
+
+    heroSectionObserver?.disconnect();
+    heroSectionObserver = new IntersectionObserver(
+        ([entry]) => updateStickyCountryNav(entry.isIntersecting),
+        { root: detailView, threshold: 0 },
+    );
+    heroSectionObserver.observe(heroSection);
+    updateStickyCountryNav(true);
+}
+
+function unbindCountryStickyNav() {
+    heroSectionObserver?.disconnect();
+    heroSectionObserver = null;
+    updateStickyCountryNav(true);
+}
+
 function resetGuideTabs() {
-    document.querySelectorAll('.guide-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.guide-panel').forEach(p => p.classList.remove('active'));
-    document.querySelector('.guide-tab[data-tab="about"]')?.classList.add('active');
-    document.getElementById('panel-about')?.classList.add('active');
+    activateGuideTab('about');
 }
 
 function spotMetaHtml(spot) {
@@ -80,6 +134,8 @@ function populateCountryPage(countryId) {
     }
     const breadcrumbName = document.getElementById('detail-breadcrumb-name');
     if (breadcrumbName) breadcrumbName.textContent = data.name;
+    const stickyName = document.getElementById('detail-sticky-country-name');
+    if (stickyName) stickyName.textContent = data.name;
 
     const meta = getCountryMeta(countryId);
     const heroImg = document.getElementById('detail-hero-img');
@@ -347,13 +403,20 @@ function showCountryPage(countryId) {
     if (!countries[countryId]) return;
     dismissSeoPrerender();
     populateCountryPage(countryId);
+    closeMobileNav();
+    setMainNavSuppressed(true);
     detailView.classList.remove('hidden');
+    detailView.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     setCountryMeta(countryId);
+    requestAnimationFrame(() => bindCountryStickyNav());
 }
 
 function hideCountryPage() {
+    unbindCountryStickyNav();
+    setMainNavSuppressed(false);
     detailView.classList.add('hidden');
+    detailView.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     setHomeMeta();
 }
@@ -414,8 +477,14 @@ export function initCountryGuide() {
     });
 
     closeDetailBtn?.addEventListener('click', () => closeCountryPage('destinations'));
+    document.getElementById('close-detail-sticky')?.addEventListener('click', () => closeCountryPage('destinations'));
 
     detailView?.addEventListener('click', (e) => {
+        const tab = e.target.closest('.guide-tab');
+        if (tab?.getAttribute('data-tab')) {
+            activateGuideTab(tab.getAttribute('data-tab'));
+            return;
+        }
         if (e.target.closest('[data-action="back-home"]')) {
             closeCountryPage('home');
             return;
@@ -447,16 +516,6 @@ export function initCountryGuide() {
 
     document.getElementById('country-plan-cta')?.addEventListener('click', () => {
         closeCountryPage('plan');
-    });
-
-    document.querySelectorAll('.guide-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-            const target = tab.getAttribute('data-tab');
-            document.querySelectorAll('.guide-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.guide-panel').forEach(p => p.classList.remove('active'));
-            tab.classList.add('active');
-            document.getElementById(`panel-${target}`)?.classList.add('active');
-        });
     });
 
     document.querySelectorAll('a[href^="/countries/"]').forEach(link => {

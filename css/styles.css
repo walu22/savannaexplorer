@@ -2626,14 +2626,24 @@ footer {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.detail-toolbar {
+.country-chrome {
+    background: var(--bg-cream);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.sticky-country-nav {
     position: sticky;
     top: 0;
-    z-index: 5;
-    background: rgba(253, 252, 249, 0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    z-index: 50;
+}
+
+.sticky-country-nav[hidden] {
+    display: none !important;
+}
+
+.guide-tabs-wrap--hero {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-bottom: 1rem;
 }
 
 .detail-toolbar-inner {
