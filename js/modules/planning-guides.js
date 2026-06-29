@@ -2,6 +2,7 @@ import guidesData from '../../data/planning-guides.json';
 import { getCountryMeta } from '../lib/country-meta.js';
 import { openCountryPage } from './country-guide.js';
 import { createModalFocusManager } from '../lib/modal-focus.js';
+import printCss from '../../css/planning-guide-print.css?inline';
 
 let planningGuideModalFocus = null;
 
@@ -32,6 +33,110 @@ function renderSection(section) {
             ${bullets}
         </section>
     `;
+}
+
+function buildPrintGuideHtml(guide, meta) {
+    const generated = new Date().toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+
+    const sectionsHtml = guide.sections.map(section => `
+        <section class="print-section">
+            <h2>${escapeHtml(section.title)}</h2>
+            ${section.body.split('\n\n').map(p => `<p>${escapeHtml(p)}</p>`).join('')}
+            ${section.bullets?.length
+                ? `<ul class="print-bullets">${section.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join('')}</ul>`
+                : ''}
+        </section>
+    `).join('');
+
+    const linksHtml = guide.officialLinks?.length
+        ? `<section class="print-links-section">
+            <h2>Official sources</h2>
+            <ul class="print-links">
+                ${guide.officialLinks.map(link => `
+                    <li>
+                        <strong>${escapeHtml(link.label)}</strong>
+                        <div class="print-source">${escapeHtml(link.url)}</div>
+                    </li>
+                `).join('')}
+            </ul>
+           </section>`
+        : '';
+
+    return `
+        <article class="print-guide-doc">
+            <header class="print-header">
+                <div class="print-header-bar" aria-hidden="true"></div>
+                <p class="print-brand">Savanna Explorer</p>
+                <h1>${escapeHtml(guide.title)}</h1>
+                <p class="print-subtitle">${escapeHtml(meta.name)}</p>
+                <div class="print-meta-row">
+                    <span><strong>Read time:</strong> ${escapeHtml(guide.readTime)}</span>
+                    <span><strong>Verified:</strong> ${escapeHtml(guide.lastVerified)}</span>
+                </div>
+                <p class="print-generated">Generated ${escapeHtml(generated)} · savannaexplorer.com · Planning reference only</p>
+            </header>
+            <p class="print-disclaimer">${escapeHtml(guidesData.meta.disclaimer)}</p>
+            ${sectionsHtml}
+            ${linksHtml}
+            <footer class="print-footer">
+                <p><strong>Not a booking or quote.</strong> Requirements and fees change — confirm with official sources before travel.</p>
+                <p>Savanna Explorer is an independent planning hub — we do not sell tours, take payments, or act as a travel agent.</p>
+            </footer>
+        </article>
+    `;
+}
+
+function printGuideDocument(html, title) {
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('title', 'Planning guide print preview');
+    iframe.setAttribute('aria-hidden', 'true');
+    Object.assign(iframe.style, {
+        position: 'fixed',
+        right: '0',
+        bottom: '0',
+        width: '0',
+        height: '0',
+        border: '0',
+        opacity: '0',
+        pointerEvents: 'none',
+    });
+    document.body.appendChild(iframe);
+
+    const doc = iframe.contentDocument;
+    doc.open();
+    doc.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>${escapeHtml(title)} — Savanna Explorer</title>
+    <style>${printCss.replace(/<\/style/gi, '<\\/style')}</style>
+</head>
+<body>${html}</body>
+</html>`);
+    doc.close();
+
+    const win = iframe.contentWindow;
+    const cleanup = () => {
+        iframe.remove();
+    };
+
+    win.addEventListener('afterprint', cleanup, { once: true });
+
+    const triggerPrint = () => {
+        win.focus();
+        win.print();
+        setTimeout(cleanup, 8000);
+    };
+
+    if (doc.readyState === 'complete') {
+        triggerPrint();
+    } else {
+        win.addEventListener('load', triggerPrint, { once: true });
+    }
 }
 
 export function openPlanningGuide(countryId) {
@@ -85,29 +190,7 @@ function printPlanningGuide() {
     if (!guide) return;
 
     const meta = getCountryMeta(countryId);
-    const printRoot = document.getElementById('planning-guide-print-root');
-    if (!printRoot) {
-        window.print();
-        return;
-    }
-
-    printRoot.innerHTML = `
-        <article class="planning-guide-print">
-            <header>
-                <h1>${escapeHtml(guide.title)}</h1>
-                <p>${meta.flag} ${meta.name} · ${guide.readTime} · Savanna Explorer</p>
-            </header>
-            ${guide.sections.map(s => `
-                <section>
-                    <h2>${escapeHtml(s.title)}</h2>
-                    ${s.body.split('\n\n').map(p => `<p>${escapeHtml(p)}</p>`).join('')}
-                    ${s.bullets?.length ? `<ul>${s.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join('')}</ul>` : ''}
-                </section>
-            `).join('')}
-            <footer><p>${escapeHtml(guidesData.meta.disclaimer)}</p></footer>
-        </article>
-    `;
-    window.print();
+    printGuideDocument(buildPrintGuideHtml(guide, meta), guide.title);
 }
 
 export function initPlanningGuides() {

@@ -1,0 +1,201 @@
+/**
+ * Country planning guide — PDF/print output via iframe.
+ */
+
+.print-guide-doc {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    max-width: 100%;
+}
+
+.print-header {
+    border-bottom: 2pt solid #1b4332;
+    padding-bottom: 12pt;
+    margin-bottom: 14pt;
+}
+
+.print-header-bar {
+    height: 4pt;
+    background: #1b4332;
+    margin: 0 0 10pt;
+    border-radius: 1pt;
+}
+
+.print-brand {
+    font-size: 8pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #40916c;
+    font-weight: 700;
+    margin: 0 0 4pt;
+}
+
+.print-header h1 {
+    font-size: 20pt;
+    font-weight: 700;
+    color: #1b4332;
+    margin: 0 0 6pt;
+    line-height: 1.15;
+}
+
+.print-subtitle {
+    font-size: 12pt;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8pt;
+}
+
+.print-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6pt 20pt;
+    font-size: 9pt;
+    color: #444;
+}
+
+.print-meta-row span strong {
+    color: #1b4332;
+    font-weight: 600;
+}
+
+.print-generated {
+    font-size: 8.5pt;
+    color: #777;
+    margin: 8pt 0 0;
+}
+
+.print-disclaimer {
+    font-size: 8.5pt;
+    background: #faf8f0;
+    border-left: 3pt solid #d4a843;
+    padding: 8pt 10pt;
+    margin: 0 0 14pt;
+    color: #444;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+}
+
+.print-section {
+    margin-top: 14pt;
+    padding-top: 12pt;
+    border-top: 1pt solid #ddd;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+}
+
+.print-section:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.print-section h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #1b4332;
+    margin: 0 0 8pt;
+    line-height: 1.25;
+}
+
+.print-section p {
+    margin: 0 0 8pt;
+    font-size: 10pt;
+    line-height: 1.5;
+}
+
+.print-section p:last-child {
+    margin-bottom: 0;
+}
+
+.print-bullets {
+    margin: 8pt 0 0;
+    padding-left: 16pt;
+    font-size: 9.5pt;
+}
+
+.print-bullets li {
+    margin-bottom: 4pt;
+}
+
+.print-links-section {
+    margin-top: 16pt;
+    padding-top: 12pt;
+    border-top: 1pt solid #ddd;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+}
+
+.print-links-section h2 {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #1b4332;
+    margin: 0 0 8pt;
+}
+
+.print-links {
+    margin: 0;
+    padding-left: 16pt;
+    font-size: 9pt;
+}
+
+.print-links li {
+    margin-bottom: 4pt;
+}
+
+.print-links strong {
+    color: #1b4332;
+}
+
+.print-source {
+    font-size: 8pt;
+    color: #666;
+    word-break: break-all;
+}
+
+.print-footer {
+    margin-top: 18pt;
+    padding-top: 10pt;
+    border-top: 1pt solid #bbb;
+    font-size: 8pt;
+    color: #555;
+    line-height: 1.45;
+}
+
+.print-footer p {
+    margin: 0 0 4pt;
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 14mm 16mm 18mm;
+    }
+
+    html, body {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        background: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .print-guide-doc {
+        padding: 0;
+    }
+
+    .print-section,
+    .print-disclaimer,
+    .print-links-section,
+    .print-header {
+        break-inside: avoid-page;
+        page-break-inside: avoid;
+    }
+
+    a {
+        color: #1b4332;
+        text-decoration: none;
+    }
+}
