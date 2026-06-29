@@ -7,7 +7,11 @@
  */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { createSign } from 'node:crypto';
+import {
+    getGoogleAccessToken,
+    parseServiceAccount,
+    submitGoogleSitemap,
+} from './lib/gsc-api.mjs';
 
 const INDEXNOW_KEY = '1808bec069c7c448b094bee7156e9d57';
 const BATCH_SIZE = 10000;
@@ -90,72 +94,16 @@ async function submitIndexNow(origin, urls) {
     return results;
 }
 
-function base64url(input) {
-    return Buffer.from(input)
-        .toString('base64')
-        .replace(/\+/g, '-')
-        .replace(/\//g, '_')
-        .replace(/=+$/g, '');
-}
-
-async function getGoogleAccessToken(serviceAccount) {
-    const now = Math.floor(Date.now() / 1000);
-    const header = base64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
-    const claim = base64url(JSON.stringify({
-        iss: serviceAccount.client_email,
-        scope: 'https://www.googleapis.com/auth/webmasters',
-        aud: 'https://oauth2.googleapis.com/token',
-        iat: now,
-        exp: now + 3600,
-    }));
-    const unsigned = `${header}.${claim}`;
-    const signer = createSign('RSA-SHA256');
-    signer.update(unsigned);
-    signer.end();
-    const signature = signer.sign(serviceAccount.private_key);
-    const jwt = `${unsigned}.${base64url(signature)}`;
-
-    const response = await fetch('https://oauth2.googleapis.com/token', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-            grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-            assertion: jwt,
-        }),
-    });
-
-    if (!response.ok) {
-        const text = await response.text();
-        throw new Error(`Google token exchange failed (${response.status}): ${text}`);
-    }
-
-    const data = await response.json();
-    return data.access_token;
-}
-
-async function submitGoogleSitemap(origin, sitemapUrl) {
+async function submitGoogleSitemapFromEnv(origin, sitemapUrl) {
     const raw = process.env.GSC_SERVICE_ACCOUNT_JSON;
     if (!raw) {
         return { skipped: true, reason: 'GSC_SERVICE_ACCOUNT_JSON not set' };
     }
 
-    const serviceAccount = JSON.parse(raw);
+    const serviceAccount = parseServiceAccount(raw);
     const token = await getGoogleAccessToken(serviceAccount);
-    const siteParam = encodeURIComponent(`${origin}/`);
-    const feedpath = encodeURIComponent(sitemapUrl);
-    const url = `https://www.googleapis.com/webmasters/v3/sites/${siteParam}/sitemaps/${feedpath}`;
-
-    const response = await fetch(url, {
-        method: 'PUT',
-        headers: { Authorization: `Bearer ${token}` },
-    });
-
-    if (!response.ok) {
-        const text = await response.text();
-        throw new Error(`GSC sitemap submit failed (${response.status}): ${text}`);
-    }
-
-    return { skipped: false, status: response.status };
+    const result = await submitGoogleSitemap(origin, sitemapUrl, token);
+    return { skipped: false, status: result.status };
 }
 
 async function verifyIndexNowKey(origin) {
@@ -196,9 +144,10 @@ async function main() {
     }
 
     try {
-        const gsc = await submitGoogleSitemap(origin, sitemapUrl);
+        const gsc = await submitGoogleSitemapFromEnv(origin, sitemapUrl);
         if (gsc.skipped) {
             console.log(`GSC: skipped (${gsc.reason})`);
+            console.log('GSC: run npm run setup:gsc -- --file ./gsc-key.json --github-secret');
         } else {
             console.log(`GSC: sitemap resubmitted → HTTP ${gsc.status}`);
         }

@@ -39,8 +39,8 @@ Track verification and indexing progress for https://savannaexplorer.com/
 | Item | Status | Date |
 |------|--------|------|
 | Sitemap submitted (`sitemap.xml`) | ☑ Done | June 28, 2026 |
-| Auto-resubmit on deploy | ☑ IndexNow submitted 160 URLs (Jun 29, 2026) | v4.34.1 |
-| GSC status | Resubmit in GSC UI or set `GSC_SERVICE_ACCOUNT_JSON` secret | |
+| Auto-resubmit on deploy | ☑ IndexNow (160 URLs) + optional GSC API | v4.34.1+ |
+| GSC API auto-resubmit | ☐ Pending `GSC_SERVICE_ACCOUNT_JSON` secret | Run `npm run setup:gsc` |
 | Discovered pages | Expect **160 URLs** after next crawl | |
 
 ### Priority URL indexing requests
@@ -74,11 +74,22 @@ After each successful deploy, `scripts/submit-search-indexing.mjs` runs automati
 1. **IndexNow** — notifies Bing, Yandex, Naver, and other IndexNow partners with all sitemap URLs (160) plus priority pages.
 2. **Google Search Console** (optional) — resubmits the sitemap via API if GitHub secret `GSC_SERVICE_ACCOUNT_JSON` is set.
 
-### One-time GSC API setup (optional, for Google)
+### One-time GSC API setup (for Google auto-resubmit)
 
-1. Create a Google Cloud service account with Search Console API enabled.
-2. In [Search Console](https://search.google.com/search-console) → Settings → Users, add the service account email as **Owner**.
-3. Add the service account JSON (full file contents) as GitHub secret `GSC_SERVICE_ACCOUNT_JSON`.
+1. [Google Cloud Console](https://console.cloud.google.com/) → **APIs & Services → Library** → enable **Google Search Console API**.
+2. **Credentials → Create credentials → Service account** → create key (JSON) and download it.
+3. [Search Console](https://search.google.com/search-console) → **Settings → Users and permissions** → add the service account `client_email` as **Owner**.
+4. From this repo (with [GitHub CLI](https://cli.github.com/) logged in as repo admin):
+
+```bash
+npm run setup:gsc -- --file ./gsc-key.json --github-secret
+```
+
+This verifies API access, resubmits the sitemap once, and stores the JSON in GitHub secret `GSC_SERVICE_ACCOUNT_JSON`.
+
+**Manual secret upload:** GitHub → repo **Settings → Secrets and variables → Actions** → New secret → name `GSC_SERVICE_ACCOUNT_JSON` → paste full JSON file contents.
+
+**Re-run indexing without deploy:** Actions → **Submit search indexing** → Run workflow.
 
 Without this secret, IndexNow still notifies Bing; Google relies on sitemap crawls or manual GSC resubmit.
 

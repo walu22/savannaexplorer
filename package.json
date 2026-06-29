@@ -1,7 +1,7 @@
 {
   "name": "savannaexplorer",
   "private": true,
-  "version": "4.34.2",
+  "version": "4.34.3",
   "engines": {
     "node": "22.x"
   },
@@ -17,7 +17,9 @@
     "prebuild": "node scripts/write-version.mjs && node scripts/generate-sitemap.mjs",
     "build": "vite build",
     "postbuild": "node scripts/prerender-seo.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "setup:gsc": "node scripts/setup-gsc-api.mjs",
+    "index:submit": "node scripts/submit-search-indexing.mjs"
   },
   "devDependencies": {
     "vite": "^6.2.0"
