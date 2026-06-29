@@ -758,7 +758,7 @@ body.site-v2 .border-card {
 
 body.site-v2 .utility-hub {
     padding: var(--section-pad) 0;
-    background: var(--bg-dark);
+    background: linear-gradient(165deg, #0f0f12 0%, #1a1a20 50%, #12120f 100%);
 }
 
 body.site-v2 .utility-hub .section-header h2,
