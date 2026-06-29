@@ -665,6 +665,7 @@ section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    align-items: start;
 }
 
 /* Card Base */
@@ -713,6 +714,16 @@ section {
 
 .hub-card--compact .hub-data-note {
     margin-top: 0.55rem;
+}
+
+.hub-card-lead--compact {
+    margin: -0.35rem 0 0.75rem;
+    font-size: 0.78rem;
+    line-height: 1.45;
+}
+
+#hub-emergency.hub-card--compact {
+    padding: 1.35rem 1.5rem;
 }
 
 .hub-input-row {
@@ -1055,9 +1066,9 @@ section {
 /* --- 5. Emergency Contacts --- */
 .hub-emergency-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.35rem 0.75rem;
-    max-height: 7.5rem;
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+    max-height: 11rem;
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
