@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-# Apply Savanna Explorer nginx security headers on the production VPS.
+# Apply Savanna Explorer nginx CSP on the production VPS (inline site config patch).
 # Requires SSH config host "deploy-host" (see deploy-production workflow).
 
 set -euo pipefail
 
 SNIPPET_SRC="${1:-deploy/nginx/savannaexplorer-csp.conf}"
-SNIPPET_DEST="/etc/nginx/snippets/savannaexplorer-csp.conf"
 DEPLOY_PATH="${DEPLOY_PATH:-/var/www/savannaexplorer}"
 
 if [ ! -f "$SNIPPET_SRC" ]; then
@@ -13,17 +12,18 @@ if [ ! -f "$SNIPPET_SRC" ]; then
     exit 1
 fi
 
-echo "Uploading nginx security snippet..."
-ssh -F "$HOME/.ssh/config" deploy-host "sudo mkdir -p $(dirname "${SNIPPET_DEST}")"
-scp -F "$HOME/.ssh/config" "$SNIPPET_SRC" "deploy-host:/tmp/savannaexplorer-csp.conf.new"
+echo "Patching nginx CSP on production..."
+scp -F "$HOME/.ssh/config" "$SNIPPET_SRC" "deploy-host:/tmp/savannaexplorer-csp.conf"
 
-ssh -F "$HOME/.ssh/config" deploy-host "DEPLOY_PATH='${DEPLOY_PATH}' SNIPPET_DEST='${SNIPPET_DEST}' bash -s" <<'REMOTE'
+ssh -F "$HOME/.ssh/config" deploy-host "DEPLOY_PATH='${DEPLOY_PATH}' bash -s" <<'REMOTE'
 set -euo pipefail
 
-sudo mv /tmp/savannaexplorer-csp.conf.new "${SNIPPET_DEST}"
-sudo chmod 644 "${SNIPPET_DEST}"
+CSP_VALUE=$(sed -n 's/^add_header Content-Security-Policy "\(.*\)" always;$/\1/p' /tmp/savannaexplorer-csp.conf)
+if [ -z "$CSP_VALUE" ]; then
+    echo "Remote CSP parse failed"
+    exit 1
+fi
 
-# Find site config serving the app root
 SITE=""
 for candidate in /etc/nginx/sites-enabled/* /etc/nginx/conf.d/*.conf; do
     [ -f "$candidate" ] || continue
@@ -38,23 +38,31 @@ if [ -z "$SITE" ]; then
     exit 1
 fi
 
-echo "Patching nginx site config: ${SITE}"
+echo "Updating nginx site config: ${SITE}"
+sudo cp "$SITE" "${SITE}.bak.$(date +%Y%m%d_%H%M%S)"
 
-# Remove inline security headers so the snippet is the single source of truth
-sudo sed -i \
-    -e '/Strict-Transport-Security/d' \
-    -e '/X-Frame-Options/d' \
-    -e '/X-Content-Type-Options/d' \
-    -e '/Referrer-Policy/d' \
-    -e '/Content-Security-Policy/d' \
-    "$SITE"
+export CSP_VALUE SITE
+sudo python3 <<'PY'
+import os, re, pathlib
 
-# Ensure include exists inside the server block (once)
-if ! sudo grep -q 'savannaexplorer-csp.conf' "$SITE"; then
-    sudo sed -i "/server {/a\\    include ${SNIPPET_DEST};" "$SITE"
-fi
+site = os.environ["SITE"]
+csp = os.environ["CSP_VALUE"]
+path = pathlib.Path(site)
+text = path.read_text()
+replacement = f'add_header Content-Security-Policy "{csp}" always;'
+if "Content-Security-Policy" in text:
+    text = re.sub(
+        r'add_header Content-Security-Policy "[^"]*" always;',
+        replacement,
+        text,
+    )
+else:
+    text = text.replace("server {", f"server {{\n    {replacement}", 1)
+path.write_text(text)
+PY
 
 sudo nginx -t
 sudo systemctl reload nginx
-echo "Nginx security headers updated."
+rm -f /tmp/savannaexplorer-csp.conf
+echo "Nginx CSP updated."
 REMOTE
