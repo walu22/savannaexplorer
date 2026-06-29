@@ -11,6 +11,7 @@ import {
     getActivePassportId,
 } from './visa-passport-ui.js';
 import { buildPrintBudgetHtml } from '../lib/itinerary-budget.js';
+import { buildPrintExpenseHtml } from '../lib/print-expense.js';
 import printCss from '../../css/print-checklist.css?inline';
 
 const ITINERARY_COUNTRIES = {
@@ -74,7 +75,7 @@ function renderPackList(type) {
     ).join('');
 }
 
-function buildChecklistHtml({ countryIds, routeId, packType, packingItems, passportId }) {
+async function buildChecklistHtml({ countryIds, routeId, packType, packingItems, passportId }) {
     const route = routeId ? itineraries[routeId] : null;
     const passportMeta = getPassportMeta(passportId) || { label: passportId };
     const generated = new Date().toLocaleDateString('en-GB', {
@@ -143,6 +144,7 @@ function buildChecklistHtml({ countryIds, routeId, packType, packingItems, passp
     const countryNames = countryIds.map(id => COUNTRY_META[id]?.name || id).join(', ');
 
     const visaSummaryHtml = buildTripVisaSummaryBlock(countryIds, passportId);
+    const expenseHtml = await buildPrintExpenseHtml({ plannerRouteId: routeId || '' });
 
     return `
         <article class="print-checklist-doc">
@@ -163,6 +165,7 @@ function buildChecklistHtml({ countryIds, routeId, packType, packingItems, passp
             ${countryBlocks}
             ${bordersHtml}
             ${packingHtml}
+            ${expenseHtml}
             <footer class="print-footer">
                 <p><strong>Not a booking or quote.</strong> ${escapeHtml(practical.meta.disclaimer)}</p>
                 <p>Savanna Explorer is an independent planning hub — we do not sell tours, take payments, or act as a travel agent.</p>
@@ -283,7 +286,7 @@ export function initTripPlanner() {
         });
     });
 
-    document.getElementById('trip-preview-btn')?.addEventListener('click', () => {
+    document.getElementById('trip-preview-btn')?.addEventListener('click', async () => {
         const state = collectPlannerState();
         const error = validateState(state);
         const feedback = document.getElementById('trip-planner-feedback');
@@ -295,10 +298,10 @@ export function initTripPlanner() {
             return;
         }
         if (feedback) feedback.hidden = true;
-        renderPreview(buildChecklistHtml(state));
+        renderPreview(await buildChecklistHtml(state));
     });
 
-    document.getElementById('trip-print-btn')?.addEventListener('click', () => {
+    document.getElementById('trip-print-btn')?.addEventListener('click', async () => {
         const state = collectPlannerState();
         const error = validateState(state);
         const feedback = document.getElementById('trip-planner-feedback');
@@ -310,7 +313,7 @@ export function initTripPlanner() {
             return;
         }
         if (feedback) feedback.hidden = true;
-        const html = buildChecklistHtml(state);
+        const html = await buildChecklistHtml(state);
         renderPreview(html);
         printChecklist(html);
     });

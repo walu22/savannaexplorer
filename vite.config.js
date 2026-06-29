@@ -36,5 +36,26 @@ export default defineConfig(({ mode }) => ({
     build: {
         outDir: 'dist',
         emptyOutDir: true,
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    if (!id.includes('node_modules') && id.includes('/data/')) {
+                        if (id.includes('countries.json') || id.includes('country-depth.json')) {
+                            return 'data-countries';
+                        }
+                        if (id.includes('planning-guides.json') || id.includes('guides.json')) {
+                            return 'data-guides';
+                        }
+                        return 'data-misc';
+                    }
+                    if (id.includes('/js/modules/country-guide')) return 'mod-country-guide';
+                    if (id.includes('/js/modules/marketplace')) return 'mod-marketplace';
+                    if (id.includes('/js/modules/trip-planner')) return 'mod-trip-planner';
+                    if (id.includes('/js/modules/planning-guides')) return 'mod-planning-guides';
+                    if (id.includes('/js/modules/tourism-stats')) return 'mod-tourism-stats';
+                    if (id.includes('/js/modules/discover')) return 'mod-discover';
+                },
+            },
+        },
     },
 }));

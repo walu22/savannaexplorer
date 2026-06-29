@@ -496,6 +496,53 @@ body.site-v2 .plan-trip-icon {
     border-radius: var(--radius-md);
 }
 
+/* --- Gastronomy Journey --- */
+body.site-v2 .gastronomy {
+    padding: var(--section-pad) 0;
+    background: linear-gradient(145deg, #1a1208 0%, var(--bg-dark) 55%, #121820 100%);
+}
+
+body.site-v2 .gastronomy .section-eyebrow {
+    color: var(--primary-light);
+}
+
+body.site-v2 .gastronomy .section-header h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    color: var(--text-inverse);
+}
+
+body.site-v2 .gastronomy .section-header p {
+    color: rgba(247, 243, 237, 0.72);
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+
+body.site-v2 .gastro-card {
+    border-radius: var(--radius-md);
+}
+
+body.site-v2 .gastro-card h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    letter-spacing: -0.01em;
+    color: var(--primary-light);
+}
+
+body.site-v2 .gastro-country {
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+body.site-v2 .gastro-card p {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
 /* --- Experiences --- */
 body.site-v2 .experiences {
     padding: var(--section-pad) 0;
