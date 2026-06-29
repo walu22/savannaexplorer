@@ -314,7 +314,7 @@ body.site-v2 .mobile-nav-standalone:hover {
         letter-spacing: 1.5px;
     }
 
-    body.site-v2 nav .container {
+    body.site-v2 #navbar .container {
         gap: 0.75rem;
     }
 
