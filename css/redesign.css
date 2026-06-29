@@ -776,6 +776,14 @@ body.site-v2 .hub-card {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+body.site-v2 .hub-journey-nav {
+    top: calc(var(--header-height, 56px) + 0.35rem);
+}
+
+body.site-v2 .hub-toolbar {
+    border-radius: var(--radius-md);
+}
+
 /* Expense tracker — light compare panel must not inherit hub white text */
 body.site-v2 .utility-hub .expense-compare-panel {
     background: var(--bg-cream);

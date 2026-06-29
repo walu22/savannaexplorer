@@ -568,7 +568,19 @@
                 <h2>Traveler Utility Hub</h2>
                 <p>Practical planning tools with source links and verification dates — always confirm visa and health rules before travel.</p>
             </div>
-            <div class="hub-grid">
+            <div class="hub-toolbar">
+                <label class="hub-passport-label" for="hub-passport-select">Your passport</label>
+                <select id="hub-passport-select" class="hub-passport-select" data-passport-select aria-label="Passport nationality for visa and checklist"></select>
+            </div>
+            <nav class="hub-journey-nav" aria-label="Utility hub sections">
+                <button type="button" class="hub-journey-tab active" data-hub-tab="plan" aria-selected="true">Plan</button>
+                <button type="button" class="hub-journey-tab" data-hub-tab="documents" aria-selected="false">Documents</button>
+                <button type="button" class="hub-journey-tab" data-hub-tab="on-the-go" aria-selected="false">On the trip</button>
+                <button type="button" class="hub-journey-tab" data-hub-tab="when" aria-selected="false">When to go</button>
+            </nav>
+
+            <div class="hub-journey-panel active" id="hub-panel-plan" data-hub-panel="plan">
+                <div class="hub-grid">
                 <div class="hub-card hub-card--full" id="hub-trip-planner">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-clipboard-list"></i></span>
@@ -579,10 +591,6 @@
                         <div class="trip-planner-block">
                             <h4 class="trip-planner-label">Countries on your trip</h4>
                             <div class="trip-country-picker" id="trip-country-picker"></div>
-                        </div>
-                    <div class="trip-planner-row trip-planner-row--passport">
-                            <label class="trip-planner-label" for="trip-passport-select">Your passport</label>
-                            <select id="trip-passport-select" class="trip-planner-select" data-passport-select aria-label="Passport nationality for visa summary"></select>
                         </div>
                         <div class="trip-planner-row">
                             <label class="trip-planner-label" for="trip-route-select">Route template <span class="trip-optional">(optional)</span></label>
@@ -606,102 +614,7 @@
                     </div>
                 </div>
 
-                <div class="hub-card hub-card--full" id="hub-on-the-ground">
-                    <div class="hub-card-header">
-                        <span class="hub-icon"><i class="fas fa-map-signs"></i></span>
-                        <h3>On the Ground — Cash, Fuel &amp; Power</h3>
-                    </div>
-                    <p class="hub-card-lead">Practical realities by country — plugs, payments, fuel planning, and local conditions.</p>
-                    <div class="on-ground-filters" id="on-ground-filters"></div>
-                    <div class="on-ground-grid" id="on-ground-grid"></div>
-                    <p class="hub-data-note" id="on-ground-disclaimer"></p>
-                </div>
-
-                <div class="hub-card hub-card--md hub-card--compact" id="hub-currency">
-                    <div class="hub-card-header">
-                        <span class="hub-icon"><i class="fas fa-coins"></i></span>
-                        <h3>Currency Converter</h3>
-                    </div>
-                    <div class="hub-converter">
-                        <div class="hub-input-row hub-input-row--converter">
-                            <div class="hub-input-group">
-                                <label for="hub-amount">Amount</label>
-                                <input type="number" id="hub-amount" value="100" min="1">
-                            </div>
-                            <div class="hub-input-group">
-                                <label for="hub-from-currency">From</label>
-                                <select id="hub-from-currency"></select>
-                            </div>
-                            <div class="hub-input-group">
-                                <label for="hub-to-currency">To</label>
-                                <select id="hub-to-currency"></select>
-                            </div>
-                        </div>
-                        <div class="hub-currency-primary" id="hub-currency-primary" aria-live="polite"></div>
-                        <details class="hub-panel-details hub-currency-all">
-                            <summary>All regional rates</summary>
-                            <div class="hub-currency-results" id="hub-results"></div>
-                        </details>
-                        <p class="hub-data-note" id="hub-currency-note"></p>
-                    </div>
-                </div>
-
-                <div class="hub-card hub-card--lg" id="hub-visa">
-                    <div class="hub-card-header">
-                        <span class="hub-icon"><i class="fas fa-passport"></i></span>
-                        <h3>Visa &amp; Health Matrix</h3>
-                    </div>
-                    <div class="hub-passport-row">
-                        <label class="hub-passport-label" for="hub-passport-select">Your passport</label>
-                        <select id="hub-passport-select" class="hub-passport-select" data-passport-select aria-label="Passport nationality"></select>
-                    </div>
-                    <div class="hub-visa-summary" id="hub-visa-summary" hidden></div>
-                    <div class="hub-search">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="hub-visa-search" placeholder="Search country...">
-                    </div>
-                    <div class="hub-matrix">
-                        <div class="hub-matrix-head">
-                            <span>Country</span><span>Visa</span><span>Health</span><span>Advisory</span>
-                        </div>
-                        <div id="hub-visa-matrix"></div>
-                    </div>
-                    <div class="hub-visa-notes" id="hub-visa-notes"></div>
-                    <p class="hub-matrix-footnote">Visa column updates for your passport. Health and advisory are general — see official links below.</p>
-                </div>
-
-                <div class="hub-card hub-card--md" id="hub-seasons">
-                    <div class="hub-card-header">
-                        <span class="hub-icon"><i class="fas fa-sun"></i></span>
-                        <h3>Best Time to Visit</h3>
-                    </div>
-                    <div class="hub-legend">
-                        <span class="legend-dot legend-peak"></span> Peak
-                        <span class="legend-dot legend-shoulder"></span> Shoulder
-                        <span class="legend-dot legend-off"></span> Off-Season
-                    </div>
-                    <div class="hub-season-grid" id="hub-season-grid"></div>
-                </div>
-
-                <div class="hub-card hub-card--md" id="hub-weather">
-                    <div class="hub-card-header">
-                        <span class="hub-icon"><i class="fas fa-cloud-sun"></i></span>
-                        <h3>Weather — Live &amp; Typical</h3>
-                    </div>
-                    <div class="hub-weather-grid" id="hub-weather-grid"></div>
-                    <p class="hub-data-note" id="hub-weather-note"></p>
-                </div>
-
-                <div class="hub-card hub-card--sm hub-card--compact" id="hub-emergency">
-                    <div class="hub-card-header">
-                        <span class="hub-icon hub-icon--red"><i class="fas fa-phone-alt"></i></span>
-                        <h3>Emergency Contacts</h3>
-                    </div>
-                    <p class="hub-card-lead hub-card-lead--compact">Police &amp; ambulance — tap ↗ for official source.</p>
-                    <div class="hub-emergency-list" id="hub-emergency-list"></div>
-                </div>
-
-                <div class="hub-card hub-card--lg" id="hub-expense-tracker">
+                <div class="hub-card hub-card--full" id="hub-expense-tracker">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-wallet"></i></span>
                         <h3>Trip Expense Tracker</h3>
@@ -744,23 +657,110 @@
                     </div>
                     <p class="hub-data-note" id="expense-disclaimer"></p>
                 </div>
+                </div>
+            </div>
 
-                <div class="hub-card hub-card--sm" id="hub-packing">
+            <div class="hub-journey-panel" id="hub-panel-documents" data-hub-panel="documents" hidden>
+                <div class="hub-grid">
+                <div class="hub-card hub-card--full" id="hub-visa">
                     <div class="hub-card-header">
-                        <span class="hub-icon"><i class="fas fa-suitcase-rolling"></i></span>
-                        <h3>Packing Wizard</h3>
+                        <span class="hub-icon"><i class="fas fa-passport"></i></span>
+                        <h3>Visa &amp; Health Matrix</h3>
                     </div>
-                    <div class="hub-pack-tabs">
-                        <button class="hub-tab active" data-pack="safari">🦁 Safari</button>
-                        <button class="hub-tab" data-pack="beach">🏖️ Beach</button>
-                        <button class="hub-tab" data-pack="city">🏙️ City</button>
-                        <button class="hub-tab" data-pack="mountain">⛰️ Mountain</button>
+                    <p class="hub-card-lead hub-card-lead--compact">Visa column uses your passport selected above. Health and advisory are general — confirm official sources.</p>
+                    <div class="hub-visa-summary" id="hub-visa-summary" hidden></div>
+                    <div class="hub-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="hub-visa-search" placeholder="Search country...">
                     </div>
-                    <div class="hub-pack-progress">
-                        <div class="hub-progress-bar"><div class="hub-progress-fill" id="pack-progress"></div></div>
-                        <span class="hub-progress-text" id="pack-progress-text">0 of 8 packed</span>
+                    <div class="hub-matrix">
+                        <div class="hub-matrix-head">
+                            <span>Country</span><span>Visa</span><span>Health</span><span>Advisory</span>
+                        </div>
+                        <div id="hub-visa-matrix"></div>
                     </div>
-                    <div class="hub-pack-list" id="hub-pack-list"></div>
+                    <div class="hub-visa-notes" id="hub-visa-notes"></div>
+                    <p class="hub-matrix-footnote">Visa column updates for your passport. Health and advisory are general — see official links below.</p>
+                </div>
+                </div>
+            </div>
+
+            <div class="hub-journey-panel" id="hub-panel-on-the-go" data-hub-panel="on-the-go" hidden>
+                <div class="hub-grid hub-grid--on-the-go">
+                <div class="hub-card hub-card--md hub-card--compact" id="hub-currency">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-coins"></i></span>
+                        <h3>Currency Converter</h3>
+                    </div>
+                    <div class="hub-converter">
+                        <div class="hub-input-row hub-input-row--converter">
+                            <div class="hub-input-group">
+                                <label for="hub-amount">Amount</label>
+                                <input type="number" id="hub-amount" value="100" min="1">
+                            </div>
+                            <div class="hub-input-group">
+                                <label for="hub-from-currency">From</label>
+                                <select id="hub-from-currency"></select>
+                            </div>
+                            <div class="hub-input-group">
+                                <label for="hub-to-currency">To</label>
+                                <select id="hub-to-currency"></select>
+                            </div>
+                        </div>
+                        <div class="hub-currency-primary" id="hub-currency-primary" aria-live="polite"></div>
+                        <details class="hub-panel-details hub-currency-all">
+                            <summary>All regional rates</summary>
+                            <div class="hub-currency-results" id="hub-results"></div>
+                        </details>
+                        <p class="hub-data-note" id="hub-currency-note"></p>
+                    </div>
+                </div>
+
+                <div class="hub-card hub-card--sm hub-card--compact" id="hub-emergency">
+                    <div class="hub-card-header">
+                        <span class="hub-icon hub-icon--red"><i class="fas fa-phone-alt"></i></span>
+                        <h3>Emergency Contacts</h3>
+                    </div>
+                    <p class="hub-card-lead hub-card-lead--compact">Police &amp; ambulance — tap ↗ for official source.</p>
+                    <div class="hub-emergency-list" id="hub-emergency-list"></div>
+                </div>
+
+                <div class="hub-card hub-card--full" id="hub-on-the-ground">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-map-signs"></i></span>
+                        <h3>On the Ground — Cash, Fuel &amp; Power</h3>
+                    </div>
+                    <p class="hub-card-lead">Practical realities by country — plugs, payments, fuel planning, and local conditions.</p>
+                    <div class="on-ground-filters" id="on-ground-filters"></div>
+                    <div class="on-ground-grid" id="on-ground-grid"></div>
+                    <p class="hub-data-note" id="on-ground-disclaimer"></p>
+                </div>
+                </div>
+            </div>
+
+            <div class="hub-journey-panel" id="hub-panel-when" data-hub-panel="when" hidden>
+                <div class="hub-grid">
+                <div class="hub-card hub-card--md" id="hub-seasons">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-sun"></i></span>
+                        <h3>Best Time to Visit</h3>
+                    </div>
+                    <div class="hub-legend">
+                        <span class="legend-dot legend-peak"></span> Peak
+                        <span class="legend-dot legend-shoulder"></span> Shoulder
+                        <span class="legend-dot legend-off"></span> Off-Season
+                    </div>
+                    <div class="hub-season-grid" id="hub-season-grid"></div>
+                </div>
+
+                <div class="hub-card hub-card--md" id="hub-weather">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-cloud-sun"></i></span>
+                        <h3>Weather — Live &amp; Typical</h3>
+                    </div>
+                    <div class="hub-weather-grid" id="hub-weather-grid"></div>
+                    <p class="hub-data-note" id="hub-weather-note"></p>
+                </div>
                 </div>
             </div>
             <p class="hub-disclaimer" id="hub-disclaimer"></p>

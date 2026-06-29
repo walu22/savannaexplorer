@@ -1,6 +1,5 @@
 import practical from '../../data/practical.json';
 import {
-    bindPassportSelect,
     getPassportMeta,
     getVisaForPassport,
     getVisaPassportLastVerified,
@@ -104,9 +103,8 @@ export function applyPassportToVisaHub(passportId) {
 }
 
 export function initPassportVisaHelper() {
-    bindPassportSelect(document.getElementById('hub-passport-select'), applyPassportToVisaHub);
-    bindPassportSelect(document.getElementById('trip-passport-select'), applyPassportToVisaHub);
-    applyPassportToVisaHub(document.getElementById('hub-passport-select')?.value || activePassportId);
+    const passportId = document.getElementById('hub-passport-select')?.value || activePassportId;
+    applyPassportToVisaHub(passportId);
 }
 
 export function buildTripVisaBlock(countryId, passportId) {

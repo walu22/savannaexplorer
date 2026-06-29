@@ -179,7 +179,7 @@ function collectPlannerState() {
     const routeId = document.getElementById('trip-route-select')?.value || '';
     const packType = document.querySelector('#trip-planner .hub-tab.active')?.dataset.pack || 'safari';
     const packingItems = getSelectedPackingItems();
-    const passportId = document.getElementById('trip-passport-select')?.value
+    const passportId = document.getElementById('hub-passport-select')?.value
         || getActivePassportId()
         || getDefaultPassportId();
 
