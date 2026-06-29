@@ -4648,12 +4648,12 @@ footer {
     width: 100%;
     margin-bottom: 1rem;
     padding: 0.65rem 0.75rem;
-    border: 1px solid var(--border-subtle);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--radius-sm);
     font-family: inherit;
     font-size: 0.88rem;
-    background: var(--bg-surface);
-    color: var(--text-body);
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--text-inverse);
 }
 
 .expense-budget-compare {
@@ -4662,7 +4662,7 @@ footer {
 
 .expense-compare-empty {
     font-size: 0.88rem;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.65);
     margin: 0 0 0.5rem;
 }
 
@@ -4670,7 +4670,12 @@ footer {
     padding: 1rem 1.1rem;
     border-radius: var(--radius-md);
     border: 1px solid var(--border-subtle);
-    background: var(--bg-light);
+    background: var(--bg-cream);
+    color: var(--text-body);
+}
+
+.expense-compare-panel strong {
+    color: var(--text-dark);
 }
 
 .expense-compare-panel.expense-compare--ok {
@@ -4770,6 +4775,7 @@ footer {
     padding: 0.45rem 0.35rem;
     text-align: left;
     border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-body);
 }
 
 .expense-compare-table th {
