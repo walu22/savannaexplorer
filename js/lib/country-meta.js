@@ -2,7 +2,7 @@ export const COUNTRY_META = {
     'south-africa': {
         name: 'South Africa',
         flag: '🇿🇦',
-        cardImage: '1547448415-e9f5b28e570d',
+        cardImage: '1755251418399-c56a9579858f',
         highlights: 'Kruger Park • Cape Town • Garden Route • Drakensberg • Winelands',
     },
     namibia: {
@@ -26,7 +26,7 @@ export const COUNTRY_META = {
     zimbabwe: {
         name: 'Zimbabwe',
         flag: '🇿🇼',
-        cardImage: '1516026672322-bc52d61a55d5',
+        cardImage: '1759164882609-58b00ec3b09a',
         highlights: 'Victoria Falls • Hwange • Mana Pools • Lake Kariba • Matobo Hills',
     },
     mozambique: {
@@ -44,13 +44,13 @@ export const COUNTRY_META = {
     lesotho: {
         name: 'Lesotho',
         flag: '🇱🇸',
-        cardImage: '1541414779316-956a5084c0d4',
+        cardImage: '1663527025647-0934ef6d06e5',
         highlights: 'Maletsunyane Falls • Sani Pass • Sehlabathebe • Thaba Bosiu • Katse Dam',
     },
     eswatini: {
         name: 'Eswatini',
         flag: '🇸🇿',
-        cardImage: '1518709766631-a6a7f45921c3',
+        cardImage: '1500530855697-b586d89ba3ee',
         highlights: 'Hlane Royal Park • Mlilwane • Mantenga Village • Mkhaya • Ezulwini',
     },
 };

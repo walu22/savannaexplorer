@@ -7,6 +7,14 @@ export const NAV_CTA = {
     mobileLabel: 'Plan my trip',
 };
 
+/** Utility hub journey tabs — hash routes handled by utility-hub/tabs.js */
+export const NAV_HUB_TABS = [
+    { href: '#plan', label: 'Plan & checklist' },
+    { href: '#plan/documents', label: 'Visa & documents' },
+    { href: '#plan/on-the-go', label: 'On the trip' },
+    { href: '#plan/when', label: 'When to go' },
+];
+
 export const NAV_DESKTOP_TOP = [
     { href: '#news', label: 'News' },
 ];

@@ -93,6 +93,26 @@ body.site-v2 .nav-cta:hover {
     background: var(--primary-dark) !important;
 }
 
+body.site-v2 .nav-dropdown--cta .nav-drop-toggle.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: inherit;
+}
+
+body.site-v2 .nav-dropdown--cta .nav-drop-toggle.nav-cta i {
+    font-size: 0.65rem;
+    opacity: 0.9;
+}
+
+body.site-v2 .nav-dropdown--cta.open .nav-drop-toggle.nav-cta {
+    background: var(--primary-dark) !important;
+}
+
+body.site-v2 .nav-drop-menu--hub {
+    min-width: 11rem;
+}
+
 body.site-v2.country-detail-open #navbar {
     visibility: hidden;
     pointer-events: none;
