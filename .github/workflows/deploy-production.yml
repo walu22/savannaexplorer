@@ -112,5 +112,6 @@ jobs:
           curl -fsSL "https://savannaexplorer.com/" | grep -q 'Plan trip'
           curl -fsSL "https://savannaexplorer.com/" | grep -q 'Travel tools'
           curl -fsSL "https://savannaexplorer.com/sitemap.xml" | grep -q 'stays/sanparks'
-          curl -fsSL "https://savannaexplorer.com/version.json" | grep -q "\"version\": \"${VERSION}\""
+          DEPLOYED=$(curl -fsSL "https://savannaexplorer.com/version.json")
+          echo "$DEPLOYED" | grep -q "\"version\": \"${VERSION}\""
           echo "Production verified at v${VERSION}."
