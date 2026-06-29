@@ -14,24 +14,8 @@ import { buildPrintBudgetHtml } from '../lib/itinerary-budget.js';
 import { buildPrintExpenseHtml } from '../lib/print-expense.js';
 import printCss from '../../css/print-checklist.css?inline';
 
-const ITINERARY_COUNTRIES = {
-    'desert-to-delta': ['namibia', 'botswana'],
-    'coastal-explorer': ['south-africa', 'mozambique'],
-    'falls-beyond': ['zambia', 'zimbabwe'],
-    'kingdom-circuit': ['south-africa', 'lesotho', 'eswatini'],
-    'lake-mountain': ['malawi', 'zambia'],
-    'grand-safari': ['botswana', 'zimbabwe', 'zambia'],
-    'namibia-essentials': ['namibia'],
-    'south-africa-classic': ['south-africa'],
-    'botswana-delta-focus': ['botswana'],
-    'zambia-falls-safari': ['zambia'],
-    'zimbabwe-wilderness': ['zimbabwe'],
-    'mozambique-bush-beach': ['mozambique'],
-    'malawi-lake-safari': ['malawi'],
-    'lesotho-highlands': ['lesotho'],
-    'eswatini-kingdom': ['eswatini'],
-};
-
+import { ITINERARY_COUNTRIES } from '../lib/itinerary-route-countries.js';
+import { syncPlannerExpenseRoute, initPlannerExpenseSync } from '../lib/planner-expense-sync.js';
 function escapeHtml(text) {
     return String(text)
         .replace(/&/g, '&amp;')
@@ -276,7 +260,10 @@ export function initTripPlanner() {
     routeSelect.addEventListener('change', () => {
         const ids = ITINERARY_COUNTRIES[routeSelect.value];
         if (ids?.length) setCountrySelection(ids);
+        syncPlannerExpenseRoute(routeSelect.value, { source: 'planner' });
     });
+
+    void initPlannerExpenseSync();
 
     document.querySelectorAll('#trip-planner .hub-tab').forEach(tab => {
         tab.addEventListener('click', function () {

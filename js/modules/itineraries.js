@@ -8,7 +8,7 @@ import {
 import { renderBudgetBreakdownHtml } from '../lib/itinerary-budget.js';
 import { renderItineraryMapLink, mountRouteMap, destroyRouteMap } from '../lib/itinerary-maps.js';
 import { createModalFocusManager } from '../lib/modal-focus.js';
-import { linkItineraryToExpenseTracker } from './expense-tracker.js';
+import { syncPlannerExpenseRoute } from '../lib/planner-expense-sync.js';
 
 let currentItineraryId = null;
 let activeScopeFilter = 'all';
@@ -190,7 +190,9 @@ export function initItineraries() {
     document.getElementById('itin-expense-tracker')?.addEventListener('click', () => {
         const itineraryId = currentItineraryId;
         closeItineraryModal();
-        if (itineraryId) linkItineraryToExpenseTracker(itineraryId);
+        if (itineraryId) {
+            void syncPlannerExpenseRoute(itineraryId, { source: 'external' });
+        }
         document.getElementById('plan')?.scrollIntoView({ behavior: 'smooth' });
         document.getElementById('hub-expense-tracker')?.scrollIntoView({ behavior: 'smooth' });
         document.getElementById('expense-amount')?.focus();
