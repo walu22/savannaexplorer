@@ -99,7 +99,8 @@ jobs:
       - name: Verify deployment
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          curl -fsSL "https://savannaexplorer.com/" | grep -q 'Book Direct'
+          curl -fsSL "https://savannaexplorer.com/" | grep -q 'Plan trip'
+          curl -fsSL "https://savannaexplorer.com/" | grep -q 'Travel tools'
           curl -fsSL "https://savannaexplorer.com/sitemap.xml" | grep -q 'stays/sanparks'
           JS=$(curl -fsSL "https://savannaexplorer.com/" | grep -oE 'assets/index-[^"]+\.js' | head -1)
           curl -fsSL "https://savannaexplorer.com/${JS}" | grep -q "${VERSION}"

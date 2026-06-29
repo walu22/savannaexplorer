@@ -10,7 +10,15 @@ body.site-v2 .nav-inner {
 body.site-v2 .nav-links--desktop {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.15rem;
     margin-left: auto;
+    list-style: none;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
 }
 
 body.site-v2 .nav-mobile-controls {
@@ -226,20 +234,73 @@ body.site-v2 .mobile-nav-standalone:hover {
     color: var(--primary);
 }
 
-@media (min-width: 993px) {
+/* Journey nav from 769px up — avoids treating narrow laptop/tablet windows as "mobile" */
+@media (min-width: 769px) {
     body.site-v2 .nav-mobile-controls,
     body.site-v2 .mobile-nav-panel {
         display: none !important;
     }
+
+    body.site-v2 .nav-links--desktop {
+        display: flex !important;
+        position: static !important;
+        flex-direction: row !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        pointer-events: auto !important;
+        width: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    body.site-v2 .nav-links--desktop > li {
+        width: auto;
+    }
 }
 
-@media (max-width: 992px) {
+/* Compact labels when the header is tight but still desktop journey nav */
+@media (min-width: 769px) and (max-width: 1140px) {
+    body.site-v2 .nav-links--desktop > li > a,
+    body.site-v2 .nav-links--desktop > li > button.nav-drop-toggle {
+        padding: 0.45rem 0.6rem;
+        font-size: 0.76rem;
+    }
+
+    body.site-v2 .nav-links--desktop .nav-cta {
+        padding: 0.5rem 0.95rem !important;
+        font-size: 0.76rem;
+    }
+
+    body.site-v2 .logo {
+        font-size: 0.82rem;
+        letter-spacing: 1.5px;
+    }
+}
+
+@media (max-width: 768px) {
     body.site-v2 .nav-links--desktop {
         display: none !important;
     }
 
     body.site-v2 .nav-mobile-controls {
         display: flex;
+    }
+
+    body.site-v2 .logo {
+        flex: 1;
+        min-width: 0;
+        font-size: 0.82rem;
+        letter-spacing: 1.5px;
+    }
+
+    body.site-v2 nav .container {
+        gap: 0.75rem;
     }
 
     body.site-v2 .menu-toggle {
