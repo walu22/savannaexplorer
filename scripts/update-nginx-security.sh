@@ -42,7 +42,7 @@ echo "Updating nginx site config: ${SITE}"
 sudo cp "$SITE" "${SITE}.bak.$(date +%Y%m%d_%H%M%S)"
 
 export CSP_VALUE SITE
-sudo python3 <<'PY'
+sudo CSP_VALUE="$CSP_VALUE" SITE="$SITE" python3 <<'PY'
 import os, re, pathlib
 
 site = os.environ["SITE"]
