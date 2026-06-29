@@ -146,3 +146,8 @@ jobs:
           curl -fsSL "https://savannaexplorer.com/version.json" -o /tmp/version.json
           grep -q "\"version\": \"${VERSION}\"" /tmp/version.json
           echo "Production verified at v${VERSION}."
+
+      - name: Submit sitemap to search engines
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: node scripts/submit-search-indexing.mjs https://savannaexplorer.com

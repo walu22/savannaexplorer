@@ -39,8 +39,9 @@ Track verification and indexing progress for https://savannaexplorer.com/
 | Item | Status | Date |
 |------|--------|------|
 | Sitemap submitted (`sitemap.xml`) | ☑ Done | June 28, 2026 |
-| GSC status | ☑ Success | |
-| Discovered pages | Resubmit sitemap after deploy — expect ~160 URLs | |
+| Auto-resubmit on deploy | ☑ IndexNow + optional GSC API | v4.34.1+ |
+| GSC status | Resubmit in GSC UI or set `GSC_SERVICE_ACCOUNT_JSON` secret | |
+| Discovered pages | Expect **160 URLs** after next crawl | |
 
 ### Priority URL indexing requests
 
@@ -66,7 +67,22 @@ Use GSC → URL inspection → Request indexing:
 
 ---
 
-## Bing Webmaster Tools
+## Automated search indexing (v4.34.1+)
+
+After each successful deploy, `scripts/submit-search-indexing.mjs` runs automatically:
+
+1. **IndexNow** — notifies Bing, Yandex, Naver, and other IndexNow partners with all sitemap URLs (160) plus priority pages.
+2. **Google Search Console** (optional) — resubmits the sitemap via API if GitHub secret `GSC_SERVICE_ACCOUNT_JSON` is set.
+
+### One-time GSC API setup (optional, for Google)
+
+1. Create a Google Cloud service account with Search Console API enabled.
+2. In [Search Console](https://search.google.com/search-console) → Settings → Users, add the service account email as **Owner**.
+3. Add the service account JSON (full file contents) as GitHub secret `GSC_SERVICE_ACCOUNT_JSON`.
+
+Without this secret, IndexNow still notifies Bing; Google relies on sitemap crawls or manual GSC resubmit.
+
+---
 
 | Item | Status | Date |
 |------|--------|------|
@@ -93,7 +109,7 @@ Run after any deploy:
 
 ```bash
 curl -sI https://savannaexplorer.com/sitemap.xml | head -3
-curl -s https://savannaexplorer.com/sitemap.xml | grep -c '<loc>'   # expect 97
+curl -s https://savannaexplorer.com/sitemap.xml | grep -c '<loc>'   # expect 160
 curl -sL https://savannaexplorer.com/countries/namibia | grep '<title>'
 curl -sL https://savannaexplorer.com/stays/sanparks-reservations | grep '<title>'
 ```
