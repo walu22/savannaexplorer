@@ -44,49 +44,6 @@ body.site-v2 .skip-link:focus {
     outline-offset: 2px;
 }
 
-/* On this page */
-body.site-v2 .page-contents {
-    background: var(--bg-cream);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 1.25rem 0 1.5rem;
-}
-
-body.site-v2 .page-contents-label {
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 0.75rem;
-}
-
-body.site-v2 .page-contents-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem 0.65rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-body.site-v2 .page-contents-links a {
-    display: inline-block;
-    padding: 0.4rem 0.85rem;
-    border-radius: var(--radius-pill);
-    border: 1px solid var(--border-subtle);
-    background: var(--bg-surface);
-    color: var(--accent);
-    font-size: 0.82rem;
-    font-weight: 600;
-}
-
-body.site-v2 .page-contents-links a:hover,
-body.site-v2 .page-contents-links a.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--text-inverse);
-}
-
 body.site-v2 .nav-drop-menu a.active {
     background: var(--bg-warm);
     color: var(--accent);
@@ -206,11 +163,6 @@ body.site-v2 .back-to-top[hidden] {
 }
 
 @media (max-width: 768px) {
-    body.site-v2 .page-contents-links a {
-        font-size: 0.78rem;
-        padding: 0.35rem 0.7rem;
-    }
-
     body.site-v2 .back-to-top {
         right: 1rem;
         bottom: 1rem;

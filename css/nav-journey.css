@@ -52,8 +52,16 @@ body.site-v2 .menu-toggle--labeled {
     font-weight: 700;
 }
 
-body.site-v2 .menu-toggle-label {
-    letter-spacing: 0.04em;
+body.site-v2 .nav-drop-toggle i {
+    margin-left: 0.25rem;
+    font-size: 0.65rem;
+    opacity: 0.75;
+}
+
+@media (min-width: 769px) {
+    body.site-v2 .nav-drop-toggle {
+        cursor: pointer;
+    }
 }
 
 /* Wide destinations dropdown */

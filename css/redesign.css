@@ -26,9 +26,10 @@ body.site-v2 .container {
 /* --- Navigation v4 --- */
 body.site-v2 nav {
     height: var(--header-height);
-    background: rgba(253, 251, 247, 0.9);
+    background: rgba(253, 251, 247, 0.96);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-sm);
 }
 
 body.site-v2 nav.scrolled {

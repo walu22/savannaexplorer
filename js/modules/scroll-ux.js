@@ -20,19 +20,6 @@ const TRACKED_SECTIONS = [
     'contact',
 ];
 
-const PAGE_CONTENTS = [
-    { href: '#destinations', label: 'Destinations' },
-    { href: '#itineraries', label: 'Itineraries' },
-    { href: '#parks', label: 'National Parks' },
-    { href: '#book-direct', label: 'Book Direct' },
-    { href: '#transport', label: 'Transport' },
-    { href: '#plan', label: 'Travel Tools' },
-    { href: '#health', label: 'Health & Safety' },
-    { href: '#guides', label: 'Planning Guides' },
-    { href: '#about', label: 'About' },
-    { href: '#contact', label: 'Contact' },
-];
-
 function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
@@ -47,7 +34,6 @@ function getScrollOffset() {
     return height + 12;
 }
 
-
 function scrollToSection(sectionId, { updateHash = true } = {}) {
     routerScrollToSection(sectionId);
     if (updateHash && sectionId !== 'home') {
@@ -57,7 +43,7 @@ function scrollToSection(sectionId, { updateHash = true } = {}) {
 
 function clearNavActive() {
     document.querySelectorAll(
-        '.nav-links--desktop a.active, .nav-drop-menu a.active, .page-contents-links a.active, .mobile-nav-panel a.active'
+        '.nav-links--desktop a.active, .nav-drop-menu a.active, .mobile-nav-panel a.active'
     ).forEach(link => {
         link.classList.remove('active');
         link.removeAttribute('aria-current');
@@ -67,11 +53,7 @@ function clearNavActive() {
 function setNavActive(sectionId) {
     clearNavActive();
     document.querySelectorAll(`a[href="#${sectionId}"]`).forEach(link => {
-        if (
-            link.closest('.nav-links--desktop')
-            || link.closest('.page-contents-links')
-            || link.closest('.mobile-nav-panel')
-        ) {
+        if (link.closest('.nav-links--desktop') || link.closest('.mobile-nav-panel')) {
             link.classList.add('active');
             link.setAttribute('aria-current', 'true');
         }
@@ -141,15 +123,6 @@ function initBackToTop() {
     });
 }
 
-function initPageContents() {
-    const list = document.getElementById('page-contents-links');
-    if (!list) return;
-
-    list.innerHTML = PAGE_CONTENTS.map(({ href, label }) =>
-        `<li><a href="${href}">${label}</a></li>`
-    ).join('');
-}
-
 function initHashOnLoad() {
     const hash = window.location.hash.slice(1);
     if (!hash || !document.getElementById(hash)) return;
@@ -161,7 +134,6 @@ function initHashOnLoad() {
 }
 
 export function initScrollUx() {
-    initPageContents();
     initAnchorLinks();
     initScrollSpy();
     initBackToTop();
