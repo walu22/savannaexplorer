@@ -3,6 +3,7 @@ import parks from '../../data/parks.json';
 import borders from '../../data/borders.json';
 import itineraries from '../../data/itineraries.json';
 import listings from '../../data/stays-operators.json';
+import guidesData from '../../data/planning-guides.json';
 import { revealThroughSection } from '../modules/reveal.js';
 
 export const COUNTRY_IDS = Object.keys(countries);
@@ -43,6 +44,10 @@ export function listingPath(itemOrId) {
     return `/${segment}/${item.id}`;
 }
 
+export function planningGuidePath(countryId) {
+    return `/guides/planning/${countryId}`;
+}
+
 export function parseLocation(loc = window.location) {
     const { pathname, hash } = loc;
 
@@ -74,6 +79,11 @@ export function parseLocation(loc = window.location) {
     const operatorMatch = pathname.match(/^\/operators\/([a-z0-9-]+)\/?$/);
     if (operatorMatch && listingById.get(operatorMatch[1])?.kind === 'operator') {
         return { type: 'listing', listingId: operatorMatch[1] };
+    }
+
+    const planningGuideMatch = pathname.match(/^\/guides\/planning\/([a-z-]+)\/?$/);
+    if (planningGuideMatch && guidesData.guides[planningGuideMatch[1]]) {
+        return { type: 'planning-guide', countryId: planningGuideMatch[1] };
     }
 
     const hubMatch = pathname.match(/^\/([a-z0-9-]+)\/?$/);

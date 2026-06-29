@@ -22,8 +22,9 @@ import {
     scrollToSection,
     countryPath,
     COUNTRY_IDS,
+    HUB_SECTIONS,
 } from '../lib/router.js';
-import { setCountryMeta, setHomeMeta } from '../lib/page-meta.js';
+import { setCountryMeta, setHomeMeta, setHubMeta } from '../lib/page-meta.js';
 import { dismissSeoPrerender } from '../lib/seo-prerender.js';
 import { handleSeoRoute } from './seo-routes.js';
 import { getCountryLastReviewed, lastReviewedLabel, toIsoReviewDate } from '../lib/content-meta.js';
@@ -421,7 +422,7 @@ function handleRoute(route) {
         return;
     }
 
-    if (route.type === 'park' || route.type === 'border' || route.type === 'itinerary' || route.type === 'listing') {
+    if (route.type === 'park' || route.type === 'border' || route.type === 'itinerary' || route.type === 'listing' || route.type === 'planning-guide') {
         hideCountryPage();
         handleSeoRoute(route);
         return;
@@ -429,7 +430,11 @@ function handleRoute(route) {
 
     hideCountryPage();
     dismissSeoPrerender();
-    setHomeMeta();
+    if (route.sectionHash && HUB_SECTIONS.has(route.sectionHash)) {
+        setHubMeta(route.sectionHash);
+    } else {
+        setHomeMeta();
+    }
     if (route.sectionHash && !COUNTRY_IDS.includes(route.sectionHash)) {
         requestAnimationFrame(() => {
             requestAnimationFrame(() => scrollToSection(route.sectionHash));

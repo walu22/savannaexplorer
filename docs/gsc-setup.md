@@ -12,7 +12,7 @@ Track verification and indexing progress for https://savannaexplorer.com/
 |-------|-------|
 | Site URL | `https://savannaexplorer.com` |
 | Sitemap URL | `https://savannaexplorer.com/sitemap.xml` |
-| Sitemap URL count | 97 (as of v4.15.0) |
+| Sitemap URL count | 160 (as of v4.34.0) |
 | `robots.txt` | Allows all crawlers; references sitemap |
 
 ---
@@ -40,7 +40,7 @@ Track verification and indexing progress for https://savannaexplorer.com/
 |------|--------|------|
 | Sitemap submitted (`sitemap.xml`) | ☑ Done | June 28, 2026 |
 | GSC status | ☑ Success | |
-| Discovered pages | ☑ 97 | |
+| Discovered pages | Resubmit sitemap after deploy — expect ~160 URLs | |
 
 ### Priority URL indexing requests
 
@@ -55,7 +55,8 @@ Use GSC → URL inspection → Request indexing:
 - [x] `https://savannaexplorer.com/borders/vioolsdrift`
 - [x] `https://savannaexplorer.com/itineraries/desert-to-delta`
 - [x] `https://savannaexplorer.com/stays/sanparks-reservations`
-- [x] `https://savannaexplorer.com/operators/botswana-tourism-operators`
+- [x] `https://savannaexplorer.com/guides/planning/namibia`
+- [x] `https://savannaexplorer.com/plan`
 
 ### Weekly check (after setup)
 

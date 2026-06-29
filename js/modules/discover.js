@@ -2,7 +2,7 @@ import discover from '../../data/discover.json';
 import guidesData from '../../data/planning-guides.json';
 import faqs from '../../data/faqs.json';
 import { getCountryMeta } from '../lib/country-meta.js';
-import { countryPath } from '../lib/router.js';
+import { countryPath, planningGuidePath } from '../lib/router.js';
 import { openCountryPage } from './country-guide.js';
 import { openPlanningGuide } from './planning-guides.js';
 
@@ -102,7 +102,7 @@ function renderPlanningGuides() {
                 <div class="guide-download-header">
                     <span class="guide-download-flag">${meta.flag}</span>
                     <div>
-                        <h3>${guide.title}</h3>
+                        <h3><a href="${planningGuidePath(countryId)}">${guide.title}</a></h3>
                         <span class="guide-download-pages">${sectionCount} sections · ${guide.readTime} read</span>
                     </div>
                 </div>

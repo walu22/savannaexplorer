@@ -16,7 +16,72 @@ const borders = loadJson('borders.json');
 const itineraries = loadJson('itineraries.json');
 const listings = loadJson('stays-operators.json');
 const countryResources = loadJson('country-resources.json');
+const planningGuides = loadJson('planning-guides.json');
 const siteLastReviewed = loadJson('about.json').meta?.lastReviewed || '2026-06';
+
+export const HOME_OG_IMAGE = 'https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200';
+
+export const HOME_META = {
+    title: 'Savanna Explorer | Plan Your Southern Africa Trip',
+    description: 'Free planning hub for nine Southern Africa countries — country guides, route templates, visa tools, border crossings, national parks, and printable planning guides. Book direct with official sources.',
+};
+
+const HUB_SECTIONS = [
+    {
+        id: 'plan',
+        title: 'Travel Tools & Trip Planner',
+        description: 'Visa matrix, packing lists, expense tracker, currency converter, and printable trip checklists for Southern Africa self-drive and safari trips.',
+        priority: '0.85',
+    },
+    {
+        id: 'guides',
+        title: 'Southern Africa Planning Guides',
+        description: 'In-depth country planning guides covering where to go, where to stay, best seasons, entry requirements, and self-drive tips — with printable PDFs.',
+        priority: '0.85',
+    },
+    {
+        id: 'parks',
+        title: 'National Parks & Reserves',
+        description: 'Park fees, seasons, gate hours, and official booking links for Kruger, Etosha, Chobe, Okavango, and more across Southern Africa.',
+        priority: '0.8',
+    },
+    {
+        id: 'borders',
+        title: 'Border Crossings Guide',
+        description: 'Documents, fees, hours, and wait times for major Southern Africa land borders — plan self-drive routes between nine countries.',
+        priority: '0.8',
+    },
+    {
+        id: 'book-direct',
+        title: 'Book Direct — Stays & Operators',
+        description: 'Official park reservations, lodge booking pages, and licensed tour operators — no middleman markups, plan and book yourself.',
+        priority: '0.75',
+    },
+    {
+        id: 'itineraries',
+        title: 'Route Templates & Itineraries',
+        description: 'Multi-country route templates with day-by-day planning notes for classic safari, desert, and overland circuits across Southern Africa.',
+        priority: '0.8',
+    },
+    {
+        id: 'health',
+        title: 'Health & Safety Planning',
+        description: 'Malaria zones, vaccinations, travel insurance tips, and emergency numbers for Southern Africa independent travellers.',
+        priority: '0.7',
+    },
+    {
+        id: 'transport',
+        title: 'Transport & Logistics',
+        description: 'Air gateways, self-drive tips, cross-border vehicle rules, and regional transport planning for Southern Africa trips.',
+        priority: '0.7',
+    },
+    {
+        id: 'tourism-stats',
+        title: 'Southern Africa Tourism Statistics',
+        description: 'Visitor arrivals and tourism trends for Namibia, South Africa, Botswana, Zambia, Zimbabwe, and neighbouring countries.',
+        priority: '0.65',
+    },
+];
 
 const COUNTRY_META = {
     'south-africa': { name: 'South Africa', cardImage: '1755251418399-c56a9579858f' },
@@ -79,7 +144,15 @@ export function siteUrl(base) {
 function truncate(text, max = 155) {
     const t = (text || '').trim();
     if (t.length <= max) return t;
-    return `${t.slice(0, max - 1)}…`;
+    const slice = t.slice(0, max - 1);
+    const lastSpace = slice.lastIndexOf(' ');
+    const cut = lastSpace > max * 0.55 ? slice.slice(0, lastSpace) : slice;
+    return `${cut}…`;
+}
+
+function lastmodFromYm(ym) {
+    if (ym && /^\d{4}-\d{2}$/.test(ym)) return `${ym}-01`;
+    return new Date().toISOString().slice(0, 10);
 }
 
 function escapeHtml(str) {
@@ -363,6 +436,97 @@ export function listingPages(baseUrl) {
     });
 }
 
+export function planningGuidePages(baseUrl) {
+    return Object.entries(planningGuides.guides).map(([countryId, guide]) => {
+        const meta = getCountryMeta(countryId);
+        const path = `/guides/planning/${countryId}`;
+        const intro = guide.sections?.[0]?.body || '';
+        const description = truncate(intro)
+            || `${guide.title} — ${guide.readTime} planning reference for ${meta.name}. Visas, seasons, routes, and official sources.`;
+        const title = `${guide.title} | ${SITE_NAME}`;
+        const topics = (guide.topics || []).map(t => `<li>${escapeHtml(t)}</li>`).join('');
+        const sectionSummaries = (guide.sections || []).slice(0, 4).map(section => {
+            const firstPara = section.body.split('\n\n')[0] || '';
+            return `<h2>${escapeHtml(section.title)}</h2><p>${escapeHtml(truncate(firstPara, 280))}</p>`;
+        }).join('');
+        const reviewed = guide.lastVerified || siteLastReviewed;
+        const bodyHtml = `
+<main id="seo-prerender" class="seo-prerender">
+  <article>
+    <nav aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/guides">Planning guides</a> › ${escapeHtml(meta.name)}</nav>
+    <h1>${escapeHtml(guide.title)}</h1>
+    ${reviewedLine(reviewed)}
+    <p class="seo-lead">${escapeHtml(guide.readTime)} read · ${escapeHtml(meta.name)} · ${(guide.topics || []).length} topics</p>
+    <h2>Topics covered</h2>
+    <ul>${topics}</ul>
+    ${sectionSummaries}
+    <p><a href="${path}">Open the full ${escapeHtml(guide.title)}</a> on Savanna Explorer — printable PDF available.</p>
+  </article>
+</main>`;
+
+        return {
+            path,
+            title,
+            description,
+            ogType: 'article',
+            image: cardImageUrl(countryId),
+            jsonLd: {
+                '@context': 'https://schema.org',
+                '@type': 'Article',
+                headline: guide.title,
+                description,
+                url: `${siteUrl(baseUrl)}${path}`,
+                about: meta.name,
+                ...(isoReviewDate(reviewed) && { dateModified: isoReviewDate(reviewed) }),
+            },
+            breadcrumb: [
+                { name: 'Home', path: '/' },
+                { name: 'Planning guides', path: '/guides' },
+                { name: guide.title, path },
+            ],
+            bodyHtml,
+        };
+    });
+}
+
+export function hubPages(baseUrl) {
+    return HUB_SECTIONS.map(hub => {
+        const path = `/${hub.id}`;
+        const title = `${hub.title} | ${SITE_NAME}`;
+        const bodyHtml = `
+<main id="seo-prerender" class="seo-prerender">
+  <article>
+    <nav aria-label="Breadcrumb"><a href="/">Home</a> › ${escapeHtml(hub.title)}</nav>
+    <h1>${escapeHtml(hub.title)}</h1>
+    ${reviewedLine(siteLastReviewed)}
+    <p class="seo-lead">${escapeHtml(hub.description)}</p>
+    <p><a href="${path}">Open ${escapeHtml(hub.title)}</a> on Savanna Explorer.</p>
+  </article>
+</main>`;
+
+        return {
+            path,
+            title,
+            description: hub.description,
+            ogType: 'website',
+            image: HOME_OG_IMAGE,
+            jsonLd: {
+                '@context': 'https://schema.org',
+                '@type': 'WebPage',
+                name: hub.title,
+                description: hub.description,
+                url: `${siteUrl(baseUrl)}${path}`,
+                ...(isoReviewDate(siteLastReviewed) && { dateModified: isoReviewDate(siteLastReviewed) }),
+            },
+            breadcrumb: [
+                { name: 'Home', path: '/' },
+                { name: hub.title, path },
+            ],
+            bodyHtml,
+        };
+    });
+}
+
 export function allSeoPages(baseUrl) {
     return [
         ...countryPages(baseUrl),
@@ -370,23 +534,42 @@ export function allSeoPages(baseUrl) {
         ...borderPages(baseUrl),
         ...itineraryPages(baseUrl),
         ...listingPages(baseUrl),
+        ...planningGuidePages(baseUrl),
+        ...hubPages(baseUrl),
     ];
 }
 
 export function sitemapEntries(baseUrl) {
     const origin = siteUrl(baseUrl);
     const today = new Date().toISOString().slice(0, 10);
-    const entry = (loc, priority, changefreq = 'monthly') => ({ loc, priority, changefreq, lastmod: today });
+    const entry = (loc, priority, changefreq = 'monthly', lastmod = today) => ({ loc, priority, changefreq, lastmod });
 
     return [
-        entry(`${origin}/`, '1.0', 'weekly'),
-        ...Object.keys(countries).map(id => entry(`${origin}/countries/${id}`, '0.9')),
-        ...parks.map(p => entry(`${origin}/parks/${p.id}`, '0.8')),
-        ...borders.map(b => entry(`${origin}/borders/${b.id}`, '0.8')),
-        ...Object.keys(itineraries).map(id => entry(`${origin}/itineraries/${id}`, '0.8')),
+        entry(`${origin}/`, '1.0', 'weekly', lastmodFromYm(siteLastReviewed)),
+        ...Object.keys(countries).map(id => entry(
+            `${origin}/countries/${id}`,
+            '0.9',
+            'monthly',
+            lastmodFromYm(countryResources[id]?.lastVerified || siteLastReviewed),
+        )),
+        ...parks.map(p => entry(`${origin}/parks/${p.id}`, '0.8', 'monthly', lastmodFromYm(p.lastVerified))),
+        ...borders.map(b => entry(`${origin}/borders/${b.id}`, '0.8', 'monthly', lastmodFromYm(b.lastVerified))),
+        ...Object.keys(itineraries).map(id => entry(`${origin}/itineraries/${id}`, '0.8', 'monthly', lastmodFromYm(siteLastReviewed))),
         ...listings.map(item => {
             const segment = item.kind === 'stay' ? 'stays' : 'operators';
-            return entry(`${origin}/${segment}/${item.id}`, '0.75');
+            return entry(`${origin}/${segment}/${item.id}`, '0.75', 'monthly', lastmodFromYm(item.lastVerified));
         }),
+        ...Object.entries(planningGuides.guides).map(([id, guide]) => entry(
+            `${origin}/guides/planning/${id}`,
+            '0.85',
+            'monthly',
+            lastmodFromYm(guide.lastVerified || siteLastReviewed),
+        )),
+        ...HUB_SECTIONS.map(hub => entry(
+            `${origin}/${hub.id}`,
+            hub.priority || '0.7',
+            'weekly',
+            lastmodFromYm(siteLastReviewed),
+        )),
     ];
 }
