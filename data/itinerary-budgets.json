@@ -1,0 +1,836 @@
+{
+  "meta": {
+    "lastUpdated": "2026-06",
+    "currency": "USD",
+    "disclaimer": "Indicative planning estimates only — not quotes. Costs vary by season, exchange rate, and booking channel. Book transport, lodges, and activities directly with providers.",
+    "travelersNote": "Most self-drive totals assume 2 travellers sharing vehicle costs marked \"shared\"."
+  },
+  "budgets": {
+    "desert-to-delta": {
+      "itineraryId": "desert-to-delta",
+      "basis": "Per person · 17 days · 2 sharing a 4×4 · mid-range camps & lodges",
+      "travelers": 2,
+      "durationDays": 17,
+      "totalPerPerson": 2450,
+      "computedPerPerson": 2035,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Vehicle",
+          "item": "4×4 rental (unlimited km, Windhoek–Maun one-way)",
+          "amountPerPerson": 310,
+          "note": "Split between 2"
+        },
+        {
+          "category": "Fuel",
+          "item": "Namibia + Botswana (~3,800 km)",
+          "amountPerPerson": 105,
+          "note": "~USD 210 total ÷ 2"
+        },
+        {
+          "category": "Park fees",
+          "item": "Etosha, Mahango, Chobe day pass, Moremi",
+          "amountPerPerson": 195
+        },
+        {
+          "category": "Accommodation",
+          "item": "Mix camps & mid lodges (16 nights)",
+          "amountPerPerson": 720
+        },
+        {
+          "category": "Border & insurance",
+          "item": "Cross-border permit, COMESA, road fees (2 borders)",
+          "amountPerPerson": 95
+        },
+        {
+          "category": "Activities",
+          "item": "Mokoro day trip, Chobe sunset cruise",
+          "amountPerPerson": 280
+        },
+        {
+          "category": "Food & supplies",
+          "item": "Self-catering + lodge meals",
+          "amountPerPerson": 230
+        },
+        {
+          "category": "Contingency",
+          "item": "Tyre repair, tips, SIM data",
+          "amountPerPerson": 100
+        }
+      ],
+      "tips": [
+        "Book Etosha camps on nwr.com.na months ahead for Jul–Oct",
+        "Arrange rental cross-border letter before leaving Windhoek",
+        "Caprivi fuel stops: Rundu and Divundu — never run empty"
+      ]
+    },
+    "coastal-explorer": {
+      "itineraryId": "coastal-explorer",
+      "basis": "Per person · 17 days · 2 sharing sedan/4×4 · mid-range coastal stops",
+      "travelers": 2,
+      "durationDays": 17,
+      "totalPerPerson": 2890,
+      "computedPerPerson": 2480,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Vehicle",
+          "item": "Rental car CPT–Maputo return leg",
+          "amountPerPerson": 290,
+          "note": "~USD 580 total ÷ 2"
+        },
+        {
+          "category": "Fuel & tolls",
+          "item": "Garden Route, KZN, Mozambique EN1",
+          "amountPerPerson": 120,
+          "note": "~USD 240 total ÷ 2"
+        },
+        {
+          "category": "Park fees",
+          "item": "SANParks (Tsitsikamma, iSimangaliso), Kosi Bay",
+          "amountPerPerson": 120
+        },
+        {
+          "category": "Accommodation",
+          "item": "Guesthouses & beach lodges (16 nights)",
+          "amountPerPerson": 850
+        },
+        {
+          "category": "Border fees",
+          "item": "Lebombo/Ressano Garcia + Mozambique TIP",
+          "amountPerPerson": 85
+        },
+        {
+          "category": "Activities",
+          "item": "Bazaruto dhow/snorkel day, whale watching",
+          "amountPerPerson": 420
+        },
+        {
+          "category": "Food",
+          "item": "Restaurants & self-catering",
+          "amountPerPerson": 380
+        },
+        {
+          "category": "Contingency",
+          "item": "Travel insurance share, tips",
+          "amountPerPerson": 215
+        }
+      ],
+      "tips": [
+        "Mozambique e-visa before border if required for your passport",
+        "Avoid night driving on EN1 north of Maputo",
+        "Book Bazaruto transfers from Vilanculos in advance"
+      ]
+    },
+    "falls-beyond": {
+      "itineraryId": "falls-beyond",
+      "basis": "Per person · 12 days · mix of internal flights & lodges",
+      "travelers": 2,
+      "durationDays": 12,
+      "totalPerPerson": 3150,
+      "computedPerPerson": 3150,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Flights",
+          "item": "Livingstone–Mfuwe return (Proflight estimate)",
+          "amountPerPerson": 380
+        },
+        {
+          "category": "Accommodation",
+          "item": "Mid-range lodges (11 nights, Luangwa/Hwange/Chobe)",
+          "amountPerPerson": 1180
+        },
+        {
+          "category": "Park fees",
+          "item": "South Luangwa, Hwange, Chobe, Victoria Falls NP",
+          "amountPerPerson": 220
+        },
+        {
+          "category": "Activities",
+          "item": "Walking safari, Falls cruise, Chobe boat",
+          "amountPerPerson": 520
+        },
+        {
+          "category": "Transfers",
+          "item": "Inter-lodge & border transfers",
+          "amountPerPerson": 180
+        },
+        {
+          "category": "Visas",
+          "item": "KAZA UniVisa + Botswana day-trip fees",
+          "amountPerPerson": 55
+        },
+        {
+          "category": "Food & drinks",
+          "item": "Meals not included at lodges",
+          "amountPerPerson": 340
+        },
+        {
+          "category": "Contingency",
+          "item": "Helicopter Flight of Angels optional extra",
+          "amountPerPerson": 275
+        }
+      ],
+      "tips": [
+        "KAZA UniVisa USD 50 cash on arrival at Livingstone or VFA",
+        "South Luangwa walking safaris require licensed operator — book ahead",
+        "USD cash essential in Zimbabwe for park fees"
+      ]
+    },
+    "kingdom-circuit": {
+      "itineraryId": "kingdom-circuit",
+      "basis": "Per person · 8 days · 2 sharing car · guesthouses & SANParks",
+      "travelers": 2,
+      "durationDays": 8,
+      "totalPerPerson": 1680,
+      "computedPerPerson": 1250,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Vehicle",
+          "item": "Compact SUV from JNB (cross-border to LS/SZ)",
+          "amountPerPerson": 160,
+          "note": "~USD 320 total ÷ 2"
+        },
+        {
+          "category": "Fuel & tolls",
+          "item": "Sani Pass, Ezulwini, Kruger run",
+          "amountPerPerson": 70,
+          "note": "~USD 140 total ÷ 2"
+        },
+        {
+          "category": "Park fees",
+          "item": "Kruger 3 days + Hlane/Mlilwane",
+          "amountPerPerson": 110
+        },
+        {
+          "category": "Accommodation",
+          "item": "Guesthouses & rest camps (7 nights)",
+          "amountPerPerson": 420
+        },
+        {
+          "category": "Activities",
+          "item": "Sani Pass 4×4 tour or pony trek half-day",
+          "amountPerPerson": 180
+        },
+        {
+          "category": "Border",
+          "item": "SA–Lesotho–Eswatini–SA re-entry",
+          "amountPerPerson": 45
+        },
+        {
+          "category": "Food",
+          "item": "Self-catering & local restaurants",
+          "amountPerPerson": 195
+        },
+        {
+          "category": "Contingency",
+          "item": "Warm gear hire, tips",
+          "amountPerPerson": 70
+        }
+      ],
+      "tips": [
+        "Ensure SA visa allows multiple re-entries for Lesotho/Eswatini loops",
+        "Sani Pass 4×4 only — book guided ascent if not experienced",
+        "Hlane lion drives book out in SA school holidays"
+      ]
+    },
+    "lake-mountain": {
+      "itineraryId": "lake-mountain",
+      "basis": "Per person · 12 days · Malawi lake + Zambia safari combo",
+      "travelers": 2,
+      "durationDays": 12,
+      "totalPerPerson": 1950,
+      "computedPerPerson": 1760,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Transport",
+          "item": "Hire car + Mwanza border crossing fuel",
+          "amountPerPerson": 190,
+          "note": "~USD 380 total ÷ 2"
+        },
+        {
+          "category": "Accommodation",
+          "item": "Lake lodges & bushcamps (11 nights)",
+          "amountPerPerson": 680
+        },
+        {
+          "category": "Park fees",
+          "item": "Liwonde, Nyika, South Luangwa day fees",
+          "amountPerPerson": 165
+        },
+        {
+          "category": "Activities",
+          "item": "Kayak, snorkel Lake Malawi, game drives",
+          "amountPerPerson": 290
+        },
+        {
+          "category": "Internal travel",
+          "item": "Lilongwe–Cape Maclear–Luangwa transfers",
+          "amountPerPerson": 120
+        },
+        {
+          "category": "Visas",
+          "item": "Malawi + Zambia e-visa/entry fees",
+          "amountPerPerson": 70
+        },
+        {
+          "category": "Food",
+          "item": "Local meals & lodge extras",
+          "amountPerPerson": 185
+        },
+        {
+          "category": "Contingency",
+          "item": "Fuel shortage buffer, malaria meds",
+          "amountPerPerson": 60
+        }
+      ],
+      "tips": [
+        "Fill fuel in Lilongwe or Blantyre before lake shore drives",
+        "Check bilharzia advice before swimming — lodge staff know safe bays",
+        "May–Oct dry season best for Luangwa side trip"
+      ]
+    },
+    "grand-safari": {
+      "itineraryId": "grand-safari",
+      "basis": "Per person · 24 days · premium lodges & charter legs",
+      "travelers": 2,
+      "durationDays": 24,
+      "totalPerPerson": 5200,
+      "computedPerPerson": 5200,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Accommodation",
+          "item": "Premium lodges & tented camps (23 nights)",
+          "amountPerPerson": 2800
+        },
+        {
+          "category": "Charter flights",
+          "item": "Maun, Mfuwe, Vilanculos bush strips",
+          "amountPerPerson": 680
+        },
+        {
+          "category": "Park & conservancy fees",
+          "item": "Private concessions & national parks",
+          "amountPerPerson": 420
+        },
+        {
+          "category": "Guided activities",
+          "item": "Walking safaris, mokoro, boat cruises",
+          "amountPerPerson": 580
+        },
+        {
+          "category": "Ground transfers",
+          "item": "Meet-and-greet & inter-lodge",
+          "amountPerPerson": 320
+        },
+        {
+          "category": "Visas & borders",
+          "item": "Multi-country entry fees",
+          "amountPerPerson": 120
+        },
+        {
+          "category": "Food & premium drinks",
+          "item": "Excluded lodge extras",
+          "amountPerPerson": 180
+        },
+        {
+          "category": "Contingency",
+          "item": "Gratuities, spa, optional balloon",
+          "amountPerPerson": 100
+        }
+      ],
+      "tips": [
+        "Peak season (Jul–Sep) — confirm lodge space 9–12 months ahead",
+        "Soft bags mandatory on most charter flights (15 kg)",
+        "Travel insurance with USD 250k+ evacuation cover recommended"
+      ]
+    },
+    "namibia-essentials": {
+      "itineraryId": "namibia-essentials",
+      "basis": "Per person · 11 days · self-drive loop · camps & lodges",
+      "travelers": 2,
+      "durationDays": 11,
+      "totalPerPerson": 1890,
+      "computedPerPerson": 1568,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Vehicle",
+          "item": "4×4 rental Windhoek loop",
+          "amountPerPerson": 240,
+          "note": "~USD 480 total ÷ 2"
+        },
+        {
+          "category": "Fuel",
+          "item": "Sossusvlei–Swakop–Etosha (~2,200 km)",
+          "amountPerPerson": 83,
+          "note": "~USD 165 total ÷ 2"
+        },
+        {
+          "category": "Park fees",
+          "item": "Sesriem, Etosha (NWR)",
+          "amountPerPerson": 145
+        },
+        {
+          "category": "Accommodation",
+          "item": "Camps & lodges (10 nights)",
+          "amountPerPerson": 520
+        },
+        {
+          "category": "Activities",
+          "item": "Deadvlei tour, Swakop activities, Etosha drives",
+          "amountPerPerson": 210
+        },
+        {
+          "category": "Food",
+          "item": "Supermarket self-catering + meals",
+          "amountPerPerson": 195
+        },
+        {
+          "category": "Visa",
+          "item": "E-visa or VOA (non-SADC passports)",
+          "amountPerPerson": 85
+        },
+        {
+          "category": "Contingency",
+          "item": "Puncture repair, park shop",
+          "amountPerPerson": 90
+        }
+      ],
+      "tips": [
+        "Pre-dawn Sossusvlei entry requires NWR permit — gate times strict",
+        "Book Etosha Okaukuejo or Halali inside the park early",
+        "Namibia e-visa from Apr 2025 for many Western passports"
+      ]
+    },
+    "south-africa-classic": {
+      "itineraryId": "south-africa-classic",
+      "basis": "Per person · 13 days · CPT + Garden Route + Kruger",
+      "travelers": 2,
+      "durationDays": 13,
+      "totalPerPerson": 2150,
+      "computedPerPerson": 1848,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Vehicle",
+          "item": "Rental car CPT–Kruger one-way or return",
+          "amountPerPerson": 210,
+          "note": "~USD 420 total ÷ 2"
+        },
+        {
+          "category": "Fuel & tolls",
+          "item": "Garden Route + N4 to Kruger",
+          "amountPerPerson": 93,
+          "note": "~USD 185 total ÷ 2"
+        },
+        {
+          "category": "Park fees",
+          "item": "Kruger 4 days + Tsitsikamma/iSimangaliso",
+          "amountPerPerson": 195
+        },
+        {
+          "category": "Accommodation",
+          "item": "Mix rest camps & guesthouses (12 nights)",
+          "amountPerPerson": 580
+        },
+        {
+          "category": "Activities",
+          "item": "Table Mountain, whale watch, sunset drive",
+          "amountPerPerson": 290
+        },
+        {
+          "category": "Food & wine",
+          "item": "Winelands tasting & restaurants",
+          "amountPerPerson": 260
+        },
+        {
+          "category": "Contingency",
+          "item": "SANParks Wild Card vs daily fees — compare",
+          "amountPerPerson": 120
+        },
+        {
+          "category": "Other",
+          "item": "Uber CPT, tips, SIM",
+          "amountPerPerson": 100
+        }
+      ],
+      "tips": [
+        "SANParks Wild Card pays off with 5+ park days in one year",
+        "Kruger gate times enforced — plan camp inside the park",
+        "Book Table Mountain cable car online on wind-prone days"
+      ]
+    },
+    "botswana-delta-focus": {
+      "itineraryId": "botswana-delta-focus",
+      "basis": "Per person · 9 days · fly-in Delta + Chobe",
+      "travelers": 2,
+      "durationDays": 9,
+      "totalPerPerson": 3200,
+      "computedPerPerson": 3200,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Accommodation",
+          "item": "Delta camp + Kasane lodge (8 nights)",
+          "amountPerPerson": 1680
+        },
+        {
+          "category": "Charter flights",
+          "item": "Maun–camp–Maun + Kasane leg",
+          "amountPerPerson": 520
+        },
+        {
+          "category": "Park fees",
+          "item": "Moremi/Chobe concession fees",
+          "amountPerPerson": 180
+        },
+        {
+          "category": "Activities",
+          "item": "Mokoro, game drives, boat cruise (often included — budget extras)",
+          "amountPerPerson": 240
+        },
+        {
+          "category": "Transfers",
+          "item": "JNB–Maun return flight (economy estimate)",
+          "amountPerPerson": 280
+        },
+        {
+          "category": "Food & drinks",
+          "item": "Premium lodge exclusions",
+          "amountPerPerson": 120
+        },
+        {
+          "category": "Contingency",
+          "item": "Gratuities, spa",
+          "amountPerPerson": 180
+        }
+      ],
+      "tips": [
+        "Most Okavango camps are fly-in only — confirm luggage weight limits",
+        "Jun–Oct peak — book 6+ months ahead for top camps",
+        "Chobe combines well as road add-on from Victoria Falls"
+      ]
+    },
+    "zambia-falls-safari": {
+      "itineraryId": "zambia-falls-safari",
+      "basis": "Per person · 10 days · Livingstone + Luangwa",
+      "travelers": 2,
+      "durationDays": 10,
+      "totalPerPerson": 2350,
+      "computedPerPerson": 2350,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Accommodation",
+          "item": "Falls hotel + Luangwa bushcamp (9 nights)",
+          "amountPerPerson": 980
+        },
+        {
+          "category": "Flights",
+          "item": "Livingstone–Mfuwe return",
+          "amountPerPerson": 340
+        },
+        {
+          "category": "Park fees",
+          "item": "Mosi-oa-Tunya + South Luangwa",
+          "amountPerPerson": 165
+        },
+        {
+          "category": "Activities",
+          "item": "Falls activities, walking safari, night drive",
+          "amountPerPerson": 420
+        },
+        {
+          "category": "Visa",
+          "item": "KAZA UniVisa or visa-on-arrival",
+          "amountPerPerson": 50
+        },
+        {
+          "category": "Transfers",
+          "item": "Airport & lodge transfers",
+          "amountPerPerson": 95
+        },
+        {
+          "category": "Food & drinks",
+          "item": "Meals outside lodges",
+          "amountPerPerson": 180
+        },
+        {
+          "category": "Contingency",
+          "item": "Malaria prophylaxis, tips",
+          "amountPerPerson": 120
+        }
+      ],
+      "tips": [
+        "Emerald season (Nov–Apr) lower rates but some camps close",
+        "Devil's Pool usually Aug–Jan when water low enough",
+        "Malaria prophylaxis essential for Luangwa"
+      ]
+    },
+    "zimbabwe-wilderness": {
+      "itineraryId": "zimbabwe-wilderness",
+      "basis": "Per person · 9 days · VFA + Hwange + Mana Pools",
+      "travelers": 2,
+      "durationDays": 9,
+      "totalPerPerson": 2100,
+      "computedPerPerson": 2100,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Accommodation",
+          "item": "Vic Falls + Hwange + Mana camps (8 nights)",
+          "amountPerPerson": 890
+        },
+        {
+          "category": "Park fees",
+          "item": "Zimparks — Hwange, Mana, Falls",
+          "amountPerPerson": 175
+        },
+        {
+          "category": "Transfers",
+          "item": "VFA–Hwange–Mana road transfers",
+          "amountPerPerson": 220
+        },
+        {
+          "category": "Activities",
+          "item": "Walking safari Mana, Falls cruise",
+          "amountPerPerson": 350
+        },
+        {
+          "category": "Visa",
+          "item": "KAZA UniVisa USD 50",
+          "amountPerPerson": 50
+        },
+        {
+          "category": "Food & USD cash",
+          "item": "Meals, tips — USD small notes",
+          "amountPerPerson": 245
+        },
+        {
+          "category": "Contingency",
+          "item": "Optional rafting, helicopter",
+          "amountPerPerson": 170
+        }
+      ],
+      "tips": [
+        "Mana Pools walking safaris require experienced guide — book licensed operator",
+        "USD cash in small denominations for Victoria Falls town",
+        "Dry season Jul–Oct for Hwange elephant concentrations"
+      ]
+    },
+    "mozambique-bush-beach": {
+      "itineraryId": "mozambique-bush-beach",
+      "basis": "Per person · 11 days · Gorongosa + coast",
+      "travelers": 2,
+      "durationDays": 11,
+      "totalPerPerson": 2450,
+      "computedPerPerson": 1995,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Accommodation",
+          "item": "Gorongosa lodge + Tofo/Vilanculos (10 nights)",
+          "amountPerPerson": 820
+        },
+        {
+          "category": "Transport",
+          "item": "4×4 hire Beira–Gorongosa–coast",
+          "amountPerPerson": 190,
+          "note": "~USD 380 total ÷ 2"
+        },
+        {
+          "category": "Park fees",
+          "item": "Gorongosa conservation levy",
+          "amountPerPerson": 120
+        },
+        {
+          "category": "Activities",
+          "item": "Diving/snorkel, whale shark trip (seasonal)",
+          "amountPerPerson": 380
+        },
+        {
+          "category": "Visa",
+          "item": "E-visa or VOA",
+          "amountPerPerson": 55
+        },
+        {
+          "category": "Food",
+          "item": "Coastal restaurants & lodge meals",
+          "amountPerPerson": 265
+        },
+        {
+          "category": "Fuel",
+          "item": "EN1 coastal driving",
+          "amountPerPerson": 65,
+          "note": "~USD 130 total ÷ 2"
+        },
+        {
+          "category": "Contingency",
+          "item": "Malaria meds, cyclone season buffer",
+          "amountPerPerson": 100
+        }
+      ],
+      "tips": [
+        "Gorongosa dry season May–Nov best for predator viewing",
+        "Whale shark season Oct–Mar off Tofo",
+        "Register SIM with passport on arrival"
+      ]
+    },
+    "malawi-lake-safari": {
+      "itineraryId": "malawi-lake-safari",
+      "basis": "Per person · 9 days · lake + Liwonde",
+      "travelers": 2,
+      "durationDays": 9,
+      "totalPerPerson": 1750,
+      "computedPerPerson": 1463,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Accommodation",
+          "item": "Lake lodge + Liwonde camp (8 nights)",
+          "amountPerPerson": 620
+        },
+        {
+          "category": "Transport",
+          "item": "Hire car Lilongwe–lake–Liwonde",
+          "amountPerPerson": 140,
+          "note": "~USD 280 total ÷ 2"
+        },
+        {
+          "category": "Park fees",
+          "item": "Liwonde NP",
+          "amountPerPerson": 85
+        },
+        {
+          "category": "Activities",
+          "item": "Boat safari, kayak, snorkel",
+          "amountPerPerson": 240
+        },
+        {
+          "category": "Visa",
+          "item": "E-visa or VOA",
+          "amountPerPerson": 50
+        },
+        {
+          "category": "Food",
+          "item": "Local meals & lodge extras",
+          "amountPerPerson": 195
+        },
+        {
+          "category": "Fuel",
+          "item": "Lake shore circuit",
+          "amountPerPerson": 48,
+          "note": "~USD 95 total ÷ 2"
+        },
+        {
+          "category": "Contingency",
+          "item": "Fuel shortage buffer",
+          "amountPerPerson": 85
+        }
+      ],
+      "tips": [
+        "Cape Maclear and Likoma popular — book lake lodges in European holidays",
+        "Ask locally before swimming — bilharzia in some bays",
+        "May–Oct dry season for Liwonde wildlife"
+      ]
+    },
+    "lesotho-highlands": {
+      "itineraryId": "lesotho-highlands",
+      "basis": "Per person · 6 days · Sani Pass & highlands · budget guesthouses",
+      "travelers": 2,
+      "durationDays": 6,
+      "totalPerPerson": 980,
+      "computedPerPerson": 880,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Transport",
+          "item": "4×4 tour Sani Pass or pony trek package",
+          "amountPerPerson": 220
+        },
+        {
+          "category": "Accommodation",
+          "item": "Guesthouses & lodges (5 nights)",
+          "amountPerPerson": 280
+        },
+        {
+          "category": "Activities",
+          "item": "Sani Pass ascent, pony trekking day",
+          "amountPerPerson": 165
+        },
+        {
+          "category": "Food",
+          "item": "Local restaurants & lodge meals",
+          "amountPerPerson": 120
+        },
+        {
+          "category": "Border",
+          "item": "SA–Lesotho return via Maseru Bridge",
+          "amountPerPerson": 25
+        },
+        {
+          "category": "Contingency",
+          "item": "Warm layers, tips",
+          "amountPerPerson": 70
+        }
+      ],
+      "tips": [
+        "Entry only via South Africa — plan SA visa for re-entry",
+        "Winter (Jun–Aug) snow possible on passes — check open status",
+        "Fill fuel in Maseru before highlands — none on Sani Pass"
+      ]
+    },
+    "eswatini-kingdom": {
+      "itineraryId": "eswatini-kingdom",
+      "basis": "Per person · 4 days · Ezulwini & Hlane add-on from Kruger",
+      "travelers": 2,
+      "durationDays": 4,
+      "totalPerPerson": 750,
+      "computedPerPerson": 553,
+      "lastVerified": "2026-06",
+      "lines": [
+        {
+          "category": "Accommodation",
+          "item": "Ezulwini valley lodge (3 nights)",
+          "amountPerPerson": 210
+        },
+        {
+          "category": "Park fees",
+          "item": "Hlane or Mkhaya day visit",
+          "amountPerPerson": 55
+        },
+        {
+          "category": "Transport",
+          "item": "SA rental cross-border from Kruger/Mpumalanga",
+          "amountPerPerson": 48,
+          "note": "~USD 95 total ÷ 2"
+        },
+        {
+          "category": "Activities",
+          "item": "Guided rhino walk or cultural village",
+          "amountPerPerson": 85
+        },
+        {
+          "category": "Food",
+          "item": "Craft market & lodge meals",
+          "amountPerPerson": 95
+        },
+        {
+          "category": "Contingency",
+          "item": "Border time, tips",
+          "amountPerPerson": 60
+        }
+      ],
+      "tips": [
+        "Oshoek border fastest from Johannesburg — 2.5 hrs to Mbabane",
+        "Combine with Kruger as 3–4 day extension — no intl flights needed",
+        "Rand and lilangeni interchangeable at 1:1"
+      ]
+    }
+  }
+}

@@ -5,6 +5,7 @@ import {
     getArrangeYourself,
     getPlanningNotes,
 } from '../lib/planning-format.js';
+import { renderBudgetBreakdownHtml } from '../lib/itinerary-budget.js';
 
 let currentItineraryId = null;
 let activeScopeFilter = 'all';
@@ -133,6 +134,12 @@ export function openItineraryDetail(id) {
 
     document.getElementById('itin-planning-notes').innerHTML = getPlanningNotes(data).map(i => `<li>${i}</li>`).join('');
     document.getElementById('itin-arrange-yourself').innerHTML = getArrangeYourself(data).map(i => `<li>${i}</li>`).join('');
+
+    const budgetEl = document.getElementById('itin-budget-breakdown');
+    if (budgetEl) {
+        budgetEl.innerHTML = renderBudgetBreakdownHtml(id);
+        budgetEl.hidden = !budgetEl.innerHTML.trim();
+    }
 
     document.getElementById('itinerary-modal').classList.add('active');
     document.body.style.overflow = 'hidden';

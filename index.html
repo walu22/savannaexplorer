@@ -790,7 +790,7 @@
             <div class="section-header">
                 <span class="section-eyebrow">Travel Planning Guides</span>
                 <h2>Start Exploring</h2>
-                <p>Practical country guides covering where to go, where to stay, best times to visit, and entry requirements.</p>
+                <p>Practical country guides with full sections on where to go, where to stay, visas, and self-drive — read online or print.</p>
             </div>
             <div class="planning-guides-grid" id="planning-guides-grid"></div>
         </div>
@@ -1217,6 +1217,7 @@
                         <ul id="itin-arrange-yourself"></ul>
                     </div>
                 </div>
+                <div id="itin-budget-breakdown"></div>
                 <p class="itin-template-disclaimer">Planning template only — Savanna Explorer does not sell or book any of the items above.</p>
                 <div class="itin-actions-bar">
                     <button type="button" class="btn btn-primary" id="itin-plan-tools"><i class="fas fa-tools"></i> Open Travel Tools</button>
@@ -1224,6 +1225,24 @@
             </div>
         </div>
     </div>
+
+    <!-- Planning Guide Reader -->
+    <div id="planning-guide-modal" class="modal planning-guide-modal">
+        <div class="modal-overlay planning-guide-close"></div>
+        <div class="modal-container planning-guide-container">
+            <button class="modal-close planning-guide-close" type="button" aria-label="Close guide">&times;</button>
+            <header class="planning-guide-header">
+                <h2 id="planning-guide-title">Planning Guide</h2>
+                <div class="planning-guide-meta" id="planning-guide-meta"></div>
+                <div class="planning-guide-toolbar">
+                    <button type="button" class="btn btn-outline btn-sm" id="planning-guide-print"><i class="fas fa-print"></i> Print / Save PDF</button>
+                    <button type="button" class="btn btn-outline btn-sm" id="planning-guide-country-link"><i class="fas fa-flag"></i> Open Country Page</button>
+                </div>
+            </header>
+            <div class="planning-guide-body" id="planning-guide-body"></div>
+        </div>
+    </div>
+    <div id="planning-guide-print-root" class="planning-guide-print-root" aria-hidden="true"></div>
 
     <!-- Marketplace Modal (Experiences) -->
     <div id="marketplace-modal" class="modal">

@@ -1,8 +1,10 @@
 import discover from '../../data/discover.json';
+import guidesData from '../../data/planning-guides.json';
 import faqs from '../../data/faqs.json';
 import { getCountryMeta } from '../lib/country-meta.js';
 import { countryPath } from '../lib/router.js';
 import { openCountryPage } from './country-guide.js';
+import { openPlanningGuide } from './planning-guides.js';
 
 function imageUrl(imageId) {
     return `https://images.unsplash.com/photo-${imageId}?auto=format&fit=crop&q=80&w=800`;
@@ -91,25 +93,35 @@ function renderPlanningGuides() {
     const grid = document.getElementById('planning-guides-grid');
     if (!grid) return;
 
-    grid.innerHTML = discover.planningGuides.map(guide => {
-        const meta = getCountryMeta(guide.country);
+    grid.innerHTML = Object.entries(guidesData.guides).map(([countryId, guide]) => {
+        const meta = getCountryMeta(countryId);
         const topics = guide.topics.map(t => `<li>${t}</li>`).join('');
+        const sectionCount = guide.sections?.length || guide.topics.length;
         return `
-            <div class="guide-download-card">
+            <article class="guide-download-card">
                 <div class="guide-download-header">
                     <span class="guide-download-flag">${meta.flag}</span>
                     <div>
                         <h3>${guide.title}</h3>
-                        <span class="guide-download-pages">${guide.pages} pages · PDF-ready</span>
+                        <span class="guide-download-pages">${sectionCount} sections · ${guide.readTime} read</span>
                     </div>
                 </div>
                 <ul class="guide-download-topics">${topics}</ul>
-                <a href="${countryPath(guide.country)}" class="btn btn-outline btn-sm" data-country-link="${guide.country}">
-                    View Country Guide
-                </a>
-            </div>
+                <div class="guide-download-actions">
+                    <button type="button" class="btn btn-primary btn-sm" data-open-guide="${countryId}">
+                        <i class="fas fa-book-open"></i> Read Guide
+                    </button>
+                    <a href="${countryPath(countryId)}" class="btn btn-outline btn-sm" data-country-link="${countryId}">
+                        Country Page
+                    </a>
+                </div>
+            </article>
         `;
     }).join('');
+
+    grid.querySelectorAll('[data-open-guide]').forEach(btn => {
+        btn.addEventListener('click', () => openPlanningGuide(btn.dataset.openGuide));
+    });
 }
 
 function renderHomeFaq() {

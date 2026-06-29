@@ -4331,6 +4331,223 @@ footer {
     font-weight: 700;
 }
 
+.guide-download-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+/* Itinerary budget breakdown */
+.itin-budget-breakdown {
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    background: #f8f6f2;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.itin-budget-breakdown h4 {
+    margin: 0 0 0.5rem;
+    color: var(--accent, #1b4332);
+    font-size: 1rem;
+}
+
+.itin-budget-basis {
+    font-size: 0.88rem;
+    color: #666;
+    margin: 0 0 1rem;
+}
+
+.budget-breakdown-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+}
+
+.budget-breakdown-table th,
+.budget-breakdown-table td {
+    border: 1px solid #e5e5e5;
+    padding: 0.55rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.budget-breakdown-table th {
+    background: white;
+    font-weight: 600;
+}
+
+.budget-breakdown-table tfoot td {
+    background: white;
+    border-top: 2px solid var(--accent, #1b4332);
+}
+
+.budget-amount {
+    white-space: nowrap;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.budget-line-note {
+    display: block;
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 0.15rem;
+}
+
+.budget-tips {
+    margin: 0 0 0.75rem;
+    padding-left: 1.1rem;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.budget-disclaimer {
+    font-size: 0.78rem;
+    color: #888;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Planning guide reader modal */
+.planning-guide-modal .planning-guide-container {
+    max-width: 720px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.planning-guide-header {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1rem;
+}
+
+.planning-guide-header h2 {
+    margin: 0 0 0.5rem;
+    color: var(--accent, #1b4332);
+}
+
+.planning-guide-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+}
+
+.planning-guide-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.planning-guide-body {
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 0.25rem;
+}
+
+.planning-guide-disclaimer {
+    font-size: 0.82rem;
+    color: #888;
+    font-style: italic;
+    margin: 0 0 1.25rem;
+    padding: 0.75rem;
+    background: #f8f6f2;
+    border-radius: 8px;
+}
+
+.planning-guide-section {
+    margin-bottom: 1.5rem;
+}
+
+.planning-guide-section h3 {
+    margin: 0 0 0.65rem;
+    font-size: 1.05rem;
+    color: var(--accent, #1b4332);
+}
+
+.planning-guide-section p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #444;
+    margin: 0 0 0.75rem;
+}
+
+.planning-guide-bullets {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.planning-guide-links {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.planning-guide-links h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+}
+
+.planning-guide-links ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.planning-guide-links li {
+    margin-bottom: 0.35rem;
+}
+
+.planning-guide-print-root {
+    display: none;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .planning-guide-print-root,
+    .planning-guide-print-root * {
+        visibility: visible;
+    }
+
+    .planning-guide-print-root {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .planning-guide-print h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .planning-guide-print h2 {
+        font-size: 1.1rem;
+        margin: 1.25rem 0 0.5rem;
+        page-break-after: avoid;
+    }
+
+    .planning-guide-print p,
+    .planning-guide-print li {
+        font-size: 10pt;
+        line-height: 1.45;
+    }
+}
+
 /* Homepage FAQ */
 .home-faq-section {
     padding: 5rem 0;

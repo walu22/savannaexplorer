@@ -34,6 +34,8 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 | `data/cross-border.json` | KAZA UniVisa, COMESA Yellow Card, IDP, border fees | Zambia Immigration, COMESA Yellow Card, AA South Africa |
 | `data/on-the-ground.json` | Cash, fuel, power, plugs per country | Original editorial informed by tourism boards and utility updates |
 | `data/wildlife-calendar.json` | Seasonal wildlife & nature highlights | Original editorial; park authority seasonal guidance |
+| `data/itinerary-budgets.json` | Line-item indicative budgets per route template | Original editorial; park fee references from `parks.json` |
+| `data/planning-guides.json` | Full country planning guides (read/print) | Original editorial; immigration URLs per country |
 
 ## Visa & entry (high-change items)
 
