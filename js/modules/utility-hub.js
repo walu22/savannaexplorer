@@ -30,6 +30,15 @@ function renderPackList(type) {
     updatePackProgress();
 }
 
+/** Read/write hub converter rates (use getAttribute — dataset camelCase breaks `data-rate-usd`). */
+function getHubRate(el, baseCode) {
+    return parseFloat(el.getAttribute(`data-rate-${baseCode.toLowerCase()}`)) || 0;
+}
+
+function setHubRate(el, baseCode, rate) {
+    el.setAttribute(`data-rate-${baseCode.toLowerCase()}`, String(rate));
+}
+
 function renderCurrency() {
     const select = document.getElementById('hub-from-currency');
     const results = document.getElementById('hub-results');
@@ -67,7 +76,7 @@ async function loadLiveCurrencyRates() {
                 const targetCode = apiCodeForCurrency(row.dataset.currencyCode);
                 const rate = rates[targetCode];
                 if (rate) {
-                    row.querySelector('.hub-cur-val')?.setAttribute(`data-rate-${base.toLowerCase()}`, String(rate));
+                    setHubRate(row.querySelector('.hub-cur-val'), base, rate);
                 }
             });
         } catch {
@@ -148,9 +157,11 @@ function renderEmergencies() {
     list.innerHTML = practical.emergencies.map(row => `
         <div class="emg-row">
             <span class="emg-flag">${row.flag}</span>
-            <span class="emg-country">${row.country}</span>
-            <span class="emg-nums">${row.numbers}</span>
-            <a class="emg-source" href="${row.sourceUrl}" target="_blank" rel="noopener noreferrer" title="Official source · verified ${row.lastVerified}">Source</a>
+            <div class="emg-body">
+                <span class="emg-country">${row.country}</span>
+                <span class="emg-nums">${row.numbers}</span>
+            </div>
+            <a class="emg-source" href="${row.sourceUrl}" target="_blank" rel="noopener noreferrer" title="Official source · verified ${row.lastVerified}" aria-label="Source for ${row.country}">↗</a>
         </div>
     `).join('');
 }
@@ -163,15 +174,18 @@ function renderDisclaimer() {
 function updateCurrency() {
     const amount = parseFloat(document.getElementById('hub-amount')?.value) || 0;
     const from = document.getElementById('hub-from-currency')?.value || 'USD';
-    const rateKey = `rate${from.toLowerCase()}`;
 
     document.querySelectorAll('.hub-cur-val').forEach(el => {
-        const rate = parseFloat(el.dataset[rateKey]) || 0;
+        const row = el.closest('.hub-cur-row');
+        const code = row?.dataset.currencyCode || '';
+        const rate = getHubRate(el, from);
         const result = amount * rate;
-        el.textContent = result.toLocaleString('en-US', {
-            minimumFractionDigits: result > 1000 ? 0 : 2,
-            maximumFractionDigits: result > 1000 ? 0 : 2,
-        });
+        el.textContent = rate
+            ? `${code} ${result.toLocaleString('en-US', {
+                minimumFractionDigits: result > 1000 ? 0 : 2,
+                maximumFractionDigits: result > 1000 ? 0 : 2,
+            })}`
+            : '—';
     });
 }
 
