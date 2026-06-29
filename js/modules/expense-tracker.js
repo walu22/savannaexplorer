@@ -1,6 +1,7 @@
 import expenseConfig from '../../data/expense-tracker.json';
 import practical from '../../data/practical.json';
 import { fetchLiveCurrencyRates } from './transport-logistics.js';
+import { syncPlannerExpenseRoute, updateSyncNotes } from '../lib/planner-expense-sync.js';
 import {
     buildBudgetCompareModel,
     listBudgetItineraries,
@@ -149,14 +150,18 @@ function populateFormSelects() {
 
 /** Link a route template from the itinerary modal and scroll to the tracker. */
 export function linkItineraryToExpenseTracker(itineraryId) {
+    return setExpenseLinkedItinerary(itineraryId || '', { refresh: true });
+}
+
+export async function setExpenseLinkedItinerary(itineraryId, { refresh = true } = {}) {
     const store = loadExpenses();
     store.linkedItineraryId = itineraryId || '';
     saveExpenses(store);
 
     const select = document.getElementById('expense-itinerary');
-    if (select) select.value = itineraryId || '';
+    if (select) select.value = store.linkedItineraryId;
 
-    refreshTotals();
+    if (refresh) await refreshTotals();
 }
 
 export async function initExpenseTracker() {
@@ -181,12 +186,14 @@ export async function initExpenseTracker() {
     }
 
     await refreshTotals();
+    updateSyncNotes(data.linkedItineraryId);
 
-    document.getElementById('expense-itinerary')?.addEventListener('change', (e) => {
+    document.getElementById('expense-itinerary')?.addEventListener('change', async (e) => {
         const store = loadExpenses();
         store.linkedItineraryId = e.target.value || '';
         saveExpenses(store);
-        refreshTotals();
+        await syncPlannerExpenseRoute(store.linkedItineraryId, { source: 'expense' });
+        await refreshTotals();
     });
 
     document.getElementById('expense-add-form')?.addEventListener('submit', async (e) => {

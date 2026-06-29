@@ -5465,6 +5465,14 @@ footer {
     max-width: 720px;
 }
 
+.trip-planner-sync-note,
+.expense-sync-note {
+    margin: 0.45rem 0 0;
+    font-size: 0.78rem;
+    color: rgba(212, 160, 23, 0.85);
+    line-height: 1.4;
+}
+
 .trip-planner-form {
     display: flex;
     flex-direction: column;

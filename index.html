@@ -594,7 +594,8 @@
                         </div>
                         <div class="trip-planner-row">
                             <label class="trip-planner-label" for="trip-route-select">Route template <span class="trip-optional">(optional)</span></label>
-                            <select id="trip-route-select" class="trip-planner-select"></select>
+                            <select id="trip-route-select" class="trip-planner-select" aria-describedby="trip-route-sync-note"></select>
+                            <p class="trip-planner-sync-note" id="trip-route-sync-note" hidden>Linked to the expense tracker budget template below.</p>
                         </div>
                         <div class="trip-planner-block">
                             <h4 class="trip-planner-label">Packing list</h4>
@@ -621,7 +622,8 @@
                     </div>
                     <p class="hub-card-lead">Log fuel, park fees, and lodge deposits as you book — compare against a route budget template.</p>
                     <label class="expense-trip-label" for="expense-itinerary">Route budget template</label>
-                    <select id="expense-itinerary" class="expense-itinerary-select"></select>
+                    <select id="expense-itinerary" class="expense-itinerary-select" aria-describedby="expense-route-sync-note"></select>
+                    <p class="expense-sync-note" id="expense-route-sync-note" hidden>Matches the trip planner route template above.</p>
                     <div id="expense-budget-compare" class="expense-budget-compare"></div>
                     <label class="expense-trip-label" for="expense-trip-name">Trip name <span class="trip-optional">(optional)</span></label>
                     <input type="text" id="expense-trip-name" class="expense-trip-input" placeholder="e.g. Namibia self-drive June 2026" maxlength="80">
