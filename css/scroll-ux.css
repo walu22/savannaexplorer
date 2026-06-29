@@ -105,12 +105,25 @@ body.site-v2 .page-chapter--plan {
     background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-light) 100%);
 }
 
-body.site-v2 .page-chapter--plan > section {
+body.site-v2 .page-chapter--plan > section:not(.utility-hub):not(.gastronomy):not(.cultural-mosaic) {
     background: transparent;
 }
 
-body.site-v2 .page-chapter--plan > section:nth-child(even) {
+body.site-v2 .page-chapter--plan > section:nth-child(even):not(.utility-hub):not(.gastronomy):not(.cultural-mosaic) {
     background: rgba(255, 255, 255, 0.55);
+}
+
+/* Dark-band sections keep their own backgrounds (chapter pacing must not wash them out) */
+body.site-v2 .page-chapter--plan > section.cultural-mosaic {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+body.site-v2 .page-chapter--plan > section.gastronomy {
+    background: linear-gradient(145deg, #1a1208 0%, var(--bg-dark) 55%, #121820 100%);
+}
+
+body.site-v2 .page-chapter--plan > section.utility-hub {
+    background: linear-gradient(165deg, #0f0f12 0%, #1a1a20 50%, #12120f 100%);
 }
 
 body.site-v2 .page-chapter--reference {
