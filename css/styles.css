@@ -5108,47 +5108,6 @@ footer {
     margin-bottom: 0.35rem;
 }
 
-.planning-guide-print-root {
-    display: none;
-}
-
-@media print {
-    body * {
-        visibility: hidden;
-    }
-
-    .planning-guide-print-root,
-    .planning-guide-print-root * {
-        visibility: visible;
-    }
-
-    .planning-guide-print-root {
-        display: block !important;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        padding: 1rem;
-    }
-
-    .planning-guide-print h1 {
-        font-size: 1.5rem;
-        margin-bottom: 0.25rem;
-    }
-
-    .planning-guide-print h2 {
-        font-size: 1.1rem;
-        margin: 1.25rem 0 0.5rem;
-        page-break-after: avoid;
-    }
-
-    .planning-guide-print p,
-    .planning-guide-print li {
-        font-size: 10pt;
-        line-height: 1.45;
-    }
-}
-
 /* Tourism arrivals stats */
 .tourism-stats-section {
     padding: 5rem 0;
