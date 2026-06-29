@@ -12,15 +12,57 @@ import {
     itineraryPath,
     listingPath,
     parkPath,
+    planningGuidePath,
 } from './router.js';
 import { getCountryLastReviewed, getSiteLastReviewed, toIsoReviewDate } from './content-meta.js';
 
 const SITE_NAME = 'Savanna Explorer';
 
+export const HOME_OG_IMAGE = 'https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200';
+
 const HOME_META = {
-    title: 'Savanna Explorer | Southern Africa, Endless Horizons',
-    description: 'Independent planning reference for Southern Africa — country guides, route templates, border and park info, and official booking links. We do not sell tours or take payments.',
+    title: 'Savanna Explorer | Plan Your Southern Africa Trip',
+    description: 'Free planning hub for nine Southern Africa countries — country guides, route templates, visa tools, border crossings, national parks, and printable planning guides. Book direct with official sources.',
     path: '/',
+};
+
+const HUB_META = {
+    plan: {
+        title: 'Travel Tools & Trip Planner',
+        description: 'Visa matrix, packing lists, expense tracker, currency converter, and printable trip checklists for Southern Africa self-drive and safari trips.',
+    },
+    guides: {
+        title: 'Southern Africa Planning Guides',
+        description: 'In-depth country planning guides covering where to go, where to stay, best seasons, entry requirements, and self-drive tips — with printable PDFs.',
+    },
+    parks: {
+        title: 'National Parks & Reserves',
+        description: 'Park fees, seasons, gate hours, and official booking links for Kruger, Etosha, Chobe, Okavango, and more across Southern Africa.',
+    },
+    borders: {
+        title: 'Border Crossings Guide',
+        description: 'Documents, fees, hours, and wait times for major Southern Africa land borders — plan self-drive routes between nine countries.',
+    },
+    'book-direct': {
+        title: 'Book Direct — Stays & Operators',
+        description: 'Official park reservations, lodge booking pages, and licensed tour operators — no middleman markups, plan and book yourself.',
+    },
+    itineraries: {
+        title: 'Route Templates & Itineraries',
+        description: 'Multi-country route templates with day-by-day planning notes for classic safari, desert, and overland circuits across Southern Africa.',
+    },
+    health: {
+        title: 'Health & Safety Planning',
+        description: 'Malaria zones, vaccinations, travel insurance tips, and emergency numbers for Southern Africa independent travellers.',
+    },
+    transport: {
+        title: 'Transport & Logistics',
+        description: 'Air gateways, self-drive tips, cross-border vehicle rules, and regional transport planning for Southern Africa trips.',
+    },
+    'tourism-stats': {
+        title: 'Southern Africa Tourism Statistics',
+        description: 'Visitor arrivals and tourism trends for Namibia, South Africa, Botswana, Zambia, Zimbabwe, and neighbouring countries.',
+    },
 };
 
 function siteOrigin() {
@@ -36,7 +78,10 @@ function absoluteUrl(path) {
 function truncate(text, max = 155) {
     const t = (text || '').trim();
     if (t.length <= max) return t;
-    return `${t.slice(0, max - 1)}…`;
+    const slice = t.slice(0, max - 1);
+    const lastSpace = slice.lastIndexOf(' ');
+    const cut = lastSpace > max * 0.55 ? slice.slice(0, lastSpace) : slice;
+    return `${cut}…`;
 }
 
 function upsertMeta(attr, key, content, isProperty = false) {
@@ -103,15 +148,84 @@ function applyMeta({ title, description, path, image, type = 'website' }) {
 }
 
 export function setHomeMeta() {
-    const image = absoluteUrl('/images/wildlife.png');
-    applyMeta({ ...HOME_META, image });
+    applyMeta({ ...HOME_META, image: HOME_OG_IMAGE });
     upsertJsonLd({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         name: SITE_NAME,
         description: HOME_META.description,
         url: absoluteUrl('/'),
+        ...(toIsoReviewDate(getSiteLastReviewed()) && { dateModified: toIsoReviewDate(getSiteLastReviewed()) }),
     });
+}
+
+export function setHubMeta(sectionId) {
+    const hub = HUB_META[sectionId];
+    if (!hub) {
+        setHomeMeta();
+        return;
+    }
+
+    const path = `/${sectionId}`;
+    applyMeta({
+        title: `${hub.title} | ${SITE_NAME}`,
+        description: hub.description,
+        path,
+        image: HOME_OG_IMAGE,
+        type: 'website',
+    });
+
+    upsertJsonLd([
+        {
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: hub.title,
+            description: hub.description,
+            url: absoluteUrl(path),
+            ...(toIsoReviewDate(getSiteLastReviewed()) && { dateModified: toIsoReviewDate(getSiteLastReviewed()) }),
+        },
+        breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: hub.title, path },
+        ]),
+    ]);
+}
+
+export function setPlanningGuideMeta(countryId, guide, meta) {
+    if (!guide || !meta) {
+        setHomeMeta();
+        return;
+    }
+
+    const path = planningGuidePath(countryId);
+    const intro = guide.sections?.[0]?.body || '';
+    const description = truncate(intro)
+        || `${guide.title} — ${guide.readTime} planning reference for ${meta.name}. Visas, seasons, routes, and official sources.`;
+
+    applyMeta({
+        title: `${guide.title} | ${SITE_NAME}`,
+        description,
+        path,
+        image: cardImageUrl(countryId),
+        type: 'article',
+    });
+
+    upsertJsonLd([
+        {
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: guide.title,
+            description,
+            url: absoluteUrl(path),
+            about: meta.name,
+            ...(toIsoReviewDate(guide.lastVerified) && { dateModified: toIsoReviewDate(guide.lastVerified) }),
+        },
+        breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Planning guides', path: '/guides' },
+            { name: guide.title, path },
+        ]),
+    ]);
 }
 
 export function setCountryMeta(countryId) {

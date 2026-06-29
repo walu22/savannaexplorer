@@ -4,7 +4,7 @@
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import { allSeoPages, siteUrl } from './lib/seo-data.mjs';
+import { allSeoPages, hubPages, siteUrl } from './lib/seo-data.mjs';
 
 function loadEnv() {
     const envPath = resolve(process.cwd(), '.env');
@@ -105,9 +105,11 @@ console.log(`Prerendered ${written} SEO pages into dist/ (${baseUrl})`);
 
 // SPA fallbacks for hub section directories (nginx 403 when folder exists without index)
 const hubFallbackSections = ['parks', 'embassies', 'borders', 'transport', 'health', 'events', 'book-direct', 'plan', 'guides', 'tourism-stats'];
+const hubByPath = new Map(hubPages(baseUrl).map(page => [page.path, page]));
 for (const section of hubFallbackSections) {
     const outPath = resolve(distDir, section, 'index.html');
     mkdirSync(dirname(outPath), { recursive: true });
-    writeFileSync(outPath, template, 'utf8');
+    const page = hubByPath.get(`/${section}`);
+    writeFileSync(outPath, page ? buildPageHtml(template, page) : template, 'utf8');
 }
 console.log(`Wrote ${hubFallbackSections.length} hub SPA fallbacks.`);
