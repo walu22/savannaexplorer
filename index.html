@@ -23,45 +23,68 @@
 
     <!-- Navigation -->
     <nav id="navbar">
-        <div class="container">
+        <div class="container nav-inner">
             <a href="#home" class="logo">SAVANNA EXPLORER</a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#destinations">Destinations</a></li>
+
+            <ul class="nav-links nav-links--desktop" id="nav-links-desktop">
                 <li class="nav-dropdown">
-                    <button type="button" class="nav-drop-toggle">Explore <i class="fas fa-chevron-down"></i></button>
+                    <button type="button" class="nav-drop-toggle" aria-expanded="false">Destinations <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                    <div class="nav-drop-menu nav-drop-menu--wide">
+                        <div class="nav-country-grid" id="nav-country-grid"></div>
+                        <a href="#destinations" class="nav-drop-footer">View all destinations</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-drop-toggle" aria-expanded="false">Discover <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="nav-drop-menu">
-                        <a href="#top-destinations">Top Highlights</a>
+                        <a href="#top-destinations">Top highlights</a>
                         <a href="#experiences">Experiences</a>
-                        <a href="#parks">National Parks</a>
+                        <a href="#parks">National parks</a>
                         <a href="#cultures">Cultures</a>
                         <a href="#gastronomy">Gastronomy</a>
                     </div>
                 </li>
                 <li class="nav-dropdown">
-                    <button type="button" class="nav-drop-toggle">Plan <i class="fas fa-chevron-down"></i></button>
+                    <button type="button" class="nav-drop-toggle" aria-expanded="false">Plan trip <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="nav-drop-menu">
                         <a href="#itineraries">Itineraries</a>
-                        <a href="#book-direct">Book Direct</a>
-                        <a href="#transport">Transport &amp; Logistics</a>
-                        <a href="#borders">Border Crossings</a>
-                        <a href="#health">Health & Safety</a>
-                        <a href="#embassies">Foreign Missions</a>
-                        <a href="#events">Events Calendar</a>
-                        <a href="#plan">Travel Tools</a>
-                        <a href="#plan">Trip Checklist</a>
-                        <a href="#guides">Planning Guides</a>
-                        <a href="#about">About This Site</a>
-                        <a href="#faq">Travel FAQ</a>
+                        <a href="#book-direct">Book direct</a>
+                        <a href="#guides">Planning guides</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-drop-toggle" aria-expanded="false">On the ground <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                    <div class="nav-drop-menu">
+                        <a href="#transport">Transport &amp; logistics</a>
+                        <a href="#borders">Border crossings</a>
+                        <a href="#health">Health &amp; safety</a>
+                        <a href="#embassies">Foreign missions</a>
+                        <a href="#events">Events calendar</a>
                     </div>
                 </li>
                 <li><a href="#news">News</a></li>
-                <li><a href="#contact" class="nav-cta">Contact</a></li>
+                <li><a href="#plan" class="nav-cta">Travel tools</a></li>
             </ul>
-            <button type="button" class="menu-toggle" id="mobile-menu" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
-            </button>
+
+            <div class="nav-mobile-controls">
+                <a href="#plan" class="nav-mobile-cta">Plan my trip</a>
+                <button type="button" class="menu-toggle menu-toggle--labeled" id="mobile-menu" aria-expanded="false" aria-controls="mobile-nav-panel" aria-label="Open menu">
+                    <span class="menu-toggle-label">Menu</span>
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
         </div>
     </nav>
+
+    <div id="mobile-nav-panel" class="mobile-nav-panel" aria-hidden="true" aria-label="Site menu">
+        <div class="mobile-nav-panel__head">
+            <span class="mobile-nav-panel__title">Menu</span>
+            <button type="button" class="mobile-nav-panel__close" id="mobile-nav-close" aria-label="Close menu">
+                <i class="fas fa-xmark" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-panel__body" id="mobile-nav-body"></div>
+    </div>
 
     <!-- Hero -->
     <section id="home" class="hero">

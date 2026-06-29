@@ -56,17 +56,22 @@ function scrollToSection(sectionId, { updateHash = true } = {}) {
 }
 
 function clearNavActive() {
-    document.querySelectorAll('.nav-links a.active, .nav-drop-menu a.active, .page-contents-links a.active')
-        .forEach(link => {
-            link.classList.remove('active');
-            link.removeAttribute('aria-current');
-        });
+    document.querySelectorAll(
+        '.nav-links--desktop a.active, .nav-drop-menu a.active, .page-contents-links a.active, .mobile-nav-panel a.active'
+    ).forEach(link => {
+        link.classList.remove('active');
+        link.removeAttribute('aria-current');
+    });
 }
 
 function setNavActive(sectionId) {
     clearNavActive();
     document.querySelectorAll(`a[href="#${sectionId}"]`).forEach(link => {
-        if (link.closest('#nav-links') || link.closest('.page-contents-links')) {
+        if (
+            link.closest('.nav-links--desktop')
+            || link.closest('.page-contents-links')
+            || link.closest('.mobile-nav-panel')
+        ) {
             link.classList.add('active');
             link.setAttribute('aria-current', 'true');
         }

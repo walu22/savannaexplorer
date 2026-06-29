@@ -1,9 +1,18 @@
+import {
+    NAV_CTA,
+    NAV_DESKTOP_TOP,
+    NAV_JOURNEY_GROUPS,
+    NAV_MOBILE_SITE_GROUP,
+    getCountryNavLinks,
+} from '../lib/nav-structure.js';
+
 function setMobileNavOpen(open) {
     const menuToggle = document.getElementById('mobile-menu');
-    const navLinksContainer = document.getElementById('nav-links');
-    if (!navLinksContainer) return;
+    const panel = document.getElementById('mobile-nav-panel');
+    if (!panel) return;
 
-    navLinksContainer.classList.toggle('active', open);
+    panel.classList.toggle('is-open', open);
+    panel.setAttribute('aria-hidden', open ? 'false' : 'true');
     document.body.classList.toggle('nav-open', open);
     menuToggle?.setAttribute('aria-expanded', open ? 'true' : 'false');
     menuToggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
@@ -14,6 +23,10 @@ function setMobileNavOpen(open) {
 
     if (!open) {
         document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        document.querySelectorAll('.mobile-nav-group').forEach(g => g.classList.remove('is-open'));
+        document.querySelectorAll('.mobile-nav-group__toggle').forEach(t => {
+            t.setAttribute('aria-expanded', 'false');
+        });
     }
 }
 
@@ -28,49 +41,138 @@ export function setMainNavSuppressed(suppressed) {
     if (navbar) navbar.setAttribute('aria-hidden', suppressed ? 'true' : 'false');
 }
 
-export function initNav() {
-    const navbar = document.getElementById('navbar');
-    const heroImg = document.getElementById('hero-img');
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinksContainer = document.getElementById('nav-links');
+function renderCountryGrid() {
+    const grid = document.getElementById('nav-country-grid');
+    if (!grid) return;
 
-    if (menuToggle && navLinksContainer) {
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            setMobileNavOpen(!navLinksContainer.classList.contains('active'));
-        });
+    grid.innerHTML = getCountryNavLinks().map(({ href, label, flag }) =>
+        `<a class="nav-country-link" href="${href}"><span aria-hidden="true">${flag}</span><span>${label}</span></a>`
+    ).join('');
+}
 
-        navLinksContainer.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => closeMobileNav());
-        });
-    }
+function renderMobilePanel() {
+    const body = document.getElementById('mobile-nav-body');
+    if (!body) return;
 
+    const countryLinks = getCountryNavLinks().map(({ href, label, flag }) =>
+        `<a href="${href}"><span aria-hidden="true">${flag}</span> ${label}</a>`
+    ).join('');
+
+    const destinationsGroup = `
+        <div class="mobile-nav-group" data-mobile-nav-group>
+            <button type="button" class="mobile-nav-group__toggle" aria-expanded="false">
+                <span>Destinations</span>
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="mobile-nav-group__panel">
+                ${countryLinks}
+                <a href="#destinations">View all destinations</a>
+            </div>
+        </div>
+    `;
+
+    const journeyGroups = NAV_JOURNEY_GROUPS.map(group => `
+        <div class="mobile-nav-group" data-mobile-nav-group>
+            <button type="button" class="mobile-nav-group__toggle" aria-expanded="false">
+                <span>${group.label}</span>
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="mobile-nav-group__panel">
+                ${group.items.map(item => `<a href="${item.href}">${item.label}</a>`).join('')}
+            </div>
+        </div>
+    `).join('');
+
+    const siteGroup = `
+        <div class="mobile-nav-group" data-mobile-nav-group>
+            <button type="button" class="mobile-nav-group__toggle" aria-expanded="false">
+                <span>${NAV_MOBILE_SITE_GROUP.label}</span>
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="mobile-nav-group__panel">
+                ${NAV_MOBILE_SITE_GROUP.items.map(item => `<a href="${item.href}">${item.label}</a>`).join('')}
+            </div>
+        </div>
+    `;
+
+    const newsLink = NAV_DESKTOP_TOP.map(item =>
+        `<a class="mobile-nav-standalone" href="${item.href}">${item.label}</a>`
+    ).join('');
+
+    body.innerHTML = destinationsGroup + journeyGroups + siteGroup + newsLink;
+}
+
+function initDesktopDropdowns() {
     document.querySelectorAll('.nav-drop-toggle').forEach(toggle => {
         toggle.addEventListener('click', (e) => {
             e.stopPropagation();
             const parent = toggle.closest('.nav-dropdown');
             const isOpen = parent?.classList.contains('open');
-            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-            if (!isOpen) parent?.classList.add('open');
+            document.querySelectorAll('.nav-dropdown').forEach(d => {
+                d.classList.remove('open');
+                d.querySelector('.nav-drop-toggle')?.setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                parent?.classList.add('open');
+                toggle.setAttribute('aria-expanded', 'true');
+            }
         });
     });
 
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.nav-dropdown')) {
-            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+            document.querySelectorAll('.nav-dropdown').forEach(d => {
+                d.classList.remove('open');
+                d.querySelector('.nav-drop-toggle')?.setAttribute('aria-expanded', 'false');
+            });
         }
-        if (
-            document.body.classList.contains('nav-open')
-            && !e.target.closest('#nav-links')
-            && !e.target.closest('#mobile-menu')
-        ) {
-            closeMobileNav();
-        }
+    });
+}
+
+function initMobilePanel() {
+    const menuToggle = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('mobile-nav-close');
+    const panel = document.getElementById('mobile-nav-panel');
+
+    menuToggle?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setMobileNavOpen(!panel?.classList.contains('is-open'));
+    });
+
+    closeBtn?.addEventListener('click', () => closeMobileNav());
+
+    panel?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => closeMobileNav());
+    });
+
+    panel?.querySelectorAll('[data-mobile-nav-group]').forEach(group => {
+        const toggle = group.querySelector('.mobile-nav-group__toggle');
+        toggle?.addEventListener('click', () => {
+            const isOpen = group.classList.contains('is-open');
+            panel.querySelectorAll('.mobile-nav-group').forEach(g => {
+                g.classList.remove('is-open');
+                g.querySelector('.mobile-nav-group__toggle')?.setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                group.classList.add('is-open');
+                toggle.setAttribute('aria-expanded', 'true');
+            }
+        });
     });
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeMobileNav();
     });
+}
+
+export function initNav() {
+    const navbar = document.getElementById('navbar');
+    const heroImg = document.getElementById('hero-img');
+
+    renderCountryGrid();
+    renderMobilePanel();
+    initDesktopDropdowns();
+    initMobilePanel();
 
     window.addEventListener('scroll', () => {
         if (document.body.classList.contains('country-detail-open')) return;
