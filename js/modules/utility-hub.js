@@ -41,6 +41,7 @@ function setHubRate(el, baseCode, rate) {
 
 function renderCurrency() {
     const select = document.getElementById('hub-from-currency');
+    const toSelect = document.getElementById('hub-to-currency');
     const results = document.getElementById('hub-results');
     const note = document.getElementById('hub-currency-note');
     if (!select || !results) return;
@@ -49,6 +50,12 @@ function renderCurrency() {
     select.innerHTML = currency.baseCurrencies.map(c =>
         `<option value="${c.code}">${c.label}</option>`
     ).join('');
+
+    if (toSelect) {
+        toSelect.innerHTML = currency.rates.map(row =>
+            `<option value="${row.code}">${row.flag} ${row.code} — ${row.name}</option>`
+        ).join('');
+    }
 
     results.innerHTML = currency.rates.map(row => {
         const attrs = Object.entries(row.rates)
@@ -171,6 +178,47 @@ function renderDisclaimer() {
     if (el) el.textContent = practical.meta.disclaimer;
 }
 
+function formatCurrencyAmount(value) {
+    return value.toLocaleString('en-US', {
+        minimumFractionDigits: value > 1000 ? 0 : 2,
+        maximumFractionDigits: value > 1000 ? 0 : 2,
+    });
+}
+
+function getConvertedAmount(from, toCode, amount) {
+    const row = document.querySelector(`.hub-cur-row[data-currency-code="${toCode}"]`);
+    const valEl = row?.querySelector('.hub-cur-val');
+    if (!valEl) return null;
+    const rate = getHubRate(valEl, from);
+    if (!rate) return null;
+    return amount * rate;
+}
+
+function updateCurrencyPrimary() {
+    const primary = document.getElementById('hub-currency-primary');
+    if (!primary) return;
+
+    const amount = parseFloat(document.getElementById('hub-amount')?.value) || 0;
+    const from = document.getElementById('hub-from-currency')?.value || 'USD';
+    const to = document.getElementById('hub-to-currency')?.value || 'ZAR';
+    const meta = practical.currency.rates.find(row => row.code === to);
+    const converted = getConvertedAmount(from, to, amount);
+
+    if (!meta || converted == null) {
+        primary.innerHTML = '<p class="hub-currency-primary-empty">Enter an amount to convert.</p>';
+        return;
+    }
+
+    primary.innerHTML = `
+        <span class="hub-currency-primary-flag">${meta.flag}</span>
+        <div class="hub-currency-primary-body">
+            <span class="hub-currency-primary-label">${from} ${formatCurrencyAmount(amount)} ≈</span>
+            <strong class="hub-currency-primary-value">${to} ${formatCurrencyAmount(converted)}</strong>
+            <span class="hub-currency-primary-name">${meta.name}</span>
+        </div>
+    `;
+}
+
 function updateCurrency() {
     const amount = parseFloat(document.getElementById('hub-amount')?.value) || 0;
     const from = document.getElementById('hub-from-currency')?.value || 'USD';
@@ -181,12 +229,11 @@ function updateCurrency() {
         const rate = getHubRate(el, from);
         const result = amount * rate;
         el.textContent = rate
-            ? `${code} ${result.toLocaleString('en-US', {
-                minimumFractionDigits: result > 1000 ? 0 : 2,
-                maximumFractionDigits: result > 1000 ? 0 : 2,
-            })}`
+            ? `${code} ${formatCurrencyAmount(result)}`
             : '—';
     });
+
+    updateCurrencyPrimary();
 }
 
 export function initUtilityHub() {
@@ -205,6 +252,7 @@ export function initUtilityHub() {
 
     document.getElementById('hub-amount')?.addEventListener('input', updateCurrency);
     document.getElementById('hub-from-currency')?.addEventListener('change', updateCurrency);
+    document.getElementById('hub-to-currency')?.addEventListener('change', updateCurrency);
 
     document.getElementById('hub-visa-search')?.addEventListener('input', function () {
         const q = this.value.toLowerCase().trim();

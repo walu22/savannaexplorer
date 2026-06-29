@@ -707,8 +707,108 @@ section {
 }
 
 /* --- 1. Currency Converter --- */
+.hub-card--compact .hub-card-header {
+    margin-bottom: 0.85rem;
+}
+
+.hub-card--compact .hub-data-note {
+    margin-top: 0.55rem;
+}
+
 .hub-input-row {
     display: flex; gap: 1rem; margin-bottom: 1.2rem;
+}
+
+.hub-input-row--converter {
+    margin-bottom: 0.85rem;
+}
+
+.hub-currency-primary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.65rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    min-height: 4.25rem;
+}
+
+.hub-currency-primary-flag {
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.hub-currency-primary-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.hub-currency-primary-label {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.hub-currency-primary-value {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary-light);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.15;
+}
+
+.hub-currency-primary-name {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.hub-currency-primary-empty {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.hub-panel-details {
+    margin: 0;
+}
+
+.hub-panel-details > summary {
+    list-style: none;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.72);
+    padding: 0.35rem 0;
+    user-select: none;
+}
+
+.hub-panel-details > summary::-webkit-details-marker {
+    display: none;
+}
+
+.hub-panel-details > summary::before {
+    content: '▸';
+    display: inline-block;
+    margin-right: 0.4rem;
+    transition: transform 0.2s ease;
+}
+
+.hub-panel-details[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+.hub-panel-details[open] > summary {
+    margin-bottom: 0.45rem;
+}
+
+.hub-currency-all[open] .hub-currency-results,
+.hub-emergency-panel[open] .hub-emergency-list {
+    margin-top: 0.15rem;
 }
 .hub-input-group {
     flex: 1; display: flex; flex-direction: column; gap: 0.4rem;
@@ -734,7 +834,7 @@ section {
 }
 .hub-currency-results {
     display: flex; flex-direction: column; gap: 0;
-    max-height: 10.5rem;
+    max-height: 7.5rem;
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
@@ -951,7 +1051,7 @@ section {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.35rem 0.75rem;
-    max-height: 10.5rem;
+    max-height: 7.5rem;
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
@@ -2551,6 +2651,10 @@ footer {
 @media (max-width: 768px) {
     :root { --section-pad: 4rem; }
     .hub-emergency-list { grid-template-columns: 1fr; }
+    .hub-input-row--converter {
+        flex-direction: column;
+        gap: 0.65rem;
+    }
 
     body:not(.site-v2) .menu-toggle {
         display: block; 
