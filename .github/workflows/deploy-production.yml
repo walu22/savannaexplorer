@@ -65,7 +65,18 @@ jobs:
 
       - name: Test SSH connection
         run: |
-          ssh -F "$HOME/.ssh/config" -o BatchMode=yes deploy-host "echo connected"
+          attempt=0
+          max=5
+          while [ "$attempt" -lt "$max" ]; do
+            attempt=$((attempt + 1))
+            if ssh -F "$HOME/.ssh/config" -o BatchMode=yes deploy-host "echo connected"; then
+              exit 0
+            fi
+            echo "SSH test attempt ${attempt}/${max} failed; retrying in $((attempt * 10))s..."
+            sleep $((attempt * 10))
+          done
+          echo "SSH connection failed after ${max} attempts."
+          exit 1
 
       - name: Backup current site on server
         continue-on-error: true
@@ -111,7 +122,18 @@ jobs:
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
           chmod +x scripts/update-nginx-security.sh
-          scripts/update-nginx-security.sh deploy/nginx/savannaexplorer-csp.conf
+          attempt=0
+          max=3
+          while [ "$attempt" -lt "$max" ]; do
+            attempt=$((attempt + 1))
+            if scripts/update-nginx-security.sh deploy/nginx/savannaexplorer-csp.conf; then
+              exit 0
+            fi
+            echo "Nginx CSP attempt ${attempt}/${max} failed; retrying in $((attempt * 8))s..."
+            sleep $((attempt * 8))
+          done
+          echo "Nginx CSP update failed after ${max} attempts."
+          exit 1
 
       - name: Verify deployment
         run: |
