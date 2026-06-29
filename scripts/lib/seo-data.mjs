@@ -19,15 +19,15 @@ const countryResources = loadJson('country-resources.json');
 const siteLastReviewed = loadJson('about.json').meta?.lastReviewed || '2026-06';
 
 const COUNTRY_META = {
-    'south-africa': { name: 'South Africa', cardImage: '1547448415-e9f5b28e570d' },
+    'south-africa': { name: 'South Africa', cardImage: '1755251418399-c56a9579858f' },
     namibia: { name: 'Namibia', cardImage: '1772289093245-218447e77b64' },
     botswana: { name: 'Botswana', cardImage: '1547471080-7cc2caa01a7e' },
     zambia: { name: 'Zambia', cardImage: '1679713594549-ec393ce9c909' },
-    zimbabwe: { name: 'Zimbabwe', cardImage: '1516026672322-bc52d61a55d5' },
+    zimbabwe: { name: 'Zimbabwe', cardImage: '1759164882609-58b00ec3b09a' },
     mozambique: { name: 'Mozambique', cardImage: '1505142468610-359e7d316be0' },
     malawi: { name: 'Malawi', cardImage: '1658221744192-00e3770b8625' },
-    lesotho: { name: 'Lesotho', cardImage: '1541414779316-956a5084c0d4' },
-    eswatini: { name: 'Eswatini', cardImage: '1518709766631-a6a7f45921c3' },
+    lesotho: { name: 'Lesotho', cardImage: '1663527025647-0934ef6d06e5' },
+    eswatini: { name: 'Eswatini', cardImage: '1500530855697-b586d89ba3ee' },
 };
 
 function getCountryMeta(countryId) {

@@ -15,14 +15,14 @@ function url(id, w = 800) {
 
 const countryCards = {
     namibia: I.sossusvleiDunes,
-    'south-africa': I.krugerSafari,
+    'south-africa': I.tableMountainSunset,
     botswana: I.okavangoDelta,
     zambia: I.victoriaFallsSunrise,
-    zimbabwe: I.victoriaFalls,
+    zimbabwe: I.victoriaFalls2025,
     mozambique: I.tropicalBeach,
     malawi: I.lakeMalawi,
-    lesotho: I.mountains,
-    eswatini: I.culturalVillage,
+    lesotho: I.saniPass,
+    eswatini: I.zebraWildlife,
 };
 
 const spotImages = {
@@ -302,10 +302,18 @@ writeFileSync(resolve(root, 'data/marketplace.json'), JSON.stringify(marketplace
 // country-meta.js
 let metaJs = readFileSync(resolve(root, 'js/lib/country-meta.js'), 'utf8');
 for (const [countryId, imageId] of Object.entries(countryCards)) {
-    const re = new RegExp(`(${countryId}:[\\s\\S]*?cardImage: ')[^']+(')`);
+    const re = new RegExp(`('${countryId}':[\\s\\S]*?cardImage: ')[^']+(')`);
     metaJs = metaJs.replace(re, `$1${imageId}$2`);
 }
 writeFileSync(resolve(root, 'js/lib/country-meta.js'), metaJs);
+
+// seo-data.mjs — keep prerender cardImage in sync
+let seoData = readFileSync(resolve(root, 'scripts/lib/seo-data.mjs'), 'utf8');
+for (const [countryId, imageId] of Object.entries(countryCards)) {
+    const re = new RegExp(`((?:'${countryId}'|${countryId}):\\s*\\{[^}]*cardImage:\\s*')[^']+(')`);
+    seoData = seoData.replace(re, `$1${imageId}$2`);
+}
+writeFileSync(resolve(root, 'scripts/lib/seo-data.mjs'), seoData);
 
 // images.js fallbacks
 let imagesJs = `const FALLBACK_HERO = '${url(I.heroSavanna)}';
@@ -376,4 +384,4 @@ on conflict (id) do update set
 writeFileSync(resolve(root, 'supabase/seed.sql'), seedSql);
 
 console.log('Applied', Object.keys(I).length, 'verified stock images across the site.');
-console.log('Updated: countries, country-depth, discover, itineraries, marketplace, country-meta, images.js, index.html, seed.sql');
+console.log('Updated: countries, country-depth, discover, itineraries, marketplace, country-meta, seo-data, images.js, index.html, seed.sql');

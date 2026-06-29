@@ -33,7 +33,9 @@
     "tropicalBeach": "1505142468610-359e7d316be0",
     "marineWildlife": "1566073771259-6a8506099945",
     "urbanAfrica": "1547036967-23d11aacaee0",
-    "hikingTrail": "1469474968028-56623f02e42e"
+    "hikingTrail": "1469474968028-56623f02e42e",
+    "lesothoMountains": "1625750013300-0961514bc088",
+    "saniPass": "1663527025647-0934ef6d06e5"
   },
   "attribution": {
     "_note": "Credit appreciated under Unsplash License — https://unsplash.com/license",
@@ -42,7 +44,8 @@
     "victoriaFalls2025": { "subject": "Victoria Falls at sunrise", "photographer": "Unsplash contributor", "location": "Victoria Falls, Zimbabwe" },
     "krugerSafari": { "subject": "Kruger safari wildlife", "source": "Unsplash" },
     "sossusvleiDunes": { "subject": "Namib Desert dunes", "source": "Unsplash" },
-    "okavangoDelta": { "subject": "Okavango Delta", "source": "Unsplash" }
+    "saniPass": { "subject": "Sani Pass, Lesotho highlands", "location": "Sani Pass border area" },
+    "tableMountainSunset": { "subject": "Table Mountain at sunset, Cape Town", "location": "Signal Hill, Cape Town" }
   },
   "freeSources": [
     { "name": "Unsplash", "url": "https://unsplash.com/s/photos/southern-africa", "license": "https://unsplash.com/license", "note": "Primary source used on this site — free commercial use, no attribution required." },

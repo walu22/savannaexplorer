@@ -72,18 +72,49 @@ function setNavActive(sectionId) {
     });
 }
 
+function resolveSectionIdFromHash(hash) {
+    if (!hash) return null;
+    if (document.getElementById(hash)) return hash;
+    if (hash === 'plan' || hash.startsWith('plan/')) return 'plan';
+    return null;
+}
+
+function scrollToPlanHub(hash) {
+    const sectionId = resolveSectionIdFromHash(hash);
+    if (!sectionId) return;
+
+    revealThroughSection(sectionId);
+    const el = document.getElementById(sectionId);
+    if (el) {
+        const top = el.getBoundingClientRect().top + window.pageYOffset - getScrollOffset();
+        window.scrollTo({ top, behavior: smoothScrollBehavior() });
+    }
+
+    history.replaceState(null, '', `#${hash}`);
+    if (hash.startsWith('plan/') || hash === 'plan') {
+        window.dispatchEvent(new HashChangeEvent('hashchange'));
+    }
+}
+
 function initAnchorLinks() {
     document.addEventListener('click', (e) => {
         const link = e.target.closest('a[href^="#"]');
         if (!link || link.getAttribute('href') === '#') return;
 
         const hash = link.getAttribute('href').slice(1);
-        if (!hash || !document.getElementById(hash)) return;
+        const sectionId = resolveSectionIdFromHash(hash);
+        if (!sectionId) return;
         if (link.closest('#country-detail-view')) return;
 
         e.preventDefault();
         closeMobileNav();
-        scrollToSection(hash);
+
+        if (hash.startsWith('plan/') || hash === 'plan') {
+            scrollToPlanHub(hash);
+            return;
+        }
+
+        scrollToSection(sectionId);
     });
 }
 
@@ -137,11 +168,18 @@ function initBackToTop() {
 
 function initHashOnLoad() {
     const hash = window.location.hash.slice(1);
-    if (!hash || !document.getElementById(hash)) return;
+    if (!hash) return;
+
+    const sectionId = resolveSectionIdFromHash(hash);
+    if (!sectionId) return;
 
     window.requestAnimationFrame(() => {
-        revealThroughSection(hash);
-        scrollToSection(hash, { updateHash: false });
+        if (hash.startsWith('plan/') || hash === 'plan') {
+            scrollToPlanHub(hash);
+            return;
+        }
+        revealThroughSection(sectionId);
+        scrollToSection(sectionId, { updateHash: false });
     });
 }
 

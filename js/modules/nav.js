@@ -1,6 +1,7 @@
 import {
     NAV_CTA,
     NAV_DESKTOP_TOP,
+    NAV_HUB_TABS,
     NAV_JOURNEY_GROUPS,
     NAV_MOBILE_SITE_GROUP,
     getCountryNavLinks,
@@ -48,6 +49,20 @@ function renderCountryGrid() {
     grid.innerHTML = getCountryNavLinks().map(({ href, label, flag }) =>
         `<a class="nav-country-link" href="${href}"><span aria-hidden="true">${flag}</span><span>${label}</span></a>`
     ).join('');
+}
+
+function renderHubDropdown() {
+    const slot = document.getElementById('nav-hub-dropdown');
+    if (!slot) return;
+
+    slot.innerHTML = `
+        <button type="button" class="nav-drop-toggle nav-cta" aria-expanded="false">
+            ${NAV_CTA.desktopLabel} <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="nav-drop-menu nav-drop-menu--hub">
+            ${NAV_HUB_TABS.map(item => `<a href="${item.href}">${item.label}</a>`).join('')}
+        </div>
+    `;
 }
 
 function renderMobilePanel() {
@@ -99,7 +114,19 @@ function renderMobilePanel() {
         `<a class="mobile-nav-standalone" href="${item.href}">${item.label}</a>`
     ).join('');
 
-    body.innerHTML = destinationsGroup + journeyGroups + siteGroup + newsLink;
+    const hubGroup = `
+        <div class="mobile-nav-group mobile-nav-group--hub" data-mobile-nav-group>
+            <button type="button" class="mobile-nav-group__toggle" aria-expanded="false">
+                <span>${NAV_CTA.desktopLabel}</span>
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="mobile-nav-group__panel">
+                ${NAV_HUB_TABS.map(item => `<a href="${item.href}">${item.label}</a>`).join('')}
+            </div>
+        </div>
+    `;
+
+    body.innerHTML = hubGroup + destinationsGroup + journeyGroups + siteGroup + newsLink;
 }
 
 function initDesktopDropdowns() {
@@ -170,6 +197,7 @@ export function initNav() {
     const heroImg = document.getElementById('hero-img');
 
     renderCountryGrid();
+    renderHubDropdown();
     renderMobilePanel();
     initDesktopDropdowns();
     initMobilePanel();
