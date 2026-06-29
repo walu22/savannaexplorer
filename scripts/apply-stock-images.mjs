@@ -33,8 +33,8 @@ const spotImages = {
     'Zambezi Region': I.riverBoat,
     Swakopmund: I.namibOrangeDunes,
     'Kruger National Park': I.krugerSafari,
-    'Cape Town & Table Mountain': I.urbanAfrica,
-    'The Garden Route': I.tropicalBeach,
+    'Cape Town & Table Mountain': I.tableMountain,
+    'The Garden Route': I.gardenRoute,
     'The Drakensberg (uKhahlamba)': I.mountains,
     'Cape Winelands': I.vineyard,
     'Okavango Delta (UNESCO)': I.okavangoDelta,
@@ -238,7 +238,7 @@ const marketplaceImages = {
     cul6: I.mountains,
     cul7: I.culturalVillage,
     cul8: I.victoriaFallsSunrise,
-    nat1: I.victoriaFalls,
+    nat1: I.victoriaFalls2025,
     nat2: I.mountains,
     nat3: I.zebraWildlife,
     nat4: I.tropicalBeach,
@@ -327,16 +327,26 @@ export function activityImageUrl(act) {
 `;
 writeFileSync(resolve(root, 'js/lib/images.js'), imagesJs);
 
-// index.html experience cards + hero
-const indexReplacements = [
-    ['1516426122078-c23e76319801', I.krugerSafari],
-    ['1516026672322-bc52d61a55d5', I.marineOcean],
-    ['1448831338187-78296e6fdc4d', I.culturalVillage],
-    ['1549366021-9f761d450615', I.victoriaFalls],
-];
+// index.html — hero + experience cards from catalog
+const indexStockImages = {
+    heroSavanna: { width: 1920 },
+    expSafari: { key: 'krugerSafari', width: 800 },
+    expAdventure: { key: 'namibDunes', width: 800 },
+    expCulture: { key: 'culturalVillage', width: 800 },
+    expNature: { key: 'victoriaFalls2025', width: 800 },
+};
+
 let indexHtml = readFileSync(resolve(root, 'index.html'), 'utf8');
-for (const [oldId, newId] of indexReplacements) {
-    indexHtml = indexHtml.replaceAll(`photo-${oldId}`, `photo-${newId}`);
+
+for (const [slot, config] of Object.entries(indexStockImages)) {
+    const imageKey = config.key || slot;
+    const imageId = I[imageKey];
+    if (!imageId) continue;
+    const src = url(imageId, config.width || 800);
+    indexHtml = indexHtml.replace(
+        new RegExp(`(data-stock-image="${slot}"[^>]*src=")[^"]+(")`, 'g'),
+        `$1${src}$2`,
+    );
 }
 writeFileSync(resolve(root, 'index.html'), indexHtml);
 

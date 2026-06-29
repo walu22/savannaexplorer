@@ -87,7 +87,38 @@ Legacy reference table:
 
 ## Images
 
-- Destination imagery uses **Unsplash** photo IDs referenced in JSON — not scraped from tourism board sites.
+Savanna Explorer uses **free stock photography** served from the Unsplash CDN. We do not scrape images from tourism board websites.
+
+### Where to download free Southern Africa tourism photos
+
+| Source | Search / browse | License |
+|--------|-----------------|---------|
+| **[Unsplash](https://unsplash.com/s/photos/southern-africa)** | [Safari](https://unsplash.com/s/photos/safari-africa), [Victoria Falls](https://unsplash.com/s/photos/victoria-falls), [Cape Town](https://unsplash.com/s/photos/cape-town) | [Unsplash License](https://unsplash.com/license) — free commercial use, attribution appreciated |
+| **[Pexels](https://www.pexels.com/search/southern%20africa/)** | Country + activity keywords | [Pexels License](https://www.pexels.com/license/) — free commercial use |
+| **[Pixabay](https://pixabay.com/images/search/southern%20africa/)** | Landscapes, wildlife, cities | [Pixabay License](https://pixabay.com/service/license/) |
+| **[Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Tourism_in_Southern_Africa)** | Landmarks, parks, heritage | Per-file (often CC BY-SA — credit required) |
+| **[South Africa Tourism media](https://www.southafrica.net/media)** | Official SA campaigns | Media-kit terms (register for use) |
+
+National tourism boards (Namibia, Botswana, etc.) sometimes offer press galleries — always check their terms before hotlinking or downloading.
+
+### How this site applies images
+
+1. Add the Unsplash photo ID (`timestamp-hash` from the image URL) to `data/image-catalog.json`.
+2. Map the catalog key in `scripts/apply-stock-images.mjs` (country cards, spots, homepage slots, etc.).
+3. Run `npm run verify:images` to confirm every ID returns HTTP 200.
+4. Run `npm run seed:images` to propagate across JSON data, `country-meta.js`, `images.js`, `index.html`, and `supabase/seed.sql`.
+
+Homepage hero and “Top Experiences” cards use `data-stock-image` slots wired to the catalog. Country guides, discover grid, itineraries, and marketplace pull from the same catalog.
+
+Attribution notes for select photos live in `data/image-catalog.json` → `attribution`. Credit is appreciated under the Unsplash License but is not required.
+
+### Maintenance
+
+| Task | Command / frequency |
+|------|---------------------|
+| Verify all catalog URLs | `npm run verify:images` — before deploy or after adding IDs |
+| Re-apply images sitewide | `npm run seed:images` |
+| Replace a broken Unsplash ID | Update catalog → verify → seed |
 
 ## Maintenance schedule
 
