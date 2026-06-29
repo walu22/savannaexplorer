@@ -109,9 +109,11 @@ jobs:
       - name: Verify deployment
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          curl -fsSL "https://savannaexplorer.com/" | grep -q 'Plan trip'
-          curl -fsSL "https://savannaexplorer.com/" | grep -q 'Travel tools'
-          curl -fsSL "https://savannaexplorer.com/sitemap.xml" | grep -q 'stays/sanparks'
-          DEPLOYED=$(curl -fsSL "https://savannaexplorer.com/version.json")
-          echo "$DEPLOYED" | grep -q "\"version\": \"${VERSION}\""
+          curl -fsSL "https://savannaexplorer.com/" -o /tmp/home.html
+          grep -q 'Plan trip' /tmp/home.html
+          grep -q 'Travel tools' /tmp/home.html
+          curl -fsSL "https://savannaexplorer.com/sitemap.xml" -o /tmp/sitemap.xml
+          grep -q 'stays/sanparks' /tmp/sitemap.xml
+          curl -fsSL "https://savannaexplorer.com/version.json" -o /tmp/version.json
+          grep -q "\"version\": \"${VERSION}\"" /tmp/version.json
           echo "Production verified at v${VERSION}."
