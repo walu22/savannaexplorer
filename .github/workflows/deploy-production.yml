@@ -118,6 +118,7 @@ jobs:
           exit 1
 
       - name: Update nginx security headers
+        continue-on-error: true
         env:
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
