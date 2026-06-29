@@ -617,24 +617,31 @@
                     <p class="hub-data-note" id="on-ground-disclaimer"></p>
                 </div>
 
-                <div class="hub-card hub-card--md" id="hub-currency">
+                <div class="hub-card hub-card--md hub-card--compact" id="hub-currency">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-coins"></i></span>
                         <h3>Currency Converter</h3>
                     </div>
-                    <p class="hub-card-lead">Live mid-market rates when online; static planning fallback if unavailable.</p>
                     <div class="hub-converter">
-                        <div class="hub-input-row">
+                        <div class="hub-input-row hub-input-row--converter">
                             <div class="hub-input-group">
-                                <label>Amount</label>
+                                <label for="hub-amount">Amount</label>
                                 <input type="number" id="hub-amount" value="100" min="1">
                             </div>
                             <div class="hub-input-group">
-                                <label>From</label>
+                                <label for="hub-from-currency">From</label>
                                 <select id="hub-from-currency"></select>
                             </div>
+                            <div class="hub-input-group">
+                                <label for="hub-to-currency">To</label>
+                                <select id="hub-to-currency"></select>
+                            </div>
                         </div>
-                        <div class="hub-currency-results" id="hub-results"></div>
+                        <div class="hub-currency-primary" id="hub-currency-primary" aria-live="polite"></div>
+                        <details class="hub-panel-details hub-currency-all">
+                            <summary>All regional rates</summary>
+                            <div class="hub-currency-results" id="hub-results"></div>
+                        </details>
                         <p class="hub-data-note" id="hub-currency-note"></p>
                     </div>
                 </div>
@@ -685,12 +692,15 @@
                     <p class="hub-data-note" id="hub-weather-note"></p>
                 </div>
 
-                <div class="hub-card hub-card--sm" id="hub-emergency">
+                <div class="hub-card hub-card--sm hub-card--compact" id="hub-emergency">
                     <div class="hub-card-header">
                         <span class="hub-icon hub-icon--red"><i class="fas fa-phone-alt"></i></span>
                         <h3>Emergency Contacts</h3>
                     </div>
-                    <div class="hub-emergency-list" id="hub-emergency-list"></div>
+                    <details class="hub-panel-details hub-emergency-panel">
+                        <summary>Emergency numbers · 9 countries</summary>
+                        <div class="hub-emergency-list" id="hub-emergency-list"></div>
+                    </details>
                 </div>
 
                 <div class="hub-card hub-card--lg" id="hub-expense-tracker">
