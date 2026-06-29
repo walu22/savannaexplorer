@@ -4557,6 +4557,113 @@ footer {
     }
 }
 
+/* Tourism arrivals stats */
+.tourism-stats-section {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.tourism-stats-lead {
+    max-width: 720px;
+    margin: 0 auto 1.5rem;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.tourism-stats-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.tourism-stat-filter {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: white;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.tourism-stat-filter.active,
+.tourism-stat-filter:hover {
+    background: var(--accent, #1b4332);
+    border-color: var(--accent, #1b4332);
+    color: white;
+}
+
+.tourism-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.tourism-stat-row {
+    background: var(--off-white, #f8f6f2);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1.15rem;
+}
+
+.tourism-stat-row.hidden {
+    display: none;
+}
+
+.tourism-stat-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.65rem;
+    align-items: start;
+    margin-bottom: 0.65rem;
+}
+
+.tourism-stat-flag {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.tourism-stat-year {
+    display: block;
+    font-size: 0.78rem;
+    color: #888;
+    font-weight: 400;
+}
+
+.tourism-stat-arrivals {
+    text-align: right;
+}
+
+.tourism-stat-number {
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--accent, #1b4332);
+    line-height: 1.1;
+}
+
+.tourism-stat-label {
+    font-size: 0.72rem;
+    color: #666;
+}
+
+.tourism-stat-trend {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2d6a4f;
+    margin: 0 0 0.4rem;
+}
+
+.tourism-stat-context,
+.tourism-stat-sources {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.45;
+    margin: 0 0 0.5rem;
+}
+
 /* Homepage FAQ */
 .home-faq-section {
     padding: 5rem 0;

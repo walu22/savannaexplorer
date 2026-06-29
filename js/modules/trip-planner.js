@@ -10,6 +10,7 @@ import {
     buildTripVisaSummaryBlock,
     getActivePassportId,
 } from './visa-passport-ui.js';
+import { buildPrintBudgetHtml } from '../lib/itinerary-budget.js';
 import printCss from '../../css/print-checklist.css?inline';
 
 const ITINERARY_COUNTRIES = {
@@ -127,6 +128,7 @@ function buildChecklistHtml({ countryIds, routeId, packType, packingItems, passp
             ` : ''}
             <p class="print-note">Template only — not a quote. Adapt dates and bookings yourself.</p>
         </section>
+        ${routeId ? buildPrintBudgetHtml(routeId) : ''}
     ` : '';
 
     const packingHtml = packingItems.length ? `

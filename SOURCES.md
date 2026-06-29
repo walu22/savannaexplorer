@@ -36,6 +36,7 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 | `data/wildlife-calendar.json` | Seasonal wildlife & nature highlights | Original editorial; park authority seasonal guidance |
 | `data/itinerary-budgets.json` | Line-item indicative budgets per route template | Original editorial; park fee references from `parks.json` |
 | `data/planning-guides.json` | Full country planning guides (read/print) | Original editorial; immigration URLs per country |
+| `data/tourism-stats.json` | International arrival context by country | National statistics offices & tourism authorities |
 
 ## Visa & entry (high-change items)
 
@@ -65,7 +66,16 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 | Lesotho | https://www.forestry.gov.ls/ |
 | Eswatini | https://www.biggameparks.org/ |
 
-## Statistics (for future Phase 2 use)
+## Statistics (Phase 2 — live on site)
+
+| Topic | Source | On-site |
+|-------|--------|---------|
+| South Africa arrivals | Statistics South Africa / tourism.gov.za | `#tourism-stats` |
+| Namibia tourism research | Namibia Tourist Statistical Report | `#tourism-stats` |
+| Botswana arrivals | https://statsbots.org.bw/tourism | `#tourism-stats` |
+| Regional estimates | National tourism boards | `data/tourism-stats.json` |
+
+Legacy reference table:
 
 | Topic | Source |
 |-------|--------|

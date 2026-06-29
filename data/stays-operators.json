@@ -584,7 +584,7 @@
     "lastVerified": "2026-06",
     "planningTip": "Malealea is a popular stop between Maseru and Sani Pass — book pony treks a day ahead through the lodge office."
   },
-  {
+    {
     "id": "eswatini-accommodation-directory",
     "kind": "stay",
     "country": "eswatini",
@@ -596,5 +596,44 @@
     "linkLabel": "Eswatini accommodation",
     "lastVerified": "2026-06",
     "planningTip": "Download the 2026 Accommodation & Tourism Directory PDF from the official site for offline lodge contacts when driving between reserves."
+  },
+  {
+    "id": "ngwenya-glass-eswatini",
+    "kind": "experience",
+    "country": "eswatini",
+    "title": "Ngwenya Glass Factory",
+    "region": "Mbabane–Ngwenya corridor",
+    "tags": ["crafts", "culture", "day trip"],
+    "description": "Watch master blowers craft recycled-glass animals and vases — one of Africa's oldest glass factories, popular stop between Oshoek border and Ezulwini.",
+    "url": "https://www.ngwenyaglass.co.sz/",
+    "linkLabel": "Ngwenya Glass",
+    "lastVerified": "2026-06",
+    "planningTip": "Combine with Mantenga Cultural Village for a half-day from Mbabane — cash for the factory shop."
+  },
+  {
+    "id": "swazi-trails-eswatini",
+    "kind": "operator",
+    "country": "eswatini",
+    "title": "Swazi Trails — adventure & transfers",
+    "region": "Ezulwini · Malkerns · Hlane",
+    "tags": ["rafting", "transfers", "guided tours"],
+    "description": "Licensed adventure operator — white-water rafting, canopy tours, guided Hlane drives, and airport transfers from JNB via Oshoek border.",
+    "url": "https://www.swazitrails.co.sz/",
+    "linkLabel": "Swazi Trails",
+    "lastVerified": "2026-06",
+    "planningTip": "Book JNB–Ezulwini transfers if skipping a rental car — they handle border timing on busy weekends."
+  },
+  {
+    "id": "all-out-africa-eswatini",
+    "kind": "operator",
+    "country": "eswatini",
+    "title": "All Out Africa — Ezulwini & community tours",
+    "region": "Ezulwini Valley · Malkerns",
+    "tags": ["culture", "community tourism", "craft markets"],
+    "description": "Day tours to craft markets, community projects, and cultural experiences in the Ezulwini Valley — useful for travellers without self-drive.",
+    "url": "https://www.alloutafrica.com/",
+    "linkLabel": "All Out Africa",
+    "lastVerified": "2026-06",
+    "planningTip": "Pair with a night at Mlilwane or Hlane — Swazi Trails and All Out Africa cover different adventure vs culture niches."
   }
 ]

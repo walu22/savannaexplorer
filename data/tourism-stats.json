@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "lastUpdated": "2026-06",
+    "disclaimer": "International arrival figures are from national statistics offices and tourism authorities — definitions vary (tourist vs all visitors). Use for regional context only; confirm latest reports before citing.",
+    "note": "Figures rounded for display. Trend notes compare to the prior published year where stated by the source."
+  },
+  "countries": [
+    {
+      "id": "south-africa",
+      "flag": "🇿🇦",
+      "name": "South Africa",
+      "year": "2024",
+      "arrivals": "8.92M",
+      "arrivalsLabel": "International tourist arrivals",
+      "trend": "+5.1% vs 2023",
+      "topSources": ["Zimbabwe", "USA", "UK", "Germany"],
+      "context": "Africa supplies ~76% of arrivals; Americas +10.9% growth in 2024.",
+      "sourceUrl": "https://www.tourism.gov.za/AboutNDT/Ministry/News/Pages/South_Africa_Tourism_Rebound_Gains_Momentum.aspx",
+      "sourceLabel": "South Africa Tourism / Stats SA",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "namibia",
+      "flag": "🇳🇦",
+      "name": "Namibia",
+      "year": "2024",
+      "arrivals": "1.26M",
+      "arrivalsLabel": "International tourist arrivals",
+      "trend": "−3.2% to 1.22M in 2025 (preliminary)",
+      "topSources": ["South Africa", "Germany", "Angola", "Botswana"],
+      "context": "~48% visit for holiday/leisure; Germany top overseas source (~9%).",
+      "sourceUrl": "https://www.nbcnews.na/index.php/node/117388",
+      "sourceLabel": "Namibia Tourist Statistical Report",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "botswana",
+      "flag": "🇧🇼",
+      "name": "Botswana",
+      "year": "2024",
+      "arrivals": "1.1M+",
+      "arrivalsLabel": "International visitors (est.)",
+      "trend": "Recovered to pre-pandemic levels",
+      "topSources": ["South Africa", "USA", "UK", "Germany"],
+      "context": "High-value safari tourism — Okavango and Chobe drive premium arrivals.",
+      "sourceUrl": "https://statsbots.org.bw/tourism",
+      "sourceLabel": "Statistics Botswana — tourism",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "zambia",
+      "flag": "🇿🇲",
+      "name": "Zambia",
+      "year": "2023",
+      "arrivals": "1.02M",
+      "arrivalsLabel": "International tourist arrivals",
+      "trend": "Steady recovery post-2020",
+      "topSources": ["Zimbabwe", "South Africa", "UK", "USA"],
+      "context": "Victoria Falls and South Luangwa anchor inbound safari and adventure travel.",
+      "sourceUrl": "https://www.zambiatourism.com/",
+      "sourceLabel": "Zambia Tourism Agency",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "zimbabwe",
+      "flag": "🇿🇼",
+      "name": "Zimbabwe",
+      "year": "2023",
+      "arrivals": "1.1M+",
+      "arrivalsLabel": "International arrivals (est.)",
+      "trend": "Rising with Victoria Falls & Hwange recovery",
+      "topSources": ["South Africa", "USA", "UK", "China"],
+      "context": "USD tourism economy; guiding excellence draws repeat safari visitors.",
+      "sourceUrl": "https://www.zimparks.org/",
+      "sourceLabel": "Zimbabwe Parks & Tourism Authority",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "mozambique",
+      "flag": "🇲🇿",
+      "name": "Mozambique",
+      "year": "2023",
+      "arrivals": "900K+",
+      "arrivalsLabel": "International visitors (est.)",
+      "trend": "Coastal and island tourism expanding",
+      "topSources": ["South Africa", "Portugal", "UK", "Tanzania"],
+      "context": "Bazaruto, Tofo, and Maputo lead; Gorongosa adds safari segment.",
+      "sourceUrl": "https://www.visitmozambique.net/",
+      "sourceLabel": "Visit Mozambique",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "malawi",
+      "flag": "🇲🇼",
+      "name": "Malawi",
+      "year": "2023",
+      "arrivals": "750K+",
+      "arrivalsLabel": "International visitors (est.)",
+      "trend": "Lake tourism and Liwonde safari growth",
+      "topSources": ["Zambia", "Tanzania", "UK", "South Africa"],
+      "context": "Warm heart of Africa brand — lake shore and bush combo itineraries.",
+      "sourceUrl": "https://www.malawitourism.com/",
+      "sourceLabel": "Malawi Tourism",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "lesotho",
+      "flag": "🇱🇸",
+      "name": "Lesotho",
+      "year": "2023",
+      "arrivals": "400K+",
+      "arrivalsLabel": "International visitors (est.)",
+      "trend": "Mountain adventure & SA weekend market",
+      "topSources": ["South Africa", "USA", "UK"],
+      "context": "Almost all visitors enter via South Africa — Sani Pass and pony trekking niche.",
+      "sourceUrl": "https://www.ltdc.org.ls/",
+      "sourceLabel": "Lesotho Tourism Development Corporation",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "eswatini",
+      "flag": "🇸🇿",
+      "name": "Eswatini",
+      "year": "2023",
+      "arrivals": "350K+",
+      "arrivalsLabel": "International visitors (est.)",
+      "trend": "Kruger add-on & cultural tourism",
+      "topSources": ["South Africa", "Germany", "USA", "Mozambique"],
+      "context": "No international airport — access via JNB/DUR; Ezulwini and Hlane main draws.",
+      "sourceUrl": "https://www.thekingdomofeswatini.com/",
+      "sourceLabel": "Eswatini Tourism Authority",
+      "lastVerified": "2026-06"
+    }
+  ],
+  "regional": {
+    "title": "Southern Africa at a glance",
+    "summary": "South Africa remains the regional hub (~9M arrivals) with Namibia and Botswana as flagship safari destinations above 1M each. Smaller kingdoms and lake states draw focused adventure and culture trips — often combined in multi-country loops from Johannesburg.",
+    "lastVerified": "2026-06"
+  }
+}

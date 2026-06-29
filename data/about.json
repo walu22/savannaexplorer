@@ -70,6 +70,7 @@
     { "file": "Visa & health matrix", "content": "Entry categories and health notes", "sources": "Government immigration portals" },
     { "file": "Country guides", "content": "Attractions, advice, routes", "sources": "Original editorial + official tourism boards" },
     { "file": "Itineraries", "content": "Route templates and budgets", "sources": "Original editorial planning notes" },
+    { "file": "Tourism arrivals", "content": "Regional visitor statistics", "sources": "Stats SA, Namibia Tourist Report, national boards" },
     { "file": "Marketplace inspiration", "content": "Activity ideas and cost bands", "sources": "Official tourism links per item" }
   ],
   "maintenance": [

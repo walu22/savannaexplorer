@@ -15,7 +15,7 @@ const listingById = new Map(listings.map(item => [item.id, item]));
 /** Pathnames that map to homepage sections (SPA hub deep links). */
 export const HUB_SECTIONS = new Set([
     'parks', 'embassies', 'borders', 'transport', 'health', 'events',
-    'book-direct', 'plan', 'guides', 'itineraries', 'destinations',
+    'book-direct', 'plan', 'guides', 'tourism-stats', 'itineraries', 'destinations',
     'home', 'about', 'news', 'contact', 'cultures', 'gastronomy',
     'experiences', 'top-destinations',
 ]);

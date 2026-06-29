@@ -55,3 +55,34 @@ export function formatBudgetSummary(itineraryId) {
     if (!budget) return '';
     return `From USD ${budget.totalPerPerson.toLocaleString()} pp · ${budget.durationDays} days · ${budget.travelers} travellers`;
 }
+
+export function buildPrintBudgetHtml(itineraryId) {
+    const budget = getItineraryBudget(itineraryId);
+    if (!budget?.lines?.length) return '';
+
+    const rows = budget.lines.map(line => `
+        <tr>
+            <td>${escapeHtml(line.category)}</td>
+            <td>${escapeHtml(line.item)}</td>
+            <td>USD ${line.amountPerPerson.toLocaleString()}</td>
+        </tr>
+    `).join('');
+
+    const tips = budget.tips?.length
+        ? `<ul class="print-budget-tips">${budget.tips.map(t => `<li>${escapeHtml(t)}</li>`).join('')}</ul>`
+        : '';
+
+    return `
+        <section class="print-section print-budget">
+            <h2>Indicative budget breakdown</h2>
+            <p class="print-meta">${escapeHtml(budget.basis)}</p>
+            <table class="print-budget-table">
+                <thead><tr><th>Category</th><th>Item</th><th>Per person</th></tr></thead>
+                <tbody>${rows}</tbody>
+                <tfoot><tr><td colspan="2"><strong>Typical total (planning estimate)</strong></td><td><strong>USD ${budget.totalPerPerson.toLocaleString()}</strong></td></tr></tfoot>
+            </table>
+            ${tips}
+            <p class="print-note">${escapeHtml(budgetData.meta.disclaimer)}</p>
+        </section>
+    `;
+}
