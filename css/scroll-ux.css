@@ -4,7 +4,7 @@ body.site-v2 {
     --scroll-offset: calc(var(--header-height) + 12px);
 }
 
-body.site-v2 nav.scrolled {
+body.site-v2 #navbar.scrolled {
     --scroll-offset: 80px;
 }
 

@@ -24,7 +24,7 @@ body.site-v2 .container {
 }
 
 /* --- Navigation v4 --- */
-body.site-v2 nav {
+body.site-v2 #navbar {
     height: var(--header-height);
     background: rgba(253, 251, 247, 0.96);
     backdrop-filter: blur(16px);
@@ -32,7 +32,7 @@ body.site-v2 nav {
     box-shadow: var(--shadow-sm);
 }
 
-body.site-v2 nav.scrolled {
+body.site-v2 #navbar.scrolled {
     height: 68px;
     box-shadow: var(--shadow-sm);
 }
@@ -46,7 +46,7 @@ body.site-v2 .logo {
     text-shadow: none;
 }
 
-body.site-v2 nav.scrolled .logo {
+body.site-v2 #navbar.scrolled .logo {
     color: var(--accent);
 }
 
@@ -778,6 +778,23 @@ body.site-v2 .hub-card {
 
 body.site-v2 .hub-journey-nav {
     top: calc(var(--header-height, 56px) + 0.35rem);
+    height: auto;
+    background: rgba(15, 15, 18, 0.92);
+    border-bottom: none;
+    box-shadow: none;
+}
+
+body.site-v2 .utility-hub .hub-journey-tab {
+    color: rgba(247, 243, 237, 0.78);
+    font-family: inherit;
+}
+
+body.site-v2 .utility-hub .hub-journey-tab:hover {
+    color: rgba(247, 243, 237, 0.95);
+}
+
+body.site-v2 .utility-hub .hub-journey-tab.active {
+    color: #fff;
 }
 
 body.site-v2 .hub-toolbar {
@@ -2127,11 +2144,11 @@ body.site-v2 .trust-feature-label {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    body.site-v2 nav {
+    body.site-v2 #navbar {
         z-index: 1000;
     }
 
-    body.site-v2 nav .container {
+    body.site-v2 #navbar .container {
         position: relative;
         gap: 0.75rem;
     }
