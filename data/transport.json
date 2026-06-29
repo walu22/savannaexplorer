@@ -1,4 +1,46 @@
 {
+  "intercityBuses": [
+    {
+      "id": "intercape",
+      "title": "Intercape",
+      "region": "South Africa · Namibia · Botswana · Mozambique",
+      "description": "Largest intercity operator in the region — 295+ stops including Windhoek, Durban–Maputo, Johannesburg–Cape Town Sleepliner, and Bulawayo links.",
+      "url": "https://www.intercape.co.za/",
+      "linkLabel": "Intercape routes & booking",
+      "lastVerified": "2026-06",
+      "planningTip": "Book online or at Shoprite, Pick n Pay, and Checkers kiosks. No direct JNB–Victoria Falls service — fly or bus to Bulawayo then transfer."
+    },
+    {
+      "id": "citiliner",
+      "title": "Citiliner (Intercape group)",
+      "region": "South Africa regional",
+      "description": "Budget coach brand under Intercape for shorter hops — connects to mainline routes at major depots.",
+      "url": "https://www.intercape.co.za/",
+      "linkLabel": "Citiliner via Intercape",
+      "lastVerified": "2026-06",
+      "planningTip": "Useful for Pretoria–Polokwane–Phalaborwa Kruger access without self-driving."
+    },
+    {
+      "id": "luxliner",
+      "title": "Luxliner / Greyhound alternatives",
+      "region": "Johannesburg · Cape Town · Durban",
+      "description": "Compare Intercape Sleepliner, Big Sky Intercity, and FlySafair/Airlink when overnight bus vs flight trade-offs matter.",
+      "url": "https://www.busbud.com/en-za/bus-company/intercape",
+      "linkLabel": "Compare schedules (Busbud)",
+      "lastVerified": "2026-06",
+      "planningTip": "Overnight JNB–CPT saves a hotel night — arrive Cape Town Station in daylight; Uber from inside the terminal."
+    },
+    {
+      "id": "pathfinder-note",
+      "title": "Zimbabwe overland (Pathfinder)",
+      "region": "Bulawayo · Harare · Victoria Falls",
+      "description": "Intercape Pathfinder historically ran Harare–Victoria Falls — verify current schedules seasonally. Bulawayo–Johannesburg runs daily.",
+      "url": "https://www.intercape.co.za/",
+      "linkLabel": "Check Intercape Zimbabwe routes",
+      "lastVerified": "2026-06",
+      "planningTip": "Victoria Falls overland often routes via Zambia (Livingstone) flights from JNB — confirm bus availability before planning."
+    }
+  ],
   "meta": {
     "lastUpdated": "2026-06",
     "disclaimer": "Transport links point to official airlines, airports, tourism boards, and licensed operators. Savanna Explorer does not sell tickets, rentals, or SIM cards — book directly with the provider."
@@ -297,16 +339,20 @@
     "title": "Self-drive cross-border checklist",
     "intro": "Tick off before you reach the border queue. Requirements vary by post and vehicle — see our border guides for post-specific tips.",
     "items": [
-      "Valid passport (6+ months remaining recommended)",
-      "Driver's licence in English or International Driving Permit",
-      "Original vehicle registration certificate",
-      "Rental cross-border letter / owner authorization if not your vehicle",
-      "Third-party insurance valid for destination country (COMESA yellow disc where required)",
-      "Temporary vehicle import permit (Zimbabwe, Zambia, Botswana as applicable)",
+      "Valid passport (6+ months recommended; SA allows 30 days beyond departure for many visitors)",
+      "Driver's licence in English plus International Driving Permit (essential for Botswana)",
+      "Original vehicle registration certificate or certified copy",
+      "Rental cross-border letter / bank letter of authority if not your vehicle",
+      "COMESA Yellow Card or destination third-party insurance (buy before the queue)",
+      "Temporary vehicle import permit (Zimbabwe, Zambia, Botswana, Mozambique as applicable)",
       "ZA sticker on rear if registered in South Africa",
-      "Fire extinguisher and warning triangle (SA cross-border requirement)",
-      "Cash in USD or local currency for road tolls and border fees",
-      "Unabridged birth certificate for minors (South Africa exit/entry rules)"
+      "Fire extinguisher, warning triangle, and reflective vest (SA cross-border requirement)",
+      "Two reflective triangles if towing (SA regulation)",
+      "Cash in USD or local currency for road tolls, carbon tax, and visa fees — cards often fail",
+      "KAZA UniVisa USD 50 per eligible traveller (Victoria Falls circuits)",
+      "Unabridged birth certificate for minors (South Africa exit/entry rules)",
+      "Yellow fever certificate if arriving from endemic countries",
+      "Proof of accommodation or onward ticket if immigration asks"
     ],
     "resources": [
       {
@@ -320,10 +366,15 @@
         "internal": false
       },
       {
-        "label": "SADC tourism vehicle guidelines",
-        "url": "https://www.sadc.int/",
+        "label": "COMESA Yellow Card",
+        "url": "https://comesayellowcard.org/",
         "internal": false
-      }
+      },
+      {
+        "label": "KAZA UniVisa (official)",
+        "url": "https://www.zambiaimmigration.gov.zm/kaza-univisa/",
+        "internal": false
+      },
     ],
     "lastVerified": "2026-06"
   },

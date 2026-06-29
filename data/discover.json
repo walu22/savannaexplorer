@@ -169,6 +169,13 @@
   "travelNews": [
     {
       "date": "Jun 2026",
+      "category": "Infrastructure",
+      "title": "South Africa power grid stabilises — 400+ days without load shedding",
+      "excerpt": "Eskom reports sustained generation recovery through winter 2026. Tourist hubs and lodges largely unaffected, but localised load reduction may still hit some townships — confirm backup power when self-catering.",
+      "country": "south-africa"
+    },
+    {
+      "date": "Jun 2026",
       "category": "Travel Update",
       "title": "KAZA UniVisa extended at Victoria Falls crossings",
       "excerpt": "The $50 UniVisa continues to cover multiple entries between Zambia and Zimbabwe, including day trips to Botswana's Chobe National Park via Kazungula.",

@@ -1,4 +1,5 @@
 import eventsData from '../../data/events.json';
+import wildlifeCalendar from '../../data/wildlife-calendar.json';
 import { COUNTRY_META } from '../lib/country-meta.js';
 
 const MONTHS = ['All', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -11,6 +12,31 @@ const TYPE_ICONS = {
     adventure: 'fa-person-hiking',
     travel: 'fa-route',
 };
+
+function renderWildlifeCalendar() {
+    const el = document.getElementById('wildlife-calendar');
+    if (!el) return;
+
+    const cards = wildlifeCalendar.highlights.map(item => `
+        <article class="wildlife-cal-card" data-months="${item.months.join(' ')}">
+            <div class="wildlife-cal-top">
+                <span class="wildlife-cal-icon">${item.icon}</span>
+                <span class="wildlife-cal-when">${item.monthLabel}</span>
+            </div>
+            <h3>${item.title}</h3>
+            <p class="wildlife-cal-region">${item.region}</p>
+            <p class="wildlife-cal-desc">${item.description}</p>
+        </article>
+    `).join('');
+
+    el.innerHTML = `
+        <div class="wildlife-cal-header">
+            <h3>Wildlife &amp; nature calendar</h3>
+            <p>${wildlifeCalendar.meta.disclaimer}</p>
+        </div>
+        <div class="wildlife-cal-grid">${cards}</div>
+    `;
+}
 
 function renderEventCard(event) {
     const meta = COUNTRY_META[event.country] || {};
@@ -35,6 +61,8 @@ export function initEvents() {
     const disclaimer = document.getElementById('events-disclaimer');
     const countEl = document.getElementById('events-count');
     if (!grid) return;
+
+    renderWildlifeCalendar();
 
     const events = eventsData.events;
 

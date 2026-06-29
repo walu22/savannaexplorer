@@ -420,6 +420,8 @@
                 <p>Regional health summaries by country — always consult a travel-health clinic for personalised advice.</p>
             </div>
             <div class="health-filters" id="health-filters"></div>
+            <div class="health-vaccines" id="health-vaccines"></div>
+            <div class="health-yellow-fever" id="health-yellow-fever"></div>
             <div class="health-grid" id="health-grid"></div>
             <p class="section-disclaimer" id="health-disclaimer"></p>
         </div>
@@ -433,6 +435,7 @@
                 <h2>Events &amp; Seasonal Highlights</h2>
                 <p><span id="events-count">28</span> festivals, wildlife peaks, and cultural events across Southern Africa.</p>
             </div>
+            <div class="wildlife-calendar" id="wildlife-calendar"></div>
             <div class="events-toolbar">
                 <label>
                     <span>Month</span>
@@ -560,6 +563,17 @@
                         </div>
                         <p class="trip-planner-feedback" id="trip-planner-feedback" hidden></p>
                     </div>
+                </div>
+
+                <div class="hub-card hub-card--full" id="hub-on-the-ground">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-map-signs"></i></span>
+                        <h3>On the Ground — Cash, Fuel &amp; Power</h3>
+                    </div>
+                    <p class="hub-card-lead">Practical realities by country — plugs, payments, fuel planning, and local conditions.</p>
+                    <div class="on-ground-filters" id="on-ground-filters"></div>
+                    <div class="on-ground-grid" id="on-ground-grid"></div>
+                    <p class="hub-data-note" id="on-ground-disclaimer"></p>
                 </div>
 
                 <div class="hub-card hub-card--lg" id="hub-currency">
@@ -720,8 +734,11 @@
                     <div class="transport-grid transport-grid--compact" id="transport-gateways"></div>
                 </div>
                 <div class="transport-panel" id="transport-panel-routes" role="tabpanel" hidden>
-                    <p class="transport-panel-intro">Regional and bush-flight operators for Livingstone–Mfuwe, Maun Delta, and Kruger connections.</p>
+                    <p class="transport-panel-intro">Regional flights, bush charters, and intercity coaches for long hops between gateway cities.</p>
+                    <h3 class="transport-subheading">Regional &amp; bush flights</h3>
                     <div class="transport-grid" id="transport-routes"></div>
+                    <h3 class="transport-subheading">Intercity coaches</h3>
+                    <div class="transport-grid" id="transport-buses"></div>
                 </div>
                 <div class="transport-panel" id="transport-panel-car" role="tabpanel" hidden>
                     <p class="transport-panel-intro">Self-drive rentals and official tourism transport guidance — cross-border letters required for most rental vehicles.</p>
@@ -736,7 +753,7 @@
                         <div class="transport-crossborder-main">
                             <h3>Self-drive cross-border checklist</h3>
                             <p class="transport-panel-intro">Tick off before the border queue. See <a href="#borders">border guides</a> for post-specific wait times and fees.</p>
-                            <p class="transport-progress" id="transport-crossborder-progress">0 of 10 ready</p>
+                            <p class="transport-progress" id="transport-crossborder-progress">0 of 14 ready</p>
                             <div class="transport-checklist" id="transport-crossborder-list"></div>
                             <div class="transport-resource-links" id="transport-crossborder-resources"></div>
                         </div>
@@ -744,8 +761,11 @@
                             <h3>High-traffic borders</h3>
                             <p class="hub-data-note">Typical wait estimates — not live queue data. See border guides for fees and documents.</p>
                             <div id="transport-border-links"></div>
+                            <h3 class="transport-aside-heading">Indicative vehicle fees</h3>
+                            <div id="transport-border-fees"></div>
                         </aside>
                     </div>
+                    <div class="transport-crossborder-guides" id="transport-crossborder-guides"></div>
                 </div>
             </div>
             <p class="transport-disclaimer" id="transport-disclaimer"></p>

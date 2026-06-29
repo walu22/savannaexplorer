@@ -1,4 +1,5 @@
 import transport from '../../data/transport.json';
+import crossBorder from '../../data/cross-border.json';
 import practical from '../../data/practical.json';
 
 const LIVE_CURRENCY_API = 'https://open.er-api.com/v6/latest/';
@@ -98,6 +99,59 @@ function renderSimCard(item) {
     `;
 }
 
+function renderCrossBorderGuides() {
+    const el = document.getElementById('transport-crossborder-guides');
+    if (!el) return;
+
+    el.innerHTML = `
+        <h3 class="transport-subheading">In-depth cross-border guides</h3>
+        <p class="transport-panel-intro">${escapeHtml(crossBorder.meta.disclaimer)}</p>
+        <div class="crossborder-guides-grid">
+            ${crossBorder.guides.map(guide => {
+                const facts = guide.facts.map(f =>
+                    `<li><strong>${escapeHtml(f.label)}:</strong> ${escapeHtml(f.value)}</li>`
+                ).join('');
+                const sections = guide.sections.map(s => `
+                    <div class="crossborder-guide-section">
+                        <h5>${escapeHtml(s.heading)}</h5>
+                        <p>${escapeHtml(s.body)}</p>
+                        ${s.bullets?.length ? `<ul>${s.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join('')}</ul>` : ''}
+                    </div>
+                `).join('');
+                return `
+                    <article class="crossborder-guide-card" id="crossborder-${guide.id}">
+                        <div class="crossborder-guide-head">
+                            <span class="crossborder-guide-icon">${guide.icon}</span>
+                            <div>
+                                <h4>${escapeHtml(guide.title)}</h4>
+                                <p class="crossborder-guide-summary">${escapeHtml(guide.summary)}</p>
+                            </div>
+                        </div>
+                        <ul class="crossborder-guide-facts">${facts}</ul>
+                        ${sections}
+                        <a class="data-source-link" href="${guide.sourceUrl}" target="_blank" rel="noopener noreferrer">
+                            ${escapeHtml(guide.linkLabel)} · verified ${guide.lastVerified} <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </article>
+                `;
+            }).join('')}
+        </div>
+    `;
+}
+
+function renderBorderFees() {
+    const el = document.getElementById('transport-border-fees');
+    if (!el) return;
+
+    el.innerHTML = crossBorder.borderFees.map(row => `
+        <div class="transport-fee-row">
+            <strong>${row.flag} ${escapeHtml(row.name)}</strong>
+            <span>${escapeHtml(row.vehicleEstimate)}</span>
+            <span class="transport-fee-note">${escapeHtml(row.notes)}</span>
+        </div>
+    `).join('');
+}
+
 function renderCrossBorderChecklist() {
     const { vehicleCrossBorder: vb } = transport;
     const list = document.getElementById('transport-crossborder-list');
@@ -162,16 +216,22 @@ function initTransportTabs() {
 function renderTransportHub() {
     const gatewaysEl = document.getElementById('transport-gateways');
     const routesEl = document.getElementById('transport-routes');
+    const busesEl = document.getElementById('transport-buses');
     const carEl = document.getElementById('transport-car-rental');
     const simEl = document.getElementById('transport-sim');
 
     if (gatewaysEl) gatewaysEl.innerHTML = transport.gateways.map(renderGatewayCard).join('');
     if (routesEl) routesEl.innerHTML = transport.domesticRoutes.map(renderRouteCard).join('');
+    if (busesEl && transport.intercityBuses) {
+        busesEl.innerHTML = transport.intercityBuses.map(renderRouteCard).join('');
+    }
     if (carEl) carEl.innerHTML = transport.carRental.map(renderCarCard).join('');
     if (simEl) simEl.innerHTML = transport.mobileSim.map(renderSimCard).join('');
 
     renderCrossBorderChecklist();
     renderBorderStatusLinks();
+    renderBorderFees();
+    renderCrossBorderGuides();
 
     const disclaimer = document.getElementById('transport-disclaimer');
     if (disclaimer) disclaimer.textContent = transport.meta.disclaimer;

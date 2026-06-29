@@ -4717,6 +4717,338 @@ footer {
     font-style: italic;
 }
 
+.transport-subheading {
+    font-size: 1.05rem;
+    color: var(--accent, #1b4332);
+    margin: 1.5rem 0 0.75rem;
+}
+
+.transport-subheading:first-child {
+    margin-top: 0;
+}
+
+.transport-aside-heading {
+    font-size: 0.95rem;
+    margin: 1.25rem 0 0.65rem;
+    color: var(--accent, #1b4332);
+}
+
+.transport-fee-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.82rem;
+}
+
+.transport-fee-row:last-child {
+    border-bottom: none;
+}
+
+.transport-fee-note {
+    color: #666;
+    line-height: 1.4;
+}
+
+.transport-crossborder-guides {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.crossborder-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+}
+
+.crossborder-guide-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.crossborder-guide-head {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.crossborder-guide-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.crossborder-guide-head h4 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+    color: var(--accent, #1b4332);
+}
+
+.crossborder-guide-summary {
+    font-size: 0.88rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.crossborder-guide-facts {
+    margin: 0 0 1rem;
+    padding-left: 1.1rem;
+    font-size: 0.85rem;
+    color: #444;
+}
+
+.crossborder-guide-facts li {
+    margin-bottom: 0.25rem;
+}
+
+.crossborder-guide-section {
+    margin-bottom: 0.85rem;
+}
+
+.crossborder-guide-section h5 {
+    margin: 0 0 0.35rem;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.crossborder-guide-section p,
+.crossborder-guide-section ul {
+    font-size: 0.85rem;
+    color: #555;
+    margin: 0 0 0.35rem;
+    line-height: 1.45;
+}
+
+.crossborder-guide-section ul {
+    padding-left: 1.1rem;
+}
+
+/* Health hub — vaccinations & yellow fever */
+.health-vaccines-panel,
+.health-yellow-panel {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.health-vaccines-panel h3,
+.health-yellow-panel h3 {
+    margin: 0 0 1rem;
+    color: var(--accent, #1b4332);
+    font-size: 1.1rem;
+}
+
+.health-vaccines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.health-vaccines-grid h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.92rem;
+}
+
+.health-vaccines-grid ul,
+.health-yellow-panel ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.88rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+.health-routing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin: 1rem 0;
+}
+
+.health-routing-table th,
+.health-routing-table td {
+    border: 1px solid #e8e8e8;
+    padding: 0.55rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.health-routing-table th {
+    background: #f5f5f5;
+    font-weight: 600;
+}
+
+.health-yellow-note {
+    font-size: 0.88rem;
+    color: #555;
+    margin: 0 0 0.75rem;
+}
+
+/* Wildlife calendar */
+.wildlife-cal-header {
+    margin-bottom: 1.25rem;
+}
+
+.wildlife-cal-header h3 {
+    margin: 0 0 0.35rem;
+    color: var(--accent, #1b4332);
+}
+
+.wildlife-cal-header p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: #666;
+}
+
+.wildlife-cal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.wildlife-cal-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1.15rem;
+}
+
+.wildlife-cal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.wildlife-cal-icon {
+    font-size: 1.5rem;
+}
+
+.wildlife-cal-when {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent, #1b4332);
+}
+
+.wildlife-cal-card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+}
+
+.wildlife-cal-region {
+    font-size: 0.82rem;
+    color: #888;
+    margin: 0 0 0.5rem;
+}
+
+.wildlife-cal-desc {
+    font-size: 0.88rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* On the ground hub card */
+.on-ground-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.on-ground-filter {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+
+.on-ground-filter.active,
+.on-ground-filter:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.on-ground-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.on-ground-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 1.15rem;
+}
+
+.on-ground-card.hidden {
+    display: none;
+}
+
+.on-ground-card-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+}
+
+.on-ground-card-head h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: white;
+}
+
+.on-ground-flag {
+    font-size: 1.35rem;
+}
+
+.on-ground-topic {
+    margin-bottom: 0.85rem;
+}
+
+.on-ground-topic h4 {
+    margin: 0 0 0.3rem;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.on-ground-topic-icon {
+    margin-right: 0.25rem;
+}
+
+.on-ground-topic p {
+    margin: 0;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.45;
+}
+
+.on-ground-verified {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0.5rem 0 0;
+}
+
+.hub-card--full .hub-card-lead {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.hub-card--full .hub-data-note {
+    color: rgba(255, 255, 255, 0.55);
+}
+
 .hub-card-lead {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.65);

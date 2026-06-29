@@ -1,0 +1,261 @@
+{
+  "meta": {
+    "lastUpdated": "2026-06",
+    "disclaimer": "Border fees, visa rules, and insurance requirements change without notice. Figures are indicative planning estimates in our own words — always confirm with official immigration, rental companies, and insurers before travel.",
+    "sourceLabel": "Official immigration & COMESA sources (see each guide)"
+  },
+  "guides": [
+    {
+      "id": "kaza-univisa",
+      "icon": "🛂",
+      "title": "KAZA UniVisa (Zambia & Zimbabwe)",
+      "summary": "One USD 50 visa for unlimited crossings between Zambia and Zimbabwe for 30 days, plus same-day Chobe day trips via Kazungula — the essential document for Victoria Falls circuits.",
+      "facts": [
+        { "label": "Cost", "value": "USD 50 cash on arrival" },
+        { "label": "Validity", "value": "30 days · multiple entries ZM ↔ ZW" },
+        { "label": "Botswana", "value": "Day trips only via Kazungula — no overnight stay" },
+        { "label": "Payment", "value": "USD cash — carry exact notes; cards unreliable" }
+      ],
+      "sections": [
+        {
+          "heading": "Who qualifies",
+          "body": "Category B nationals from around 65 countries including the UK, EU, USA, Canada, Australia, and New Zealand. SADC passport holders are usually visa-free for short visits and do not need the UniVisa. Confirm eligibility on the official list before you rely on it.",
+          "bullets": []
+        },
+        {
+          "heading": "Where to buy it",
+          "body": "Available only at designated ports — not at every border or airport.",
+          "bullets": [
+            "Zambia: Kenneth Kaunda (Lusaka), Harry Mwanga Nkumbula (Livingstone), Victoria Falls border, Kazungula border",
+            "Zimbabwe: Victoria Falls Airport, Victoria Falls land border, Kazungula border, Harare Airport (official list — some third-party guides note VFA/Livingstone as the main tourist entry points)",
+            "Not a substitute for Botswana, Namibia, or Mozambique entry visas"
+          ]
+        },
+        {
+          "heading": "Planning tips",
+          "body": "Buy the UniVisa on first entry to Zambia or Zimbabwe if eligible. Carry clean, recent USD notes — torn or old bills are often refused. If you overnight in Botswana, the UniVisa may no longer cover re-entry — you may need a new visa.",
+          "bullets": [
+            "Classic loop: Livingstone falls → bridge crossing → Victoria Falls town → Chobe day safari → return same day",
+            "Pair with our border guides for Kazungula bridge tolls and queue timing"
+          ]
+        }
+      ],
+      "sourceUrl": "https://www.zambiaimmigration.gov.zm/kaza-univisa/",
+      "linkLabel": "Zambia Immigration — KAZA UniVisa",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "comesa-yellow-card",
+      "icon": "🟨",
+      "title": "COMESA Yellow Card (cross-border insurance)",
+      "summary": "Regional third-party motor insurance valid across COMESA member states — buy before you queue instead of purchasing cover at each border post.",
+      "facts": [
+        { "label": "What it is", "value": "Compulsory third-party liability cover for visiting motorists" },
+        { "label": "Member states", "value": "13 countries incl. Zambia, Zimbabwe, Malawi, Tanzania" },
+        { "label": "SA & Mozambique", "value": "Obtain via B2B insurers before departure — not full COMESA members" },
+        { "label": "Without it", "value": "Fines, delays, or refusal at COMESA borders" }
+      ],
+      "sections": [
+        {
+          "heading": "How it works",
+          "body": "The Yellow Card satisfies minimum compulsory third-party insurance in each participating country. One certificate replaces buying separate policies at border posts — saving time and often money on multi-country loops.",
+          "bullets": [
+            "Obtain from your insurer, AA, or authorised broker before leaving home or in South Africa pre-departure",
+            "Rental companies may include cross-border cover in their letter of authority — confirm in writing",
+            "Valid for the period stated on the certificate; carry the original disc or certificate"
+          ]
+        },
+        {
+          "heading": "South Africa & Mozambique travellers",
+          "body": "South Africa and Mozambique are not COMESA members, but the Council of Bureaux issues Yellow Cards to motorists leaving those countries under a Business-to-Business arrangement. Namibia can also issue cards for travel into COMESA territory.",
+          "bullets": [
+            "Driving SA rental into Zimbabwe/Zambia/Malawi: confirm whether rental insurance or separate Yellow Card is required",
+            "Border-issued insurance is sometimes available but queues and premiums are unpredictable"
+          ]
+        }
+      ],
+      "sourceUrl": "https://comesayellowcard.org/",
+      "linkLabel": "COMESA Yellow Card — official site",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "letter-of-authority",
+      "icon": "📄",
+      "title": "Letter of authority & rental cross-border permits",
+      "summary": "The document most self-drivers forget — without it, financed or rental vehicles are turned back at the border.",
+      "facts": [
+        { "label": "Required when", "value": "Rental, leased, or financed vehicle leaving its home country" },
+        { "label": "Typical rental fee", "value": "Approx. ZAR 1,000–1,500 per border (arrange before pickup)" },
+        { "label": "Owned outright", "value": "Original registration in your name + ZA sticker if SA-registered" },
+        { "label": "Lead time", "value": "Request 5–7 days before collection — not at the counter" }
+      ],
+      "sections": [
+        {
+          "heading": "What the letter must state",
+          "body": "The rental company or bank issues written permission naming all countries and dates. Border officials match this to your passport and vehicle papers.",
+          "bullets": [
+            "Countries permitted (list every border you plan to cross)",
+            "Vehicle registration and VIN matching the car",
+            "Named drivers on the rental agreement",
+            "Certified copy of vehicle registration if requested",
+            "Third-party insurance valid for destination — may be separate from the letter"
+          ]
+        },
+        {
+          "heading": "Owned vehicles",
+          "body": "If the car is fully paid and registered in your name, you typically need the original registration certificate, proof of insurance, and a country sticker (ZA for South Africa). Financed vehicles still need bank consent.",
+          "bullets": []
+        }
+      ],
+      "sourceUrl": "https://www.aa.co.za/",
+      "linkLabel": "AA South Africa — cross-border guidance",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "idp-and-licence",
+      "icon": "🪪",
+      "title": "Driving licence & International Driving Permit",
+      "summary": "Left-hand traffic throughout the region. English photo licences usually accepted; Botswana strongly expects an IDP for foreign drivers.",
+      "facts": [
+        { "label": "Traffic side", "value": "Left-hand drive everywhere in our 9 countries" },
+        { "label": "IDP for Botswana", "value": "Recommended for all foreign visitors" },
+        { "label": "Non-English licence", "value": "IDP required in SA and Namibia" },
+        { "label": "Carry both", "value": "Original home licence + IDP — never one alone" }
+      ],
+      "sections": [
+        {
+          "heading": "Country notes",
+          "body": "Police and rental desks may ask for an IDP even when law allows a English licence — having one avoids disputes.",
+          "bullets": [
+            "South Africa: 30 days passport validity beyond departure for many visitors; licence in English or IDP",
+            "Namibia: English photo licence usually OK; IDP if not in English",
+            "Botswana: IDP recommended for all foreign drivers — rental contracts often require it",
+            "Zimbabwe & Zambia: English licences widely accepted; carry IDP as backup"
+          ]
+        }
+      ],
+      "sourceUrl": "https://www.sadc.int/",
+      "linkLabel": "SADC — regional transport",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "cash-at-borders",
+      "icon": "💵",
+      "title": "Cash, cards & border payments",
+      "summary": "Border posts and visa desks often cash-only. USD clean notes are the regional lingua franca for tourist fees.",
+      "facts": [
+        { "label": "USD notes", "value": "Clean, post-2009 series — small denominations help" },
+        { "label": "Zimbabwe", "value": "USD widely used for tourism; ZiG for local trade" },
+        { "label": "Cards at borders", "value": "Unreliable — assume cash for visas and road fees" },
+        { "label": "ATMs", "value": "Major towns only — fill up before remote crossings" }
+      ],
+      "sections": [
+        {
+          "heading": "What to budget in cash",
+          "body": "Per-vehicle road access, carbon tax, and third-party insurance vary by country. Rental cross-border fees are paid to the company, not at the post.",
+          "bullets": [
+            "KAZA UniVisa: USD 50 exact per eligible traveller",
+            "Namibia VOA/e-visa: NAD cash at some posts — confirm current N$ amount before travel",
+            "Bridge tolls: Kazungula, Beitbridge — small USD or local notes",
+            "Keep receipt stubs — some countries require exit proof of entry payment"
+          ]
+        }
+      ],
+      "sourceUrl": "https://www.kazavisa.info/",
+      "linkLabel": "KAZA visa reference",
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "night-driving",
+      "icon": "🌙",
+      "title": "Night driving & road safety",
+      "summary": "Avoid driving after dark outside major cities — wildlife, pedestrians, and unmarked hazards cause most self-drive incidents.",
+      "facts": [
+        { "label": "Golden rule", "value": "Plan to reach camp by sunset" },
+        { "label": "Wildlife", "value": "Kudu and antelope on tar — fatal at speed" },
+        { "label": "Phone use", "value": "Illegal handheld use in South Africa" },
+        { "label": "Tyres & fuel", "value": "Two spares for Namibia gravel; never pass last fuel stop" }
+      ],
+      "sections": [
+        {
+          "heading": "Regional hazards",
+          "body": "Distances between towns are long. Fuel shortages can affect Zimbabwe and Malawi — carry extra jerry cans only where legal and safe.",
+          "bullets": [
+            "Namibia & Botswana: gravel punctures common — reduce speed, avoid night travel",
+            "Mozambique: police checkpoints — keep documents accessible; drive daylight hours",
+            "Lesotho: Sani Pass and high passes — weather closes routes in winter",
+            "South Africa: load shedding mostly suspended nationally in 2026, but localised load reduction still affects some townships — lodges often have backup power"
+          ]
+        }
+      ],
+      "sourceUrl": "https://www.eskom.co.za/",
+      "linkLabel": "Eskom — power system updates (SA)",
+      "lastVerified": "2026-06"
+    }
+  ],
+  "borderFees": [
+    {
+      "country": "south-africa",
+      "flag": "🇿🇦",
+      "name": "South Africa",
+      "currency": "ZAR / USD at some posts",
+      "vehicleEstimate": "Included in exit — ensure rental letter covers return",
+      "notes": "Unabridged birth certificate for travelling minors. ZA sticker on foreign-registered vehicles entering SA.",
+      "lastVerified": "2026-06"
+    },
+    {
+      "country": "namibia",
+      "flag": "🇳🇦",
+      "name": "Namibia",
+      "currency": "NAD",
+      "vehicleEstimate": "N$220–350 road user / cross-border charges (indicative)",
+      "notes": "Cross-border fee + third-party insurance at border. Temporary import permit stamped in passport.",
+      "lastVerified": "2026-06"
+    },
+    {
+      "country": "botswana",
+      "flag": "🇧🇼",
+      "name": "Botswana",
+      "currency": "BWP",
+      "vehicleEstimate": "P200–350 road transport permit (indicative)",
+      "notes": "Third-party insurance required — Yellow Card or purchase at border. National road safety levy may apply.",
+      "lastVerified": "2026-06"
+    },
+    {
+      "country": "zambia",
+      "flag": "🇿🇲",
+      "name": "Zambia",
+      "currency": "USD / ZMW",
+      "vehicleEstimate": "USD 20–50 road toll / carbon (indicative)",
+      "notes": "COMESA Yellow Card or border insurance. KAZA UniVisa is per person, not per vehicle.",
+      "lastVerified": "2026-06"
+    },
+    {
+      "country": "zimbabwe",
+      "flag": "🇿🇼",
+      "name": "Zimbabwe",
+      "currency": "USD cash preferred",
+      "vehicleEstimate": "USD 30–60 vehicle entry / insurance (indicative)",
+      "notes": "Third-party insurance at border common. Carbon tax and access fees in USD.",
+      "lastVerified": "2026-06"
+    },
+    {
+      "country": "mozambique",
+      "flag": "🇲🇿",
+      "name": "Mozambique",
+      "currency": "MZN / USD",
+      "vehicleEstimate": "MZN 500–1,500 temporary import (indicative)",
+      "notes": "Third-party insurance mandatory. Yellow Card via B2B if entering from SA.",
+      "lastVerified": "2026-06"
+    },
+    {
+      "country": "malawi",
+      "flag": "🇲🇼",
+      "name": "Malawi",
+      "currency": "MWK / USD",
+      "vehicleEstimate": "MWK 10,000–25,000 road fund (indicative)",
+      "notes": "COMESA Yellow Card accepted. Fuel availability can be limited — plan ahead.",
+      "lastVerified": "2026-06"
+    }
+  ]
+}

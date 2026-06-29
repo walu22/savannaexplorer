@@ -1,9 +1,87 @@
 {
   "meta": {
-    "lastUpdated": "2026-03",
+    "lastUpdated": "2026-06",
     "disclaimer": "Health summaries are for trip planning only. Consult a travel-health clinic or your doctor for personalised medical advice, vaccinations, and malaria prophylaxis.",
     "sourceUrl": "https://www.who.int/teams/global-malaria-programme",
     "sourceLabel": "WHO malaria programme (reference)"
+  },
+  "vaccinations": {
+    "title": "Travel vaccinations — discuss with a clinic 6–8 weeks before departure",
+    "lastVerified": "2026-06",
+    "sourceUrl": "https://wwwnc.cdc.gov/travel/destinations/list",
+    "sourceLabel": "CDC travel health (reference)",
+    "recommended": [
+      {
+        "name": "Hepatitis A",
+        "note": "Recommended for most safari and self-catering trips — food and water exposure."
+      },
+      {
+        "name": "Typhoid",
+        "note": "Advised for adventurous eaters and long rural stays."
+      },
+      {
+        "name": "Hepatitis B",
+        "note": "Consider for extended travel or medical volunteering."
+      },
+      {
+        "name": "Tetanus / diphtheria",
+        "note": "Ensure boosters current — bush camps and minor injuries."
+      },
+      {
+        "name": "Rabies",
+        "note": "Consider for remote camping, bat caves, or long stays — pre-exposure series available."
+      }
+    ],
+    "tripSpecific": [
+      {
+        "name": "Yellow fever",
+        "note": "Required only if arriving from endemic countries — see routing rules below. Zambia is a risk country; certificate may affect onward travel."
+      },
+      {
+        "name": "Malaria prophylaxis",
+        "note": "Essential for Luangwa, Okavango, Mozambique coast, and most lowveld summer travel — clinic chooses regimen."
+      },
+      {
+        "name": "Cholera",
+        "note": "Rarely required for tourists; outbreaks occasionally affect urban areas — follow WHO alerts."
+      }
+    ],
+    "checklist": [
+      "Travel insurance with medical evacuation (Medivac to Johannesburg or Nairobi)",
+      "Personal malaria meds plus DEET repellent and long sleeves at dusk",
+      "Copy of vaccination record and prescription medicines in original packaging",
+      "Antidiarrheal and rehydration salts for remote drives",
+      "Sun protection — UV extreme at altitude and in Namibia"
+    ]
+  },
+  "yellowFeverRouting": {
+    "title": "Yellow fever certificate — when you need it",
+    "summary": "Southern Africa does not require yellow fever vaccination if you fly directly from Europe, UK, or North America. A certificate becomes mandatory when you enter from or transit through yellow-fever endemic countries in the last 6–10 days (country rules vary).",
+    "lastVerified": "2026-06",
+    "sourceUrl": "https://www.who.int/teams/global-malaria-programme",
+    "rules": [
+      {
+        "scenario": "Direct flight from UK/EU/US to Johannesburg or Windhoek",
+        "requirement": "Certificate not required for entry"
+      },
+      {
+        "scenario": "Arriving from Kenya, Uganda, DRC, or Nigeria",
+        "requirement": "Valid yellow fever certificate mandatory — checked at immigration"
+      },
+      {
+        "scenario": "Overlanding from Tanzania or Malawi",
+        "requirement": "Certificate required if departing endemic areas within 6 days — carry WHO booklet"
+      },
+      {
+        "scenario": "Victoria Falls loop (Zambia/Zimbabwe only)",
+        "requirement": "Not required from non-endemic origins; Zambia is endemic — some countries require cert on return home"
+      },
+      {
+        "scenario": "Transit under 12 hours in endemic airport",
+        "requirement": "Rules vary — some countries exempt airside transit; confirm with airline and destination"
+      }
+    ],
+    "note": "South Africa enforces certificate checks strictly at OR Tambo when arriving from endemic countries. Get vaccinated at an authorised clinic at least 10 days before travel."
   },
   "countries": [
     {

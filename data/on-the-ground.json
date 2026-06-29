@@ -1,0 +1,260 @@
+{
+  "meta": {
+    "lastUpdated": "2026-06",
+    "disclaimer": "On-the-ground conditions change quickly — fuel queues, power cuts, and ATM outages are localised. Use this as planning context and confirm with your lodge or host on arrival."
+  },
+  "countries": [
+    {
+      "id": "south-africa",
+      "flag": "🇿🇦",
+      "name": "South Africa",
+      "topics": [
+        {
+          "icon": "⚡",
+          "title": "Power & load shedding",
+          "body": "National load shedding has been suspended for extended periods since mid-2025 as Eskom's generation recovery improves. However, localised load reduction still affects some high-density areas with illegal connections. Upmarket lodges and hotels usually have generators or inverters — ask when booking. Apps like EskomSePush help monitor your suburb if staying in self-catering accommodation."
+        },
+        {
+          "icon": "💳",
+          "title": "Cash vs cards",
+          "body": "Cards widely accepted in cities, malls, and SANParks online. Carry cash for township tours, tips, and rural fuel stops. Contactless payment common in Cape Town and Johannesburg."
+        },
+        {
+          "icon": "🔌",
+          "title": "Plugs",
+          "body": "Type M (three round pins, 230V) — same as Namibia and much of the region. Type C also fits many sockets. Bring a universal adapter."
+        },
+        {
+          "icon": "⛽",
+          "title": "Fuel",
+          "body": "Generally reliable on main routes. Unleaded 95/93 at Engen, Shell, BP. SANRAL e-tags speed Gauteng tolls — rental companies can advise."
+        }
+      ],
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "namibia",
+      "flag": "🇳🇦",
+      "name": "Namibia",
+      "topics": [
+        {
+          "icon": "⛽",
+          "title": "Fuel & distances",
+          "body": "Fill at every town — distances between pumps on B1 and C-roads are extreme. Carry at least 400 km range on gravel routes. 95 octane available in Windhoek, Swakopmund, Otjiwarongo; some remote posts 93 only."
+        },
+        {
+          "icon": "💵",
+          "title": "Money",
+          "body": "Namibian dollar pegged 1:1 to ZAR — both accepted. Cards work in towns; cash for community conservancy gate fees and remote camps."
+        },
+        {
+          "icon": "🔌",
+          "title": "Plugs",
+          "body": "Type M (230V). Solar lodges may have limited 220V hours — charge devices at midday."
+        },
+        {
+          "icon": "🌙",
+          "title": "Driving",
+          "body": "Never drive after dark outside towns — kudu strikes on tar are common. Two spare tyres recommended for Damaraland and Kaokoland."
+        }
+      ],
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "botswana",
+      "flag": "🇧🇼",
+      "name": "Botswana",
+      "topics": [
+        {
+          "icon": "💳",
+          "title": "Cash vs cards",
+          "body": "Pula cash useful at small shops. Cards accepted in Maun, Kasane, and Gaborone. Okavango camps are mostly pre-paid — minimal spending on site."
+        },
+        {
+          "icon": "🪪",
+          "title": "IDP",
+          "body": "International Driving Permit strongly recommended for all foreign drivers — police and rental desks often request it."
+        },
+        {
+          "icon": "🔌",
+          "title": "Plugs",
+          "body": "Type G (British three-pin) in many lodges; Type M also seen. Confirm with your camp."
+        },
+        {
+          "icon": "📡",
+          "title": "Connectivity",
+          "body": "Orange and BTC SIMs work in gateway towns. Delta camps rely on satellite Wi‑Fi — download maps offline."
+        }
+      ],
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "zambia",
+      "flag": "🇿🇲",
+      "name": "Zambia",
+      "topics": [
+        {
+          "icon": "💵",
+          "title": "Cash & KAZA",
+          "body": "USD cash essential for KAZA UniVisa (USD 50) and Victoria Falls activities. Kwacha for local markets. ATMs in Lusaka and Livingstone."
+        },
+        {
+          "icon": "🔌",
+          "title": "Plugs",
+          "body": "Type C, D, and G — mixed. Universal adapter required."
+        },
+        {
+          "icon": "⛽",
+          "title": "Fuel",
+          "body": "Generally available on Great North Road and to Mfuwe. Remote bushcamps accessed by air — no self-drive fuel needed."
+        },
+        {
+          "icon": "📱",
+          "title": "Mobile money",
+          "body": "Airtel and MTN mobile money widely used domestically — tourists usually pay USD or kwacha cash at lodges."
+        }
+      ],
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "zimbabwe",
+      "flag": "🇿🇼",
+      "name": "Zimbabwe",
+      "topics": [
+        {
+          "icon": "💵",
+          "title": "USD economy",
+          "body": "Tourism priced in USD — carry small, clean notes ($1, $5, $10, $20). ZiG used locally but USD simplest for visitors. Change is often scarce — break large notes at hotels."
+        },
+        {
+          "icon": "⛽",
+          "title": "Fuel",
+          "body": "Availability has improved but queues still occur in Harare and Bulawayo. Fill before Hwange and Mana Pools loops. USD cash sometimes required at pumps."
+        },
+        {
+          "icon": "🔌",
+          "title": "Plugs",
+          "body": "Type D and G (220V). UK-style plugs common in Victoria Falls hotels."
+        },
+        {
+          "icon": "📶",
+          "title": "Connectivity",
+          "body": "Econet and NetOne SIMs in Victoria Falls and Harare. Hwange lodges have patchy signal — do not rely on mobile data for navigation."
+        }
+      ],
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "mozambique",
+      "flag": "🇲🇿",
+      "name": "Mozambique",
+      "topics": [
+        {
+          "icon": "💳",
+          "title": "Money",
+          "body": "Metical for local spending; USD accepted at tourist lodges. Visa more widely accepted than a few years ago — carry metical cash for road tolls and markets."
+        },
+        {
+          "icon": "🔌",
+          "title": "Plugs",
+          "body": "Type C, F, and M — European two-pin most common. 220V."
+        },
+        {
+          "icon": "🌊",
+          "title": "Coastal travel",
+          "body": "Cyclone season Jan–Mar affects north. Police checkpoints on EN1 — keep passport, insurance, and temporary import permit accessible."
+        },
+        {
+          "icon": "🌙",
+          "title": "Driving",
+          "body": "Do not drive at night — livestock, unlit vehicles, and potholes on EN1. Maputo traffic heavy; allow border time at Ressano Garcia."
+        }
+      ],
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "malawi",
+      "flag": "🇲🇼",
+      "name": "Malawi",
+      "topics": [
+        {
+          "icon": "⛽",
+          "title": "Fuel",
+          "body": "Periodic shortages — fill tank at Lilongwe or Blantyre before lake shore drives. Carry enough cash for fuel in case card systems fail."
+        },
+        {
+          "icon": "💵",
+          "title": "Cash",
+          "body": "Kwacha from ATMs in cities. USD useful for park fees and tipping. Lake shore lodges may prefer cash."
+        },
+        {
+          "icon": "🔌",
+          "title": "Plugs",
+          "body": "Type G (British three-pin, 230V)."
+        },
+        {
+          "icon": "🏊",
+          "title": "Lake swimming",
+          "body": "Bilharzia risk in reedy bays — ask lodge staff before swimming. Cape Maclear and Likoma have safer known spots."
+        }
+      ],
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "lesotho",
+      "flag": "🇱🇸",
+      "name": "Lesotho",
+      "topics": [
+        {
+          "icon": "⛽",
+          "title": "Fuel",
+          "body": "No fuel on Sani Pass or remote highlands — fill in Maseru, Hlotse, or SA before ascending. Maseru Bridge border from Ladybrand is the main entry."
+        },
+        {
+          "icon": "🏔",
+          "title": "Mountain passes",
+          "body": "Sani Pass 4x4 only (SA side). Snow closes passes Jun–Aug some years. Pony trekking villages have no ATM — carry loti cash."
+        },
+        {
+          "icon": "🔌",
+          "title": "Plugs",
+          "body": "Type M (same as South Africa)."
+        },
+        {
+          "icon": "🛂",
+          "title": "Entry",
+          "body": "Landlocked — all access via South Africa. Ensure SA visa allows multiple entries if looping back."
+        }
+      ],
+      "lastVerified": "2026-06"
+    },
+    {
+      "id": "eswatini",
+      "flag": "🇸🇿",
+      "name": "Eswatini",
+      "topics": [
+        {
+          "icon": "✈️",
+          "title": "Getting there",
+          "body": "No commercial international airport — fly to Johannesburg (JNB) or Durban (DUR). Oshoek/Ngwenya border 2.5 hrs from JNB to Mbabane; Golela from KZN to lowveld reserves."
+        },
+        {
+          "icon": "🛣",
+          "title": "Roads",
+          "body": "Among the best in the region — tar throughout Ezulwini Valley and to Hlane. SA rental with cross-border letter required."
+        },
+        {
+          "icon": "💳",
+          "title": "Money",
+          "body": "Lilangeni pegged 1:1 to ZAR — rand accepted everywhere. Cards in Mbabane and Ezulwini; cash for craft markets."
+        },
+        {
+          "icon": "🔌",
+          "title": "Plugs",
+          "body": "Type M (230V) — same as South Africa."
+        }
+      ],
+      "lastVerified": "2026-06"
+    }
+  ]
+}
