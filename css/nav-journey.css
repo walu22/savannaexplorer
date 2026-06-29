@@ -19,6 +19,13 @@ body.site-v2 .nav-links--desktop {
     visibility: visible;
     transform: none;
     pointer-events: auto;
+    min-width: 0;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+}
+
+body.site-v2 .nav-inner .logo {
+    flex-shrink: 0;
 }
 
 body.site-v2 .nav-mobile-controls {

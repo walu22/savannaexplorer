@@ -1,6 +1,11 @@
 import expenseConfig from '../../data/expense-tracker.json';
 import practical from '../../data/practical.json';
 import { fetchLiveCurrencyRates } from './transport-logistics.js';
+import {
+    buildBudgetCompareModel,
+    listBudgetItineraries,
+    renderBudgetCompareHtml,
+} from '../lib/budget-expense-compare.js';
 
 const STORAGE_KEY = expenseConfig.meta.storageKey;
 
@@ -15,14 +20,15 @@ function escapeHtml(text) {
 function loadExpenses() {
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
-        if (!raw) return { tripName: '', items: [] };
+        if (!raw) return { tripName: '', linkedItineraryId: '', items: [] };
         const data = JSON.parse(raw);
         return {
             tripName: data.tripName || '',
+            linkedItineraryId: data.linkedItineraryId || '',
             items: Array.isArray(data.items) ? data.items : [],
         };
     } catch {
-        return { tripName: '', items: [] };
+        return { tripName: '', linkedItineraryId: '', items: [] };
     }
 }
 
@@ -49,6 +55,23 @@ async function amountInUsd(amount, currency) {
 
 function formatUsd(value) {
     return value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function categoryLabel(id) {
+    return expenseConfig.categories.find(c => c.id === id)?.label || id;
+}
+
+function populateItinerarySelect(selectedId = '') {
+    const select = document.getElementById('expense-itinerary');
+    if (!select) return;
+
+    const options = [
+        '<option value="">Compare to route budget…</option>',
+        ...listBudgetItineraries().map(({ id, title, totalPerPerson }) =>
+            `<option value="${escapeHtml(id)}"${id === selectedId ? ' selected' : ''}>${escapeHtml(title)} (USD ${totalPerPerson.toLocaleString()} pp)</option>`
+        ),
+    ];
+    select.innerHTML = options.join('');
 }
 
 function renderExpenseList(items, totalUsd) {
@@ -80,6 +103,24 @@ function renderExpenseList(items, totalUsd) {
     if (countEl) countEl.textContent = `${items.length} item${items.length === 1 ? '' : 's'}`;
 }
 
+async function renderBudgetCompare(linkedItineraryId, items) {
+    const root = document.getElementById('expense-budget-compare');
+    if (!root) return;
+
+    if (!linkedItineraryId) {
+        root.innerHTML = renderBudgetCompareHtml(null, { formatUsd, getCategoryLabel: categoryLabel });
+        return;
+    }
+
+    const model = await buildBudgetCompareModel(linkedItineraryId, items, amountInUsd);
+    if (!model) {
+        root.innerHTML = renderBudgetCompareHtml(null, { formatUsd, getCategoryLabel: categoryLabel });
+        return;
+    }
+
+    root.innerHTML = renderBudgetCompareHtml(model, { formatUsd, getCategoryLabel: categoryLabel });
+}
+
 async function refreshTotals() {
     const data = loadExpenses();
     let total = 0;
@@ -87,6 +128,7 @@ async function refreshTotals() {
         total += await amountInUsd(Number(item.amount) || 0, item.currency);
     }
     renderExpenseList(data.items, total);
+    await renderBudgetCompare(data.linkedItineraryId, data.items);
     return total;
 }
 
@@ -105,6 +147,18 @@ function populateFormSelects() {
     }
 }
 
+/** Link a route template from the itinerary modal and scroll to the tracker. */
+export function linkItineraryToExpenseTracker(itineraryId) {
+    const store = loadExpenses();
+    store.linkedItineraryId = itineraryId || '';
+    saveExpenses(store);
+
+    const select = document.getElementById('expense-itinerary');
+    if (select) select.value = itineraryId || '';
+
+    refreshTotals();
+}
+
 export async function initExpenseTracker() {
     const root = document.getElementById('hub-expense-tracker');
     if (!root) return;
@@ -115,6 +169,8 @@ export async function initExpenseTracker() {
     if (disclaimer) disclaimer.textContent = expenseConfig.meta.disclaimer;
 
     const data = loadExpenses();
+    populateItinerarySelect(data.linkedItineraryId);
+
     const nameInput = document.getElementById('expense-trip-name');
     if (nameInput) nameInput.value = data.tripName;
 
@@ -125,6 +181,13 @@ export async function initExpenseTracker() {
     }
 
     await refreshTotals();
+
+    document.getElementById('expense-itinerary')?.addEventListener('change', (e) => {
+        const store = loadExpenses();
+        store.linkedItineraryId = e.target.value || '';
+        saveExpenses(store);
+        refreshTotals();
+    });
 
     document.getElementById('expense-add-form')?.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -167,7 +230,8 @@ export async function initExpenseTracker() {
 
     document.getElementById('expense-clear')?.addEventListener('click', async () => {
         if (!confirm('Clear all tracked expenses for this trip?')) return;
-        saveExpenses({ tripName: nameInput?.value?.trim() || '', items: [] });
+        const store = loadExpenses();
+        saveExpenses({ tripName: nameInput?.value?.trim() || '', linkedItineraryId: store.linkedItineraryId, items: [] });
         await refreshTotals();
     });
 
@@ -181,6 +245,20 @@ export async function initExpenseTracker() {
             const cat = expenseConfig.categories.find(c => c.id === item.category);
             lines.push(`${cat?.label || item.category}\t${item.currency} ${item.amount}\t~USD ${formatUsd(usd)}\t${item.note || ''}`);
         }
+
+        let budgetLine = '';
+        if (store.linkedItineraryId) {
+            const model = await buildBudgetCompareModel(store.linkedItineraryId, store.items, amountInUsd);
+            if (model) {
+                budgetLine = [
+                    '',
+                    `Route budget (${model.itineraryTitle}): USD ${formatUsd(model.budgetTotal)} per person`,
+                    `Tracked total: USD ${formatUsd(model.trackedTotal)} (${model.percentUsed.toFixed(0)}% of budget pp)`,
+                    `Remaining vs budget: USD ${formatUsd(model.remaining)}`,
+                ].join('\n');
+            }
+        }
+
         const text = [
             store.tripName || 'Savanna Explorer trip expenses',
             `Exported ${new Date().toLocaleDateString()}`,
@@ -188,9 +266,10 @@ export async function initExpenseTracker() {
             ...lines,
             '',
             `Total (USD estimate): ${formatUsd(total)}`,
+            budgetLine,
             '',
             expenseConfig.meta.disclaimer,
-        ].join('\n');
+        ].filter(Boolean).join('\n');
         const blob = new Blob([text], { type: 'text/plain' });
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);

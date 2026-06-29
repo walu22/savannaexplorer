@@ -58,6 +58,18 @@ function setNavActive(sectionId) {
             link.setAttribute('aria-current', 'true');
         }
     });
+
+    const panel = document.getElementById('mobile-nav-panel');
+    if (!panel?.classList.contains('is-open')) return;
+
+    panel.querySelectorAll('.mobile-nav-group').forEach(group => {
+        const hasActive = group.querySelector('a.active');
+        const toggle = group.querySelector('.mobile-nav-group__toggle');
+        if (hasActive) {
+            group.classList.add('is-open');
+            toggle?.setAttribute('aria-expanded', 'true');
+        }
+    });
 }
 
 function initAnchorLinks() {
