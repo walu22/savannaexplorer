@@ -14,12 +14,13 @@ if [ ! -f "$SNIPPET_SRC" ]; then
 fi
 
 echo "Uploading nginx security snippet..."
-scp -F "$HOME/.ssh/config" "$SNIPPET_SRC" "deploy-host:${SNIPPET_DEST}.new"
+ssh -F "$HOME/.ssh/config" deploy-host "sudo mkdir -p $(dirname "${SNIPPET_DEST}")"
+scp -F "$HOME/.ssh/config" "$SNIPPET_SRC" "deploy-host:/tmp/savannaexplorer-csp.conf.new"
 
 ssh -F "$HOME/.ssh/config" deploy-host "DEPLOY_PATH='${DEPLOY_PATH}' SNIPPET_DEST='${SNIPPET_DEST}' bash -s" <<'REMOTE'
 set -euo pipefail
 
-sudo mv "${SNIPPET_DEST}.new" "${SNIPPET_DEST}"
+sudo mv /tmp/savannaexplorer-csp.conf.new "${SNIPPET_DEST}"
 sudo chmod 644 "${SNIPPET_DEST}"
 
 # Find site config serving the app root
