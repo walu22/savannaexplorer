@@ -3,6 +3,7 @@ import practical from '../../data/practical.json';
 import { fetchLiveCurrencyRates, fetchCityWeather, apiCodeForCurrency } from './transport-logistics.js';
 import { initPassportVisaHelper } from './visa-passport-ui.js';
 import { initOnTheGround } from './on-the-ground.js';
+import { initExpenseTracker } from './expense-tracker.js';
 
 const MONTH_LABELS = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
 const SEASON_CLASS = { peak: 's-peak', shoulder: 's-shoulder', off: 's-off' };
@@ -178,6 +179,7 @@ export function initUtilityHub() {
     renderCurrency();
     initPassportVisaHelper();
     initOnTheGround();
+    initExpenseTracker();
     renderSeasons();
     renderWeather();
     renderEmergencies();

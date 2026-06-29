@@ -6,6 +6,7 @@ import {
     getPlanningNotes,
 } from '../lib/planning-format.js';
 import { renderBudgetBreakdownHtml } from '../lib/itinerary-budget.js';
+import { renderItineraryMapLink } from '../lib/itinerary-maps.js';
 
 let currentItineraryId = null;
 let activeScopeFilter = 'all';
@@ -141,6 +142,12 @@ export function openItineraryDetail(id) {
         budgetEl.hidden = !budgetEl.innerHTML.trim();
     }
 
+    const mapsEl = document.getElementById('itin-maps-panel');
+    if (mapsEl) {
+        mapsEl.innerHTML = renderItineraryMapLink(id);
+        mapsEl.hidden = !mapsEl.innerHTML.trim();
+    }
+
     document.getElementById('itinerary-modal').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -163,6 +170,12 @@ export function initItineraries() {
     });
 
     document.getElementById('itin-plan-tools')?.addEventListener('click', openPlanningTools);
+
+    document.getElementById('itin-expense-tracker')?.addEventListener('click', () => {
+        closeItineraryModal();
+        document.getElementById('hub-expense-tracker')?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('expense-amount')?.focus();
+    });
 
     document.getElementById('itinerary-modal')?.addEventListener('click', (e) => {
         const accordionBtn = e.target.closest('[data-accordion]');

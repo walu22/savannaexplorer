@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "lastUpdated": "2026-06",
+    "storageKey": "savanna-expense-tracker-v1",
+    "disclaimer": "Trip expenses are stored locally in your browser only — not on our servers. Amounts are for your own planning; exchange conversions use mid-market reference rates."
+  },
+  "categories": [
+    { "id": "fuel", "label": "Fuel & tolls", "icon": "⛽" },
+    { "id": "vehicle", "label": "Vehicle rental", "icon": "🚗" },
+    { "id": "parks", "label": "Park & conservation fees", "icon": "🏞️" },
+    { "id": "lodging", "label": "Accommodation", "icon": "🏕️" },
+    { "id": "food", "label": "Food & supplies", "icon": "🍽️" },
+    { "id": "activities", "label": "Activities & tours", "icon": "🦁" },
+    { "id": "flights", "label": "Flights & charters", "icon": "✈️" },
+    { "id": "border", "label": "Visas & border fees", "icon": "🛂" },
+    { "id": "insurance", "label": "Insurance", "icon": "🛡️" },
+    { "id": "other", "label": "Other", "icon": "📦" }
+  ],
+  "currencies": [
+    { "code": "USD", "label": "🇺🇸 USD", "symbol": "$" },
+    { "code": "ZAR", "label": "🇿🇦 ZAR", "symbol": "R" },
+    { "code": "EUR", "label": "🇪🇺 EUR", "symbol": "€" },
+    { "code": "GBP", "label": "🇬🇧 GBP", "symbol": "£" }
+  ]
+}

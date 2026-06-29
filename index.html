@@ -658,6 +658,47 @@
                     <div class="hub-emergency-list" id="hub-emergency-list"></div>
                 </div>
 
+                <div class="hub-card hub-card--lg" id="hub-expense-tracker">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-wallet"></i></span>
+                        <h3>Trip Expense Tracker</h3>
+                    </div>
+                    <p class="hub-card-lead">Log fuel, park fees, and lodge deposits as you book — stored locally in your browser with USD total estimate.</p>
+                    <label class="expense-trip-label" for="expense-trip-name">Trip name <span class="trip-optional">(optional)</span></label>
+                    <input type="text" id="expense-trip-name" class="expense-trip-input" placeholder="e.g. Namibia self-drive June 2026" maxlength="80">
+                    <form id="expense-add-form" class="expense-add-form">
+                        <div class="expense-form-row">
+                            <label>
+                                <span>Category</span>
+                                <select id="expense-category" required></select>
+                            </label>
+                            <label>
+                                <span>Amount</span>
+                                <input type="number" id="expense-amount" min="0.01" step="0.01" required placeholder="0.00">
+                            </label>
+                            <label>
+                                <span>Currency</span>
+                                <select id="expense-currency"></select>
+                            </label>
+                        </div>
+                        <label class="expense-note-label">
+                            <span>Note</span>
+                            <input type="text" id="expense-note" maxlength="120" placeholder="Etosha NWR deposit, Intercape ticket…">
+                        </label>
+                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add expense</button>
+                    </form>
+                    <div class="expense-summary">
+                        <span id="expense-count">0 items</span>
+                        <strong id="expense-total">USD 0.00</strong>
+                    </div>
+                    <div class="expense-list" id="expense-list"></div>
+                    <div class="expense-actions">
+                        <button type="button" class="btn btn-outline btn-sm" id="expense-export"><i class="fas fa-download"></i> Export .txt</button>
+                        <button type="button" class="btn btn-outline btn-sm" id="expense-clear">Clear all</button>
+                    </div>
+                    <p class="hub-data-note" id="expense-disclaimer"></p>
+                </div>
+
                 <div class="hub-card hub-card--sm" id="hub-packing">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-suitcase-rolling"></i></span>
@@ -1224,6 +1265,7 @@
                     <img id="itin-map-img" src="" alt="Route map overview" loading="lazy">
                     <p id="itin-map-caption" class="itin-map-caption"></p>
                 </div>
+                <div id="itin-maps-panel"></div>
                 <div class="itin-highlights" id="itin-highlights"></div>
                 <h3>Day-by-Day Itinerary</h3>
                 <div class="itin-accordion" id="itin-accordion"></div>
@@ -1241,6 +1283,7 @@
                 <p class="itin-template-disclaimer">Planning template only — Savanna Explorer does not sell or book any of the items above.</p>
                 <div class="itin-actions-bar">
                     <button type="button" class="btn btn-primary" id="itin-plan-tools"><i class="fas fa-tools"></i> Open Travel Tools</button>
+                    <button type="button" class="btn btn-outline" id="itin-expense-tracker"><i class="fas fa-wallet"></i> Track Expenses</button>
                 </div>
             </div>
         </div>

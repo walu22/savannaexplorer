@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "lastUpdated": "2026-06",
+    "disclaimer": "Opens Google Maps with indicative waypoints — not turn-by-turn navigation. Verify border crossings and road conditions before driving."
+  },
+  "routes": {
+    "desert-to-delta": {
+      "itineraryId": "desert-to-delta",
+      "waypoints": [
+        "Windhoek, Namibia",
+        "Sossusvlei, Namibia",
+        "Swakopmund, Namibia",
+        "Etosha National Park, Namibia",
+        "Rundu, Namibia",
+        "Kasane, Botswana",
+        "Maun, Botswana"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Windhoek%2C%20Namibia/Sossusvlei%2C%20Namibia/Swakopmund%2C%20Namibia/Etosha%20National%20Park%2C%20Namibia/Rundu%2C%20Namibia/Kasane%2C%20Botswana/Maun%2C%20Botswana",
+      "lastVerified": "2026-06"
+    },
+    "coastal-explorer": {
+      "itineraryId": "coastal-explorer",
+      "waypoints": [
+        "Cape Town, South Africa",
+        "Knysna, South Africa",
+        "Durban, South Africa",
+        "Maputo, Mozambique",
+        "Vilanculos, Mozambique"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Cape%20Town%2C%20South%20Africa/Knysna%2C%20South%20Africa/Durban%2C%20South%20Africa/Maputo%2C%20Mozambique/Vilanculos%2C%20Mozambique",
+      "lastVerified": "2026-06"
+    },
+    "falls-beyond": {
+      "itineraryId": "falls-beyond",
+      "waypoints": [
+        "Livingstone, Zambia",
+        "South Luangwa National Park, Zambia",
+        "Victoria Falls, Zimbabwe",
+        "Hwange National Park, Zimbabwe",
+        "Kasane, Botswana"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Livingstone%2C%20Zambia/South%20Luangwa%20National%20Park%2C%20Zambia/Victoria%20Falls%2C%20Zimbabwe/Hwange%20National%20Park%2C%20Zimbabwe/Kasane%2C%20Botswana",
+      "lastVerified": "2026-06"
+    },
+    "kingdom-circuit": {
+      "itineraryId": "kingdom-circuit",
+      "waypoints": [
+        "Johannesburg, South Africa",
+        "Sani Pass, Lesotho",
+        "Mbabane, Eswatini",
+        "Kruger National Park, South Africa"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Johannesburg%2C%20South%20Africa/Sani%20Pass%2C%20Lesotho/Mbabane%2C%20Eswatini/Kruger%20National%20Park%2C%20South%20Africa",
+      "lastVerified": "2026-06"
+    },
+    "lake-mountain": {
+      "itineraryId": "lake-mountain",
+      "waypoints": [
+        "Lilongwe, Malawi",
+        "Cape Maclear, Malawi",
+        "Liwonde National Park, Malawi",
+        "South Luangwa, Zambia"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Lilongwe%2C%20Malawi/Cape%20Maclear%2C%20Malawi/Liwonde%20National%20Park%2C%20Malawi/South%20Luangwa%2C%20Zambia",
+      "lastVerified": "2026-06"
+    },
+    "grand-safari": {
+      "itineraryId": "grand-safari",
+      "waypoints": [
+        "Johannesburg, South Africa",
+        "Maun, Botswana",
+        "Victoria Falls, Zimbabwe",
+        "Livingstone, Zambia",
+        "Cape Town, South Africa"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Johannesburg%2C%20South%20Africa/Maun%2C%20Botswana/Victoria%20Falls%2C%20Zimbabwe/Livingstone%2C%20Zambia/Cape%20Town%2C%20South%20Africa",
+      "lastVerified": "2026-06"
+    },
+    "namibia-essentials": {
+      "itineraryId": "namibia-essentials",
+      "waypoints": [
+        "Windhoek, Namibia",
+        "Sossusvlei, Namibia",
+        "Swakopmund, Namibia",
+        "Etosha National Park, Namibia"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Windhoek%2C%20Namibia/Sossusvlei%2C%20Namibia/Swakopmund%2C%20Namibia/Etosha%20National%20Park%2C%20Namibia",
+      "lastVerified": "2026-06"
+    },
+    "south-africa-classic": {
+      "itineraryId": "south-africa-classic",
+      "waypoints": [
+        "Cape Town, South Africa",
+        "Knysna, South Africa",
+        "Port Elizabeth, South Africa",
+        "Kruger National Park, South Africa"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Cape%20Town%2C%20South%20Africa/Knysna%2C%20South%20Africa/Port%20Elizabeth%2C%20South%20Africa/Kruger%20National%20Park%2C%20South%20Africa",
+      "lastVerified": "2026-06"
+    },
+    "botswana-delta-focus": {
+      "itineraryId": "botswana-delta-focus",
+      "waypoints": [
+        "Maun, Botswana",
+        "Okavango Delta, Botswana",
+        "Kasane, Botswana"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Maun%2C%20Botswana/Okavango%20Delta%2C%20Botswana/Kasane%2C%20Botswana",
+      "lastVerified": "2026-06"
+    },
+    "zambia-falls-safari": {
+      "itineraryId": "zambia-falls-safari",
+      "waypoints": [
+        "Livingstone, Zambia",
+        "Victoria Falls, Zambia",
+        "Mfuwe, Zambia"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Livingstone%2C%20Zambia/Victoria%20Falls%2C%20Zambia/Mfuwe%2C%20Zambia",
+      "lastVerified": "2026-06"
+    },
+    "zimbabwe-wilderness": {
+      "itineraryId": "zimbabwe-wilderness",
+      "waypoints": [
+        "Victoria Falls, Zimbabwe",
+        "Hwange National Park, Zimbabwe",
+        "Mana Pools, Zimbabwe"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Victoria%20Falls%2C%20Zimbabwe/Hwange%20National%20Park%2C%20Zimbabwe/Mana%20Pools%2C%20Zimbabwe",
+      "lastVerified": "2026-06"
+    },
+    "mozambique-bush-beach": {
+      "itineraryId": "mozambique-bush-beach",
+      "waypoints": [
+        "Beira, Mozambique",
+        "Gorongosa National Park, Mozambique",
+        "Tofo Beach, Mozambique"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Beira%2C%20Mozambique/Gorongosa%20National%20Park%2C%20Mozambique/Tofo%20Beach%2C%20Mozambique",
+      "lastVerified": "2026-06"
+    },
+    "malawi-lake-safari": {
+      "itineraryId": "malawi-lake-safari",
+      "waypoints": [
+        "Lilongwe, Malawi",
+        "Cape Maclear, Malawi",
+        "Liwonde National Park, Malawi"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Lilongwe%2C%20Malawi/Cape%20Maclear%2C%20Malawi/Liwonde%20National%20Park%2C%20Malawi",
+      "lastVerified": "2026-06"
+    },
+    "lesotho-highlands": {
+      "itineraryId": "lesotho-highlands",
+      "waypoints": [
+        "Maseru, Lesotho",
+        "Sani Pass, Lesotho",
+        "Semonkong, Lesotho"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Maseru%2C%20Lesotho/Sani%20Pass%2C%20Lesotho/Semonkong%2C%20Lesotho",
+      "lastVerified": "2026-06"
+    },
+    "eswatini-kingdom": {
+      "itineraryId": "eswatini-kingdom",
+      "waypoints": [
+        "Mbabane, Eswatini",
+        "Ezulwini Valley, Eswatini",
+        "Hlane Royal National Park, Eswatini"
+      ],
+      "mapsUrl": "https://www.google.com/maps/dir/Mbabane%2C%20Eswatini/Ezulwini%20Valley%2C%20Eswatini/Hlane%20Royal%20National%20Park%2C%20Eswatini",
+      "lastVerified": "2026-06"
+    }
+  }
+}

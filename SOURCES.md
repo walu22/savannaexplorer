@@ -37,6 +37,8 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 | `data/itinerary-budgets.json` | Line-item indicative budgets per route template | Original editorial; park fee references from `parks.json` |
 | `data/planning-guides.json` | Full country planning guides (read/print) | Original editorial; immigration URLs per country |
 | `data/tourism-stats.json` | International arrival context by country | National statistics offices & tourism authorities |
+| `data/expense-tracker.json` | Trip expense tracker categories & config | Original editorial |
+| `data/itinerary-maps.json` | Google Maps waypoints per route template | Original editorial; Google Maps links |
 
 ## Visa & entry (high-change items)
 
