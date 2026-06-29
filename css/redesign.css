@@ -513,9 +513,10 @@ body.site-v2 .gastronomy .section-header h2 {
 }
 
 body.site-v2 .gastronomy .section-header p {
-    color: rgba(247, 243, 237, 0.72);
+    color: rgba(247, 243, 237, 0.85);
     font-family: var(--font-body);
     font-weight: 400;
+    opacity: 1;
 }
 
 body.site-v2 .gastro-card {
@@ -534,6 +535,7 @@ body.site-v2 .gastro-country {
     font-family: var(--font-body);
     font-weight: 700;
     letter-spacing: 0.12em;
+    color: rgba(247, 243, 237, 0.58);
 }
 
 body.site-v2 .gastro-card p {
@@ -541,6 +543,7 @@ body.site-v2 .gastro-card p {
     font-weight: 400;
     font-size: 0.9rem;
     line-height: 1.55;
+    color: rgba(247, 243, 237, 0.82);
 }
 
 /* --- Experiences --- */
