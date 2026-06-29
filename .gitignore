@@ -96,6 +96,9 @@ dist
 # Vercel local link metadata
 .vercel
 
+# Generated at build time
+public/version.json
+
 # Serverless Webpack directories
 .webpack/
 

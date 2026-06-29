@@ -25,6 +25,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Write version manifest
+        run: node scripts/write-version.mjs
+
       - name: Build
         env:
           VITE_SITE_URL: https://savannaexplorer.com
@@ -39,7 +42,9 @@ jobs:
           DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_SSH_PORT: ${{ secrets.DEPLOY_SSH_PORT }}
         run: |
+          SSH_PORT="${DEPLOY_SSH_PORT:-22}"
           install -m 700 -d "$HOME/.ssh"
           printf '%s\n' "$DEPLOY_SSH_KEY" > "$HOME/.ssh/deploy_key"
           chmod 600 "$HOME/.ssh/deploy_key"
@@ -48,14 +53,19 @@ jobs:
           Host deploy-host
             HostName ${DEPLOY_HOST}
             User ${DEPLOY_USER}
+            Port ${SSH_PORT}
             IdentityFile ${HOME}/.ssh/deploy_key
-            ConnectTimeout 45
+            ConnectTimeout 120
             ServerAliveInterval 15
-            ServerAliveCountMax 3
+            ServerAliveCountMax 6
             StrictHostKeyChecking yes
           EOF
           sed -i 's/^[[:space:]]*//' "$HOME/.ssh/config"
           chmod 600 "$HOME/.ssh/config"
+
+      - name: Test SSH connection
+        run: |
+          ssh -F "$HOME/.ssh/config" -o BatchMode=yes deploy-host "echo connected"
 
       - name: Backup current site on server
         continue-on-error: true
@@ -102,6 +112,5 @@ jobs:
           curl -fsSL "https://savannaexplorer.com/" | grep -q 'Plan trip'
           curl -fsSL "https://savannaexplorer.com/" | grep -q 'Travel tools'
           curl -fsSL "https://savannaexplorer.com/sitemap.xml" | grep -q 'stays/sanparks'
-          JS=$(curl -fsSL "https://savannaexplorer.com/" | grep -oE 'assets/index-[^"]+\.js' | head -1)
-          curl -fsSL "https://savannaexplorer.com/${JS}" | grep -q "${VERSION}"
-          echo "Production verified at v${VERSION} (${JS})."
+          curl -fsSL "https://savannaexplorer.com/version.json" | grep -q "\"version\": \"${VERSION}\""
+          echo "Production verified at v${VERSION}."
