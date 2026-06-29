@@ -106,12 +106,19 @@ jobs:
           echo "Upload failed after ${max} attempts."
           exit 1
 
+      - name: Update nginx security headers
+        env:
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          chmod +x scripts/update-nginx-security.sh
+          scripts/update-nginx-security.sh deploy/nginx/savannaexplorer-csp.conf
+
       - name: Verify deployment
         run: |
           VERSION=$(node -p "require('./package.json').version")
           curl -fsSL "https://savannaexplorer.com/" -o /tmp/home.html
-          grep -q 'Plan trip' /tmp/home.html
-          grep -q 'Travel tools' /tmp/home.html
+          grep -qi 'plan trip' /tmp/home.html
+          grep -qi 'travel tools' /tmp/home.html
           curl -fsSL "https://savannaexplorer.com/sitemap.xml" -o /tmp/sitemap.xml
           grep -q 'stays/sanparks' /tmp/sitemap.xml
           curl -fsSL "https://savannaexplorer.com/version.json" -o /tmp/version.json
