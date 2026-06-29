@@ -1,5 +1,5 @@
 {
-  "_note": "Verified Unsplash photo IDs (timestamp-hash). All return HTTP 200 as of June 2026.",
+  "_note": "Verified Unsplash photo IDs (timestamp-hash). Run npm run verify:images before deploy.",
   "images": {
     "heroSavanna": "1519066629447-267fffa62d4b",
     "sossusvleiDunes": "1772289093245-218447e77b64",
@@ -7,8 +7,14 @@
     "deadvlei": "1772289325999-0583c98396ef",
     "namibDunes": "1776347164697-110b417abd4e",
     "namibOrangeDunes": "1448831338187-78296e6fdc4d",
+    "tableMountain": "1770553129625-9a0803c9e645",
+    "tableMountainAerial": "1770988966522-4eea7f83dbe9",
+    "tableMountainSunset": "1755251418399-c56a9579858f",
+    "gardenRoute": "1506905925346-21bda4d32df4",
     "victoriaFalls": "1516026672322-bc52d61a55d5",
     "victoriaFallsSunrise": "1679713594549-ec393ce9c909",
+    "victoriaFalls2025": "1759164882609-58b00ec3b09a",
+    "victoriaFallsMist": "1650470200336-2f02e404976c",
     "okavangoDelta": "1547471080-7cc2caa01a7e",
     "krugerSafari": "1547448415-e9f5b28e570d",
     "safariVehicle": "1516426122078-c23e76319801",
@@ -28,5 +34,21 @@
     "marineWildlife": "1566073771259-6a8506099945",
     "urbanAfrica": "1547036967-23d11aacaee0",
     "hikingTrail": "1469474968028-56623f02e42e"
-  }
+  },
+  "attribution": {
+    "_note": "Credit appreciated under Unsplash License — https://unsplash.com/license",
+    "tableMountain": { "subject": "Table Mountain, Cape Town", "photographer": "Jörg Hamel", "profile": "https://unsplash.com/@joerghamel" },
+    "tableMountainAerial": { "subject": "Cape Town coast aerial", "photographer": "xandro Vandewalle", "profile": "https://unsplash.com/@xandrovandewalle" },
+    "victoriaFalls2025": { "subject": "Victoria Falls at sunrise", "photographer": "Unsplash contributor", "location": "Victoria Falls, Zimbabwe" },
+    "krugerSafari": { "subject": "Kruger safari wildlife", "source": "Unsplash" },
+    "sossusvleiDunes": { "subject": "Namib Desert dunes", "source": "Unsplash" },
+    "okavangoDelta": { "subject": "Okavango Delta", "source": "Unsplash" }
+  },
+  "freeSources": [
+    { "name": "Unsplash", "url": "https://unsplash.com/s/photos/southern-africa", "license": "https://unsplash.com/license", "note": "Primary source used on this site — free commercial use, no attribution required." },
+    { "name": "Pexels", "url": "https://www.pexels.com/search/southern%20africa/", "license": "https://www.pexels.com/license/", "note": "Free commercial use; search 'safari', 'Victoria Falls', country names." },
+    { "name": "Pixabay", "url": "https://pixabay.com/images/search/southern%20africa/", "license": "https://pixabay.com/service/license/", "note": "Free for commercial use; verify content type (photo vs illustration)." },
+    { "name": "Wikimedia Commons", "url": "https://commons.wikimedia.org/wiki/Category:Tourism_in_Southern_Africa", "license": "Varies (CC BY-SA etc.) — check each file.", "note": "Good for landmarks; always credit and follow the file license." },
+    { "name": "South African Tourism Media", "url": "https://www.southafrica.net/media", "license": "Media kit terms", "note": "Official SA tourism photos — register for press/media use." }
+  ]
 }
