@@ -835,6 +835,35 @@ body.site-v2 .itin-arrange-yourself h4 {
     color: #8a5a2b;
 }
 
+body.site-v2 .itin-budget-breakdown {
+    color: var(--text-body);
+    background: var(--surface-elevated, #f8f6f2);
+}
+
+body.site-v2 .itin-budget-breakdown h4 {
+    color: var(--accent);
+}
+
+body.site-v2 .itin-budget-breakdown .budget-breakdown-table th,
+body.site-v2 .itin-budget-breakdown .budget-breakdown-table td {
+    color: var(--text-body);
+}
+
+body.site-v2 .itin-budget-breakdown .budget-breakdown-table th,
+body.site-v2 .itin-budget-breakdown .budget-breakdown-table tfoot td {
+    color: var(--text-primary, #1a1a1a);
+}
+
+body.site-v2 .itin-budget-breakdown .budget-tips,
+body.site-v2 .itin-budget-breakdown .budget-disclaimer,
+body.site-v2 .itin-budget-breakdown .itin-budget-basis {
+    color: var(--text-muted);
+}
+
+body.site-v2 .itin-budget-breakdown .budget-line-note {
+    color: var(--text-muted);
+}
+
 /* --- About section --- */
 body.site-v2 .about-section {
     padding: var(--section-pad) 0;

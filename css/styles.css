@@ -4345,6 +4345,7 @@ footer {
     background: #f8f6f2;
     border-radius: 12px;
     border: 1px solid rgba(0, 0, 0, 0.08);
+    color: #444;
 }
 
 .itin-budget-breakdown h4 {
@@ -4364,6 +4365,7 @@ footer {
     border-collapse: collapse;
     font-size: 0.88rem;
     margin-bottom: 1rem;
+    color: #333;
 }
 
 .budget-breakdown-table th,
@@ -4372,16 +4374,23 @@ footer {
     padding: 0.55rem 0.65rem;
     text-align: left;
     vertical-align: top;
+    color: #333;
 }
 
 .budget-breakdown-table th {
     background: white;
     font-weight: 600;
+    color: #1a1a1a;
+}
+
+.budget-breakdown-table tbody td {
+    background: #fff;
 }
 
 .budget-breakdown-table tfoot td {
     background: white;
     border-top: 2px solid var(--accent, #1b4332);
+    color: #1a1a1a;
 }
 
 .budget-amount {
