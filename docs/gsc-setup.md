@@ -39,7 +39,7 @@ Track verification and indexing progress for https://savannaexplorer.com/
 | Item | Status | Date |
 |------|--------|------|
 | Sitemap submitted (`sitemap.xml`) | ☑ Done | June 28, 2026 |
-| Auto-resubmit on deploy | ☑ IndexNow + optional GSC API | v4.34.1+ |
+| Auto-resubmit on deploy | ☑ IndexNow submitted 160 URLs (Jun 29, 2026) | v4.34.1 |
 | GSC status | Resubmit in GSC UI or set `GSC_SERVICE_ACCOUNT_JSON` secret | |
 | Discovered pages | Expect **160 URLs** after next crawl | |
 
