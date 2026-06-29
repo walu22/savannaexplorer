@@ -776,6 +776,31 @@ body.site-v2 .hub-card {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Expense tracker — light compare panel must not inherit hub white text */
+body.site-v2 .utility-hub .expense-compare-panel {
+    background: var(--bg-cream);
+    color: var(--text-body);
+}
+
+body.site-v2 .utility-hub .expense-compare-panel strong {
+    color: var(--text-dark);
+}
+
+body.site-v2 .utility-hub .expense-compare-table td,
+body.site-v2 .utility-hub .expense-compare-table th {
+    color: var(--text-body);
+}
+
+body.site-v2 .utility-hub .expense-compare-empty {
+    color: rgba(247, 243, 237, 0.65);
+}
+
+body.site-v2 .utility-hub .expense-itinerary-select {
+    background: rgba(0, 0, 0, 0.35);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-inverse);
+}
+
 /* --- Service section --- */
 body.site-v2 .service-section {
     padding: var(--section-pad) 0;
