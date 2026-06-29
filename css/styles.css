@@ -734,10 +734,20 @@ section {
 }
 .hub-currency-results {
     display: flex; flex-direction: column; gap: 0;
+    max-height: 10.5rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) rgba(255,255,255,0.08);
+}
+.hub-currency-results::-webkit-scrollbar { width: 6px; }
+.hub-currency-results::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
 }
 .hub-cur-row {
     display: flex; align-items: center; gap: 0.6rem;
-    padding: 0.55rem 0.7rem;
+    padding: 0.45rem 0.55rem;
     border-bottom: 1px solid rgba(255,255,255,0.04);
     font-size: 0.85rem;
     transition: background 0.2s;
@@ -857,7 +867,9 @@ section {
 .emg-source {
     margin-left: auto;
     margin-top: 0;
-    font-size: 0.68rem;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    opacity: 0.75;
 }
 
 .footer-disclaimer {
@@ -935,18 +947,40 @@ section {
 .weather-icon { font-size: 1.2rem; }
 
 /* --- 5. Emergency Contacts --- */
-.hub-emergency-list { display: flex; flex-direction: column; gap: 0; }
-.emg-row {
-    display: flex; align-items: center; gap: 0.6rem;
-    flex-wrap: wrap;
-    padding: 0.5rem 0.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    font-size: 0.82rem;
+.hub-emergency-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem 0.75rem;
+    max-height: 10.5rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) rgba(255,255,255,0.08);
 }
-.emg-row:last-child { border-bottom: none; }
-.emg-flag { font-size: 1rem; }
-.emg-country { font-weight: 600; min-width: 90px; color: rgba(255,255,255,0.85); }
-.emg-nums { color: rgba(255,255,255,0.5); font-size: 0.75rem; }
+.hub-emergency-list::-webkit-scrollbar { width: 6px; }
+.hub-emergency-list::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+.emg-row {
+    display: flex; align-items: flex-start; gap: 0.45rem;
+    padding: 0.4rem 0.45rem;
+    border-bottom: none;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    background: rgba(255,255,255,0.03);
+}
+.emg-row:hover { background: rgba(255,255,255,0.06); }
+.emg-flag { font-size: 0.95rem; line-height: 1.3; }
+.emg-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+.emg-country { font-weight: 600; color: rgba(255,255,255,0.88); font-size: 0.78rem; }
+.emg-nums { color: rgba(255,255,255,0.55); font-size: 0.68rem; line-height: 1.35; }
 
 /* --- 6. Packing Wizard --- */
 .hub-pack-tabs {
@@ -2516,8 +2550,9 @@ footer {
 
 @media (max-width: 768px) {
     :root { --section-pad: 4rem; }
+    .hub-emergency-list { grid-template-columns: 1fr; }
 
-    body:not(.site-v2) .menu-toggle { 
+    body:not(.site-v2) .menu-toggle {
         display: block; 
         z-index: 1001; 
     }
