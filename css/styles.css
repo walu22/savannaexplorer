@@ -767,6 +767,12 @@ section {
     color: rgba(255, 255, 255, 0.62);
 }
 
+.hub-currency-primary-rate {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.48);
+    font-variant-numeric: tabular-nums;
+}
+
 .hub-currency-primary-empty {
     margin: 0;
     font-size: 0.85rem;

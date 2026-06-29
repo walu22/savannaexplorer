@@ -8,8 +8,49 @@ import { initExpenseTracker } from './expense-tracker.js';
 const MONTH_LABELS = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
 const SEASON_CLASS = { peak: 's-peak', shoulder: 's-shoulder', off: 's-off' };
 
-/** @type {Record<string, number> | null} */
+/** @type {Record<string, Record<string, number>> | null} */
 let liveRatesByBase = null;
+
+function getStaticRate(from, toCode) {
+    const row = practical.currency.rates.find(entry => entry.code === toCode);
+    return row?.rates?.[from] ?? null;
+}
+
+function getExchangeRate(from, toCode) {
+    const apiCode = apiCodeForCurrency(toCode);
+    const live = liveRatesByBase?.[from]?.[apiCode];
+    if (live) return live;
+    return getStaticRate(from, toCode);
+}
+
+function formatCurrencyAmount(value, currencyCode = '') {
+    if (!Number.isFinite(value)) return '—';
+    const abs = Math.abs(value);
+    if (['MWK', 'MZN'].includes(currencyCode) && abs >= 100) {
+        return value.toLocaleString('en-US', { maximumFractionDigits: 0 });
+    }
+    if (abs >= 1000) {
+        return value.toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
+    }
+    return value.toLocaleString('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    });
+}
+
+function formatExchangeRate(rate) {
+    if (!Number.isFinite(rate)) return '—';
+    if (rate >= 100) {
+        return rate.toLocaleString('en-US', { maximumFractionDigits: 2 });
+    }
+    return rate.toLocaleString('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 4,
+    });
+}
 
 function updatePackProgress() {
     const total = document.querySelectorAll('#hub-pack-list input[type="checkbox"]').length;
@@ -76,16 +117,7 @@ async function loadLiveCurrencyRates() {
 
     for (const base of bases) {
         try {
-            const rates = await fetchLiveCurrencyRates(base);
-            liveRatesByBase[base] = rates;
-
-            document.querySelectorAll('.hub-cur-row').forEach(row => {
-                const targetCode = apiCodeForCurrency(row.dataset.currencyCode);
-                const rate = rates[targetCode];
-                if (rate) {
-                    setHubRate(row.querySelector('.hub-cur-val'), base, rate);
-                }
-            });
+            liveRatesByBase[base] = await fetchLiveCurrencyRates(base);
         } catch {
             // keep static fallback rates for this base
         }
@@ -178,18 +210,8 @@ function renderDisclaimer() {
     if (el) el.textContent = practical.meta.disclaimer;
 }
 
-function formatCurrencyAmount(value) {
-    return value.toLocaleString('en-US', {
-        minimumFractionDigits: value > 1000 ? 0 : 2,
-        maximumFractionDigits: value > 1000 ? 0 : 2,
-    });
-}
-
 function getConvertedAmount(from, toCode, amount) {
-    const row = document.querySelector(`.hub-cur-row[data-currency-code="${toCode}"]`);
-    const valEl = row?.querySelector('.hub-cur-val');
-    if (!valEl) return null;
-    const rate = getHubRate(valEl, from);
+    const rate = getExchangeRate(from, toCode);
     if (!rate) return null;
     return amount * rate;
 }
@@ -202,9 +224,10 @@ function updateCurrencyPrimary() {
     const from = document.getElementById('hub-from-currency')?.value || 'USD';
     const to = document.getElementById('hub-to-currency')?.value || 'ZAR';
     const meta = practical.currency.rates.find(row => row.code === to);
+    const rate = getExchangeRate(from, to);
     const converted = getConvertedAmount(from, to, amount);
 
-    if (!meta || converted == null) {
+    if (!meta || converted == null || !rate) {
         primary.innerHTML = '<p class="hub-currency-primary-empty">Enter an amount to convert.</p>';
         return;
     }
@@ -212,9 +235,10 @@ function updateCurrencyPrimary() {
     primary.innerHTML = `
         <span class="hub-currency-primary-flag">${meta.flag}</span>
         <div class="hub-currency-primary-body">
-            <span class="hub-currency-primary-label">${from} ${formatCurrencyAmount(amount)} ≈</span>
-            <strong class="hub-currency-primary-value">${to} ${formatCurrencyAmount(converted)}</strong>
+            <span class="hub-currency-primary-label">${from} ${formatCurrencyAmount(amount, from)} ≈</span>
+            <strong class="hub-currency-primary-value">${to} ${formatCurrencyAmount(converted, to)}</strong>
             <span class="hub-currency-primary-name">${meta.name}</span>
+            <span class="hub-currency-primary-rate">1 ${from} = ${formatExchangeRate(rate)} ${to}</span>
         </div>
     `;
 }
@@ -223,14 +247,19 @@ function updateCurrency() {
     const amount = parseFloat(document.getElementById('hub-amount')?.value) || 0;
     const from = document.getElementById('hub-from-currency')?.value || 'USD';
 
-    document.querySelectorAll('.hub-cur-val').forEach(el => {
-        const row = el.closest('.hub-cur-row');
-        const code = row?.dataset.currencyCode || '';
-        const rate = getHubRate(el, from);
-        const result = amount * rate;
-        el.textContent = rate
-            ? `${code} ${formatCurrencyAmount(result)}`
-            : '—';
+    document.querySelectorAll('.hub-cur-row').forEach(row => {
+        const code = row.dataset.currencyCode || '';
+        const valEl = row.querySelector('.hub-cur-val');
+        const rate = getExchangeRate(from, code);
+        if (!valEl) return;
+
+        if (rate) {
+            setHubRate(valEl, from, rate);
+            const result = amount * rate;
+            valEl.textContent = `${code} ${formatCurrencyAmount(result, code)}`;
+        } else {
+            valEl.textContent = '—';
+        }
     });
 
     updateCurrencyPrimary();
