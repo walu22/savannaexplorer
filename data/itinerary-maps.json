@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastUpdated": "2026-06",
-    "disclaimer": "Opens Google Maps with indicative waypoints — not turn-by-turn navigation. Verify border crossings and road conditions before driving."
+    "disclaimer": "Indicative route on OpenStreetMap — not turn-by-turn navigation. Verify border crossings and road conditions before driving."
   },
   "routes": {
     "desert-to-delta": {
@@ -15,6 +15,43 @@
         "Kasane, Botswana",
         "Maun, Botswana"
       ],
+      "points": [
+        {
+          "label": "Windhoek, Namibia",
+          "lat": -22.5609,
+          "lng": 17.0658
+        },
+        {
+          "label": "Sossusvlei, Namibia",
+          "lat": -24.7594,
+          "lng": 15.2922
+        },
+        {
+          "label": "Swakopmund, Namibia",
+          "lat": -22.6784,
+          "lng": 14.5267
+        },
+        {
+          "label": "Etosha National Park, Namibia",
+          "lat": -18.8556,
+          "lng": 16.3297
+        },
+        {
+          "label": "Rundu, Namibia",
+          "lat": -17.9156,
+          "lng": 19.7728
+        },
+        {
+          "label": "Kasane, Botswana",
+          "lat": -17.8133,
+          "lng": 25.15
+        },
+        {
+          "label": "Maun, Botswana",
+          "lat": -19.9833,
+          "lng": 23.4167
+        }
+      ],
       "mapsUrl": "https://www.google.com/maps/dir/Windhoek%2C%20Namibia/Sossusvlei%2C%20Namibia/Swakopmund%2C%20Namibia/Etosha%20National%20Park%2C%20Namibia/Rundu%2C%20Namibia/Kasane%2C%20Botswana/Maun%2C%20Botswana",
       "lastVerified": "2026-06"
     },
@@ -26,6 +63,33 @@
         "Durban, South Africa",
         "Maputo, Mozambique",
         "Vilanculos, Mozambique"
+      ],
+      "points": [
+        {
+          "label": "Cape Town, South Africa",
+          "lat": -33.9249,
+          "lng": 18.4241
+        },
+        {
+          "label": "Knysna, South Africa",
+          "lat": -34.0351,
+          "lng": 23.0471
+        },
+        {
+          "label": "Durban, South Africa",
+          "lat": -29.8587,
+          "lng": 31.0218
+        },
+        {
+          "label": "Maputo, Mozambique",
+          "lat": -25.9692,
+          "lng": 32.5732
+        },
+        {
+          "label": "Vilanculos, Mozambique",
+          "lat": -22.0006,
+          "lng": 35.3132
+        }
       ],
       "mapsUrl": "https://www.google.com/maps/dir/Cape%20Town%2C%20South%20Africa/Knysna%2C%20South%20Africa/Durban%2C%20South%20Africa/Maputo%2C%20Mozambique/Vilanculos%2C%20Mozambique",
       "lastVerified": "2026-06"
@@ -39,6 +103,33 @@
         "Hwange National Park, Zimbabwe",
         "Kasane, Botswana"
       ],
+      "points": [
+        {
+          "label": "Livingstone, Zambia",
+          "lat": -17.8419,
+          "lng": 25.8544
+        },
+        {
+          "label": "South Luangwa National Park, Zambia",
+          "lat": -13.3333,
+          "lng": 31.6667
+        },
+        {
+          "label": "Victoria Falls, Zimbabwe",
+          "lat": -17.9244,
+          "lng": 25.8567
+        },
+        {
+          "label": "Hwange National Park, Zimbabwe",
+          "lat": -18.8667,
+          "lng": 27.0333
+        },
+        {
+          "label": "Kasane, Botswana",
+          "lat": -17.8133,
+          "lng": 25.15
+        }
+      ],
       "mapsUrl": "https://www.google.com/maps/dir/Livingstone%2C%20Zambia/South%20Luangwa%20National%20Park%2C%20Zambia/Victoria%20Falls%2C%20Zimbabwe/Hwange%20National%20Park%2C%20Zimbabwe/Kasane%2C%20Botswana",
       "lastVerified": "2026-06"
     },
@@ -50,6 +141,28 @@
         "Mbabane, Eswatini",
         "Kruger National Park, South Africa"
       ],
+      "points": [
+        {
+          "label": "Johannesburg, South Africa",
+          "lat": -26.2041,
+          "lng": 28.0473
+        },
+        {
+          "label": "Sani Pass, Lesotho",
+          "lat": -29.5857,
+          "lng": 29.4942
+        },
+        {
+          "label": "Mbabane, Eswatini",
+          "lat": -26.3054,
+          "lng": 31.1367
+        },
+        {
+          "label": "Kruger National Park, South Africa",
+          "lat": -24.0115,
+          "lng": 31.4854
+        }
+      ],
       "mapsUrl": "https://www.google.com/maps/dir/Johannesburg%2C%20South%20Africa/Sani%20Pass%2C%20Lesotho/Mbabane%2C%20Eswatini/Kruger%20National%20Park%2C%20South%20Africa",
       "lastVerified": "2026-06"
     },
@@ -60,6 +173,28 @@
         "Cape Maclear, Malawi",
         "Liwonde National Park, Malawi",
         "South Luangwa, Zambia"
+      ],
+      "points": [
+        {
+          "label": "Lilongwe, Malawi",
+          "lat": -13.9626,
+          "lng": 33.7741
+        },
+        {
+          "label": "Cape Maclear, Malawi",
+          "lat": -14.0167,
+          "lng": 34.85
+        },
+        {
+          "label": "Liwonde National Park, Malawi",
+          "lat": -15.0667,
+          "lng": 35.2333
+        },
+        {
+          "label": "South Luangwa, Zambia",
+          "lat": -13.3333,
+          "lng": 31.6667
+        }
       ],
       "mapsUrl": "https://www.google.com/maps/dir/Lilongwe%2C%20Malawi/Cape%20Maclear%2C%20Malawi/Liwonde%20National%20Park%2C%20Malawi/South%20Luangwa%2C%20Zambia",
       "lastVerified": "2026-06"
@@ -73,6 +208,33 @@
         "Livingstone, Zambia",
         "Cape Town, South Africa"
       ],
+      "points": [
+        {
+          "label": "Johannesburg, South Africa",
+          "lat": -26.2041,
+          "lng": 28.0473
+        },
+        {
+          "label": "Maun, Botswana",
+          "lat": -19.9833,
+          "lng": 23.4167
+        },
+        {
+          "label": "Victoria Falls, Zimbabwe",
+          "lat": -17.9244,
+          "lng": 25.8567
+        },
+        {
+          "label": "Livingstone, Zambia",
+          "lat": -17.8419,
+          "lng": 25.8544
+        },
+        {
+          "label": "Cape Town, South Africa",
+          "lat": -33.9249,
+          "lng": 18.4241
+        }
+      ],
       "mapsUrl": "https://www.google.com/maps/dir/Johannesburg%2C%20South%20Africa/Maun%2C%20Botswana/Victoria%20Falls%2C%20Zimbabwe/Livingstone%2C%20Zambia/Cape%20Town%2C%20South%20Africa",
       "lastVerified": "2026-06"
     },
@@ -83,6 +245,28 @@
         "Sossusvlei, Namibia",
         "Swakopmund, Namibia",
         "Etosha National Park, Namibia"
+      ],
+      "points": [
+        {
+          "label": "Windhoek, Namibia",
+          "lat": -22.5609,
+          "lng": 17.0658
+        },
+        {
+          "label": "Sossusvlei, Namibia",
+          "lat": -24.7594,
+          "lng": 15.2922
+        },
+        {
+          "label": "Swakopmund, Namibia",
+          "lat": -22.6784,
+          "lng": 14.5267
+        },
+        {
+          "label": "Etosha National Park, Namibia",
+          "lat": -18.8556,
+          "lng": 16.3297
+        }
       ],
       "mapsUrl": "https://www.google.com/maps/dir/Windhoek%2C%20Namibia/Sossusvlei%2C%20Namibia/Swakopmund%2C%20Namibia/Etosha%20National%20Park%2C%20Namibia",
       "lastVerified": "2026-06"
@@ -95,6 +279,28 @@
         "Port Elizabeth, South Africa",
         "Kruger National Park, South Africa"
       ],
+      "points": [
+        {
+          "label": "Cape Town, South Africa",
+          "lat": -33.9249,
+          "lng": 18.4241
+        },
+        {
+          "label": "Knysna, South Africa",
+          "lat": -34.0351,
+          "lng": 23.0471
+        },
+        {
+          "label": "Port Elizabeth, South Africa",
+          "lat": -33.9608,
+          "lng": 25.6022
+        },
+        {
+          "label": "Kruger National Park, South Africa",
+          "lat": -24.0115,
+          "lng": 31.4854
+        }
+      ],
       "mapsUrl": "https://www.google.com/maps/dir/Cape%20Town%2C%20South%20Africa/Knysna%2C%20South%20Africa/Port%20Elizabeth%2C%20South%20Africa/Kruger%20National%20Park%2C%20South%20Africa",
       "lastVerified": "2026-06"
     },
@@ -104,6 +310,23 @@
         "Maun, Botswana",
         "Okavango Delta, Botswana",
         "Kasane, Botswana"
+      ],
+      "points": [
+        {
+          "label": "Maun, Botswana",
+          "lat": -19.9833,
+          "lng": 23.4167
+        },
+        {
+          "label": "Okavango Delta, Botswana",
+          "lat": -19.2667,
+          "lng": 23.15
+        },
+        {
+          "label": "Kasane, Botswana",
+          "lat": -17.8133,
+          "lng": 25.15
+        }
       ],
       "mapsUrl": "https://www.google.com/maps/dir/Maun%2C%20Botswana/Okavango%20Delta%2C%20Botswana/Kasane%2C%20Botswana",
       "lastVerified": "2026-06"
@@ -115,6 +338,23 @@
         "Victoria Falls, Zambia",
         "Mfuwe, Zambia"
       ],
+      "points": [
+        {
+          "label": "Livingstone, Zambia",
+          "lat": -17.8419,
+          "lng": 25.8544
+        },
+        {
+          "label": "Victoria Falls, Zambia",
+          "lat": -17.9244,
+          "lng": 25.8567
+        },
+        {
+          "label": "Mfuwe, Zambia",
+          "lat": -13.2583,
+          "lng": 31.9361
+        }
+      ],
       "mapsUrl": "https://www.google.com/maps/dir/Livingstone%2C%20Zambia/Victoria%20Falls%2C%20Zambia/Mfuwe%2C%20Zambia",
       "lastVerified": "2026-06"
     },
@@ -124,6 +364,23 @@
         "Victoria Falls, Zimbabwe",
         "Hwange National Park, Zimbabwe",
         "Mana Pools, Zimbabwe"
+      ],
+      "points": [
+        {
+          "label": "Victoria Falls, Zimbabwe",
+          "lat": -17.9244,
+          "lng": 25.8567
+        },
+        {
+          "label": "Hwange National Park, Zimbabwe",
+          "lat": -18.8667,
+          "lng": 27.0333
+        },
+        {
+          "label": "Mana Pools, Zimbabwe",
+          "lat": -15.7167,
+          "lng": 29.3667
+        }
       ],
       "mapsUrl": "https://www.google.com/maps/dir/Victoria%20Falls%2C%20Zimbabwe/Hwange%20National%20Park%2C%20Zimbabwe/Mana%20Pools%2C%20Zimbabwe",
       "lastVerified": "2026-06"
@@ -135,6 +392,23 @@
         "Gorongosa National Park, Mozambique",
         "Tofo Beach, Mozambique"
       ],
+      "points": [
+        {
+          "label": "Beira, Mozambique",
+          "lat": -19.8436,
+          "lng": 34.8389
+        },
+        {
+          "label": "Gorongosa National Park, Mozambique",
+          "lat": -18.6775,
+          "lng": 34.5081
+        },
+        {
+          "label": "Tofo Beach, Mozambique",
+          "lat": -23.8597,
+          "lng": 35.5483
+        }
+      ],
       "mapsUrl": "https://www.google.com/maps/dir/Beira%2C%20Mozambique/Gorongosa%20National%20Park%2C%20Mozambique/Tofo%20Beach%2C%20Mozambique",
       "lastVerified": "2026-06"
     },
@@ -144,6 +418,23 @@
         "Lilongwe, Malawi",
         "Cape Maclear, Malawi",
         "Liwonde National Park, Malawi"
+      ],
+      "points": [
+        {
+          "label": "Lilongwe, Malawi",
+          "lat": -13.9626,
+          "lng": 33.7741
+        },
+        {
+          "label": "Cape Maclear, Malawi",
+          "lat": -14.0167,
+          "lng": 34.85
+        },
+        {
+          "label": "Liwonde National Park, Malawi",
+          "lat": -15.0667,
+          "lng": 35.2333
+        }
       ],
       "mapsUrl": "https://www.google.com/maps/dir/Lilongwe%2C%20Malawi/Cape%20Maclear%2C%20Malawi/Liwonde%20National%20Park%2C%20Malawi",
       "lastVerified": "2026-06"
@@ -155,6 +446,23 @@
         "Sani Pass, Lesotho",
         "Semonkong, Lesotho"
       ],
+      "points": [
+        {
+          "label": "Maseru, Lesotho",
+          "lat": -29.3158,
+          "lng": 27.4869
+        },
+        {
+          "label": "Sani Pass, Lesotho",
+          "lat": -29.5857,
+          "lng": 29.4942
+        },
+        {
+          "label": "Semonkong, Lesotho",
+          "lat": -29.9833,
+          "lng": 28.05
+        }
+      ],
       "mapsUrl": "https://www.google.com/maps/dir/Maseru%2C%20Lesotho/Sani%20Pass%2C%20Lesotho/Semonkong%2C%20Lesotho",
       "lastVerified": "2026-06"
     },
@@ -164,6 +472,23 @@
         "Mbabane, Eswatini",
         "Ezulwini Valley, Eswatini",
         "Hlane Royal National Park, Eswatini"
+      ],
+      "points": [
+        {
+          "label": "Mbabane, Eswatini",
+          "lat": -26.3054,
+          "lng": 31.1367
+        },
+        {
+          "label": "Ezulwini Valley, Eswatini",
+          "lat": -26.4417,
+          "lng": 31.1167
+        },
+        {
+          "label": "Hlane Royal National Park, Eswatini",
+          "lat": -26.2333,
+          "lng": 31.8333
+        }
       ],
       "mapsUrl": "https://www.google.com/maps/dir/Mbabane%2C%20Eswatini/Ezulwini%20Valley%2C%20Eswatini/Hlane%20Royal%20National%20Park%2C%20Eswatini",
       "lastVerified": "2026-06"

@@ -739,5 +739,83 @@
     "linkLabel": "Cape Maclear lodges",
     "lastVerified": "2026-06",
     "planningTip": "Ask locally about bilharzia-safe swimming spots before diving in — conditions vary by bay."
+  },
+  {
+    "id": "desert-delta-botswana",
+    "kind": "operator",
+    "country": "botswana",
+    "title": "Desert & Delta Safaris",
+    "region": "Okavango · Chobe · Makgadikgadi",
+    "tags": ["safari", "mokoro", "mobile camp"],
+    "description": "Established Botswana operator — mobile safaris, Okavango camps, and Chobe river cruises with direct lodge bookings.",
+    "url": "https://www.desertdelta.com/",
+    "linkLabel": "Desert & Delta Safaris",
+    "lastVerified": "2026-06",
+    "planningTip": "Mobile camps move with wildlife — confirm seasonal camp locations when comparing quotes."
+  },
+  {
+    "id": "belmond-chobe-botswana",
+    "kind": "stay",
+    "country": "botswana",
+    "title": "Belmond Savute Elephant Lodge",
+    "region": "Chobe National Park",
+    "tags": ["luxury", "elephants", "river"],
+    "description": "Premium lodge in Chobe with river-facing suites — pairs with Victoria Falls and Kasane day trips.",
+    "url": "https://www.belmond.com/safari/botswana/",
+    "linkLabel": "Belmond Botswana lodges",
+    "lastVerified": "2026-06",
+    "planningTip": "Combine with Kasane self-drive or charter flights from Maun for delta–Chobe loops."
+  },
+  {
+    "id": "wilderness-bw-botswana",
+    "kind": "operator",
+    "country": "botswana",
+    "title": "Wilderness — Botswana camps",
+    "region": "Okavango · Linyanti · Kalahari",
+    "tags": ["luxury", "conservation", "mokoro"],
+    "description": "Wilderness portfolio across Botswana — Jao, Mombo, DumaTau, and Kalahari Plains with conservation levies included.",
+    "url": "https://www.wildernessdestinations.com/botswana",
+    "linkLabel": "Wilderness Botswana",
+    "lastVerified": "2026-06",
+    "planningTip": "Book via official site or trusted agent — peak season (Jul–Oct) sells out 12+ months ahead."
+  },
+  {
+    "id": "shearwater-victoria-falls",
+    "kind": "operator",
+    "country": "zimbabwe",
+    "title": "Shearwater Victoria Falls activities",
+    "region": "Victoria Falls · Zambezi",
+    "tags": ["adventure", "helicopter", "rafting"],
+    "description": "Official activities operator at Victoria Falls — helicopter flights, rafting, bungee, and sunset cruises on the Zambezi.",
+    "url": "https://www.shearwatervictoriafalls.com/",
+    "linkLabel": "Shearwater Adventures",
+    "lastVerified": "2026-06",
+    "planningTip": "Rafting season depends on Zambezi water levels — low-water runs (Aug–Dec) are most dramatic."
+  },
+  {
+    "id": "african-albida-hwange",
+    "kind": "stay",
+    "country": "zimbabwe",
+    "title": "African Albida — Hwange lodges",
+    "region": "Hwange National Park",
+    "tags": ["safari", "waterhole", "family"],
+    "description": "Family-friendly lodges at Hwange waterholes — Nehimba and Ivory with guided drives and hide viewing.",
+    "url": "https://www.africanalbida.co.zw/",
+    "linkLabel": "African Albida Hwange",
+    "lastVerified": "2026-06",
+    "planningTip": "Dry season (Jul–Oct) concentrates elephants at pumped waterholes — book hide sessions at check-in."
+  },
+  {
+    "id": "zimparks-bookings-zw",
+    "kind": "stay",
+    "country": "zimbabwe",
+    "title": "Zimparks national park lodges",
+    "region": "Hwange · Mana Pools · Gonarezhou",
+    "tags": ["park camps", "self-drive", "budget"],
+    "description": "Zimbabwe Parks and Wildlife Authority accommodation — self-catering chalets and campsites in flagship reserves.",
+    "url": "https://www.zimparks.org/bookings/",
+    "linkLabel": "Zimparks bookings",
+    "lastVerified": "2026-06",
+    "planningTip": "Mana Pools walking safaris require accredited guide — park entry alone does not include walking permits."
   }
 ]

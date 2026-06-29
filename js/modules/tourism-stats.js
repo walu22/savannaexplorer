@@ -1,5 +1,6 @@
 import statsData from '../../data/tourism-stats.json';
 import { COUNTRY_META } from '../lib/country-meta.js';
+import { renderArrivalsChart, renderRegionalShareChart } from '../lib/tourism-charts.js';
 
 function escapeHtml(text) {
     return String(text)
@@ -39,6 +40,7 @@ export function initTourismStats() {
     const summary = document.getElementById('tourism-stats-summary');
     const disclaimer = document.getElementById('tourism-stats-disclaimer');
     const filters = document.getElementById('tourism-stats-filters');
+    const charts = document.getElementById('tourism-stats-charts');
     if (!grid) return;
 
     const countries = statsData.countries;
@@ -48,6 +50,10 @@ export function initTourismStats() {
     }
     if (disclaimer) {
         disclaimer.textContent = statsData.meta.disclaimer;
+    }
+
+    if (charts) {
+        charts.innerHTML = renderArrivalsChart(countries) + renderRegionalShareChart(countries);
     }
 
     if (filters) {

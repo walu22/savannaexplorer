@@ -6,7 +6,7 @@ import {
     getPlanningNotes,
 } from '../lib/planning-format.js';
 import { renderBudgetBreakdownHtml } from '../lib/itinerary-budget.js';
-import { renderItineraryMapLink } from '../lib/itinerary-maps.js';
+import { renderItineraryMapLink, mountRouteMap, destroyRouteMap } from '../lib/itinerary-maps.js';
 import { createModalFocusManager } from '../lib/modal-focus.js';
 import { linkItineraryToExpenseTracker } from './expense-tracker.js';
 
@@ -156,6 +156,9 @@ export function openItineraryDetail(id) {
     if (mapsEl) {
         mapsEl.innerHTML = renderItineraryMapLink(id);
         mapsEl.hidden = !mapsEl.innerHTML.trim();
+        if (!mapsEl.hidden) {
+            mountRouteMap(id).catch(() => {});
+        }
     }
 
     document.getElementById('itinerary-modal').classList.add('active');
@@ -164,6 +167,7 @@ export function openItineraryDetail(id) {
 }
 
 function closeItineraryModal() {
+    if (currentItineraryId) destroyRouteMap(currentItineraryId);
     document.getElementById('itinerary-modal').classList.remove('active');
     document.body.style.overflow = '';
     getItineraryModalFocus().close();
