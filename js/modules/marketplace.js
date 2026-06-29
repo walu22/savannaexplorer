@@ -2,6 +2,16 @@ import marketplaceData from '../../data/marketplace.json';
 import marketplaceResources from '../../data/marketplace-resources.json';
 import { getSupabaseClient } from '../lib/supabase.js';
 import { formatCostBand } from '../lib/planning-format.js';
+import { createModalFocusManager } from '../lib/modal-focus.js';
+
+let marketplaceModalFocus = null;
+
+function getMarketplaceModalFocus() {
+    if (!marketplaceModalFocus) {
+        marketplaceModalFocus = createModalFocusManager(document.getElementById('marketplace-modal'));
+    }
+    return marketplaceModalFocus;
+}
 
 function getResourceMeta(item) {
     const byId = marketplaceResources[item.id] || {};
@@ -50,6 +60,7 @@ async function openMarketplace(theme) {
 
     marketModal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    getMarketplaceModalFocus().open();
     marketTitle.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
     marketGrid.innerHTML = '<div style="color:white;text-align:center;width:100%;padding:2rem;">Loading inspiration…</div>';
 
@@ -79,6 +90,7 @@ async function openMarketplace(theme) {
 function closeMarketplace() {
     document.getElementById('marketplace-modal')?.classList.remove('active');
     document.body.style.overflow = '';
+    getMarketplaceModalFocus().close();
 }
 
 export function initMarketplace() {
@@ -92,5 +104,11 @@ export function initMarketplace() {
             const theme = link.getAttribute('data-theme');
             if (theme) openMarketplace(theme);
         });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && document.getElementById('marketplace-modal')?.classList.contains('active')) {
+            closeMarketplace();
+        }
     });
 }

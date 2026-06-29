@@ -1,6 +1,16 @@
 import guidesData from '../../data/planning-guides.json';
 import { getCountryMeta } from '../lib/country-meta.js';
 import { openCountryPage } from './country-guide.js';
+import { createModalFocusManager } from '../lib/modal-focus.js';
+
+let planningGuideModalFocus = null;
+
+function getPlanningGuideModalFocus() {
+    if (!planningGuideModalFocus) {
+        planningGuideModalFocus = createModalFocusManager(document.getElementById('planning-guide-modal'));
+    }
+    return planningGuideModalFocus;
+}
 
 function escapeHtml(text) {
     return String(text)
@@ -57,6 +67,7 @@ export function openPlanningGuide(countryId) {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     body.scrollTop = 0;
+    getPlanningGuideModalFocus().open();
 }
 
 function closePlanningGuide() {
@@ -64,6 +75,7 @@ function closePlanningGuide() {
     if (!modal) return;
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    getPlanningGuideModalFocus().close();
 }
 
 function printPlanningGuide() {
@@ -116,6 +128,12 @@ export function initPlanningGuides() {
 
     document.getElementById('planning-guide-modal')?.addEventListener('click', (e) => {
         if (e.target.classList.contains('planning-guide-close')) closePlanningGuide();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && document.getElementById('planning-guide-modal')?.classList.contains('active')) {
+            closePlanningGuide();
+        }
     });
 }
 

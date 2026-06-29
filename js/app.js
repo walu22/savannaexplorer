@@ -1,5 +1,6 @@
 import { CONFIG } from './config.js';
 import { initNav } from './modules/nav.js';
+import { initScrollUx } from './modules/scroll-ux.js';
 import { initReveal } from './modules/reveal.js';
 import { initCountryGuide, bootstrapRouting } from './modules/country-guide.js';
 import { initItineraries } from './modules/itineraries.js';
@@ -18,6 +19,7 @@ import { initTripPlanner } from './modules/trip-planner.js';
 import { initSeoRoutes } from './modules/seo-routes.js';
 import { initBookDirect } from './modules/book-direct.js';
 import { initTransportLogistics } from './modules/transport-logistics.js';
+import { initEmbassies } from './modules/embassies.js';
 import { initPlanningGuides } from './modules/planning-guides.js';
 import { initTourismStats } from './modules/tourism-stats.js';
 
@@ -29,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initNav();
+    initScrollUx();
     initReveal();
     initDestinations();
     initCountryGuide();

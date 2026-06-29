@@ -146,7 +146,18 @@ export function scrollToSection(sectionId) {
     if (!sectionId) return;
     revealThroughSection(sectionId);
     const el = document.getElementById(sectionId);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (!el) return;
+
+    const nav = document.getElementById('navbar');
+    const offset = (nav?.offsetHeight || 76) + 12;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: Math.max(0, top), behavior: reducedMotion ? 'auto' : 'smooth' });
+
+    if (!el.hasAttribute('tabindex')) {
+        el.setAttribute('tabindex', '-1');
+    }
+    el.focus({ preventScroll: true });
 }
 
 export function getParkById(parkId) {

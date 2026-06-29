@@ -7,9 +7,18 @@ import {
 } from '../lib/planning-format.js';
 import { renderBudgetBreakdownHtml } from '../lib/itinerary-budget.js';
 import { renderItineraryMapLink } from '../lib/itinerary-maps.js';
+import { createModalFocusManager } from '../lib/modal-focus.js';
 
 let currentItineraryId = null;
 let activeScopeFilter = 'all';
+let itineraryModalFocus = null;
+
+function getItineraryModalFocus() {
+    if (!itineraryModalFocus) {
+        itineraryModalFocus = createModalFocusManager(document.getElementById('itinerary-modal'));
+    }
+    return itineraryModalFocus;
+}
 
 function renderItineraryGrid() {
     const grid = document.querySelector('.itinerary-grid');
@@ -150,11 +159,13 @@ export function openItineraryDetail(id) {
 
     document.getElementById('itinerary-modal').classList.add('active');
     document.body.style.overflow = 'hidden';
+    getItineraryModalFocus().open();
 }
 
 function closeItineraryModal() {
     document.getElementById('itinerary-modal').classList.remove('active');
     document.body.style.overflow = '';
+    getItineraryModalFocus().close();
     currentItineraryId = null;
 }
 
@@ -180,6 +191,12 @@ export function initItineraries() {
     document.getElementById('itinerary-modal')?.addEventListener('click', (e) => {
         const accordionBtn = e.target.closest('[data-accordion]');
         if (accordionBtn) toggleAccordion(accordionBtn);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && document.getElementById('itinerary-modal')?.classList.contains('active')) {
+            closeItineraryModal();
+        }
     });
 
     document.querySelector('.itinerary-grid')?.addEventListener('click', (e) => {

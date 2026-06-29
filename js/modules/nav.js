@@ -77,9 +77,10 @@ export function initNav() {
         navbar?.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    window.addEventListener('scroll', () => {
-        if (heroImg) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (heroImg && !reduceMotion.matches) {
+        window.addEventListener('scroll', () => {
             heroImg.style.transform = `scale(${1 + window.pageYOffset * 0.0004})`;
-        }
-    });
+        }, { passive: true });
+    }
 }

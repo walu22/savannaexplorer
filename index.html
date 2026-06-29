@@ -19,6 +19,8 @@
 </head>
 <body class="site-v2">
 
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container">
@@ -81,7 +83,10 @@
                 <div class="hero-stat"><strong>15</strong><span>route templates</span></div>
             </div>
         </div>
+        <p class="hero-scroll-cue" aria-hidden="true"><span>Scroll</span><i class="fas fa-chevron-down"></i></p>
     </section>
+
+    <main id="main-content" tabindex="-1">
 
     <!-- Hub notice -->
     <section class="hub-notice" aria-label="About this site">
@@ -89,6 +94,13 @@
             <p><strong>Independent travel hub.</strong> Savanna Explorer is a free planning reference for Southern Africa. We publish country guides, route templates, and practical tools to help you research your trip — <em>we do not sell tours, take payments, or act as a travel agent.</em></p>
         </div>
     </section>
+
+    <nav class="page-contents" aria-label="On this page">
+        <div class="container">
+            <p class="page-contents-label">On this page</p>
+            <ul class="page-contents-links" id="page-contents-links"></ul>
+        </div>
+    </nav>
 
     <!-- Did You Know Ticker -->
     <section class="ticker-bar">
@@ -192,6 +204,8 @@
         </div>
     </section>
 
+    <div class="page-chapter page-chapter--discover">
+
     <!-- Destinations -->
     <section id="destinations" class="destinations">
         <div class="container">
@@ -263,6 +277,10 @@
             </div>
         </div>
     </section>
+
+    </div>
+
+    <div class="page-chapter page-chapter--plan">
 
     <!-- Journey Engine -->
     <section id="itineraries" class="itineraries">
@@ -819,6 +837,10 @@
         </div>
     </section>
 
+    </div>
+
+    <div class="page-chapter page-chapter--reference">
+
     <!-- Travel News — Visit Namibia latest updates -->
     <section id="news" class="travel-news-section">
         <div class="container">
@@ -856,6 +878,10 @@
             <p class="section-disclaimer" id="tourism-stats-disclaimer"></p>
         </div>
     </section>
+
+    </div>
+
+    <div class="page-chapter page-chapter--about">
 
     <!-- About This Site -->
     <section id="about" class="about-section">
@@ -989,6 +1015,14 @@
             </div>
         </div>
     </section>
+
+    </div>
+
+    </main>
+
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <!-- Footer -->
     <footer>
