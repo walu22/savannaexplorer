@@ -1,5 +1,7 @@
+import pkg from '../package.json';
+
 export const CONFIG = {
-    appVersion: '4.32.4',
+    appVersion: pkg.version,
     siteMode: 'hub',
     siteUrl: import.meta.env.VITE_SITE_URL || '',
     supportPhone: '+264816766747',
