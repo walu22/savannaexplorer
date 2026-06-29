@@ -17,15 +17,15 @@
       { "code": "GBP", "label": "🇬🇧 GBP" }
     ],
     "rates": [
-      { "flag": "🇿🇦", "name": "South African Rand", "code": "ZAR", "rates": { "USD": 18.5, "EUR": 20.0, "GBP": 23.5 } },
-      { "flag": "🇳🇦", "name": "Namibian Dollar", "code": "NAD", "rates": { "USD": 18.5, "EUR": 20.0, "GBP": 23.5 } },
-      { "flag": "🇧🇼", "name": "Botswana Pula", "code": "BWP", "rates": { "USD": 13.5, "EUR": 14.6, "GBP": 17.1 } },
-      { "flag": "🇿🇲", "name": "Zambian Kwacha", "code": "ZMW", "rates": { "USD": 25.0, "EUR": 27.0, "GBP": 31.8 } },
-      { "flag": "🇿🇼", "name": "Zimbabwe Gold (ZiG)", "code": "ZIG", "rates": { "USD": 13.56, "EUR": 14.65, "GBP": 17.2 } },
-      { "flag": "🇲🇿", "name": "Mozambican Metical", "code": "MZN", "rates": { "USD": 63.9, "EUR": 69.0, "GBP": 81.0 } },
-      { "flag": "🇲🇼", "name": "Malawian Kwacha", "code": "MWK", "rates": { "USD": 1735, "EUR": 1880, "GBP": 2200 } },
-      { "flag": "🇱🇸", "name": "Lesotho Loti", "code": "LSL", "rates": { "USD": 18.5, "EUR": 20.0, "GBP": 23.5 } },
-      { "flag": "🇸🇿", "name": "Swazi Lilangeni", "code": "SZL", "rates": { "USD": 18.5, "EUR": 20.0, "GBP": 23.5 } }
+      { "flag": "🇿🇦", "name": "South African Rand", "code": "ZAR", "rates": { "USD": 16.46, "EUR": 18.75, "GBP": 21.73 } },
+      { "flag": "🇳🇦", "name": "Namibian Dollar", "code": "NAD", "rates": { "USD": 16.46, "EUR": 18.75, "GBP": 21.73 } },
+      { "flag": "🇧🇼", "name": "Botswana Pula", "code": "BWP", "rates": { "USD": 13.60, "EUR": 15.67, "GBP": 18.17 } },
+      { "flag": "🇿🇲", "name": "Zambian Kwacha", "code": "ZMW", "rates": { "USD": 18.03, "EUR": 20.53, "GBP": 23.80 } },
+      { "flag": "🇿🇼", "name": "Zimbabwe Gold (ZiG)", "code": "ZIG", "rates": { "USD": 26.83, "EUR": 30.52, "GBP": 35.42 } },
+      { "flag": "🇲🇿", "name": "Mozambican Metical", "code": "MZN", "rates": { "USD": 63.58, "EUR": 72.49, "GBP": 84.04 } },
+      { "flag": "🇲🇼", "name": "Malawian Kwacha", "code": "MWK", "rates": { "USD": 1733, "EUR": 1974, "GBP": 2289 } },
+      { "flag": "🇱🇸", "name": "Lesotho Loti", "code": "LSL", "rates": { "USD": 16.46, "EUR": 18.75, "GBP": 21.73 } },
+      { "flag": "🇸🇿", "name": "Swazi Lilangeni", "code": "SZL", "rates": { "USD": 16.46, "EUR": 18.75, "GBP": 21.73 } }
     ]
   },
   "visaHealth": [
