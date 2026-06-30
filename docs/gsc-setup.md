@@ -40,7 +40,7 @@ Track verification and indexing progress for https://savannaexplorer.com/
 |------|--------|------|
 | Sitemap submitted (`sitemap.xml`) | ☑ Done | June 28, 2026 |
 | Auto-resubmit on deploy | ☑ IndexNow (160 URLs) + optional GSC API | v4.34.1+ |
-| GSC API auto-resubmit | ☐ Pending `GSC_SERVICE_ACCOUNT_JSON` secret | Run `npm run setup:gsc` |
+| GSC API auto-resubmit | ☐ Pending `GSC_SERVICE_ACCOUNT_JSON` secret | GCP project: `tumahelper-ai-dev` |
 | Discovered pages | Expect **160 URLs** after next crawl | |
 
 ### Priority URL indexing requests
@@ -76,7 +76,24 @@ After each successful deploy, `scripts/submit-search-indexing.mjs` runs automati
 
 ### One-time GSC API setup (for Google auto-resubmit)
 
-1. [Google Cloud Console](https://console.cloud.google.com/) → **APIs & Services → Library** → enable **Google Search Console API**.
+**GCP project:** `tumahelper-ai-dev` (account: `waluka.mubita@tumahelper.com`) — see `docs/gcp-tumahelper-ai-dev.md`
+
+#### Automated (run locally where `gcloud` is authenticated)
+
+```bash
+chmod +x scripts/provision-gsc-gcp.sh
+./scripts/provision-gsc-gcp.sh
+```
+
+Then add `savannaexplorer-gsc@tumahelper-ai-dev.iam.gserviceaccount.com` as **Owner** in Search Console → Users, and:
+
+```bash
+npm run setup:gsc -- --file ./gsc-key.json --github-secret
+```
+
+#### Manual (Cloud Console UI)
+
+1. [Google Cloud Console](https://console.cloud.google.com/) → project **tumahelper-ai-dev** → **APIs & Services → Library** → enable **Google Search Console API**.
 2. **Credentials → Create credentials → Service account** → create key (JSON) and download it.
 3. [Search Console](https://search.google.com/search-console) → **Settings → Users and permissions** → add the service account `client_email` as **Owner**.
 4. From this repo (with [GitHub CLI](https://cli.github.com/) logged in as repo admin):

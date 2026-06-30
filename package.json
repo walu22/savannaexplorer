@@ -19,6 +19,7 @@
     "postbuild": "node scripts/prerender-seo.mjs",
     "preview": "vite preview",
     "setup:gsc": "node scripts/setup-gsc-api.mjs",
+    "provision:gsc": "bash scripts/provision-gsc-gcp.sh",
     "index:submit": "node scripts/submit-search-indexing.mjs"
   },
   "devDependencies": {
