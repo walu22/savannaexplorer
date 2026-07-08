@@ -66,6 +66,7 @@
                     </div>
                 </li>
                 <li><a href="#news">News</a></li>
+                <li><a href="#" id="open-ai-planner" class="btn-ai-nav"><i class="fas fa-magic"></i> Plan with AI</a></li>
                 <li class="nav-dropdown nav-dropdown--cta" id="nav-hub-dropdown"></li>
             </ul>
 
@@ -1389,8 +1390,73 @@
                 </div>
             </div>
         </div>
+    <!-- AI Safari Itinerary Planner Widget -->
+    <div id="ai-planner-sidebar" class="ai-sidebar" aria-hidden="true">
+        <div class="ai-sidebar-header">
+            <h3><i class="fas fa-sparkles"></i> AI Safari Planner</h3>
+            <button id="close-ai-planner" class="ai-close-btn" type="button" aria-label="Close AI planner">&times;</button>
+        </div>
+        <div class="ai-sidebar-body">
+            <!-- Secure Serverless Backend Indicator Badge -->
+            <div class="secure-backend-badge">
+                <i class="fas fa-shield-halved" style="color: var(--primary);"></i>
+                <span>Secure Serverless Gemini Integration</span>
+            </div>
+
+            <div id="ai-planner-form">
+                <p>Let our AI craft a personalized luxury itinerary tailored to your preferences, combined with matched official resources from our local catalog.</p>
+                <div class="ai-input-group">
+                    <label for="sidebar-country">Destination Country</label>
+                    <select id="sidebar-country">
+                        <option value="All">Any Destination</option>
+                        <option value="South Africa">South Africa</option>
+                        <option value="Namibia">Namibia</option>
+                        <option value="Botswana">Botswana</option>
+                        <option value="Zambia">Zambia</option>
+                        <option value="Zimbabwe">Zimbabwe</option>
+                    </select>
+                </div>
+                <div class="ai-input-group">
+                    <label for="sidebar-duration">Duration (Days)</label>
+                    <input type="number" id="sidebar-duration" value="5" min="1" max="30">
+                </div>
+                <div class="ai-input-group">
+                    <label for="sidebar-category">Primary Theme</label>
+                    <select id="sidebar-category">
+                        <option value="All">Any Theme</option>
+                        <option value="Safari">Safari &amp; Wildlife</option>
+                        <option value="Adventure">Scenic &amp; Adventure</option>
+                        <option value="Culture">Cultural Immersion</option>
+                        <option value="Nature">Nature &amp; Scenic</option>
+                    </select>
+                </div>
+                <div class="ai-input-group">
+                    <label for="sidebar-budget">Budget Tier</label>
+                    <select id="sidebar-budget">
+                        <option value="All">Any Budget</option>
+                        <option value="$">$ (Value)</option>
+                        <option value="$$">$$ (Comfort)</option>
+                        <option value="$$$">$$$ (Luxury)</option>
+                        <option value="$$$$">$$$$ (Ultra Luxury)</option>
+                    </select>
+                </div>
+                <button id="sidebar-generate-itinerary-btn" class="btn btn-primary ai-submit-btn" type="button">Generate Itinerary <i class="fas fa-sparkles"></i></button>
+            </div>
+            
+            <div id="ai-loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Consulting SavannaExplorer AI...</p>
+                <p class="ai-subtext">Crafting your perfect luxury journey</p>
+            </div>
+            
+            <div id="ai-result" class="hidden">
+                <button id="ai-back-btn" class="btn btn-outline" type="button"><i class="fas fa-arrow-left"></i> Start Over</button>
+                <div id="ai-markdown-content" class="markdown-body"></div>
+            </div>
+        </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script type="module" src="/js/app.js"></script>
 </body>
 </html>

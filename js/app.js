@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         import('./modules/book-direct.js'),
         import('./modules/transport-logistics.js'),
         import('./modules/embassies.js'),
+        import('./modules/ai-planner.js'),
     ]).then(modules => {
         const [
             marketplace,
@@ -67,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             bookDirect,
             transportLogistics,
             embassies,
+            aiPlanner,
         ] = modules;
 
         marketplace.initMarketplace();
@@ -83,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bookDirect.initBookDirect();
         transportLogistics.initTransportLogistics();
         embassies.initEmbassies();
+        aiPlanner.initAiPlanner();
     });
 
     // Below-the-fold — defer until the browser is idle.

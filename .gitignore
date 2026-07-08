@@ -72,6 +72,7 @@ web_modules/
 .env.test.local
 .env.production.local
 .env.local
+.env.*
 gsc-key.json
 
 # cache directory
@@ -84,34 +85,6 @@ out
 
 # Nuxt.js build images
 .nuxt
+
 dist
-
-# Gatsby files
-.cache/
-# Comment in the public line if your project uses Gatsby and you want to commit the public folder
-# public
-
-# vuepress build output
-.vuepress/dist
-
-# Vercel local link metadata
 .vercel
-
-# Generated at build time
-public/version.json
-
-# Serverless Webpack directories
-.webpack/
-
-# IDEs and editors
-.idea/
-.vscode/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# OS metadata
-.DS_Store
-Thumbs.db
