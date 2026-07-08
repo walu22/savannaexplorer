@@ -88,3 +88,4 @@ out
 
 dist
 .vercel
+.env*

@@ -26,7 +26,7 @@ Track verification and indexing progress for https://savannaexplorer.com/
 | Property added | ☑ Done (June 28, 2026) | URL prefix: `https://savannaexplorer.com` |
 | Verification method | ☑ HTML File | `google017a1951885e383b.html` generated and deployed via CI |
 | Verified on | ☑ June 28, 2026 | Verified by user in GSC UI |
-| Verified by | Antigravity / User | |
+| Verified by | walu22 | |
 
 **Option C — HTML File (Used)**  
 1. User provided HTML file name (`google017a1951885e383b.html`).
