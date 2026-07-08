@@ -20,7 +20,8 @@
     "preview": "vite preview",
     "setup:gsc": "node scripts/setup-gsc-api.mjs",
     "provision:gsc": "bash scripts/provision-gsc-gcp.sh",
-    "index:submit": "node scripts/submit-search-indexing.mjs"
+    "index:submit": "node scripts/submit-search-indexing.mjs",
+    "deploy:live": "npm run build && npx vercel pull --yes --environment production && npx vercel build --prod --yes && npx vercel deploy --prebuilt --prod --yes"
   },
   "devDependencies": {
     "vite": "^6.2.0"
