@@ -69,6 +69,13 @@ function renderMobilePanel() {
     const body = document.getElementById('mobile-nav-body');
     if (!body) return;
 
+    // Beautiful, highlighted mobile golden-and-glassmorphism CTA for AI Planner
+    const aiPlannerCta = `
+        <a class="mobile-nav-standalone open-ai-planner" href="#" style="background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.25); color: var(--primary-light); margin-bottom: 1.25rem; border-radius: 8px; font-weight: 600; text-align: center; padding: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: var(--transition-smooth); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);">
+            <i class="fas fa-sparkles" style="color: var(--primary);"></i> Plan with AI
+        </a>
+    `;
+
     const countryLinks = getCountryNavLinks().map(({ href, label, flag }) =>
         `<a href="${href}"><span aria-hidden="true">${flag}</span> ${label}</a>`
     ).join('');
@@ -126,7 +133,7 @@ function renderMobilePanel() {
         </div>
     `;
 
-    body.innerHTML = hubGroup + destinationsGroup + journeyGroups + siteGroup + newsLink;
+    body.innerHTML = aiPlannerCta + hubGroup + destinationsGroup + journeyGroups + siteGroup + newsLink;
 }
 
 function initDesktopDropdowns() {
@@ -195,6 +202,9 @@ function initMobilePanel() {
 export function initNav() {
     const navbar = document.getElementById('navbar');
     const heroImg = document.getElementById('hero-img');
+
+    // Expose closeMobileNav globally for other modules (like AI planner)
+    window.closeMobileNav = closeMobileNav;
 
     renderCountryGrid();
     renderHubDropdown();

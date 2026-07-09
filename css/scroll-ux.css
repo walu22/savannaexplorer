@@ -181,3 +181,72 @@ body.site-v2 .back-to-top[hidden] {
         bottom: 1rem;
     }
 }
+
+/* --- Premium Interactive Reading Scroll Progress --- */
+.scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: transparent;
+    z-index: 10002;
+    pointer-events: none;
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 50%, var(--primary) 100%);
+    box-shadow: 0 0 10px rgba(196, 103, 42, 0.8);
+    transition: width 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: width;
+}
+
+/* --- Immersive Hero Parallax Styling --- */
+body.site-v2 .hero {
+    overflow: hidden !important;
+}
+
+body.site-v2 .hero-bg {
+    transform: translate3d(0, var(--scroll-y-px, 0px), 0);
+    will-change: transform;
+    transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Rotating Elegant Typography Headline --- */
+.headline-rotate {
+    display: inline-flex;
+    position: relative;
+    vertical-align: top;
+    height: 1.25em;
+    overflow: hidden;
+    padding-right: 10px;
+}
+
+.rotate-word {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--primary-light);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+.rotate-word.active {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rotate-word.exit {
+    opacity: 0;
+    transform: translateY(-32px);
+}
+

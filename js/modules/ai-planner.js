@@ -74,7 +74,7 @@ function getMatchingExperiences(destination, style, budget) {
 // Main initialization function
 export function initAiPlanner() {
     const sidebar = document.getElementById('ai-planner-sidebar');
-    const openSidebarBtn = document.getElementById('open-ai-planner');
+    const openTriggers = document.querySelectorAll('#open-ai-planner, .open-ai-planner, [data-trigger="ai-planner"]');
     const closeSidebarBtn = document.getElementById('close-ai-planner');
 
     const sidebarCountry = document.getElementById('sidebar-country');
@@ -88,12 +88,22 @@ export function initAiPlanner() {
     const sidebarMarkdownContent = document.getElementById('ai-markdown-content');
     const sidebarBackBtn = document.getElementById('ai-back-btn');
 
-    // Show/Hide Sidebar handlers
-    if (openSidebarBtn && sidebar) {
-        openSidebarBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            sidebar.classList.add('open');
-            sidebar.setAttribute('aria-hidden', 'false');
+    // Show/Hide Sidebar handlers — supports desktop navbar, mobile drawer, and page triggers
+    if (sidebar) {
+        openTriggers.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                sidebar.classList.add('open');
+                sidebar.setAttribute('aria-hidden', 'false');
+
+                // Dismiss mobile navigation menu if it is currently open
+                if (typeof window.closeMobileNav === 'function') {
+                    window.closeMobileNav();
+                } else {
+                    document.getElementById('mobile-nav-panel')?.classList.remove('is-open');
+                    document.body.classList.remove('nav-open');
+                }
+            });
         });
     }
 
@@ -152,11 +162,65 @@ export function initAiPlanner() {
                 // Strip markdown wrap patterns if included
                 itineraryMarkdown = itineraryMarkdown.replace(/^```markdown\s*/i, '').replace(/```$/, '');
 
+                // Process and inject luxury product cards dynamically from local / Supabase catalog
+                let processedMarkdown = itineraryMarkdown.replace(/\*{0,2}\[SavannaExplorer Experience:\s*([^\]]+)\]\*{0,2}/gi, (match, title) => {
+                    const cleanTitle = title.trim();
+                    let matchedItem = null;
+
+                    // 1. Scan local catalog for exact title match
+                    for (const category in marketplaceData) {
+                        const found = marketplaceData[category].find(x => x.title.toLowerCase().trim() === cleanTitle.toLowerCase());
+                        if (found) {
+                            matchedItem = found;
+                            break;
+                        }
+                    }
+
+                    // 2. Scan for fuzzy title match (substring)
+                    if (!matchedItem) {
+                        for (const category in marketplaceData) {
+                            const found = marketplaceData[category].find(x => x.title.toLowerCase().includes(cleanTitle.toLowerCase()) || cleanTitle.toLowerCase().includes(x.title.toLowerCase()));
+                            if (found) {
+                                matchedItem = found;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (matchedItem) {
+                        return `
+<div class="ai-product-card" onclick="window.openExperienceDetails('${matchedItem.id}')" role="button" tabindex="0">
+    <div class="ai-product-img">
+        <img src="${matchedItem.image}" alt="${matchedItem.title}" loading="lazy">
+    </div>
+    <div class="ai-product-info">
+        <div class="ai-product-header">
+            <span class="ai-product-badge">${matchedItem.badge || 'Experience'}</span>
+            <span class="ai-product-rating"><i class="fas fa-star" style="color: var(--primary);"></i> ${matchedItem.rating || '4.8'}</span>
+        </div>
+        <h4 class="ai-product-title">${matchedItem.title}</h4>
+        <div class="ai-product-meta">
+            <span><i class="fas fa-map-marker-alt"></i> ${matchedItem.location}</span>
+            <span><i class="far fa-clock"></i> ${matchedItem.duration}</span>
+            <span><i class="fas fa-wallet"></i> ${matchedItem.price_range}</span>
+        </div>
+        <div class="ai-product-footer">
+            <span class="ai-product-cta">View Details &amp; Inquiry <i class="fas fa-arrow-right"></i></span>
+        </div>
+    </div>
+</div>
+                        `.trim();
+                    }
+
+                    // Fallback to stylized strong text if no matches found
+                    return `<strong class="ai-custom-highlight">${cleanTitle}</strong>`;
+                });
+
                 if (sidebarMarkdownContent) {
                     if (typeof marked !== 'undefined') {
-                        sidebarMarkdownContent.innerHTML = marked.parse(itineraryMarkdown);
+                        sidebarMarkdownContent.innerHTML = marked.parse(processedMarkdown);
                     } else {
-                        sidebarMarkdownContent.innerHTML = `<pre style="white-space: pre-wrap;">${itineraryMarkdown}</pre>`;
+                        sidebarMarkdownContent.innerHTML = `<pre style="white-space: pre-wrap;">${processedMarkdown}</pre>`;
                     }
                 }
 

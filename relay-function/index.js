@@ -1,5 +1,5 @@
 const express = require('express');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const { GoogleGenAI } = require('@google/genai');
 const cors = require('cors');
 
 const app = express();
@@ -14,17 +14,7 @@ app.post('/api/itinerary/generate', async (req, res) => {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
-    if (!apiKey) {
-      console.error('API key not found');
-      return res.status(500).json({ error: 'Server configuration error' });
-    }
-
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
-      systemInstruction: "You are a premium, expert African Safari itinerary designer for SavannaExplorer. Your itineraries are immersive, beautifully structured, practical for a traveler, and written in a luxurious and enthusiastic tone. Use professional knowledge about travel logistics, local restaurants, seasonal weather, packing advice, and wildlife behaviors."
-    });
+    const systemInstruction = "You are a premium, expert African Safari itinerary designer for SavannaExplorer. Your itineraries are immersive, beautifully structured, practical for a traveler, and written in a luxurious and enthusiastic tone. Use professional knowledge about travel logistics, local restaurants, seasonal weather, packing advice, and wildlife behaviors.";
 
     let catalog_context = "";
     if (matches && matches.length > 0) {
@@ -49,13 +39,71 @@ Instructions:
 4. Include a section on 'Local Culinary Highlights' (traditional food/drink to try) and 'Expert Safari Travel Tips'.
 5. Output the result in beautiful, clean markdown with plenty of relevant emojis.`;
 
-    const result = await model.generateContent(prompt);
-    const itinerary = result.response.text();
+    let itinerary = null;
+    let methodUsed = "";
 
-    res.status(200).json({ itinerary });
+    // Method 1: Try Enterprise Vertex AI Keyless via modern Gen AI SDK
+    try {
+      console.log("Attempting itinerary generation via modern Vertex AI Keyless route...");
+      const projectId = process.env.GCP_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'tumahelper-auth';
+      const location = process.env.GCP_LOCATION || 'us-central1';
+      
+      const ai = new GoogleGenAI({
+        vertex: true,
+        project: projectId,
+        location: location
+      });
+
+      const response = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: prompt,
+        config: {
+          systemInstruction: systemInstruction,
+          maxOutputTokens: 8192
+        }
+      });
+
+      itinerary = response.text;
+      methodUsed = "Vertex AI (Keyless IAM)";
+      console.log("SUCCESS: Generated itinerary via Vertex AI.");
+    } catch (vertexError) {
+      console.warn("Vertex AI attempt failed. Falling back to Developer Gemini API... Error:", vertexError.message);
+    }
+
+    // Method 2: Fallback to Developer Gemini API Key
+    if (!itinerary) {
+      const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
+      if (!apiKey) {
+        console.error('No Gemini API key found for fallback.');
+        return res.status(500).json({ 
+          error: 'Generation failed', 
+          details: 'Vertex AI was unavailable and no fallback GEMINI_API_KEY was found in environment.' 
+        });
+      }
+
+      console.log("Attempting itinerary generation via Developer Gemini API key fallback...");
+      const ai = new GoogleGenAI({ apiKey: apiKey });
+
+      const response = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: prompt,
+        config: {
+          systemInstruction: systemInstruction
+        }
+      });
+
+      itinerary = response.text;
+      methodUsed = "Developer Gemini Key Fallback";
+      console.log("SUCCESS: Generated itinerary via Developer Gemini Key fallback.");
+    }
+
+    res.status(200).json({ itinerary, method: methodUsed });
   } catch (error) {
-    console.error('Error generating itinerary:', error);
-    res.status(500).json({ error: 'Failed to generate itinerary' });
+    console.error('Error generating itinerary in relay:', error);
+    res.status(500).json({ 
+      error: 'Failed to generate itinerary', 
+      details: error.message || error.toString() 
+    });
   }
 });
 

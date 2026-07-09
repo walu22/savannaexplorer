@@ -93,6 +93,58 @@ function closeMarketplace() {
     getMarketplaceModalFocus().close();
 }
 
+/** Global detailed view modal trigger for a single experience card */
+window.openExperienceDetails = async function(itemId) {
+    const marketModal = document.getElementById('marketplace-modal');
+    const marketGrid = document.getElementById('marketplace-grid');
+    const marketTitle = document.getElementById('market-title');
+
+    if (!marketModal || !marketGrid) return;
+
+    // Show modal and loading state
+    marketModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    getMarketplaceModalFocus().open();
+    if (marketTitle) marketTitle.textContent = "Experience Details";
+    marketGrid.innerHTML = '<div style="color:white;text-align:center;width:100%;padding:3rem;"><i class="fas fa-circle-notch fa-spin" style="font-size: 1.5rem; color: var(--primary);"></i> Loading experience details…</div>';
+
+    let item = null;
+
+    // 1. Scan offline marketplace.json configuration file first
+    for (const category in marketplaceData) {
+        const found = marketplaceData[category].find(x => x.id === itemId);
+        if (found) {
+            item = found;
+            break;
+        }
+    }
+
+    // 2. Fetch live from Supabase if online to capture real-time edits
+    try {
+        const supabase = getSupabaseClient();
+        if (supabase) {
+            const { data, error } = await supabase
+                .from('experiences')
+                .select('*')
+                .eq('id', itemId)
+                .single();
+            if (!error && data) {
+                item = data;
+            }
+        }
+    } catch (e) {
+        console.warn("Could not query Supabase experiences, falling back to local dataset:", e);
+    }
+
+    if (!item) {
+        marketGrid.innerHTML = '<div style="color:white;text-align:center;width:100%;padding:3rem;">Experience details not found.</div>';
+        return;
+    }
+
+    // Render single card
+    marketGrid.innerHTML = renderMarketCard(item);
+};
+
 export function initMarketplace() {
     document.querySelectorAll('.market-close').forEach(btn => {
         btn.addEventListener('click', closeMarketplace);

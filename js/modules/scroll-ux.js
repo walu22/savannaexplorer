@@ -183,9 +183,65 @@ function initHashOnLoad() {
     });
 }
 
+function initScrollTracking() {
+    const progressBar = document.getElementById('scroll-progress-bar');
+    const heroBg = document.getElementById('hero-img');
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    const handleScroll = () => {
+        const scrollTop = window.scrollY;
+
+        // 1. Reading Progress Calculation
+        if (progressBar) {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const percentage = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = `${percentage}%`;
+        }
+
+        // 2. Hardware-Accelerated Hero Parallax (skip on mobile for maximum battery saving)
+        if (heroBg && !isMobile && scrollTop < window.innerHeight) {
+            const offset = scrollTop * 0.35;
+            heroBg.style.setProperty('--scroll-y-px', `${offset}px`);
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial run to sync states on page load
+}
+
+function initHeadlineRotation() {
+    const wrapper = document.getElementById('headline-rotate');
+    if (!wrapper) return;
+
+    const words = wrapper.querySelectorAll('.rotate-word');
+    if (words.length <= 1) return;
+
+    let index = 0;
+    setInterval(() => {
+        const current = words[index];
+        index = (index + 1) % words.length;
+        const next = words[index];
+
+        // Animate current word sliding out up
+        current.classList.remove('active');
+        current.classList.add('exit');
+
+        // Animate next word sliding in from bottom
+        next.classList.remove('exit');
+        next.classList.add('active');
+
+        // Reset exited class once off-screen and transition has completed
+        setTimeout(() => {
+            current.classList.remove('exit');
+        }, 800);
+    }, 3800); // Exquisite rhythm, pacing rotation every 3.8 seconds
+}
+
 export function initScrollUx() {
     initAnchorLinks();
     initScrollSpy();
     initBackToTop();
     initHashOnLoad();
+    initScrollTracking();
+    initHeadlineRotation();
 }
