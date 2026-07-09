@@ -88,10 +88,10 @@ export function initAiPlanner() {
     const sidebarMarkdownContent = document.getElementById('ai-markdown-content');
     const sidebarBackBtn = document.getElementById('ai-back-btn');
 
-    // Show/Hide Sidebar handlers — supports desktop navbar, mobile drawer, and page triggers
     if (sidebar) {
-        openTriggers.forEach(btn => {
-            btn.addEventListener('click', (e) => {
+        document.body.addEventListener('click', (e) => {
+            const btn = e.target.closest('#open-ai-planner, .open-ai-planner, [data-trigger="ai-planner"]');
+            if (btn) {
                 e.preventDefault();
                 sidebar.classList.add('open');
                 sidebar.setAttribute('aria-hidden', 'false');
@@ -103,7 +103,7 @@ export function initAiPlanner() {
                     document.getElementById('mobile-nav-panel')?.classList.remove('is-open');
                     document.body.classList.remove('nav-open');
                 }
-            });
+            }
         });
     }
 
