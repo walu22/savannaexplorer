@@ -1,4 +1,9 @@
 import marketplaceData from '../../data/marketplace.json';
+import {
+    trackPlannerOpen,
+    trackPlannerGenerateError,
+    trackPlannerGenerateSuccess,
+} from '../lib/planner-analytics.js';
 
 // Helper: Find matching local catalog experiences with robust mappings
 function getMatchingExperiences(destination, style, budget) {
@@ -95,6 +100,7 @@ export function initAiPlanner() {
                 e.preventDefault();
                 sidebar.classList.add('open');
                 sidebar.setAttribute('aria-hidden', 'false');
+                trackPlannerOpen();
 
                 // Dismiss mobile navigation menu if it is currently open
                 if (typeof window.closeMobileNav === 'function') {
@@ -135,13 +141,16 @@ export function initAiPlanner() {
                 budget === 'All' ? 'classic ($$)' : budget
             );
 
+            const destination = country === 'All' ? 'Southern Africa' : country;
+            const startedAt = performance.now();
+
             try {
                 // Fetch generated itinerary from the secure Google Cloud Run relay endpoint
                 const response = await fetch('https://savannaexplorer-relay-550454647742.europe-west1.run.app/api/itinerary/generate', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        country: country === 'All' ? 'Southern Africa' : country,
+                        country: destination,
                         duration,
                         category,
                         budget,
@@ -227,8 +236,27 @@ export function initAiPlanner() {
                 if (sidebarLoading) sidebarLoading.classList.add('hidden');
                 if (sidebarResult) sidebarResult.classList.remove('hidden');
 
+                trackPlannerGenerateSuccess({
+                    country: destination,
+                    duration,
+                    category,
+                    budget,
+                    catalogMatches: localMatches.length,
+                    latencyMs: Math.round(performance.now() - startedAt),
+                    generationMethod: data.method || null,
+                });
+
             } catch (error) {
                 console.error("Failed to generate sidebar itinerary:", error);
+                trackPlannerGenerateError({
+                    country: destination,
+                    duration,
+                    category,
+                    budget,
+                    catalogMatches: localMatches.length,
+                    latencyMs: Math.round(performance.now() - startedAt),
+                    error,
+                });
                 alert(`Failed to generate itinerary: ${error.message}`);
                 if (sidebarLoading) sidebarLoading.classList.add('hidden');
                 if (inputContainer) inputContainer.classList.remove('hidden');

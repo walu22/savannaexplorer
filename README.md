@@ -125,6 +125,7 @@ After deploying, submit `https://savannaexplorer.com/sitemap.xml` in [Google Sea
 | `experiences` | Marketplace inspiration listings (public read) |
 | `site_messages` | Contact form submissions (corrections, feedback, partnerships) |
 | `newsletter_subscribers` | Email signups |
+| `ai_planner_events` | AI Safari Planner opens and generation attempts (anonymous insert) |
 
 ## Scripts
 

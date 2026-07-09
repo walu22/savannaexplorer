@@ -21,6 +21,7 @@
     "setup:gsc": "node scripts/setup-gsc-api.mjs",
     "provision:gsc": "bash scripts/provision-gsc-gcp.sh",
     "index:submit": "node scripts/submit-search-indexing.mjs",
+    "analytics:planner": "node scripts/planner-analytics-report.mjs",
     "deploy:live": "npm run build && npx vercel pull --yes --environment production && npx vercel build --prod --yes && npx vercel deploy --prebuilt --prod --yes"
   },
   "devDependencies": {
