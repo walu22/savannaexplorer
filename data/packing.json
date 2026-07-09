@@ -1,13 +1,19 @@
 {
+  "meta": {
+    "lastUpdated": "2026-07",
+    "disclaimer": "Adapt lists to your route, season, and lodge style. Bush camps may have laundry — city hotels provide toiletries."
+  },
   "safari": [
-    "Binoculars",
-    "Neutral-tone clothing",
-    "Insect repellent (DEET)",
+    "Binoculars (8×42 recommended)",
+    "Neutral-tone clothing (khaki, olive, brown)",
+    "Warm fleece / jacket for winter dawn drives",
+    "Insect repellent (DEET 30%+)",
     "Headlamp / torch",
     "Power bank",
-    "Sun hat & SPF 50",
-    "Camera + zoom lens",
-    "Reusable water bottle"
+    "Sun hat & SPF 50 lip balm",
+    "Camera + zoom lens & spare batteries",
+    "Reusable water bottle",
+    "Closed walking shoes"
   ],
   "beach": [
     "Swimsuit & cover-up",
@@ -24,7 +30,7 @@
     "Crossbody anti-theft bag",
     "Portable charger",
     "Light jacket / layers",
-    "Travel adapter (Type M/G)",
+    "Travel adapter (Type M)",
     "Copies of passport",
     "Sunglasses",
     "Day backpack"
@@ -34,9 +40,62 @@
     "Thermal base layers",
     "Rain jacket",
     "Trekking poles",
-    "Altitude sickness meds",
+    "Altitude / motion sickness meds if needed",
     "Warm fleece / down jacket",
-    "Head torch + batteries",
+    "Head torch + spare batteries",
     "Trail snacks & electrolytes"
+  ],
+  "seasonalNotes": [
+    {
+      "region": "Namibia & Kalahari winter (May–Aug)",
+      "items": ["Sub-zero dawn gloves", "Beanie", "Lip balm", "Heavy fleece"]
+    },
+    {
+      "region": "Kruger & Lowveld summer (Nov–Mar)",
+      "items": ["Rain poncho", "Extra DEET", "Quick-dry clothing", "Malaria meds if prescribed"]
+    },
+    {
+      "region": "Okavango / Luangwa wet season",
+      "items": ["Waterproof bag for gear", "Gaiters", "Anti-fungal powder", "Leech socks for walks"]
+    },
+    {
+      "region": "Lesotho / Drakensberg winter",
+      "items": ["Thermal layers", "Snow gloves", "4×4 recovery strap if self-driving"]
+    }
+  ],
+  "medicalKit": [
+    "Personal prescription meds (in original packaging)",
+    "Antihistamine & pain relief",
+    "Rehydration sachets",
+    "Anti-diarrhoea medication",
+    "Blister plasters & bandages",
+    "Antiseptic wipes",
+    "Tweezers for thorns",
+    "Motion sickness tablets for gravel roads"
+  ],
+  "documents": [
+    "Passport (6+ months validity)",
+    "Printed visa / e-visa approvals",
+    "International Driving Permit",
+    "Vehicle registration & rental letter",
+    "COMESA Yellow Card",
+    "Travel insurance policy number & emergency line",
+    "Yellow fever certificate if applicable",
+    "Unabridged birth certificates for minors (SA routes)"
+  ],
+  "lodgesUsuallyProvide": [
+    "Bed linen & towels",
+    "Basic soap & shampoo",
+    "Meals on full-board packages",
+    "Filtered drinking water at many camps",
+    "Game drive vehicles & fuel on guided packages"
+  ],
+  "youShouldBring": [
+    "Sunscreen & personal toiletries",
+    "Camera gear & chargers",
+    "Cash for tips and border fees",
+    "Binoculars (often not supplied)",
+    "Personal medications",
+    "Warm layer for morning drives even in summer"
   ]
 }

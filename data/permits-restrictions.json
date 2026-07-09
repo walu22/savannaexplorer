@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "lastUpdated": "2026-07",
+    "disclaimer": "Permit rules change and park-specific bans apply. Always confirm with the official authority before flying drones, fishing, or filming commercially."
+  },
+  "categories": [
+    {
+      "id": "drones",
+      "title": "Drones & aerial filming",
+      "icon": "fa-drone",
+      "items": [
+        {
+          "country": "Namibia",
+          "flag": "🇳🇦",
+          "rule": "National parks require NWR written permission — assume banned without permit.",
+          "authority": "Namibia Wildlife Resorts",
+          "url": "https://www.nwr.com.na/",
+          "lastVerified": "2026-07"
+        },
+        {
+          "country": "South Africa",
+          "flag": "🇿🇦",
+          "rule": "SACAA registration required. National parks (SANParks) — no recreational drones without approval.",
+          "authority": "SANParks / SACAA",
+          "url": "https://www.sanparks.org/",
+          "lastVerified": "2026-07"
+        },
+        {
+          "country": "Zimbabwe",
+          "flag": "🇿🇼",
+          "rule": "ZCAA registration mandatory — apply ~30 days ahead for commercial use.",
+          "authority": "Zimbabwe Civil Aviation Authority",
+          "url": "https://www.zcaa.co.zw/",
+          "lastVerified": "2026-07"
+        },
+        {
+          "country": "Botswana",
+          "flag": "🇧🇼",
+          "rule": "CAAB approval required; national parks restrict recreational drone use.",
+          "authority": "Civil Aviation Authority of Botswana",
+          "url": "https://www.caab.co.bw/",
+          "lastVerified": "2026-07"
+        },
+        {
+          "country": "Zambia",
+          "flag": "🇿🇲",
+          "rule": "ZACL permit for most aerial work; national parks sensitive near wildlife.",
+          "authority": "Zambia Civil Aviation",
+          "url": "https://www.zacl.co.zm/",
+          "lastVerified": "2026-07"
+        }
+      ]
+    },
+    {
+      "id": "fishing",
+      "title": "Fishing licences",
+      "icon": "fa-fish",
+      "items": [
+        {
+          "country": "Zambia / Zimbabwe",
+          "flag": "🎣",
+          "rule": "Tiger fishing on Zambezi — national park or council licence required per stretch.",
+          "authority": "ZAWA / Zimparks",
+          "url": "https://www.zimparks.org/",
+          "lastVerified": "2026-07"
+        },
+        {
+          "country": "Botswana",
+          "flag": "🇧🇼",
+          "rule": "Okavango Panhandle — fishing permits via DWNP or licensed operators.",
+          "authority": "Botswana Department of Wildlife",
+          "url": "https://www.botswanatourism.co.bw/",
+          "lastVerified": "2026-07"
+        },
+        {
+          "country": "Malawi",
+          "flag": "🇲🇼",
+          "rule": "Lake Malawi — park fees include angling in some reserves; check Liwande/Nkhotakota.",
+          "authority": "Department of National Parks",
+          "url": "https://www.malawitourism.com/",
+          "lastVerified": "2026-07"
+        },
+        {
+          "country": "Mozambique",
+          "flag": "🇲🇿",
+          "rule": "Coastal spearfishing and protected species restricted — use licensed operators.",
+          "authority": "INIP",
+          "url": "https://www.inatur.gov.mz/",
+          "lastVerified": "2026-07"
+        }
+      ]
+    },
+    {
+      "id": "filming",
+      "title": "Commercial photography & filming",
+      "icon": "fa-video",
+      "items": [
+        {
+          "country": "All parks",
+          "flag": "🎬",
+          "rule": "Commercial shoots, influencer campaigns, and documentary filming need park authority permits — fees apply.",
+          "authority": "Respective park authority (SANParks, NWR, Zimparks, etc.)",
+          "url": "#parks",
+          "internal": true,
+          "lastVerified": "2026-07"
+        },
+        {
+          "country": "South Africa",
+          "flag": "🇿🇦",
+          "rule": "Location filming may need city/film commission permits in Cape Town and Johannesburg.",
+          "authority": "City film offices",
+          "url": "https://www.capetown.gov.za/",
+          "lastVerified": "2026-07"
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "title": "Park activity permits",
+      "icon": "fa-hiking",
+      "items": [
+        {
+          "country": "South Africa",
+          "flag": "🇿🇦",
+          "rule": "Wilderness trails, 4×4 eco-trails, and night drives — book via SANParks in advance.",
+          "authority": "SANParks",
+          "url": "https://www.sanparks.org/",
+          "lastVerified": "2026-07"
+        },
+        {
+          "country": "Zimbabwe",
+          "flag": "🇿🇼",
+          "rule": "Walking safaris in Mana Pools — licensed operator mandatory; limited daily permits.",
+          "authority": "Zimparks",
+          "url": "https://www.zimparks.org/",
+          "lastVerified": "2026-07"
+        },
+        {
+          "country": "Namibia",
+          "flag": "🇳🇦",
+          "rule": "Sossusvlei before sunrise requires overnight in Sesriem camp or NWR permit.",
+          "authority": "Namibia Wildlife Resorts",
+          "url": "https://www.nwr.com.na/",
+          "lastVerified": "2026-07"
+        }
+      ]
+    }
+  ]
+}

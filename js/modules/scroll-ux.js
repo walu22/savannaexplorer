@@ -13,6 +13,7 @@ const TRACKED_SECTIONS = [
     'events',
     'plan',
     'transport',
+    'travel-essentials',
     'guides',
     'news',
     'about',

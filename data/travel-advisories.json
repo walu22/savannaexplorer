@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "lastUpdated": "2026-07",
+    "disclaimer": "Savanna Explorer does not publish travel advisories — we link to your government's official guidance. Always read the full advisory before booking."
+  },
+  "intro": "Confirm entry requirements, safety context, and registration rules with your own government's travel advice service. Immigration rules on our site are planning summaries — advisories cover security, health events, and areas to avoid.",
+  "passportServices": [
+    {
+      "label": "UK (FCDO)",
+      "url": "https://www.gov.uk/foreign-travel-advice",
+      "note": "Search by country — register for email updates"
+    },
+    {
+      "label": "USA (State Dept)",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories.html",
+      "note": "Level 1–4 advisories per country"
+    },
+    {
+      "label": "Australia (Smartraveller)",
+      "url": "https://www.smartraveller.gov.au/",
+      "note": "Subscribe to country bulletins"
+    },
+    {
+      "label": "Canada (Travel GC)",
+      "url": "https://travel.gc.ca/travelling/advisories",
+      "note": "Risk levels and regional advice"
+    },
+    {
+      "label": "EU (EEAS)",
+      "url": "https://www.eeas.europa.eu/eeas/travel-advice_en",
+      "note": "EU citizen travel information"
+    },
+    {
+      "label": "New Zealand (SafeTravel)",
+      "url": "https://www.safetravel.govt.nz/",
+      "note": "Registration for NZ travellers"
+    }
+  ],
+  "countries": [
+    {
+      "id": "south-africa",
+      "flag": "🇿🇦",
+      "name": "South Africa",
+      "links": [
+        { "label": "FCDO South Africa advice", "url": "https://www.gov.uk/foreign-travel-advice/south-africa" },
+        { "label": "US State Dept — South Africa", "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/SouthAfrica.html" }
+      ]
+    },
+    {
+      "id": "namibia",
+      "flag": "🇳🇦",
+      "name": "Namibia",
+      "links": [
+        { "label": "FCDO Namibia advice", "url": "https://www.gov.uk/foreign-travel-advice/namibia" },
+        { "label": "US State Dept — Namibia", "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Namibia.html" }
+      ]
+    },
+    {
+      "id": "botswana",
+      "flag": "🇧🇼",
+      "name": "Botswana",
+      "links": [
+        { "label": "FCDO Botswana advice", "url": "https://www.gov.uk/foreign-travel-advice/botswana" },
+        { "label": "US State Dept — Botswana", "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Botswana.html" }
+      ]
+    },
+    {
+      "id": "zambia",
+      "flag": "🇿🇲",
+      "name": "Zambia",
+      "links": [
+        { "label": "FCDO Zambia advice", "url": "https://www.gov.uk/foreign-travel-advice/zambia" },
+        { "label": "US State Dept — Zambia", "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Zambia.html" }
+      ]
+    },
+    {
+      "id": "zimbabwe",
+      "flag": "🇿🇼",
+      "name": "Zimbabwe",
+      "links": [
+        { "label": "FCDO Zimbabwe advice", "url": "https://www.gov.uk/foreign-travel-advice/zimbabwe" },
+        { "label": "US State Dept — Zimbabwe", "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Zimbabwe.html" }
+      ]
+    },
+    {
+      "id": "mozambique",
+      "flag": "🇲🇿",
+      "name": "Mozambique",
+      "links": [
+        { "label": "FCDO Mozambique advice", "url": "https://www.gov.uk/foreign-travel-advice/mozambique" },
+        { "label": "US State Dept — Mozambique", "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Mozambique.html" }
+      ]
+    },
+    {
+      "id": "malawi",
+      "flag": "🇲🇼",
+      "name": "Malawi",
+      "links": [
+        { "label": "FCDO Malawi advice", "url": "https://www.gov.uk/foreign-travel-advice/malawi" },
+        { "label": "US State Dept — Malawi", "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Malawi.html" }
+      ]
+    },
+    {
+      "id": "lesotho",
+      "flag": "🇱🇸",
+      "name": "Lesotho",
+      "links": [
+        { "label": "FCDO Lesotho advice", "url": "https://www.gov.uk/foreign-travel-advice/lesotho" },
+        { "label": "US State Dept — Lesotho", "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Lesotho.html" }
+      ]
+    },
+    {
+      "id": "eswatini",
+      "flag": "🇸🇿",
+      "name": "Eswatini",
+      "links": [
+        { "label": "FCDO Eswatini advice", "url": "https://www.gov.uk/foreign-travel-advice/eswatini" },
+        { "label": "US State Dept — Eswatini", "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Eswatini.html" }
+      ]
+    }
+  ]
+}

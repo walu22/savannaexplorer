@@ -64,6 +64,7 @@
                     <button type="button" class="nav-drop-toggle" aria-expanded="false">On the ground <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="nav-drop-menu">
                         <a href="#transport">Transport &amp; logistics</a>
+                        <a href="#travel-essentials">Travel essentials</a>
                         <a href="#borders">Border crossings</a>
                         <a href="#health">Health &amp; safety</a>
                         <a href="#embassies">Foreign missions</a>
@@ -849,7 +850,7 @@
                     <div class="transport-grid" id="transport-car-rental"></div>
                 </div>
                 <div class="transport-panel" id="transport-panel-sim" role="tabpanel" hidden>
-                    <p class="transport-panel-intro">Prepaid SIM and eSIM options — register with your passport where required by local law.</p>
+                    <p class="transport-panel-intro">Prepaid SIM and eSIM options — register with your passport where required by local law. See also <a href="#travel-essentials">Travel Essentials → SIM &amp; data</a> for coverage by country.</p>
                     <div class="transport-grid transport-grid--compact" id="transport-sim"></div>
                 </div>
                 <div class="transport-panel" id="transport-panel-crossborder" role="tabpanel" hidden>
@@ -873,6 +874,40 @@
                 </div>
             </div>
             <p class="transport-disclaimer" id="transport-disclaimer"></p>
+        </div>
+    </section>
+
+    <!-- Travel Essentials — insurance, road rules, tipping, connectivity, permits, advisories -->
+    <section id="travel-essentials" class="travel-essentials-hub">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Know before you go</span>
+                <h2>Travel Essentials</h2>
+                <p>Insurance, driving rules, tipping, SIMs, permits, government advisories, common pitfalls, and packing — planning reference with official source links.</p>
+            </div>
+
+            <div class="essentials-tabs" role="tablist" aria-label="Travel essentials topics">
+                <button type="button" class="essentials-tab active" data-essentials-tab="insurance" role="tab" aria-selected="true">🛡️ Insurance</button>
+                <button type="button" class="essentials-tab" data-essentials-tab="road-rules" role="tab">🚗 Road rules</button>
+                <button type="button" class="essentials-tab" data-essentials-tab="tipping" role="tab">💵 Tipping</button>
+                <button type="button" class="essentials-tab" data-essentials-tab="connectivity" role="tab">📱 SIM &amp; data</button>
+                <button type="button" class="essentials-tab" data-essentials-tab="permits" role="tab">📋 Permits</button>
+                <button type="button" class="essentials-tab" data-essentials-tab="advisories" role="tab">🏛️ Advisories</button>
+                <button type="button" class="essentials-tab" data-essentials-tab="pitfalls" role="tab">⚠️ Pitfalls</button>
+                <button type="button" class="essentials-tab" data-essentials-tab="packing" role="tab">🎒 Packing</button>
+            </div>
+
+            <div class="essentials-panels">
+                <div class="essentials-panel active" data-essentials-panel="insurance" role="tabpanel" id="essentials-insurance"></div>
+                <div class="essentials-panel" data-essentials-panel="road-rules" role="tabpanel" id="essentials-road-rules" hidden></div>
+                <div class="essentials-panel" data-essentials-panel="tipping" role="tabpanel" id="essentials-tipping" hidden></div>
+                <div class="essentials-panel" data-essentials-panel="connectivity" role="tabpanel" id="essentials-connectivity" hidden></div>
+                <div class="essentials-panel" data-essentials-panel="permits" role="tabpanel" id="essentials-permits" hidden></div>
+                <div class="essentials-panel" data-essentials-panel="advisories" role="tabpanel" id="essentials-advisories" hidden></div>
+                <div class="essentials-panel" data-essentials-panel="pitfalls" role="tabpanel" id="essentials-pitfalls" hidden></div>
+                <div class="essentials-panel" data-essentials-panel="packing" role="tabpanel" id="essentials-packing" hidden></div>
+            </div>
+            <p class="section-disclaimer" id="essentials-disclaimer"></p>
         </div>
     </section>
 
@@ -1105,6 +1140,7 @@
                         <li><a href="#health">Health Zones</a></li>
                         <li><a href="#events">Events</a></li>
                         <li><a href="#transport">Transport &amp; Logistics</a></li>
+                        <li><a href="#travel-essentials">Travel Essentials</a></li>
                         <li><a href="#plan">Travel Planning</a></li>
                         <li><a href="tel:+264816766747">+264 81 676 6747</a></li>
                         <li><a href="#embassies">Foreign Missions</a></li>

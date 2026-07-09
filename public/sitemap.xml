@@ -955,6 +955,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://savannaexplorer.com/travel-essentials</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://savannaexplorer.com/tourism-stats</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>

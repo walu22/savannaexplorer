@@ -46,6 +46,7 @@ export const NAV_JOURNEY_GROUPS = [
         label: 'On the ground',
         items: [
             { href: '#transport', label: 'Transport & logistics' },
+            { href: '#travel-essentials', label: 'Travel essentials' },
             { href: '#borders', label: 'Border crossings' },
             { href: '#health', label: 'Health & safety' },
             { href: '#embassies', label: 'Foreign missions' },

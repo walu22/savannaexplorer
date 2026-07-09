@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "lastUpdated": "2026-07",
+    "disclaimer": "Factual planning awareness — not a substitute for official advisories or common-sense precautions. Conditions vary by city, route, and season."
+  },
+  "intro": "Most independent travellers visit Southern Africa without incident. These are the practical pitfalls self-drivers and first-time safari visitors ask about most — so you can plan around them.",
+  "topics": [
+    {
+      "icon": "💵",
+      "title": "USD note condition",
+      "body": "Victoria Falls, Zimbabwe, and many borders reject torn, marked, or pre-2006 USD notes. Carry crisp bills from a bank or forex bureau — not change from a previous border.",
+      "countries": ["Zimbabwe", "Zambia", "Mozambique"]
+    },
+    {
+      "icon": "🏧",
+      "title": "ATM & card skimming",
+      "body": "Use ATMs inside banks or malls in cities. Avoid isolated machines at night. Notify your bank of travel dates. Have a backup card — Mastercard more widely accepted than Amex in the region.",
+      "countries": ["South Africa", "Zambia", "Zimbabwe"]
+    },
+    {
+      "icon": "🛂",
+      "title": "Unofficial border 'helpers'",
+      "body": "Touts offer to speed paperwork for a fee. Use official counters only. Never hand passports to anyone except uniformed immigration officers. Know your visa category before the window.",
+      "countries": ["Zimbabwe", "Mozambique", "Zambia"]
+    },
+    {
+      "icon": "🚗",
+      "title": "Night driving",
+      "body": "Wildlife, livestock, pedestrians, and unlit trucks make night driving the highest-risk activity for self-drivers. Plan to reach camp by sunset — especially Namibia, Botswana, and Zambia.",
+      "countries": ["Namibia", "Botswana", "Zambia", "Zimbabwe"]
+    },
+    {
+      "icon": "⛽",
+      "title": "Fuel & cash planning",
+      "body": "Remote routes run out of fuel and card terminals fail. Namibia north of Etosha, Mozambican EN1 stretches, and Malawian lakeshore roads need full tanks and reserve jerry cans where legal.",
+      "countries": ["Namibia", "Mozambique", "Malawi"]
+    },
+    {
+      "icon": "📱",
+      "title": "Over-trusting lodge Wi‑Fi",
+      "body": "Do not rely on camp Wi‑Fi for banking or urgent bookings. Load offline maps, boarding passes, and PDF confirmations before leaving town.",
+      "countries": ["Botswana", "Zambia", "Namibia"]
+    },
+    {
+      "icon": "🦟",
+      "title": "Malaria assumption errors",
+      "body": "Travellers skip prophylaxis for Cape Town then fly to Luangwa the same trip. Check every destination and season — malaria zones do not follow country borders.",
+      "countries": ["Zambia", "Mozambique", "Zimbabwe"]
+    },
+    {
+      "icon": "🏊",
+      "title": "Lake & river hazards",
+      "body": "Bilharzia in Lake Malawi shallow bays; crocodiles and hippos at shorelines at dusk. Ask locals before swimming — 'clear' water is not always safe.",
+      "countries": ["Malawi", "Zambia", "Zimbabwe", "Mozambique"]
+    },
+    {
+      "icon": "🔐",
+      "title": "Vehicle break-ins",
+      "body": "Do not leave bags visible in rental cars in cities and at viewpoints. Trunk packing before reaching trailheads. Victoria Falls and Cape Town car parks — take valuables.",
+      "countries": ["South Africa", "Zimbabwe"]
+    },
+    {
+      "icon": "📋",
+      "title": "Rental cross-border paperwork",
+      "body": "Assuming a South African rental includes Zimbabwe or Botswana without a letter is the most expensive border mistake. Get written permission and COMESA cover before departure.",
+      "countries": ["South Africa", "Namibia"]
+    }
+  ]
+}

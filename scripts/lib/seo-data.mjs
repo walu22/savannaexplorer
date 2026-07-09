@@ -76,6 +76,12 @@ const HUB_SECTIONS = [
         priority: '0.7',
     },
     {
+        id: 'travel-essentials',
+        title: 'Travel Essentials',
+        description: 'Insurance, road rules, tipping, SIM and data, permits, government advisories, common pitfalls, and packing lists for Southern Africa trips.',
+        priority: '0.75',
+    },
+    {
         id: 'tourism-stats',
         title: 'Southern Africa Tourism Statistics',
         description: 'Visitor arrivals and tourism trends for Namibia, South Africa, Botswana, Zambia, Zimbabwe, and neighbouring countries.',

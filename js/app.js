@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         import('./modules/events.js'),
         import('./modules/book-direct.js'),
         import('./modules/transport-logistics.js'),
+        import('./modules/travel-essentials.js'),
         import('./modules/embassies.js'),
         import('./modules/ai-planner.js'),
     ]).then(modules => {
@@ -67,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             events,
             bookDirect,
             transportLogistics,
+            travelEssentials,
             embassies,
             aiPlanner,
         ] = modules;
@@ -84,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         events.initEvents();
         bookDirect.initBookDirect();
         transportLogistics.initTransportLogistics();
+        travelEssentials.initTravelEssentials();
         embassies.initEmbassies();
         aiPlanner.initAiPlanner();
     });

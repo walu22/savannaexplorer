@@ -14,6 +14,7 @@
       "Route templates and day-by-day itineraries you adapt to your own dates",
       "National park and border crossing guides with official source links",
       "Travel tools: visa matrix, currency converter, packing lists, expense tracker, and health zones",
+      "Travel essentials: insurance, road rules, tipping, SIM coverage, permits, advisories, and common pitfalls",
       "Activity inspiration with typical cost bands — not live availability or quotes"
     ]
   },
@@ -71,6 +72,7 @@
     { "file": "Country guides", "content": "Attractions, advice, routes", "sources": "Original editorial + official tourism boards" },
     { "file": "Itineraries", "content": "Route templates and budgets", "sources": "Original editorial planning notes" },
     { "file": "Tourism arrivals", "content": "Regional visitor statistics", "sources": "Stats SA, Namibia Tourist Report, national boards" },
+    { "file": "Travel essentials", "content": "Insurance, road rules, tipping, connectivity, permits", "sources": "Government transport, immigration, and tourism authorities" },
     { "file": "Marketplace inspiration", "content": "Activity ideas and cost bands", "sources": "Official tourism links per item" }
   ],
   "maintenance": [

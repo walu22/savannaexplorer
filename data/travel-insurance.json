@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "lastUpdated": "2026-07",
+    "disclaimer": "Planning reference only — Savanna Explorer does not sell insurance. Compare policies and read exclusions before purchase. Confirm evacuation cover, rental terms, and cross-border driving with your insurer and rental company."
+  },
+  "intro": "Southern Africa self-drive and safari trips need more than standard holiday cover. Medical evacuation to Johannesburg or Nairobi, gravel-road rental damage, and COMESA third-party motor insurance are the gaps travellers miss most often.",
+  "mustVerify": [
+    {
+      "title": "Medical evacuation (Medivac)",
+      "body": "Remote lodges and bush camps are hours from major hospitals. Look for USD 250,000+ evacuation cover to South Africa or Kenya, including air ambulance and repatriation. Confirm the insurer accepts your activities (walking safari, mokoro, scuba).",
+      "icon": "fa-helicopter"
+    },
+    {
+      "title": "Rental vehicle & gravel roads",
+      "body": "Standard credit-card rental waivers often exclude gravel damage, tyre punctures, underbody strikes, and windscreen chips. Read the rental T&Cs — many Kruger and Namibia routes are gravel. Cross-border use requires written permission from the rental company.",
+      "icon": "fa-car"
+    },
+    {
+      "title": "COMESA Yellow Card vs comprehensive",
+      "body": "The Yellow Card is minimum third-party motor liability for COMESA countries — not theft, collision, or medical cover. Buy before the border queue via AA South Africa or your insurer. See our cross-border guides for which posts still sell border insurance.",
+      "icon": "fa-file-shield"
+    },
+    {
+      "title": "Activity & cancellation exclusions",
+      "body": "Check exclusions for helicopter flights, scuba, horse riding, and high-risk wildlife activities. Trip cancellation and curtailment matter for seasonal routes — cyclone season in Mozambique, flood closures in Okavango.",
+      "icon": "fa-ban"
+    }
+  ],
+  "checklist": [
+    "Emergency evacuation to Johannesburg, Cape Town, or Nairobi included",
+    "24/7 assistance line with English support in your timezone",
+    "Rental car damage — gravel, tyres, windscreen, underbody",
+    "Cross-border driving permitted and named countries match your route",
+    "COMESA Yellow Card or equivalent third-party motor cover",
+    "Walking safari and guided bush activities not excluded",
+    "Pre-existing conditions declared if required",
+    "Gear cover for cameras, binoculars, and drones if applicable"
+  ],
+  "resources": [
+    {
+      "label": "COMESA Yellow Card portal",
+      "url": "https://comesayellowcard.org/",
+      "note": "Regional third-party motor insurance"
+    },
+    {
+      "label": "AA South Africa — cross-border",
+      "url": "https://www.aa.co.za/",
+      "note": "Yellow Card and travel paperwork guidance"
+    },
+    {
+      "label": "Cross-border guides on Savanna Explorer",
+      "url": "#borders",
+      "internal": true,
+      "note": "Insurance requirements per border post"
+    },
+    {
+      "label": "CDC travel health insurance tips",
+      "url": "https://wwwnc.cdc.gov/travel/page/insurance",
+      "note": "US-oriented reference on medical cover abroad"
+    }
+  ]
+}

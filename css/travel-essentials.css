@@ -1,0 +1,243 @@
+/* Travel essentials hub — reuses transport tab rhythm */
+.travel-essentials-hub {
+    padding: var(--section-pad) 0;
+    background: linear-gradient(180deg, rgba(12, 18, 16, 0.02) 0%, transparent 100%);
+}
+
+.essentials-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.essentials-tab {
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-pill);
+    background: var(--bg-surface);
+    color: var(--text-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.essentials-tab:hover,
+.essentials-tab.active {
+    border-color: var(--primary);
+    color: var(--primary-dark);
+    background: rgba(196, 103, 42, 0.08);
+}
+
+.essentials-panel {
+    display: none;
+}
+
+.essentials-panel.active {
+    display: block;
+}
+
+.essentials-intro {
+    max-width: 72ch;
+    margin-bottom: 1.25rem;
+    color: var(--text-body);
+    line-height: 1.65;
+}
+
+.essentials-subheading {
+    margin: 1.75rem 0 0.75rem;
+    font-size: 1.1rem;
+    color: var(--accent);
+}
+
+.essentials-muted {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.essentials-note {
+    padding: 0.85rem 1rem;
+    background: rgba(196, 103, 42, 0.08);
+    border-radius: var(--radius-sm);
+    margin-bottom: 1rem;
+}
+
+.essentials-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.essentials-card {
+    padding: 1.25rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.essentials-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+.essentials-card h4 i {
+    color: var(--primary);
+    margin-right: 0.35rem;
+}
+
+.essentials-checklist,
+.essentials-link-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    line-height: 1.7;
+}
+
+.essentials-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+}
+
+.essentials-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.essentials-table th,
+.essentials-table td {
+    padding: 0.75rem 0.85rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-subtle);
+    vertical-align: top;
+}
+
+.essentials-table th {
+    background: var(--bg-warm);
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+.essentials-table tr:last-child td {
+    border-bottom: none;
+}
+
+.essentials-permit-category {
+    margin-bottom: 2rem;
+}
+
+.essentials-permit-category h3 {
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.essentials-permit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.essentials-permit-item {
+    padding: 1rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface);
+}
+
+.essentials-permit-head {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.essentials-advisory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.essentials-advisory-card {
+    padding: 1rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface);
+}
+
+.essentials-advisory-card h4 {
+    margin: 0 0 0.5rem;
+}
+
+.essentials-advisory-card ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.essentials-pitfall-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.essentials-pitfall-card {
+    padding: 1.25rem;
+    border-left: 4px solid var(--primary);
+    background: var(--bg-surface);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.essentials-pitfall-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.essentials-pitfall-card h4 {
+    margin: 0 0 0.5rem;
+}
+
+.essentials-packing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.essentials-packing-col ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.essentials-packing-extras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+.essentials-packing-extras h4 {
+    margin: 0 0 0.5rem;
+    color: var(--accent);
+}
+
+.essentials-packing-extras ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .essentials-tab {
+        font-size: 0.78rem;
+        padding: 0.45rem 0.75rem;
+    }
+
+    .essentials-table {
+        font-size: 0.8rem;
+    }
+}
