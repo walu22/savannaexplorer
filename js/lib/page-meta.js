@@ -59,6 +59,14 @@ const HUB_META = {
         title: 'Transport & Logistics',
         description: 'Air gateways, self-drive tips, cross-border vehicle rules, and regional transport planning for Southern Africa trips.',
     },
+    'travel-essentials': {
+        title: 'Travel Essentials',
+        description: 'Insurance, road rules, tipping, SIM and data, permits, government advisories, common pitfalls, and packing lists for Southern Africa trips.',
+    },
+    'planning-checklist': {
+        title: 'Free Self-Drive Planning Checklist',
+        description: 'Download a printable Southern Africa cross-border checklist with safari packing essentials and official resource links.',
+    },
     'tourism-stats': {
         title: 'Southern Africa Tourism Statistics',
         description: 'Visitor arrivals and tourism trends for Namibia, South Africa, Botswana, Zambia, Zimbabwe, and neighbouring countries.',

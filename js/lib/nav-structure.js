@@ -59,6 +59,7 @@ export const NAV_MOBILE_SITE_GROUP = {
     id: 'site',
     label: 'Site',
     items: [
+        { href: '#planning-checklist', label: 'Free planning checklist' },
         { href: '#tourism-stats', label: 'Tourism statistics' },
         { href: '#about', label: 'About this site' },
         { href: '#faq', label: 'Travel FAQ' },

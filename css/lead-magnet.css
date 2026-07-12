@@ -1,0 +1,91 @@
+.lead-magnet-section {
+    padding: 4rem 0;
+    background: linear-gradient(165deg, rgba(27, 67, 50, 0.08) 0%, rgba(212, 168, 67, 0.06) 100%);
+}
+
+.lead-magnet-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+.lead-magnet-preview-card,
+.lead-magnet-form-card {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 1rem;
+    padding: 1.35rem 1.4rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.lead-magnet-preview-card h3,
+.lead-magnet-form-card h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+    color: #1b4332;
+}
+
+.lead-magnet-checklist {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: #333;
+}
+
+.lead-magnet-checklist li {
+    margin-bottom: 0.45rem;
+}
+
+.lead-magnet-preview-more {
+    margin: 1rem 0 0;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+.lead-magnet-form-card p {
+    margin: 0 0 1rem;
+    color: #444;
+    line-height: 1.55;
+}
+
+.lead-magnet-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.lead-magnet-form input[type="email"] {
+    flex: 1 1 220px;
+    min-width: 0;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.lead-magnet-unlocked {
+    text-align: center;
+}
+
+.lead-magnet-unlocked p {
+    margin: 0 0 1rem;
+    color: #2d6a4f;
+    font-weight: 600;
+}
+
+.lead-magnet-share {
+    margin-top: 1.25rem;
+}
+
+.lead-magnet-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+@media (max-width: 900px) {
+    .lead-magnet-grid {
+        grid-template-columns: 1fr;
+    }
+}

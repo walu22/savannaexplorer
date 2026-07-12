@@ -18,7 +18,7 @@ export const HUB_SECTIONS = new Set([
     'parks', 'embassies', 'borders', 'transport', 'health', 'events',
     'book-direct', 'plan', 'guides', 'tourism-stats', 'itineraries', 'destinations',
     'home', 'about', 'news', 'contact', 'cultures', 'gastronomy',
-    'experiences', 'top-destinations',
+    'experiences', 'top-destinations', 'travel-essentials', 'planning-checklist',
 ]);
 
 export function countryPath(countryId) {

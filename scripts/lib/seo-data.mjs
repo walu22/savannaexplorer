@@ -82,6 +82,12 @@ const HUB_SECTIONS = [
         priority: '0.75',
     },
     {
+        id: 'planning-checklist',
+        title: 'Free Self-Drive Planning Checklist',
+        description: 'Download a printable Southern Africa cross-border checklist with safari packing essentials and official resource links — free PDF for independent travellers.',
+        priority: '0.8',
+    },
+    {
         id: 'tourism-stats',
         title: 'Southern Africa Tourism Statistics',
         description: 'Visitor arrivals and tourism trends for Namibia, South Africa, Botswana, Zambia, Zimbabwe, and neighbouring countries.',

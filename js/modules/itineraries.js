@@ -9,6 +9,8 @@ import { renderBudgetBreakdownHtml } from '../lib/itinerary-budget.js';
 import { renderItineraryMapLink, mountRouteMap, destroyRouteMap } from '../lib/itinerary-maps.js';
 import { createModalFocusManager } from '../lib/modal-focus.js';
 import { syncPlannerExpenseRoute } from '../lib/planner-expense-sync.js';
+import { itineraryShareUrl, copyToClipboard, showShareToast, trackShare } from '../lib/share.js';
+import { renderShareBar } from './share.js';
 
 let currentItineraryId = null;
 let activeScopeFilter = 'all';
@@ -51,6 +53,7 @@ function renderItineraryGrid() {
             <p class="itinerary-template-note">Planning template — not a package or quote.</p>
             <div class="itinerary-actions">
                 <button type="button" class="btn btn-primary" data-action="view-itinerary" data-itinerary-id="${id}">View Route</button>
+                <button type="button" class="share-btn" data-action="copy-itinerary-link" data-itinerary-id="${id}" title="Copy link with tracking"><i class="fas fa-link"></i><span>Copy link</span></button>
             </div>
         </article>
     `;
@@ -161,6 +164,16 @@ export function openItineraryDetail(id) {
         }
     }
 
+    const shareWrap = document.getElementById('itin-share-wrap');
+    if (shareWrap) {
+        shareWrap.innerHTML = renderShareBar({
+            url: itineraryShareUrl(id, 'copy'),
+            title: data.title,
+            text: `${data.title} — ${data.duration} route template for Southern Africa self-drive planning.`,
+            compact: true,
+        });
+    }
+
     document.getElementById('itinerary-modal').classList.add('active');
     document.body.style.overflow = 'hidden';
     getItineraryModalFocus().open();
@@ -209,7 +222,17 @@ export function initItineraries() {
         }
     });
 
-    document.querySelector('.itinerary-grid')?.addEventListener('click', (e) => {
+    document.querySelector('.itinerary-grid')?.addEventListener('click', async (e) => {
+        const copyBtn = e.target.closest('[data-action="copy-itinerary-link"]');
+        if (copyBtn) {
+            e.preventDefault();
+            const url = itineraryShareUrl(copyBtn.dataset.itineraryId, 'copy');
+            const ok = await copyToClipboard(url);
+            showShareToast(ok ? 'Itinerary link copied' : 'Could not copy link', ok ? 'success' : 'error');
+            trackShare('copy', { content_type: 'itinerary', item_id: copyBtn.dataset.itineraryId });
+            return;
+        }
+
         const viewBtn = e.target.closest('[data-action="view-itinerary"]');
         if (viewBtn) openItineraryDetail(viewBtn.dataset.itineraryId);
     });

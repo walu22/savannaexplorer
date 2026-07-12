@@ -1023,11 +1023,45 @@
         </div>
     </section>
 
+    <!-- Free planning checklist lead magnet -->
+    <section id="planning-checklist" class="lead-magnet-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Free download</span>
+                <h2>Southern Africa Self-Drive Planning Checklist</h2>
+                <p>14-point cross-border document list, safari packing essentials, and official resource links — printable PDF for your trip folder.</p>
+            </div>
+            <div class="lead-magnet-grid">
+                <div class="lead-magnet-preview-card">
+                    <h3>What you get</h3>
+                    <div id="lead-magnet-preview"></div>
+                </div>
+                <div class="lead-magnet-form-card">
+                    <div id="lead-magnet-gate">
+                        <h3>Get the printable PDF</h3>
+                        <p>Enter your email to download the checklist and receive occasional route updates. No spam — unsubscribe any time.</p>
+                        <form class="lead-magnet-form" id="lead-magnet-form">
+                            <input type="email" id="lead-magnet-email" placeholder="Your email address" required autocomplete="email">
+                            <button type="submit" class="btn btn-primary">Send me the checklist</button>
+                        </form>
+                        <p class="form-feedback" id="lead-magnet-feedback" hidden></p>
+                    </div>
+                    <div id="lead-magnet-unlocked" class="lead-magnet-unlocked" hidden>
+                        <p>Your checklist is ready.</p>
+                        <button type="button" class="btn btn-primary" id="lead-magnet-print"><i class="fas fa-print"></i> Print / Save PDF</button>
+                        <p class="lead-magnet-note">Tip: choose “Save as PDF” in the print dialog to keep a digital copy on your phone.</p>
+                    </div>
+                    <div class="lead-magnet-share"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Newsletter -->
     <section class="newsletter">
         <div class="container">
             <h2>Get Traveler Updates</h2>
-            <p>Join our newsletter for route updates, seasonal tips, and travel news from across Southern Africa.</p>
+            <p>Route news, seasonal tips, and planning updates — or grab the <a href="#planning-checklist">free self-drive checklist</a> if you have not already.</p>
             <form class="signup-form" id="newsletter-form">
                 <input type="email" id="newsletter-email" placeholder="Your Email Address" required>
                 <button type="submit" class="btn">Subscribe</button>
@@ -1139,6 +1173,7 @@
                         <li><a href="#borders">Border Posts</a></li>
                         <li><a href="#health">Health Zones</a></li>
                         <li><a href="#events">Events</a></li>
+                        <li><a href="#planning-checklist">Free planning checklist</a></li>
                         <li><a href="#transport">Transport &amp; Logistics</a></li>
                         <li><a href="#travel-essentials">Travel Essentials</a></li>
                         <li><a href="#plan">Travel Planning</a></li>
@@ -1395,6 +1430,7 @@
                     <button type="button" class="btn btn-primary" id="itin-plan-tools"><i class="fas fa-tools"></i> Open Travel Tools</button>
                     <button type="button" class="btn btn-outline" id="itin-expense-tracker"><i class="fas fa-wallet"></i> Track Expenses</button>
                 </div>
+                <div class="itin-share-wrap" id="itin-share-wrap"></div>
             </div>
         </div>
     </div>
