@@ -4,6 +4,10 @@ import practical from '../../data/practical.json';
 import vehicleBorderFees from '../../data/vehicle-border-fees.json';
 import vehicleRental from '../../data/vehicle-rental.json';
 import vetImportRules from '../../data/vet-import-rules.json';
+import fuelCorridors from '../../data/fuel-corridors.json';
+import cashPayments from '../../data/cash-payments.json';
+import roadsideAssistance from '../../data/roadside-assistance.json';
+import policeCheckpoints from '../../data/police-checkpoints.json';
 
 const LIVE_CURRENCY_API = 'https://open.er-api.com/v6/latest/';
 const OPEN_METEO_API = 'https://api.open-meteo.com/v1/forecast';
@@ -297,6 +301,128 @@ function renderVetImportRules() {
     `;
 }
 
+function renderFuelCorridors() {
+    const el = document.getElementById('transport-fuel-corridors');
+    if (!el) return;
+
+    const rules = fuelCorridors.goldenRules.map(r => `<li>${escapeHtml(r)}</li>`).join('');
+    const cards = fuelCorridors.corridors.map(c => {
+        const stops = c.stops.map(s =>
+            `<li class="${s.critical ? 'fuel-stop--critical' : ''}"><strong>${escapeHtml(s.name)}</strong> — ${escapeHtml(s.note)}</li>`
+        ).join('');
+        return `
+            <article class="fuel-corridor-card" id="fuel-${c.id}">
+                <h4>${c.icon} ${escapeHtml(c.title)}</h4>
+                <p class="transport-fee-currency">${escapeHtml(c.distance)}</p>
+                <ol class="fuel-stop-list">${stops}</ol>
+                <p class="transport-tip"><i class="fas fa-lightbulb"></i> ${escapeHtml(c.planningTip)}</p>
+            </article>
+        `;
+    }).join('');
+
+    el.innerHTML = `
+        <h3 class="transport-subheading" id="transport-fuel-corridors-heading">Fuel corridors &amp; last-stop planning</h3>
+        <p class="transport-panel-intro">${escapeHtml(fuelCorridors.intro)}</p>
+        <p class="hub-data-note">${escapeHtml(fuelCorridors.meta.disclaimer)}</p>
+        <ul class="essentials-checklist">${rules}</ul>
+        <div class="fuel-corridor-grid">${cards}</div>
+    `;
+}
+
+function renderCashPayments() {
+    const el = document.getElementById('transport-cash-payments');
+    if (!el) return;
+
+    const rows = cashPayments.countries.map(c => `
+        <tr>
+            <td>${c.flag} ${escapeHtml(c.name)}</td>
+            <td>${escapeHtml(c.currency)}</td>
+            <td>${escapeHtml(c.cards)}</td>
+            <td>${escapeHtml(c.cashNeeded)}</td>
+            <td>${escapeHtml(c.usdAccepted)}</td>
+            <td class="transport-fee-note">${escapeHtml(c.planningTip)}</td>
+        </tr>
+    `).join('');
+
+    el.innerHTML = `
+        <h3 class="transport-subheading" id="transport-cash-payments-heading">Cash, cards &amp; payments by country</h3>
+        <p class="transport-panel-intro">${escapeHtml(cashPayments.intro)}</p>
+        <p class="hub-data-note">${escapeHtml(cashPayments.usdNote)}</p>
+        <div class="cash-payments-table-wrap">
+            <table class="vehicle-fee-table cash-payments-table">
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Currency</th>
+                        <th>Cards</th>
+                        <th>Cash needed for</th>
+                        <th>USD</th>
+                        <th>Tip</th>
+                    </tr>
+                </thead>
+                <tbody>${rows}</tbody>
+            </table>
+        </div>
+        <p class="hub-data-note">${escapeHtml(cashPayments.meta.disclaimer)}</p>
+    `;
+}
+
+function renderRoadsideAssistance() {
+    const el = document.getElementById('transport-roadside-assistance');
+    if (!el) return;
+
+    const cards = roadsideAssistance.countries.map(c => `
+        <article class="roadside-card">
+            <h4>${c.flag} ${escapeHtml(c.name)}</h4>
+            <p><strong>Police:</strong> ${escapeHtml(c.police)}</p>
+            <p><strong>Ambulance:</strong> ${escapeHtml(c.ambulance)}</p>
+            <p><strong>Roadside:</strong> ${escapeHtml(c.roadside)}</p>
+            <p class="transport-tip"><i class="fas fa-lightbulb"></i> ${escapeHtml(c.rentalTip)}</p>
+            <p class="transport-fee-note"><strong>Medivac:</strong> ${escapeHtml(c.medivac)}</p>
+            <a class="data-source-link" href="${c.sourceUrl}" target="_blank" rel="noopener noreferrer">Official source · ${c.lastVerified} <i class="fas fa-external-link-alt"></i></a>
+        </article>
+    `).join('');
+
+    const sat = roadsideAssistance.satelliteDevices;
+    el.innerHTML = `
+        <h3 class="transport-subheading" id="transport-roadside-heading">Breakdown &amp; emergency numbers</h3>
+        <p class="transport-panel-intro">${escapeHtml(roadsideAssistance.intro)}</p>
+        <p class="hub-data-note">${escapeHtml(roadsideAssistance.insuranceReminder)}</p>
+        <div class="roadside-grid">${cards}</div>
+        <article class="crossborder-guide-section">
+            <h4>${escapeHtml(sat.title)}</h4>
+            <p>${escapeHtml(sat.body)}</p>
+            <ul>${sat.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join('')}</ul>
+        </article>
+        <p class="hub-data-note">${escapeHtml(roadsideAssistance.meta.disclaimer)}</p>
+    `;
+}
+
+function renderPoliceCheckpoints() {
+    const el = document.getElementById('transport-police-checkpoints');
+    if (!el) return;
+
+    const etiquette = policeCheckpoints.generalEtiquette.map(e => `<li>${escapeHtml(e)}</li>`).join('');
+    const cards = policeCheckpoints.countries.map(c => `
+        <article class="checkpoint-card">
+            <h4>${c.flag} ${escapeHtml(c.name)}</h4>
+            <p><strong>Frequency:</strong> ${escapeHtml(c.frequency)}</p>
+            <p><strong>Documents:</strong> ${c.documents.map(d => escapeHtml(d)).join(' · ')}</p>
+            <p><strong>Common checks:</strong> ${c.checks.map(ch => escapeHtml(ch)).join(' · ')}</p>
+            <p><strong>Fines:</strong> ${escapeHtml(c.fines)}</p>
+            <p class="transport-tip"><i class="fas fa-lightbulb"></i> ${escapeHtml(c.tip)}</p>
+        </article>
+    `).join('');
+
+    el.innerHTML = `
+        <h3 class="transport-subheading" id="transport-checkpoints-heading">Police checkpoints &amp; traffic stops</h3>
+        <p class="transport-panel-intro">${escapeHtml(policeCheckpoints.intro)}</p>
+        <ul class="essentials-checklist">${etiquette}</ul>
+        <div class="checkpoint-grid">${cards}</div>
+        <p class="hub-data-note">${escapeHtml(policeCheckpoints.meta.disclaimer)}</p>
+    `;
+}
+
 function renderCrossBorderChecklist() {
     const { vehicleCrossBorder: vb } = transport;
     const list = document.getElementById('transport-crossborder-list');
@@ -391,6 +517,10 @@ function renderTransportHub() {
     renderVehicleFeesTable();
     renderVehicleRentalGuide();
     renderVetImportRules();
+    renderFuelCorridors();
+    renderCashPayments();
+    renderRoadsideAssistance();
+    renderPoliceCheckpoints();
 
     const disclaimer = document.getElementById('transport-disclaimer');
     if (disclaimer) disclaimer.textContent = transport.meta.disclaimer;

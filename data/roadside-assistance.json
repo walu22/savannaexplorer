@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "lastUpdated": "2026-07",
+    "disclaimer": "Save numbers offline before remote drives. Private medical evacuation is via your travel insurer — national ambulance services vary in rural response times.",
+    "sourceLabel": "National emergency services, AA, and tourism operator hotlines"
+  },
+  "intro": "Breakdowns on gravel happen. Store these numbers in your phone and on a printed sheet — signal drops exactly where you need help.",
+  "insuranceReminder": "Your travel insurance emergency line covers medical evacuation (Medivac to Johannesburg or Nairobi). For vehicle recovery, use AA or rental company roadside cover — generic travel insurance usually excludes mechanical breakdown.",
+  "countries": [
+    {
+      "id": "south-africa",
+      "flag": "🇿🇦",
+      "name": "South Africa",
+      "police": "10111 (crime) · 10111 traffic",
+      "ambulance": "10177 public · Netcare 082 911 (private)",
+      "roadside": "AA South Africa 0861 000 234 · ER24 084 124",
+      "rentalTip": "Avis/Europcar/Tempest issue 24h breakdown stickers on windscreen — call before arranging private tow",
+      "medivac": "Via travel insurer — Netcare 911, Mediclinic, or Life Healthcare private hospitals in major cities",
+      "sourceUrl": "https://www.aa.co.za/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "namibia",
+      "flag": "🇳🇦",
+      "name": "Namibia",
+      "police": "10111",
+      "ambulance": "203 2276 (Windhoek) · private clinics in towns",
+      "roadside": "AA Namibia +264 61 275 600 · rental company contract",
+      "rentalTip": "Namibia2Go and Asco include breakdown support numbers on rental agreement — photograph before leaving depot",
+      "medivac": "Medical evacuation to Windhoek or Johannesburg — insurance mandatory for Skeleton Coast routes",
+      "sourceUrl": "https://www.aanamibia.com/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "botswana",
+      "flag": "🇧🇼",
+      "name": "Botswana",
+      "police": "999",
+      "ambulance": "997 · Maun Private Hospital",
+      "roadside": "Limited national AA — lodge or rental operator dispatch from Maun/Kasane",
+      "rentalTip": "Delta breakdowns require lodge radio or satellite phone — do not leave vehicle in deep sand",
+      "medivac": "Okavango air ambulance via insurer; serious cases to Johannesburg",
+      "sourceUrl": "https://www.gov.bw/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "zambia",
+      "flag": "🇿🇲",
+      "name": "Zambia",
+      "police": "991",
+      "ambulance": "992 · private clinics Livingstone/Lusaka",
+      "roadside": "AA Zambia +260 211 251 958 · local garage tow common on Great North Road",
+      "rentalTip": "Livingstone rentals often partner with Vic Falls mechanics — keep company number handy",
+      "medivac": "Proflight or charter medivac from Luangwa — confirm cover before bushcamp stays",
+      "sourceUrl": "https://www.rtsa.org.zm/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "zimbabwe",
+      "flag": "🇿🇼",
+      "name": "Zimbabwe",
+      "police": "999 / 995 (traffic)",
+      "ambulance": "994 · private clinics Victoria Falls and Harare",
+      "roadside": "AA Zimbabwe +263 4 779 220 · informal tow trucks at Beitbridge — agree price first",
+      "rentalTip": "Fuel shortages can strand you — AA or rental before accepting random tow at border",
+      "medivac": "Victoria Falls to Johannesburg common route — carry insurance hotline on paper",
+      "sourceUrl": "https://www.aazimbabwe.org/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "mozambique",
+      "flag": "🇲🇿",
+      "name": "Mozambique",
+      "police": "112 / 119",
+      "ambulance": "117 · private Maputo clinics",
+      "roadside": "Limited — rental company or lodge on EN1; 4×4 communities help on sand tracks",
+      "rentalTip": "Lebombo breakdowns — call SA rental if vehicle registered there; document police report for insurance",
+      "medivac": "Maputo or Nelspruit/Mbombela — insurance essential for northern coast",
+      "sourceUrl": "https://www.inam.gov.mz/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "malawi",
+      "flag": "🇲🇼",
+      "name": "Malawi",
+      "police": "997 / 990",
+      "ambulance": "998 · Kamuzu Central Hospital Lilongwe",
+      "roadside": "Local garage tow — no national AA equivalent; lodge assistance on lake routes",
+      "rentalTip": "Carry spare tyre and jack — rural tow can take hours",
+      "medivac": "Lilongwe or Blantyre private hospitals; serious cases to Johannesburg",
+      "sourceUrl": "https://www.malawitourism.com/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "lesotho",
+      "flag": "🇱🇸",
+      "name": "Lesotho",
+      "police": "123 / 124",
+      "ambulance": "121 · limited highland coverage",
+      "roadside": "SA AA may assist near border — Sani Pass recovery is specialist 4×4",
+      "rentalTip": "Sani Pass descent breakdowns — Sani Mountain Lodge or Underberg operators; do not block single-track",
+      "medivac": "Maseru Queen 'Mamohato Hospital; serious trauma to Bloemfontein or JNB",
+      "sourceUrl": "https://homeaffairs.gov.ls/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "eswatini",
+      "flag": "🇸🇿",
+      "name": "Eswatini",
+      "police": "999",
+      "ambulance": "977 · Manzini and Mbabane clinics",
+      "roadside": "Often routed via SA AA from Oshoek — Big Game Parks radio for Hlane/Mkhaya",
+      "rentalTip": "Compact country — most breakdowns within tow range of Mbabane garages",
+      "medivac": "Mbabane Clinic or transfer to Durban/Johannesburg",
+      "sourceUrl": "https://www.thekingdomofeswatini.com/",
+      "lastVerified": "2026-07"
+    }
+  ],
+  "satelliteDevices": {
+    "title": "When cell signal fails",
+    "body": "Namibia north of Etosha, Gonarezhou, southern Lesotho highlands, and remote Mozambique coast have no reliable GSM. Consider Garmin inReach, Zoleo, or rental satellite phone for multi-day remote legs — share tracking link with family.",
+    "bullets": [
+      "Download offline maps before leaving last town with data",
+      "Share itinerary dates with lodge — they radio for help when guests overdue",
+      "SAT phone hire available in Windhoek and Johannesburg before departure"
+    ]
+  }
+}

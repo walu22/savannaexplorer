@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "lastUpdated": "2026-07",
+    "disclaimer": "Checkpoint frequency and procedures change. Remain polite, keep documents accessible, and never pay unofficial fines — ask for a written ticket and official receipt.",
+    "sourceLabel": "Road traffic agencies and self-drive operator guidance"
+  },
+  "intro": "Police and traffic stops are routine on regional highways — not necessarily a sign of trouble. Knowing what to expect reduces stress and avoids costly mistakes.",
+  "generalEtiquette": [
+    "Stop promptly in a safe lay-by; driver stays in vehicle until instructed",
+    "Greet the officer; hand documents through the window — do not exit unless asked",
+    "Keep rental letter, insurance, TIP, and passport copies in an easy-reach folder",
+    "Valid International Driving Permit ready for Botswana and most COMESA checks",
+    "Fixed fines are legal — insist on official receipt; note officer badge number if unsure",
+    "Do not pay 'spot fines' in USD to non-uniformed people at borders — use official counters only",
+    "Phone use while driving is illegal in South Africa — mount maps before moving"
+  ],
+  "countries": [
+    {
+      "id": "south-africa",
+      "flag": "🇿🇦",
+      "name": "South Africa",
+      "frequency": "Common on N1, N4, and approaches to borders",
+      "documents": ["Driver's licence", "IDP if foreign", "Vehicle registration disc", "Rental letter if applicable"],
+      "checks": ["Licence validity", "Roadworthiness disc", "Seatbelts", "Speed — radar common"],
+      "fines": "Traffic fines may be issued on the spot or by post to rental company",
+      "tip": "Kruger approaches and Beitbridge road — document checks increase during holidays.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "namibia",
+      "flag": "🇳🇦",
+      "name": "Namibia",
+      "frequency": "Moderate on B1; occasional gravel-road speed checks",
+      "documents": ["Passport", "Driver's licence + IDP", "TIP", "Insurance"],
+      "checks": ["Speed on tar and gravel", "Headlights on gravel rule in some regions"],
+      "fines": "NAD cash or court date — rental may debit your card",
+      "tip": "Wildlife strike reporting — stop and report kudu collisions for insurance.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "botswana",
+      "flag": "🇧🇼",
+      "name": "Botswana",
+      "frequency": "Regular on A1, Maun–Kasane, and Chobe corridors",
+      "documents": ["IDP strongly expected", "Yellow Card insurance", "TIP"],
+      "checks": ["Insurance proof", "IDP", "Tyre condition on sand routes"],
+      "fines": "Pula fines — official receipt",
+      "tip": "Police expect IDP from foreign drivers — without it, fines or turn-back at border.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "zambia",
+      "flag": "🇿🇲",
+      "name": "Zambia",
+      "frequency": "Frequent on Great North Road and Lusaka–Livingstone",
+      "documents": ["Passport", "Driver's licence", "RTSA road tax receipt", "Insurance"],
+      "checks": ["Road fund levy sticker", "Insurance", "Vehicle roadworthiness"],
+      "fines": "ZMW or USD — keep all border payment receipts",
+      "tip": "RTSA checkpoints — if asked for 'road safety fee', verify it matches official levy.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "zimbabwe",
+      "flag": "🇿🇼",
+      "name": "Zimbabwe",
+      "frequency": "Very common on A4, Beitbridge–Bulawayo, and Vic Falls roads",
+      "documents": ["Passport", "TIP", "ZINARA receipt", "Insurance disc"],
+      "checks": ["ZINARA payment proof", "Fire extinguisher and triangle", "USD spot fines reported"],
+      "fines": "USD cash fines common — ask for ticket number; avoid unofficial requests",
+      "tip": "Beitbridge–Harare corridor — never drive this at night; checkpoints plus livestock.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "mozambique",
+      "flag": "🇲🇿",
+      "name": "Mozambique",
+      "frequency": "Very frequent on EN1 Maputo–Beira",
+      "documents": ["Passport", "Temporary import permit", "Insurance", "Driver's licence"],
+      "checks": ["Insurance validity", "Import permit", "Occasional vehicle search"],
+      "fines": "MZN or USD — official receipt; keep calm and patient",
+      "tip": "EN1 daytime only — checkpoints plus unmarked hazards after dark.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "malawi",
+      "flag": "🇲🇼",
+      "name": "Malawi",
+      "frequency": "Moderate on M1 and lake shore roads",
+      "documents": ["Passport", "Driver's licence", "Insurance", "Road fund receipt"],
+      "checks": ["Road fund levy", "Insurance"],
+      "fines": "MWK — official documentation",
+      "tip": "Mchinji border approach — veterinary and police desks may both inspect food.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "lesotho",
+      "flag": "🇱🇸",
+      "name": "Lesotho",
+      "frequency": "Light on tar; Sani Pass summit passport control",
+      "documents": ["Passport", "SA rental letter naming Lesotho"],
+      "checks": ["Border permit at summit", "Occasional speed checks Maseru"],
+      "fines": "LSL/ZAR — low frequency for tourists",
+      "tip": "Sani Pass — police at summit check passport; vehicle must be 4×4 on SA side.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "eswatini",
+      "flag": "🇸🇿",
+      "name": "Eswatini",
+      "frequency": "Light — occasional EZ1 highway checks",
+      "documents": ["Passport", "Rental letter if SA-registered vehicle"],
+      "checks": ["Standard document verification"],
+      "fines": "SZL/ZAR official fines rare for tourists",
+      "tip": "Usually swift — less stressful than busy SA border queues.",
+      "lastVerified": "2026-07"
+    }
+  ]
+}
