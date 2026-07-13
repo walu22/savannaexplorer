@@ -5939,6 +5939,88 @@ footer {
     .vet-rule-columns {
         grid-template-columns: 1fr;
     }
+
+    .cash-payments-table-wrap {
+        overflow-x: auto;
+    }
+}
+
+.fuel-corridor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.fuel-corridor-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 0.85rem;
+}
+
+.fuel-corridor-card h4 {
+    margin: 0 0 0.35rem;
+}
+
+.fuel-stop-list {
+    margin: 0.5rem 0;
+    padding-left: 1.25rem;
+    font-size: 0.82rem;
+}
+
+.fuel-stop-list li {
+    margin-bottom: 0.35rem;
+}
+
+.fuel-stop--critical {
+    font-weight: 600;
+}
+
+.cash-payments-table-wrap {
+    margin: 1rem 0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cash-payments-table {
+    margin: 0;
+    font-size: 0.78rem;
+}
+
+.cash-payments-table th,
+.cash-payments-table td {
+    padding: 0.5rem 0.6rem;
+}
+
+.roadside-grid,
+.checkpoint-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.roadside-card,
+.checkpoint-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 0.82rem;
+}
+
+.roadside-card h4,
+.checkpoint-card h4 {
+    margin: 0 0 0.5rem;
+}
+
+.roadside-card p,
+.checkpoint-card p {
+    margin: 0.25rem 0;
+    line-height: 1.45;
 }
 
 .transport-crossborder-guides {

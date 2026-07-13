@@ -409,7 +409,9 @@
       "Yellow fever certificate if arriving from endemic countries",
       "Proof of accommodation or onward ticket if immigration asks",
       "Multi-entry South African visa if looping through Lesotho or Eswatini on a single-entry SA permit",
-      "No fresh meat or dairy when entering Botswana — finish or discard before the post (see vet rules below)"
+      "No fresh meat or dairy when entering Botswana — finish or discard before the post (see vet rules below)",
+      "Fuel fill planned at every critical stop on your corridor — never below quarter tank on gravel",
+      "Emergency, AA, and insurer hotlines saved offline for each country on your route"
     ],
     "resources": [
       {
@@ -440,6 +442,21 @@
       {
         "label": "Vet & food import rules",
         "url": "#transport-vet-rules",
+        "internal": true
+      },
+      {
+        "label": "Fuel corridors",
+        "url": "#transport-fuel-corridors-heading",
+        "internal": true
+      },
+      {
+        "label": "Cash & payments matrix",
+        "url": "#transport-cash-payments-heading",
+        "internal": true
+      },
+      {
+        "label": "Emergency & breakdown numbers",
+        "url": "#transport-roadside-heading",
         "internal": true
       }
     ],

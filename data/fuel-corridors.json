@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "lastUpdated": "2026-07",
+    "disclaimer": "Fuel station availability and opening hours change. Distances are approximate planning figures — never run below a quarter tank on remote gravel. Jerry cans only where legal; declare at borders.",
+    "sourceLabel": "Operator route notes & national fuel retailers"
+  },
+  "intro": "Self-drive incidents often start with an empty tank, not a flat tyre. These corridors list the last reliable fuel before long gaps — fill at every town marked bold.",
+  "goldenRules": [
+    "Fill at every major town on the list — do not skip because the gauge looks fine",
+    "Carry 400+ km range on Namibia gravel; 250 km minimum elsewhere off main highways",
+    "95 octane may be unavailable at remote posts — 93 is common; know your rental's requirement",
+    "Cards fail at rural pumps — carry cash (NAD/ZAR, USD at some ZW/MZ posts)",
+    "Fuel queues in Zimbabwe and Malawi can take hours — plan morning fills in cities"
+  ],
+  "corridors": [
+    {
+      "id": "jnb-kruger-beitbridge",
+      "icon": "🦁",
+      "title": "Johannesburg → Kruger → Beitbridge → Victoria Falls",
+      "distance": "~1,050 km · 12–14 hrs driving",
+      "countries": ["south-africa", "zimbabwe"],
+      "stops": [
+        { "name": "Johannesburg / OR Tambo", "note": "Fill before N4 east — last major choice", "critical": true },
+        { "name": "Nelspruit / Mbombela", "note": "Last large town before southern Kruger gates", "critical": true },
+        { "name": "Phalaborwa / Hoedspruit", "note": "Northern Kruger gateway — fill for park loops", "critical": false },
+        { "name": "Musina", "note": "Last SA fuel before Beitbridge — queues at holidays", "critical": true },
+        { "name": "Beitbridge town (ZW side)", "note": "USD cash often required; shortages possible", "critical": true },
+        { "name": "Victoria Falls", "note": "Reliable — fill before Hwange or Kazungula day trips", "critical": false }
+      ],
+      "planningTip": "Do not cross Beitbridge near month-end or SA school holidays without a full tank on both sides.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "cpt-windhoek-etosha",
+      "icon": "🏜️",
+      "title": "Cape Town → Windhoek → Etosha",
+      "distance": "~2,200 km · 2–3 days",
+      "countries": ["south-africa", "namibia"],
+      "stops": [
+        { "name": "Cape Town / Worcester", "note": "Fill before N7 north", "critical": true },
+        { "name": "Springbok / Upington", "note": "Last major SA stops before Namibian border", "critical": true },
+        { "name": "Vioolsdrift / Noordoewer", "note": "Small border town — basic fuel both sides", "critical": false },
+        { "name": "Grünau / Keetmanshoop", "note": "Long gap south of Windhoek on B1", "critical": true },
+        { "name": "Windhoek", "note": "Major hub — fill before any gravel leg", "critical": true },
+        { "name": "Otjiwarongo", "note": "Last large stop before Etosha southern gates", "critical": true },
+        { "name": "Outjo / Tsumeb", "note": "Etosha fringe — limited hours at some pumps", "critical": false }
+      ],
+      "planningTip": "Two spare tyres and 400 km range minimum between Otjiwarongo and remote camp gates.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "windhoek-sossusvlei",
+      "icon": "🌅",
+      "title": "Windhoek → Sossusvlei → Swakopmund",
+      "distance": "~700 km loop · 2 days",
+      "countries": ["namibia"],
+      "stops": [
+        { "name": "Windhoek", "note": "Fill completely — no fuel at Sossusvlei lodges", "critical": true },
+        { "name": "Rehoboth / Mariental", "note": "B1 south — last large stop before Sesriem turn-off", "critical": true },
+        { "name": "Sesriem / Solitaire", "note": "Critical last pump before dunes — Solitaire often 93 only", "critical": true },
+        { "name": "Walvis Bay / Swakopmund", "note": "Coast hub after Namib-Naukluft", "critical": false }
+      ],
+      "planningTip": "Solitaire is famously the last chance before Sossusvlei — do not assume lodge shops sell petrol.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "maun-kasane-vic-falls",
+      "icon": "🐘",
+      "title": "Maun → Kasane → Victoria Falls (KAZA loop)",
+      "distance": "~1,100 km · border fees at Kazungula",
+      "countries": ["botswana", "zambia", "zimbabwe"],
+      "stops": [
+        { "name": "Maun", "note": "Fill before Moremi or Savuti gravel", "critical": true },
+        { "name": "Nata", "note": "B300 junction — useful mid-point", "critical": false },
+        { "name": "Kasane", "note": "Last Botswana fuel before Chobe and Kazungula bridge", "critical": true },
+        { "name": "Livingstone (ZM)", "note": "Fill before Liuwa or remote park legs", "critical": true },
+        { "name": "Victoria Falls (ZW)", "note": "USD cash top-ups common", "critical": false }
+      ],
+      "planningTip": "Kazungula bridge toll separate from fuel — COMESA insurance checked at each side.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "lusaka-luangwa",
+      "icon": "🦓",
+      "title": "Lusaka → South Luangwa (Mfuwe)",
+      "distance": "~700 km · Great North Road",
+      "countries": ["zambia"],
+      "stops": [
+        { "name": "Lusaka", "note": "Fill before Great North Road — pothole delays common", "critical": true },
+        { "name": "Kabwe / Kapiri Mposhi", "note": "Mid-route services", "critical": false },
+        { "name": "Chipata", "note": "Last large town before Mfuwe turn-off", "critical": true },
+        { "name": "Mfuwe gate", "note": "Small pumps — do not rely on for remote bushcamp loops", "critical": true }
+      ],
+      "planningTip": "Many Luangwa camps are fly-in only — if self-driving to Mfuwe, fill in Chipata.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "jnb-maputo-ponta",
+      "icon": "🏖️",
+      "title": "Johannesburg → Maputo → Ponta do Ouro",
+      "distance": "~650 km to Ponta",
+      "countries": ["south-africa", "mozambique"],
+      "stops": [
+        { "name": "Johannesburg / Nelspruit", "note": "Fill before Lebombo border", "critical": true },
+        { "name": "Komatipoort / Ressano Garcia", "note": "Border towns — basic fuel", "critical": false },
+        { "name": "Maputo", "note": "Major hub — fill before coast legs", "critical": true },
+        { "name": "Kosi Bay (SA)", "note": "Last SA fuel before sand track to Ponta", "critical": true },
+        { "name": "Ponta do Ouro", "note": "Limited — top up in Maputo if possible", "critical": false }
+      ],
+      "planningTip": "Ponta sand track is 4×4 territory — fuel and tide timing both matter.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "lilongwe-lake-malawi",
+      "icon": "🌊",
+      "title": "Lilongwe → Cape Maclear → Liwonde",
+      "distance": "~400 km lake circuit",
+      "countries": ["malawi"],
+      "stops": [
+        { "name": "Lilongwe", "note": "Fill completely — shortages reported periodically", "critical": true },
+        { "name": "Dedza / Ntcheu", "note": "M1 south toward lake", "critical": false },
+        { "name": "Mangochi", "note": "Lake Malawi southern shore hub", "critical": true },
+        { "name": "Liwonde", "note": "Near park — limited late-night pumps", "critical": false }
+      ],
+      "planningTip": "Carry enough MWK cash — card failures at rural pumps are common.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "sani-kingdom-circuit",
+      "icon": "⛰️",
+      "title": "Drakensberg → Sani Pass → Ezulwini → Kruger",
+      "distance": "~600 km · 4×4 on Sani",
+      "countries": ["south-africa", "lesotho", "eswatini"],
+      "stops": [
+        { "name": "Underberg / Himeville", "note": "Last SA fuel before Sani Pass ascent", "critical": true },
+        { "name": "Sani Pass summit", "note": "No fuel on pass — passport control only", "critical": true },
+        { "name": "Maseru", "note": "Fill before highland gravel loops", "critical": true },
+        { "name": "Mbabane / Ezulwini", "note": "Eswatini hub after Oshoek or back via SA", "critical": false },
+        { "name": "Kruger south gates", "note": "Fill at Nelspruit/Malelane before park", "critical": true }
+      ],
+      "planningTip": "No fuel between Underberg summit and Mokhotlong — plan same-day descent or overnight at Sani Top with full tank.",
+      "lastVerified": "2026-07"
+    }
+  ]
+}

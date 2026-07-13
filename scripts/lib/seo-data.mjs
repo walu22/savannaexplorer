@@ -72,7 +72,7 @@ const HUB_SECTIONS = [
     {
         id: 'transport',
         title: 'Transport & Logistics',
-        description: 'Air gateways, self-drive rentals, ZINARA and RTSA border fees, vet import rules, cross-border letters, and regional transport planning for Southern Africa trips.',
+        description: 'Air gateways, self-drive rentals, fuel corridors, cash and payments, border fees, vet rules, emergency numbers, and cross-border planning for Southern Africa.',
         priority: '0.7',
     },
     {
