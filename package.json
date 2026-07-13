@@ -3,7 +3,7 @@
   "private": true,
   "version": "4.34.3",
   "engines": {
-    "node": "22.x"
+    "node": ">=22"
   },
   "type": "module",
   "scripts": {
@@ -22,7 +22,8 @@
     "provision:gsc": "bash scripts/provision-gsc-gcp.sh",
     "index:submit": "node scripts/submit-search-indexing.mjs",
     "analytics:planner": "node scripts/planner-analytics-report.mjs",
-    "deploy:live": "npm run build && npx vercel pull --yes --environment production && npx vercel build --prod --yes && npx vercel deploy --prebuilt --prod --yes"
+    "deploy:live": "npm run build && npx vercel pull --yes --environment=production && npx vercel deploy dist --prod --yes",
+    "deploy:live:prebuilt": "npm run build && node scripts/package-vercel-output.mjs && npx vercel pull --yes --environment=production && npx vercel deploy --prebuilt --prod --yes"
   },
   "devDependencies": {
     "vite": "^6.2.0"

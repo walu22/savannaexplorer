@@ -62,13 +62,28 @@ Keep existing `VITE_*` secrets in GitHub if the workflow builds there.
 
 ## Local Vercel CLI
 
-```bash
-npm install
+**Windows (recommended)** — build locally, upload `dist/` (avoids `vercel build` / `cmd.exe` issues):
+
+```powershell
 npm run build
-npx vercel deploy dist --prod
+npx vercel deploy dist --prod --yes
+```
+
+Or use the one-click script (same flow):
+
+```powershell
+npm run deploy:live
 ```
 
 First run: `npx vercel link` to connect the local folder to the Vercel project.
+
+**Linux / CI (optional prebuilt path):**
+
+```bash
+npm run deploy:live:prebuilt
+```
+
+This packages `dist/` with `scripts/package-vercel-output.mjs` instead of calling `vercel build`.
 
 ## What Vercel serves
 
@@ -89,6 +104,7 @@ After Vercel serves `savannaexplorer.com` correctly:
 
 | Issue | Fix |
 |-------|-----|
+| `spawn cmd.exe ENOENT` on Windows | Use `npm run deploy:live` (uploads `dist/` — no local `vercel build`). Or add `C:\Windows\System32` to PATH and set `ComSpec` to `C:\Windows\System32\cmd.exe` |
 | Old version after deploy | Hard refresh; check Vercel deployment log for build errors |
 | `#parks` blank | Ensure `postbuild` ran (`Wrote 8 hub SPA fallbacks` in build log) |
 | 404 on `/countries/namibia` | Confirm prerender step wrote `dist/countries/namibia/index.html` |
