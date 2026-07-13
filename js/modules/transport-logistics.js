@@ -1,6 +1,9 @@
 import transport from '../../data/transport.json';
 import crossBorder from '../../data/cross-border.json';
 import practical from '../../data/practical.json';
+import vehicleBorderFees from '../../data/vehicle-border-fees.json';
+import vehicleRental from '../../data/vehicle-rental.json';
+import vetImportRules from '../../data/vet-import-rules.json';
 
 const LIVE_CURRENCY_API = 'https://open.er-api.com/v6/latest/';
 const OPEN_METEO_API = 'https://api.open-meteo.com/v1/forecast';
@@ -143,13 +146,155 @@ function renderBorderFees() {
     const el = document.getElementById('transport-border-fees');
     if (!el) return;
 
-    el.innerHTML = crossBorder.borderFees.map(row => `
-        <div class="transport-fee-row">
-            <strong>${row.flag} ${escapeHtml(row.name)}</strong>
-            <span>${escapeHtml(row.vehicleEstimate)}</span>
-            <span class="transport-fee-note">${escapeHtml(row.notes)}</span>
-        </div>
+    const rows = vehicleBorderFees.countries.map(country => {
+        const feeLines = country.fees.map(f =>
+            `<li><strong>${escapeHtml(f.type)}:</strong> ${escapeHtml(f.amount)} <span class="transport-fee-note">— ${escapeHtml(f.notes)}</span></li>`
+        ).join('');
+        return `
+            <details class="transport-fee-country">
+                <summary>${country.flag} ${escapeHtml(country.name)} <span class="transport-fee-currency">(${escapeHtml(country.currency)})</span></summary>
+                <ul class="transport-fee-detail-list">${feeLines}</ul>
+                <p class="transport-fee-note">${escapeHtml(country.tip)}</p>
+            </details>
+        `;
+    }).join('');
+
+    const insurance = vehicleBorderFees.insuranceNote;
+    el.innerHTML = `
+        <p class="hub-data-note">${escapeHtml(vehicleBorderFees.meta.disclaimer)}</p>
+        ${rows}
+        <p class="transport-fee-insurance"><strong>${escapeHtml(insurance.title)}</strong> — ${escapeHtml(insurance.body)}
+            <a class="data-source-link" href="${insurance.sourceUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(insurance.linkLabel)} <i class="fas fa-external-link-alt"></i></a>
+        </p>
+    `;
+}
+
+function renderVehicleFeesTable() {
+    const el = document.getElementById('transport-vehicle-fees');
+    if (!el) return;
+
+    const cards = vehicleBorderFees.countries.map(country => {
+        const feeRows = country.fees.map(f => `
+            <tr>
+                <td>${escapeHtml(f.type)}</td>
+                <td>${escapeHtml(f.amount)}</td>
+                <td class="transport-fee-note">${escapeHtml(f.notes)}</td>
+            </tr>
+        `).join('');
+        return `
+            <article class="vehicle-fee-card" id="vehicle-fees-${country.id}">
+                <h4>${country.flag} ${escapeHtml(country.name)}</h4>
+                <p class="transport-fee-currency">${escapeHtml(country.currency)} · verified ${country.lastVerified}</p>
+                <table class="vehicle-fee-table">
+                    <thead><tr><th>Fee type</th><th>Indicative amount</th><th>Notes</th></tr></thead>
+                    <tbody>${feeRows}</tbody>
+                </table>
+                <p class="transport-fee-note">${escapeHtml(country.tip)}</p>
+            </article>
+        `;
+    }).join('');
+
+    el.innerHTML = `
+        <h3 class="transport-subheading" id="transport-vehicle-fees-heading">Vehicle border fees by country</h3>
+        <p class="transport-panel-intro">${escapeHtml(vehicleBorderFees.meta.disclaimer)}</p>
+        <div class="vehicle-fee-grid">${cards}</div>
+    `;
+}
+
+function renderVehicleRentalGuide() {
+    const el = document.getElementById('transport-vehicle-rental-guide');
+    if (!el) return;
+
+    const types = vehicleRental.vehicleTypes.map(v => `
+        <article class="vehicle-type-card">
+            <h4>${v.icon} ${escapeHtml(v.type)}</h4>
+            <p><strong>Best for:</strong> ${escapeHtml(v.bestFor)}</p>
+            <p><strong>Avoid:</strong> ${escapeHtml(v.avoid)}</p>
+            <p><strong>Typical cost:</strong> ${escapeHtml(v.typicalCost)}</p>
+            <p class="transport-fee-note">${escapeHtml(v.notes)}</p>
+        </article>
     `).join('');
+
+    const countries = vehicleRental.countries.map(c => `
+        <article class="transport-card transport-card--compact">
+            <div class="transport-card-head">
+                <span class="transport-flag">${c.flag}</span>
+                <h4>${escapeHtml(c.title)}</h4>
+            </div>
+            <p class="transport-desc"><strong>Pick-up:</strong> ${escapeHtml(c.pickupHubs)}</p>
+            <p class="transport-desc"><strong>Vehicle:</strong> ${escapeHtml(c.vehicleAdvice)}</p>
+            <p class="transport-tip"><i class="fas fa-lightbulb"></i> ${escapeHtml(c.planningTip)}</p>
+            <a class="data-source-link" href="${c.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(c.linkLabel)} <i class="fas fa-external-link-alt"></i></a>
+        </article>
+    `).join('');
+
+    const letter = vehicleRental.crossBorderLetter;
+    const waiver = vehicleRental.gravelWaiver;
+    const kit = vehicleRental.kitList.map(item => `<li>${escapeHtml(item)}</li>`).join('');
+
+    el.innerHTML = `
+        <h3 class="transport-subheading">Self-drive rental &amp; overland guide</h3>
+        <p class="transport-panel-intro">${escapeHtml(vehicleRental.intro)}</p>
+        <p class="hub-data-note">${escapeHtml(vehicleRental.meta.disclaimer)}</p>
+        <div class="vehicle-type-grid">${types}</div>
+        <div class="vehicle-rental-columns">
+            <article class="crossborder-guide-section">
+                <h4>${escapeHtml(letter.title)}</h4>
+                <p>${escapeHtml(letter.body)}</p>
+                <ul>${letter.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join('')}</ul>
+                <a class="data-source-link" href="${letter.sourceUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(letter.linkLabel)} <i class="fas fa-external-link-alt"></i></a>
+            </article>
+            <article class="crossborder-guide-section">
+                <h4>${escapeHtml(waiver.title)}</h4>
+                <p>${escapeHtml(waiver.body)}</p>
+                <ul>${waiver.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join('')}</ul>
+            </article>
+        </div>
+        <h4 class="transport-aside-heading">Vehicle kit list</h4>
+        <ul class="essentials-checklist vehicle-kit-list">${kit}</ul>
+        <h4 class="transport-subheading">Rental by country</h4>
+        <div class="transport-grid transport-grid--compact">${countries}</div>
+    `;
+}
+
+function renderVetImportRules() {
+    const el = document.getElementById('transport-vet-rules');
+    if (!el) return;
+
+    const severityClass = { strict: 'vet-severity--strict', moderate: 'vet-severity--moderate', light: 'vet-severity--light' };
+    const cards = vetImportRules.countries.map(c => `
+        <article class="vet-rule-card ${severityClass[c.severity] || ''}" id="vet-${c.id}">
+            <h4>${c.flag} ${escapeHtml(c.name)} <span class="vet-severity-badge">${escapeHtml(c.severity)}</span></h4>
+            <div class="vet-rule-columns">
+                <div>
+                    <h5>Not allowed / restricted</h5>
+                    <ul>${c.banned.map(b => `<li>${escapeHtml(b)}</li>`).join('')}</ul>
+                </div>
+                <div>
+                    <h5>Usually tolerated if declared</h5>
+                    <ul>${c.usuallyAllowed.map(b => `<li>${escapeHtml(b)}</li>`).join('')}</ul>
+                </div>
+            </div>
+            <p class="transport-fee-note"><strong>Borders:</strong> ${escapeHtml(c.borderPosts)} · <strong>Penalty:</strong> ${escapeHtml(c.penalty)}</p>
+            <p class="transport-tip"><i class="fas fa-lightbulb"></i> ${escapeHtml(c.tip)}</p>
+            <a class="data-source-link" href="${c.sourceUrl}" target="_blank" rel="noopener noreferrer">Official source · ${c.lastVerified} <i class="fas fa-external-link-alt"></i></a>
+        </article>
+    `).join('');
+
+    const general = vetImportRules.generalRules.map(r => `<li>${escapeHtml(r)}</li>`).join('');
+    const resources = vetImportRules.resources.map(r => {
+        const attrs = r.internal ? `href="${r.url}"` : `href="${r.url}" target="_blank" rel="noopener noreferrer"`;
+        return `<a class="transport-resource-link" ${attrs}>${escapeHtml(r.label)}${r.internal ? '' : ' <i class="fas fa-external-link-alt"></i>'}</a>`;
+    }).join('');
+
+    el.innerHTML = `
+        <h3 class="transport-subheading" id="transport-vet-rules-heading">Vet &amp; food import rules</h3>
+        <p class="transport-panel-intro">${escapeHtml(vetImportRules.intro)}</p>
+        <p class="hub-data-note">${escapeHtml(vetImportRules.meta.disclaimer)}</p>
+        <ul class="essentials-checklist">${general}</ul>
+        <div class="vet-rules-grid">${cards}</div>
+        <div class="transport-resource-links">${resources}</div>
+    `;
 }
 
 function renderCrossBorderChecklist() {
@@ -200,15 +345,26 @@ function initTransportTabs() {
     const tabs = document.querySelectorAll('.transport-tab');
     const panels = document.querySelectorAll('.transport-panel');
 
+    function activateTab(target) {
+        tabs.forEach(t => t.classList.toggle('active', t.dataset.transportTab === target));
+        panels.forEach(panel => {
+            const isActive = panel.id === `transport-panel-${target}`;
+            panel.classList.toggle('active', isActive);
+            panel.hidden = !isActive;
+        });
+    }
+
     tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const target = tab.dataset.transportTab;
-            tabs.forEach(t => t.classList.toggle('active', t === tab));
-            panels.forEach(panel => {
-                const isActive = panel.id === `transport-panel-${target}`;
-                panel.classList.toggle('active', isActive);
-                panel.hidden = !isActive;
-            });
+        tab.addEventListener('click', () => activateTab(tab.dataset.transportTab));
+    });
+
+    document.querySelectorAll('[data-open-transport-tab]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const target = link.dataset.openTransportTab;
+            if (!target) return;
+            e.preventDefault();
+            activateTab(target);
+            document.getElementById('transport')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
 }
@@ -232,6 +388,9 @@ function renderTransportHub() {
     renderBorderStatusLinks();
     renderBorderFees();
     renderCrossBorderGuides();
+    renderVehicleFeesTable();
+    renderVehicleRentalGuide();
+    renderVetImportRules();
 
     const disclaimer = document.getElementById('transport-disclaimer');
     if (disclaimer) disclaimer.textContent = transport.meta.disclaimer;

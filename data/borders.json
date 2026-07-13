@@ -678,5 +678,87 @@
     ],
     "lastVerified": "2026-06",
     "sourceUrl": "https://www.evisa.gov.mz/"
+  },
+  {
+    "id": "sani-pass",
+    "name": "Sani Pass",
+    "countries": [
+      "south-africa",
+      "lesotho"
+    ],
+    "route": "KwaZulu-Natal Drakensberg \u2192 Mokhotlong / Sani Top",
+    "hours": "08:00\u201316:00 (typical; weather dependent)",
+    "typicalWait": "20\u201345 min",
+    "vehicleCrossing": true,
+    "fees": "Minimal border fees; guided tour tariffs separate",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "SA rental cross-border letter naming Lesotho",
+      "4\u00d74 vehicle mandatory on SA ascent"
+    ],
+    "tips": [
+      "Passport control at summit \u2014 Africa's highest pub at 2,874 m",
+      "4\u00d74 only on South African side; snow closes pass Jun\u2013Aug some years",
+      "No fuel on the pass \u2014 fill Underberg or Maseru before ascending",
+      "Single-entry SA visa: entering Lesotho exits South Africa \u2014 need multi-entry to return",
+      "Guided convoys from Underberg recommended for first-timers"
+    ],
+    "lastVerified": "2026-07",
+    "sourceUrl": "https://www.visitlesotho.travel/"
+  },
+  {
+    "id": "golela-lavumisa",
+    "name": "Golela / Lavumisa",
+    "countries": [
+      "south-africa",
+      "eswatini"
+    ],
+    "route": "KwaZulu-Natal lowveld \u2192 Hlane / lowveld reserves",
+    "hours": "06:00\u201322:00",
+    "typicalWait": "15\u201340 min",
+    "vehicleCrossing": true,
+    "fees": "Minimal vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "SA rental cross-border letter if not your vehicle"
+    ],
+    "tips": [
+      "Main KZN gateway to Eswatini lowveld \u2014 Hlane 45 min north",
+      "Often faster than busier Gauteng borders",
+      "Lilangeni pegged 1:1 to rand \u2014 rand widely accepted",
+      "Combine with Kruger south and KZN coast loops",
+      "Malaria prophylaxis for lowveld in summer"
+    ],
+    "lastVerified": "2026-07",
+    "sourceUrl": "https://www.thekingdomofeswatini.com/"
+  },
+  {
+    "id": "ficksburg-van-rooyens",
+    "name": "Ficksburg / Van Rooyen's Gate",
+    "countries": [
+      "south-africa",
+      "lesotho"
+    ],
+    "route": "Free State \u2192 Malealea & western highlands",
+    "hours": "24 hours",
+    "typicalWait": "15\u201330 min",
+    "vehicleCrossing": true,
+    "fees": "Minimal vehicle fees",
+    "documents": [
+      "Valid passport",
+      "Vehicle registration",
+      "Cross-border letter if SA rental"
+    ],
+    "tips": [
+      "Gateway for Malealea pony trekking and western Lesotho",
+      "Tar to Maseru corridor \u2014 4\u00d72 OK; mountain villages need caution",
+      "Scenic alternative to Maseru Bridge from Bloemfontein direction",
+      "Carry loti/rand cash for highland villages \u2014 limited ATMs",
+      "SA multi-entry visa needed if looping back on single-entry permit"
+    ],
+    "lastVerified": "2026-07",
+    "sourceUrl": "https://homeaffairs.gov.ls/"
   }
 ]

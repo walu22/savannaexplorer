@@ -243,6 +243,61 @@
       "linkLabel": "AA South Africa",
       "lastVerified": "2026-06",
       "planningTip": "Get your rental cross-border letter before leaving the depot — border posts check financing and authorization."
+    },
+    {
+      "id": "zimbabwe-tourism-transport",
+      "flag": "🇿🇼",
+      "country": "zimbabwe",
+      "title": "Zimbabwe Tourism — travel & access",
+      "description": "Official guidance for Victoria Falls, Hwange, and overland access — visa and self-drive planning.",
+      "url": "https://www.zimbabwetourism.net/",
+      "linkLabel": "Zimbabwe Tourism Authority",
+      "lastVerified": "2026-07",
+      "planningTip": "KAZA loops often use SA rental with cross-border letter — confirm ZINARA and insurance fees in USD cash."
+    },
+    {
+      "id": "mozambique-tourism-transport",
+      "flag": "🇲🇿",
+      "country": "mozambique",
+      "title": "Visit Mozambique — getting around",
+      "description": "Coastal and Maputo self-drive guidance, e-visa links, and regional access from Kruger.",
+      "url": "https://www.visitmozambique.net/",
+      "linkLabel": "Visit Mozambique",
+      "lastVerified": "2026-07",
+      "planningTip": "Lebombo/Ressano Garcia is the main Kruger crossing — name Mozambique on your rental letter."
+    },
+    {
+      "id": "malawi-tourism-transport",
+      "flag": "🇲🇼",
+      "country": "malawi",
+      "title": "Malawi Tourism — travel info",
+      "description": "Lake Malawi circuits, Lilongwe access, and land-border entry from Zambia and Tanzania.",
+      "url": "https://www.malawitourism.com/",
+      "linkLabel": "Malawi Tourism",
+      "lastVerified": "2026-07",
+      "planningTip": "Fuel can be scarce — top up in Lilongwe or Blantyre before remote lake shore legs."
+    },
+    {
+      "id": "lesotho-tourism-transport",
+      "flag": "🇱🇸",
+      "country": "lesotho",
+      "title": "Visit Lesotho — mountain access",
+      "description": "Sani Pass, pony trekking, and highland routes — all entry via South Africa land borders.",
+      "url": "https://www.visitlesotho.travel/",
+      "linkLabel": "Visit Lesotho",
+      "lastVerified": "2026-07",
+      "planningTip": "4×4 mandatory for Sani Pass — name Lesotho explicitly on SA rental cross-border letter."
+    },
+    {
+      "id": "eswatini-tourism-transport",
+      "flag": "🇸🇿",
+      "country": "eswatini",
+      "title": "Eswatini Tourism — getting there",
+      "description": "Oshoek and Golela border access, Kingdom Circuit add-ons from Kruger and KZN.",
+      "url": "https://www.thekingdomofeswatini.com/",
+      "linkLabel": "Eswatini Tourism",
+      "lastVerified": "2026-07",
+      "planningTip": "Excellent tar roads — 4×2 sufficient. Lilangeni equals rand; SA cross-border permission required."
     }
   ],
   "mobileSim": [
@@ -352,7 +407,9 @@
       "KAZA UniVisa USD 50 per eligible traveller (Victoria Falls circuits)",
       "Unabridged birth certificate for minors (South Africa exit/entry rules)",
       "Yellow fever certificate if arriving from endemic countries",
-      "Proof of accommodation or onward ticket if immigration asks"
+      "Proof of accommodation or onward ticket if immigration asks",
+      "Multi-entry South African visa if looping through Lesotho or Eswatini on a single-entry SA permit",
+      "No fresh meat or dairy when entering Botswana — finish or discard before the post (see vet rules below)"
     ],
     "resources": [
       {
@@ -374,6 +431,16 @@
         "label": "KAZA UniVisa (official)",
         "url": "https://www.zambiaimmigration.gov.zm/kaza-univisa/",
         "internal": false
+      },
+      {
+        "label": "Vehicle border fees (detailed)",
+        "url": "#transport-vehicle-fees",
+        "internal": true
+      },
+      {
+        "label": "Vet & food import rules",
+        "url": "#transport-vet-rules",
+        "internal": true
       }
     ],
     "lastVerified": "2026-06"
