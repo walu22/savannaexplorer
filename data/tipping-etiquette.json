@@ -10,7 +10,7 @@
       { "label": "Travel Currency Guide — regional money & tips", "url": "https://travelcurrencyguide.com/" }
     ]
   },
-  "intro": "Safari and lodge culture runs on cash tips for guides, trackers, scouts, and camp staff. Amounts below are per guest unless noted. Tip once at the end of each camp stay — not after every activity. Carry clean USD or local notes in small denominations; many countries reject worn USD bills. ZAR, NAD, LSL, and SZL are pegged or interchangeable with rand in their home countries — but emalangeni and maloti cannot be spent in South Africa. Ask each lodge for its tipping sheet; tip-box policies vary.",
+  "intro": "Safari and lodge culture runs on cash tips for guides, trackers, scouts, and camp staff. Amounts below are per guest unless noted. Tip once at the end of each camp stay — not after every activity. Carry local currency or US dollars in small, undamaged bills where lodges prefer dollars. ZAR, NAD, LSL, and SZL are pegged or interchangeable with rand in their home countries — but emalangeni and maloti cannot be spent in South Africa. Ask each lodge for its tipping sheet; tip-box policies vary.",
   "roles": [
     { "role": "Restaurant (urban)", "guidance": "10–15% if service charge not included" },
     { "role": "Safari guide", "guidance": "USD 10–20 per guest per day (ZAR/NAD equivalent in SA/Namibia) — hand directly at checkout" },
@@ -60,7 +60,7 @@
       "restaurant": "10%",
       "safariGuide": "USD 10–20/guest/day drive; USD 15–25/guest/day walking — direct",
       "lodgeStaff": "USD 10–15/guest/day pooled",
-      "notes": "Walking safaris: lodge guide plus armed DNPW scout — scout is NOT in tip box; tip scout USD 5–10/guest/day direct. No ATMs inside South Luangwa, Lower Zambezi, or Kafue. Victoria Falls activity guides USD 5–10 per activity."
+      "notes": "Walking safaris: lodge guide plus armed DNPW scout — scout is NOT in tip box; tip scout USD 5–10/guest/day direct. Banks and lodges may refuse torn or heavily worn US bills — ask your bank for crisp notes. No ATMs inside South Luangwa, Lower Zambezi, or Kafue. Victoria Falls activity guides USD 5–10 per activity."
     },
     {
       "id": "zimbabwe",
