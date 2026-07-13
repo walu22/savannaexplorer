@@ -1,108 +1,116 @@
 {
   "meta": {
     "lastUpdated": "2026-07",
-    "disclaimer": "Tipping is discretionary everywhere in the region. Amounts below are planning guidance for independent travellers — not mandatory fees."
+    "disclaimer": "Tipping is discretionary everywhere in the region. Amounts below are per-guest planning guidance for independent travellers — not mandatory fees. Confirm current lodge tip sheets on arrival.",
+    "sources": [
+      { "label": "Expert Africa — Zambia tipping", "url": "https://www.expertafrica.com/zambia/info/tipping-in-zambia" },
+      { "label": "Expert Africa — Botswana tipping", "url": "https://www.expertafrica.com/botswana/info/tipping-in-botswana" },
+      { "label": "Expert Africa — Namibia tipping", "url": "https://www.expertafrica.com/namibia/info/tipping-in-namibia" },
+      { "label": "Kafunta Safaris — Zambia walking safari scouts", "url": "https://kafuntasafaris.com/tipping-on-safari-zambia/" },
+      { "label": "Travel Currency Guide — regional money & tips", "url": "https://travelcurrencyguide.com/" }
+    ]
   },
-  "intro": "Safari and lodge culture runs on small cash tips for guides, trackers, and camp staff. Carry clean USD or local notes in small denominations. Many border towns prefer USD; cities accept cards but tips are usually cash.",
+  "intro": "Safari and lodge culture runs on cash tips for guides, trackers, scouts, and camp staff. Amounts below are per guest unless noted. Tip once at the end of each camp stay — not after every activity. Carry clean USD or local notes in small denominations; many countries reject worn USD bills. ZAR, NAD, LSL, and SZL are pegged or interchangeable with rand in their home countries — but emalangeni and maloti cannot be spent in South Africa. Ask each lodge for its tipping sheet; tip-box policies vary.",
   "roles": [
     { "role": "Restaurant (urban)", "guidance": "10–15% if service charge not included" },
-    { "role": "Safari guide (private)", "guidance": "USD 10–20 per guest per day — hand directly" },
-    { "role": "Tracker / spotter", "guidance": "USD 5–10 per guest per day" },
-    { "role": "Lodge general staff", "guidance": "USD 5–10 per guest per day into shared box" },
-    { "role": "Petrol attendant (SA)", "guidance": "ZAR 10–20 when they fill and check oil" },
+    { "role": "Safari guide", "guidance": "USD 10–20 per guest per day (ZAR/NAD equivalent in SA/Namibia) — hand directly at checkout" },
+    { "role": "Tracker / spotter", "guidance": "USD 5–10 per guest per day — direct, often excluded from tip box" },
+    { "role": "Armed scout (Zambia walks)", "guidance": "USD 5–10 per guest per day — DNPW government staff, not in lodge tip box" },
+    { "role": "Lodge general staff", "guidance": "USD 5–15 per guest per day into communal tip box" },
+    { "role": "Petrol attendant (SA/Namibia)", "guidance": "ZAR/NAD 10–20 when they fill, check oil, and clean windscreen" },
     { "role": "Porter / airport helper", "guidance": "USD 1–2 per bag — agree before carrying" },
-    { "role": "Mokoro poler (Okavango)", "guidance": "USD 5–10 per poler per trip" }
+    { "role": "Mokoro poler (Okavango)", "guidance": "USD 5–10 per guest per day — tip directly, not via tip box" }
   ],
   "countries": [
     {
       "id": "south-africa",
       "flag": "🇿🇦",
       "name": "South Africa",
-      "currency": "ZAR cash for tips; USD accepted at tourist lodges",
+      "currency": "ZAR strongly preferred; USD accepted at some tourist lodges (staff may lose on exchange)",
       "restaurant": "10–15%",
-      "safariGuide": "ZAR 150–250/day or USD 10–15",
-      "lodgeStaff": "ZAR 100–150/day into tip box",
-      "notes": "Petrol attendants expect small change. Uber not typical for safari areas."
+      "safariGuide": "ZAR 150–300/guest/day guide; ZAR 50–100/guest/day tracker — direct",
+      "lodgeStaff": "ZAR 100–200/guest/day into tip box",
+      "notes": "Full-service petrol attendants expect ZAR 5–20. Car guards in parking lots ZAR 5–10 on return. Many Kruger/private lodges publish tip envelopes at checkout."
     },
     {
       "id": "namibia",
       "flag": "🇳🇦",
       "name": "Namibia",
-      "currency": "NAD/ZAR or USD at lodges",
-      "restaurant": "10%",
-      "safariGuide": "NAD 100–150/day",
-      "lodgeStaff": "NAD 80–100/day shared",
-      "notes": "Desert guides appreciate direct tips. Remote camps — cash only."
+      "currency": "NAD or ZAR (1:1 peg); USD at remote lodges",
+      "restaurant": "10–15%",
+      "safariGuide": "NAD/ZAR 100–200/guest/day — direct to guide",
+      "lodgeStaff": "NAD/ZAR 50–150/guest/night into tip box",
+      "notes": "Desert and Skeleton Coast camps often cash-only. Car guards ~NAD 10. Tip each camp separately on multi-stop routes. Etosha/Sossusvlei guides usually tipped direct."
     },
     {
       "id": "botswana",
       "flag": "🇧🇼",
       "name": "Botswana",
-      "currency": "USD preferred at luxury camps",
+      "currency": "USD preferred at Okavango/Chobe camps; BWP in Maun/Gaborone",
       "restaurant": "10% urban",
-      "safariGuide": "USD 15–25/day",
-      "lodgeStaff": "USD 10–15/day pooled",
-      "notes": "High-end Delta camps include guideline sheets at checkout."
+      "safariGuide": "USD 10–20/guest/day group guide; USD 20–40 private guide — direct",
+      "lodgeStaff": "USD 5–15/guest/day pooled",
+      "notes": "Tip mokoro polers and trackers directly (USD 5–10/guest/day). Delta camps are often cashless for purchases — bring USD for tips. Luxury camps issue checkout guideline sheets."
     },
     {
       "id": "zambia",
       "flag": "🇿🇲",
       "name": "Zambia",
-      "currency": "USD highly valued",
+      "currency": "USD cash in small, clean notes (post-2006); kwacha for urban small tips",
       "restaurant": "10%",
-      "safariGuide": "USD 15–20/day",
-      "lodgeStaff": "USD 10/day pooled",
-      "notes": "Walking safari guides — tip guide and scout separately."
+      "safariGuide": "USD 10–20/guest/day drive; USD 15–25/guest/day walking — direct",
+      "lodgeStaff": "USD 10–15/guest/day pooled",
+      "notes": "Walking safaris: lodge guide plus armed DNPW scout — scout is NOT in tip box; tip scout USD 5–10/guest/day direct. No ATMs inside South Luangwa, Lower Zambezi, or Kafue. Victoria Falls activity guides USD 5–10 per activity."
     },
     {
       "id": "zimbabwe",
       "flag": "🇿🇼",
       "name": "Zimbabwe",
-      "currency": "USD cash king in tourism belt",
-      "restaurant": "10%",
-      "safariGuide": "USD 10–15/day",
-      "lodgeStaff": "USD 5–10/day pooled",
-      "notes": "Victoria Falls activity guides — USD 5–10 per activity."
+      "currency": "USD cash essential (clean, post-2013 notes); ZiG change common in Vic Falls",
+      "restaurant": "10–15%",
+      "safariGuide": "USD 10–20/guest/day — direct",
+      "lodgeStaff": "USD 5–15/guest/day pooled",
+      "notes": "Worn or marked USD bills often rejected. Withdraw or bring cash before Hwange, Mana Pools, or Matusadona — remote camps card-only for bills, not tips. Victoria Falls activity guides USD 5–10 per activity."
     },
     {
       "id": "mozambique",
       "flag": "🇲🇿",
       "name": "Mozambique",
-      "currency": "MZN or USD at coastal lodges",
+      "currency": "MZN preferred for local tips; USD at upscale beach and Gorongosa bush lodges",
       "restaurant": "10% tourist areas",
-      "safariGuide": "USD 10/day bush lodges",
-      "lodgeStaff": "USD 5/day",
-      "notes": "Dive boat crews — USD 5–10 per dive day."
+      "safariGuide": "USD 10–15/guest/day bush lodges; MZN 300–500/day local day guides",
+      "lodgeStaff": "USD 5–10/guest/day",
+      "notes": "Coastal focus: Tofo/Vilankulo dive and boat crews MZN 200–500 or USD 5–10 per dive day. Withdraw meticais before Bazaruto/Quirimbas islands. Gorongosa is main bush-safari tipping context."
     },
     {
       "id": "malawi",
       "flag": "🇲🇼",
       "name": "Malawi",
-      "currency": "MWK or USD",
+      "currency": "USD for lodge and safari tips; MWK for porters and markets",
       "restaurant": "10%",
-      "safariGuide": "USD 10/day",
-      "lodgeStaff": "USD 5/day",
-      "notes": "Lake kayak/skippers — small MWK tips appreciated."
+      "safariGuide": "USD 5–15/guest/day — direct (Liwonde, Nkhotakota, Majete)",
+      "lodgeStaff": "USD 3–10/guest/day pooled",
+      "notes": "Lake Malawi kayak/skippers USD 3–5 or small MWK per outing. Clean USD notes required. Few ATMs outside Lilongwe and Blantyre — carry USD for lake lodges and parks."
     },
     {
       "id": "lesotho",
       "flag": "🇱🇸",
       "name": "Lesotho",
-      "currency": "LSL/ZAR",
+      "currency": "LSL/ZAR interchangeably (1:1); cash essential in highlands",
       "restaurant": "10%",
-      "safariGuide": "ZAR 100/day pony treks",
-      "lodgeStaff": "ZAR 50/day",
-      "notes": "Pony trekking guides rely on tips — cash essential."
+      "safariGuide": "ZAR/LSL 50–100/guest/day pony-trek guides — direct",
+      "lodgeStaff": "ZAR/LSL 50/guest/day where tip box exists",
+      "notes": "Malealea and similar operators suggest ~ZAR 30–40/group/day for pony guides (tip direct, not on lodge invoice). Sani Pass and highland villages are card-free — bring rand/maloti in small notes."
     },
     {
       "id": "eswatini",
       "flag": "🇸🇿",
       "name": "Eswatini",
-      "currency": "SZL/ZAR",
+      "currency": "SZL/ZAR interchangeably (1:1); spend emalangeni before exiting to SA",
       "restaurant": "10%",
-      "safariGuide": "ZAR 100–150/day",
-      "lodgeStaff": "ZAR 80/day",
-      "notes": "Cultural village guides — ZAR 50–100 per visit."
+      "safariGuide": "ZAR/SZL 100–150/guest/day game rangers (Hlane, Mkhaya, Mlilwane)",
+      "lodgeStaff": "ZAR/SZL 50–80/guest/day pooled",
+      "notes": "Mantenga and cultural village guides ZAR/SZL 50–100 per visit or performance. Big Game Parks lodges usually have communal tip boxes. USD accepted at tourist lodges but rand is simpler."
     }
   ]
 }

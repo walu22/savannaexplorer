@@ -165,7 +165,7 @@ function renderTipping() {
                         <th>Country</th>
                         <th>Currency</th>
                         <th>Restaurant</th>
-                        <th>Safari guide</th>
+                        <th>Guide / activity</th>
                         <th>Lodge staff</th>
                         <th>Notes</th>
                     </tr>
@@ -173,6 +173,7 @@ function renderTipping() {
                 <tbody>${rows}</tbody>
             </table>
         </div>
+        <p class="section-disclaimer">${escapeHtml(tipping.meta.disclaimer)}</p>
     `;
 }
 
