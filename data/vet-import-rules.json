@@ -1,0 +1,200 @@
+{
+  "meta": {
+    "lastUpdated": "2026-07",
+    "disclaimer": "Veterinary and food-import rules change with disease outbreaks. This is planning guidance only — declare all animal products at the border and follow official notices on the day you cross.",
+    "sourceLabel": "National veterinary services & border agency notices"
+  },
+  "intro": "Southern Africa protects livestock industries with strict border controls on meat, dairy, and animal products. Self-caterers and campers are most often caught out — finish or discard restricted items before the queue, not at the officer's desk.",
+  "generalRules": [
+    "Declare all meat, dairy, honey, and pet food — even leftovers from yesterday's braai",
+    "Commercially sealed tins and long-life UHT products are usually tolerated; fresh and frozen items are not",
+    "Botswana is the strictest — plan a supermarket stop after crossing, not before",
+    "Pet dogs and cats need import permits and vaccination records — arrange weeks ahead",
+    "Hunting trophies and skins require CITES permits and vet certificates"
+  ],
+  "countries": [
+    {
+      "id": "botswana",
+      "flag": "🇧🇼",
+      "name": "Botswana",
+      "severity": "strict",
+      "banned": [
+        "Fresh, frozen, or chilled meat and poultry",
+        "Milk, cheese, butter, and other unpasteurised dairy",
+        "Raw honey and untreated animal products"
+      ],
+      "usuallyAllowed": [
+        "Sealed tins of meat and fish",
+        "Long-life UHT milk (unopened)",
+        "Dry packaged snacks without meat ingredients"
+      ],
+      "borderPosts": "All land borders — Martin's Drift, Kazungula, Ramokgwebana, Ngoma",
+      "penalty": "Confiscation and possible fine; delays if undeclared",
+      "tip": "Stock up at Gaborone, Maun, or Kasane supermarkets after entry.",
+      "sourceUrl": "https://www.gov.bw/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "south-africa",
+      "flag": "🇿🇦",
+      "name": "South Africa",
+      "severity": "moderate",
+      "banned": [
+        "Meat and dairy from FMD-affected zones without permits",
+        "Unprocessed bushmeat"
+      ],
+      "usuallyAllowed": [
+        "Sealed retail products from reputable suppliers",
+        "Personal quantities declared at post"
+      ],
+      "borderPosts": "All international land borders; OR Tambo agricultural inspection for some flights",
+      "penalty": "Confiscation; biosecurity fines for commercial quantities",
+      "tip": "Returning from Botswana or Zimbabwe — discard fresh meat before re-entering SA if unsure of origin.",
+      "sourceUrl": "https://www.dalrrd.gov.za/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "namibia",
+      "flag": "🇳🇦",
+      "name": "Namibia",
+      "severity": "moderate",
+      "banned": [
+        "Fresh meat from outside SACU without veterinary certificate",
+        "Products from FMD outbreak areas"
+      ],
+      "usuallyAllowed": [
+        "SACU-origin sealed retail meat (South Africa, Namibia, Botswana, Lesotho, Eswatini)",
+        "Camping groceries in original packaging"
+      ],
+      "borderPosts": "Vioolsdrift, Ariamsvlei, Wenela (Zambia), Ngoma (Botswana)",
+      "penalty": "Confiscation at discretion of veterinary officer",
+      "tip": "SACU harmonised rules apply between member states — still declare at the post.",
+      "sourceUrl": "https://mha.gov.na/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "zambia",
+      "flag": "🇿🇲",
+      "name": "Zambia",
+      "severity": "moderate",
+      "banned": [
+        "Undeclared meat and dairy",
+        "Products without valid veterinary import permit (commercial)"
+      ],
+      "usuallyAllowed": [
+        "Small personal quantities declared",
+        "Sealed tins and dry goods"
+      ],
+      "borderPosts": "Kazungula, Chirundu, Mwami (Malawi), Nakonde (Tanzania)",
+      "penalty": "Confiscation; commercial imports need prior permit",
+      "tip": "KAZA tourists often carry snacks — declare rather than hide.",
+      "sourceUrl": "https://www.moa.gov.zm/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "zimbabwe",
+      "flag": "🇿🇼",
+      "name": "Zimbabwe",
+      "severity": "moderate",
+      "banned": [
+        "Fresh meat without veterinary clearance",
+        "Dairy from non-approved sources during outbreak periods"
+      ],
+      "usuallyAllowed": [
+        "Sealed retail products in personal quantities",
+        "Tinned and dried camping food if declared"
+      ],
+      "borderPosts": "Beitbridge, Victoria Falls, Kazungula, Forbes (Mozambique)",
+      "penalty": "Confiscation and possible fine",
+      "tip": "Victoria Falls supermarkets stock everything — buy after crossing if unsure.",
+      "sourceUrl": "https://www.zimbabwetourism.net/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "mozambique",
+      "flag": "🇲🇿",
+      "name": "Mozambique",
+      "severity": "moderate",
+      "banned": [
+        "Undeclared meat and animal products",
+        "Commercial quantities without import licence"
+      ],
+      "usuallyAllowed": [
+        "Personal camping supplies in sealed packaging",
+        "Dry goods and tins if declared"
+      ],
+      "borderPosts": "Lebombo/Ressano Garcia, Pafuri, Kosi Bay/Ponta",
+      "penalty": "Confiscation; delays at busy Lebombo if undeclared",
+      "tip": "Maputo supermarkets well stocked — discard SA braai leftovers before Lebombo.",
+      "sourceUrl": "https://www.visitmozambique.net/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "malawi",
+      "flag": "🇲🇼",
+      "name": "Malawi",
+      "severity": "moderate",
+      "banned": [
+        "Fresh meat without permit",
+        "Dairy from FMD zones"
+      ],
+      "usuallyAllowed": [
+        "Declared personal quantities",
+        "Sealed tins and UHT products"
+      ],
+      "borderPosts": "Mchinji/Zóbuè, Songwe, Dedza",
+      "penalty": "Confiscation at border veterinary desk",
+      "tip": "Entering from Zambia — similar rules; declare honey and biltong.",
+      "sourceUrl": "https://www.malawitourism.com/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "lesotho",
+      "flag": "🇱🇸",
+      "name": "Lesotho",
+      "severity": "light",
+      "banned": [
+        "Commercial meat imports without permit"
+      ],
+      "usuallyAllowed": [
+        "Personal food for mountain trips if declared",
+        "SACU retail products"
+      ],
+      "borderPosts": "Maseru Bridge, Sani Pass, Caledonspoort, Ficksburg",
+      "penalty": "Rare for tourists — confiscation if commercial quantities",
+      "tip": "Remote highlands have no shops — pack sealed non-perishables legally.",
+      "sourceUrl": "https://homeaffairs.gov.ls/",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "eswatini",
+      "flag": "🇸🇿",
+      "name": "Eswatini",
+      "severity": "light",
+      "banned": [
+        "Undeclared commercial meat imports"
+      ],
+      "usuallyAllowed": [
+        "SACU personal groceries",
+        "Sealed snacks for lodge stays"
+      ],
+      "borderPosts": "Oshoek/Ngwenya, Golela/Lavumisa",
+      "penalty": "Confiscation for undeclared commercial loads",
+      "tip": "SACU rules align with South Africa — still answer honestly if asked.",
+      "sourceUrl": "https://www.thekingdomofeswatini.com/",
+      "lastVerified": "2026-07"
+    }
+  ],
+  "resources": [
+    {
+      "label": "SADC veterinary harmonisation (reference)",
+      "url": "https://www.sadc.int/",
+      "internal": false
+    },
+    {
+      "label": "Botswana border guides",
+      "url": "#borders",
+      "internal": true
+    }
+  ]
+}

@@ -5759,6 +5759,188 @@ footer {
     line-height: 1.4;
 }
 
+.transport-fee-country {
+    border-bottom: 1px solid #eee;
+    padding: 0.35rem 0;
+    font-size: 0.82rem;
+}
+
+.transport-fee-country summary {
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+}
+
+.transport-fee-country summary::-webkit-details-marker {
+    display: none;
+}
+
+.transport-fee-currency {
+    font-weight: 400;
+    color: #666;
+    font-size: 0.78rem;
+}
+
+.transport-fee-detail-list {
+    margin: 0.35rem 0 0.5rem 1rem;
+    padding: 0;
+    font-size: 0.8rem;
+}
+
+.transport-fee-insurance {
+    margin-top: 0.75rem;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: #444;
+}
+
+.vehicle-fee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.vehicle-fee-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.vehicle-fee-card h4 {
+    margin: 0 0 0.25rem;
+}
+
+.vehicle-fee-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+    margin: 0.5rem 0;
+}
+
+.vehicle-fee-table th,
+.vehicle-fee-table td {
+    text-align: left;
+    padding: 0.35rem 0.4rem;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+.vehicle-fee-table th {
+    font-weight: 600;
+    color: var(--accent, #1b4332);
+}
+
+.vehicle-type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.vehicle-type-card {
+    background: #f8faf8;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 0.85rem;
+}
+
+.vehicle-type-card h4 {
+    margin: 0 0 0.5rem;
+}
+
+.vehicle-rental-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.vehicle-kit-list {
+    columns: 2;
+    column-gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.vet-rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.vet-rule-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 0.85rem;
+}
+
+.vet-rule-card h4 {
+    margin: 0 0 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.vet-severity-badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    background: #eee;
+    font-weight: 600;
+}
+
+.vet-severity--strict .vet-severity-badge {
+    background: #fde8e8;
+    color: #9b1c1c;
+}
+
+.vet-severity--moderate .vet-severity-badge {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.vet-severity--light .vet-severity-badge {
+    background: #e8f5e9;
+    color: #1b5e20;
+}
+
+.vet-rule-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.vet-rule-columns h5 {
+    margin: 0 0 0.35rem;
+    font-size: 0.8rem;
+    color: var(--accent, #1b4332);
+}
+
+.vet-rule-columns ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 640px) {
+    .vehicle-kit-list {
+        columns: 1;
+    }
+
+    .vet-rule-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
 .transport-crossborder-guides {
     margin-top: 2rem;
     padding-top: 1.5rem;

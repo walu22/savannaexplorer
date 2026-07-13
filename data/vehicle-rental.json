@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "lastUpdated": "2026-07",
+    "disclaimer": "Rental terms, cross-border fees, and waiver options vary by company and vehicle class. Confirm in writing before collection — Savanna Explorer does not book rentals.",
+    "sourceLabel": "National tourism boards & AA South Africa cross-border guidance"
+  },
+  "intro": "Most self-drive safaris start with a South African or Namibian rental. This guide covers vehicle choice, cross-border paperwork, gravel damage waivers, and the kit list operators expect you to carry.",
+  "vehicleTypes": [
+    {
+      "type": "4×2 sedan / compact SUV",
+      "icon": "🚗",
+      "bestFor": "Tarred highways, city gateways, Eswatini, Lesotho lowlands (not Sani Pass)",
+      "avoid": "Deep sand (Chobe, Kalahari), Sani Pass, remote Damaraland tracks, Ponta sand track",
+      "typicalCost": "ZAR 400–700/day from JNB/CPT",
+      "notes": "Lower fuel use and easier parking in towns. Most Kruger public roads are tar — 4×2 is fine inside the park."
+    },
+    {
+      "type": "4×4 SUV / double cab",
+      "icon": "🛻",
+      "bestFor": "Namibia gravel, Botswana sand edges, Sani Pass, Moremi public camps, overland loops",
+      "avoid": "Assuming AWD equals ground clearance — check wading depth and tyre size",
+      "typicalCost": "ZAR 800–1,400/day; NAD 900–1,600 in Windhoek",
+      "notes": "Request high clearance, diesel for range, and two spare tyres in Namibia. Manual common — specify automatic if needed."
+    },
+    {
+      "type": "Fully equipped camping 4×4",
+      "icon": "⛺",
+      "bestFor": "Namibia self-drive camping, remote Botswana, multi-week loops",
+      "avoid": "Short city breaks — excess equipment and higher daily rate",
+      "typicalCost": "NAD 1,200–2,000/day (Namibia2Go, Britz, Maui equivalents)",
+      "notes": "Includes rooftop tent, fridge, chairs, often second spare. One-way fees between Windhoek and Cape Town common."
+    }
+  ],
+  "crossBorderLetter": {
+    "title": "Cross-border letter of authority",
+    "body": "Financed and rental vehicles need written permission naming every country, dates, drivers, registration, and VIN. Border officials match this to your passport and windshield disc.",
+    "bullets": [
+      "Request 5–7 days before pickup — not at the counter on collection day",
+      "Typical rental fee: ZAR 1,000–1,500 per border crossing (paid to the company, not at the post)",
+      "List every country you might enter — ad-hoc additions are rarely approved at the border",
+      "Owned outright: original registration in your name + insurance; financed cars still need bank consent",
+      "Lesotho and Eswatini must be named explicitly on SA rentals — do not assume they are included"
+    ],
+    "sourceUrl": "https://www.aa.co.za/",
+    "linkLabel": "AA South Africa — cross-border guidance"
+  },
+  "gravelWaiver": {
+    "title": "Gravel road & tyre damage waivers",
+    "body": "Standard collision damage waiver often excludes windscreen chips, tyre punctures, and undercarriage damage on gravel — where most Namibia and Botswana incidents happen.",
+    "bullets": [
+      "Buy super cover or gravel waiver where offered (often ZAR/NAD 100–200/day extra)",
+      "Two spare tyres mandatory for remote Namibia — some companies include, others charge deposit",
+      "Return vehicle with same tyre count; puncture repair receipts help dispute claims",
+      "Sand driving (Chobe, Kalahari) may void cover without 4×4 experience — read the fine print"
+    ]
+  },
+  "kitList": [
+    "Two reflective triangles + fire extinguisher (SA cross-border requirement)",
+    "Warning triangle and hi-vis vest per passenger in some countries",
+    "Tyre pressure gauge and compressor (Namibia gravel)",
+    "Jumper cables or portable jump pack",
+    "Tow rope rated for vehicle weight",
+    "Offline maps downloaded (Maps.me, Google offline, or GPS unit)",
+    "ZAR/USD cash in small notes for tolls and border desks",
+    "Physical copy of cross-border letter and Yellow Card",
+    "Phone mount and car charger — handheld phone use illegal in SA",
+    "Cooler box and drinking water for desert legs",
+    "Basic tool kit and duct tape for gravel track repairs"
+  ],
+  "countries": [
+    {
+      "id": "south-africa",
+      "flag": "🇿🇦",
+      "title": "South Africa — rental hub",
+      "pickupHubs": "JNB, CPT, DUR, MQP (Kruger)",
+      "vehicleAdvice": "4×2 for tar circuits; 4×4 only for Sani Pass, Richtersveld, deep sand",
+      "crossBorder": "Avis, Europcar, Tempest, Bidvest — all offer cross-border letters for a fee",
+      "planningTip": "SANRAL e-tag for Gauteng tolls; request Lesotho/Eswatini on the letter for Kingdom Circuit loops.",
+      "url": "https://www.southafrica.net/gl/en/travel/article/getting-around-south-africa",
+      "linkLabel": "SA Tourism — getting around"
+    },
+    {
+      "id": "namibia",
+      "flag": "🇳🇦",
+      "title": "Namibia — 4×4 self-drive",
+      "pickupHubs": "Windhoek (WDH), Walvis Bay, one-way to CPT possible",
+      "vehicleAdvice": "4×4 with two spares standard for gravel; sedan only for tar-only routes",
+      "crossBorder": "Namibia2Go, Asco, Thrifty — confirm Botswana/Zambia letters if looping",
+      "planningTip": "Book compressor and rooftop tent early in peak season (Jun–Oct).",
+      "url": "https://www.namibia2go.com/",
+      "linkLabel": "Namibia2Go rentals"
+    },
+    {
+      "id": "botswana",
+      "flag": "🇧🇼",
+      "title": "Botswana — Maun & Kasane",
+      "pickupHubs": "Maun (MUB), Kasane; limited fleet vs SA",
+      "vehicleAdvice": "4×4 for Moremi, Chobe sand, and Kalahari tracks",
+      "crossBorder": "Fewer cross-border options — many fly to Maun and rent locally",
+      "planningTip": "Most Delta camps are fly-in; self-drive suits Chobe and Moremi public camps.",
+      "url": "https://www.botswanatourism.co.bw/",
+      "linkLabel": "Botswana Tourism"
+    },
+    {
+      "id": "zambia",
+      "flag": "🇿🇲",
+      "title": "Zambia — Livingstone & Lusaka",
+      "pickupHubs": "Livingstone (LVI), Lusaka (LUN)",
+      "vehicleAdvice": "4×2 OK for Livingstone–Chobe day trips with guide; 4×4 for Liuwa and remote parks",
+      "crossBorder": "Limited international one-way — often SA rental with letter into Zambia",
+      "planningTip": "Proflight often faster than driving Lusaka–Mfuwe on the Great North Road.",
+      "url": "https://www.zambiatourism.com/travel-info/",
+      "linkLabel": "Zambia travel info"
+    },
+    {
+      "id": "zimbabwe",
+      "flag": "🇿🇼",
+      "title": "Zimbabwe — Victoria Falls & Harare",
+      "pickupHubs": "Victoria Falls (VFA), Harare (HRE)",
+      "vehicleAdvice": "4×2 for Vic Falls–Hwange tar; 4×4 for Gonarezhou and remote tracks",
+      "crossBorder": "SA rental with letter common for KAZA loops; local hire for in-country only",
+      "planningTip": "Fuel shortages possible — fill in Vic Falls or Harare before remote legs.",
+      "url": "https://www.zimbabwetourism.net/",
+      "linkLabel": "Zimbabwe Tourism Authority"
+    },
+    {
+      "id": "mozambique",
+      "flag": "🇲🇿",
+      "title": "Mozambique — Maputo & coast",
+      "pickupHubs": "Maputo; limited at Vilanculos/Pemba",
+      "vehicleAdvice": "4×2 for EN1 tar; 4×4 for Ponta sand track and northern sand roads",
+      "crossBorder": "SA rental via Lebombo common; confirm Mozambique on letter",
+      "planningTip": "Do not drive EN1 at night — checkpoints and livestock on road.",
+      "url": "https://www.visitmozambique.net/",
+      "linkLabel": "Visit Mozambique"
+    },
+    {
+      "id": "malawi",
+      "flag": "🇲🇼",
+      "title": "Malawi — Lilongwe & Blantyre",
+      "pickupHubs": "Lilongwe (LLW), Blantyre (BLZ)",
+      "vehicleAdvice": "4×2 for Lake Malawi shore; 4×4 for Nyika Plateau wet season",
+      "crossBorder": "Often entered via Zambia (Mchinji) with SA or Zambian rental letter",
+      "planningTip": "Fuel can be scarce — carry cash and top up in major towns.",
+      "url": "https://www.malawitourism.com/",
+      "linkLabel": "Malawi Tourism"
+    },
+    {
+      "id": "lesotho",
+      "flag": "🇱🇸",
+      "title": "Lesotho — SA rental extension",
+      "pickupHubs": "No major international fleet — use SA rental with Lesotho on letter",
+      "vehicleAdvice": "4×4 mandatory for Sani Pass; tar to Maseru and Afriski in dry season",
+      "crossBorder": "Name Lesotho explicitly; guided Sani tours from Underberg if not confident",
+      "planningTip": "No fuel on Sani Pass — fill Maseru or Underberg before ascending.",
+      "url": "https://www.visitlesotho.travel/",
+      "linkLabel": "Visit Lesotho"
+    },
+    {
+      "id": "eswatini",
+      "flag": "🇸🇿",
+      "title": "Eswatini — Kruger add-on",
+      "pickupHubs": "Use SA rental from JNB or MQP with Eswatini on letter",
+      "vehicleAdvice": "4×2 sufficient — excellent tar on EZ1 highway",
+      "crossBorder": "Oshoek from Gauteng; Golela from KZN — both need letter permission",
+      "planningTip": "Compact country — breakfast in highveld, afternoon game drive in lowveld same day.",
+      "url": "https://www.thekingdomofeswatini.com/",
+      "linkLabel": "Eswatini Tourism"
+    }
+  ]
+}
