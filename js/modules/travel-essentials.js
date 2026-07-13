@@ -25,6 +25,24 @@ function linkHtml(resource) {
 function initTabs() {
     const tabs = document.querySelectorAll('[data-essentials-tab]');
     const panels = document.querySelectorAll('[data-essentials-panel]');
+    const disclaimerEl = document.getElementById('essentials-disclaimer');
+    const tabDisclaimers = {
+        insurance: insurance.meta.disclaimer,
+        'road-rules': roadRules.meta.disclaimer,
+        tipping: tipping.meta.disclaimer,
+        connectivity: connectivity.meta.disclaimer,
+        permits: permits.meta.disclaimer,
+        advisories: advisories.meta.disclaimer,
+        pitfalls: pitfalls.meta.disclaimer,
+        packing: packing.meta.disclaimer,
+    };
+
+    function setTabDisclaimer(tabId) {
+        if (disclaimerEl && tabDisclaimers[tabId]) {
+            disclaimerEl.textContent = tabDisclaimers[tabId];
+        }
+    }
+
     if (!tabs.length) return;
 
     tabs.forEach(tab => {
@@ -40,8 +58,12 @@ function initTabs() {
                 panel.classList.toggle('active', show);
                 panel.hidden = !show;
             });
+            setTabDisclaimer(id);
         });
     });
+
+    const activeTab = document.querySelector('[data-essentials-tab].active');
+    setTabDisclaimer(activeTab?.dataset.essentialsTab || 'insurance');
 }
 
 function renderInsurance() {
@@ -326,11 +348,6 @@ function renderPacking() {
 export function initTravelEssentials() {
     const section = document.getElementById('travel-essentials');
     if (!section) return;
-
-    const disclaimer = document.getElementById('essentials-disclaimer');
-    if (disclaimer) {
-        disclaimer.textContent = insurance.meta.disclaimer;
-    }
 
     initTabs();
     renderInsurance();
