@@ -16,12 +16,82 @@ import printCss from '../../css/print-checklist.css?inline';
 
 import { ITINERARY_COUNTRIES } from '../lib/itinerary-route-countries.js';
 import { syncPlannerExpenseRoute, initPlannerExpenseSync } from '../lib/planner-expense-sync.js';
+
+const STORAGE_KEY = 'savannaExplorerTripPlannerState';
 function escapeHtml(text) {
     return String(text)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
+        .replace(/&/g, '&')
+        .replace(/</g, '<')
+        .replace(/>/g, '>')
+        .replace(/"/g, '"');
+}
+
+function savePlannerState() {
+    try {
+        const state = collectPlannerState();
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {
+        console.warn('Failed to save planner state', e);
+    }
+}
+
+function loadPlannerState() {
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            const state = JSON.parse(saved);
+            applyPlannerState(state);
+            return true;
+        }
+    } catch (e) {
+        console.warn('Failed to load planner state', e);
+    }
+    return false;
+}
+
+function applyPlannerState(state) {
+    // Set country checkboxes
+    const countryCheckboxes = document.querySelectorAll('#trip-country-picker input[type="checkbox"]');
+    countryCheckboxes.forEach(checkbox => {
+        checkbox.checked = state.countryIds?.includes(checkbox.value) || false;
+    });
+
+    // Set route dropdown
+    const routeSelect = document.getElementById('trip-route-select');
+    if (routeSelect && state.routeId) {
+        routeSelect.value = state.routeId;
+        // Trigger country selection based on route
+        if (state.routeId && ITINERARY_COUNTRIES[state.routeId]) {
+            setCountrySelection(ITINERARY_COUNTRIES[state.routeId]);
+        }
+    }
+
+    // Set packing tab
+    const packTab = document.querySelector(`#trip-planner .hub-tab[data-pack="${state.packType || 'safari'}"]`);
+    if (packTab) {
+        // Deactivate all tabs
+        document.querySelectorAll('#trip-planner .hub-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        // Activate the selected tab
+        packTab.classList.add('active');
+        // Update packing list
+        renderPackList(state.packType || 'safari');
+    }
+
+    // Set packing items
+    if (state.packingItems) {
+        const packingCheckboxes = document.querySelectorAll('#trip-pack-list input[type="checkbox"]');
+        packingCheckboxes.forEach(checkbox => {
+            checkbox.checked = state.packingItems?.includes(checkbox.dataset.item) || false;
+        });
+    }
+
+    // Set passport dropdown
+    const passportSelect = document.getElementById('hub-passport-select');
+    if (passportSelect && state.passportId) {
+        passportSelect.value = state.passportId;
+    }
 }
 
 function getEmergency(countryId) {
@@ -240,6 +310,9 @@ export function initTripPlanner() {
     const routeSelect = document.getElementById('trip-route-select');
     if (!picker || !routeSelect) return;
 
+    // Load saved state if available
+    loadPlannerState();
+
     picker.innerHTML = COUNTRY_ORDER.map(id => {
         const meta = COUNTRY_META[id];
         return `
@@ -257,10 +330,14 @@ export function initTripPlanner() {
 
     renderPackList('safari');
 
+    // Save state when country selection changes
+    picker.addEventListener('change', savePlannerState);
+
     routeSelect.addEventListener('change', () => {
         const ids = ITINERARY_COUNTRIES[routeSelect.value];
         if (ids?.length) setCountrySelection(ids);
         syncPlannerExpenseRoute(routeSelect.value, { source: 'planner' });
+        savePlannerState();
     });
 
     void initPlannerExpenseSync();
@@ -270,8 +347,15 @@ export function initTripPlanner() {
             document.querySelectorAll('#trip-planner .hub-tab').forEach(t => t.classList.remove('active'));
             this.classList.add('active');
             renderPackList(this.dataset.pack);
+            savePlannerState();
         });
     });
+
+    // Save state when packing items change
+    const packList = document.getElementById('trip-pack-list');
+    if (packList) {
+        packList.addEventListener('change', savePlannerState);
+    }
 
     document.getElementById('trip-preview-btn')?.addEventListener('click', async () => {
         const state = collectPlannerState();
@@ -286,6 +370,7 @@ export function initTripPlanner() {
         }
         if (feedback) feedback.hidden = true;
         renderPreview(await buildChecklistHtml(state));
+        // Don't save on preview - only on actual changes
     });
 
     document.getElementById('trip-print-btn')?.addEventListener('click', async () => {
@@ -303,5 +388,6 @@ export function initTripPlanner() {
         const html = await buildChecklistHtml(state);
         renderPreview(html);
         printChecklist(html);
+        // Don't save on print - only on actual changes
     });
 }
