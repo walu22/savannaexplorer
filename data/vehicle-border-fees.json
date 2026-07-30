@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "lastUpdated": "2026-07",
+    "disclaimer": "Border fees change without notice. Amounts are indicative planning estimates in USD or local currency — confirm at the post, with your rental company, or via official road-fund authorities before travel.",
+    "sourceLabel": "RTSA, ZINARA, COMESA Yellow Card, national road agencies"
+  },
+  "insuranceNote": {
+    "title": "COMESA Yellow Card vs border insurance",
+    "body": "The Yellow Card is compulsory third-party liability across COMESA member states (Zambia, Zimbabwe, Malawi, Tanzania, and others). Buy before the queue from your insurer or AA South Africa. South Africa and Mozambique are not COMESA members but motorists leaving those countries can obtain a Yellow Card under a Business-to-Business arrangement. Border-issued insurance is sometimes available but queues and premiums are unpredictable — budget extra time and cash if you rely on it.",
+    "sourceUrl": "https://comesayellowcard.org/",
+    "linkLabel": "COMESA Yellow Card — official site"
+  },
+  "countries": [
+    {
+      "id": "south-africa",
+      "flag": "🇿🇦",
+      "name": "South Africa",
+      "currency": "ZAR",
+      "fees": [
+        { "type": "Vehicle exit / entry", "amount": "Usually none for tourists", "notes": "Ensure rental cross-border letter covers return" },
+        { "type": "Third-party insurance", "amount": "Included in SA policy or rental", "notes": "Yellow Card needed when leaving SA into COMESA states" },
+        { "type": "Tolls (SANRAL)", "amount": "ZAR 30–80 per plaza", "notes": "Gauteng e-tag speeds up N1/N3/N12/N17" }
+      ],
+      "tip": "Unabridged birth certificate for travelling minors. ZA sticker on rear of foreign-registered vehicles entering SA.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "namibia",
+      "flag": "🇳🇦",
+      "name": "Namibia",
+      "currency": "NAD",
+      "fees": [
+        { "type": "Cross-border / road user fee", "amount": "N$220–350 per vehicle", "notes": "Paid at land borders; temporary import permit stamped" },
+        { "type": "Third-party insurance", "amount": "N$150–300 at border", "notes": "Or valid Yellow Card if driving onward to COMESA" },
+        { "type": "TIP (temporary import)", "amount": "Included in border process", "notes": "Passport stamp + vehicle declaration" }
+      ],
+      "tip": "NAD pegged 1:1 to rand — cards work in towns; carry cash at remote posts.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "botswana",
+      "flag": "🇧🇼",
+      "name": "Botswana",
+      "currency": "BWP",
+      "fees": [
+        { "type": "Road transport permit", "amount": "P200–350 per vehicle", "notes": "National road safety levy may apply" },
+        { "type": "Third-party insurance", "amount": "Yellow Card or P150–250 at border", "notes": "Police checks expect proof of cover" },
+        { "type": "TIP", "amount": "Stamped at post", "notes": "Vehicle registration + passport required" }
+      ],
+      "tip": "Strict vet controls — no fresh meat or dairy. Declare camping food; tinned goods usually OK.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "zambia",
+      "flag": "🇿🇲",
+      "name": "Zambia",
+      "currency": "USD / ZMW",
+      "fees": [
+        { "type": "RTSA road toll / access", "amount": "USD 20–40 or ZMW equivalent", "notes": "Road Transport and Safety Agency levy at borders" },
+        { "type": "Carbon tax", "amount": "USD 10–20 (indicative)", "notes": "Often bundled with road fees — keep receipt" },
+        { "type": "Third-party insurance", "amount": "Yellow Card required", "notes": "Border purchase possible but slow; COMESA preferred" },
+        { "type": "TIP", "amount": "Issued at border", "notes": "Separate from KAZA UniVisa (per person, not per vehicle)" }
+      ],
+      "tip": "KAZA UniVisa USD 50 is per traveller for ZM↔ZW circuits — not a vehicle fee.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "zimbabwe",
+      "flag": "🇿🇼",
+      "name": "Zimbabwe",
+      "currency": "USD cash",
+      "fees": [
+        { "type": "ZINARA road access", "amount": "USD 30–50 per vehicle", "notes": "Zimbabwe National Road Administration — pay at border" },
+        { "type": "Carbon tax", "amount": "USD 10–20", "notes": "Often collected with ZINARA; exact USD notes preferred" },
+        { "type": "Third-party insurance", "amount": "USD 20–40 at border or Yellow Card", "notes": "Beitbridge queues longest if buying insurance on arrival" },
+        { "type": "TIP", "amount": "Stamped in passport", "notes": "Bridge tolls at Victoria Falls / Kazungula are separate small fees" }
+      ],
+      "tip": "Carry clean USD small notes — torn or old bills refused at many desks.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "mozambique",
+      "flag": "🇲🇿",
+      "name": "Mozambique",
+      "currency": "MZN / USD",
+      "fees": [
+        { "type": "Temporary import permit", "amount": "MZN 500–1,500", "notes": "Vehicle declaration + passport" },
+        { "type": "Third-party insurance", "amount": "MZN 800–2,000 or Yellow Card (B2B)", "notes": "Mandatory — obtain before queue when possible" },
+        { "type": "Road tax / stamp", "amount": "Varies by post", "notes": "Lebombo/Ressano Garcia busiest from Kruger" }
+      ],
+      "tip": "e-Visa or visa-on-arrival for most tourists — separate from vehicle fees.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "malawi",
+      "flag": "🇲🇼",
+      "name": "Malawi",
+      "currency": "MWK / USD",
+      "fees": [
+        { "type": "Road fund / access levy", "amount": "MWK 10,000–25,000", "notes": "Paid at land borders" },
+        { "type": "Third-party insurance", "amount": "Yellow Card accepted", "notes": "Border purchase available at Mchinji and Songwe" },
+        { "type": "TIP", "amount": "Border stamp", "notes": "Fuel availability can be limited — plan ahead" }
+      ],
+      "tip": "COMESA Yellow Card is the fastest option on multi-country loops via Zambia.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "lesotho",
+      "flag": "🇱🇸",
+      "name": "Lesotho",
+      "currency": "LSL / ZAR",
+      "fees": [
+        { "type": "Border crossing", "amount": "Minimal or none", "notes": "Maseru Bridge, Caledonspoort, Ficksburg, Sani Pass" },
+        { "type": "Third-party insurance", "amount": "SA rental cover if letter permits Lesotho", "notes": "Confirm on cross-border letter before departure" },
+        { "type": "TIP", "amount": "Passport stamp", "notes": "Sani Pass: 4×4 mandatory; controls at summit" }
+      ],
+      "tip": "Single-entry SA visa holders: entering Lesotho exits South Africa — you need multi-entry SA visa to return.",
+      "lastVerified": "2026-07"
+    },
+    {
+      "id": "eswatini",
+      "flag": "🇸🇿",
+      "name": "Eswatini",
+      "currency": "SZL / ZAR",
+      "fees": [
+        { "type": "Border crossing", "amount": "Minimal or none", "notes": "Oshoek/Ngwenya and Golela/Lavumisa main tourist posts" },
+        { "type": "Third-party insurance", "amount": "SA rental cover if permitted", "notes": "Lilangeni pegged 1:1 to rand" },
+        { "type": "TIP", "amount": "Passport stamp", "notes": "Often faster than busier SA-only posts" }
+      ],
+      "tip": "Same SA visa trap as Lesotho — plan multi-entry if looping Kingdom Circuit from Kruger.",
+      "lastVerified": "2026-07"
+    }
+  ]
+}
