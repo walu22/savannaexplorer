@@ -14,15 +14,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Savanna Explorer | Plan Your Southern Africa Trip">
     <meta name="twitter:description" content="Free planning hub for nine Southern Africa countries — country guides, route templates, visa tools, and printable planning guides.">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200">
-<link rel="canonical" id="canonical-link" href="/">
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#c4672a">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200">
+    <link rel="canonical" id="canonical-link" href="/">
     <link rel="stylesheet" href="/css/main.css">
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#c4672a">
-<!-- Sentry SDK for error tracking -->
-<script src="https://browser.sentry.io/cdn/7.84.0/bundle.min.js"></script>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -79,16 +73,6 @@
                 </li>
                 <li><a href="#news">News</a></li>
                 <li><a href="#" id="open-ai-planner" class="btn-ai-nav"><i class="fas fa-magic"></i> Plan with AI</a></li>
-                <li>
-                    <button type="button" id="theme-toggle" class="nav-theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-                        <i class="fas fa-moon" aria-hidden="true"></i>
-                    </button>
-                </li>
-                <li>
-                    <button type="button" id="open-search" class="nav-search-trigger" aria-label="Search site" title="Search (Ctrl+K)">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                    </button>
-                </li>
                 <li class="nav-dropdown nav-dropdown--cta" id="nav-hub-dropdown"></li>
             </ul>
 
@@ -101,24 +85,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Search overlay -->
-    <div id="search-overlay" class="search-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Site search">
-        <div class="search-overlay__backdrop"></div>
-        <div class="search-overlay__panel">
-            <div class="search-overlay__header">
-                <div class="search-overlay__input-wrap">
-                    <i class="fas fa-search search-overlay__icon" aria-hidden="true"></i>
-                    <input type="search" id="search-input" class="search-overlay__input" placeholder="Search countries, parks, routes…" autocomplete="off" aria-label="Search">
-                    <kbd class="search-overlay__kbd">ESC</kbd>
-                </div>
-                <button type="button" id="close-search" class="search-overlay__close" aria-label="Close search">
-                    <i class="fas fa-xmark" aria-hidden="true"></i>
-                </button>
-            </div>
-            <div id="search-results" class="search-overlay__results" aria-live="polite"></div>
-        </div>
-    </div>
 
     <div id="mobile-nav-panel" class="mobile-nav-panel" aria-hidden="true" aria-label="Site menu">
         <div class="mobile-nav-panel__head">

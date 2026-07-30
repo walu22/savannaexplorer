@@ -2,8 +2,6 @@ import { CONFIG } from './config.js';
 import { initNav } from './modules/nav.js';
 import { initScrollUx } from './modules/scroll-ux.js';
 import { initReveal } from './modules/reveal.js';
-import { initSearch } from './modules/search.js';
-import { initDarkMode } from './modules/dark-mode.js';
 
 function whenIdle(callback) {
     if (typeof requestIdleCallback === 'function') {
@@ -14,15 +12,6 @@ function whenIdle(callback) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Sentry for error tracking (if configured)
-    if (typeof Sentry !== 'undefined') {
-        Sentry.init({
-            dsn: '', // Add your Sentry DSN here in production
-            tracesSampleRate: 1.0,
-            enabled: false, // Disable by default, enable when DSN is provided, enable when DSN is available
-        });
-    }
-
     const versionEl = document.getElementById('app-version');
     if (versionEl && CONFIG.appVersion) {
         versionEl.textContent = `v${CONFIG.appVersion}`;
@@ -31,21 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initScrollUx();
     initReveal();
-    initSearch();
-    initDarkMode();
-
-    // Register service worker for PWA support
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js')
-                .then((registration) => {
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                })
-                .catch((error) => {
-                    console.log('ServiceWorker registration failed: ', error);
-                });
-        });
-    }
 
     import('./modules/share.js').then(({ initShare }) => initShare());
 
