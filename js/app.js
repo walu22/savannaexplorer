@@ -123,6 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Phrasebook — load independently, non-blocking
     import('./modules/phrasebook.js').then(({ initPhrasebook }) => initPhrasebook());
 
+    // Campsites — load independently, non-blocking
+    import('./modules/campsites.js').then(({ initCampsites }) => initCampsites());
+
 
 
 

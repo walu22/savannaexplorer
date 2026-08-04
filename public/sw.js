@@ -11,7 +11,9 @@ const ASSETS_TO_CACHE = [
   '/js/modules/cost-estimator.js',
   '/data/safari-bingo.json',
   '/data/cost-estimates.json',
+  '/data/campsites.json',
   '/manifest.json',
+
   '/favicon.png'
 ];
 

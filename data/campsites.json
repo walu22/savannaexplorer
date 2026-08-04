@@ -1,0 +1,153 @@
+{
+  "filters": {
+    "countries": ["Botswana", "Namibia", "South Africa", "Zimbabwe", "Zambia", "Mozambique"],
+    "types": ["Campsite", "Lodge", "Tented Camp", "Guest House"],
+    "amenities": ["WiFi", "Pool", "Braai", "Power", "Pet-Friendly", "Restaurant", "Bar", "Shop"]
+  },
+  "accommodations": [
+    {
+      "id": "skukuza-rest",
+      "name": "Skukuza Rest Camp",
+      "park": "Kruger National Park",
+      "country": "South Africa",
+      "type": "Campsite",
+      "priceRange": "$",
+      "amenities": ["Power", "Braai", "Pool", "Restaurant", "Bar", "Shop", "WiFi"],
+      "petFriendly": false,
+      "bookingUrl": "https://www.sanparks.org/parks/kruger/camps/skukuza/",
+      "description": "Kruger's largest camp with full facilities on the Sabie River."
+    },
+    {
+      "id": "satara-rest",
+      "name": "Satara Rest Camp",
+      "park": "Kruger National Park",
+      "country": "South Africa",
+      "type": "Campsite",
+      "priceRange": "$",
+      "amenities": ["Power", "Braai", "Pool", "Restaurant", "Shop"],
+      "petFriendly": false,
+      "bookingUrl": "https://www.sanparks.org/parks/kruger/camps/satara/",
+      "description": "Prime big cat territory in central Kruger — excellent predator sightings."
+    },
+    {
+      "id": "third-bridge",
+      "name": "Third Bridge Campsite",
+      "park": "Moremi Game Reserve",
+      "country": "Botswana",
+      "type": "Campsite",
+      "priceRange": "$",
+      "amenities": ["Braai"],
+      "petFriendly": false,
+      "bookingUrl": "https://www.botswanatourism.co.bw/",
+      "description": "Remote, unfenced wilderness camp deep in the Okavango Delta."
+    },
+    {
+      "id": "sossus-dune",
+      "name": "Sossusvlei Dune Lodge",
+      "park": "Namib-Naukluft Park",
+      "country": "Namibia",
+      "type": "Lodge",
+      "priceRange": "$$$",
+      "amenities": ["Pool", "Restaurant", "Bar", "Power"],
+      "petFriendly": false,
+      "bookingUrl": "https://www.nwr.com.na/sossusvlei-dune-lodge",
+      "description": "NWR lodge inside the park gate — sunrise access to Deadvlei."
+    },
+    {
+      "id": "sesriem-camp",
+      "name": "Sesriem Campsite",
+      "park": "Namib-Naukluft Park",
+      "country": "Namibia",
+      "type": "Campsite",
+      "priceRange": "$",
+      "amenities": ["Braai", "Power", "Pool", "Shop"],
+      "petFriendly": false,
+      "bookingUrl": "https://www.nwr.com.na/sesriem-campsite",
+      "description": "The only campsite inside the Sossusvlei gate — book months ahead."
+    },
+    {
+      "id": "etosha-okaukuejo",
+      "name": "Okaukuejo Resort",
+      "park": "Etosha National Park",
+      "country": "Namibia",
+      "type": "Lodge",
+      "priceRange": "$$",
+      "amenities": ["Pool", "Restaurant", "Bar", "Power", "Shop", "WiFi"],
+      "petFriendly": false,
+      "bookingUrl": "https://www.nwr.com.na/okaukuejo-resort",
+      "description": "Famous floodlit waterhole — watch rhino and elephant drink at night."
+    },
+    {
+      "id": "halali-camp",
+      "name": "Halali Resort",
+      "park": "Etosha National Park",
+      "country": "Namibia",
+      "type": "Campsite",
+      "priceRange": "$",
+      "amenities": ["Pool", "Restaurant", "Power", "Braai"],
+      "petFriendly": false,
+      "bookingUrl": "https://www.nwr.com.na/halali-resort",
+      "description": "Quiet mid-park camp with its own illuminated waterhole."
+    },
+    {
+      "id": "victoria-falls-rest",
+      "name": "Victoria Falls Rest Camp",
+      "park": "Victoria Falls",
+      "country": "Zimbabwe",
+      "type": "Campsite",
+      "priceRange": "$",
+      "amenities": ["Braai", "Power", "WiFi", "Bar"],
+      "petFriendly": false,
+      "bookingUrl": "https://www.zimparks.org/",
+      "description": "Walking distance to the falls — budget-friendly and central."
+    },
+    {
+      "id": "hwange-main",
+      "name": "Hwange Main Camp",
+      "park": "Hwange National Park",
+      "country": "Zimbabwe",
+      "type": "Campsite",
+      "priceRange": "$",
+      "amenities": ["Braai", "Power", "Restaurant"],
+      "petFriendly": false,
+      "bookingUrl": "https://www.zimparks.org/",
+      "description": "Gateway camp to Zimbabwe's largest park — massive elephant herds."
+    },
+    {
+      "id": "maun-lodge",
+      "name": "Maun Lodge",
+      "park": "Okavango Gateway",
+      "country": "Botswana",
+      "type": "Lodge",
+      "priceRange": "$$",
+      "amenities": ["Pool", "Restaurant", "Bar", "WiFi", "Power", "Pet-Friendly"],
+      "petFriendly": true,
+      "bookingUrl": "https://www.maunlodge.com/",
+      "description": "Popular staging point before flying into the Delta — good value."
+    },
+    {
+      "id": "tofo-bamboozi",
+      "name": "Bamboozi Beach Lodge",
+      "park": "Tofo Beach",
+      "country": "Mozambique",
+      "type": "Guest House",
+      "priceRange": "$$",
+      "amenities": ["Restaurant", "Bar", "WiFi"],
+      "petFriendly": false,
+      "bookingUrl": "https://www.bamboozi.co.mz/",
+      "description": "Beachfront backpacker vibes — whale sharks, mantas, and diving."
+    },
+    {
+      "id": "south-luangwa-flatdogs",
+      "name": "Flatdogs Camp",
+      "park": "South Luangwa National Park",
+      "country": "Zambia",
+      "type": "Tented Camp",
+      "priceRange": "$$",
+      "amenities": ["Pool", "Restaurant", "Bar", "WiFi", "Power"],
+      "petFriendly": false,
+      "bookingUrl": "https://www.flatdogscamp.com/",
+      "description": "Riverside tented camp — walking safaris and night drives in leopard country."
+    }
+  ]
+}
