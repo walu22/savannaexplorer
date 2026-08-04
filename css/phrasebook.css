@@ -1,0 +1,119 @@
+/* =========================================
+   Phrasebook Styles
+   ========================================= */
+
+.phrasebook-section {
+    padding: var(--section-pad) 0;
+    background: var(--bg-dark);
+    color: var(--white);
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.phrasebook-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.phrasebook-tabs {
+    display: flex;
+    overflow-x: auto;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.phrasebook-tab {
+    flex: 1;
+    min-width: 120px;
+    padding: 1.25rem 1rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.phrasebook-tab:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.phrasebook-tab.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.phrasebook-content {
+    padding: 2.5rem;
+}
+
+.phrasebook-region {
+    font-size: 0.9rem;
+    color: var(--primary-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.phrase-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.phrase-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+    transition: var(--transition-fast);
+}
+
+.phrase-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.phrase-english {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.phrase-translation {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.phrase-local {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--primary);
+}
+
+.phrase-pronunciation {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+    .phrase-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    .phrasebook-content {
+        padding: 1.5rem;
+    }
+}

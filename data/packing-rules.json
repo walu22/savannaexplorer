@@ -1,0 +1,50 @@
+{
+  "categories": [
+    {
+      "id": "clothing",
+      "name": "Clothing",
+      "icon": "👕"
+    },
+    {
+      "id": "documents",
+      "name": "Documents & Money",
+      "icon": "🛂"
+    },
+    {
+      "id": "health",
+      "name": "Health & Toiletries",
+      "icon": "💊"
+    },
+    {
+      "id": "gear",
+      "name": "Gear & Electronics",
+      "icon": "📷"
+    }
+  ],
+  "items": [
+    { "id": "p-passport", "name": "Passport (6 months validity, 3 blank pages)", "category": "documents", "condition": "always" },
+    { "id": "p-tickets", "name": "Flight tickets / e-tickets", "category": "documents", "condition": "always" },
+    { "id": "p-insurance", "name": "Travel Insurance Documents", "category": "documents", "condition": "always" },
+    { "id": "p-cash", "name": "Small denomination USD cash (post-2013 bills)", "category": "documents", "condition": "always" },
+    { "id": "p-drivers", "name": "International Driving Permit", "category": "documents", "condition": "self-drive" },
+    
+    { "id": "p-malaria", "name": "Malaria Prophylaxis", "category": "health", "condition": "always" },
+    { "id": "p-sunscreen", "name": "Sunscreen (SPF 50+)", "category": "health", "condition": "always" },
+    { "id": "p-repellent", "name": "Insect Repellent (DEET based)", "category": "health", "condition": "always" },
+    { "id": "p-firstaid", "name": "Basic First Aid Kit", "category": "health", "condition": "self-drive" },
+    
+    { "id": "p-fleece", "name": "Warm Fleece / Jacket (mornings are freezing!)", "category": "clothing", "condition": "winter" },
+    { "id": "p-beanie", "name": "Beanie and Gloves", "category": "clothing", "condition": "winter" },
+    { "id": "p-hat", "name": "Wide-brimmed Hat", "category": "clothing", "condition": "always" },
+    { "id": "p-neutral", "name": "Neutral Colored Clothing (khaki, green, brown)", "category": "clothing", "condition": "always" },
+    { "id": "p-tsetse", "name": "Avoid dark blue/black clothing (attracts tsetse flies)", "category": "clothing", "condition": "always" },
+    { "id": "p-boots", "name": "Comfortable Walking Shoes/Boots", "category": "clothing", "condition": "always" },
+    { "id": "p-swimsuit", "name": "Swimsuit", "category": "clothing", "condition": "summer" },
+    
+    { "id": "p-bino", "name": "Binoculars (essential!)", "category": "gear", "condition": "always" },
+    { "id": "p-camera", "name": "Camera with zoom lens (200mm+)", "category": "gear", "condition": "always" },
+    { "id": "p-adaptor", "name": "Universal Travel Adaptor (Type M for SA/Namibia)", "category": "gear", "condition": "always" },
+    { "id": "p-headlamp", "name": "Headlamp", "category": "gear", "condition": "always" },
+    { "id": "p-softbag", "name": "Soft-sided duffel bag (no hard suitcases)", "category": "gear", "condition": "fly-in" }
+  ]
+}

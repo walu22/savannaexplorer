@@ -1,0 +1,52 @@
+{
+  "languages": [
+    {
+      "id": "swahili",
+      "name": "Swahili",
+      "regions": "Tanzania, Kenya, Uganda",
+      "phrases": [
+        { "english": "Hello", "local": "Jambo", "pronunciation": "jahm-boh" },
+        { "english": "How are you?", "local": "Habari yako?", "pronunciation": "hah-bah-ree yah-koh" },
+        { "english": "Thank you", "local": "Asante", "pronunciation": "ah-sahn-teh" },
+        { "english": "No problem", "local": "Hakuna matata", "pronunciation": "hah-koo-nah mah-tah-tah" },
+        { "english": "Goodbye", "local": "Kwa heri", "pronunciation": "kwah heh-ree" }
+      ]
+    },
+    {
+      "id": "afrikaans",
+      "name": "Afrikaans",
+      "regions": "South Africa, Namibia",
+      "phrases": [
+        { "english": "Hello", "local": "Hallo", "pronunciation": "hul-low" },
+        { "english": "How are you?", "local": "Hoe gaan dit?", "pronunciation": "hoo-hahn-dit" },
+        { "english": "Thank you", "local": "Dankie", "pronunciation": "dahn-kee" },
+        { "english": "Yes / No", "local": "Ja / Nee", "pronunciation": "yah / nee-ah" },
+        { "english": "Cheers", "local": "Gesondheid", "pronunciation": "he-sond-hate" }
+      ]
+    },
+    {
+      "id": "setswana",
+      "name": "Setswana",
+      "regions": "Botswana",
+      "phrases": [
+        { "english": "Hello", "local": "Dumela", "pronunciation": "doo-meh-lah" },
+        { "english": "How are you?", "local": "O tsogile jang?", "pronunciation": "oh-tso-hee-leh jahng" },
+        { "english": "Thank you", "local": "Ke itumetse", "pronunciation": "keh-ee-too-met-seh" },
+        { "english": "I am fine", "local": "Ke tsogile sentle", "pronunciation": "keh-tso-hee-leh-sent-leh" },
+        { "english": "Goodbye", "local": "Tsamaya sentle", "pronunciation": "tsa-ma-ya-sent-leh" }
+      ]
+    },
+    {
+      "id": "shona",
+      "name": "Shona",
+      "regions": "Zimbabwe",
+      "phrases": [
+        { "english": "Hello", "local": "Mhoro", "pronunciation": "mho-ro" },
+        { "english": "How are you?", "local": "Makadii?", "pronunciation": "ma-ka-dee" },
+        { "english": "Thank you", "local": "Maita basa", "pronunciation": "ma-ee-ta ba-sa" },
+        { "english": "Yes", "local": "Ehe", "pronunciation": "eh-heh" },
+        { "english": "Goodbye", "local": "Chisara zvakanaka", "pronunciation": "chee-sa-ra zva-ka-na-ka" }
+      ]
+    }
+  ]
+}

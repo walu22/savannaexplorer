@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savanna Explorer | Plan Your Southern Africa Trip</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#C4672A">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/32/000000/safari.png">
+    <link rel="apple-touch-icon" href="https://img.icons8.com/color/192/000000/safari.png">
     <meta name="description" content="Free planning hub for nine Southern Africa countries — country guides, route templates, visa tools, border crossings, national parks, and printable planning guides. Book direct with official sources.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Savanna Explorer">
@@ -912,6 +916,69 @@
             <div class="trip-planner-preview-panel" id="trip-planner-preview-panel" hidden>
                 <h3 class="trip-preview-heading">Checklist preview</h3>
                 <div id="trip-planner-preview" class="trip-planner-preview"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Packing List -->
+    <section id="packing-list" class="packing-list-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Gear up</span>
+                <h2>Dynamic Packing List</h2>
+                <p>Generate a custom safari packing list based on your travel month and style.</p>
+            </div>
+            
+            <div class="packing-generator" id="packing-generator">
+                <div class="packing-controls">
+                    <div class="packing-control-group">
+                        <label for="pack-month">Travel Month</label>
+                        <select id="pack-month" class="packing-select">
+                            <option value="jan">January</option>
+                            <option value="feb">February</option>
+                            <option value="mar">March</option>
+                            <option value="apr">April</option>
+                            <option value="may">May</option>
+                            <option value="jun">June</option>
+                            <option value="jul">July</option>
+                            <option value="aug">August</option>
+                            <option value="sep">September</option>
+                            <option value="oct">October</option>
+                            <option value="nov">November</option>
+                            <option value="dec">December</option>
+                        </select>
+                    </div>
+                    <div class="packing-control-group">
+                        <label for="pack-style">Travel Style</label>
+                        <select id="pack-style" class="packing-select">
+                            <option value="self-drive">Self-Drive / Overland</option>
+                            <option value="fly-in">Fly-in Safari (Light Aircraft)</option>
+                            <option value="group">Group Tour</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="packing-list-output"></div>
+                
+                <div class="packing-actions">
+                    <div class="packing-progress" id="packing-progress">0 / 0 Packed</div>
+                    <button type="button" class="btn-packing-reset" id="btn-packing-reset">Reset List</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Phrasebook -->
+    <section id="phrasebook" class="phrasebook-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Connect with locals</span>
+                <h2>Essential Phrasebook</h2>
+                <p>Learn a few basic words in local languages to show respect and get a warmer welcome.</p>
+            </div>
+            
+            <div class="phrasebook-container" id="phrasebook-app">
+                <!-- Injected via JS -->
             </div>
         </div>
     </section>

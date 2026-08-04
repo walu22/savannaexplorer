@@ -1,4 +1,16 @@
 import { CONFIG } from './config.js';
+
+// Register Service Worker for PWA
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('[PWA] ServiceWorker registration successful');
+        }).catch(err => {
+            console.log('[PWA] ServiceWorker registration failed: ', err);
+        });
+    });
+}
+
 import { initNav } from './modules/nav.js';
 import { initScrollUx } from './modules/scroll-ux.js';
 import { initReveal } from './modules/reveal.js';
@@ -104,6 +116,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Safari Bingo — load independently, non-blocking
     import('./modules/safari-bingo.js').then(({ initSafariBingo }) => initSafariBingo());
+
+    // Packing List — load independently, non-blocking
+    import('./modules/packing-list.js').then(({ initPackingList }) => initPackingList());
+
+    // Phrasebook — load independently, non-blocking
+    import('./modules/phrasebook.js').then(({ initPhrasebook }) => initPhrasebook());
+
+
 
 
     // Below-the-fold — defer until the browser is idle.
