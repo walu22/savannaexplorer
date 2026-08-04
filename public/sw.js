@@ -11,7 +11,8 @@ const ASSETS_TO_CACHE = [
   '/js/modules/cost-estimator.js',
   '/data/safari-bingo.json',
   '/data/cost-estimates.json',
-  '/manifest.json'
+  '/manifest.json',
+  '/favicon.png'
 ];
 
 // Install event - Cache static assets
