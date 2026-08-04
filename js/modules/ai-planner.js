@@ -145,8 +145,8 @@ export function initAiPlanner() {
             const startedAt = performance.now();
 
             try {
-                // Fetch generated itinerary from the secure Google Cloud Run relay endpoint
-                const response = await fetch('https://savannaexplorer-relay-550454647742.europe-west1.run.app/api/itinerary/generate', {
+                // Fetch generated itinerary from the Vercel serverless function endpoint
+                const response = await fetch('/api/itinerary/generate', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

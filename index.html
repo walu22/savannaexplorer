@@ -571,6 +571,139 @@
     <!-- Top Experiences Section (Already implemented) -->
 
 
+    <!-- Safari Bingo -->
+    <section id="safari-bingo" class="safari-bingo-section">
+        <div class="container">
+            <div class="safari-bingo-header">
+                <h2>Safari Bingo 🏆</h2>
+                <p>Track your sightings on the road, earn badges, and see how you score against the wild!</p>
+            </div>
+            
+            <div class="bingo-progress-container">
+                <span class="bingo-progress-text" id="bingo-progress-text">0 / 20</span>
+                <div class="bingo-progress-bar-wrap"><div class="bingo-progress-fill" id="bingo-progress-fill"></div></div>
+            </div>
+
+            <div class="bingo-grid" id="bingo-grid"></div>
+            
+            <div class="bingo-badges">
+                <h3>Achievements</h3>
+                <div class="bingo-badges-list" id="bingo-badges"></div>
+            </div>
+            
+            <div class="bingo-actions">
+                <button type="button" class="btn-bingo-reset" id="btn-bingo-reset">Reset Scorecard</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trip Cost Estimator -->
+    <section id="cost-estimator" class="cost-estimator-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Budget Planner</span>
+                <h2>Trip Cost Estimator</h2>
+                <p>Get a rough idea of daily costs across different countries and travel styles. Excludes international flights.</p>
+            </div>
+            
+            <div class="cost-calculator">
+                <!-- Controls -->
+                <div class="cost-controls">
+                    <div class="cost-control-group">
+                        <label for="cost-country">Select Destination</label>
+                        <select id="cost-country" class="cost-select"></select>
+                    </div>
+                    
+                    <div class="cost-control-group">
+                        <label for="cost-duration">Duration: <span id="cost-duration-val">7</span> days</label>
+                        <div class="cost-slider-container">
+                            <input type="range" id="cost-duration" class="cost-slider" min="3" max="30" value="7">
+                        </div>
+                    </div>
+                    
+                    <div class="cost-control-group">
+                        <label>Travel Style</label>
+                        <div class="cost-style-toggle">
+                            <button type="button" class="cost-style-btn" data-style="budget">Budget</button>
+                            <button type="button" class="cost-style-btn active" data-style="mid">Mid-range</button>
+                            <button type="button" class="cost-style-btn" data-style="luxury">Luxury</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results -->
+                <div class="cost-results">
+                    <div class="cost-total">
+                        <span class="cost-total-label">Estimated Total</span>
+                        <h3 class="cost-total-value" id="cost-total-val">$0</h3>
+                        <div class="cost-total-sub" id="cost-total-sub">for 7 days in South Africa</div>
+                    </div>
+                    
+                    <div class="cost-breakdown">
+                        <div class="cost-item">
+                            <div class="cost-item-icon">🛏️</div>
+                            <div class="cost-item-details">
+                                <div class="cost-item-header">
+                                    <span>Accommodation</span>
+                                    <span id="cost-val-acc">$0</span>
+                                </div>
+                                <div class="cost-item-bar-bg"><div class="cost-item-bar-fill" id="cost-bar-acc"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="cost-item">
+                            <div class="cost-item-icon">🦁</div>
+                            <div class="cost-item-details">
+                                <div class="cost-item-header">
+                                    <span>Activities</span>
+                                    <span id="cost-val-act">$0</span>
+                                </div>
+                                <div class="cost-item-bar-bg"><div class="cost-item-bar-fill" id="cost-bar-act"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="cost-item">
+                            <div class="cost-item-icon">🚗</div>
+                            <div class="cost-item-details">
+                                <div class="cost-item-header">
+                                    <span>Transport</span>
+                                    <span id="cost-val-trans">$0</span>
+                                </div>
+                                <div class="cost-item-bar-bg"><div class="cost-item-bar-fill" id="cost-bar-trans"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="cost-item">
+                            <div class="cost-item-icon">🍽️</div>
+                            <div class="cost-item-details">
+                                <div class="cost-item-header">
+                                    <span>Food & Drinks</span>
+                                    <span id="cost-val-food">$0</span>
+                                </div>
+                                <div class="cost-item-bar-bg"><div class="cost-item-bar-fill" id="cost-bar-food"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="cost-item">
+                            <div class="cost-item-icon">🎟️</div>
+                            <div class="cost-item-details">
+                                <div class="cost-item-header">
+                                    <span>Park Fees</span>
+                                    <span id="cost-val-parks">$0</span>
+                                </div>
+                                <div class="cost-item-bar-bg"><div class="cost-item-bar-fill" id="cost-bar-parks"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cost-disclaimer">
+                        Estimates are per person and based on self-drive/independent travel. Guided tours or fly-in safaris will significantly alter costs.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Southern Africa Utility Hub -->
     <section id="plan" class="utility-hub">
         <div class="container">
@@ -1535,6 +1668,36 @@
                 <button id="ai-back-btn" class="btn btn-outline" type="button"><i class="fas fa-arrow-left"></i> Start Over</button>
                 <div id="ai-markdown-content" class="markdown-body"></div>
             </div>
+        </div>
+    </div>
+
+    <!-- AI Travel Chat Assistant -->
+    <button id="chat-fab" class="chat-fab" aria-label="Open travel chat assistant">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <div id="chat-panel" class="chat-panel" role="dialog" aria-label="Travel Chat Assistant">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">🦁</div>
+                <div class="chat-header-text">
+                    <h4>Safari Guide</h4>
+                    <span><span class="chat-status-dot"></span> Online · Southern Africa expert</span>
+                </div>
+            </div>
+            <button class="chat-close-btn" aria-label="Close chat">&times;</button>
+        </div>
+        <div class="chat-messages">
+            <div class="chat-welcome">
+                <div class="chat-welcome-icon">🌍</div>
+                <h5>Welcome to SavannaExplorer!</h5>
+                <p>Ask me anything about travel in Southern Africa — visas, parks, borders, packing, best times to visit, and more.</p>
+            </div>
+        </div>
+        <div class="chat-chips"></div>
+        <div class="chat-input-area">
+            <textarea class="chat-input" placeholder="Ask about Southern Africa..." rows="1"></textarea>
+            <button class="chat-send-btn" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 

@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "lastUpdated": "2026-08",
+    "currency": "USD",
+    "disclaimer": "Estimates are per person per day (pppd) and exclude international flights. Real costs vary based on exact season and choices."
+  },
+  "countries": {
+    "south-africa": {
+      "budget": { "accommodation": 30, "food": 25, "transport": 20, "activities": 30, "parks": 25 },
+      "mid": { "accommodation": 100, "food": 50, "transport": 40, "activities": 70, "parks": 25 },
+      "luxury": { "accommodation": 350, "food": 120, "transport": 80, "activities": 150, "parks": 30 }
+    },
+    "namibia": {
+      "budget": { "accommodation": 25, "food": 20, "transport": 35, "activities": 25, "parks": 15 },
+      "mid": { "accommodation": 110, "food": 45, "transport": 60, "activities": 60, "parks": 15 },
+      "luxury": { "accommodation": 400, "food": 100, "transport": 120, "activities": 180, "parks": 20 }
+    },
+    "botswana": {
+      "budget": { "accommodation": 40, "food": 30, "transport": 45, "activities": 40, "parks": 30 },
+      "mid": { "accommodation": 250, "food": 80, "transport": 100, "activities": 120, "parks": 30 },
+      "luxury": { "accommodation": 800, "food": 200, "transport": 300, "activities": 300, "parks": 50 }
+    },
+    "zimbabwe": {
+      "budget": { "accommodation": 30, "food": 25, "transport": 25, "activities": 50, "parks": 20 },
+      "mid": { "accommodation": 150, "food": 60, "transport": 50, "activities": 100, "parks": 20 },
+      "luxury": { "accommodation": 500, "food": 150, "transport": 150, "activities": 250, "parks": 30 }
+    },
+    "zambia": {
+      "budget": { "accommodation": 25, "food": 20, "transport": 30, "activities": 50, "parks": 25 },
+      "mid": { "accommodation": 180, "food": 60, "transport": 60, "activities": 120, "parks": 25 },
+      "luxury": { "accommodation": 650, "food": 160, "transport": 200, "activities": 280, "parks": 35 }
+    },
+    "mozambique": {
+      "budget": { "accommodation": 20, "food": 20, "transport": 20, "activities": 30, "parks": 15 },
+      "mid": { "accommodation": 130, "food": 50, "transport": 40, "activities": 80, "parks": 15 },
+      "luxury": { "accommodation": 450, "food": 120, "transport": 100, "activities": 180, "parks": 20 }
+    },
+    "malawi": {
+      "budget": { "accommodation": 15, "food": 15, "transport": 15, "activities": 20, "parks": 10 },
+      "mid": { "accommodation": 90, "food": 40, "transport": 30, "activities": 60, "parks": 10 },
+      "luxury": { "accommodation": 250, "food": 90, "transport": 70, "activities": 120, "parks": 15 }
+    },
+    "lesotho": {
+      "budget": { "accommodation": 20, "food": 20, "transport": 15, "activities": 20, "parks": 5 },
+      "mid": { "accommodation": 80, "food": 40, "transport": 30, "activities": 50, "parks": 5 },
+      "luxury": { "accommodation": 200, "food": 80, "transport": 60, "activities": 100, "parks": 10 }
+    },
+    "eswatini": {
+      "budget": { "accommodation": 20, "food": 20, "transport": 15, "activities": 25, "parks": 5 },
+      "mid": { "accommodation": 85, "food": 40, "transport": 30, "activities": 60, "parks": 5 },
+      "luxury": { "accommodation": 220, "food": 90, "transport": 60, "activities": 120, "parks": 10 }
+    }
+  }
+}

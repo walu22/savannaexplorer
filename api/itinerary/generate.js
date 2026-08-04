@@ -1,12 +1,19 @@
-const express = require('express');
-const Groq = require('groq-sdk');
-const cors = require('cors');
+import Groq from 'groq-sdk';
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+export default async function handler(req, res) {
+  // Handle CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-app.post('/api/itinerary/generate', async (req, res) => {
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
   try {
     const { country, duration, category, budget, matches } = req.body;
 
@@ -39,10 +46,6 @@ Instructions:
 4. Include a section on 'Local Culinary Highlights' (traditional food/drink to try) and 'Expert Safari Travel Tips'.
 5. Output the result in beautiful, clean markdown with plenty of relevant emojis.`;
 
-    let itinerary = null;
-    let methodUsed = "Groq (llama3-70b-8192)";
-
-    console.log("Attempting itinerary generation via Groq...");
     const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
       console.error('No GROQ_API_KEY found in environment.');
@@ -59,12 +62,13 @@ Instructions:
         { role: 'system', content: systemInstruction },
         { role: 'user', content: prompt }
       ],
-      model: 'llama3-70b-8192',
+      model: 'llama-3.3-70b-versatile',
       temperature: 0.7,
       max_tokens: 8000,
     });
 
-    itinerary = chatCompletion.choices[0]?.message?.content || "";
+    const itinerary = chatCompletion.choices[0]?.message?.content || "";
+    const methodUsed = "Groq (llama-3.3-70b-versatile)";
     console.log("SUCCESS: Generated itinerary via Groq.");
 
     res.status(200).json({ itinerary, method: methodUsed });
@@ -75,9 +79,4 @@ Instructions:
       details: error.message || error.toString() 
     });
   }
-});
-
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log(`Relay service listening on port ${port}`);
-});
+};

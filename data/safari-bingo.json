@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "version": "1.0",
+    "description": "Gamified wildlife checklist"
+  },
+  "species": [
+    { "id": "lion", "name": "Lion", "emoji": "🦁", "category": "big-5", "rarity": "Common", "fact": "A lion's roar can be heard up to 8km away." },
+    { "id": "leopard", "name": "Leopard", "emoji": "🐆", "category": "big-5", "rarity": "Rare", "fact": "Leopards are incredibly strong and can drag prey twice their body weight up a tree." },
+    { "id": "elephant", "name": "Elephant", "emoji": "🐘", "category": "big-5", "rarity": "Common", "fact": "Elephants communicate using low-frequency rumbles that travel through the ground." },
+    { "id": "rhino", "name": "Rhino", "emoji": "🦏", "category": "big-5", "rarity": "Very Rare", "fact": "A rhino's horn is made of keratin, the same substance as human fingernails." },
+    { "id": "buffalo", "name": "Cape Buffalo", "emoji": "🐃", "category": "big-5", "rarity": "Common", "fact": "Buffalo herds can number in the thousands and are known for their strong group defense." },
+    
+    { "id": "cheetah", "name": "Cheetah", "emoji": "🐆", "category": "predator", "rarity": "Rare", "fact": "The fastest land animal, capable of reaching speeds up to 120 km/h." },
+    { "id": "wild-dog", "name": "Wild Dog", "emoji": "🐕", "category": "predator", "rarity": "Very Rare", "fact": "African wild dogs have an 80% success rate in hunts, making them Africa's most lethal predator." },
+    { "id": "hyena", "name": "Spotted Hyena", "emoji": "🐕‍🦺", "category": "predator", "rarity": "Common", "fact": "Hyenas are actually more closely related to cats than dogs." },
+    
+    { "id": "giraffe", "name": "Giraffe", "emoji": "🦒", "category": "herbivore", "rarity": "Common", "fact": "A giraffe's tongue is blue-black to protect it from sunburn while feeding." },
+    { "id": "zebra", "name": "Zebra", "emoji": "🦓", "category": "herbivore", "rarity": "Common", "fact": "Every zebra's stripe pattern is unique, like a human fingerprint." },
+    { "id": "hippo", "name": "Hippo", "emoji": "🦛", "category": "herbivore", "rarity": "Common", "fact": "Hippos secrete a reddish, oily fluid that acts as a natural sunscreen and antibiotic." },
+    { "id": "wildebeest", "name": "Wildebeest", "emoji": "🦬", "category": "herbivore", "rarity": "Common", "fact": "Wildebeest are known as the 'clowns of the savanna' due to their erratic prancing." },
+    
+    { "id": "ostrich", "name": "Ostrich", "emoji": "🦅", "category": "bird", "rarity": "Common", "fact": "The ostrich has the largest eye of any land animal, bigger than its brain." },
+    { "id": "fish-eagle", "name": "Fish Eagle", "emoji": "🦅", "category": "bird", "rarity": "Common", "fact": "The iconic call of the African Fish Eagle is known as 'the voice of Africa'." },
+    { "id": "lilac-breasted-roller", "name": "Lilac-breasted Roller", "emoji": "🐦", "category": "bird", "rarity": "Common", "fact": "The national bird of both Kenya and Botswana, known for its stunning colors." },
+    { "id": "hornbill", "name": "Yellow-billed Hornbill", "emoji": "🦤", "category": "bird", "rarity": "Common", "fact": "Often nicknamed the 'flying banana' due to its large, curved yellow beak." },
+    
+    { "id": "meerkat", "name": "Meerkat", "emoji": "🦦", "category": "small", "rarity": "Uncommon", "fact": "Meerkats have dark patches around their eyes that act like built-in sunglasses." },
+    { "id": "honey-badger", "name": "Honey Badger", "emoji": "🦡", "category": "small", "rarity": "Rare", "fact": "Honey badgers are famously fearless and have been known to fight off lions." },
+    { "id": "warthog", "name": "Warthog", "emoji": "🐗", "category": "small", "rarity": "Common", "fact": "Warthogs kneel on their front knees to feed on short grass and roots." },
+    { "id": "pangolin", "name": "Pangolin", "emoji": "🦎", "category": "small", "rarity": "Extremely Rare", "fact": "Pangolins are the only mammals wholly-covered in scales, which are made of keratin." }
+  ]
+}

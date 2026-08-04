@@ -96,6 +96,16 @@ document.addEventListener('DOMContentLoaded', () => {
         planningChecklist.initPlanningChecklist();
     });
 
+    // Chat assistant — load independently, non-blocking
+    import('./modules/chat-assistant.js').then(({ initChatAssistant }) => initChatAssistant());
+
+    // Cost estimator — load independently, non-blocking
+    import('./modules/cost-estimator.js').then(({ initCostEstimator }) => initCostEstimator());
+
+    // Safari Bingo — load independently, non-blocking
+    import('./modules/safari-bingo.js').then(({ initSafariBingo }) => initSafariBingo());
+
+
     // Below-the-fold — defer until the browser is idle.
     whenIdle(() => {
         Promise.all([
