@@ -84,6 +84,14 @@ body.site-v2 .page-chapter--plan > .safari-bingo-section {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    width: 100%;
+    color: inherit;
+    font: inherit;
+}
+
+.bingo-card:focus-visible {
+    outline: 3px solid var(--primary-light);
+    outline-offset: 3px;
 }
 
 .bingo-card:hover {

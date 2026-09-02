@@ -89,3 +89,7 @@ out
 dist
 .vercel
 .env*
+playwright-report/
+test-results/
+.playwright-browsers/
+.npm-cache-browser-tests/

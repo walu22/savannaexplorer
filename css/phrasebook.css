@@ -57,7 +57,7 @@ body.site-v2 .phrasebook-section .section-eyebrow {
 }
 
 .phrasebook-tab.active {
-    color: var(--primary);
+    color: var(--primary-light);
     border-bottom-color: var(--primary);
     background: rgba(255, 255, 255, 0.02);
 }

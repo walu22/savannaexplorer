@@ -24,11 +24,11 @@ export function initSafariBingo() {
     gridEl.innerHTML = bingoData.species.map(s => {
         const isSpotted = spotted.has(s.id);
         return `
-            <div class="bingo-card ${isSpotted ? 'spotted' : ''}" data-id="${s.id}">
+            <button type="button" class="bingo-card ${isSpotted ? 'spotted' : ''}" data-id="${s.id}" aria-pressed="${isSpotted}" aria-label="${s.name}: ${isSpotted ? 'spotted' : 'not spotted'}">
                 <div class="bingo-checkmark"><i class="fas fa-check"></i></div>
                 <div class="bingo-emoji">${s.emoji}</div>
                 <div class="bingo-name">${s.name}</div>
-            </div>
+            </button>
         `;
     }).join('');
 
@@ -41,9 +41,13 @@ export function initSafariBingo() {
         if (spotted.has(id)) {
             spotted.delete(id);
             card.classList.remove('spotted');
+            card.setAttribute('aria-pressed', 'false');
+            card.setAttribute('aria-label', `${card.querySelector('.bingo-name')?.textContent || 'Animal'}: not spotted`);
         } else {
             spotted.add(id);
             card.classList.add('spotted');
+            card.setAttribute('aria-pressed', 'true');
+            card.setAttribute('aria-label', `${card.querySelector('.bingo-name')?.textContent || 'Animal'}: spotted`);
         }
 
         saveAndProcess();
@@ -52,7 +56,11 @@ export function initSafariBingo() {
     resetBtn?.addEventListener('click', () => {
         if(confirm("Are you sure you want to reset your scorecard?")) {
             spotted.clear();
-            document.querySelectorAll('.bingo-card').forEach(c => c.classList.remove('spotted'));
+            document.querySelectorAll('.bingo-card').forEach(card => {
+                card.classList.remove('spotted');
+                card.setAttribute('aria-pressed', 'false');
+                card.setAttribute('aria-label', `${card.querySelector('.bingo-name')?.textContent || 'Animal'}: not spotted`);
+            });
             saveAndProcess();
         }
     });

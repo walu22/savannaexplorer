@@ -31,6 +31,12 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Install browser test runtime
+        run: npx playwright install --with-deps chromium
+
+      - name: Run visual and accessibility tests
+        run: npm run test:e2e
+
       - name: Build production site
         env:
           VITE_SITE_URL: https://savannaexplorer.com
