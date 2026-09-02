@@ -59,6 +59,7 @@
                 <li class="nav-dropdown">
                     <button type="button" class="nav-drop-toggle" aria-expanded="false">Plan trip <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="nav-drop-menu">
+                        <a href="#hub-my-safari">My Safari</a>
                         <a href="#itineraries">Itineraries</a>
                         <a href="#book-direct">Book direct</a>
                         <a href="#guides">Planning guides</a>
@@ -728,6 +729,59 @@
 
             <div class="hub-journey-panel active" id="hub-panel-plan" data-hub-panel="plan">
                 <div class="hub-grid">
+                <div class="hub-card hub-card--full my-safari-card" id="hub-my-safari">
+                    <div class="hub-card-header">
+                        <span class="hub-icon"><i class="fas fa-map-location-dot"></i></span>
+                        <h3>My Safari</h3>
+                    </div>
+                    <p class="hub-card-lead">Keep each itinerary, budget, packing list and travel note together on this device. Create a trip or reopen one below.</p>
+                    <form id="my-safari-create-form" class="my-safari-create">
+                        <label class="my-safari-field">
+                            <span>Trip name</span>
+                            <input type="text" name="trip-name" maxlength="80" placeholder="Namibia self-drive" required>
+                        </label>
+                        <label class="my-safari-field">
+                            <span>Start date <small>(optional)</small></span>
+                            <input type="date" name="trip-start">
+                        </label>
+                        <label class="my-safari-field">
+                            <span>End date <small>(optional)</small></span>
+                            <input type="date" name="trip-end">
+                        </label>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Create trip</button>
+                        <fieldset class="my-safari-country-options" id="my-safari-country-options">
+                            <legend class="sr-only">Countries on this trip</legend>
+                        </fieldset>
+                    </form>
+                    <div id="my-safari-trip-list" class="my-safari-trip-list" role="group" aria-label="Your saved trips"></div>
+                    <p id="my-safari-empty" class="my-safari-empty">No trips yet. Your first trip will also bring in the itinerary, expenses and packing progress already saved on this device.</p>
+                    <div id="my-safari-workspace" class="my-safari-workspace" hidden>
+                        <div class="my-safari-workspace-head">
+                            <div>
+                                <h4 id="my-safari-active-name"></h4>
+                                <p id="my-safari-active-meta"></p>
+                            </div>
+                            <div class="my-safari-actions" aria-label="Trip actions">
+                                <button type="button" id="my-safari-rename"><i class="fas fa-pen"></i> Rename</button>
+                                <button type="button" id="my-safari-duplicate"><i class="far fa-copy"></i> Duplicate</button>
+                                <button type="button" id="my-safari-delete" class="is-danger"><i class="far fa-trash-can"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="my-safari-summary">
+                            <div class="my-safari-stat"><span>AI itinerary</span><strong id="my-safari-itinerary-count">None yet</strong></div>
+                            <div class="my-safari-stat"><span>Expenses</span><strong id="my-safari-expense-count">0 items</strong></div>
+                            <div class="my-safari-stat"><span>Packing</span><strong id="my-safari-packing-count">0 packed</strong></div>
+                        </div>
+                        <label class="my-safari-notes-label" for="my-safari-notes">Trip notes
+                            <textarea id="my-safari-notes" class="my-safari-notes" maxlength="2000" placeholder="Booking references, ideas, reminders…"></textarea>
+                        </label>
+                        <div class="my-safari-links">
+                            <button type="button" class="btn btn-primary open-ai-planner"><i class="fas fa-magic"></i> Plan with AI</button>
+                            <a class="btn btn-outline" href="#hub-expense-tracker"><i class="fas fa-wallet"></i> Open budget</a>
+                            <a class="btn btn-outline" href="#packing-list"><i class="fas fa-suitcase-rolling"></i> Open packing list</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="hub-card hub-card--full" id="hub-trip-planner">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-clipboard-list"></i></span>

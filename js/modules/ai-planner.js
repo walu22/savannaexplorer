@@ -5,6 +5,7 @@ import {
     trackPlannerGenerateError,
     trackPlannerGenerateSuccess,
 } from '../lib/planner-analytics.js';
+import { TRIP_CHANGE_EVENT, getActiveTrip, updateActiveTrip } from '../lib/trip-store.js';
 
 const SAVED_ITINERARY_KEY = 'se_ai_saved_itinerary_v1';
 
@@ -182,7 +183,10 @@ export function initAiPlanner() {
 
     function readSavedItinerary() {
         try {
-            const saved = JSON.parse(localStorage.getItem(SAVED_ITINERARY_KEY));
+            const activeTrip = getActiveTrip();
+            const saved = activeTrip
+                ? activeTrip.aiItinerary
+                : JSON.parse(localStorage.getItem(SAVED_ITINERARY_KEY));
             const validHistory = Array.isArray(saved?.history)
                 && saved.history.length > 0
                 && saved.history.every(item => ['user', 'assistant'].includes(item?.role) && typeof item?.content === 'string');
@@ -262,15 +266,23 @@ export function initAiPlanner() {
         if (!plannerHistory.some(item => item.role === 'assistant')) return;
 
         try {
-            localStorage.setItem(SAVED_ITINERARY_KEY, JSON.stringify({
+            const savedItinerary = {
                 version: 1,
                 savedAt: new Date().toISOString(),
                 preferences: plannerPreferences,
                 history: plannerHistory,
-            }));
+            };
+            const activeTrip = getActiveTrip();
+            if (activeTrip) {
+                updateActiveTrip({ aiItinerary: savedItinerary });
+            } else {
+                localStorage.setItem(SAVED_ITINERARY_KEY, JSON.stringify(savedItinerary));
+            }
             markCurrentPlanSaved(true);
             syncSavedItineraryControls();
-            if (saveStatus) saveStatus.textContent = 'Saved on this device. You can reopen it after refreshing.';
+            if (saveStatus) saveStatus.textContent = activeTrip
+                ? `Saved to “${activeTrip.name}” on this device.`
+                : 'Saved on this device. You can reopen it after refreshing.';
         } catch {
             if (saveStatus) saveStatus.textContent = 'This itinerary could not be saved on this device.';
         }
@@ -298,6 +310,14 @@ export function initAiPlanner() {
     });
 
     syncSavedItineraryControls();
+    window.addEventListener(TRIP_CHANGE_EVENT, () => {
+        const saved = readSavedItinerary();
+        const matchesCurrentPlan = Boolean(saved)
+            && JSON.stringify(saved.history) === JSON.stringify(plannerHistory);
+        syncSavedItineraryControls();
+        markCurrentPlanSaved(matchesCurrentPlan);
+        if (saveStatus) saveStatus.textContent = '';
+    });
 
     function openExperienceFromCard(card) {
         const experienceId = card?.dataset.experienceId;

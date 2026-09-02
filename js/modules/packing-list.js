@@ -1,4 +1,5 @@
 import packingData from '../../data/packing-rules.json';
+import { TRIP_CHANGE_EVENT, getActiveTrip, updateActiveTrip } from '../lib/trip-store.js';
 
 export function initPackingList() {
     const container = document.getElementById('packing-generator');
@@ -11,14 +12,42 @@ export function initPackingList() {
     const resetBtn = document.getElementById('btn-packing-reset');
 
     let packedItems = new Set();
+
+    function loadPackingState() {
+        const activeTrip = getActiveTrip();
+        if (activeTrip) {
+            packedItems = new Set(activeTrip.packing.packedItems);
+            monthSelect.value = activeTrip.packing.month || monthSelect.value;
+            styleSelect.value = activeTrip.packing.style || styleSelect.value;
+            return;
+        }
+
+        try {
+            const saved = localStorage.getItem('se_packing_list');
+            packedItems = new Set(saved ? JSON.parse(saved) : []);
+        } catch {
+            packedItems = new Set();
+        }
+    }
+
+    function savePackingState() {
+        if (getActiveTrip()) {
+            updateActiveTrip({
+                packing: {
+                    month: monthSelect.value,
+                    style: styleSelect.value,
+                    packedItems: [...packedItems],
+                },
+            });
+            return;
+        }
+        try {
+            localStorage.setItem('se_packing_list', JSON.stringify([...packedItems]));
+        } catch {}
+    }
     
     // Load saved state
-    try {
-        const saved = localStorage.getItem('se_packing_list');
-        if (saved) {
-            packedItems = new Set(JSON.parse(saved));
-        }
-    } catch { /* ignore */ }
+    loadPackingState();
 
     function getSeason(month) {
         const winterMonths = ['jun', 'jul', 'aug'];
@@ -80,8 +109,14 @@ export function initPackingList() {
     }
 
     // Events
-    monthSelect.addEventListener('change', renderList);
-    styleSelect.addEventListener('change', renderList);
+    monthSelect.addEventListener('change', () => {
+        savePackingState();
+        renderList();
+    });
+    styleSelect.addEventListener('change', () => {
+        savePackingState();
+        renderList();
+    });
     
     listContainer.addEventListener('click', (e) => {
         const itemEl = e.target.closest('.packing-item');
@@ -96,9 +131,7 @@ export function initPackingList() {
             itemEl.classList.add('packed');
         }
         
-        try {
-            localStorage.setItem('se_packing_list', JSON.stringify([...packedItems]));
-        } catch {}
+        savePackingState();
         
         renderList(); // Re-render to update counts
     });
@@ -106,11 +139,14 @@ export function initPackingList() {
     resetBtn?.addEventListener('click', () => {
         if(confirm("Reset packing list?")) {
             packedItems.clear();
-            try {
-                localStorage.setItem('se_packing_list', JSON.stringify([]));
-            } catch {}
+            savePackingState();
             renderList();
         }
+    });
+
+    window.addEventListener(TRIP_CHANGE_EVENT, () => {
+        loadPackingState();
+        renderList();
     });
 
     renderList();

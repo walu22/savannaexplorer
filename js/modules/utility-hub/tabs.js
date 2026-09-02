@@ -2,6 +2,7 @@
 
 const TAB_BY_ANCHOR = {
     plan: 'plan',
+    'hub-my-safari': 'plan',
     'hub-trip-planner': 'plan',
     'trip-planner': 'plan',
     'hub-expense-tracker': 'plan',

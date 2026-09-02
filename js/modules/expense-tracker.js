@@ -7,6 +7,7 @@ import {
     listBudgetItineraries,
     renderBudgetCompareHtml,
 } from '../lib/budget-expense-compare.js';
+import { TRIP_CHANGE_EVENT, getActiveTrip, updateActiveTrip, updateTrip } from '../lib/trip-store.js';
 
 const STORAGE_KEY = expenseConfig.meta.storageKey;
 
@@ -19,6 +20,14 @@ function escapeHtml(text) {
 }
 
 function loadExpenses() {
+    const activeTrip = getActiveTrip();
+    if (activeTrip) {
+        return {
+            tripName: activeTrip.name,
+            linkedItineraryId: activeTrip.expenses.linkedItineraryId || '',
+            items: Array.isArray(activeTrip.expenses.items) ? activeTrip.expenses.items : [],
+        };
+    }
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (!raw) return { tripName: '', linkedItineraryId: '', items: [] };
@@ -34,6 +43,15 @@ function loadExpenses() {
 }
 
 function saveExpenses(data) {
+    if (getActiveTrip()) {
+        updateActiveTrip({
+            expenses: {
+                linkedItineraryId: data.linkedItineraryId || '',
+                items: Array.isArray(data.items) ? data.items : [],
+            },
+        });
+        return;
+    }
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
@@ -230,9 +248,11 @@ export async function initExpenseTracker() {
     });
 
     nameInput?.addEventListener('change', () => {
+        const activeTrip = getActiveTrip();
         const store = loadExpenses();
         store.tripName = nameInput.value.trim();
         saveExpenses(store);
+        if (activeTrip && store.tripName) updateTrip(activeTrip.id, { name: store.tripName });
     });
 
     document.getElementById('expense-clear')?.addEventListener('click', async () => {
@@ -283,6 +303,14 @@ export async function initExpenseTracker() {
         a.download = 'trip-expenses.txt';
         a.click();
         URL.revokeObjectURL(a.href);
+    });
+
+    window.addEventListener(TRIP_CHANGE_EVENT, async () => {
+        const current = loadExpenses();
+        populateItinerarySelect(current.linkedItineraryId);
+        if (nameInput) nameInput.value = current.tripName;
+        await refreshTotals();
+        updateSyncNotes(current.linkedItineraryId);
     });
 }
 

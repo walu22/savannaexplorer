@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mid-page sections — load in parallel without blocking first paint.
     Promise.all([
         import('./modules/marketplace.js'),
+        import('./modules/my-safari.js'),
         import('./modules/utility-hub.js'),
         import('./modules/trip-planner.js'),
         import('./modules/contact.js'),
@@ -73,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ]).then(modules => {
         const [
             marketplace,
+            mySafari,
             utilityHub,
             tripPlanner,
             contact,
@@ -92,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ] = modules;
 
         marketplace.initMarketplace();
+        mySafari.initMySafari();
         utilityHub.initUtilityHub();
         tripPlanner.initTripPlanner();
         contact.initContact();
