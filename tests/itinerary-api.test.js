@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import handler from '../api/itinerary/generate.js';
+import handler, { generateItineraryCompletion } from '../api/itinerary/generate.js';
 
 function request({ body = {}, origin, ip = '127.0.0.1', method = 'POST' } = {}) {
   const headers = origin ? { origin } : {};
@@ -62,6 +62,33 @@ test('rejects incomplete initial itinerary requests before calling the AI servic
   }));
   assert.equal(result.statusCode, 400);
   assert.equal(result.responseBody.error, 'Missing required fields for initial generation');
+});
+
+test('falls back when the preferred itinerary model is unavailable', async () => {
+  const calls = [];
+  const groq = {
+    chat: {
+      completions: {
+        async create(options) {
+          calls.push(options.model);
+          if (options.model === 'retired-model') {
+            const error = new Error('model_not_found');
+            error.status = 404;
+            throw error;
+          }
+          return { choices: [{ message: { content: 'Generated itinerary' } }] };
+        },
+      },
+    },
+  };
+
+  const result = await generateItineraryCompletion(groq, [{ role: 'user', content: 'Plan a trip' }], [
+    'retired-model',
+    'fallback-model',
+  ]);
+  assert.deepEqual(calls, ['retired-model', 'fallback-model']);
+  assert.equal(result.model, 'fallback-model');
+  assert.equal(result.completion.choices[0].message.content, 'Generated itinerary');
 });
 
 test('rate limits repeated requests from one address', async () => {

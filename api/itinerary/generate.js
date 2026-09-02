@@ -7,6 +7,39 @@ const MAX_HISTORY_MESSAGES = 8;
 const MAX_HISTORY_CHARACTERS = 16000;
 const MAX_MATCHES = 12;
 const rateLimitStore = new Map();
+const DEFAULT_ITINERARY_MODELS = ['openai/gpt-oss-120b', 'openai/gpt-oss-20b'];
+
+function getItineraryModels() {
+  return [...new Set([process.env.GROQ_ITINERARY_MODEL, ...DEFAULT_ITINERARY_MODELS].filter(Boolean))];
+}
+
+function isModelUnavailable(error) {
+  const message = String(error?.message || error).toLowerCase();
+  return [400, 403, 404].includes(error?.status)
+    && (message.includes('model') || message.includes('access'));
+}
+
+export async function generateItineraryCompletion(groq, messages, models = getItineraryModels()) {
+  let lastError;
+
+  for (const [index, model] of models.entries()) {
+    try {
+      const completion = await groq.chat.completions.create({
+        messages,
+        model,
+        temperature: 0.7,
+        max_tokens: 4000,
+      });
+      return { completion, model };
+    } catch (error) {
+      lastError = error;
+      if (index === models.length - 1 || !isModelUnavailable(error)) throw error;
+      console.warn(`Groq model ${model} is unavailable; trying the next configured itinerary model.`);
+    }
+  }
+
+  throw lastError;
+}
 
 function cleanText(value, maxLength = 200) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : '';
@@ -166,16 +199,11 @@ Instructions:
 
     const groq = new Groq({ apiKey: apiKey });
 
-    const chatCompletion = await groq.chat.completions.create({
-      messages: messages,
-      model: 'llama-3.3-70b-versatile',
-      temperature: 0.7,
-      max_tokens: 4000,
-    });
+    const { completion: chatCompletion, model } = await generateItineraryCompletion(groq, messages);
 
     const itinerary = chatCompletion.choices[0]?.message?.content || "";
-    const methodUsed = "Groq (llama-3.3-70b-versatile)";
-    console.log("SUCCESS: Generated itinerary via Groq.");
+    const methodUsed = `Groq (${model})`;
+    console.log(`SUCCESS: Generated itinerary via Groq (${model}).`);
 
     res.status(200).json({ itinerary, method: methodUsed });
   } catch (error) {
