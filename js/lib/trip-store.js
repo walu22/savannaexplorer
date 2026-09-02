@@ -139,6 +139,16 @@ export function setActiveTrip(tripId, storage) {
     return state.trips.find(trip => trip.id === tripId);
 }
 
+export function replaceTripState(nextState, storage) {
+    const target = storageOrNull(storage);
+    const trips = Array.isArray(nextState?.trips) ? nextState.trips.map(cleanTrip).filter(Boolean) : [];
+    const activeTripId = trips.some(trip => trip.id === nextState?.activeTripId)
+        ? nextState.activeTripId
+        : (trips[0]?.id || '');
+    const state = { version: 1, activeTripId, trips };
+    return writeTripState(state, target, 'cloud', activeTripId);
+}
+
 export function duplicateTrip(tripId, storage) {
     const source = readTripState(storage).trips.find(trip => trip.id === tripId);
     if (!source) return null;
@@ -163,6 +173,6 @@ export function deleteTrip(tripId, storage) {
     state.trips = state.trips.filter(trip => trip.id !== tripId);
     if (state.trips.length === before) return false;
     if (state.activeTripId === tripId) state.activeTripId = state.trips[0]?.id || '';
-    writeTripState(state, target, 'delete', state.activeTripId);
+    writeTripState(state, target, 'delete', tripId);
     return true;
 }

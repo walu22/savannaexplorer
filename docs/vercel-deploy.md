@@ -29,6 +29,8 @@ In Vercel → **Project → Settings → Environment Variables**, add for **Prod
 
 Redeploy after adding or changing variables (Vite bakes them in at build time).
 
+For My Safari cloud sync, also run `supabase/migrate-trip-cloud.sql` in the Supabase SQL Editor and add `https://savannaexplorer.com/**` to **Supabase Authentication → URL Configuration → Redirect URLs**. Email authentication must remain enabled for password-free sign-in links.
+
 ### 3. Custom domain
 
 1. Vercel → **Project → Settings → Domains**

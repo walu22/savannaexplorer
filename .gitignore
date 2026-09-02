@@ -93,3 +93,4 @@ playwright-report/
 test-results/
 .playwright-browsers/
 .npm-cache-browser-tests/
+supabase/.temp/

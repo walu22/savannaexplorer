@@ -735,6 +735,30 @@
                         <h3>My Safari</h3>
                     </div>
                     <p class="hub-card-lead">Keep each itinerary, budget, packing list and travel note together on this device. Create a trip or reopen one below.</p>
+                    <div class="my-safari-cloud" id="my-safari-cloud">
+                        <div id="my-safari-signed-out">
+                            <div class="my-safari-cloud-copy">
+                                <strong><i class="fas fa-cloud-arrow-up"></i> Use your trips on every device</strong>
+                                <span>Optional and password-free. We’ll email you a secure sign-in link.</span>
+                            </div>
+                            <form id="my-safari-signin-form" class="my-safari-signin-form">
+                                <label class="sr-only" for="my-safari-email">Email address</label>
+                                <input id="my-safari-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+                                <button type="submit" class="btn btn-primary btn-sm">Email sign-in link</button>
+                            </form>
+                        </div>
+                        <div id="my-safari-signed-in" class="my-safari-signed-in" hidden>
+                            <div class="my-safari-cloud-copy">
+                                <strong><i class="fas fa-cloud-circle-check"></i> Cloud sync is on</strong>
+                                <span id="my-safari-account-email"></span>
+                            </div>
+                            <div class="my-safari-cloud-actions">
+                                <button type="button" class="btn btn-outline btn-sm" id="my-safari-sync"><i class="fas fa-rotate"></i> Sync now</button>
+                                <button type="button" class="btn btn-outline btn-sm" id="my-safari-signout">Sign out</button>
+                            </div>
+                        </div>
+                        <p id="my-safari-cloud-status" class="my-safari-cloud-status" role="status" aria-live="polite"></p>
+                    </div>
                     <form id="my-safari-create-form" class="my-safari-create">
                         <label class="my-safari-field">
                             <span>Trip name</span>
@@ -779,8 +803,31 @@
                             <button type="button" class="btn btn-primary open-ai-planner"><i class="fas fa-magic"></i> Plan with AI</button>
                             <a class="btn btn-outline" href="#hub-expense-tracker"><i class="fas fa-wallet"></i> Open budget</a>
                             <a class="btn btn-outline" href="#packing-list"><i class="fas fa-suitcase-rolling"></i> Open packing list</a>
+                            <button type="button" class="btn btn-outline" id="my-safari-share"><i class="fas fa-share-nodes"></i> Create share link</button>
+                        </div>
+                        <div id="my-safari-share-panel" class="my-safari-share-panel" hidden>
+                            <label for="my-safari-share-url">Read-only link</label>
+                            <div>
+                                <input id="my-safari-share-url" type="url" readonly>
+                                <button type="button" class="btn btn-primary btn-sm" id="my-safari-copy-share">Copy</button>
+                                <button type="button" class="btn btn-outline btn-sm" id="my-safari-stop-share">Stop sharing</button>
+                            </div>
+                            <p>Anyone with this link can view this trip. They cannot edit it.</p>
                         </div>
                     </div>
+                    <article id="my-safari-shared-view" class="my-safari-shared-view" hidden aria-labelledby="shared-safari-name">
+                        <span class="my-safari-shared-label"><i class="fas fa-link"></i> Shared read-only safari</span>
+                        <h4 id="shared-safari-name"></h4>
+                        <p id="shared-safari-meta"></p>
+                        <div class="my-safari-summary">
+                            <div class="my-safari-stat"><span>Expenses logged</span><strong id="shared-safari-expenses"></strong></div>
+                            <div class="my-safari-stat"><span>Packing progress</span><strong id="shared-safari-packing"></strong></div>
+                            <div class="my-safari-stat"><span>Last updated</span><strong id="shared-safari-updated"></strong></div>
+                        </div>
+                        <section id="shared-safari-notes-section" hidden><h5>Trip notes</h5><p id="shared-safari-notes"></p></section>
+                        <section id="shared-safari-itinerary-section" hidden><h5>AI itinerary draft</h5><pre id="shared-safari-itinerary"></pre></section>
+                        <a class="btn btn-outline" href="/#hub-my-safari">Plan your own safari</a>
+                    </article>
                 </div>
                 <div class="hub-card hub-card--full" id="hub-trip-planner">
                     <div class="hub-card-header">

@@ -64,7 +64,7 @@ Preview runs at **http://localhost:4173** by default.
 
 ## Supabase (optional backend)
 
-The site works offline with local JSON data. Connect **Supabase** to store marketplace listings, contact form messages, and newsletter signups.
+The site works offline with local JSON data. Connect **Supabase** to store marketplace listings, contact form messages, newsletter signups, and optional authenticated My Safari trip sync.
 
 ### Setup
 
@@ -73,8 +73,10 @@ The site works offline with local JSON data. Connect **Supabase** to store marke
 3. In the Supabase **SQL Editor**, run:
    - `supabase/schema.sql` — creates tables and row-level security policies (fresh installs)
    - `supabase/migrate-phase-e.sql` — only if upgrading from pre-v4.11 (`quotations` / `inquiries` tables)
+   - `supabase/migrate-trip-cloud.sql` — adds owner-only trip sync and token-based read-only sharing to an existing project
    - `supabase/seed.sql` — loads marketplace inspiration listings
-4. Restart the dev server: `npm run dev`
+4. In **Authentication → URL Configuration**, set the production site URL and allow `https://savannaexplorer.com/**` plus the local development URL.
+5. Keep email authentication enabled, then restart the dev server: `npm run dev`
 
 Without `.env`, forms fall back to **mailto** and marketplace data loads from `data/marketplace.json`.
 
@@ -127,6 +129,7 @@ After deploying, submit `https://savannaexplorer.com/sitemap.xml` in [Google Sea
 | `site_messages` | Contact form submissions (corrections, feedback, partnerships) |
 | `newsletter_subscribers` | Email signups |
 | `ai_planner_events` | AI Safari Planner opens and generation attempts (anonymous insert) |
+| `user_trips` | Owner-protected My Safari cloud copies, deletion tombstones, and revocable share tokens |
 
 ## Scripts
 
