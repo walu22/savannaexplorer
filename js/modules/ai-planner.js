@@ -6,6 +6,8 @@ import {
     trackPlannerGenerateSuccess,
 } from '../lib/planner-analytics.js';
 
+const SAVED_ITINERARY_KEY = 'se_ai_saved_itinerary_v1';
+
 // Helper: Find matching local catalog experiences with robust mappings
 function getMatchingExperiences(destination, style, budget) {
     let matched = [];
@@ -91,6 +93,9 @@ export function initAiPlanner() {
     const sidebarLoading = document.getElementById('ai-loading');
     const sidebarResult = document.getElementById('ai-result');
     const sidebarBackBtn = document.getElementById('ai-back-btn');
+    const saveItineraryBtn = document.getElementById('ai-save-itinerary-btn');
+    const restoreItineraryBtn = document.getElementById('ai-restore-itinerary-btn');
+    const saveStatus = document.getElementById('ai-save-status');
 
     if (sidebar) {
         document.body.addEventListener('click', (e) => {
@@ -122,6 +127,7 @@ export function initAiPlanner() {
     // State for conversational planner
     let plannerHistory = [];
     let plannerBusy = false;
+    let plannerPreferences = null;
 
     // UI Elements for Chat
     const messagesContainer = document.getElementById('ai-planner-messages');
@@ -174,6 +180,32 @@ export function initAiPlanner() {
         });
     }
 
+    function readSavedItinerary() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(SAVED_ITINERARY_KEY));
+            const validHistory = Array.isArray(saved?.history)
+                && saved.history.length > 0
+                && saved.history.every(item => ['user', 'assistant'].includes(item?.role) && typeof item?.content === 'string');
+            if (saved?.version !== 1 || !validHistory) return null;
+            return saved;
+        } catch {
+            return null;
+        }
+    }
+
+    function syncSavedItineraryControls() {
+        if (restoreItineraryBtn) restoreItineraryBtn.hidden = !readSavedItinerary();
+    }
+
+    function markCurrentPlanSaved(saved) {
+        if (!saveItineraryBtn) return;
+        saveItineraryBtn.classList.toggle('is-saved', saved);
+        saveItineraryBtn.querySelector('i')?.classList.toggle('far', !saved);
+        saveItineraryBtn.querySelector('i')?.classList.toggle('fas', saved);
+        const label = saveItineraryBtn.querySelector('span');
+        if (label) label.textContent = saved ? 'Saved' : 'Save Itinerary';
+    }
+
     // Helper to process markdown and inject catalog cards
     function processItineraryMarkdown(markdown) {
         let text = markdown.replace(/^```markdown\s*/i, '').replace(/```$/, '');
@@ -219,6 +251,54 @@ export function initAiPlanner() {
         return `<pre style="white-space: pre-wrap; font-family: inherit;">${escapeHtml(text)}</pre>`;
     }
 
+    function renderPlannerHistory() {
+        if (messagesContainer) messagesContainer.innerHTML = '';
+        plannerHistory.forEach(item => {
+            appendMessage(item.role, item.role === 'assistant' ? processItineraryMarkdown(item.content) : item.content);
+        });
+    }
+
+    saveItineraryBtn?.addEventListener('click', () => {
+        if (!plannerHistory.some(item => item.role === 'assistant')) return;
+
+        try {
+            localStorage.setItem(SAVED_ITINERARY_KEY, JSON.stringify({
+                version: 1,
+                savedAt: new Date().toISOString(),
+                preferences: plannerPreferences,
+                history: plannerHistory,
+            }));
+            markCurrentPlanSaved(true);
+            syncSavedItineraryControls();
+            if (saveStatus) saveStatus.textContent = 'Saved on this device. You can reopen it after refreshing.';
+        } catch {
+            if (saveStatus) saveStatus.textContent = 'This itinerary could not be saved on this device.';
+        }
+    });
+
+    restoreItineraryBtn?.addEventListener('click', () => {
+        const saved = readSavedItinerary();
+        if (!saved) {
+            syncSavedItineraryControls();
+            return;
+        }
+
+        plannerHistory = saved.history;
+        plannerPreferences = saved.preferences || null;
+        if (sidebarCountry && plannerPreferences?.country) sidebarCountry.value = plannerPreferences.country;
+        if (sidebarDuration && plannerPreferences?.duration) sidebarDuration.value = plannerPreferences.duration;
+        if (sidebarCategory && plannerPreferences?.category) sidebarCategory.value = plannerPreferences.category;
+        if (sidebarBudget && plannerPreferences?.budget) sidebarBudget.value = plannerPreferences.budget;
+        renderPlannerHistory();
+        document.getElementById('ai-planner-form')?.classList.add('hidden');
+        sidebarLoading?.classList.add('hidden');
+        sidebarResult?.classList.remove('hidden');
+        markCurrentPlanSaved(true);
+        if (saveStatus) saveStatus.textContent = 'Saved itinerary restored from this device.';
+    });
+
+    syncSavedItineraryControls();
+
     function openExperienceFromCard(card) {
         const experienceId = card?.dataset.experienceId;
         if (experienceId && typeof window.openExperienceDetails === 'function') {
@@ -259,6 +339,9 @@ export function initAiPlanner() {
 
             const destination = country === 'All' ? 'Southern Africa' : country;
             const startedAt = performance.now();
+            plannerPreferences = { country, duration: String(duration), category, budget };
+            markCurrentPlanSaved(false);
+            if (saveStatus) saveStatus.textContent = '';
 
             // Clear history and UI
             plannerHistory = [];
@@ -365,6 +448,8 @@ export function initAiPlanner() {
             // Save to history
             plannerHistory.push({ role: 'user', content: message });
             plannerHistory.push({ role: 'assistant', content: data.itinerary });
+            markCurrentPlanSaved(false);
+            if (saveStatus) saveStatus.textContent = 'Updated itinerary is not saved yet.';
 
             const processedHtml = processItineraryMarkdown(data.itinerary);
             appendMessage('assistant', processedHtml);
@@ -403,6 +488,9 @@ export function initAiPlanner() {
             if (sidebarResult) sidebarResult.classList.add('hidden');
             if (sidebarLoading) sidebarLoading.classList.add('hidden');
             plannerHistory = [];
+            plannerPreferences = null;
+            markCurrentPlanSaved(false);
+            if (saveStatus) saveStatus.textContent = '';
         });
     }
 }

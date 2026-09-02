@@ -1713,7 +1713,7 @@
             <!-- Secure Serverless Backend Indicator Badge -->
             <div class="secure-backend-badge">
                 <i class="fas fa-shield-halved" style="color: var(--primary);"></i>
-                <span>Secure Serverless Gemini Integration</span>
+                <span>Secure Serverless AI</span>
             </div>
 
             <div id="ai-planner-form">
@@ -1754,6 +1754,7 @@
                     </select>
                 </div>
                 <button id="sidebar-generate-itinerary-btn" class="btn btn-primary ai-submit-btn" type="button">Generate Itinerary <i class="fas fa-sparkles"></i></button>
+                <button id="ai-restore-itinerary-btn" class="ai-saved-plan-btn" type="button" hidden><i class="fas fa-bookmark"></i> Open Saved Itinerary</button>
             </div>
             
             <div id="ai-loading" class="hidden">
@@ -1763,15 +1764,17 @@
             </div>
             
             <div id="ai-result" class="hidden">
-                <div class="ai-result-header" style="padding: 15px 20px 10px; display: flex; justify-content: flex-end;">
+                <div class="ai-result-header">
+                    <button id="ai-save-itinerary-btn" class="ai-start-over-pill ai-save-itinerary-pill" type="button"><i class="far fa-bookmark"></i> <span>Save Itinerary</span></button>
                     <button id="ai-back-btn" class="ai-start-over-pill" type="button"><i class="fas fa-arrow-left"></i> Start Over</button>
                 </div>
+                <p id="ai-save-status" class="ai-save-status" aria-live="polite"></p>
                 <div id="ai-planner-messages" class="ai-planner-messages">
                     <!-- Chat bubbles injected here -->
                 </div>
                 <div id="ai-planner-chat-input-area" class="ai-planner-chat-input-area">
                     <textarea id="ai-planner-chat-input" class="chat-input" placeholder="e.g. Can we do 10 days instead?" rows="1"></textarea>
-                    <button id="ai-planner-chat-send" class="chat-send-btn" aria-label="Send follow-up"><i class="fas fa-paper-plane"></i></button>
+                    <button id="ai-planner-chat-send" class="chat-send-btn" type="button" aria-label="Send follow-up"><i class="fas fa-paper-plane"></i></button>
                 </div>
             </div>
         </div>

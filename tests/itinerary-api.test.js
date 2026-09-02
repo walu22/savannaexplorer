@@ -55,6 +55,15 @@ test('rejects oversized follow-up messages', async () => {
   assert.equal(result.responseBody.error, 'Message is too long');
 });
 
+test('rejects incomplete initial itinerary requests before calling the AI service', async () => {
+  const result = await invoke(request({
+    ip: 'initial-fields-test',
+    body: { country: 'Namibia', duration: '7', category: 'Adventure' },
+  }));
+  assert.equal(result.statusCode, 400);
+  assert.equal(result.responseBody.error, 'Missing required fields for initial generation');
+});
+
 test('rate limits repeated requests from one address', async () => {
   let result;
   for (let index = 0; index < 11; index += 1) {

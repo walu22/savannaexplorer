@@ -423,6 +423,53 @@
     font-size: 1.1rem;
 }
 
+/* --- Saved itinerary and result actions --- */
+.ai-result-header {
+    padding: 15px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ai-saved-plan-btn {
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(224, 139, 82, 0.55);
+    border-radius: 8px;
+    background: rgba(224, 139, 82, 0.12);
+    color: var(--primary-light);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.ai-saved-plan-btn:hover,
+.ai-saved-plan-btn:focus-visible {
+    background: rgba(224, 139, 82, 0.22);
+    outline: 2px solid var(--primary-light);
+    outline-offset: 2px;
+}
+
+.ai-save-itinerary-pill {
+    color: var(--primary-light);
+    border-color: rgba(224, 139, 82, 0.45);
+}
+
+.ai-save-itinerary-pill.is-saved {
+    background: rgba(74, 222, 128, 0.12);
+    border-color: rgba(74, 222, 128, 0.45);
+    color: #86efac;
+}
+
+.ai-save-status {
+    min-height: 1.25rem;
+    margin: 0 20px 0.5rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.82rem;
+}
+
 /* --- Start Over Pill --- */
 .ai-start-over-pill {
     background: rgba(255, 255, 255, 0.05);

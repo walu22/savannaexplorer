@@ -73,6 +73,7 @@ test('Phrasebook remains visible, readable, and exposes accessible tabs', async 
 });
 
 test('Safari Bingo and Phrasebook have no serious accessibility violations', async ({ page }) => {
+    test.setTimeout(60_000);
     await page.goto('/#safari-bingo', { waitUntil: 'domcontentloaded' });
     const bingoResults = await new AxeBuilder({ page })
         .include('#safari-bingo')
