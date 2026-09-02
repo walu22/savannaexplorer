@@ -43,6 +43,7 @@ test('visitor can generate, save, and restore an AI itinerary', async ({ page, i
 
     await expect(page.locator('#ai-result')).toBeVisible();
     await expect(page.getByText('Seven days in Namibia')).toBeVisible();
+    await expect(page.getByText(/AI-generated planning draft/)).toBeVisible();
     expect(requestPayload).toMatchObject({
         country: 'Namibia',
         duration: '7',

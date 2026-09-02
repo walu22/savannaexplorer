@@ -470,6 +470,21 @@
     font-size: 0.82rem;
 }
 
+.ai-planner-disclaimer {
+    margin: 0 20px 1rem;
+    padding: 0.75rem 0.9rem;
+    border-left: 3px solid var(--primary-light);
+    background: rgba(224, 139, 82, 0.09);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+.ai-planner-disclaimer i {
+    color: var(--primary-light);
+    margin-right: 0.35rem;
+}
+
 /* --- Start Over Pill --- */
 .ai-start-over-pill {
     background: rgba(255, 255, 255, 0.05);

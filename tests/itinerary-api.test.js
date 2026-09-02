@@ -1,6 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import handler, { generateItineraryCompletion } from '../api/itinerary/generate.js';
+import handler, {
+  generateItineraryCompletion,
+  ITINERARY_SYSTEM_INSTRUCTION,
+} from '../api/itinerary/generate.js';
 
 function request({ body = {}, origin, ip = '127.0.0.1', method = 'POST' } = {}) {
   const headers = origin ? { origin } : {};
@@ -89,6 +92,13 @@ test('falls back when the preferred itinerary model is unavailable', async () =>
   assert.deepEqual(calls, ['retired-model', 'fallback-model']);
   assert.equal(result.model, 'fallback-model');
   assert.equal(result.completion.choices[0].message.content, 'Generated itinerary');
+});
+
+test('planner instructions preserve the site non-booking boundary', () => {
+  assert.match(ITINERARY_SYSTEM_INSTRUCTION, /not a travel agency/i);
+  assert.match(ITINERARY_SYSTEM_INSTRUCTION, /Never claim that it can book/i);
+  assert.match(ITINERARY_SYSTEM_INSTRUCTION, /confirm them with official sources/i);
+  assert.match(ITINERARY_SYSTEM_INSTRUCTION, /Do not invent exact flight times/i);
 });
 
 test('rate limits repeated requests from one address', async () => {
