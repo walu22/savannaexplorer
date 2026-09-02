@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline | Savanna Explorer</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <style>
+        :root {
+            --primary-color: #C4672A;
+            --text-color: #2D2722;
+            --bg-color: #F9F6F0;
+            --card-bg: #FFFFFF;
+            --border-color: #E2DDD5;
+            --text-muted: #73675C;
+            --radius-lg: 12px;
+            --radius-md: 8px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .offline-container {
+            max-width: 480px;
+            width: 90%;
+            padding: 2.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .offline-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.8; }
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0 0 1rem 0;
+            color: var(--text-color);
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin: 0 0 2rem 0;
+        }
+
+        .btn-retry {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 6px rgba(196, 103, 42, 0.2);
+        }
+
+        .btn-retry:hover {
+            background-color: #B25820;
+        }
+
+        .btn-retry:active {
+            transform: scale(0.98);
+        }
+
+        .offline-footer {
+            margin-top: 2.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .offline-footer h2 {
+            font-size: 1.1rem;
+            margin: 0 0 0.75rem 0;
+            color: var(--text-color);
+        }
+
+        .offline-tip {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <span class="offline-icon" role="img" aria-label="No connection">📶</span>
+        <h1>You're Offline</h1>
+        <p>It looks like you have poor network connectivity or are in airplane mode. Savanna Explorer features work offline once they've been visited or saved!</p>
+        
+        <button onclick="window.location.reload()" class="btn-retry">Retry Connection</button>
+
+        <div class="offline-footer">
+            <h2>Access Offline Content</h2>
+            <p class="offline-tip">Any country guides or self-drive itineraries you previously viewed or clicked <strong>"Save for Offline"</strong> remain fully accessible. Go back in your history or reload to read them!</p>
+        </div>
+    </div>
+</body>
+</html>

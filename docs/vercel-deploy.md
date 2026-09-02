@@ -1,6 +1,6 @@
 # Deploy on Vercel
 
-Production hosting uses [Vercel](https://vercel.com) instead of SSH/rsync to Hostinger. Every push to `master` can deploy automatically once the project is linked.
+Production hosting uses [Vercel](https://vercel.com). Vercel Git integration deploys pushes to `master`; GitHub Actions independently runs the test and production-build checks.
 
 ## One-time setup
 
@@ -44,21 +44,13 @@ Redeploy after adding or changing variables (Vite bakes them in at build time).
 
 4. Wait for DNS propagation, then confirm HTTPS is active in Vercel.
 
-### 4. GitHub Actions (optional)
+### 4. Git and CI integration
 
-The repo includes `.github/workflows/deploy-production.yml`, which builds in CI and runs `vercel deploy dist --prod`. This is **optional** if you already use Vercel’s Git integration (recommended — one deploy per push, no duplicate builds).
+Connect the GitHub repository in Vercel and set `master` as the production branch. Vercel then creates preview deployments for pull requests and production deployments for pushes to `master`.
 
-To use the workflow instead of (or alongside) Vercel Git hooks, add GitHub **Actions secrets**:
+The repo includes `.github/workflows/verify-vercel.yml`, which runs `npm test` and `npm run build` for pull requests and pushes to `master`.
 
-| Secret | Where to get it |
-|--------|-----------------|
-| `VERCEL_TOKEN` | Vercel → Account → Tokens |
-| `VERCEL_ORG_ID` | `.vercel/project.json` after `npx vercel link`, or team settings |
-| `VERCEL_PROJECT_ID` | same file |
-
-Keep existing `VITE_*` secrets in GitHub if the workflow builds there.
-
-**Tip:** Prefer a single deploy path — either Vercel Git **or** the GitHub workflow — to avoid two production deploys per merge.
+No Vercel deployment token is required in GitHub. Application environment variables remain in the Vercel project settings and are applied during the Vercel build.
 
 ## Local Vercel CLI
 
@@ -106,6 +98,6 @@ After Vercel serves `savannaexplorer.com` correctly:
 |-------|-----|
 | `spawn cmd.exe ENOENT` on Windows | Use `npm run deploy:live` (uploads `dist/` — no local `vercel build`). Or add `C:\Windows\System32` to PATH and set `ComSpec` to `C:\Windows\System32\cmd.exe` |
 | Old version after deploy | Hard refresh; check Vercel deployment log for build errors |
-| `#parks` blank | Ensure `postbuild` ran (`Wrote 8 hub SPA fallbacks` in build log) |
+| `#parks` blank | Ensure `postbuild` ran (`Wrote 12 hub SPA fallbacks` in build log) |
 | 404 on `/countries/namibia` | Confirm prerender step wrote `dist/countries/namibia/index.html` |
 | Env vars not applied | Redeploy after changing Vercel env vars |

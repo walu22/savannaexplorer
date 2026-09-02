@@ -11,6 +11,7 @@ import { createModalFocusManager } from '../lib/modal-focus.js';
 import { syncPlannerExpenseRoute } from '../lib/planner-expense-sync.js';
 import { itineraryShareUrl, copyToClipboard, showShareToast, trackShare } from '../lib/share.js';
 import { renderShareBar } from './share.js';
+import { syncOfflineButtonState } from './offline-manager.js';
 
 let currentItineraryId = null;
 let activeScopeFilter = 'all';
@@ -177,6 +178,10 @@ export function openItineraryDetail(id) {
     document.getElementById('itinerary-modal').classList.add('active');
     document.body.style.overflow = 'hidden';
     getItineraryModalFocus().open();
+
+    // Sync offline button state
+    const saveBtn = document.getElementById('btn-save-itinerary-offline');
+    if (saveBtn) syncOfflineButtonState('itinerary', id, saveBtn);
 }
 
 function closeItineraryModal() {

@@ -1,0 +1,110 @@
+{
+  "namibia": {
+    "capital": "Windhoek",
+    "population": "3.0 Million",
+    "area": "824,292 sq km",
+    "timezone": "GMT+2",
+    "currency": "NAD (Namibian Dollar)",
+    "drivingSide": "Left",
+    "voltage": "220V",
+    "languages": "English, Afrikaans, Oshiwambo, German",
+    "emergency": "10111",
+    "bestMonths": "May - October"
+  },
+  "botswana": {
+    "capital": "Gaborone",
+    "population": "2.6 Million",
+    "area": "581,730 sq km",
+    "timezone": "GMT+2",
+    "currency": "BWP (Pula)",
+    "drivingSide": "Left",
+    "voltage": "230V",
+    "languages": "English, Setswana",
+    "emergency": "999",
+    "bestMonths": "May - October"
+  },
+  "south-africa": {
+    "capital": "Pretoria, Cape Town, Bloemfontein",
+    "population": "60.4 Million",
+    "area": "1,221,037 sq km",
+    "timezone": "GMT+2",
+    "currency": "ZAR (Rand)",
+    "drivingSide": "Left",
+    "voltage": "230V",
+    "languages": "12 Official (Zulu, Xhosa, Afrikaans, English...)",
+    "emergency": "10111",
+    "bestMonths": "May - Oct (Safari), Nov - Mar (Cape)"
+  },
+  "zambia": {
+    "capital": "Lusaka",
+    "population": "20.1 Million",
+    "area": "752,618 sq km",
+    "timezone": "GMT+2",
+    "currency": "ZMW (Zambian Kwacha)",
+    "drivingSide": "Left",
+    "voltage": "230V",
+    "languages": "English, Bemba, Nyanja, Tonga",
+    "emergency": "999",
+    "bestMonths": "June - October"
+  },
+  "zimbabwe": {
+    "capital": "Harare",
+    "population": "16.3 Million",
+    "area": "390,757 sq km",
+    "timezone": "GMT+2",
+    "currency": "ZiG, USD (widely used)",
+    "drivingSide": "Left",
+    "voltage": "240V",
+    "languages": "16 Official (Shona, Ndebele, English...)",
+    "emergency": "999",
+    "bestMonths": "June - October"
+  },
+  "malawi": {
+    "capital": "Lilongwe",
+    "population": "20.4 Million",
+    "area": "118,484 sq km",
+    "timezone": "GMT+2",
+    "currency": "MWK (Malawian Kwacha)",
+    "drivingSide": "Left",
+    "voltage": "230V",
+    "languages": "English, Chichewa",
+    "emergency": "997",
+    "bestMonths": "May - October"
+  },
+  "mozambique": {
+    "capital": "Maputo",
+    "population": "32.9 Million",
+    "area": "801,590 sq km",
+    "timezone": "GMT+2",
+    "currency": "MZN (Metical)",
+    "drivingSide": "Left",
+    "voltage": "220V",
+    "languages": "Portuguese, Makhuwa, Sena",
+    "emergency": "119",
+    "bestMonths": "June - October"
+  },
+  "lesotho": {
+    "capital": "Maseru",
+    "population": "2.3 Million",
+    "area": "30,355 sq km",
+    "timezone": "GMT+2",
+    "currency": "LSL (Loti), ZAR accepted",
+    "drivingSide": "Left",
+    "voltage": "220V",
+    "languages": "Sesotho, English",
+    "emergency": "112",
+    "bestMonths": "April - May, Sept - Oct"
+  },
+  "eswatini": {
+    "capital": "Mbabane",
+    "population": "1.2 Million",
+    "area": "17,364 sq km",
+    "timezone": "GMT+2",
+    "currency": "SZL (Lilangeni), ZAR accepted",
+    "drivingSide": "Left",
+    "voltage": "230V",
+    "languages": "Swazi, English",
+    "emergency": "999",
+    "bestMonths": "May - September"
+  }
+}

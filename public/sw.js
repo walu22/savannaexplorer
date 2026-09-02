@@ -1,20 +1,10 @@
-const CACHE_NAME = 'savanna-explorer-v1';
+const CACHE_NAME = 'savanna-explorer-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
-  '/css/main.css',
-  '/css/chat-assistant.css',
-  '/css/cost-estimator.css',
-  '/css/safari-bingo.css',
-  '/js/app.js',
-  '/js/modules/safari-bingo.js',
-  '/js/modules/cost-estimator.js',
-  '/data/safari-bingo.json',
-  '/data/cost-estimates.json',
-  '/data/campsites.json',
   '/manifest.json',
-
-  '/favicon.png'
+  '/favicon.png',
+  '/offline.html'
 ];
 
 // Install event - Cache static assets
@@ -47,21 +37,32 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event - Network first, fallback to cache
 self.addEventListener('fetch', (event) => {
-  // Only handle GET requests for our origin
-  if (event.request.method !== 'GET' || !event.request.url.startsWith(self.location.origin)) {
+  // Only handle GET requests
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  const url = new URL(event.request.url);
+
+  // Check if it's a same-origin request or cross-origin request we want to cache
+  const isCachableOrigin = url.origin === self.location.origin ||
+                           url.hostname.includes('unsplash.com') ||
+                           url.hostname.includes('cloudflare.com');
+
+  if (!isCachableOrigin) {
     return;
   }
 
   // Skip API routes from caching
-  if (event.request.url.includes('/api/')) {
+  if (url.pathname.includes('/api/')) {
     return;
   }
 
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
-        // If successful, clone response and update cache
-        if (networkResponse && networkResponse.status === 200) {
+        // If successful, clone response and update cache (including opaque/cross-origin status 0)
+        if (networkResponse && (networkResponse.status === 200 || networkResponse.status === 0)) {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, responseToCache);
@@ -76,11 +77,54 @@ self.addEventListener('fetch', (event) => {
           if (cachedResponse) {
             return cachedResponse;
           }
-          // Optional: Return a generic offline page if requested resource isn't cached
-          // if (event.request.mode === 'navigate') {
-          //   return caches.match('/offline.html');
-          // }
+          // If a navigation request fails and is not in cache, fallback to offline.html
+          if (event.request.mode === 'navigate') {
+            return caches.match('/offline.html');
+          }
         });
       })
+  );
+});
+
+// Push event - Listen for travel advisories
+self.addEventListener('push', (event) => {
+  console.log('[Service Worker] Push event received');
+  let data = { title: 'Savanna Explorer', body: 'New travel advisory or update available!' };
+  if (event.data) {
+    try {
+      data = event.data.json();
+    } catch {
+      data = { title: 'Savanna Explorer', body: event.data.text() };
+    }
+  }
+
+  event.waitUntil(
+    self.registration.showNotification(data.title, {
+      body: data.body,
+      icon: '/favicon.png',
+      badge: '/favicon.png',
+      vibrate: [100, 50, 100],
+      data: {
+        url: self.location.origin
+      }
+    })
+  );
+});
+
+// Notification click event - Open the app
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
+      const targetUrl = event.notification.data?.url || '/';
+      for (const client of clientList) {
+        if (client.url === targetUrl && 'focus' in client) {
+          return client.focus();
+        }
+      }
+      if (clients.openWindow) {
+        return clients.openWindow(targetUrl);
+      }
+    })
   );
 });

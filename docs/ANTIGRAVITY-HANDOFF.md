@@ -1,11 +1,11 @@
 # Antigravity handoff — SEO & production
 
-**Mission:** Verify https://savannaexplorer.com in Google Search Console, submit the sitemap (97 URLs), optionally add GA4, and enable GitHub Actions deploy.
+**Mission:** Maintain the Vercel production deployment, verify https://savannaexplorer.com in Google Search Console, submit the sitemap (165 URLs), and optionally add GA4.
 
 **Repo:** `walu22/savannaexplorer`  
 **Local path:** `C:\Users\k9pur\.gemini\antigravity\scratch\savannaexplorer`  
-**Prod:** Hostinger VPS `31.97.56.157`, web root `/var/www/savannaexplorer`, nginx with SPA fallback  
-**Version:** v4.15.0 (footer shows version after hard refresh)
+**Prod:** Vercel project serving `savannaexplorer.com`
+**Version:** v4.35.0 (footer shows version after hard refresh)
 
 ---
 
@@ -27,12 +27,12 @@
 cd C:\Users\k9pur\.gemini\antigravity\scratch\savannaexplorer
 git pull origin master
 npm install
-npm run dev   # footer v4.15.0 at http://localhost:5173
+npm run dev   # footer v4.35.0 at http://localhost:5173
 ```
 
 Confirm live:
 - `#book-direct` section exists
-- `/sitemap.xml` → 97 URLs
+- `/sitemap.xml` → 165 URLs
 - `/countries/namibia` page source title = "Namibia Travel Guide"
 
 Log results in `docs/gsc-setup.md`.
@@ -42,7 +42,7 @@ Log results in `docs/gsc-setup.md`.
 Follow `docs/gsc-setup.md`. Summary:
 
 1. Add property `https://savannaexplorer.com` (URL prefix)
-2. Verify via **DNS TXT** in Hostinger hPanel
+2. Verify via **DNS TXT** at the active DNS provider
 3. Submit sitemap: `sitemap.xml`
 4. Request indexing for 10 priority URLs (listed in gsc-setup.md)
 
@@ -60,32 +60,21 @@ https://www.bing.com/webmasters — import from GSC or verify separately, submit
 4. Deploy `dist/`
 5. Confirm gtag in page source; check GA4 Realtime
 
-### 5. GitHub Actions deploy
+### 5. Vercel Git deployment
 
-Workflow: `.github/workflows/deploy-production.yml`
+Vercel Git integration deploys `master`. GitHub Actions workflow `.github/workflows/verify-vercel.yml` runs tests and a production build as an independent CI check.
 
-Add repo secrets (Settings → Secrets → Actions):
+Keep application variables in Vercel → Project → Settings → Environment Variables:
 
-| Secret | Value |
-|--------|-------|
-| `DEPLOY_HOST` | `31.97.56.157` |
-| `DEPLOY_USER` | `root` |
-| `DEPLOY_PATH` | `/var/www/savannaexplorer` |
-| `DEPLOY_SSH_KEY` | private key (PEM) matching public key on VPS |
-| `VITE_SUPABASE_URL` | from `.env` |
-| `VITE_SUPABASE_ANON_KEY` | from `.env` |
-| `VITE_GSC_VERIFICATION` | if using meta verification |
-| `VITE_GA4_ID` | if GA4 enabled |
+| Variable | Purpose |
+|----------|---------|
+| `VITE_SITE_URL` | Production canonical URL |
+| `VITE_SUPABASE_URL` | Supabase project URL |
+| `VITE_SUPABASE_ANON_KEY` | Supabase publishable key |
+| `VITE_GSC_VERIFICATION` | Optional Search Console verification |
+| `VITE_GA4_ID` | Optional GA4 measurement ID |
 
-Generate deploy key:
-
-```powershell
-ssh-keygen -t ed25519 -f $env:USERPROFILE\.ssh\savannaexplorer_deploy -N '""'
-```
-
-Add `.pub` to VPS `~/.ssh/authorized_keys`. **Rotate root password** in Hostinger after key works.
-
-Test: commit a one-line change to `docs/gsc-setup.md` on `master`, push, watch Actions → Deploy to production.
+Test: push a reviewed change to `master`, confirm Actions → Verify Vercel release succeeds, then confirm the corresponding production deployment is Ready in Vercel.
 
 ### 6. Build verification (GSC meta / GA4)
 
@@ -106,11 +95,11 @@ Remove test values before production deploy unless real tokens.
 | File | Role |
 |------|------|
 | `docs/gsc-setup.md` | Status log — update as you complete steps |
-| `scripts/generate-sitemap.mjs` | 97 URLs at build time |
+| `scripts/generate-sitemap.mjs` | 165 URLs at build time |
 | `scripts/prerender-seo.mjs` | SEO HTML per route |
 | `vite.config.js` | Injects GSC + GA4 at build |
 | `.env.example` | Env var reference |
-| `.github/workflows/deploy-production.yml` | Auto deploy |
+| `.github/workflows/verify-vercel.yml` | Test and production-build verification |
 
 ---
 

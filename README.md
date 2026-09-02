@@ -34,7 +34,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.15.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.35.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -87,7 +87,8 @@ See **`docs/vercel-deploy.md`** for full setup. Summary:
 1. Import the GitHub repo at [vercel.com/new](https://vercel.com/new)
 2. Add `VITE_*` environment variables in the Vercel project settings
 3. Point `savannaexplorer.com` DNS to Vercel
-4. Every push to `master` deploys automatically
+4. Enable Vercel Git integration for the repository
+5. Every push to `master` is verified by GitHub Actions and deployed by Vercel
 
 Legacy Hostinger SSH deploy has been removed from CI in favour of Vercel.
 

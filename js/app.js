@@ -14,6 +14,7 @@ if ('serviceWorker' in navigator) {
 import { initNav } from './modules/nav.js';
 import { initScrollUx } from './modules/scroll-ux.js';
 import { initReveal } from './modules/reveal.js';
+import { initOfflineManager } from './modules/offline-manager.js';
 
 function whenIdle(callback) {
     if (typeof requestIdleCallback === 'function') {
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initScrollUx();
     initReveal();
+    initOfflineManager();
 
     import('./modules/share.js').then(({ initShare }) => initShare());
 

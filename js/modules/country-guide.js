@@ -1,6 +1,9 @@
 import countries from '../../data/countries.json';
 import faqs from '../../data/faqs.json';
 import regions from '../../data/regions.json';
+import quickFacts from '../../data/country-quickfacts.json';
+import weatherData from '../../data/country-weather.json';
+import tipsData from '../../data/country-tips.json';
 import { getFullCountryData } from '../lib/merge-country.js';
 import { getCountryGuide } from '../lib/guide.js';
 import { spotImageUrl, activityImageUrl } from '../lib/images.js';
@@ -14,6 +17,7 @@ import {
     renderCountryParkRow,
     renderOfficialResourceCard,
 } from '../lib/country-resources.js';
+import { hasCountryMapData, mountCountryMap } from '../lib/itinerary-maps.js';
 import {
     parseLocation,
     navigateToCountry,
@@ -30,6 +34,7 @@ import { handleSeoRoute } from './seo-routes.js';
 import { getCountryLastReviewed, lastReviewedLabel, toIsoReviewDate } from '../lib/content-meta.js';
 import { getListingsForCountry, renderCountryBookRows } from './book-direct.js';
 import { closeMobileNav, setMainNavSuppressed } from './nav.js';
+import { syncOfflineButtonState } from './offline-manager.js';
 
 const detailView = document.getElementById('country-detail-view');
 const countryScroll = document.getElementById('country-detail-scroll');
@@ -140,6 +145,27 @@ function populateCountryPage(countryId) {
 
     if (aboutHeading) aboutHeading.textContent = `Information About ${data.name}`;
     if (aboutIntro) aboutIntro.textContent = `Discover essential information for your trip to ${data.name} — geography, history, culture, wildlife, and practical travel advice.`;
+
+    // Quick Facts
+    const qf = quickFacts[countryId];
+    const quickFactsContainer = document.getElementById('detail-quick-facts');
+    if (quickFactsContainer && qf) {
+        quickFactsContainer.innerHTML = `
+            <div class="qf-item"><i class="fas fa-city"></i><span class="qf-label">Capital</span><span class="qf-val">${qf.capital}</span></div>
+            <div class="qf-item"><i class="fas fa-users"></i><span class="qf-label">Population</span><span class="qf-val">${qf.population}</span></div>
+            <div class="qf-item"><i class="fas fa-ruler-combined"></i><span class="qf-label">Area</span><span class="qf-val">${qf.area}</span></div>
+            <div class="qf-item"><i class="fas fa-clock"></i><span class="qf-label">Timezone</span><span class="qf-val">${qf.timezone}</span></div>
+            <div class="qf-item"><i class="fas fa-money-bill"></i><span class="qf-label">Currency</span><span class="qf-val">${qf.currency}</span></div>
+            <div class="qf-item"><i class="fas fa-car"></i><span class="qf-label">Driving</span><span class="qf-val">${qf.drivingSide}</span></div>
+            <div class="qf-item"><i class="fas fa-plug"></i><span class="qf-label">Voltage</span><span class="qf-val">${qf.voltage}</span></div>
+            <div class="qf-item"><i class="fas fa-language"></i><span class="qf-label">Languages</span><span class="qf-val">${qf.languages}</span></div>
+            <div class="qf-item"><i class="fas fa-phone-alt"></i><span class="qf-label">Emergency</span><span class="qf-val">${qf.emergency}</span></div>
+            <div class="qf-item"><i class="fas fa-sun"></i><span class="qf-label">Best Months</span><span class="qf-val">${qf.bestMonths}</span></div>
+        `;
+    } else if (quickFactsContainer) {
+        quickFactsContainer.innerHTML = '';
+    }
+
     if (summaryEl) {
         summaryEl.textContent = data.about.summary || '';
         summaryEl.classList.toggle('hidden', !data.about.summary);
@@ -212,6 +238,32 @@ function populateCountryPage(countryId) {
         <div class="season-card"><span class="season-icon">${s.icon}</span><h4>${s.name}</h4><p>${s.desc}</p></div>
     `).join('');
 
+    // Weather Matrix
+    const weatherList = weatherData[countryId];
+    const weatherMatrix = document.getElementById('detail-weather-matrix');
+    if (weatherMatrix && weatherList) {
+        weatherMatrix.innerHTML = `
+            <h3><i class="fas fa-cloud-sun-rain"></i> Climate & Weather Overview</h3>
+            <div class="weather-grid">
+                ${weatherList.map(w => `
+                    <div class="weather-cell rating-${w.rating}">
+                        <div class="weather-month">${w.month}</div>
+                        <div class="weather-temp"><i class="fas fa-temperature-high"></i> ${w.tempHigh}° / ${w.tempLow}°</div>
+                        <div class="weather-rain"><i class="fas fa-tint"></i> ${w.rain}mm</div>
+                        <div class="weather-notes">${w.notes}</div>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="weather-legend">
+                <span class="legend-item"><span class="legend-dot rating-ideal"></span> Ideal</span>
+                <span class="legend-item"><span class="legend-dot rating-shoulder"></span> Shoulder</span>
+                <span class="legend-item"><span class="legend-dot rating-avoid"></span> Avoid / Challenging</span>
+            </div>
+        `;
+    } else if (weatherMatrix) {
+        weatherMatrix.innerHTML = '';
+    }
+
     document.getElementById('detail-packing').innerHTML = guide.packing.map(item => `<li>${item}</li>`).join('');
 
     document.getElementById('detail-day-narrative').innerHTML = `
@@ -226,6 +278,25 @@ function populateCountryPage(countryId) {
         <div class="practical-card"><i class="fas fa-sim-card"></i><h4>Mobile & SIM</h4><p>${p.sim}</p></div>
         <div class="practical-card"><i class="fas fa-clock"></i><h4>Time Zone</h4><p>${p.time}</p></div>
     `;
+
+    // Traveler Tips
+    const tipsList = tipsData[countryId];
+    const tipsSection = document.getElementById('detail-tips-section');
+    if (tipsSection && tipsList && tipsList.length > 0) {
+        tipsSection.innerHTML = `
+            <h3><i class="fas fa-lightbulb"></i> Did You Know?</h3>
+            <div class="tips-grid">
+                ${tipsList.map(tip => `
+                    <div class="tip-card">
+                        <i class="fas fa-info-circle"></i>
+                        <p>${tip}</p>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    } else if (tipsSection) {
+        tipsSection.innerHTML = '';
+    }
 
     const resourcePack = getCountryResourcePack(countryId);
     const visaRow = getVisaRow(countryId);
@@ -371,6 +442,17 @@ function populateCountryPage(countryId) {
         });
     }
 
+    const mapPanel = document.getElementById('country-map-panel');
+    if (mapPanel) {
+        mapPanel.hidden = !hasCountryMapData(countryParks, countryBorders);
+        if (!mapPanel.hidden) {
+            mountCountryMap(countryId, countryParks, countryBorders).catch((error) => {
+                console.error('[Country map] Failed to load:', error);
+                mapPanel.hidden = true;
+            });
+        }
+    }
+
     resetGuideTabs();
 }
 
@@ -385,6 +467,9 @@ function showCountryPage(countryId) {
     document.body.style.overflow = 'hidden';
     setCountryMeta(countryId);
     requestAnimationFrame(() => bindCountryPageHeader());
+    // Sync offline button state
+    const saveBtn = document.getElementById('btn-save-country-offline');
+    if (saveBtn) syncOfflineButtonState('country', countryId, saveBtn);
 }
 
 function hideCountryPage() {

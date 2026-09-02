@@ -1455,6 +1455,10 @@
                             <h1 id="detail-title">Country Name</h1>
                             <p id="detail-tagline" class="detail-tagline">Premium Tagline</p>
                             <p id="detail-last-reviewed" class="detail-last-reviewed" hidden></p>
+                            <button type="button" id="btn-save-country-offline" class="btn-save-offline">
+                                <i class="fas fa-download"></i>
+                                <span>Save for Offline</span>
+                            </button>
                         </div>
                         <div class="detail-quick-stats" id="detail-quick-stats" aria-label="Country highlights"></div>
                     </div>
@@ -1469,6 +1473,7 @@
                         <span class="section-eyebrow">About</span>
                         <h2 id="detail-about-heading">Information About This Destination</h2>
                         <p id="detail-about-intro">Discover essential information before you embark on your journey.</p>
+                        <div id="detail-quick-facts" class="quick-facts-grid"></div>
                         <p id="detail-summary" class="detail-summary"></p>
                     </div>
                     <div class="guide-article-grid">
@@ -1498,6 +1503,7 @@
                             <p id="detail-economy">Economic overview...</p>
                         </article>
                     </div>
+                    <div id="detail-tips-section" class="tips-section"></div>
                     <div class="guide-practical-row" id="detail-practical"></div>
                 </div>
 
@@ -1509,6 +1515,7 @@
                         <p>Everything you need to plan a safe, memorable journey.</p>
                     </div>
                     <div class="seasons-grid" id="detail-seasons"></div>
+                    <div id="detail-weather-matrix" class="weather-matrix"></div>
                     <div class="travel-info-grid">
                         <div class="travel-info-card"><i class="fas fa-passport"></i><h4>Visa & Entry</h4><p id="detail-visa"></p></div>
                         <div class="travel-info-card"><i class="fas fa-heartbeat"></i><h4>Health</h4><p id="detail-health"></p></div>
@@ -1563,6 +1570,14 @@
                         <span class="section-eyebrow">Discover</span>
                         <h2>Must-Visit Attractions</h2>
                         <p>Regional highlights and iconic landmarks — the places that define this destination.</p>
+                    </div>
+                    <div id="country-map-panel" class="country-map-panel" hidden>
+                        <h3 class="regions-heading"><i class="fas fa-map-marked-alt"></i> Interactive Map</h3>
+                        <div id="country-map-canvas" class="itin-map-canvas" style="height: 400px; margin-bottom: 1rem;" role="img" aria-label="Interactive country map"></div>
+                        <div class="map-controls" style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox" id="toggle-parks" checked> Show National Parks</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox" id="toggle-borders" checked> Show Border Crossings</label>
+                        </div>
                     </div>
                     <div id="detail-regions-section" class="regions-section hidden">
                         <h3 class="regions-heading"><i class="fas fa-map"></i> Explore by Region</h3>
@@ -1647,6 +1662,7 @@
                 <div class="itin-actions-bar">
                     <button type="button" class="btn btn-primary" id="itin-plan-tools"><i class="fas fa-tools"></i> Open Travel Tools</button>
                     <button type="button" class="btn btn-outline" id="itin-expense-tracker"><i class="fas fa-wallet"></i> Track Expenses</button>
+                    <button type="button" class="btn btn-save-offline" id="btn-save-itinerary-offline"><i class="fas fa-download"></i> <span>Save for Offline</span></button>
                 </div>
                 <div class="itin-share-wrap" id="itin-share-wrap"></div>
             </div>
@@ -1747,8 +1763,16 @@
             </div>
             
             <div id="ai-result" class="hidden">
-                <button id="ai-back-btn" class="btn btn-outline" type="button"><i class="fas fa-arrow-left"></i> Start Over</button>
-                <div id="ai-markdown-content" class="markdown-body"></div>
+                <div class="ai-result-header" style="padding: 15px 20px 10px; display: flex; justify-content: flex-end;">
+                    <button id="ai-back-btn" class="ai-start-over-pill" type="button"><i class="fas fa-arrow-left"></i> Start Over</button>
+                </div>
+                <div id="ai-planner-messages" class="ai-planner-messages">
+                    <!-- Chat bubbles injected here -->
+                </div>
+                <div id="ai-planner-chat-input-area" class="ai-planner-chat-input-area">
+                    <textarea id="ai-planner-chat-input" class="chat-input" placeholder="e.g. Can we do 10 days instead?" rows="1"></textarea>
+                    <button id="ai-planner-chat-send" class="chat-send-btn" aria-label="Send follow-up"><i class="fas fa-paper-plane"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -1780,6 +1804,23 @@
         <div class="chat-input-area">
             <textarea class="chat-input" placeholder="Ask about Southern Africa..." rows="1"></textarea>
             <button class="chat-send-btn" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- PWA Install Banner -->
+    <div id="pwa-install-banner" class="pwa-install-banner" role="banner" aria-label="Install App">
+        <div class="pwa-install-content">
+            <div class="pwa-install-icon">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="pwa-install-text">
+                <h4>Install Savanna Explorer</h4>
+                <p>Access travel guides & maps offline while on safari.</p>
+            </div>
+        </div>
+        <div class="pwa-install-actions">
+            <button type="button" class="btn-install" id="pwa-btn-install">Install</button>
+            <button type="button" class="btn-dismiss" id="pwa-btn-dismiss" aria-label="Dismiss banner">&times;</button>
         </div>
     </div>
 

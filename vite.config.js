@@ -33,6 +33,15 @@ export default defineConfig(({ mode }) => ({
     root: '.',
     publicDir: 'public',
     plugins: [analyticsPlugin(mode)],
+    server: {
+        proxy: {
+            '/api': {
+                target: 'https://savannaexplorer.com',
+                changeOrigin: true,
+                secure: true,
+            }
+        }
+    },
     build: {
         outDir: 'dist',
         emptyOutDir: true,
@@ -48,10 +57,8 @@ export default defineConfig(({ mode }) => ({
                         }
                         return 'data-misc';
                     }
-                    if (id.includes('/js/modules/country-guide')) return 'mod-country-guide';
                     if (id.includes('/js/modules/marketplace')) return 'mod-marketplace';
                     if (id.includes('/js/modules/trip-planner')) return 'mod-trip-planner';
-                    if (id.includes('/js/modules/planning-guides')) return 'mod-planning-guides';
                     if (id.includes('/js/modules/tourism-stats')) return 'mod-tourism-stats';
                     if (id.includes('/js/modules/discover')) return 'mod-discover';
                 },

@@ -1,6 +1,7 @@
 [
   {
     "id": "vioolsdrift",
+    "coordinates": { "lat": -28.7667, "lng": 17.627 },
     "name": "Vioolsdrift / Noordoewer",
     "countries": [
       "south-africa",
@@ -27,6 +28,7 @@
   },
   {
     "id": "martins-drift",
+    "coordinates": { "lat": -22.9954683, "lng": 27.9332331 },
     "name": "Martin's Drift",
     "countries": [
       "south-africa",
@@ -53,6 +55,7 @@
   },
   {
     "id": "beitbridge",
+    "coordinates": { "lat": -22.1986233, "lng": 29.9917535 },
     "name": "Beitbridge",
     "countries": [
       "south-africa",
@@ -79,6 +82,7 @@
   },
   {
     "id": "kazungula",
+    "coordinates": { "lat": -17.791016, "lng": 25.2624547 },
     "name": "Kazungula Bridge",
     "countries": [
       "botswana",
@@ -105,6 +109,7 @@
   },
   {
     "id": "vic-falls-bridge",
+    "coordinates": { "lat": -17.9282884, "lng": 25.857152 },
     "name": "Victoria Falls Bridge",
     "countries": [
       "zimbabwe",
@@ -129,6 +134,7 @@
   },
   {
     "id": "ngoma",
+    "coordinates": { "lat": -17.9274783, "lng": 24.7202492 },
     "name": "Ngoma Bridge",
     "countries": [
       "namibia",
@@ -154,6 +160,7 @@
   },
   {
     "id": "lebombo",
+    "coordinates": { "lat": -25.442, "lng": 31.986 },
     "name": "Lebombo / Ressano Garcia",
     "countries": [
       "south-africa",
@@ -180,6 +187,7 @@
   },
   {
     "id": "maseru-bridge",
+    "coordinates": { "lat": -29.298048, "lng": 27.4547051 },
     "name": "Maseru Bridge",
     "countries": [
       "south-africa",
@@ -204,6 +212,7 @@
   },
   {
     "id": "oshoek",
+    "coordinates": { "lat": -26.154, "lng": 30.985 },
     "name": "Oshoek / Ngwenya",
     "countries": [
       "south-africa",
@@ -228,6 +237,7 @@
   },
   {
     "id": "nakonde",
+    "coordinates": { "lat": -9.3314463, "lng": 32.7547861 },
     "name": "Nakonde / Tunduma",
     "countries": [
       "zambia",
@@ -254,6 +264,7 @@
   },
   {
     "id": "chirundu",
+    "coordinates": { "lat": -16.031977, "lng": 28.85148 },
     "name": "Chirundu",
     "countries": [
       "zambia",
@@ -279,6 +290,7 @@
   },
   {
     "id": "plumtree",
+    "coordinates": { "lat": -20.4880677, "lng": 27.805601 },
     "name": "Plumtree / Ramokgwebana",
     "countries": [
       "botswana",
@@ -305,6 +317,7 @@
   },
   {
     "id": "mamuno",
+    "coordinates": { "lat": -22.2812541, "lng": 20.0076811 },
     "name": "Mamuno / Trans-Kalahari",
     "countries": [
       "namibia",
@@ -330,6 +343,7 @@
   },
   {
     "id": "pafuri-sengwe",
+    "coordinates": { "lat": -22.4503987, "lng": 31.3101485 },
     "name": "Pafuri\u2013Sengwe (Gonarezhou)",
     "countries": [
       "south-africa",
@@ -357,6 +371,7 @@
   },
   {
     "id": "wenela",
+    "coordinates": { "lat": -17.474, "lng": 24.279 },
     "name": "Wenela / Sesheke",
     "countries": [
       "zambia",
@@ -504,6 +519,7 @@
   },
   {
     "id": "giriyondo",
+    "coordinates": { "lat": -23.5838348, "lng": 31.6601132 },
     "name": "Giriyondo",
     "countries": [
       "south-africa",
@@ -530,6 +546,7 @@
   },
   {
     "id": "komatipoort",
+    "coordinates": { "lat": -25.4327778, "lng": 31.9558333 },
     "name": "Komatipoort / Ressano Garcia",
     "countries": [
       "south-africa",
@@ -556,6 +573,7 @@
   },
   {
     "id": "lomahasha",
+    "coordinates": { "lat": -25.9900748, "lng": 31.9965301 },
     "name": "Lomahasha / Namaacha",
     "countries": [
       "mozambique",
@@ -581,6 +599,7 @@
   },
   {
     "id": "mchinji",
+    "coordinates": { "lat": -13.79, "lng": 32.89 },
     "name": "Mchinji / Z\u00f3bu\u00e8",
     "countries": [
       "malawi",
@@ -631,6 +650,7 @@
   },
   {
     "id": "groblersbrug",
+    "coordinates": { "lat": -23.0010874, "lng": 27.9459561 },
     "name": "Groblersbrug",
     "countries": [
       "south-africa",
@@ -656,6 +676,7 @@
   },
   {
     "id": "ponta-do-ouro",
+    "coordinates": { "lat": -26.959124, "lng": 32.8248255 },
     "name": "Kosi Bay / Ponta do Ouro",
     "countries": [
       "south-africa",
@@ -681,6 +702,7 @@
   },
   {
     "id": "sani-pass",
+    "coordinates": { "lat": -29.5851984, "lng": 29.2870241 },
     "name": "Sani Pass",
     "countries": [
       "south-africa",
@@ -709,6 +731,7 @@
   },
   {
     "id": "golela-lavumisa",
+    "coordinates": { "lat": -27.3186717, "lng": 31.8915069 },
     "name": "Golela / Lavumisa",
     "countries": [
       "south-africa",

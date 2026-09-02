@@ -272,12 +272,41 @@ function renderAdvisories() {
 
     el.innerHTML = `
         <p class="essentials-intro">${escapeHtml(advisories.intro)}</p>
+        <div class="pwa-notif-card">
+            <div class="pwa-notif-header">
+                <div class="pwa-notif-icon"><i class="fas fa-bell"></i></div>
+                <div class="pwa-notif-info">
+                    <h4>Travel Advisory Notifications</h4>
+                    <p>Get real-time push alerts for critical border closures, road washouts, and travel warnings in Southern Africa.</p>
+                </div>
+            </div>
+            <div class="pwa-notif-toggle-wrap">
+                <span class="pwa-notif-status inactive" id="pwa-notif-status-text">Notifications Disabled</span>
+                <label class="switch-label">
+                    <input type="checkbox" id="pwa-notif-toggle">
+                    <span class="switch-slider"></span>
+                </label>
+            </div>
+        </div>
         <h3 class="essentials-subheading">Your government's travel advice</h3>
         <ul class="essentials-link-list">${services}</ul>
         <h3 class="essentials-subheading">By destination</h3>
         <div class="essentials-advisory-grid">${countries}</div>
         <p class="section-disclaimer">${escapeHtml(advisories.meta.disclaimer)}</p>
     `;
+
+    // Sync initial state of toggle
+    const toggle = document.getElementById('pwa-notif-toggle');
+    if (toggle) {
+        const isEnabled = localStorage.getItem('se_notifications_enabled') === 'true' &&
+                          ('Notification' in window && Notification.permission === 'granted');
+        toggle.checked = isEnabled;
+        const statusText = document.getElementById('pwa-notif-status-text');
+        if (statusText) {
+            statusText.textContent = isEnabled ? 'Notifications Enabled' : 'Notifications Disabled';
+            statusText.className = isEnabled ? 'pwa-notif-status active' : 'pwa-notif-status inactive';
+        }
+    }
 }
 
 function renderPitfalls() {

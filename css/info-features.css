@@ -1,0 +1,198 @@
+/* INFO-NAMIBIA INSPIRED FEATURES */
+
+/* 1. Quick Facts Grid */
+.quick-facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+    background: var(--surface-2);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.qf-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+.qf-item i {
+    color: var(--primary-accent);
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.qf-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.qf-val {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    line-height: 1.2;
+}
+
+/* 2. Tips Section */
+.tips-section {
+    margin: 3rem 0;
+}
+
+.tips-section h3 {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-accent);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 1.5rem;
+}
+
+.tip-card {
+    background: linear-gradient(135deg, var(--surface-1), var(--surface-2));
+    border-left: 4px solid var(--primary-accent);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-card i {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 4rem;
+    opacity: 0.05;
+    color: var(--primary-color);
+}
+
+.tip-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+}
+
+/* 3. Weather Matrix */
+.weather-matrix {
+    margin: 3rem 0;
+    background: var(--surface-1);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.weather-matrix h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.weather-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+.weather-cell {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    min-width: 80px;
+    position: relative;
+    border-top: 3px solid transparent;
+    background: var(--surface-2);
+}
+
+.weather-cell.rating-ideal {
+    border-top-color: #22c55e;
+}
+
+.weather-cell.rating-shoulder {
+    border-top-color: #eab308;
+}
+
+.weather-cell.rating-avoid {
+    border-top-color: #ef4444;
+}
+
+.weather-month {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.weather-temp, .weather-rain {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+}
+
+.weather-notes {
+    font-size: 0.75rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    line-height: 1.2;
+    color: var(--text-color);
+    font-style: italic;
+}
+
+.weather-legend {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-end;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-dot.rating-ideal { background-color: #22c55e; }
+.legend-dot.rating-shoulder { background-color: #eab308; }
+.legend-dot.rating-avoid { background-color: #ef4444; }
+
+@media (max-width: 1024px) {
+    .weather-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .weather-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

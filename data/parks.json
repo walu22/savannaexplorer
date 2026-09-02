@@ -1,6 +1,7 @@
 [
   {
     "id": "kruger",
+    "coordinates": { "lat": -23.9357763, "lng": 31.5083741 },
     "name": "Kruger National Park",
     "country": "south-africa",
     "description": "Africa's greatest game reserve — Big Five, 500+ bird species, and 2 million hectares of wilderness.",
@@ -58,6 +59,7 @@
   },
   {
     "id": "table-mountain",
+    "coordinates": { "lat": -33.9616843, "lng": 18.4227666 },
     "name": "Table Mountain National Park",
     "country": "south-africa",
     "description": "Iconic flat-topped mountain overlooking Cape Town — fynbos, penguins at Boulders Beach, and dramatic coastal trails.",
@@ -101,6 +103,7 @@
   },
   {
     "id": "addo",
+    "coordinates": { "lat": -33.1682124, "lng": 25.2826109 },
     "name": "Addo Elephant National Park",
     "country": "south-africa",
     "description": "Home to over 600 elephants and the only park offering Big Seven (including great white sharks and southern right whales).",
@@ -151,6 +154,7 @@
   },
   {
     "id": "etosha",
+    "coordinates": { "lat": -18.9913305, "lng": 15.7460551 },
     "name": "Etosha National Park",
     "country": "namibia",
     "description": "One of Africa's oldest parks — centred on a vast salt pan, with legendary floodlit waterhole viewing.",
@@ -201,6 +205,7 @@
   },
   {
     "id": "namib-naukluft",
+    "coordinates": { "lat": -24.607231, "lng": 15.1689265 },
     "name": "Namib-Naukluft Park",
     "country": "namibia",
     "description": "One of the world's largest conservation areas — Sossusvlei's red dunes and the oldest desert on Earth.",
@@ -251,6 +256,7 @@
   },
   {
     "id": "skeleton-coast",
+    "coordinates": { "lat": -19.1723175, "lng": 12.7636025 },
     "name": "Skeleton Coast Park",
     "country": "namibia",
     "description": "Where desert meets the Atlantic — shipwrecks, fur seal colonies, and desert-adapted lions.",
@@ -295,6 +301,7 @@
   },
   {
     "id": "chobe",
+    "coordinates": { "lat": -18.5525706, "lng": 24.3996069 },
     "name": "Chobe National Park",
     "country": "botswana",
     "description": "Africa's largest elephant population — 120,000 elephants and spectacular Chobe River cruises.",
@@ -345,6 +352,7 @@
   },
   {
     "id": "moremi",
+    "coordinates": { "lat": -19.294581, "lng": 23.2938892 },
     "name": "Moremi Game Reserve",
     "country": "botswana",
     "description": "The Okavango Delta's wildlife heartland — mokoro trips, leopard sightings, and pristine floodplains.",
@@ -394,6 +402,7 @@
   },
   {
     "id": "central-kalahari",
+    "coordinates": { "lat": -22.1921285, "lng": 23.8159347 },
     "name": "Central Kalahari Game Reserve",
     "country": "botswana",
     "description": "Vast semi-arid wilderness — black-maned lions, brown hyenas, and the raw Kalahari experience.",
@@ -444,6 +453,7 @@
   },
   {
     "id": "south-luangwa",
+    "coordinates": { "lat": -13.0516371, "lng": 31.5400263 },
     "name": "South Luangwa National Park",
     "country": "zambia",
     "description": "Birthplace of the walking safari — legendary leopard sightings and hippo-filled Luangwa River.",
@@ -493,6 +503,7 @@
   },
   {
     "id": "kafue",
+    "coordinates": { "lat": -15.3787398, "lng": 25.6461608 },
     "name": "Kafue National Park",
     "country": "zambia",
     "description": "One of Africa's largest parks — Busanga Plains cheetah, tree-climbing lions, and remote wilderness.",
@@ -543,6 +554,7 @@
   },
   {
     "id": "lower-zambezi",
+    "coordinates": { "lat": -15.4556506, "lng": 29.7894709 },
     "name": "Lower Zambezi National Park",
     "country": "zambia",
     "description": "Canoe safaris along the Zambezi — elephants, hippos, and stunning escarpment views.",
@@ -592,6 +604,7 @@
   },
   {
     "id": "hwange",
+    "coordinates": { "lat": -19.1890212, "lng": 26.740061 },
     "name": "Hwange National Park",
     "country": "zimbabwe",
     "description": "Zimbabwe's largest reserve — 100+ mammal species across ancient elephant migration corridors.",
@@ -642,6 +655,7 @@
   },
   {
     "id": "mana-pools",
+    "coordinates": { "lat": -15.75, "lng": 29.333 },
     "name": "Mana Pools National Park",
     "country": "zimbabwe",
     "description": "UNESCO World Heritage wilderness — walking safaris among elephants and albida trees on the Zambezi floodplain.",
@@ -692,6 +706,7 @@
   },
   {
     "id": "gonarezhou",
+    "coordinates": { "lat": -21.6814906, "lng": 31.8346536 },
     "name": "Gonarezhou National Park",
     "country": "zimbabwe",
     "description": "Remote wilderness in the Great Limpopo Transfrontier Park — Chilojo Cliffs and untamed bush.",
@@ -742,6 +757,7 @@
   },
   {
     "id": "gorongosa",
+    "coordinates": { "lat": -18.8269496, "lng": 34.4616759 },
     "name": "Gorongosa National Park",
     "country": "mozambique",
     "description": "Africa's greatest wildlife restoration story — lions, elephants, and thriving ecosystems reborn.",
@@ -791,6 +807,7 @@
   },
   {
     "id": "bazaruto",
+    "coordinates": { "lat": -21.8445, "lng": 34.1297 },
     "name": "Bazaruto Archipelago National Park",
     "country": "mozambique",
     "description": "Turquoise Indian Ocean islands — dugongs, whale sharks, and world-class diving.",
@@ -834,6 +851,7 @@
   },
   {
     "id": "quirimbas",
+    "coordinates": { "lat": -12.459156, "lng": 40.3724074 },
     "name": "Quirimbas National Park",
     "country": "mozambique",
     "description": "Remote northern archipelago — mangroves, coral reefs, and Swahili-influenced island culture.",
@@ -872,6 +890,7 @@
   },
   {
     "id": "liwonde",
+    "coordinates": { "lat": -14.8262451, "lng": 35.3475281 },
     "name": "Liwonde National Park",
     "country": "malawi",
     "description": "Malawi's premier wildlife reserve — boat safaris on the Shire River alongside elephants and crocs.",
@@ -921,6 +940,7 @@
   },
   {
     "id": "nyika",
+    "coordinates": { "lat": -10.5486743, "lng": 33.8912241 },
     "name": "Nyika National Park",
     "country": "malawi",
     "description": "High-altitude plateau of rolling grasslands — zebras, antelope, and wild orchids.",
@@ -970,6 +990,7 @@
   },
   {
     "id": "lake-malawi",
+    "coordinates": { "lat": -14.0594232, "lng": 34.8872206 },
     "name": "Lake Malawi National Park",
     "country": "malawi",
     "description": "UNESCO site on the lake shore — 1,000+ cichlid species and crystal-clear snorkelling.",
@@ -1013,6 +1034,7 @@
   },
   {
     "id": "sehlathebe",
+    "coordinates": { "lat": -29.908045, "lng": 29.1168961 },
     "name": "Sehlabathebe National Park",
     "country": "lesotho",
     "description": "Remote highland wilderness — rock art, wild horses, and dramatic Drakensberg escarpment scenery.",
@@ -1062,6 +1084,7 @@
   },
   {
     "id": "tsenhlanyane",
+    "coordinates": { "lat": -28.923889, "lng": 28.458056 },
     "name": "Tse'ehlanyane National Park",
     "country": "lesotho",
     "description": "Maloti Mountains sanctuary — indigenous forests, trout fishing, and alpine hiking trails.",
@@ -1105,6 +1128,7 @@
   },
   {
     "id": "bokong",
+    "coordinates": { "lat": -29.0693184, "lng": 28.4256378 },
     "name": "Bokong Nature Reserve",
     "country": "lesotho",
     "description": "Stunning plateau above the Katse Dam — bearded vultures, alpine flowers, and panoramic views.",
@@ -1148,6 +1172,7 @@
   },
   {
     "id": "hlane",
+    "coordinates": { "lat": -26.2612527, "lng": 31.8959586 },
     "name": "Hlane Royal National Park",
     "country": "eswatini",
     "description": "Eswatini's largest park — lions, rhinos, and guided game drives in royal bushveld.",
@@ -1197,6 +1222,7 @@
   },
   {
     "id": "mlilwane",
+    "coordinates": { "lat": -26.435336, "lng": 31.1341044 },
     "name": "Mlilwane Wildlife Sanctuary",
     "country": "eswatini",
     "description": "Eswatini's pioneer conservation area — walk or cycle among antelope, hippos, and crocodiles.",
@@ -1240,6 +1266,7 @@
   },
   {
     "id": "malolotja",
+    "coordinates": { "lat": -26.0933071, "lng": 31.0950535 },
     "name": "Malolotja Nature Reserve",
     "country": "eswatini",
     "description": "Pristine montane wilderness — canopy tours, hiking trails, and the Malolotja Falls.",

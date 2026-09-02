@@ -27,8 +27,8 @@
     position: fixed;
     top: 0;
     right: -500px;
-    width: 450px;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 450px;
     height: 100vh;
     background: rgba(15, 25, 20, 0.95);
     backdrop-filter: blur(20px);
@@ -361,3 +361,121 @@
     gap: 0.75rem;
 }
 
+/* --- Conversational Chat Input Area --- */
+#ai-planner-chat-input-area {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(10, 15, 12, 0.95);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    align-items: flex-end;
+}
+
+#ai-planner-chat-input {
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    padding: 0.8rem 1rem;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    resize: none;
+    max-height: 120px;
+    min-height: 44px;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    overflow-y: auto;
+}
+
+#ai-planner-chat-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#ai-planner-chat-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#ai-planner-chat-send {
+    background: var(--primary);
+    color: #1a1a1a;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+}
+
+#ai-planner-chat-send:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+#ai-planner-chat-send i {
+    font-size: 1.1rem;
+}
+
+/* --- Start Over Pill --- */
+.ai-start-over-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.ai-start-over-pill:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: rgba(212, 175, 55, 0.4);
+    color: var(--primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- AI Chat Markdown Formatting --- */
+.ai-planner-messages .markdown-body h1,
+.ai-planner-messages .markdown-body h2,
+.ai-planner-messages .markdown-body h3,
+.ai-planner-messages .markdown-body h4 {
+    color: var(--primary);
+    font-family: 'Cormorant Garamond', serif;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.ai-planner-messages .markdown-body h3 {
+    font-size: 1.3rem;
+}
+
+.ai-planner-messages .markdown-body strong {
+    color: var(--white);
+    font-weight: 600;
+}
+
+.ai-planner-messages .markdown-body ul,
+.ai-planner-messages .markdown-body ol {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.ai-planner-messages .markdown-body p {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
