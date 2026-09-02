@@ -2,11 +2,23 @@
    Phrasebook Styles
    ========================================= */
 
-.phrasebook-section {
+body.site-v2 .page-chapter--plan > .phrasebook-section {
     padding: var(--section-pad) 0;
     background: var(--bg-dark);
     color: var(--white);
     border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+body.site-v2 .phrasebook-section .section-header h2 {
+    color: var(--white);
+}
+
+body.site-v2 .phrasebook-section .section-header p {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+body.site-v2 .phrasebook-section .section-eyebrow {
+    color: var(--primary-light);
 }
 
 .phrasebook-container {

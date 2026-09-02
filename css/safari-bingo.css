@@ -2,7 +2,7 @@
    Safari Bingo Styles
    ========================================= */
 
-.safari-bingo-section {
+body.site-v2 .page-chapter--plan > .safari-bingo-section {
     padding: var(--section-pad) 0;
     background: var(--bg-dark);
     color: var(--white);
