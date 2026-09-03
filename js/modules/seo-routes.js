@@ -4,6 +4,7 @@ import {
     getItineraryById,
     getListingById,
     getParkById,
+    getRouteById,
     itineraryPath,
     listingPath,
     navigateHome,
@@ -13,6 +14,7 @@ import {
     navigateToPark,
     parkPath,
     planningGuidePath,
+    routePath,
     scrollToSection,
 } from '../lib/router.js';
 import { getCountryMeta } from '../lib/country-meta.js';
@@ -26,6 +28,7 @@ import {
     setListingMeta,
     setParkMeta,
     setPlanningGuideMeta,
+    setRouteMeta,
 } from '../lib/page-meta.js';
 import { openItineraryDetail } from './itineraries.js';
 import { openPlanningGuide } from './planning-guides.js';
@@ -42,12 +45,14 @@ function highlightCard(selector) {
 
 function bindSeoLinks() {
     document.addEventListener('click', (e) => {
-        const link = e.target.closest('a[href^="/parks/"], a[href^="/borders/"], a[href^="/itineraries/"], a[href^="/stays/"], a[href^="/operators/"], a[href^="/guides/planning/"]');
+        const link = e.target.closest('a[href^="/parks/"], a[href^="/borders/"], a[href^="/itineraries/"], a[href^="/routes/"], a[href^="/stays/"], a[href^="/operators/"], a[href^="/guides/planning/"]');
         if (!link) return;
+        if (e.defaultPrevented) return;
         const href = link.getAttribute('href');
         const parkMatch = href.match(/^\/parks\/([a-z0-9-]+)\/?$/);
         const borderMatch = href.match(/^\/borders\/([a-z0-9-]+)\/?$/);
         const itinMatch = href.match(/^\/itineraries\/([a-z0-9-]+)\/?$/);
+        const routeMatch = href.match(/^\/routes\/([a-z0-9-]+)\/?$/);
         const stayMatch = href.match(/^\/stays\/([a-z0-9-]+)\/?$/);
         const operatorMatch = href.match(/^\/operators\/([a-z0-9-]+)\/?$/);
         const guideMatch = href.match(/^\/guides\/planning\/([a-z-]+)\/?$/);
@@ -63,6 +68,10 @@ function bindSeoLinks() {
             e.preventDefault();
             navigateToItinerary(itinMatch[1]);
             handleSeoRoute({ type: 'itinerary', itineraryId: itinMatch[1] });
+        } else if (routeMatch && getRouteById(routeMatch[1])) {
+            e.preventDefault();
+            history.pushState({ view: 'route', routeId: routeMatch[1] }, '', routePath(routeMatch[1]));
+            handleSeoRoute({ type: 'route', routeId: routeMatch[1] });
         } else if (stayMatch && getListingById(stayMatch[1])?.kind === 'stay') {
             e.preventDefault();
             navigateToListing(stayMatch[1]);
@@ -109,6 +118,14 @@ export function handleSeoRoute(route) {
         return;
     }
 
+    if (route.type === 'route') {
+        const data = getRouteById(route.routeId);
+        if (!data) return;
+        setRouteMeta(data);
+        import('./route-explorer.js').then(({ openRouteExplorer }) => openRouteExplorer(route.routeId));
+        return;
+    }
+
     if (route.type === 'listing') {
         handleListingRoute(route);
         return;
@@ -138,4 +155,4 @@ export function closeSeoRoute(sectionId = null) {
     }
 }
 
-export { parkPath, borderPath, itineraryPath, listingPath };
+export { parkPath, borderPath, itineraryPath, listingPath, routePath };

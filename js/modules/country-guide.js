@@ -507,7 +507,7 @@ function handleRoute(route) {
         return;
     }
 
-    if (route.type === 'park' || route.type === 'border' || route.type === 'itinerary' || route.type === 'listing' || route.type === 'planning-guide') {
+    if (route.type === 'park' || route.type === 'border' || route.type === 'itinerary' || route.type === 'route' || route.type === 'listing' || route.type === 'planning-guide') {
         hideCountryPage();
         handleSeoRoute(route);
         return;

@@ -60,6 +60,7 @@
                     <button type="button" class="nav-drop-toggle" aria-expanded="false">Plan trip <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="nav-drop-menu">
                         <a href="#hub-my-safari">My Safari</a>
+                        <a href="#route-explorer">Route Explorer</a>
                         <a href="#itineraries">Itineraries</a>
                         <a href="#book-direct">Book direct</a>
                         <a href="#guides">Planning guides</a>
@@ -118,7 +119,7 @@
                 <div class="hero-stat"><strong>9</strong><span>countries</span></div>
                 <div class="hero-stat"><strong>27</strong><span>parks</span></div>
                 <div class="hero-stat"><strong>27</strong><span>border guides</span></div>
-                <div class="hero-stat"><strong>15</strong><span>route templates</span></div>
+                <div class="hero-stat"><strong>19</strong><span>curated routes</span></div>
             </div>
         </div>
         <p class="hero-scroll-cue" aria-hidden="true"><span>Scroll</span><i class="fas fa-chevron-down"></i></p>
@@ -327,6 +328,63 @@
                 <button type="button" class="itinerary-filter" data-scope="multi">Cross-Border</button>
             </div>
             <div class="itinerary-grid"></div>
+        </div>
+    </section>
+
+    <!-- Research-backed Route Explorer -->
+    <section id="route-explorer" class="route-explorer-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Build your route</span>
+                <h2>Route Explorer</h2>
+                <p>Compare practical, research-backed road-trip routes across all nine countries, then turn one into an editable My Safari plan.</p>
+            </div>
+
+            <div class="route-explorer-filters" aria-label="Filter routes">
+                <label for="route-filter-country">Country
+                    <select id="route-filter-country" data-route-filter="country">
+                        <option value="all">All countries</option>
+                    </select>
+                </label>
+                <label for="route-filter-duration">Duration
+                    <select id="route-filter-duration" data-route-filter="duration">
+                        <option value="all">Any duration</option>
+                        <option value="short">Up to 7 days</option>
+                        <option value="medium">8–12 days</option>
+                        <option value="long">13+ days</option>
+                    </select>
+                </label>
+                <label for="route-filter-vehicle">Vehicle
+                    <select id="route-filter-vehicle" data-route-filter="vehicle">
+                        <option value="all">Any vehicle</option>
+                        <option value="standard">Standard car</option>
+                        <option value="suv">SUV recommended</option>
+                        <option value="4x4">4×4 recommended</option>
+                    </select>
+                </label>
+                <label for="route-filter-theme">Trip style
+                    <select id="route-filter-theme" data-route-filter="theme">
+                        <option value="all">Any trip style</option>
+                        <option value="wildlife">Wildlife</option>
+                        <option value="landscapes">Landscapes</option>
+                        <option value="culture">Culture</option>
+                        <option value="coast">Coast</option>
+                        <option value="water">Rivers &amp; lakes</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="family">Family</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="route-explorer-toolbar">
+                <p><strong id="route-explorer-count">0 routes</strong> in the curated collection</p>
+                <p><i class="fas fa-circle-info" aria-hidden="true"></i> Routes are planning templates, not live navigation.</p>
+            </div>
+
+            <div class="route-explorer-layout">
+                <div id="route-explorer-results" class="route-explorer-results" aria-label="Available routes"></div>
+                <article id="route-explorer-detail" class="route-explorer-detail" aria-live="polite"></article>
+            </div>
         </div>
     </section>
 

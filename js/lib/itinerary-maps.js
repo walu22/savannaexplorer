@@ -111,6 +111,50 @@ export function renderItineraryMapLink(itineraryId) {
     `;
 }
 
+export function destroyRouteCollectionMap() {
+    destroyRouteMap('route-collection');
+}
+
+export async function mountRouteCollectionMap(route, containerId = 'route-explorer-map') {
+    const container = document.getElementById(containerId);
+    const points = Array.isArray(route?.stops)
+        ? route.stops.filter(point => Number.isFinite(point.lat) && Number.isFinite(point.lng))
+        : [];
+    if (!container || points.length < 2) return false;
+
+    destroyRouteCollectionMap();
+    container.innerHTML = '';
+    container.setAttribute('aria-busy', 'true');
+    const L = await loadLeaflet();
+    const latlngs = points.map(point => [point.lat, point.lng]);
+    const map = L.map(container, { scrollWheelZoom: false, attributionControl: true });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
+
+    points.forEach((point, index) => {
+        const icon = L.divIcon({
+            className: 'route-explorer-pin',
+            html: `<span>${index + 1}</span>`,
+            iconSize: [30, 30],
+            iconAnchor: [15, 15],
+        });
+        L.marker([point.lat, point.lng], { icon, title: point.name })
+            .addTo(map)
+            .bindPopup(`<strong>${index + 1}. ${escapeHtml(point.name)}</strong><br>${escapeHtml(point.region || '')}`);
+    });
+
+    L.polyline(latlngs, { color: '#C4672A', weight: 4, opacity: 0.9, dashArray: '8 6' }).addTo(map);
+    map.fitBounds(L.latLngBounds(latlngs), { padding: [30, 30], maxZoom: 8 });
+    activeMaps.set('route-collection', map);
+    container.removeAttribute('aria-busy');
+    requestAnimationFrame(() => map.invalidateSize());
+    setTimeout(() => map.invalidateSize(), 200);
+    return true;
+}
+
 // Country Maps Extension
 const COUNTRY_COORDS = {
     'south-africa': [-30.5595, 22.9375],

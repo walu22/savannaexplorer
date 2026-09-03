@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Promise.all([
         import('./modules/marketplace.js'),
         import('./modules/my-safari.js'),
+        import('./modules/route-explorer.js'),
         import('./modules/utility-hub.js'),
         import('./modules/trip-planner.js'),
         import('./modules/contact.js'),
@@ -75,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const [
             marketplace,
             mySafari,
+            routeExplorer,
             utilityHub,
             tripPlanner,
             contact,
@@ -95,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         marketplace.initMarketplace();
         mySafari.initMySafari();
+        routeExplorer.initRouteExplorer();
         utilityHub.initUtilityHub();
         tripPlanner.initTripPlanner();
         contact.initContact();

@@ -31,6 +31,7 @@ function cleanTrip(trip) {
         startDate: String(trip.startDate || ''),
         endDate: String(trip.endDate || ''),
         countries: Array.isArray(trip.countries) ? trip.countries.filter(Boolean).map(String).slice(0, 9) : [],
+        templateRouteId: String(trip.templateRouteId || '').slice(0, 128),
         notes: String(trip.notes || '').slice(0, 2000),
         createdAt: trip.createdAt || new Date().toISOString(),
         updatedAt: trip.updatedAt || new Date().toISOString(),
@@ -106,6 +107,9 @@ export function createTrip(input, storage) {
         startDate: input?.startDate,
         endDate: input?.endDate,
         countries: input?.countries,
+        templateRouteId: input?.templateRouteId,
+        routeDays: input?.routeDays,
+        notes: input?.notes,
         createdAt: now,
         updatedAt: now,
         ...imported,
@@ -163,6 +167,7 @@ export function duplicateTrip(tripId, storage) {
     }, storage);
     return updateTrip(copy.id, {
         notes: source.notes,
+        templateRouteId: source.templateRouteId,
         aiItinerary: source.aiItinerary,
         routeDays: source.routeDays,
         expenses: source.expenses,

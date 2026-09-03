@@ -9,10 +9,12 @@ import {
     getItineraryById,
     getListingById,
     getParkById,
+    getRouteById,
     itineraryPath,
     listingPath,
     parkPath,
     planningGuidePath,
+    routePath,
 } from './router.js';
 import { getCountryLastReviewed, getSiteLastReviewed, toIsoReviewDate } from './content-meta.js';
 
@@ -378,6 +380,54 @@ export function setItineraryMeta(itineraryId) {
             { name: 'Home', path: '/' },
             { name: 'Route templates', path: '/#itineraries' },
             { name: data.title, path },
+        ]),
+    ]);
+}
+
+export function setRouteMeta(routeOrId) {
+    const route = typeof routeOrId === 'string' ? getRouteById(routeOrId) : routeOrId;
+    if (!route) {
+        setHomeMeta();
+        return;
+    }
+
+    const path = routePath(route.id);
+    const countries = route.countryIds.map(id => getCountryMeta(id).name).join(', ');
+    const description = truncate(`${route.promise} ${route.duration.label}. ${route.vehicle.label}. Best season: ${route.bestSeason.label}.`);
+
+    applyMeta({
+        title: `${route.title} Road Trip | ${SITE_NAME}`,
+        description,
+        path,
+        image: cardImageUrl(route.countryIds[0]),
+        type: 'article',
+    });
+
+    upsertJsonLd([
+        {
+            '@context': 'https://schema.org',
+            '@type': 'Trip',
+            name: route.title,
+            description: route.promise,
+            url: absoluteUrl(path),
+            touristType: route.travellerTypes,
+            itinerary: route.stops.map((stop, index) => ({
+                '@type': 'TouristDestination',
+                position: index + 1,
+                name: stop.name,
+                description: stop.summary,
+                geo: {
+                    '@type': 'GeoCoordinates',
+                    latitude: stop.lat,
+                    longitude: stop.lng,
+                },
+            })),
+            ...(toIsoReviewDate(route.lastReviewed) && { dateModified: toIsoReviewDate(route.lastReviewed) }),
+        },
+        breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Route Explorer', path: '/#route-explorer' },
+            { name: `${route.title} · ${countries}`, path },
         ]),
     ]);
 }

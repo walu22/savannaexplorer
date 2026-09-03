@@ -1,7 +1,7 @@
 {
   "name": "savannaexplorer",
   "private": true,
-  "version": "4.39.0",
+  "version": "4.44.0",
   "engines": {
     "node": ">=22"
   },
@@ -25,6 +25,7 @@
     "provision:gsc": "bash scripts/provision-gsc-gcp.sh",
     "index:submit": "node scripts/submit-search-indexing.mjs",
     "analytics:planner": "node scripts/planner-analytics-report.mjs",
+    "routes:logistics": "node scripts/generate-route-logistics.mjs",
     "deploy:live": "npm run build && npx vercel pull --yes --environment=production && npx vercel deploy dist --prod --yes",
     "deploy:live:prebuilt": "npm run build && node scripts/package-vercel-output.mjs && npx vercel pull --yes --environment=production && npx vercel deploy --prebuilt --prod --yes"
   },

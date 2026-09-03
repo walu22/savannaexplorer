@@ -1,0 +1,655 @@
+{
+  "meta": {
+    "version": 1,
+    "lastUpdated": "2026-09",
+    "disclaimer": "Planning templates only. Verify road conditions, borders, park access, weather and safety with the linked official sources before travel."
+  },
+  "routes": [
+    {
+      "id": "namibia-essentials-extended",
+      "title": "Namibia Essentials",
+      "countryIds": ["namibia"],
+      "promise": "A first-timer's circuit through the Namib dunes, Atlantic coast, Damaraland and Etosha.",
+      "duration": { "min": 10, "max": 14, "label": "10–14 days" },
+      "vehicle": { "id": "suv", "label": "High-clearance SUV" },
+      "bestSeason": { "label": "May–October", "reason": "Cooler road-trip conditions and strong dry-season wildlife viewing." },
+      "travellerTypes": ["First visit", "Wildlife", "Photography"],
+      "themes": ["wildlife", "landscapes", "culture"],
+      "readiness": "green",
+      "lastReviewed": "2026-09",
+      "highlights": ["Sossusvlei and Deadvlei", "Swakopmund and Walvis Bay", "Damaraland rock art and conservancies", "Etosha waterholes"],
+      "warnings": ["Avoid driving after dark on rural roads.", "High clearance makes long gravel sections more forgiving."],
+      "stops": [
+        { "id": "windhoek", "name": "Windhoek", "region": "Khomas", "lat": -22.5609, "lng": 17.0658, "type": "stay", "summary": "Collect the vehicle, provisions and current road information." },
+        { "id": "sossusvlei", "name": "Sesriem and Sossusvlei", "region": "Hardap", "lat": -24.7594, "lng": 15.2922, "type": "park", "summary": "Base for the dunes, Deadvlei and Sesriem Canyon." },
+        { "id": "swakopmund", "name": "Swakopmund and Walvis Bay", "region": "Erongo", "lat": -22.6784, "lng": 14.5267, "type": "stay", "summary": "Coastal base for marine, desert and adventure activities." },
+        { "id": "twyfelfontein", "name": "Twyfelfontein and Damaraland", "region": "Kunene", "lat": -20.5956, "lng": 14.3724, "type": "activity", "summary": "Rock art, geology and community-conservancy experiences." },
+        { "id": "etosha", "name": "Etosha National Park", "region": "Oshikoto and Kunene", "lat": -18.8556, "lng": 16.3297, "type": "park", "summary": "Allow several nights for different waterholes and park sectors." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Prepare in Windhoek", "stopIds": ["windhoek"], "summary": "Collect the vehicle and complete self-drive checks." },
+        { "dayStart": 2, "dayEnd": 3, "title": "Namib dunes", "stopIds": ["sossusvlei"], "summary": "Use an early start for the dunes and pans." },
+        { "dayStart": 4, "dayEnd": 5, "title": "Atlantic coast", "stopIds": ["swakopmund"], "summary": "Choose marine, desert or active excursions." },
+        { "dayStart": 6, "dayEnd": 7, "title": "Damaraland", "stopIds": ["twyfelfontein"], "summary": "Visit heritage and conservancy sites with local interpretation." },
+        { "dayStart": 8, "dayEnd": 10, "title": "Etosha safari", "stopIds": ["etosha"], "summary": "Plan multiple park sectors rather than rushing through." }
+      ],
+      "officialSources": [
+        { "label": "Visit Namibia", "url": "https://visitnamibia.com.na/" },
+        { "label": "Namibia Wildlife Resorts", "url": "https://www.nwr.com.na/" }
+      ]
+    },
+    {
+      "id": "south-africa-garden-route",
+      "title": "Cape Town and Garden Route",
+      "countryIds": ["south-africa"],
+      "promise": "Cities, vineyards, mountains and the coast on South Africa's most approachable road trip.",
+      "duration": { "min": 9, "max": 12, "label": "9–12 days" },
+      "vehicle": { "id": "standard", "label": "Standard car" },
+      "bestSeason": { "label": "September–April", "reason": "Warmer coastal days; the route remains viable year-round." },
+      "travellerTypes": ["First visit", "Families", "Food and coast"],
+      "themes": ["coast", "culture", "landscapes"],
+      "readiness": "green",
+      "lastReviewed": "2026-09",
+      "highlights": ["Cape Town and the Peninsula", "Cape Winelands", "Klein Karoo", "Knysna and Tsitsikamma"],
+      "warnings": ["Do not leave belongings visible in parked vehicles.", "Allow for Cape Town traffic and avoid consecutive long driving days."],
+      "stops": [
+        { "id": "cape-town", "name": "Cape Town", "region": "Western Cape", "lat": -33.9249, "lng": 18.4241, "type": "stay", "summary": "City, Table Mountain and Cape Peninsula base." },
+        { "id": "winelands", "name": "Cape Winelands", "region": "Western Cape", "lat": -33.9321, "lng": 18.8602, "type": "activity", "summary": "Food, heritage and mountain scenery." },
+        { "id": "oudtshoorn", "name": "Oudtshoorn", "region": "Klein Karoo", "lat": -33.5907, "lng": 22.2014, "type": "stay", "summary": "Dry interior landscapes, caves and passes." },
+        { "id": "knysna", "name": "Wilderness and Knysna", "region": "Garden Route", "lat": -34.0351, "lng": 23.0471, "type": "stay", "summary": "Lagoons, forests and an easy multi-night base." },
+        { "id": "tsitsikamma", "name": "Plettenberg Bay and Tsitsikamma", "region": "Garden Route", "lat": -34.0217, "lng": 23.897, "type": "park", "summary": "Coastal forest, trails and marine viewpoints." },
+        { "id": "gqeberha", "name": "Gqeberha", "region": "Eastern Cape", "lat": -33.9608, "lng": 25.6022, "type": "stay", "summary": "Airport endpoint and optional wildlife extension." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 3, "title": "Cape Town and Peninsula", "stopIds": ["cape-town"], "summary": "Keep weather flexibility for mountain activities." },
+        { "dayStart": 4, "dayEnd": 4, "title": "Cape Winelands", "stopIds": ["winelands"], "summary": "Use a driver or transfer if tasting wine." },
+        { "dayStart": 5, "dayEnd": 5, "title": "Klein Karoo", "stopIds": ["oudtshoorn"], "summary": "Cross inland with enough daylight for a scenic pass." },
+        { "dayStart": 6, "dayEnd": 7, "title": "Garden Route", "stopIds": ["knysna"], "summary": "Slow down around the lagoons and forests." },
+        { "dayStart": 8, "dayEnd": 8, "title": "Tsitsikamma", "stopIds": ["tsitsikamma"], "summary": "Reserve time for a coastal walk." },
+        { "dayStart": 9, "dayEnd": 9, "title": "Finish in Gqeberha", "stopIds": ["gqeberha"], "summary": "Return the vehicle or add an Eastern Cape reserve." }
+      ],
+      "officialSources": [
+        { "label": "South African Tourism road trip", "url": "https://www.southafrica.net/gl/en/travel/article/two-week-south-african-road-trip-itinerary" },
+        { "label": "SANParks", "url": "https://www.sanparks.org/" }
+      ]
+    },
+    {
+      "id": "south-africa-panorama-kruger",
+      "title": "Panorama Route and Kruger",
+      "countryIds": ["south-africa"],
+      "promise": "Escarpment viewpoints and waterfalls followed by a multi-day Kruger safari.",
+      "duration": { "min": 7, "max": 9, "label": "7–9 days" },
+      "vehicle": { "id": "standard", "label": "Standard car or SUV" },
+      "bestSeason": { "label": "May–September", "reason": "Dry-season game viewing and cooler Lowveld temperatures." },
+      "travellerTypes": ["Wildlife", "Road trip", "First safari"],
+      "themes": ["wildlife", "landscapes", "family"],
+      "readiness": "green",
+      "lastReviewed": "2026-09",
+      "highlights": ["Blyde River Canyon", "Panorama waterfalls", "Kruger ecosystems", "Self-drive safari"],
+      "warnings": ["Kruger gate and camp times are enforced.", "Fog can reduce visibility on escarpment roads."],
+      "stops": [
+        { "id": "johannesburg", "name": "Johannesburg", "region": "Gauteng", "lat": -26.2041, "lng": 28.0473, "type": "stay", "summary": "Arrival and vehicle collection." },
+        { "id": "dullstroom", "name": "Dullstroom", "region": "Mpumalanga Highlands", "lat": -25.4196, "lng": 30.1052, "type": "stay", "summary": "Break the drive in the highlands." },
+        { "id": "graskop", "name": "Graskop and Blyde River Canyon", "region": "Mpumalanga Escarpment", "lat": -24.9313, "lng": 30.8419, "type": "activity", "summary": "Base for waterfalls and canyon viewpoints." },
+        { "id": "hazyview", "name": "Hazyview", "region": "Lowveld", "lat": -25.0434, "lng": 31.1277, "type": "stay", "summary": "Gateway base before Kruger." },
+        { "id": "kruger", "name": "Kruger National Park", "region": "Mpumalanga and Limpopo", "lat": -24.0115, "lng": 31.4854, "type": "park", "summary": "Use more than one camp to avoid backtracking." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Arrive in Johannesburg", "stopIds": ["johannesburg"], "summary": "Rest before the road trip." },
+        { "dayStart": 2, "dayEnd": 2, "title": "Mpumalanga Highlands", "stopIds": ["dullstroom"], "summary": "Position into the highlands." },
+        { "dayStart": 3, "dayEnd": 3, "title": "Panorama Route", "stopIds": ["graskop"], "summary": "Prioritize a few viewpoints rather than racing every stop." },
+        { "dayStart": 4, "dayEnd": 4, "title": "Descend to the Lowveld", "stopIds": ["hazyview"], "summary": "Prepare supplies and confirm the gate plan." },
+        { "dayStart": 5, "dayEnd": 7, "title": "Kruger safari", "stopIds": ["kruger"], "summary": "Mix self-drive loops with an optional guided drive." }
+      ],
+      "officialSources": [
+        { "label": "South African Tourism Panorama Route", "url": "https://www.southafrica.net/za/en/travel/article/road-tripping-along-the-panorama-route" },
+        { "label": "SANParks Kruger", "url": "https://www.sanparks.org/parks/kruger" }
+      ]
+    },
+    {
+      "id": "botswana-okavango-chobe",
+      "title": "Okavango to Chobe Expedition",
+      "countryIds": ["botswana"],
+      "promise": "Botswana's defining 4x4 safari through Moremi, Khwai, Savuti and Chobe.",
+      "duration": { "min": 10, "max": 12, "label": "10–12 days" },
+      "vehicle": { "id": "4x4", "label": "Fully equipped 4x4" },
+      "bestSeason": { "label": "May–October", "reason": "Generally easier tracks and strong dry-season wildlife concentrations." },
+      "travellerTypes": ["Experienced self-drive", "Camping", "Wildlife"],
+      "themes": ["wildlife", "adventure", "landscapes"],
+      "readiness": "green",
+      "lastReviewed": "2026-09",
+      "highlights": ["Moremi habitats", "Khwai community area", "Savuti predator country", "Chobe Riverfront"],
+      "warnings": ["This is not a first-time 4x4 route.", "Secure camps and park access before travel; mobile coverage is limited."],
+      "stops": [
+        { "id": "maun", "name": "Maun", "region": "North-West District", "lat": -19.9833, "lng": 23.4167, "type": "stay", "summary": "Provision, fuel and complete vehicle checks." },
+        { "id": "moremi", "name": "Moremi Game Reserve", "region": "Okavango Delta", "lat": -19.205, "lng": 23.405, "type": "park", "summary": "Wetlands, woodland and wildlife-rich loops." },
+        { "id": "khwai", "name": "Khwai", "region": "Okavango eastern edge", "lat": -19.1647, "lng": 23.7508, "type": "stay", "summary": "Community-area wildlife and guided activities." },
+        { "id": "savuti", "name": "Savuti", "region": "Chobe National Park", "lat": -18.569, "lng": 24.068, "type": "park", "summary": "Remote sand tracks and predator country." },
+        { "id": "chobe", "name": "Chobe Riverfront", "region": "Chobe District", "lat": -17.8292, "lng": 25.0406, "type": "park", "summary": "Riverfront drives and boat wildlife viewing." },
+        { "id": "kasane", "name": "Kasane", "region": "Chobe District", "lat": -17.8133, "lng": 25.15, "type": "stay", "summary": "Resupply and regional connections." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Prepare in Maun", "stopIds": ["maun"], "summary": "Fuel, water, food, tyres and recovery equipment." },
+        { "dayStart": 2, "dayEnd": 3, "title": "Moremi", "stopIds": ["moremi"], "summary": "Choose loops using current water and track reports." },
+        { "dayStart": 4, "dayEnd": 5, "title": "Khwai", "stopIds": ["khwai"], "summary": "Allow time for community-area wildlife." },
+        { "dayStart": 6, "dayEnd": 7, "title": "Savuti", "stopIds": ["savuti"], "summary": "Treat the transfer as a full expedition day." },
+        { "dayStart": 8, "dayEnd": 9, "title": "Chobe Riverfront", "stopIds": ["chobe"], "summary": "Combine a drive with a licensed boat excursion." },
+        { "dayStart": 10, "dayEnd": 10, "title": "Finish in Kasane", "stopIds": ["kasane"], "summary": "Rest, resupply or continue regionally." }
+      ],
+      "officialSources": [
+        { "label": "Botswana Tourism self-drive", "url": "https://www.botswanatourism.co.bw/index.php/travel-info/self-drive-camping" },
+        { "label": "Botswana Tourism Moremi", "url": "https://botswanatourism.co.bw/explore/moremi-game-reserve" },
+        { "label": "Botswana Tourism Chobe", "url": "https://www.botswanatourism.co.bw/index.php/explore/chobe-national-park" }
+      ]
+    },
+    {
+      "id": "zambia-southern-zambezi",
+      "title": "Southern Zambezi Journey",
+      "countryIds": ["zambia"],
+      "promise": "A river-led journey from Lusaka to Lower Zambezi, Lake Kariba and Victoria Falls.",
+      "duration": { "min": 9, "max": 11, "label": "9–11 days" },
+      "vehicle": { "id": "suv", "label": "SUV plus lodge transfers" },
+      "bestSeason": { "label": "May–October", "reason": "Drier access and dependable wildlife activities; river conditions still vary." },
+      "travellerTypes": ["Wildlife", "River activities", "First visit"],
+      "themes": ["wildlife", "water", "adventure"],
+      "readiness": "green",
+      "lastReviewed": "2026-09",
+      "highlights": ["Lower Zambezi wildlife", "Lake Kariba", "Mosi-oa-Tunya", "Canoe and boat activities"],
+      "warnings": ["Some Lower Zambezi properties require arranged transfers.", "Confirm park access after heavy rain."],
+      "stops": [
+        { "id": "lusaka", "name": "Lusaka", "region": "Lusaka Province", "lat": -15.3875, "lng": 28.3228, "type": "stay", "summary": "Arrival, provisioning and operator confirmations." },
+        { "id": "lower-zambezi", "name": "Lower Zambezi", "region": "Lusaka Province", "lat": -15.596, "lng": 29.596, "type": "park", "summary": "River wildlife, canoeing and guided game activities." },
+        { "id": "siavonga", "name": "Siavonga and Lake Kariba", "region": "Southern Province", "lat": -16.5382, "lng": 28.7088, "type": "stay", "summary": "Lake stop and slower transition south." },
+        { "id": "livingstone", "name": "Livingstone and Mosi-oa-Tunya", "region": "Southern Province", "lat": -17.8419, "lng": 25.8544, "type": "activity", "summary": "Victoria Falls and regional connections." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Arrive in Lusaka", "stopIds": ["lusaka"], "summary": "Confirm transfers and prepare for the river sector." },
+        { "dayStart": 2, "dayEnd": 4, "title": "Lower Zambezi", "stopIds": ["lower-zambezi"], "summary": "Balance game drives with licensed river activities." },
+        { "dayStart": 5, "dayEnd": 6, "title": "Lake Kariba", "stopIds": ["siavonga"], "summary": "Use Siavonga as a restorative lake stop." },
+        { "dayStart": 7, "dayEnd": 9, "title": "Livingstone and the Falls", "stopIds": ["livingstone"], "summary": "Allow separate time for the falls and Zambezi activities." }
+      ],
+      "officialSources": [
+        { "label": "Zambia Tourism self-drive", "url": "https://www.zambiatourism.com/self-drive/" },
+        { "label": "Zambia Tourism destinations", "url": "https://www.zambiatourism.com/destinations/" }
+      ]
+    },
+    {
+      "id": "zimbabwe-falls-hwange-matobo",
+      "title": "Victoria Falls, Hwange and Matobo",
+      "countryIds": ["zimbabwe"],
+      "promise": "Zimbabwe's strongest first journey: the falls, Hwange wildlife and Matobo heritage.",
+      "duration": { "min": 8, "max": 10, "label": "8–10 days" },
+      "vehicle": { "id": "suv", "label": "SUV or guided transfers" },
+      "bestSeason": { "label": "May–October", "reason": "Dry-season game viewing; Victoria Falls water levels vary through the year." },
+      "travellerTypes": ["First visit", "Wildlife", "Heritage"],
+      "themes": ["wildlife", "culture", "landscapes"],
+      "readiness": "green",
+      "lastReviewed": "2026-09",
+      "highlights": ["Victoria Falls", "Hwange waterholes", "Bulawayo heritage", "Matobo Hills"],
+      "warnings": ["Avoid intercity driving at night.", "Carry payment alternatives and maintain a conservative fuel plan."],
+      "stops": [
+        { "id": "victoria-falls", "name": "Victoria Falls", "region": "Matabeleland North", "lat": -17.9244, "lng": 25.8567, "type": "activity", "summary": "Falls viewpoints, Zambezi activities and connections." },
+        { "id": "hwange", "name": "Hwange National Park", "region": "Matabeleland North", "lat": -18.733, "lng": 26.955, "type": "park", "summary": "Use multiple nights for different sectors." },
+        { "id": "bulawayo", "name": "Bulawayo", "region": "Bulawayo", "lat": -20.1325, "lng": 28.6265, "type": "stay", "summary": "Cultural stop before Matobo." },
+        { "id": "matobo", "name": "Matobo Hills", "region": "Matabeleland South", "lat": -20.55, "lng": 28.5, "type": "park", "summary": "Rock landscapes, art and heritage interpretation." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 2, "title": "Victoria Falls", "stopIds": ["victoria-falls"], "summary": "Separate the falls visit from optional activities." },
+        { "dayStart": 3, "dayEnd": 5, "title": "Hwange safari", "stopIds": ["hwange"], "summary": "Use at least two full wildlife days." },
+        { "dayStart": 6, "dayEnd": 6, "title": "Bulawayo", "stopIds": ["bulawayo"], "summary": "Rest and explore selected heritage sites." },
+        { "dayStart": 7, "dayEnd": 8, "title": "Matobo Hills", "stopIds": ["matobo"], "summary": "Use qualified local interpretation." }
+      ],
+      "officialSources": [
+        { "label": "Zimbabwe Tourism destinations", "url": "https://zimbabwetourism.net/portfolios/" },
+        { "label": "ZimParks", "url": "https://www.zimparks.org.zw/" },
+        { "label": "Current road advice", "url": "https://www.gov.uk/foreign-travel-advice/zimbabwe/safety-and-security" }
+      ]
+    },
+    {
+      "id": "mozambique-southern-lagoons",
+      "title": "Southern Lagoons and Inhambane",
+      "countryIds": ["mozambique"],
+      "promise": "A manageable southern Mozambique road trip linking Maputo, lagoons and the Inhambane coast.",
+      "duration": { "min": 8, "max": 10, "label": "8–10 days" },
+      "vehicle": { "id": "suv", "label": "SUV" },
+      "bestSeason": { "label": "May–October", "reason": "Drier, cooler conditions outside the main cyclone and heavy-rain period." },
+      "travellerTypes": ["Coast", "Diving", "Slow travel"],
+      "themes": ["coast", "water", "culture"],
+      "readiness": "amber",
+      "lastReviewed": "2026-09",
+      "highlights": ["Maputo food and architecture", "Bilene lagoon", "Inhambane historic centre", "Tofo marine activities"],
+      "warnings": ["Do not drive long-distance roads at night; verify EN1 conditions and fuel availability.", "This route stays outside areas covered by current do-not-travel warnings."],
+      "stops": [
+        { "id": "maputo", "name": "Maputo", "region": "Maputo", "lat": -25.9692, "lng": 32.5732, "type": "stay", "summary": "Arrival, vehicle preparation, food and architecture." },
+        { "id": "bilene", "name": "Bilene", "region": "Gaza", "lat": -25.2728, "lng": 33.2419, "type": "stay", "summary": "Lagoon stop that breaks the northbound journey." },
+        { "id": "chidenguele", "name": "Chidenguele", "region": "Gaza", "lat": -24.994, "lng": 34.182, "type": "stay", "summary": "Quiet lagoon and beach area; verify final access." },
+        { "id": "inhambane", "name": "Inhambane", "region": "Inhambane", "lat": -23.865, "lng": 35.383, "type": "activity", "summary": "Historic town and bay." },
+        { "id": "tofo", "name": "Tofo and Barra", "region": "Inhambane", "lat": -23.8597, "lng": 35.5483, "type": "stay", "summary": "Licensed marine activities and beaches." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 2, "title": "Maputo", "stopIds": ["maputo"], "summary": "Prepare and confirm current road information." },
+        { "dayStart": 3, "dayEnd": 3, "title": "Bilene lagoon", "stopIds": ["bilene"], "summary": "A short first road leg." },
+        { "dayStart": 4, "dayEnd": 4, "title": "Chidenguele", "stopIds": ["chidenguele"], "summary": "Keep the final lodge access in daylight." },
+        { "dayStart": 5, "dayEnd": 5, "title": "Inhambane", "stopIds": ["inhambane"], "summary": "Explore the town before continuing to the coast." },
+        { "dayStart": 6, "dayEnd": 8, "title": "Tofo and Barra", "stopIds": ["tofo"], "summary": "Use licensed operators and retain a weather day." }
+      ],
+      "officialSources": [
+        { "label": "Visit Mozambique routes", "url": "https://www.visitmozambique.gov.mz/o-que-fazer/roteiros/" },
+        { "label": "Current regional travel advice", "url": "https://www.gov.uk/foreign-travel-advice/mozambique/safety-and-security" }
+      ]
+    },
+    {
+      "id": "malawi-southern-wildlife-lake",
+      "title": "Southern Wildlife, Tea and Lake",
+      "countryIds": ["malawi"],
+      "promise": "Malawi's richest first circuit through restored reserves, tea country, mountains and the lake.",
+      "duration": { "min": 11, "max": 14, "label": "11–14 days" },
+      "vehicle": { "id": "suv", "label": "Standard car or SUV" },
+      "bestSeason": { "label": "May–October", "reason": "Drier roads, comfortable hiking and dependable wildlife viewing." },
+      "travellerTypes": ["First visit", "Wildlife", "Active travel"],
+      "themes": ["wildlife", "water", "landscapes", "culture"],
+      "readiness": "green",
+      "lastReviewed": "2026-09",
+      "highlights": ["Majete wildlife", "Thyolo tea estates", "Mulanje and Zomba", "Liwonde and Lake Malawi"],
+      "warnings": ["Main roads are often narrow; allow for people, bicycles, livestock and potholes.", "Mountain and lake activities require weather-aware local guidance."],
+      "stops": [
+        { "id": "blantyre", "name": "Blantyre", "region": "Southern Region", "lat": -15.7861, "lng": 35.0058, "type": "stay", "summary": "Arrival and southern-circuit start." },
+        { "id": "majete", "name": "Majete Wildlife Reserve", "region": "Lower Shire", "lat": -15.966, "lng": 34.744, "type": "park", "summary": "Conservation-led safari activities." },
+        { "id": "thyolo", "name": "Thyolo tea country", "region": "Thyolo", "lat": -16.067, "lng": 35.14, "type": "activity", "summary": "Tea landscapes and arranged estate experiences." },
+        { "id": "mulanje", "name": "Mount Mulanje", "region": "Mulanje", "lat": -15.95, "lng": 35.59, "type": "activity", "summary": "Guided hikes matched to weather and fitness." },
+        { "id": "zomba", "name": "Zomba Plateau", "region": "Zomba", "lat": -15.383, "lng": 35.318, "type": "stay", "summary": "Cool highland break and viewpoints." },
+        { "id": "liwonde", "name": "Liwonde National Park", "region": "Machinga", "lat": -14.84, "lng": 35.345, "type": "park", "summary": "River-focused wildlife activities." },
+        { "id": "cape-maclear", "name": "Cape Maclear", "region": "Mangochi", "lat": -14.0167, "lng": 34.85, "type": "stay", "summary": "Lake Malawi National Park and lakeside finish." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Arrive in Blantyre", "stopIds": ["blantyre"], "summary": "Prepare for the southern circuit." },
+        { "dayStart": 2, "dayEnd": 3, "title": "Majete safari", "stopIds": ["majete"], "summary": "Use guided activities according to reserve rules." },
+        { "dayStart": 4, "dayEnd": 4, "title": "Thyolo tea country", "stopIds": ["thyolo"], "summary": "Book estate visits rather than assuming open access." },
+        { "dayStart": 5, "dayEnd": 6, "title": "Mount Mulanje", "stopIds": ["mulanje"], "summary": "Choose a route suited to fitness and weather." },
+        { "dayStart": 7, "dayEnd": 7, "title": "Zomba Plateau", "stopIds": ["zomba"], "summary": "Use the plateau as a cool scenic pause." },
+        { "dayStart": 8, "dayEnd": 9, "title": "Liwonde", "stopIds": ["liwonde"], "summary": "Allow a full wildlife day and river activity." },
+        { "dayStart": 10, "dayEnd": 11, "title": "Lake Malawi", "stopIds": ["cape-maclear"], "summary": "Finish with a flexible lake day." }
+      ],
+      "officialSources": [
+        { "label": "Malawi Tourism getting around", "url": "https://www.malawitourism.com/getting-around/" },
+        { "label": "Malawi self-drive overview", "url": "https://www.malawitourism.com/news-blogs/make-your-own-adventure-in-malawi/" }
+      ]
+    },
+    {
+      "id": "lesotho-highlands-dam-loop",
+      "title": "Lesotho Highlands Dam Loop",
+      "countryIds": ["lesotho"],
+      "promise": "A high-altitude circuit linking Basotho heritage, dams, waterfalls and mountain reserves.",
+      "duration": { "min": 7, "max": 9, "label": "7–9 days" },
+      "vehicle": { "id": "suv", "label": "High-clearance SUV" },
+      "bestSeason": { "label": "September–April", "reason": "Longer daylight and lower snow-and-ice risk; mountain weather remains changeable." },
+      "travellerTypes": ["Mountain roads", "Culture", "Hiking"],
+      "themes": ["landscapes", "culture", "adventure"],
+      "readiness": "amber",
+      "lastReviewed": "2026-09",
+      "highlights": ["Thaba Bosiu", "Mohale and Katse dams", "Maletsunyane Falls", "Ts'ehlanyane"],
+      "warnings": ["Mountain weather changes quickly and snow can disrupt high passes.", "Confirm every highland road segment locally before departure."],
+      "stops": [
+        { "id": "maseru", "name": "Maseru", "region": "Maseru", "lat": -29.3158, "lng": 27.4869, "type": "stay", "summary": "Arrival, vehicle preparation and current road checks." },
+        { "id": "thaba-bosiu", "name": "Thaba Bosiu and Roma", "region": "Maseru District", "lat": -29.36, "lng": 27.67, "type": "activity", "summary": "Basotho history and cultural interpretation." },
+        { "id": "mohale", "name": "Mohale Dam", "region": "Maseru District", "lat": -29.46, "lng": 28.1, "type": "activity", "summary": "Highlands water project and scenery." },
+        { "id": "semonkong", "name": "Semonkong", "region": "Maseru District", "lat": -29.84, "lng": 28.05, "type": "stay", "summary": "Maletsunyane Falls and pony activities." },
+        { "id": "thaba-tseka", "name": "Thaba-Tseka", "region": "Thaba-Tseka", "lat": -29.522, "lng": 28.608, "type": "stay", "summary": "Highlands transit anchor." },
+        { "id": "katse", "name": "Katse Dam", "region": "Leribe", "lat": -29.337, "lng": 28.506, "type": "activity", "summary": "Dam wall and highlands interpretation." },
+        { "id": "tselanyane", "name": "Ts'ehlanyane National Park", "region": "Leribe", "lat": -28.92, "lng": 28.44, "type": "park", "summary": "Mountain walks before returning to Maseru." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Maseru and Thaba Bosiu", "stopIds": ["maseru", "thaba-bosiu"], "summary": "Begin with the country's historical context." },
+        { "dayStart": 2, "dayEnd": 2, "title": "Mohale Dam", "stopIds": ["mohale"], "summary": "Use daylight for the highland road." },
+        { "dayStart": 3, "dayEnd": 4, "title": "Semonkong", "stopIds": ["semonkong"], "summary": "Allow a full day for the falls or a pony experience." },
+        { "dayStart": 5, "dayEnd": 5, "title": "Cross the highlands", "stopIds": ["thaba-tseka"], "summary": "Treat this as a weather-dependent positioning day." },
+        { "dayStart": 6, "dayEnd": 6, "title": "Katse Dam", "stopIds": ["katse"], "summary": "Join an arranged interpretive visit." },
+        { "dayStart": 7, "dayEnd": 7, "title": "Ts'ehlanyane and return", "stopIds": ["tselanyane", "maseru"], "summary": "Return to Maseru with sufficient daylight." }
+      ],
+      "officialSources": [
+        { "label": "Visit Lesotho", "url": "https://www.visitlesotho.org.ls/" },
+        { "label": "LHDA tourism", "url": "https://www.lhda.org.ls/home/tourism" }
+      ]
+    },
+    {
+      "id": "eswatini-royal-heartland",
+      "title": "Eswatini Royal Heartland",
+      "countryIds": ["eswatini"],
+      "promise": "A compact introduction to Eswatini's capital, royal valley, crafts and walkable wildlife.",
+      "duration": { "min": 4, "max": 5, "label": "4–5 days" },
+      "vehicle": { "id": "standard", "label": "Standard car" },
+      "bestSeason": { "label": "April–October", "reason": "Comfortable temperatures for walking and reliable dry-season wildlife viewing." },
+      "travellerTypes": ["First visit", "Culture", "South Africa add-on"],
+      "themes": ["culture", "wildlife", "family"],
+      "readiness": "green",
+      "lastReviewed": "2026-09",
+      "highlights": ["Ngwenya craft and heritage stops", "Ezulwini and Lobamba", "Malkerns craft economy", "Mlilwane walking and cycling"],
+      "warnings": ["Confirm ceremony dates before planning around the traditional calendar.", "Ask permission before photographing people or ceremonies."],
+      "stops": [
+        { "id": "mbabane", "name": "Mbabane", "region": "Hhohho", "lat": -26.3054, "lng": 31.1367, "type": "stay", "summary": "Arrival base and access to nearby highveld sights." },
+        { "id": "ngwenya", "name": "Ngwenya", "region": "Hhohho", "lat": -26.214, "lng": 31.04, "type": "activity", "summary": "Glass, mine history and border-area scenery." },
+        { "id": "ezulwini", "name": "Ezulwini and Lobamba", "region": "Hhohho", "lat": -26.4417, "lng": 31.1167, "type": "activity", "summary": "Royal, museum and cultural-village experiences." },
+        { "id": "malkerns", "name": "Malkerns", "region": "Manzini", "lat": -26.55, "lng": 31.18, "type": "activity", "summary": "Craft centres and creative businesses." },
+        { "id": "mlilwane", "name": "Mlilwane Wildlife Sanctuary", "region": "Manzini", "lat": -26.49, "lng": 31.187, "type": "park", "summary": "Walking, cycling and horseback activities among non-predatory wildlife." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Mbabane and Ngwenya", "stopIds": ["mbabane", "ngwenya"], "summary": "Begin with the highveld and heritage stops." },
+        { "dayStart": 2, "dayEnd": 2, "title": "Royal Heartland", "stopIds": ["ezulwini"], "summary": "Use respectful local interpretation around Lobamba." },
+        { "dayStart": 3, "dayEnd": 3, "title": "Malkerns crafts", "stopIds": ["malkerns"], "summary": "Meet makers through established visitor centres." },
+        { "dayStart": 4, "dayEnd": 4, "title": "Mlilwane", "stopIds": ["mlilwane"], "summary": "Choose a walk, cycle or guided activity." }
+      ],
+      "officialSources": [
+        { "label": "Official Eswatini itineraries", "url": "https://www.thekingdomofeswatini.com/how-to-get-around/suggested-itineraries/" },
+        { "label": "Big Game Parks", "url": "https://biggameparks.org/" }
+      ]
+    },
+    {
+      "id": "namibia-arid-northwest-etosha",
+      "title": "Arid Northwest and Etosha",
+      "countryIds": ["namibia"],
+      "promise": "A remote second-visit journey through granite peaks, desert-adapted wildlife country and Etosha.",
+      "duration": { "min": 11, "max": 14, "label": "11–14 days" },
+      "vehicle": { "id": "suv", "label": "High-clearance SUV; 4×4 for remote detours" },
+      "bestSeason": { "label": "May–October", "reason": "Cooler temperatures and generally easier dry-season tracks." },
+      "travellerTypes": ["Second visit", "Remote landscapes", "Wildlife"],
+      "themes": ["landscapes", "wildlife", "culture", "adventure"],
+      "readiness": "amber",
+      "lastReviewed": "2026-09",
+      "highlights": ["Spitzkoppe granite", "Twyfelfontein rock art", "Palmwag conservancy country", "Opuwo and Kunene culture", "Etosha waterholes"],
+      "warnings": ["Remote detours need current local track advice, extra water and conservative fuel planning.", "Use established, consent-based cultural experiences and never photograph people without permission."],
+      "stops": [
+        { "id": "windhoek-northwest", "name": "Windhoek", "region": "Khomas", "lat": -22.5609, "lng": 17.0658, "type": "stay", "summary": "Prepare the vehicle, fuel plan and offline navigation." },
+        { "id": "spitzkoppe", "name": "Spitzkoppe", "region": "Erongo", "lat": -21.8258, "lng": 15.1936, "type": "stay", "summary": "Granite formations, walking and community-managed camping." },
+        { "id": "twyfelfontein-northwest", "name": "Twyfelfontein", "region": "Kunene", "lat": -20.5956, "lng": 14.3724, "type": "activity", "summary": "World Heritage rock engravings with site interpretation." },
+        { "id": "palmwag", "name": "Palmwag", "region": "Kunene", "lat": -19.887, "lng": 13.937, "type": "stay", "summary": "Conservancy landscapes and guided desert-wildlife activities." },
+        { "id": "sesfontein", "name": "Sesfontein", "region": "Kunene", "lat": -19.125, "lng": 13.62, "type": "stay", "summary": "A remote service and overnight anchor before Opuwo." },
+        { "id": "opuwo", "name": "Opuwo", "region": "Kunene", "lat": -18.0607, "lng": 13.839, "type": "stay", "summary": "Regional hub for locally guided cultural and landscape visits." },
+        { "id": "etosha-northwest", "name": "Etosha National Park", "region": "Kunene and Oshikoto", "lat": -18.8556, "lng": 16.3297, "type": "park", "summary": "Finish with several wildlife-viewing days across different sectors." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Prepare in Windhoek", "stopIds": ["windhoek-northwest"], "summary": "Collect supplies and confirm remote-road information." },
+        { "dayStart": 2, "dayEnd": 2, "title": "Spitzkoppe", "stopIds": ["spitzkoppe"], "summary": "Use a locally managed campsite or established stay." },
+        { "dayStart": 3, "dayEnd": 4, "title": "Twyfelfontein heritage", "stopIds": ["twyfelfontein-northwest"], "summary": "Allow time for guided rock-art and geological sites." },
+        { "dayStart": 5, "dayEnd": 6, "title": "Palmwag conservancy", "stopIds": ["palmwag"], "summary": "Join established guided activities rather than pursuing wildlife independently." },
+        { "dayStart": 7, "dayEnd": 7, "title": "Sesfontein transit", "stopIds": ["sesfontein"], "summary": "Refuel where possible and avoid a rushed remote drive." },
+        { "dayStart": 8, "dayEnd": 8, "title": "Opuwo", "stopIds": ["opuwo"], "summary": "Choose community-benefit experiences with clear consent." },
+        { "dayStart": 9, "dayEnd": 11, "title": "Etosha", "stopIds": ["etosha-northwest"], "summary": "Use multiple park sectors and respect gate deadlines." }
+      ],
+      "officialSources": [
+        { "label": "Visit Namibia: Damaraland and Kaokoland", "url": "https://visitnamibia.com.na/2022/02/damaraland-kaokoland/" },
+        { "label": "Namibia Wildlife Resorts", "url": "https://www.nwr.com.na/" }
+      ]
+    },
+    {
+      "id": "namibia-four-rivers-wetlands",
+      "title": "Four Rivers Wetlands Route",
+      "countryIds": ["namibia"],
+      "promise": "Follow the Okavango, Kwando, Zambezi and Chobe systems through Namibia's wildlife-rich northeast.",
+      "duration": { "min": 8, "max": 10, "label": "8–10 days" },
+      "vehicle": { "id": "suv", "label": "High-clearance SUV" },
+      "bestSeason": { "label": "May–October", "reason": "Drier access and concentrated wildlife, while birding character changes with water levels." },
+      "travellerTypes": ["Birding", "Wetlands", "Community tourism"],
+      "themes": ["water", "wildlife", "culture", "landscapes"],
+      "readiness": "green",
+      "lastReviewed": "2026-09",
+      "highlights": ["Okavango riverfront", "Mahango wildlife", "Bwabwata community conservation", "Kwando wetlands", "Zambezi river activities"],
+      "warnings": ["Wildlife moves across roads; finish every drive before dark.", "Flood levels and park tracks are seasonal, so confirm the final approach to each stay."],
+      "stops": [
+        { "id": "rundu", "name": "Rundu", "region": "Kavango East", "lat": -17.9253, "lng": 19.771, "type": "stay", "summary": "Okavango riverfront start and provisioning point." },
+        { "id": "divundu", "name": "Divundu and Popa Falls", "region": "Kavango East", "lat": -18.099, "lng": 21.547, "type": "stay", "summary": "River activities and access to nearby conservation areas." },
+        { "id": "mahango", "name": "Mahango Core Area", "region": "Bwabwata National Park", "lat": -18.238, "lng": 21.704, "type": "park", "summary": "Compact wildlife drives along the Kavango floodplain." },
+        { "id": "kongola", "name": "Kongola and Kwando", "region": "Zambezi", "lat": -17.791, "lng": 23.35, "type": "stay", "summary": "Community conservancies, river activities and park access." },
+        { "id": "nkasa-rupara", "name": "Nkasa Rupara area", "region": "Zambezi", "lat": -18.438, "lng": 23.696, "type": "park", "summary": "Seasonal wetland wilderness best approached with local advice." },
+        { "id": "katima-mulilo", "name": "Katima Mulilo", "region": "Zambezi", "lat": -17.5, "lng": 24.275, "type": "stay", "summary": "Zambezi base, supplies and regional connections." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Rundu", "stopIds": ["rundu"], "summary": "Prepare for the northeast and spend time on the Okavango." },
+        { "dayStart": 2, "dayEnd": 3, "title": "Divundu and Mahango", "stopIds": ["divundu", "mahango"], "summary": "Combine a river activity with a compact park drive." },
+        { "dayStart": 4, "dayEnd": 5, "title": "Kwando and Kongola", "stopIds": ["kongola"], "summary": "Choose community-run and licensed activities." },
+        { "dayStart": 6, "dayEnd": 7, "title": "Nkasa Rupara wetlands", "stopIds": ["nkasa-rupara"], "summary": "Adjust activities to current flood and track conditions." },
+        { "dayStart": 8, "dayEnd": 8, "title": "Katima Mulilo", "stopIds": ["katima-mulilo"], "summary": "Finish on the Zambezi or prepare for a regional extension." }
+      ],
+      "officialSources": [
+        { "label": "Visit Namibia: Four Rivers Route", "url": "https://visitnamibia.com.na/the-four-river-route/" },
+        { "label": "Visit Namibia: Kavango and Zambezi", "url": "https://visitnamibia.com.na/2022/02/kavango-zambezi/" }
+      ]
+    },
+    {
+      "id": "botswana-salt-pans-chobe",
+      "title": "Salt Pans to Chobe",
+      "countryIds": ["botswana"],
+      "promise": "Link seasonal salt-pan wildlife and community conservation with the Chobe Riverfront.",
+      "duration": { "min": 8, "max": 10, "label": "8–10 days" },
+      "vehicle": { "id": "4x4", "label": "4×4 for park sectors" },
+      "bestSeason": { "label": "May–October or green season", "reason": "Dry months ease access; December–April can bring zebra movement and water-filled pans when rains cooperate." },
+      "travellerTypes": ["Wildlife", "Photography", "Self-drive"],
+      "themes": ["wildlife", "landscapes", "adventure"],
+      "readiness": "green",
+      "lastReviewed": "2026-09",
+      "highlights": ["Nxai Pan", "Makgadikgadi and Boteti", "Nata Bird Sanctuary", "Chobe Riverfront"],
+      "warnings": ["Pan surfaces and sandy park tracks change rapidly after rain.", "Park camping and popular Chobe stays should be arranged before travel."],
+      "stops": [
+        { "id": "maun-pans", "name": "Maun", "region": "North-West District", "lat": -19.9833, "lng": 23.4167, "type": "stay", "summary": "Provision, refuel and confirm current pan conditions." },
+        { "id": "nxai-pan", "name": "Nxai Pan National Park", "region": "Central District", "lat": -19.946, "lng": 24.767, "type": "park", "summary": "Open pan landscapes and strongly seasonal wildlife." },
+        { "id": "boteti", "name": "Makgadikgadi and Boteti", "region": "Central District", "lat": -20.467, "lng": 24.517, "type": "park", "summary": "River-edge and salt-pan habitats with changing seasonal focus." },
+        { "id": "nata", "name": "Nata Bird Sanctuary", "region": "Central District", "lat": -20.211, "lng": 26.186, "type": "activity", "summary": "Community conservation and seasonal birding around Sua Pan." },
+        { "id": "kasane-pans", "name": "Kasane and Chobe Riverfront", "region": "Chobe District", "lat": -17.8133, "lng": 25.15, "type": "park", "summary": "Riverfront wildlife drives and licensed boat activities." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Prepare in Maun", "stopIds": ["maun-pans"], "summary": "Check tyres, recovery equipment, water and reservations." },
+        { "dayStart": 2, "dayEnd": 3, "title": "Nxai Pan", "stopIds": ["nxai-pan"], "summary": "Select loops based on rain and track reports." },
+        { "dayStart": 4, "dayEnd": 5, "title": "Makgadikgadi and Boteti", "stopIds": ["boteti"], "summary": "Use the river or pans according to seasonal conditions." },
+        { "dayStart": 6, "dayEnd": 6, "title": "Nata", "stopIds": ["nata"], "summary": "Support the community sanctuary and avoid driving after dark." },
+        { "dayStart": 7, "dayEnd": 8, "title": "Chobe Riverfront", "stopIds": ["kasane-pans"], "summary": "Finish with a drive and a licensed boat activity." }
+      ],
+      "officialSources": [
+        { "label": "Botswana Tourism: Nxai Pan", "url": "https://www.botswanatourism.co.bw/explore/nxai-pan-national-park" },
+        { "label": "Botswana Tourism", "url": "https://www.botswanatourism.co.bw/" }
+      ]
+    },
+    {
+      "id": "zambia-eastern-safari-route",
+      "title": "Eastern Safari Route",
+      "countryIds": ["zambia"],
+      "promise": "Travel from Lusaka to South Luangwa for river-valley wildlife and the birthplace of walking safari traditions.",
+      "duration": { "min": 9, "max": 12, "label": "9–12 days" },
+      "vehicle": { "id": "suv", "label": "SUV; 4×4 for remote or wet-season sectors" },
+      "bestSeason": { "label": "June–October", "reason": "Drier roads and strong wildlife concentrations around the Luangwa River." },
+      "travellerTypes": ["Wildlife", "Walking safari", "Malawi extension"],
+      "themes": ["wildlife", "adventure", "landscapes"],
+      "readiness": "green",
+      "lastReviewed": "2026-09",
+      "highlights": ["Great East Road landscapes", "Chipata regional culture", "South Luangwa wildlife", "Guided walking and night drives"],
+      "warnings": ["The Lusaka–Mfuwe journey is long; split it rather than driving tired or after dark.", "Walking safaris and night drives must be with licensed operators."],
+      "stops": [
+        { "id": "lusaka-east", "name": "Lusaka", "region": "Lusaka Province", "lat": -15.3875, "lng": 28.3228, "type": "stay", "summary": "Prepare, provision and confirm road conditions." },
+        { "id": "chipata", "name": "Chipata", "region": "Eastern Province", "lat": -13.6333, "lng": 32.65, "type": "stay", "summary": "Break the eastbound journey and resupply." },
+        { "id": "mfuwe", "name": "Mfuwe", "region": "Eastern Province", "lat": -13.236, "lng": 31.584, "type": "stay", "summary": "Gateway settlement and lodge-transfer anchor." },
+        { "id": "south-luangwa", "name": "South Luangwa National Park", "region": "Eastern Province", "lat": -13.1, "lng": 31.55, "type": "park", "summary": "Multi-day wildlife base for guided drives and walks." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Lusaka preparation", "stopIds": ["lusaka-east"], "summary": "Confirm the vehicle, fuel and overnight plan." },
+        { "dayStart": 2, "dayEnd": 2, "title": "Travel to Chipata", "stopIds": ["chipata"], "summary": "Treat the Great East Road as a full daylight journey." },
+        { "dayStart": 3, "dayEnd": 3, "title": "Reach Mfuwe", "stopIds": ["mfuwe"], "summary": "Arrive with time to settle before park activities." },
+        { "dayStart": 4, "dayEnd": 8, "title": "South Luangwa", "stopIds": ["south-luangwa"], "summary": "Balance drives, guided walks and rest across several days." },
+        { "dayStart": 9, "dayEnd": 9, "title": "Return or continue to Malawi", "stopIds": ["chipata"], "summary": "Use Chipata as the decision point for the return or border extension." }
+      ],
+      "officialSources": [
+        { "label": "Zambia Tourism: self-drive routes", "url": "https://www.zambiatourism.com/self-drive/" },
+        { "label": "Zambia Tourism destinations", "url": "https://www.zambiatourism.com/destinations/" }
+      ]
+    },
+    {
+      "id": "zimbabwe-eastern-highlands",
+      "title": "Eastern Highlands Explorer",
+      "countryIds": ["zimbabwe"],
+      "promise": "A cooler mountain journey through Nyanga, the Honde Valley, Vumba and Chimanimani.",
+      "duration": { "min": 8, "max": 11, "label": "8–11 days" },
+      "vehicle": { "id": "suv", "label": "SUV for rural approaches" },
+      "bestSeason": { "label": "April–October", "reason": "Generally drier hiking conditions, with cold highland nights in winter." },
+      "travellerTypes": ["Hiking", "Waterfalls", "Slow travel"],
+      "themes": ["landscapes", "adventure", "culture"],
+      "readiness": "amber",
+      "lastReviewed": "2026-09",
+      "highlights": ["Nyanga highlands", "Honde Valley", "Bvumba forests", "Chimanimani mountains"],
+      "warnings": ["Confirm trail, bridge and rural-road conditions after heavy rain.", "Mountain weather can change quickly; use local guides for demanding hikes."],
+      "stops": [
+        { "id": "harare-highlands", "name": "Harare", "region": "Harare Province", "lat": -17.8252, "lng": 31.0335, "type": "stay", "summary": "Arrival, supplies and vehicle preparation." },
+        { "id": "nyanga", "name": "Nyanga", "region": "Manicaland", "lat": -18.2167, "lng": 32.75, "type": "stay", "summary": "Highland scenery, waterfalls and walking routes." },
+        { "id": "honde-valley", "name": "Honde Valley", "region": "Manicaland", "lat": -18.52, "lng": 32.84, "type": "stay", "summary": "Tea country, escarpment views and community experiences." },
+        { "id": "mutare", "name": "Mutare", "region": "Manicaland", "lat": -18.9707, "lng": 32.6709, "type": "stay", "summary": "Regional service hub between mountain areas." },
+        { "id": "bvumba", "name": "Bvumba Mountains", "region": "Manicaland", "lat": -19.105, "lng": 32.782, "type": "activity", "summary": "Forest walks, gardens and borderland views." },
+        { "id": "chimanimani-zimbabwe", "name": "Chimanimani", "region": "Manicaland", "lat": -19.8, "lng": 32.87, "type": "stay", "summary": "Mountain base for locally guided hikes." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Harare", "stopIds": ["harare-highlands"], "summary": "Prepare and start rested." },
+        { "dayStart": 2, "dayEnd": 3, "title": "Nyanga", "stopIds": ["nyanga"], "summary": "Choose walks suited to current weather and fitness." },
+        { "dayStart": 4, "dayEnd": 4, "title": "Honde Valley", "stopIds": ["honde-valley"], "summary": "Slow down for the valley and locally hosted experiences." },
+        { "dayStart": 5, "dayEnd": 6, "title": "Mutare and Bvumba", "stopIds": ["mutare", "bvumba"], "summary": "Use Mutare as the service base for forested highlands." },
+        { "dayStart": 7, "dayEnd": 8, "title": "Chimanimani", "stopIds": ["chimanimani-zimbabwe"], "summary": "Plan a guided hike with a weather alternative." }
+      ],
+      "officialSources": [
+        { "label": "Zimbabwe Tourism: Eastern Highlands operators", "url": "https://zimbabwetourism.net/eastern-highlands-registered-operators/" },
+        { "label": "Zimbabwe Tourism Authority", "url": "https://zimbabwetourism.net/" }
+      ]
+    },
+    {
+      "id": "mozambique-gorongosa-central-highlands",
+      "title": "Gorongosa and Central Highlands",
+      "countryIds": ["mozambique"],
+      "promise": "Connect Beira, Gorongosa's restoration landscape and Chimanimani's mountain biodiversity.",
+      "duration": { "min": 8, "max": 11, "label": "8–11 days" },
+      "vehicle": { "id": "4x4", "label": "4×4 recommended for Chimanimani" },
+      "bestSeason": { "label": "May–October", "reason": "Dry-season access; Gorongosa normally closes from mid-December through March." },
+      "travellerTypes": ["Conservation", "Hiking", "Guided road trip"],
+      "themes": ["wildlife", "landscapes", "adventure", "culture"],
+      "readiness": "amber",
+      "lastReviewed": "2026-09",
+      "highlights": ["Beira gateway", "Gorongosa restoration", "Chimoio and Manica", "Chimanimani National Park"],
+      "warnings": ["Check current national and regional travel advice before booking; this route excludes northern advisory areas.", "Gorongosa closes in the wet season and some roads reopen later than the main gate.", "Use established park or operator transfers for remote sections and never leave known roads."],
+      "stops": [
+        { "id": "beira-central", "name": "Beira", "region": "Sofala", "lat": -19.8333, "lng": 34.85, "type": "stay", "summary": "Air and road gateway for central Mozambique." },
+        { "id": "gorongosa", "name": "Gorongosa National Park", "region": "Sofala", "lat": -18.977, "lng": 34.354, "type": "park", "summary": "Conservation, wildlife and community-linked activities." },
+        { "id": "chimoio", "name": "Chimoio", "region": "Manica", "lat": -19.1164, "lng": 33.4833, "type": "stay", "summary": "Regional hub for supplies and onward arrangements." },
+        { "id": "chimanimani-mozambique", "name": "Chimanimani National Park", "region": "Manica", "lat": -19.8, "lng": 33.05, "type": "park", "summary": "Highland biodiversity, rock art and guided mountain activities." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Arrive in Beira", "stopIds": ["beira-central"], "summary": "Confirm transfers, weather and current advice." },
+        { "dayStart": 2, "dayEnd": 5, "title": "Gorongosa", "stopIds": ["gorongosa"], "summary": "Allow several days for guided wildlife and conservation activities." },
+        { "dayStart": 6, "dayEnd": 6, "title": "Chimoio", "stopIds": ["chimoio"], "summary": "Resupply and confirm the mountain approach." },
+        { "dayStart": 7, "dayEnd": 8, "title": "Chimanimani", "stopIds": ["chimanimani-mozambique"], "summary": "Use park guidance and a capable vehicle for the final approach." }
+      ],
+      "officialSources": [
+        { "label": "Gorongosa visitor information", "url": "https://gorongosa.org/things-to-know-2/" },
+        { "label": "Visit Mozambique: Chimanimani", "url": "https://www.visitmozambique.gov.mz/onde-ir/parques-e-reservas/reserva-de-chimanimani-2/" },
+        { "label": "Current Mozambique travel advice", "url": "https://www.gov.uk/foreign-travel-advice/mozambique" }
+      ]
+    },
+    {
+      "id": "malawi-northern-highlands-lake",
+      "title": "Northern Highlands and Lake",
+      "countryIds": ["malawi"],
+      "promise": "A slower northern circuit linking Lake Malawi, forest plateaus, Nyika grasslands and Livingstonia.",
+      "duration": { "min": 12, "max": 14, "label": "12–14 days" },
+      "vehicle": { "id": "suv", "label": "SUV; 4×4 for difficult Nyika approaches" },
+      "bestSeason": { "label": "May–October", "reason": "Drier road access and cooler hiking conditions in the highlands." },
+      "travellerTypes": ["Hiking", "Birding", "Lake stays"],
+      "themes": ["water", "landscapes", "wildlife", "adventure"],
+      "readiness": "amber",
+      "lastReviewed": "2026-09",
+      "highlights": ["Nkhotakota escarpment", "Nkhata Bay", "Viphya Plateau", "Nyika National Park", "Livingstonia views"],
+      "warnings": ["Confirm fuel availability and road conditions before the Nyika and Livingstonia approaches.", "Use reputable water-activity providers and seek current health advice before freshwater swimming."],
+      "stops": [
+        { "id": "lilongwe-north", "name": "Lilongwe", "region": "Central Region", "lat": -13.9626, "lng": 33.7741, "type": "stay", "summary": "Provision, prepare and confirm northern-road conditions." },
+        { "id": "nkhotakota-north", "name": "Nkhotakota", "region": "Central Region", "lat": -12.927, "lng": 34.296, "type": "stay", "summary": "Escarpment wilderness and a natural break on the lake road." },
+        { "id": "nkhata-bay", "name": "Nkhata Bay", "region": "Northern Region", "lat": -11.6066, "lng": 34.2907, "type": "stay", "summary": "Lively lake port, beaches and licensed water activities." },
+        { "id": "viphya", "name": "Viphya Plateau", "region": "Northern Region", "lat": -11.7, "lng": 33.8, "type": "activity", "summary": "Forested highland walks and a cool scenic pause." },
+        { "id": "nyika", "name": "Nyika National Park", "region": "Northern Region", "lat": -10.59, "lng": 33.8, "type": "park", "summary": "Montane grasslands, wildlife, hiking and birding." },
+        { "id": "livingstonia", "name": "Livingstonia", "region": "Northern Region", "lat": -10.606, "lng": 34.107, "type": "stay", "summary": "Historic plateau settlement with dramatic lake views." },
+        { "id": "karonga", "name": "Karonga", "region": "Northern Region", "lat": -9.933, "lng": 33.933, "type": "stay", "summary": "Archaeology and northern lakeshore history." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Lilongwe", "stopIds": ["lilongwe-north"], "summary": "Prepare for longer northern distances." },
+        { "dayStart": 2, "dayEnd": 3, "title": "Nkhotakota", "stopIds": ["nkhotakota-north"], "summary": "Break the journey with an escarpment or conservation stay." },
+        { "dayStart": 4, "dayEnd": 5, "title": "Nkhata Bay", "stopIds": ["nkhata-bay"], "summary": "Allow a flexible lake day using established providers." },
+        { "dayStart": 6, "dayEnd": 6, "title": "Viphya Plateau", "stopIds": ["viphya"], "summary": "Use the highlands as a walking and positioning day." },
+        { "dayStart": 7, "dayEnd": 9, "title": "Nyika", "stopIds": ["nyika"], "summary": "Slow down for wildlife, birding and changing weather." },
+        { "dayStart": 10, "dayEnd": 11, "title": "Livingstonia", "stopIds": ["livingstonia"], "summary": "Confirm the approach and explore respectfully on foot." },
+        { "dayStart": 12, "dayEnd": 12, "title": "Karonga", "stopIds": ["karonga"], "summary": "Finish with northern lakeshore history or begin the return." }
+      ],
+      "officialSources": [
+        { "label": "Malawi Tourism: touring Malawi", "url": "https://www.malawitourism.com/touring-malawi/" },
+        { "label": "Malawi Tourism: North Malawi", "url": "https://www.malawitourism.com/regions/north-malawi/" }
+      ]
+    },
+    {
+      "id": "lesotho-southern-rustic-route",
+      "title": "Southern Rustic Route",
+      "countryIds": ["lesotho"],
+      "promise": "Follow the Senqu valley from Tele Bridge through southern heritage landscapes to remote Sehlabathebe.",
+      "duration": { "min": 6, "max": 8, "label": "6–8 days" },
+      "vehicle": { "id": "suv", "label": "Roadworthy SUV; 4×4 for diversions" },
+      "bestSeason": { "label": "September–April", "reason": "Longer daylight and lower snow risk, though rain can affect unsurfaced approaches." },
+      "travellerTypes": ["Heritage", "Mountain scenery", "Slow travel"],
+      "themes": ["landscapes", "culture", "adventure"],
+      "readiness": "amber",
+      "lastReviewed": "2026-09",
+      "highlights": ["Quthing heritage", "Senqu valley", "Mount Moorosi", "Qacha's Nek", "Sehlabathebe National Park"],
+      "warnings": ["The surfaced core differs from 4×4-only diversions; do not treat them as interchangeable.", "Confirm the final Sehlabathebe approach, weather and border hours immediately before travel."],
+      "stops": [
+        { "id": "tele-bridge", "name": "Tele Bridge", "region": "Quthing District", "lat": -30.588, "lng": 27.758, "type": "drive", "summary": "Southern entry point and start of the official route corridor." },
+        { "id": "quthing", "name": "Quthing", "region": "Quthing District", "lat": -30.4, "lng": 27.7, "type": "stay", "summary": "Dinosaur footprints, cave-house history and services." },
+        { "id": "mount-moorosi", "name": "Mount Moorosi", "region": "Quthing District", "lat": -30.02, "lng": 27.87, "type": "activity", "summary": "Southern history and a base for locally guided diversions." },
+        { "id": "qachas-nek", "name": "Qacha's Nek", "region": "Qacha's Nek District", "lat": -30.1167, "lng": 28.6833, "type": "stay", "summary": "Service town before the remote park approach." },
+        { "id": "sehlabathebe", "name": "Sehlabathebe National Park", "region": "Qacha's Nek District", "lat": -29.9, "lng": 29.12, "type": "park", "summary": "Remote sandstone landscapes, wetlands and hiking." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Tele Bridge to Quthing", "stopIds": ["tele-bridge", "quthing"], "summary": "Enter in daylight and confirm the onward plan." },
+        { "dayStart": 2, "dayEnd": 2, "title": "Quthing heritage", "stopIds": ["quthing"], "summary": "Use local interpretation for archaeological and historical sites." },
+        { "dayStart": 3, "dayEnd": 3, "title": "Mount Moorosi", "stopIds": ["mount-moorosi"], "summary": "Keep any remote diversion appropriate to the vehicle." },
+        { "dayStart": 4, "dayEnd": 4, "title": "Qacha's Nek", "stopIds": ["qachas-nek"], "summary": "Refuel and reconfirm park access." },
+        { "dayStart": 5, "dayEnd": 6, "title": "Sehlabathebe", "stopIds": ["sehlabathebe"], "summary": "Allow a full park day with a weather alternative." }
+      ],
+      "officialSources": [
+        { "label": "Visit Lesotho: Southern Rustic Route", "url": "https://www.visitlesotho.org.ls/place-to-visit/southern-rustic-route" },
+        { "label": "Visit Lesotho", "url": "https://www.visitlesotho.org.ls/" }
+      ]
+    },
+    {
+      "id": "eswatini-northern-community-nature",
+      "title": "Northern Community and Nature Circuit",
+      "countryIds": ["eswatini"],
+      "promise": "Join western highveld scenery, community-run rock art and the wildlife-rich Lubombo lowveld.",
+      "duration": { "min": 7, "max": 9, "label": "7–9 days" },
+      "vehicle": { "id": "suv", "label": "Standard car or SUV" },
+      "bestSeason": { "label": "April–October", "reason": "Comfortable hiking temperatures and generally drier roads; summer is stronger for birding." },
+      "travellerTypes": ["Community tourism", "Hiking", "Birding"],
+      "themes": ["culture", "landscapes", "wildlife", "adventure"],
+      "readiness": "green",
+      "lastReviewed": "2026-09",
+      "highlights": ["Malolotja highveld", "Maguga Dam", "Nsangwini community rock art", "Phophonyane Falls", "Hlane and Shewula"],
+      "warnings": ["Arrange rock-art and village experiences through the community organisations that manage them.", "Do not hike remote trails alone without current reserve advice."],
+      "stops": [
+        { "id": "mbabane-north", "name": "Mbabane", "region": "Hhohho", "lat": -26.3054, "lng": 31.1367, "type": "stay", "summary": "Highveld starting point and supply base." },
+        { "id": "malolotja", "name": "Malolotja Nature Reserve", "region": "Hhohho", "lat": -26.15, "lng": 31.13, "type": "park", "summary": "Highveld walking, viewpoints and seasonal birding." },
+        { "id": "maguga", "name": "Maguga Dam", "region": "Hhohho", "lat": -26.08, "lng": 31.26, "type": "activity", "summary": "Nkomati Valley scenery and community craft stop." },
+        { "id": "nsangwini", "name": "Nsangwini Rock Art", "region": "Hhohho", "lat": -26.1, "lng": 31.26, "type": "activity", "summary": "Community-managed interpretation of San rock art." },
+        { "id": "phophonyane", "name": "Phophonyane Falls", "region": "Hhohho", "lat": -25.96, "lng": 31.24, "type": "stay", "summary": "Forest trails, waterfall scenery and birding." },
+        { "id": "hlane-north", "name": "Hlane Royal National Park", "region": "Lubombo", "lat": -26.25, "lng": 31.88, "type": "park", "summary": "Guided wildlife activities and lowveld habitats." },
+        { "id": "shewula", "name": "Shewula Mountain Camp", "region": "Lubombo", "lat": -26.17, "lng": 31.95, "type": "stay", "summary": "Community-run stay with guided neighbourhood experiences." }
+      ],
+      "phases": [
+        { "dayStart": 1, "dayEnd": 1, "title": "Mbabane", "stopIds": ["mbabane-north"], "summary": "Prepare and begin in the western highveld." },
+        { "dayStart": 2, "dayEnd": 3, "title": "Malolotja", "stopIds": ["malolotja"], "summary": "Choose hikes suited to weather and fitness." },
+        { "dayStart": 4, "dayEnd": 4, "title": "Maguga and Nsangwini", "stopIds": ["maguga", "nsangwini"], "summary": "Support community-managed interpretation and crafts." },
+        { "dayStart": 5, "dayEnd": 5, "title": "Phophonyane", "stopIds": ["phophonyane"], "summary": "Use a slower forest and waterfall day." },
+        { "dayStart": 6, "dayEnd": 6, "title": "Hlane", "stopIds": ["hlane-north"], "summary": "Book guided wildlife activities through the park." },
+        { "dayStart": 7, "dayEnd": 7, "title": "Shewula", "stopIds": ["shewula"], "summary": "Finish with a community-run stay and local guide." }
+      ],
+      "officialSources": [
+        { "label": "Official Eswatini suggested itineraries", "url": "https://www.thekingdomofeswatini.com/how-to-get-around/suggested-itineraries/" },
+        { "label": "Official Eswatini community tourism", "url": "https://www.thekingdomofeswatini.com/responsible-travel/community-tourism/" }
+      ]
+    }
+  ]
+}

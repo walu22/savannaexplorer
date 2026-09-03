@@ -46,6 +46,15 @@ export function itineraryShareUrl(itineraryId, medium = 'copy') {
     });
 }
 
+export function routeShareUrl(routeId, medium = 'copy') {
+    return buildShareUrl(`/routes/${routeId}`, {
+        source: 'share',
+        medium,
+        campaign: 'route-explorer',
+        content: routeId,
+    });
+}
+
 export function hubShareUrl(sectionId, medium = 'copy') {
     return buildShareUrl(`/${sectionId}`, {
         source: 'share',

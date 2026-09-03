@@ -1,0 +1,401 @@
+{
+  "meta": {
+    "version": 2,
+    "reviewedAt": "2026-09-03",
+    "scope": "Official-source logistics review covering fuel, overnight and access planning for all 19 routes, with leg-specific guidance for remote or ambiguous approaches.",
+    "disclaimer": "Road conditions, gates, fees, fuel availability and seasonal access can change. Reconfirm directly before departure."
+  },
+  "routes": {
+    "namibia-essentials-extended": {
+      "fuelAnchors": [
+        { "name": "Khorixas", "note": "Primary supply point before or after the Twyfelfontein sector." },
+        { "name": "Kamanjab", "note": "Reconfirm fuel before continuing toward Galton Gate." },
+        { "name": "Okaukuejo", "note": "NWR lists a filling station and shop inside Etosha; confirm current operation." }
+      ],
+      "overnightAnchors": ["Twyfelfontein", "Kamanjab", "Okaukuejo"],
+      "gatePermitNotes": [
+        "Etosha is accessed through named gates including Galton, Andersson, Von Lindequist and King Nehale; choose the gate that matches the booked camp and daylight available.",
+        "Park travel between sunset and sunrise is restricted; check current gate times with MEFT or NWR."
+      ],
+      "legs": [
+        {
+          "fromStopId": "twyfelfontein",
+          "toStopId": "etosha",
+          "status": "route-check",
+          "via": ["Khorixas", "Kamanjab", "Galton Gate"],
+          "guidance": "Use Khorixas and Kamanjab as supply checks and confirm whether Galton Gate suits the booked Etosha camp. The collection coordinate represents the park, not a navigable gate, so no single distance is published."
+        }
+      ],
+      "sources": [
+        { "label": "Visit Namibia — Welwitschia Experience", "url": "https://visitnamibia.com.na/welwitchia-experience/" },
+        { "label": "Visit Namibia — Northern Region", "url": "https://visitnamibia.com.na/2022/03/northern-region/" },
+        { "label": "Namibia Wildlife Resorts — Etosha access notice", "url": "https://www.nwr.com.na/nwr-announces-traffic-deviation-via-gemsbokvlakte-from-okaukuejo-what-etosha-visitors-need-to-know/" }
+      ]
+    },
+    "namibia-arid-northwest-etosha": {
+      "fuelAnchors": [
+        { "name": "Opuwo", "note": "Fill and provision before departing the northwest." },
+        { "name": "Kamanjab", "note": "Reconfirm fuel and gate conditions before Etosha." },
+        { "name": "Okaukuejo", "note": "NWR lists fuel and shop services; confirm availability before relying on them." }
+      ],
+      "overnightAnchors": ["Opuwo", "Kamanjab", "Okaukuejo"],
+      "gatePermitNotes": ["The western approach normally aligns with Galton Gate; confirm entry eligibility, booked camp and daylight gate hours before leaving Opuwo."],
+      "legs": [
+        {
+          "fromStopId": "opuwo",
+          "toStopId": "etosha-northwest",
+          "status": "route-check",
+          "via": ["Kamanjab", "Galton Gate"],
+          "guidance": "The park coordinate is not a gate. Route through Kamanjab and navigate to the confirmed Etosha entrance and booked camp rather than routing to the park centre."
+        }
+      ],
+      "sources": [
+        { "label": "Visit Namibia — Welwitschia Experience", "url": "https://visitnamibia.com.na/welwitchia-experience/" },
+        { "label": "Visit Namibia — Northern Region", "url": "https://visitnamibia.com.na/2022/03/northern-region/" }
+      ]
+    },
+    "botswana-okavango-chobe": {
+      "fuelAnchors": [
+        { "name": "Maun", "note": "Complete fuel, water, food, tyre and recovery preparations before entering Moremi." },
+        { "name": "Kasane", "note": "End-of-route resupply point after the Chobe sector." }
+      ],
+      "overnightAnchors": ["Maun", "Moremi campsite", "Khwai", "Savuti campsite", "Kasane"],
+      "gatePermitNotes": [
+        "Reserve campsites and park access before departure.",
+        "Use a fully equipped 4×4 and obtain same-day track and water reports; do not treat general-purpose road routing as an expedition time estimate."
+      ],
+      "legs": [
+        { "fromStopId": "maun", "toStopId": "moremi", "status": "operator-check", "via": ["Confirmed Moremi entry gate"], "guidance": "Select the gate and campsite first, then obtain a current track plan from the booking office or local operator." },
+        { "fromStopId": "moremi", "toStopId": "khwai", "status": "operator-check", "via": ["Current flood-safe track"], "guidance": "Water levels and sand conditions change the usable track; confirm locally before leaving camp." },
+        { "fromStopId": "savuti", "toStopId": "chobe", "status": "operator-check", "via": ["Current Chobe transit track"], "guidance": "Treat this as a remote transfer and confirm the open track, fuel range and realistic daylight time." },
+        { "fromStopId": "chobe", "toStopId": "kasane", "status": "gate-check", "via": ["Confirmed Chobe exit gate"], "guidance": "Route from the actual riverfront gate rather than the collection’s park-centre coordinate." }
+      ],
+      "sources": [
+        { "label": "Botswana Tourism — Moremi Game Reserve", "url": "https://botswanatourism.co.bw/explore/moremi-game-reserve" },
+        { "label": "Botswana Tourism — Savuti and Linyanti", "url": "https://www.botswanatourism.co.bw/explore/savuti-and-linyanti" },
+        { "label": "Botswana Tourism — Self-drive camping", "url": "https://www.botswanatourism.co.bw/index.php/travel-info/self-drive-camping" }
+      ]
+    },
+    "malawi-southern-wildlife-lake": {
+      "fuelAnchors": [
+        { "name": "Zomba", "note": "Refuel before the Liwonde sector." },
+        { "name": "Liwonde town", "note": "Confirm fuel before entering the park or continuing toward the lake." },
+        { "name": "Mangochi", "note": "Practical resupply check on the approach to the southern lakeshore." }
+      ],
+      "overnightAnchors": ["Zomba", "Liwonde", "Cape Maclear"],
+      "gatePermitNotes": ["Use the current visitor entrance identified by Liwonde management and confirm accommodation transfer instructions before routing to a park coordinate."],
+      "legs": [
+        { "fromStopId": "zomba", "toStopId": "liwonde", "status": "gate-check", "via": ["Liwonde town", "Confirmed park entrance"], "guidance": "Navigate to the confirmed visitor gate or lodge instructions, not the park-centre coordinate." },
+        { "fromStopId": "liwonde", "toStopId": "cape-maclear", "status": "route-check", "via": ["Liwonde town", "Mangochi"], "guidance": "Exit through the confirmed gate, check fuel in Liwonde or Mangochi and verify the final lakeshore road before departure." }
+      ],
+      "sources": [
+        { "label": "African Parks — Liwonde", "url": "https://www.africanparks.org/the-parks/liwonde" },
+        { "label": "African Parks — Liwonde contact", "url": "https://www.africanparks.org/the-parks/liwonde/contact" }
+      ]
+    },
+    "namibia-four-rivers-wetlands": {
+      "fuelAnchors": [
+        { "name": "Kongola", "note": "Confirm fuel and supplies before the wetland detour." },
+        { "name": "Katima Mulilo", "note": "Primary regional resupply and MEFT permit-check point." }
+      ],
+      "overnightAnchors": ["Kongola", "Rupara Community Campsite", "Nkasa Lupala area", "Katima Mulilo"],
+      "gatePermitNotes": [
+        "Nkasa Rupara requires a 4×4 with recovery equipment and self-sufficient preparation.",
+        "Official guidance says fees can be arranged through MEFT in Katima Mulilo or Windhoek or upon arrival; reconfirm the current process.",
+        "Flooding can make much of the park inaccessible, so obtain same-day access advice."
+      ],
+      "legs": [
+        { "fromStopId": "kongola", "toStopId": "nkasa-rupara", "status": "operator-check", "via": ["Sangwali area", "Confirmed park access"], "guidance": "Use a 4×4 and confirm flood conditions, bridge access, campsite and recovery readiness locally." },
+        { "fromStopId": "nkasa-rupara", "toStopId": "katima-mulilo", "status": "operator-check", "via": ["Confirmed park exit", "Katima Mulilo"], "guidance": "Do not use the park-centre routing estimate; obtain an exit track and daylight-time estimate from park staff or the booked camp." }
+      ],
+      "sources": [
+        { "label": "Visit Namibia — Nkasa Rupara National Park", "url": "https://visitnamibia.com.na/2022/02/nkasa-rupara-national-park/" },
+        { "label": "Visit Namibia — Four Rivers brochure", "url": "https://visitnamibia.com.na/wp-content/uploads/2022/03/FOUR_RIVERS_DIGITAL_BROCHURE_FINAL.pdf" }
+      ]
+    },
+    "zambia-eastern-safari-route": {
+      "fuelAnchors": [
+        { "name": "Chipata", "note": "Main refuel and provisioning point before the Luangwa Valley." },
+        { "name": "Mfuwe", "note": "Reconfirm fuel and supplies before park drives or remote extensions." }
+      ],
+      "overnightAnchors": ["Chipata", "Mfuwe", "Booked South Luangwa camp"],
+      "gatePermitNotes": [
+        "Use the usual Chipata–Mfuwe approach unless a competent operator confirms a seasonal 4×4 alternative.",
+        "Park entry and self-drive fees change; verify current charges before arrival and collect a current loop-road map at the entrance."
+      ],
+      "legs": [
+        { "fromStopId": "chipata", "toStopId": "mfuwe", "status": "official-estimate", "distanceKm": 123, "driveMinutes": 120, "via": ["Standard Chipata approach"], "guidance": "Zambia Tourism describes this as the usual approach and notes that the road can be corrugated." },
+        { "fromStopId": "mfuwe", "toStopId": "south-luangwa", "status": "gate-check", "via": ["Confirmed entrance or lodge"], "guidance": "Mfuwe is immediately outside the park area; route to the booked lodge or confirmed entrance instead of the park-centre coordinate." }
+      ],
+      "sources": [
+        { "label": "Zambia Tourism — South Luangwa", "url": "https://www.zambiatourism.com/destinations/national-parks/south-luangwa-national-park/" },
+        { "label": "Zambia Tourism — Park entry fees", "url": "https://www.zambiatourism.com/park-entry-fees/" },
+        { "label": "Zambia Tourism — Navigation and fuel", "url": "https://www.zambiatourism.com/self-drive/navigation-and-driving/" }
+      ]
+    },
+    "mozambique-gorongosa-central-highlands": {
+      "fuelAnchors": [
+        { "name": "Beira", "note": "Fill before the Gorongosa approach." },
+        { "name": "Inchope", "note": "Official park directions identify a fuel stop near the EN1 junction; confirm operation." },
+        { "name": "Chimoio", "note": "Primary provisioning and fuel point before Chimanimani." }
+      ],
+      "overnightAnchors": ["Beira", "Chitengo in Gorongosa", "Chimoio", "Booked Chimanimani camp"],
+      "gatePermitNotes": [
+        "There is no fuel for sale inside Gorongosa according to the park’s driving guidance.",
+        "Chimanimani recommends a 4×4; some areas require a long walk or 4×4 access, so confirm the trailhead, guide and camping arrangement."
+      ],
+      "legs": [
+        { "fromStopId": "chimoio", "toStopId": "chimanimani-mozambique", "status": "operator-check", "via": ["Sussundenga", "Confirmed Chimanimani gate or trailhead"], "guidance": "The official tourism site recommends a 4×4 from Chimoio. Confirm the exact gate or trailhead and current surface before leaving the city." }
+      ],
+      "sources": [
+        { "label": "Gorongosa — By car", "url": "https://gorongosa.org/by-car/" },
+        { "label": "Visit Mozambique — Chimanimani", "url": "https://fikani.visitmozambique.gov.mz/onde-ir/parques-e-reservas/reserva-de-chimanimani-2/" },
+        { "label": "Mozambique Government — Chimanimani information", "url": "https://www.visitmozambique.gov.mz/wp-content/uploads/2025/04/Chimanimani-FINAL-Layout-20-SEPT_ENG-1.pdf" }
+      ]
+    },
+    "south-africa-garden-route": {
+      "fuelAnchors": [
+        { "name": "George", "note": "SANParks identifies George as a major Garden Route supply and fuel centre." },
+        { "name": "Knysna", "note": "Refuel and provision before continuing east along the N2." },
+        { "name": "Storms River Bridge", "note": "SANParks lists fuel about 25 km from Storms River Mouth; confirm current operation." }
+      ],
+      "overnightAnchors": ["Cape Town", "Oudtshoorn", "Wilderness or Knysna", "Plettenberg Bay or Storms River", "Gqeberha"],
+      "gatePermitNotes": [
+        "Garden Route National Park is split across Wilderness, Knysna and Tsitsikamma sections; route to the booked rest camp or named day-visitor gate.",
+        "SANParks gate hours and conservation fees vary by section and season; verify them before arrival."
+      ],
+      "legs": [
+        { "fromStopId": "knysna", "toStopId": "tsitsikamma", "status": "gate-check", "via": ["N2", "Confirmed Tsitsikamma entrance"], "guidance": "Choose Storms River Mouth, the Big Tree or the booked accommodation entrance before navigating; the collection stop covers a wider region." }
+      ],
+      "sources": [
+        { "label": "SANParks — Garden Route National Park", "url": "https://www.sanparks.org/parks/garden-route" },
+        { "label": "SANParks — Moving around the Garden Route", "url": "https://www.sanparks.org/wp-content/uploads/2021/03/garden_route.pdf" },
+        { "label": "SANParks — Storms River Mouth Rest Camp", "url": "https://www.sanparks.org/parks/garden-route/camps/storms-river-mouth" }
+      ]
+    },
+    "south-africa-panorama-kruger": {
+      "fuelAnchors": [
+        { "name": "Dullstroom", "note": "Top up before the Panorama Route mountain sector." },
+        { "name": "Hazyview", "note": "Final outside-park fuel and supply check before the selected southern Kruger gate." },
+        { "name": "Skukuza", "note": "Use booked-camp services only after confirming current availability and opening hours." }
+      ],
+      "overnightAnchors": ["Dullstroom", "Graskop", "Hazyview", "Booked Kruger rest camp"],
+      "gatePermitNotes": [
+        "From Hazyview, SANParks identifies Paul Kruger Gate for Skukuza and Numbi Gate for Pretoriuskop; select the gate that matches the booking.",
+        "Allow wildlife-speed travel time inside Kruger and arrive before the current gate-closing time."
+      ],
+      "legs": [
+        { "fromStopId": "hazyview", "toStopId": "kruger", "status": "gate-check", "via": ["Paul Kruger Gate or Numbi Gate", "Booked rest camp"], "guidance": "Do not navigate to the park-centre coordinate. Choose the entrance and allow SANParks' slower in-park travel time to the booked camp." }
+      ],
+      "sources": [
+        { "label": "SANParks — Kruger distances and directions", "url": "https://www.sanparks.org/parks/kruger/travel/distances-directions" },
+        { "label": "SANParks — Kruger National Park", "url": "https://www.sanparks.org/parks/kruger" }
+      ]
+    },
+    "zambia-southern-zambezi": {
+      "fuelAnchors": [
+        { "name": "Lusaka", "note": "Complete fuel, cash, food and tyre preparations before the Lower Zambezi transfer." },
+        { "name": "Chirundu", "note": "Refuel and obtain current access advice before the rough Chiawa or Chongwe sector." },
+        { "name": "Siavonga", "note": "Refuel before the long paved transfer toward Livingstone." }
+      ],
+      "overnightAnchors": ["Lusaka", "Booked Lower Zambezi lodge or camp", "Siavonga", "Livingstone"],
+      "gatePermitNotes": [
+        "Zambia Tourism recommends a 4×4 on the rough Chirundu–Chongwe access and notes that lodges often arrange transfers; confirm the booked property's directions.",
+        "Lower Zambezi park fees and self-drive charges can change; reconfirm them before departure."
+      ],
+      "legs": [
+        { "fromStopId": "lusaka", "toStopId": "lower-zambezi", "status": "operator-check", "via": ["Chirundu", "Booked lodge access"], "guidance": "The collection coordinate does not identify a lodge or gate. Confirm whether to drive, park for a boat transfer or use a lodge transfer before leaving Lusaka." },
+        { "fromStopId": "lower-zambezi", "toStopId": "siavonga", "status": "operator-check", "via": ["Confirmed lodge exit", "Chirundu"], "guidance": "Obtain the current exit route and transfer timing from the lodge; wet-season access can differ from the mapped road." }
+      ],
+      "sources": [
+        { "label": "Zambia Tourism — Lower Zambezi National Park", "url": "https://www.zambiatourism.com/destinations/national-parks/lower-zambezi-national-park/" },
+        { "label": "Zambia Tourism — Navigation and driving", "url": "https://www.zambiatourism.com/self-drive/navigation-and-driving/" },
+        { "label": "Zambia Tourism — Park entry fees", "url": "https://www.zambiatourism.com/park-entry-fees/" }
+      ]
+    },
+    "zimbabwe-falls-hwange-matobo": {
+      "fuelAnchors": [
+        { "name": "Victoria Falls", "note": "Fill and provision before the Hwange sector." },
+        { "name": "Hwange town", "note": "Reconfirm fuel before entering through the selected park gate." },
+        { "name": "Bulawayo", "note": "Major resupply point before Matobo Hills." }
+      ],
+      "overnightAnchors": ["Victoria Falls", "Hwange Main Camp or booked lodge", "Bulawayo", "Matobo Hills"],
+      "gatePermitNotes": [
+        "ZimParks identifies Mpofu for Main Camp, Mbala for Sinamatella and Nantwich for Robins; choose the entrance that matches the booking.",
+        "Confirm current park tariffs, payment method, road condition and gate hours directly with ZimParks."
+      ],
+      "legs": [
+        { "fromStopId": "victoria-falls", "toStopId": "hwange", "status": "gate-check", "via": ["Hwange town", "Mpofu, Mbala or Nantwich gate"], "guidance": "Route to the gate serving the booked camp rather than the park-centre coordinate." },
+        { "fromStopId": "bulawayo", "toStopId": "matobo", "status": "gate-check", "via": ["Confirmed Matobo entrance or lodge"], "guidance": "Confirm the chosen park entrance and accommodation directions before leaving Bulawayo." }
+      ],
+      "sources": [
+        { "label": "ZimParks — Hwange management plan", "url": "https://www.zimparks.org.zw/wp-content/uploads/2024/07/Hwange-GMP.pdf" },
+        { "label": "ZimParks — official tariffs", "url": "https://www.zimparks.org.zw/" },
+        { "label": "Zimbabwe Tourism Authority — destinations", "url": "https://zimbabwetourism.net/portfolios/" }
+      ]
+    },
+    "mozambique-southern-lagoons": {
+      "fuelAnchors": [
+        { "name": "Maputo", "note": "Start with a full tank and current EN1 road information." },
+        { "name": "Xai-Xai", "note": "Principal mid-route fuel and supply check between Bilene and Chidenguele." },
+        { "name": "Inhambane or Maxixe", "note": "Refuel before beach-road detours to Tofo or Barra." }
+      ],
+      "overnightAnchors": ["Maputo", "Bilene", "Chidenguele or Xai-Xai", "Inhambane", "Tofo or Barra"],
+      "gatePermitNotes": [
+        "The official Coast of Lagoons corridor follows Maputo–Bilene–Xai-Xai–Inhambane; verify EN1 conditions and daylight arrival with the booked property.",
+        "Final beach approaches can differ by accommodation; use the property's current directions and do not assume every sand track suits a two-wheel-drive vehicle."
+      ],
+      "legs": [
+        { "fromStopId": "bilene", "toStopId": "chidenguele", "status": "route-check", "via": ["Xai-Xai", "Booked lagoon property"], "guidance": "Use Xai-Xai for the main-road fuel check and confirm the final lagoon turn-off with the accommodation." },
+        { "fromStopId": "inhambane", "toStopId": "tofo", "status": "property-check", "via": ["Confirmed Tofo or Barra access"], "guidance": "Tofo and Barra use different final approaches; follow the booked property's current directions." }
+      ],
+      "sources": [
+        { "label": "Visit Mozambique — national tourism routes", "url": "https://www.visitmozambique.gov.mz/como-viajar-em-mocambique/" },
+        { "label": "Visit Mozambique — Inhambane", "url": "https://www.visitmozambique.gov.mz/inhambane/" },
+        { "label": "Visit Mozambique — official tourist map", "url": "https://www.visitmozambique.gov.mz/wp-content/uploads/2025/04/MAPA-FRENTE-Ingles.pdf" }
+      ]
+    },
+    "lesotho-highlands-dam-loop": {
+      "fuelAnchors": [
+        { "name": "Maseru", "note": "Fill, check tyres and provision before entering the highlands." },
+        { "name": "Thaba-Tseka", "note": "Reconfirm fuel and weather before the Katse sector." },
+        { "name": "Hlotse or Butha-Buthe", "note": "Use the lowland return corridor as the final dependable supply check." }
+      ],
+      "overnightAnchors": ["Maseru", "Mohale Dam", "Semonkong", "Thaba-Tseka", "Katse Dam", "Ts'ehlanyane"],
+      "gatePermitNotes": [
+        "Mountain weather, fog, snow and rockfall can alter highland travel times; obtain same-day road advice before each crossing.",
+        "Confirm Katse and Mohale visitor-centre tour times and access requirements with the Lesotho Highlands Development Authority."
+      ],
+      "legs": [
+        { "fromStopId": "mohale", "toStopId": "semonkong", "status": "weather-check", "via": ["Confirmed highland road"], "guidance": "Check the chosen road, weather and daylight margin locally; a faster-looking map alternative may not be the appropriate surfaced route." },
+        { "fromStopId": "thaba-tseka", "toStopId": "katse", "status": "weather-check", "via": ["Confirmed Katse approach"], "guidance": "Reconfirm mountain conditions and visitor-centre timing before departure." }
+      ],
+      "sources": [
+        { "label": "Visit Lesotho — official tourism portal", "url": "https://www.visitlesotho.org.ls/" },
+        { "label": "Lesotho Highlands Development Authority — tourism", "url": "https://www.lhda.org.ls/home/tourism" },
+        { "label": "Visit Lesotho — National Tourism Master Plan", "url": "https://www.visitlesotho.org.ls/wp-content/uploads/2025/05/1703-Output-5.2-National-Tourism-Master-Plan-compressed-copy.pdf" }
+      ]
+    },
+    "eswatini-royal-heartland": {
+      "fuelAnchors": [
+        { "name": "Mbabane", "note": "Start the short circuit with fuel and cash sorted." },
+        { "name": "Ezulwini or Matsapha", "note": "Convenient central-corridor resupply before Malkerns and Mlilwane." }
+      ],
+      "overnightAnchors": ["Mbabane", "Ezulwini Valley", "Malkerns or Mlilwane"],
+      "gatePermitNotes": [
+        "The official Royal Heartland itinerary uses Ezulwini as a base for Lobamba, Malkerns and Mlilwane.",
+        "Confirm Mlilwane day-visitor or overnight check-in times directly with Big Game Parks."
+      ],
+      "legs": [
+        { "fromStopId": "malkerns", "toStopId": "mlilwane", "status": "property-check", "via": ["Confirmed Mlilwane entrance"], "guidance": "Use the entrance and check-in directions supplied for the booked Mlilwane accommodation or activity." }
+      ],
+      "sources": [
+        { "label": "Eswatini Tourism — suggested itineraries", "url": "https://www.thekingdomofeswatini.com/how-to-get-around/suggested-itineraries/" },
+        { "label": "Big Game Parks — official parks portal", "url": "https://biggameparks.org/" }
+      ]
+    },
+    "botswana-salt-pans-chobe": {
+      "fuelAnchors": [
+        { "name": "Maun", "note": "Fill both vehicle tanks where fitted and complete food, water, tyre and recovery preparation." },
+        { "name": "Nata", "note": "Primary fuel and supply reset before the Kasane leg." },
+        { "name": "Kasane", "note": "Regional resupply point for the Chobe Riverfront." }
+      ],
+      "overnightAnchors": ["Maun", "Booked Nxai Pan campsite", "Boteti or Makgadikgadi campsite", "Nata", "Kasane"],
+      "gatePermitNotes": [
+        "Reserve national-park campsites and entry before departure and travel with a fully equipped 4×4.",
+        "Nxai Pan lies off the Nata–Maun road, but sandy park tracks and wet-season conditions require current gate advice; do not navigate to a park-centre coordinate."
+      ],
+      "legs": [
+        { "fromStopId": "maun-pans", "toStopId": "nxai-pan", "status": "gate-check", "via": ["A3/Nata–Maun road", "Confirmed Nxai Pan gate and campsite"], "guidance": "Confirm the gate, campsite booking, track condition and fuel range before leaving Maun." },
+        { "fromStopId": "nxai-pan", "toStopId": "boteti", "status": "operator-check", "via": ["Confirmed park exit", "Booked Boteti campsite or lodge"], "guidance": "Ask park staff for the current exit and onward route; pan conditions change seasonally." }
+      ],
+      "sources": [
+        { "label": "Botswana Tourism — Nxai Pan National Park", "url": "https://www.botswanatourism.co.bw/explore/nxai-pan-national-park" },
+        { "label": "Botswana Tourism — Makgadikgadi and Nxai Pans", "url": "https://www.botswanatourism.co.bw/index.php/explore/makgadikgadi-and-nxai-pans" },
+        { "label": "Botswana Tourism — self-drive camping", "url": "https://www.botswanatourism.co.bw/index.php/travel-info/self-drive-camping" }
+      ]
+    },
+    "zimbabwe-eastern-highlands": {
+      "fuelAnchors": [
+        { "name": "Harare", "note": "Fill and check current highway conditions before heading east." },
+        { "name": "Mutare", "note": "Principal regional fuel and supply base for Bvumba and Chimanimani." },
+        { "name": "Nyanga", "note": "Reconfirm fuel locally before highland excursions." }
+      ],
+      "overnightAnchors": ["Nyanga", "Honde Valley", "Mutare", "Bvumba", "Chimanimani village"],
+      "gatePermitNotes": [
+        "Confirm Nyanga National Park and Chimanimani access, tariffs and opening hours with ZimParks or the booked operator.",
+        "Highland rain, mist and damaged road surfaces can lengthen transfers; avoid committing to a remote arrival after dark."
+      ],
+      "legs": [
+        { "fromStopId": "nyanga", "toStopId": "honde-valley", "status": "route-check", "via": ["Current local highland route"], "guidance": "Obtain current road advice from the accommodation because mapping may prefer minor mountain roads." },
+        { "fromStopId": "bvumba", "toStopId": "chimanimani-zimbabwe", "status": "route-check", "via": ["Mutare", "Confirmed Chimanimani accommodation"], "guidance": "Use Mutare as the fuel and route check, then follow the booked property's approach rather than a direct mountain shortcut." }
+      ],
+      "sources": [
+        { "label": "Zimbabwe Tourism Authority — Eastern Highlands operators", "url": "https://zimbabwetourism.net/eastern-highlands-registered-operators/" },
+        { "label": "Zimbabwe Tourism Authority — official portal", "url": "https://zimbabwetourism.net/" },
+        { "label": "ZimParks — official portal", "url": "https://www.zimparks.org.zw/" }
+      ]
+    },
+    "malawi-northern-highlands-lake": {
+      "fuelAnchors": [
+        { "name": "Dwangwa", "note": "Malawi Tourism specifically identifies Dwangwa as a useful lakeshore place to stock up and refuel." },
+        { "name": "Mzuzu", "note": "Main northern supply base before Viphya, Rumphi and Nyika." },
+        { "name": "Karonga", "note": "Northern lakeshore fuel and supply endpoint; confirm current availability." }
+      ],
+      "overnightAnchors": ["Nkhotakota", "Nkhata Bay", "Viphya Plateau", "Chelinda in Nyika", "Livingstonia or Chitimba", "Karonga"],
+      "gatePermitNotes": [
+        "Confirm Nyika entry, accommodation and the current plateau-road condition before leaving Mzuzu or Rumphi.",
+        "The historic Livingstonia escarpment road is steep, narrow and unsurfaced; use a well-maintained high-clearance vehicle or confirm the alternative approach."
+      ],
+      "legs": [
+        { "fromStopId": "nkhotakota-north", "toStopId": "nkhata-bay", "status": "fuel-check", "via": ["Dwangwa", "Lakeshore road"], "guidance": "Use Dwangwa for the official tourism site's recommended stock-up and fuel stop." },
+        { "fromStopId": "viphya", "toStopId": "nyika", "status": "gate-check", "via": ["Mzuzu", "Rumphi", "Confirmed Nyika gate"], "guidance": "Confirm park entry, plateau-road condition, fuel range and accommodation check-in before leaving the main corridor." },
+        { "fromStopId": "nyika", "toStopId": "livingstonia", "status": "route-check", "via": ["Confirmed plateau exit", "Chosen Livingstonia approach"], "guidance": "Do not treat the historic escarpment road as an ordinary transfer; confirm vehicle suitability, brakes and the safer current approach." }
+      ],
+      "sources": [
+        { "label": "Malawi Tourism — Touring Malawi", "url": "https://www.malawitourism.com/touring-malawi/" },
+        { "label": "Malawi Tourism — North Malawi", "url": "https://www.malawitourism.com/regions/north-malawi/" },
+        { "label": "Malawi Tourism — Livingstonia Escarpment", "url": "https://www.malawitourism.com/news-blogs/blog-the-livingstonia-escarpment/" }
+      ]
+    },
+    "lesotho-southern-rustic-route": {
+      "fuelAnchors": [
+        { "name": "Quthing", "note": "Fill and provision before continuing through the Senqu valley." },
+        { "name": "Qacha's Nek", "note": "Last named town and overnight anchor before remote Sehlabathebe access." }
+      ],
+      "overnightAnchors": ["Quthing", "Mount Moorosi area", "Qacha's Nek", "Booked Sehlabathebe accommodation"],
+      "gatePermitNotes": [
+        "Visit Lesotho says the main Quthing–Qacha's Nek road is surfaced and suitable for a roadworthy car, but the Sehlabathebe continuation is a roughly three-hour unsurfaced road.",
+        "Keep Lake Letsie and Tsatsane diversions for a suitable 4×4 plan; confirm Sehlabathebe entry and accommodation before leaving Qacha's Nek."
+      ],
+      "legs": [
+        { "fromStopId": "qachas-nek", "toStopId": "sehlabathebe", "status": "route-check", "via": ["Confirmed Sehlabathebe road and entrance"], "guidance": "Allow at least the official site's roughly three-hour unsurfaced-road guidance, then add weather and stop margin; confirm current condition locally." }
+      ],
+      "sources": [
+        { "label": "Visit Lesotho — Southern Rustic Route", "url": "https://www.visitlesotho.org.ls/place-to-visit/southern-rustic-route" },
+        { "label": "Visit Lesotho — official tourism portal", "url": "https://www.visitlesotho.org.ls/" }
+      ]
+    },
+    "eswatini-northern-community-nature": {
+      "fuelAnchors": [
+        { "name": "Mbabane", "note": "Begin the northern circuit with fuel, cash and offline directions." },
+        { "name": "Piggs Peak", "note": "Northwest supply check between Maguga, Nsangwini and Phophonyane." },
+        { "name": "Simunye", "note": "The official itinerary recommends stocking up here for the lowveld reserves and Shewula sector." }
+      ],
+      "overnightAnchors": ["Malolotja", "Maguga or Piggs Peak", "Phophonyane", "Hlane", "Shewula Mountain Camp"],
+      "gatePermitNotes": [
+        "The official northern circuit links Malolotja, Maguga, Nsangwini and Phophonyane with Hlane and Shewula; confirm each community stay or reserve before arrival.",
+        "Check Hlane gate and activity times with Big Game Parks and obtain Shewula's current final-approach directions."
+      ],
+      "legs": [
+        { "fromStopId": "phophonyane", "toStopId": "hlane-north", "status": "route-check", "via": ["Piggs Peak", "Simunye", "Confirmed Hlane gate"], "guidance": "Use Simunye as the official itinerary's supply reset and navigate to the confirmed Hlane entrance." },
+        { "fromStopId": "hlane-north", "toStopId": "shewula", "status": "property-check", "via": ["Confirmed Hlane exit", "Shewula Mountain Camp directions"], "guidance": "Confirm the community camp booking and final mountain approach rather than routing only to the settlement coordinate." }
+      ],
+      "sources": [
+        { "label": "Eswatini Tourism — suggested itineraries", "url": "https://www.thekingdomofeswatini.com/how-to-get-around/suggested-itineraries/" },
+        { "label": "Eswatini Tourism — community tourism", "url": "https://www.thekingdomofeswatini.com/responsible-travel/community-tourism/" },
+        { "label": "Big Game Parks — official parks portal", "url": "https://biggameparks.org/" }
+      ]
+    }
+  }
+}

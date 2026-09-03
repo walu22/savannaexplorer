@@ -17,6 +17,7 @@ const itineraries = loadJson('itineraries.json');
 const listings = loadJson('stays-operators.json');
 const countryResources = loadJson('country-resources.json');
 const planningGuides = loadJson('planning-guides.json');
+const routeCollection = loadJson('route-collections.json');
 const siteLastReviewed = loadJson('about.json').meta?.lastReviewed || '2026-06';
 
 export const HOME_OG_IMAGE = 'https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200';
@@ -401,6 +402,74 @@ export function itineraryPages(baseUrl) {
     });
 }
 
+export function routePages(baseUrl) {
+    return routeCollection.routes.map(route => {
+        const path = `/routes/${route.id}`;
+        const countries = route.countryIds.map(id => getCountryMeta(id).name).join(', ');
+        const title = `${route.title} Road Trip | ${SITE_NAME}`;
+        const description = truncate(`${route.promise} ${route.duration.label}. ${route.vehicle.label}. Best season: ${route.bestSeason.label}.`);
+        const stops = route.stops.map((stop, index) => `<li><strong>${index + 1}. ${escapeHtml(stop.name)}</strong> — ${escapeHtml(stop.summary)}</li>`).join('');
+        const phases = route.phases.map(phase => `<li><strong>${escapeHtml(phase.dayStart === phase.dayEnd ? `Day ${phase.dayStart}` : `Days ${phase.dayStart}–${phase.dayEnd}`)}: ${escapeHtml(phase.title)}</strong> — ${escapeHtml(phase.summary)}</li>`).join('');
+        const warnings = route.warnings.map(item => `<li>${escapeHtml(item)}</li>`).join('');
+        const sources = route.officialSources.map(source => `<li><a href="${escapeHtml(source.url)}" rel="noopener">${escapeHtml(source.label)}</a></li>`).join('');
+        const bodyHtml = `
+<main id="seo-prerender" class="seo-prerender">
+  <article>
+    <nav aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/#route-explorer">Route Explorer</a> › ${escapeHtml(route.title)}</nav>
+    <h1>${escapeHtml(route.title)}</h1>
+    ${reviewedLine(route.lastReviewed)}
+    <p class="seo-lead">${escapeHtml(countries)} · ${escapeHtml(route.duration.label)} · ${escapeHtml(route.vehicle.label)}</p>
+    <p>${escapeHtml(route.promise)}</p>
+    <p><strong>Best season:</strong> ${escapeHtml(route.bestSeason.label)} — ${escapeHtml(route.bestSeason.reason)}</p>
+    <h2>Ordered route stops</h2>
+    <ol>${stops}</ol>
+    <h2>Suggested pacing</h2>
+    <ol>${phases}</ol>
+    <h2>Check before travel</h2>
+    <ul>${warnings}</ul>
+    <h2>Official planning sources</h2>
+    <ul>${sources}</ul>
+    <p><em>${escapeHtml(routeCollection.meta.disclaimer)}</em></p>
+    <p><a href="${path}">Open the interactive ${escapeHtml(route.title)} route planner</a></p>
+  </article>
+</main>`;
+
+        return {
+            path,
+            title,
+            description,
+            ogType: 'article',
+            image: cardImageUrl(route.countryIds[0]),
+            jsonLd: {
+                '@context': 'https://schema.org',
+                '@type': 'Trip',
+                name: route.title,
+                description: route.promise,
+                url: `${siteUrl(baseUrl)}${path}`,
+                touristType: route.travellerTypes,
+                ...(isoReviewDate(route.lastReviewed) && { dateModified: isoReviewDate(route.lastReviewed) }),
+                itinerary: route.stops.map((stop, index) => ({
+                    '@type': 'TouristDestination',
+                    position: index + 1,
+                    name: stop.name,
+                    description: stop.summary,
+                    geo: {
+                        '@type': 'GeoCoordinates',
+                        latitude: stop.lat,
+                        longitude: stop.lng,
+                    },
+                })),
+            },
+            breadcrumb: [
+                { name: 'Home', path: '/' },
+                { name: 'Route Explorer', path: '/#route-explorer' },
+                { name: route.title, path },
+            ],
+            bodyHtml,
+        };
+    });
+}
+
 export function listingPages(baseUrl) {
     return listings.map(item => {
         const segment = item.kind === 'stay' ? 'stays' : 'operators';
@@ -545,6 +614,7 @@ export function allSeoPages(baseUrl) {
         ...parkPages(baseUrl),
         ...borderPages(baseUrl),
         ...itineraryPages(baseUrl),
+        ...routePages(baseUrl),
         ...listingPages(baseUrl),
         ...planningGuidePages(baseUrl),
         ...hubPages(baseUrl),
@@ -567,6 +637,7 @@ export function sitemapEntries(baseUrl) {
         ...parks.map(p => entry(`${origin}/parks/${p.id}`, '0.8', 'monthly', lastmodFromYm(p.lastVerified))),
         ...borders.map(b => entry(`${origin}/borders/${b.id}`, '0.8', 'monthly', lastmodFromYm(b.lastVerified))),
         ...Object.keys(itineraries).map(id => entry(`${origin}/itineraries/${id}`, '0.8', 'monthly', lastmodFromYm(siteLastReviewed))),
+        ...routeCollection.routes.map(route => entry(`${origin}/routes/${route.id}`, '0.85', 'monthly', lastmodFromYm(route.lastReviewed))),
         ...listings.map(item => {
             const segment = item.kind === 'stay' ? 'stays' : 'operators';
             return entry(`${origin}/${segment}/${item.id}`, '0.75', 'monthly', lastmodFromYm(item.lastVerified));

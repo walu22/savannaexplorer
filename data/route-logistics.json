@@ -1,0 +1,937 @@
+{
+  "meta": {
+    "version": 1,
+    "generatedAt": "2026-09-03",
+    "source": "OSRM public routing service using OpenStreetMap road data",
+    "methodology": "Indicative car-routing estimates between the collection coordinates. Remote tracks, gates, ferries, seasonal closures and private access may not be represented.",
+    "disclaimer": "Planning estimate only. Verify the actual road, access conditions, fuel range and travel time locally before departure."
+  },
+  "routes": {
+    "namibia-essentials-extended": {
+      "status": "check-required",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 1732,
+      "totalDriveMinutes": 1457,
+      "legs": [
+        {
+          "fromStopId": "windhoek",
+          "toStopId": "sossusvlei",
+          "distanceKm": 406,
+          "driveMinutes": 318,
+          "fromSnapKm": 0,
+          "toSnapKm": 4.5,
+          "confidence": "medium"
+        },
+        {
+          "fromStopId": "sossusvlei",
+          "toStopId": "swakopmund",
+          "distanceKm": 407,
+          "driveMinutes": 334,
+          "fromSnapKm": 4.5,
+          "toSnapKm": 0,
+          "confidence": "medium"
+        },
+        {
+          "fromStopId": "swakopmund",
+          "toStopId": "twyfelfontein",
+          "distanceKm": 332,
+          "driveMinutes": 284,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "twyfelfontein",
+          "toStopId": "etosha",
+          "distanceKm": 587,
+          "driveMinutes": 521,
+          "fromSnapKm": 0,
+          "toSnapKm": 17.3,
+          "confidence": "low"
+        }
+      ]
+    },
+    "south-africa-garden-route": {
+      "status": "estimated",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 846,
+      "totalDriveMinutes": 672,
+      "legs": [
+        {
+          "fromStopId": "cape-town",
+          "toStopId": "winelands",
+          "distanceKm": 54,
+          "driveMinutes": 42,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "winelands",
+          "toStopId": "oudtshoorn",
+          "distanceKm": 392,
+          "driveMinutes": 299,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "oudtshoorn",
+          "toStopId": "knysna",
+          "distanceKm": 120,
+          "driveMinutes": 110,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "knysna",
+          "toStopId": "tsitsikamma",
+          "distanceKm": 97,
+          "driveMinutes": 94,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "tsitsikamma",
+          "toStopId": "gqeberha",
+          "distanceKm": 184,
+          "driveMinutes": 127,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger": {
+      "status": "estimated",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 638,
+      "totalDriveMinutes": 622,
+      "legs": [
+        {
+          "fromStopId": "johannesburg",
+          "toStopId": "dullstroom",
+          "distanceKm": 256,
+          "driveMinutes": 183,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "dullstroom",
+          "toStopId": "graskop",
+          "distanceKm": 128,
+          "driveMinutes": 137,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "graskop",
+          "toStopId": "hazyview",
+          "distanceKm": 39,
+          "driveMinutes": 43,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "hazyview",
+          "toStopId": "kruger",
+          "distanceKm": 216,
+          "driveMinutes": 258,
+          "fromSnapKm": 0,
+          "toSnapKm": 3.9,
+          "confidence": "medium"
+        }
+      ]
+    },
+    "botswana-okavango-chobe": {
+      "status": "check-required",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 1754,
+      "totalDriveMinutes": 3695,
+      "legs": [
+        {
+          "fromStopId": "maun",
+          "toStopId": "moremi",
+          "distanceKm": 617,
+          "driveMinutes": 1152,
+          "fromSnapKm": 0,
+          "toSnapKm": 16.6,
+          "confidence": "low"
+        },
+        {
+          "fromStopId": "moremi",
+          "toStopId": "khwai",
+          "distanceKm": 862,
+          "driveMinutes": 1751,
+          "fromSnapKm": 16.6,
+          "toSnapKm": 3.1,
+          "confidence": "low"
+        },
+        {
+          "fromStopId": "khwai",
+          "toStopId": "savuti",
+          "distanceKm": 103,
+          "driveMinutes": 447,
+          "fromSnapKm": 3.1,
+          "toSnapKm": 0.2,
+          "confidence": "medium"
+        },
+        {
+          "fromStopId": "savuti",
+          "toStopId": "chobe",
+          "distanceKm": 159,
+          "driveMinutes": 310,
+          "fromSnapKm": 0.2,
+          "toSnapKm": 7.7,
+          "confidence": "low"
+        },
+        {
+          "fromStopId": "chobe",
+          "toStopId": "kasane",
+          "distanceKm": 12,
+          "driveMinutes": 35,
+          "fromSnapKm": 7.7,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        }
+      ]
+    },
+    "zambia-southern-zambezi": {
+      "status": "estimated",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 1145,
+      "totalDriveMinutes": 1312,
+      "legs": [
+        {
+          "fromStopId": "lusaka",
+          "toStopId": "lower-zambezi",
+          "distanceKm": 199,
+          "driveMinutes": 347,
+          "fromSnapKm": 0,
+          "toSnapKm": 3.5,
+          "confidence": "medium"
+        },
+        {
+          "fromStopId": "lower-zambezi",
+          "toStopId": "siavonga",
+          "distanceKm": 397,
+          "driveMinutes": 541,
+          "fromSnapKm": 3.5,
+          "toSnapKm": 0.1,
+          "confidence": "medium"
+        },
+        {
+          "fromStopId": "siavonga",
+          "toStopId": "livingstone",
+          "distanceKm": 548,
+          "driveMinutes": 425,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-falls-hwange-matobo": {
+      "status": "estimated",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 565,
+      "totalDriveMinutes": 488,
+      "legs": [
+        {
+          "fromStopId": "victoria-falls",
+          "toStopId": "hwange",
+          "distanceKm": 198,
+          "driveMinutes": 154,
+          "fromSnapKm": 0.3,
+          "toSnapKm": 0.2,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "hwange",
+          "toStopId": "bulawayo",
+          "distanceKm": 292,
+          "driveMinutes": 225,
+          "fromSnapKm": 0.2,
+          "toSnapKm": 0.2,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "bulawayo",
+          "toStopId": "matobo",
+          "distanceKm": 75,
+          "driveMinutes": 109,
+          "fromSnapKm": 0.2,
+          "toSnapKm": 0.4,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-southern-lagoons": {
+      "status": "estimated",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 579,
+      "totalDriveMinutes": 546,
+      "legs": [
+        {
+          "fromStopId": "maputo",
+          "toStopId": "bilene",
+          "distanceKm": 185,
+          "driveMinutes": 177,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "bilene",
+          "toStopId": "chidenguele",
+          "distanceKm": 164,
+          "driveMinutes": 151,
+          "fromSnapKm": 0,
+          "toSnapKm": 3.6,
+          "confidence": "medium"
+        },
+        {
+          "fromStopId": "chidenguele",
+          "toStopId": "inhambane",
+          "distanceKm": 207,
+          "driveMinutes": 189,
+          "fromSnapKm": 3.6,
+          "toSnapKm": 0,
+          "confidence": "medium"
+        },
+        {
+          "fromStopId": "inhambane",
+          "toStopId": "tofo",
+          "distanceKm": 23,
+          "driveMinutes": 28,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "malawi-southern-wildlife-lake": {
+      "status": "check-required",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 577,
+      "totalDriveMinutes": 897,
+      "legs": [
+        {
+          "fromStopId": "blantyre",
+          "toStopId": "majete",
+          "distanceKm": 59,
+          "driveMinutes": 54,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "majete",
+          "toStopId": "thyolo",
+          "distanceKm": 98,
+          "driveMinutes": 88,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.2,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "thyolo",
+          "toStopId": "mulanje",
+          "distanceKm": 84,
+          "driveMinutes": 168,
+          "fromSnapKm": 0.2,
+          "toSnapKm": 2,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "mulanje",
+          "toStopId": "zomba",
+          "distanceKm": 110,
+          "driveMinutes": 294,
+          "fromSnapKm": 2,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "zomba",
+          "toStopId": "liwonde",
+          "distanceKm": 91,
+          "driveMinutes": 108,
+          "fromSnapKm": 0,
+          "toSnapKm": 6.4,
+          "confidence": "low"
+        },
+        {
+          "fromStopId": "liwonde",
+          "toStopId": "cape-maclear",
+          "distanceKm": 135,
+          "driveMinutes": 185,
+          "fromSnapKm": 6.4,
+          "toSnapKm": 9.2,
+          "confidence": "low"
+        }
+      ]
+    },
+    "lesotho-highlands-dam-loop": {
+      "status": "estimated",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 636,
+      "totalDriveMinutes": 731,
+      "legs": [
+        {
+          "fromStopId": "maseru",
+          "toStopId": "thaba-bosiu",
+          "distanceKm": 27,
+          "driveMinutes": 36,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.3,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "thaba-bosiu",
+          "toStopId": "mohale",
+          "distanceKm": 72,
+          "driveMinutes": 83,
+          "fromSnapKm": 0.3,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "mohale",
+          "toStopId": "semonkong",
+          "distanceKm": 133,
+          "driveMinutes": 149,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "semonkong",
+          "toStopId": "thaba-tseka",
+          "distanceKm": 209,
+          "driveMinutes": 212,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "thaba-tseka",
+          "toStopId": "katse",
+          "distanceKm": 58,
+          "driveMinutes": 91,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "katse",
+          "toStopId": "tselanyane",
+          "distanceKm": 137,
+          "driveMinutes": 160,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.3,
+          "confidence": "high"
+        }
+      ]
+    },
+    "eswatini-royal-heartland": {
+      "status": "estimated",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 119,
+      "totalDriveMinutes": 161,
+      "legs": [
+        {
+          "fromStopId": "mbabane",
+          "toStopId": "ngwenya",
+          "distanceKm": 19,
+          "driveMinutes": 23,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.7,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "ngwenya",
+          "toStopId": "ezulwini",
+          "distanceKm": 39,
+          "driveMinutes": 47,
+          "fromSnapKm": 0.7,
+          "toSnapKm": 0.7,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "ezulwini",
+          "toStopId": "malkerns",
+          "distanceKm": 52,
+          "driveMinutes": 61,
+          "fromSnapKm": 0.7,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "malkerns",
+          "toStopId": "mlilwane",
+          "distanceKm": 9,
+          "driveMinutes": 29,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-arid-northwest-etosha": {
+      "status": "check-required",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 1355,
+      "totalDriveMinutes": 1232,
+      "legs": [
+        {
+          "fromStopId": "windhoek-northwest",
+          "toStopId": "spitzkoppe",
+          "distanceKm": 275,
+          "driveMinutes": 224,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.8,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "spitzkoppe",
+          "toStopId": "twyfelfontein-northwest",
+          "distanceKm": 233,
+          "driveMinutes": 270,
+          "fromSnapKm": 0.8,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "twyfelfontein-northwest",
+          "toStopId": "palmwag",
+          "distanceKm": 114,
+          "driveMinutes": 133,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "palmwag",
+          "toStopId": "sesfontein",
+          "distanceKm": 108,
+          "driveMinutes": 85,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "sesfontein",
+          "toStopId": "opuwo",
+          "distanceKm": 147,
+          "driveMinutes": 113,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "opuwo",
+          "toStopId": "etosha-northwest",
+          "distanceKm": 478,
+          "driveMinutes": 407,
+          "fromSnapKm": 0,
+          "toSnapKm": 17.3,
+          "confidence": "low"
+        }
+      ]
+    },
+    "namibia-four-rivers-wetlands": {
+      "status": "check-required",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 687,
+      "totalDriveMinutes": 550,
+      "legs": [
+        {
+          "fromStopId": "rundu",
+          "toStopId": "divundu",
+          "distanceKm": 199,
+          "driveMinutes": 126,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "divundu",
+          "toStopId": "mahango",
+          "distanceKm": 27,
+          "driveMinutes": 21,
+          "fromSnapKm": 0,
+          "toSnapKm": 2.5,
+          "confidence": "medium"
+        },
+        {
+          "fromStopId": "mahango",
+          "toStopId": "kongola",
+          "distanceKm": 236,
+          "driveMinutes": 154,
+          "fromSnapKm": 2.5,
+          "toSnapKm": 0.1,
+          "confidence": "medium"
+        },
+        {
+          "fromStopId": "kongola",
+          "toStopId": "nkasa-rupara",
+          "distanceKm": 88,
+          "driveMinutes": 108,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 12,
+          "confidence": "low"
+        },
+        {
+          "fromStopId": "nkasa-rupara",
+          "toStopId": "katima-mulilo",
+          "distanceKm": 138,
+          "driveMinutes": 141,
+          "fromSnapKm": 12,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        }
+      ]
+    },
+    "botswana-salt-pans-chobe": {
+      "status": "estimated",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 779,
+      "totalDriveMinutes": 1151,
+      "legs": [
+        {
+          "fromStopId": "maun-pans",
+          "toStopId": "nxai-pan",
+          "distanceKm": 177,
+          "driveMinutes": 241,
+          "fromSnapKm": 0,
+          "toSnapKm": 1.1,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "nxai-pan",
+          "toStopId": "boteti",
+          "distanceKm": 83,
+          "driveMinutes": 366,
+          "fromSnapKm": 1.1,
+          "toSnapKm": 0.2,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "boteti",
+          "toStopId": "nata",
+          "distanceKm": 208,
+          "driveMinutes": 310,
+          "fromSnapKm": 0.2,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "nata",
+          "toStopId": "kasane-pans",
+          "distanceKm": 310,
+          "driveMinutes": 232,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-eastern-safari-route": {
+      "status": "check-required",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 767,
+      "totalDriveMinutes": 897,
+      "legs": [
+        {
+          "fromStopId": "lusaka-east",
+          "toStopId": "chipata",
+          "distanceKm": 568,
+          "driveMinutes": 411,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "chipata",
+          "toStopId": "mfuwe",
+          "distanceKm": 188,
+          "driveMinutes": 418,
+          "fromSnapKm": 0,
+          "toSnapKm": 6.6,
+          "confidence": "low"
+        },
+        {
+          "fromStopId": "mfuwe",
+          "toStopId": "south-luangwa",
+          "distanceKm": 11,
+          "driveMinutes": 67,
+          "fromSnapKm": 6.6,
+          "toSnapKm": 16.8,
+          "confidence": "low"
+        }
+      ]
+    },
+    "zimbabwe-eastern-highlands": {
+      "status": "estimated",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 637,
+      "totalDriveMinutes": 610,
+      "legs": [
+        {
+          "fromStopId": "harare-highlands",
+          "toStopId": "nyanga",
+          "distanceKm": 272,
+          "driveMinutes": 192,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "nyanga",
+          "toStopId": "honde-valley",
+          "distanceKm": 78,
+          "driveMinutes": 94,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "honde-valley",
+          "toStopId": "mutare",
+          "distanceKm": 89,
+          "driveMinutes": 80,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "mutare",
+          "toStopId": "bvumba",
+          "distanceKm": 37,
+          "driveMinutes": 71,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.9,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "bvumba",
+          "toStopId": "chimanimani-zimbabwe",
+          "distanceKm": 162,
+          "driveMinutes": 173,
+          "fromSnapKm": 0.9,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-gorongosa-central-highlands": {
+      "status": "check-required",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 602,
+      "totalDriveMinutes": 504,
+      "legs": [
+        {
+          "fromStopId": "beira-central",
+          "toStopId": "gorongosa",
+          "distanceKm": 206,
+          "driveMinutes": 174,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.3,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "gorongosa",
+          "toStopId": "chimoio",
+          "distanceKm": 134,
+          "driveMinutes": 121,
+          "fromSnapKm": 0.3,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "chimoio",
+          "toStopId": "chimanimani-mozambique",
+          "distanceKm": 261,
+          "driveMinutes": 209,
+          "fromSnapKm": 0,
+          "toSnapKm": 5.9,
+          "confidence": "low"
+        }
+      ]
+    },
+    "malawi-northern-highlands-lake": {
+      "status": "estimated",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 1037,
+      "totalDriveMinutes": 1027,
+      "legs": [
+        {
+          "fromStopId": "lilongwe-north",
+          "toStopId": "nkhotakota-north",
+          "distanceKm": 195,
+          "driveMinutes": 142,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "nkhotakota-north",
+          "toStopId": "nkhata-bay",
+          "distanceKm": 193,
+          "driveMinutes": 142,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "nkhata-bay",
+          "toStopId": "viphya",
+          "distanceKm": 94,
+          "driveMinutes": 72,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.3,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "viphya",
+          "toStopId": "nyika",
+          "distanceKm": 228,
+          "driveMinutes": 272,
+          "fromSnapKm": 0.3,
+          "toSnapKm": 0.3,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "nyika",
+          "toStopId": "livingstonia",
+          "distanceKm": 189,
+          "driveMinutes": 265,
+          "fromSnapKm": 0.3,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "livingstonia",
+          "toStopId": "karonga",
+          "distanceKm": 138,
+          "driveMinutes": 134,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "lesotho-southern-rustic-route": {
+      "status": "estimated",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 396,
+      "totalDriveMinutes": 492,
+      "legs": [
+        {
+          "fromStopId": "tele-bridge",
+          "toStopId": "quthing",
+          "distanceKm": 49,
+          "driveMinutes": 68,
+          "fromSnapKm": 0.9,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "quthing",
+          "toStopId": "mount-moorosi",
+          "distanceKm": 91,
+          "driveMinutes": 119,
+          "fromSnapKm": 0,
+          "toSnapKm": 1.9,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "mount-moorosi",
+          "toStopId": "qachas-nek",
+          "distanceKm": 172,
+          "driveMinutes": 196,
+          "fromSnapKm": 1.9,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "qachas-nek",
+          "toStopId": "sehlabathebe",
+          "distanceKm": 83,
+          "driveMinutes": 109,
+          "fromSnapKm": 0,
+          "toSnapKm": 3.4,
+          "confidence": "medium"
+        }
+      ]
+    },
+    "eswatini-northern-community-nature": {
+      "status": "estimated",
+      "capturedAt": "2026-09-03",
+      "totalDistanceKm": 275,
+      "totalDriveMinutes": 266,
+      "legs": [
+        {
+          "fromStopId": "mbabane-north",
+          "toStopId": "malolotja",
+          "distanceKm": 31,
+          "driveMinutes": 30,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.2,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "malolotja",
+          "toStopId": "maguga",
+          "distanceKm": 23,
+          "driveMinutes": 24,
+          "fromSnapKm": 0.2,
+          "toSnapKm": 0.2,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "maguga",
+          "toStopId": "nsangwini",
+          "distanceKm": 9,
+          "driveMinutes": 20,
+          "fromSnapKm": 0.2,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "nsangwini",
+          "toStopId": "phophonyane",
+          "distanceKm": 31,
+          "driveMinutes": 39,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.3,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "phophonyane",
+          "toStopId": "hlane-north",
+          "distanceKm": 168,
+          "driveMinutes": 137,
+          "fromSnapKm": 0.3,
+          "toSnapKm": 1,
+          "confidence": "high"
+        },
+        {
+          "fromStopId": "hlane-north",
+          "toStopId": "shewula",
+          "distanceKm": 13,
+          "driveMinutes": 16,
+          "fromSnapKm": 1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        }
+      ]
+    }
+  }
+}

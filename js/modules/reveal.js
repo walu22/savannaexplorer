@@ -23,6 +23,7 @@ const REVEAL_SKIP_IDS = new Set([
     'embassies',
     'transport',
     'itineraries',
+    'route-explorer',
     'destinations',
 ]);
 

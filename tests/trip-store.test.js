@@ -60,3 +60,19 @@ test('trips can be duplicated and deleted without losing the original', () => {
     assert.equal(readTripState(storage).trips.length, 1);
     assert.equal(getActiveTrip(storage).id, original.id);
 });
+
+test('route templates create trips with editable days and preserve their source', () => {
+    const storage = memoryStorage();
+    const trip = createTrip({
+        name: 'Royal Heartland',
+        countries: ['Eswatini'],
+        templateRouteId: 'eswatini-royal-heartland',
+        routeDays: [{ id: 'day-1', title: 'Mbabane', stops: [{ id: 'stop-1', name: 'Mbabane', type: 'stay' }] }],
+        notes: 'Check current road information.',
+    }, storage);
+
+    assert.equal(trip.templateRouteId, 'eswatini-royal-heartland');
+    assert.equal(trip.routeDays[0].stops[0].name, 'Mbabane');
+    assert.equal(trip.notes, 'Check current road information.');
+    assert.equal(duplicateTrip(trip.id, storage).templateRouteId, 'eswatini-royal-heartland');
+});
