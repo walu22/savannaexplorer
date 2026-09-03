@@ -2,7 +2,12 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 test.beforeEach(async ({ page }) => {
-    await page.addInitScript(() => localStorage.clear());
+    await page.addInitScript(() => {
+        if (!sessionStorage.getItem('savanna-test-started')) {
+            localStorage.clear();
+            sessionStorage.setItem('savanna-test-started', 'true');
+        }
+    });
 });
 
 test('traveller can filter routes and start an editable My Safari plan', async ({ page }) => {
@@ -23,8 +28,7 @@ test('traveller can filter routes and start an editable My Safari plan', async (
 
     await explorer.getByLabel('Optional start date').fill('2026-10-03');
     await explorer.getByRole('button', { name: 'Start in My Safari' }).click();
-    await expect(page).toHaveURL(/#hub-my-safari$/);
-    expect(new URL(page.url()).pathname).toBe('/');
+    await expect(page).toHaveURL(/\/my-safari$/);
 
     const safari = page.locator('#hub-my-safari');
     await expect(safari.locator('#my-safari-active-name')).toHaveText('Okavango to Chobe Expedition');

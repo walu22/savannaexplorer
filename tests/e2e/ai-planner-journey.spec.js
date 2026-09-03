@@ -13,7 +13,7 @@ async function openPlanner(page, isMobile) {
         await page.getByRole('button', { name: 'Open menu' }).click();
         await page.locator('#mobile-nav-panel').getByRole('link', { name: 'Plan with AI' }).click();
     } else {
-        await page.getByRole('link', { name: 'Plan with AI' }).click();
+        await page.locator('#home-open-ai-planner').click();
     }
     await expect(page.locator('#ai-planner-sidebar')).toHaveAttribute('aria-hidden', 'false');
 }

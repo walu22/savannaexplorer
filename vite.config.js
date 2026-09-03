@@ -1,4 +1,6 @@
 import { defineConfig, loadEnv } from 'vite';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 function analyticsPlugin(mode) {
     const env = loadEnv(mode, process.cwd(), '');
@@ -28,11 +30,27 @@ function analyticsPlugin(mode) {
     };
 }
 
+function directoryIndexPreviewPlugin() {
+    return {
+        name: 'directory-index-preview',
+        configurePreviewServer(server) {
+            server.middlewares.use((request, _response, next) => {
+                const url = new URL(request.url || '/', 'http://localhost');
+                if (!url.pathname.includes('.') && url.pathname !== '/') {
+                    const indexPath = resolve(process.cwd(), 'dist', url.pathname.replace(/^\//, ''), 'index.html');
+                    if (existsSync(indexPath)) request.url = `${url.pathname.replace(/\/$/, '')}/index.html${url.search}`;
+                }
+                next();
+            });
+        },
+    };
+}
+
 export default defineConfig(({ mode }) => ({
-    appType: 'spa',
+    appType: 'mpa',
     root: '.',
     publicDir: 'public',
-    plugins: [analyticsPlugin(mode)],
+    plugins: [analyticsPlugin(mode), directoryIndexPreviewPlugin()],
     server: {
         proxy: {
             '/api': {
@@ -55,7 +73,13 @@ export default defineConfig(({ mode }) => ({
                         if (id.includes('planning-guides.json') || id.includes('guides.json')) {
                             return 'data-guides';
                         }
-                        return 'data-misc';
+                        if (id.includes('route-collections.json') || id.includes('route-logistics')) {
+                            return 'data-routes';
+                        }
+                        if (id.includes('parks.json') || id.includes('park-fees')) return 'data-parks';
+                        if (id.includes('borders.json')) return 'data-borders';
+                        if (id.includes('itineraries.json') || id.includes('itinerary-')) return 'data-itineraries';
+                        if (id.includes('stays-operators.json')) return 'data-marketplace';
                     }
                     if (id.includes('/js/modules/marketplace')) return 'mod-marketplace';
                     if (id.includes('/js/modules/trip-planner')) return 'mod-trip-planner';

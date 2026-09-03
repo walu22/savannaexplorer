@@ -1,4 +1,4 @@
-import { parseLocation } from '../lib/router.js';
+import { parseRouteShape } from '../lib/route-shape.js';
 
 const DETAIL_SECTION = {
     park: 'parks',
@@ -30,13 +30,14 @@ function focusSection(sectionId) {
     branch.classList.add('home-layout-active-branch');
     document.body.dataset.homeSection = sectionId;
     document.body.classList.toggle('home-section-focus--my-safari', sectionId === 'hub-my-safari');
+    document.body.classList.toggle('home-section-focus--expense', sectionId === 'hub-expense-tracker');
     return true;
 }
 
 export function syncHomeLayout() {
-    const route = parseLocation();
+    const route = parseRouteShape();
     clearActiveSection();
-    document.body.classList.remove('home-focused', 'home-section-focus', 'home-section-focus--my-safari');
+    document.body.classList.remove('home-focused', 'home-section-focus', 'home-section-focus--my-safari', 'home-section-focus--expense');
     delete document.body.dataset.homeSection;
 
     if (route.type === 'country' || route.type === 'legacy-country-hash') return;

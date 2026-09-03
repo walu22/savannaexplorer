@@ -465,7 +465,7 @@ function showCountryPage(countryId) {
     detailView.classList.remove('hidden');
     detailView.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    setCountryMeta(countryId);
+    setCountryMeta(countryId, getFullCountryData(countryId));
     requestAnimationFrame(() => bindCountryPageHeader());
     // Sync offline button state
     const saveBtn = document.getElementById('btn-save-country-offline');

@@ -57,6 +57,15 @@ body.home-section-focus--my-safari #plan .hub-card:not(#hub-my-safari) {
 
 body.home-section-focus--my-safari #plan { padding-top: 2.5rem; }
 
+body.home-section-focus--expense #plan > .container > .section-header,
+body.home-section-focus--expense #plan > .container > .hub-toolbar,
+body.home-section-focus--expense #plan > .container > .hub-journey-nav,
+body.home-section-focus--expense #plan .hub-card:not(#hub-expense-tracker) {
+    display: none !important;
+}
+
+body.home-section-focus--expense #plan { padding-top: 2.5rem; }
+
 body.home-focused .route-explorer-section {
     padding: clamp(4.5rem, 7vw, 6.5rem) 0;
 }

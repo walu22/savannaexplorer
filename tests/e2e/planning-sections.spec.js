@@ -37,7 +37,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('Safari Bingo remains visible, readable, and keyboard-operable', async ({ page }) => {
-    await page.goto('/#safari-bingo', { waitUntil: 'domcontentloaded' });
+    await page.goto('/safari-bingo', { waitUntil: 'domcontentloaded' });
     const section = page.locator('#safari-bingo');
     await expect(section).toHaveClass(/reveal-active/);
     await expect(section.getByRole('heading', { name: /Safari Bingo/ })).toBeVisible();
@@ -55,7 +55,7 @@ test('Safari Bingo remains visible, readable, and keyboard-operable', async ({ p
 });
 
 test('Phrasebook remains visible, readable, and exposes accessible tabs', async ({ page }) => {
-    await page.goto('/#phrasebook', { waitUntil: 'domcontentloaded' });
+    await page.goto('/phrasebook', { waitUntil: 'domcontentloaded' });
     const section = page.locator('#phrasebook');
     await expect(section).toHaveClass(/reveal-active/);
     await expect(section.getByRole('heading', { name: 'Essential Phrasebook' })).toBeVisible();
@@ -74,14 +74,14 @@ test('Phrasebook remains visible, readable, and exposes accessible tabs', async 
 
 test('Safari Bingo and Phrasebook have no serious accessibility violations', async ({ page }) => {
     test.setTimeout(60_000);
-    await page.goto('/#safari-bingo', { waitUntil: 'domcontentloaded' });
+    await page.goto('/safari-bingo', { waitUntil: 'domcontentloaded' });
     const bingoResults = await new AxeBuilder({ page })
         .include('#safari-bingo')
         .withTags(['wcag2a', 'wcag2aa'])
         .analyze();
     expect(bingoResults.violations.filter(item => ['serious', 'critical'].includes(item.impact))).toEqual([]);
 
-    await page.goto('/#phrasebook', { waitUntil: 'domcontentloaded' });
+    await page.goto('/phrasebook', { waitUntil: 'domcontentloaded' });
     const phrasebookResults = await new AxeBuilder({ page })
         .include('#phrasebook')
         .withTags(['wcag2a', 'wcag2aa'])

@@ -248,8 +248,7 @@ function startRoute(routeId) {
     }
     const trip = createTrip(template);
     if (status) status.textContent = `${trip.name} is ready in My Safari. Opening your editable plan…`;
-    navigateHome('hub-my-safari');
-    setTimeout(() => document.getElementById('hub-my-safari')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    window.location.assign('/my-safari');
 }
 
 export function initRouteExplorer() {
@@ -295,7 +294,7 @@ export function initRouteExplorer() {
         render();
         if (selectedRouteId) {
             navigateToRoute(selectedRouteId, { replace: true });
-            setRouteMeta(selectedRouteId);
+            setRouteMeta(routes.find(route => route.id === selectedRouteId));
         } else {
             navigateHome('route-explorer', { replace: true });
             setHomeMeta();
@@ -309,7 +308,7 @@ export function initRouteExplorer() {
             event.preventDefault();
             selectedRouteId = select.dataset.routeSelect;
             navigateToRoute(selectedRouteId);
-            setRouteMeta(selectedRouteId);
+            setRouteMeta(routes.find(route => route.id === selectedRouteId));
             render();
             document.querySelector('#route-explorer-detail h3')?.focus({ preventScroll: true });
         } else if (start) {

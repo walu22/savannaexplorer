@@ -1,15 +1,8 @@
-import countries from '../../data/countries.json';
 import { CONFIG } from '../config.js';
-import { getFullCountryData } from './merge-country.js';
 import { cardImageUrl, getCountryMeta } from './country-meta.js';
 import {
     borderPath,
     countryPath,
-    getBorderById,
-    getItineraryById,
-    getListingById,
-    getParkById,
-    getRouteById,
     itineraryPath,
     listingPath,
     parkPath,
@@ -254,8 +247,7 @@ export function setPlanningGuideMeta(countryId, guide, meta) {
     ]);
 }
 
-export function setCountryMeta(countryId) {
-    const data = getFullCountryData(countryId) || countries[countryId];
+export function setCountryMeta(countryId, data) {
     if (!data) {
         setHomeMeta();
         return;
@@ -293,15 +285,14 @@ export function setCountryMeta(countryId) {
     ]);
 }
 
-export function setParkMeta(parkId) {
-    const park = getParkById(parkId);
+export function setParkMeta(park) {
     if (!park) {
         setHomeMeta();
         return;
     }
 
     const meta = getCountryMeta(park.country);
-    const path = parkPath(parkId);
+    const path = parkPath(park.id);
     const description = truncate(`${park.description} Best season: ${park.bestSeason}. Fees: ${park.fees}.`);
 
     applyMeta({
@@ -329,14 +320,13 @@ export function setParkMeta(parkId) {
     ]);
 }
 
-export function setBorderMeta(borderId) {
-    const border = getBorderById(borderId);
+export function setBorderMeta(border) {
     if (!border) {
         setHomeMeta();
         return;
     }
 
-    const path = borderPath(borderId);
+    const path = borderPath(border.id);
     const countryNames = border.countries.map(id => getCountryMeta(id).name).join(' ↔ ');
     const description = truncate(`${border.name}: ${border.route}. Hours ${border.hours}. Wait ${border.typicalWait}. Documents and fees for ${countryNames}.`);
 
@@ -365,8 +355,7 @@ export function setBorderMeta(borderId) {
     ]);
 }
 
-export function setItineraryMeta(itineraryId) {
-    const data = getItineraryById(itineraryId);
+export function setItineraryMeta(itineraryId, data) {
     if (!data) {
         setHomeMeta();
         return;
@@ -401,7 +390,7 @@ export function setItineraryMeta(itineraryId) {
 }
 
 export function setRouteMeta(routeOrId) {
-    const route = typeof routeOrId === 'string' ? getRouteById(routeOrId) : routeOrId;
+    const route = typeof routeOrId === 'object' ? routeOrId : null;
     if (!route) {
         setHomeMeta();
         return;
@@ -449,7 +438,7 @@ export function setRouteMeta(routeOrId) {
 }
 
 export function setListingMeta(itemOrId) {
-    const item = typeof itemOrId === 'string' ? getListingById(itemOrId) : itemOrId;
+    const item = typeof itemOrId === 'object' ? itemOrId : null;
     if (!item) {
         setHomeMeta();
         return;

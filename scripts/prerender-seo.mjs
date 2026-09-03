@@ -91,6 +91,84 @@ function buildPageHtml(baseHtml, page) {
     return html;
 }
 
+function findElement(html, tag, matcher) {
+    const openingTags = new RegExp(`<${tag}\\b[^>]*>`, 'gi');
+    let opening;
+    while ((opening = openingTags.exec(html))) {
+        if (!matcher(opening[0])) continue;
+        const tags = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
+        tags.lastIndex = opening.index;
+        let depth = 0;
+        let token;
+        while ((token = tags.exec(html))) {
+            if (token[0].startsWith(`</${tag}`)) depth -= 1;
+            else depth += 1;
+            if (depth === 0) return { start: opening.index, end: tags.lastIndex, html: html.slice(opening.index, tags.lastIndex) };
+        }
+    }
+    return null;
+}
+
+function elementById(html, id, tag = 'section') {
+    return findElement(html, tag, opening => new RegExp(`\\bid="${id}"`, 'i').test(opening));
+}
+
+function sectionByClass(html, className) {
+    return findElement(html, 'section', opening => {
+        const match = opening.match(/\bclass="([^"]*)"/i);
+        return match?.[1].split(/\s+/).includes(className);
+    });
+}
+
+function replaceAppMain(html, sections) {
+    const mainStart = html.indexOf('<main id="main-content"');
+    if (mainStart < 0) return html;
+    const openingEnd = html.indexOf('>', mainStart) + 1;
+    const mainEnd = html.indexOf('</main>', openingEnd);
+    if (!openingEnd || mainEnd < 0) return html;
+    return `${html.slice(0, openingEnd)}\n${sections.filter(Boolean).join('\n')}\n${html.slice(mainEnd)}`;
+}
+
+function removeElement(html, id, tag) {
+    const element = elementById(html, id, tag);
+    return element ? `${html.slice(0, element.start)}${html.slice(element.end)}` : html;
+}
+
+const HUB_SECTION_TARGETS = {
+    routes: 'route-explorer',
+    'my-safari': 'plan',
+    expenses: 'plan',
+};
+
+function pruneHubHtml(html, path) {
+    const sectionId = HUB_SECTION_TARGETS[path] || path;
+    const section = elementById(html, sectionId)?.html;
+    if (!section) return html;
+    let output = replaceAppMain(html, [section]);
+    output = removeElement(output, 'country-detail-view', 'section');
+    if (path !== 'itineraries') output = removeElement(output, 'itinerary-modal', 'div');
+    if (!['cultures', 'gastronomy', 'experiences'].includes(path)) output = removeElement(output, 'marketplace-modal', 'div');
+    if (!['my-safari', 'plan'].includes(path)) output = removeElement(output, 'ai-planner-sidebar', 'div');
+    return output;
+}
+
+function pruneHomepageHtml(html) {
+    const sections = [
+        elementById(html, 'route-explorer')?.html,
+        elementById(html, 'destinations')?.html,
+        sectionByClass(html, 'service-section')?.html,
+        sectionByClass(html, 'home-my-safari')?.html,
+        sectionByClass(html, 'home-essential-tools')?.html,
+        sectionByClass(html, 'hub-notice')?.html,
+        sectionByClass(html, 'newsletter')?.html,
+    ];
+    let output = replaceAppMain(html, sections);
+    output = removeElement(output, 'country-detail-view', 'section');
+    output = removeElement(output, 'itinerary-modal', 'div');
+    output = removeElement(output, 'marketplace-modal', 'div');
+    return output;
+}
+
 const pages = allSeoPages(baseUrl);
 let written = 0;
 
@@ -103,13 +181,15 @@ for (const page of pages) {
 
 console.log(`Prerendered ${written} SEO pages into dist/ (${baseUrl})`);
 
-// SPA fallbacks for hub section directories (nginx 403 when folder exists without index)
-const hubFallbackSections = ['routes', 'my-safari', 'cost-estimator', 'parks', 'embassies', 'borders', 'transport', 'health', 'events', 'book-direct', 'plan', 'guides', 'tourism-stats', 'travel-essentials', 'planning-checklist'];
-const hubByPath = new Map(hubPages(baseUrl).map(page => [page.path, page]));
-for (const section of hubFallbackSections) {
+// Every public hub route gets a physical HTML entry before the SPA fallback.
+const hubFallbackPages = hubPages(baseUrl);
+for (const page of hubFallbackPages) {
+    const section = page.path.replace(/^\//, '');
     const outPath = resolve(distDir, section, 'index.html');
     mkdirSync(dirname(outPath), { recursive: true });
-    const page = hubByPath.get(`/${section}`);
-    writeFileSync(outPath, page ? buildPageHtml(template, page) : template, 'utf8');
+    writeFileSync(outPath, pruneHubHtml(buildPageHtml(template, page), section), 'utf8');
 }
-console.log(`Wrote ${hubFallbackSections.length} hub SPA fallbacks.`);
+console.log(`Wrote ${hubFallbackPages.length} hub SPA fallbacks.`);
+
+writeFileSync(templatePath, pruneHomepageHtml(template), 'utf8');
+console.log('Pruned the homepage to its seven visible sections.');

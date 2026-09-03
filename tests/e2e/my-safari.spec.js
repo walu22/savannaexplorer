@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('My Safari keeps expenses and packing progress with the selected trip', async ({ page }) => {
-    await page.goto('/#hub-my-safari', { waitUntil: 'domcontentloaded' });
+    await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
     const safari = page.locator('#hub-my-safari');
     await expect(safari.getByRole('heading', { name: 'My Safari' })).toBeVisible();
 
@@ -19,14 +19,18 @@ test('My Safari keeps expenses and packing progress with the selected trip', asy
     await safari.getByRole('button', { name: 'Create trip' }).click();
     await expect(safari.locator('#my-safari-active-name')).toHaveText('Botswana adventure');
 
+    await page.goto('/expenses', { waitUntil: 'domcontentloaded' });
     const expenses = page.locator('#hub-expense-tracker');
     await expenses.locator('#expense-amount').fill('120');
     await expenses.locator('#expense-note').fill('Camp deposit');
     await expenses.getByRole('button', { name: 'Add expense' }).click();
     await expect(expenses.locator('.expense-row')).toHaveCount(1);
 
+    await page.goto('/packing-list', { waitUntil: 'domcontentloaded' });
     const packing = page.locator('#packing-list');
     await packing.locator('.packing-item').first().click();
+
+    await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
     await expect(safari.locator('#my-safari-packing-count')).toHaveText('1 packed');
 
     await safari.getByLabel('Trip name').fill('Zambia escape');
@@ -41,11 +45,13 @@ test('My Safari keeps expenses and packing progress with the selected trip', asy
     await safari.getByRole('button', { name: /Botswana adventure/ }).click();
     await expect(safari.locator('#my-safari-expense-count')).toHaveText('1 item');
     await expect(safari.locator('#my-safari-packing-count')).toHaveText('1 packed');
+
+    await page.goto('/expenses', { waitUntil: 'domcontentloaded' });
     await expect(expenses.locator('.expense-row')).toHaveCount(1);
 });
 
 test('traveller can build and rearrange a day-by-day safari route', async ({ page }) => {
-    await page.goto('/#hub-my-safari', { waitUntil: 'domcontentloaded' });
+    await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
     const safari = page.locator('#hub-my-safari');
     await safari.getByLabel('Trip name').fill('Etosha route');
     await safari.getByLabel('Start date').fill('2026-10-10');
@@ -76,7 +82,7 @@ test('traveller can build and rearrange a day-by-day safari route', async ({ pag
 });
 
 test('My Safari has no serious accessibility violations', async ({ page }) => {
-    await page.goto('/#hub-my-safari', { waitUntil: 'domcontentloaded' });
+    await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
     const results = await new AxeBuilder({ page })
         .include('#hub-my-safari')
         .withTags(['wcag2a', 'wcag2aa'])
@@ -90,7 +96,7 @@ test('visitor can request a password-free sign-in link', async ({ page }) => {
         contentType: 'application/json',
         body: '{}',
     }));
-    await page.goto('/#hub-my-safari', { waitUntil: 'domcontentloaded' });
+    await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
     const safari = page.locator('#hub-my-safari');
     await safari.getByLabel('Email address').fill('traveller@example.com');
     await safari.getByRole('button', { name: 'Email sign-in link' }).click();
@@ -122,7 +128,7 @@ test('shared safari link renders a read-only trip safely', async ({ page }) => {
         }]),
     }));
 
-    await page.goto('/?share=123e4567-e89b-42d3-a456-426614174000#shared-safari', { waitUntil: 'domcontentloaded' });
+    await page.goto('/my-safari?share=123e4567-e89b-42d3-a456-426614174000#shared-safari', { waitUntil: 'domcontentloaded' });
     const shared = page.locator('#my-safari-shared-view');
     await expect(shared.getByRole('heading', { name: 'Family safari' })).toBeVisible();
     await expect(shared.locator('#shared-safari-meta')).toContainText('Namibia, Botswana');
@@ -181,7 +187,7 @@ test('signed-in editor can accept an invitation and save a shared plan', async (
         });
     });
 
-    await page.goto(`/?invite=${inviteToken}#hub-my-safari`, { waitUntil: 'domcontentloaded' });
+    await page.goto(`/my-safari?invite=${inviteToken}#hub-my-safari`, { waitUntil: 'domcontentloaded' });
     const view = page.locator('#my-safari-collaboration-view');
     await expect(view.getByRole('heading', { name: 'Friends in Etosha' })).toBeVisible({ timeout: 15_000 });
     await expect(view.locator('#collaboration-safari-role')).toHaveText('Editor');

@@ -1,7 +1,6 @@
 import listings from '../../data/stays-operators.json';
 import { COUNTRY_META, getCountryMeta } from '../lib/country-meta.js';
 import {
-    getListingById,
     listingPath,
     navigateToListing,
     scrollToSection,
@@ -11,6 +10,11 @@ import { setListingMeta } from '../lib/page-meta.js';
 
 let activeKind = 'all';
 let activeCountry = 'all';
+const listingById = new Map(listings.map(item => [item.id, item]));
+
+function getListingById(id) {
+    return listingById.get(id) || null;
+}
 
 function kindLabel(kind) {
     return kind === 'stay' ? 'Stay / lodge' : 'Operator';
@@ -111,7 +115,7 @@ export function initBookDirect() {
 export function openListingPage(id, { replace = false } = {}) {
     const item = getListingById(id);
     if (!item) return;
-    navigateToListing(id, { replace });
+    navigateToListing(item, { replace });
     handleListingRoute({ type: 'listing', listingId: id });
 }
 

@@ -1,10 +1,5 @@
 import {
     borderPath,
-    getBorderById,
-    getItineraryById,
-    getListingById,
-    getParkById,
-    getRouteById,
     itineraryPath,
     listingPath,
     navigateHome,
@@ -17,6 +12,11 @@ import {
     parkPath,
     scrollToSection,
 } from '../lib/router.js';
+import parks from '../../data/parks.json';
+import borders from '../../data/borders.json';
+import itineraries from '../../data/itineraries.json';
+import listings from '../../data/stays-operators.json';
+import routeCollection from '../../data/route-collections.json';
 import { getCountryMeta } from '../lib/country-meta.js';
 import guidesData from '../../data/planning-guides.json';
 import { dismissSeoPrerender } from '../lib/seo-prerender.js';
@@ -33,6 +33,12 @@ import {
 import { openItineraryDetail } from './itineraries.js';
 import { openPlanningGuide } from './planning-guides.js';
 import { handleListingRoute } from './book-direct.js';
+
+const getParkById = id => parks.find(item => item.id === id) || null;
+const getBorderById = id => borders.find(item => item.id === id) || null;
+const getItineraryById = id => itineraries[id] || null;
+const getListingById = id => listings.find(item => item.id === id) || null;
+const getRouteById = id => routeCollection.routes.find(item => item.id === id) || null;
 
 function highlightCard(selector) {
     document.querySelectorAll('.seo-highlight').forEach(el => el.classList.remove('seo-highlight'));
@@ -74,11 +80,11 @@ function bindSeoLinks() {
             handleSeoRoute({ type: 'route', routeId: routeMatch[1] });
         } else if (stayMatch && getListingById(stayMatch[1])?.kind === 'stay') {
             e.preventDefault();
-            navigateToListing(stayMatch[1]);
+            navigateToListing(getListingById(stayMatch[1]));
             handleSeoRoute({ type: 'listing', listingId: stayMatch[1] });
         } else if (operatorMatch && getListingById(operatorMatch[1])?.kind === 'operator') {
             e.preventDefault();
-            navigateToListing(operatorMatch[1]);
+            navigateToListing(getListingById(operatorMatch[1]));
             handleSeoRoute({ type: 'listing', listingId: operatorMatch[1] });
         } else if (guideMatch && guidesData.guides[guideMatch[1]]) {
             e.preventDefault();
@@ -94,7 +100,7 @@ export function handleSeoRoute(route) {
     if (route.type === 'park') {
         const park = getParkById(route.parkId);
         if (!park) return;
-        setParkMeta(route.parkId);
+        setParkMeta(park);
         scrollToSection('parks');
         highlightCard(`#park-${route.parkId}`);
         return;
@@ -103,7 +109,7 @@ export function handleSeoRoute(route) {
     if (route.type === 'border') {
         const border = getBorderById(route.borderId);
         if (!border) return;
-        setBorderMeta(route.borderId);
+        setBorderMeta(border);
         scrollToSection('borders');
         highlightCard(`#border-${route.borderId}`);
         return;
@@ -112,7 +118,7 @@ export function handleSeoRoute(route) {
     if (route.type === 'itinerary') {
         const data = getItineraryById(route.itineraryId);
         if (!data) return;
-        setItineraryMeta(route.itineraryId);
+        setItineraryMeta(route.itineraryId, data);
         scrollToSection('itineraries');
         openItineraryDetail(route.itineraryId);
         return;

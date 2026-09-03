@@ -2,7 +2,7 @@
    Phrasebook Styles
    ========================================= */
 
-body.site-v2 .page-chapter--plan > .phrasebook-section {
+body.site-v2 .phrasebook-section {
     padding: var(--section-pad) 0;
     background: var(--bg-dark);
     color: var(--white);

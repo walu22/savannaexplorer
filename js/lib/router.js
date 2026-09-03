@@ -1,34 +1,11 @@
-import countries from '../../data/countries.json';
-import parks from '../../data/parks.json';
-import borders from '../../data/borders.json';
-import itineraries from '../../data/itineraries.json';
-import listings from '../../data/stays-operators.json';
-import guidesData from '../../data/planning-guides.json';
-import routeCollection from '../../data/route-collections.json';
 import { revealThroughSection } from '../modules/reveal.js';
+import { HUB_SECTIONS, parseRouteShape } from './route-shape.js';
 
-export const COUNTRY_IDS = Object.keys(countries);
-
-const parkIds = new Set(parks.map(p => p.id));
-const borderIds = new Set(borders.map(b => b.id));
-const itineraryIds = new Set(Object.keys(itineraries));
-const listingById = new Map(listings.map(item => [item.id, item]));
-const routeById = new Map(routeCollection.routes.map(route => [route.id, route]));
-
-/** Pathnames that map to homepage sections (SPA hub deep links). */
-export const HUB_SECTIONS = new Set([
-    'parks', 'embassies', 'borders', 'transport', 'health', 'events',
-    'book-direct', 'plan', 'guides', 'tourism-stats', 'itineraries', 'destinations',
-    'home', 'about', 'news', 'contact', 'cultures', 'gastronomy',
-    'experiences', 'top-destinations', 'travel-essentials', 'planning-checklist',
-    'route-explorer', 'hub-my-safari', 'cost-estimator', 'packing-list',
-    'phrasebook', 'campsites', 'safari-bingo',
-]);
-
-const HUB_PATH_ALIASES = new Map([
-    ['routes', 'route-explorer'],
-    ['my-safari', 'hub-my-safari'],
-]);
+export const COUNTRY_IDS = [
+    'namibia', 'south-africa', 'botswana', 'zambia', 'zimbabwe',
+    'mozambique', 'malawi', 'lesotho', 'eswatini',
+];
+export { HUB_SECTIONS };
 
 function announceRouteChange() {
     window.dispatchEvent(new CustomEvent('savanna:routechange'));
@@ -49,13 +26,12 @@ export function borderPath(borderId) {
 export function itineraryPath(itineraryId) {
     return `/itineraries/${itineraryId}`;
 }
-
 export function routePath(routeId) {
     return `/routes/${routeId}`;
 }
 
 export function listingPath(itemOrId) {
-    const item = typeof itemOrId === 'string' ? getListingById(itemOrId) : itemOrId;
+    const item = typeof itemOrId === 'object' ? itemOrId : null;
     if (!item) return '/';
     const segment = item.kind === 'stay' ? 'stays' : 'operators';
     return `/${segment}/${item.id}`;
@@ -66,66 +42,15 @@ export function planningGuidePath(countryId) {
 }
 
 export function parseLocation(loc = window.location) {
-    const { pathname, hash } = loc;
-
-    const countryMatch = pathname.match(/^\/countries\/([a-z-]+)\/?$/);
-    if (countryMatch && countries[countryMatch[1]]) {
-        return { type: 'country', countryId: countryMatch[1] };
+    const route = parseRouteShape(loc);
+    if (route.type === 'home' && COUNTRY_IDS.includes(route.sectionHash)) {
+        return { type: 'legacy-country-hash', countryId: route.sectionHash };
     }
-
-    const parkMatch = pathname.match(/^\/parks\/([a-z0-9-]+)\/?$/);
-    if (parkMatch && parkIds.has(parkMatch[1])) {
-        return { type: 'park', parkId: parkMatch[1] };
-    }
-
-    const borderMatch = pathname.match(/^\/borders\/([a-z0-9-]+)\/?$/);
-    if (borderMatch && borderIds.has(borderMatch[1])) {
-        return { type: 'border', borderId: borderMatch[1] };
-    }
-
-    const itineraryMatch = pathname.match(/^\/itineraries\/([a-z0-9-]+)\/?$/);
-    if (itineraryMatch && itineraryIds.has(itineraryMatch[1])) {
-        return { type: 'itinerary', itineraryId: itineraryMatch[1] };
-    }
-
-    const routeMatch = pathname.match(/^\/routes\/([a-z0-9-]+)\/?$/);
-    if (routeMatch && routeById.has(routeMatch[1])) {
-        return { type: 'route', routeId: routeMatch[1] };
-    }
-
-    const stayMatch = pathname.match(/^\/stays\/([a-z0-9-]+)\/?$/);
-    if (stayMatch && listingById.get(stayMatch[1])?.kind === 'stay') {
-        return { type: 'listing', listingId: stayMatch[1] };
-    }
-
-    const operatorMatch = pathname.match(/^\/operators\/([a-z0-9-]+)\/?$/);
-    if (operatorMatch && listingById.get(operatorMatch[1])?.kind === 'operator') {
-        return { type: 'listing', listingId: operatorMatch[1] };
-    }
-
-    const planningGuideMatch = pathname.match(/^\/guides\/planning\/([a-z-]+)\/?$/);
-    if (planningGuideMatch && guidesData.guides[planningGuideMatch[1]]) {
-        return { type: 'planning-guide', countryId: planningGuideMatch[1] };
-    }
-
-    const hubMatch = pathname.match(/^\/([a-z0-9-]+)\/?$/);
-    if (hubMatch && HUB_PATH_ALIASES.has(hubMatch[1])) {
-        return { type: 'home', sectionHash: HUB_PATH_ALIASES.get(hubMatch[1]) };
-    }
-    if (hubMatch && HUB_SECTIONS.has(hubMatch[1])) {
-        return { type: 'home', sectionHash: hubMatch[1] === 'home' ? null : hubMatch[1] };
-    }
-
-    const hashId = hash.slice(1);
-    if (hashId && countries[hashId]) {
-        return { type: 'legacy-country-hash', countryId: hashId };
-    }
-
-    return { type: 'home', sectionHash: hashId || null };
+    return route;
 }
 
 export function navigateToCountry(countryId, { replace = false } = {}) {
-    if (!countries[countryId]) return;
+    if (!COUNTRY_IDS.includes(countryId)) return;
     const url = countryPath(countryId);
     const state = { view: 'country', countryId };
     if (replace) history.replaceState(state, '', url);
@@ -134,7 +59,7 @@ export function navigateToCountry(countryId, { replace = false } = {}) {
 }
 
 export function navigateToPark(parkId, { replace = false } = {}) {
-    if (!parkIds.has(parkId)) return;
+    if (!parkId) return;
     const url = parkPath(parkId);
     const state = { view: 'park', parkId };
     if (replace) history.replaceState(state, '', url);
@@ -143,7 +68,7 @@ export function navigateToPark(parkId, { replace = false } = {}) {
 }
 
 export function navigateToBorder(borderId, { replace = false } = {}) {
-    if (!borderIds.has(borderId)) return;
+    if (!borderId) return;
     const url = borderPath(borderId);
     const state = { view: 'border', borderId };
     if (replace) history.replaceState(state, '', url);
@@ -152,7 +77,7 @@ export function navigateToBorder(borderId, { replace = false } = {}) {
 }
 
 export function navigateToItinerary(itineraryId, { replace = false } = {}) {
-    if (!itineraryIds.has(itineraryId)) return;
+    if (!itineraryId) return;
     const url = itineraryPath(itineraryId);
     const state = { view: 'itinerary', itineraryId };
     if (replace) history.replaceState(state, '', url);
@@ -161,7 +86,7 @@ export function navigateToItinerary(itineraryId, { replace = false } = {}) {
 }
 
 export function navigateToRoute(routeId, { replace = false } = {}) {
-    if (!routeById.has(routeId)) return;
+    if (!routeId) return;
     const url = routePath(routeId);
     const state = { view: 'route', routeId };
     if (replace) history.replaceState(state, '', url);
@@ -170,7 +95,7 @@ export function navigateToRoute(routeId, { replace = false } = {}) {
 }
 
 export function navigateToPlanningGuide(countryId, { replace = false } = {}) {
-    if (!guidesData.guides[countryId]) return;
+    if (!COUNTRY_IDS.includes(countryId)) return;
     const url = planningGuidePath(countryId);
     const state = { view: 'planning-guide', countryId };
     if (replace) history.replaceState(state, '', url);
@@ -178,11 +103,10 @@ export function navigateToPlanningGuide(countryId, { replace = false } = {}) {
     announceRouteChange();
 }
 
-export function navigateToListing(listingId, { replace = false } = {}) {
-    const item = getListingById(listingId);
+export function navigateToListing(item, { replace = false } = {}) {
     if (!item) return;
     const url = listingPath(item);
-    const state = { view: 'listing', listingId };
+    const state = { view: 'listing', listingId: item.id };
     if (replace) history.replaceState(state, '', url);
     else history.pushState(state, '', url);
     announceRouteChange();
@@ -197,7 +121,7 @@ export function navigateHome(sectionId = null, { replace = false } = {}) {
 }
 
 export function replaceWithCountryPath(countryId) {
-    if (!countries[countryId]) return;
+    if (!COUNTRY_IDS.includes(countryId)) return;
     history.replaceState({ view: 'country', countryId }, '', countryPath(countryId));
     announceRouteChange();
 }
@@ -218,24 +142,4 @@ export function scrollToSection(sectionId) {
         el.setAttribute('tabindex', '-1');
     }
     el.focus({ preventScroll: true });
-}
-
-export function getParkById(parkId) {
-    return parks.find(p => p.id === parkId) || null;
-}
-
-export function getBorderById(borderId) {
-    return borders.find(b => b.id === borderId) || null;
-}
-
-export function getItineraryById(itineraryId) {
-    return itineraries[itineraryId] || null;
-}
-
-export function getRouteById(routeId) {
-    return routeById.get(routeId) || null;
-}
-
-export function getListingById(listingId) {
-    return listingById.get(listingId) || null;
 }
