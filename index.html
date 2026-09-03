@@ -734,7 +734,7 @@
                         <span class="hub-icon"><i class="fas fa-map-location-dot"></i></span>
                         <h3>My Safari</h3>
                     </div>
-                    <p class="hub-card-lead">Keep each itinerary, budget, packing list and travel note together on this device. Create a trip or reopen one below.</p>
+                    <p class="hub-card-lead">Keep each itinerary, budget, packing list and travel note together. Plan privately, sync across devices, or invite trusted travel companions.</p>
                     <div class="my-safari-cloud" id="my-safari-cloud">
                         <div id="my-safari-signed-out">
                             <div class="my-safari-cloud-copy">
@@ -756,6 +756,10 @@
                                 <button type="button" class="btn btn-outline btn-sm" id="my-safari-sync"><i class="fas fa-rotate"></i> Sync now</button>
                                 <button type="button" class="btn btn-outline btn-sm" id="my-safari-signout">Sign out</button>
                             </div>
+                        </div>
+                        <div id="my-safari-shared-with-me" class="my-safari-shared-with-me" hidden>
+                            <strong><i class="fas fa-user-group"></i> Shared with me</strong>
+                            <div id="my-safari-collaboration-list"></div>
                         </div>
                         <p id="my-safari-cloud-status" class="my-safari-cloud-status" role="status" aria-live="polite"></p>
                     </div>
@@ -804,6 +808,7 @@
                             <a class="btn btn-outline" href="#hub-expense-tracker"><i class="fas fa-wallet"></i> Open budget</a>
                             <a class="btn btn-outline" href="#packing-list"><i class="fas fa-suitcase-rolling"></i> Open packing list</a>
                             <button type="button" class="btn btn-outline" id="my-safari-share"><i class="fas fa-share-nodes"></i> Create share link</button>
+                            <button type="button" class="btn btn-outline" id="my-safari-collaborate"><i class="fas fa-user-plus"></i> Invite collaborators</button>
                         </div>
                         <div id="my-safari-share-panel" class="my-safari-share-panel" hidden>
                             <label for="my-safari-share-url">Read-only link</label>
@@ -814,6 +819,44 @@
                             </div>
                             <p>Anyone with this link can view this trip. They cannot edit it.</p>
                         </div>
+                        <section id="my-safari-collaboration-panel" class="my-safari-collaboration-panel" hidden aria-labelledby="my-safari-collaboration-title">
+                            <div class="my-safari-panel-head">
+                                <div>
+                                    <h5 id="my-safari-collaboration-title">Plan together</h5>
+                                    <p>Create a private, seven-day invitation. Each link can be accepted by one signed-in traveller.</p>
+                                </div>
+                                <button type="button" class="btn btn-outline btn-sm" id="my-safari-close-collaboration">Close</button>
+                            </div>
+                            <form id="my-safari-invite-form" class="my-safari-invite-form">
+                                <label for="my-safari-invite-role">Permission</label>
+                                <select id="my-safari-invite-role" name="role">
+                                    <option value="editor">Can edit</option>
+                                    <option value="viewer">View only</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary btn-sm">Create invitation</button>
+                            </form>
+                            <div id="my-safari-invite-result" class="my-safari-invite-result" hidden>
+                                <label for="my-safari-invite-url">Invitation link</label>
+                                <div>
+                                    <input id="my-safari-invite-url" type="url" readonly>
+                                    <button type="button" class="btn btn-primary btn-sm" id="my-safari-copy-invite">Copy</button>
+                                </div>
+                            </div>
+                            <div class="my-safari-collaboration-grid">
+                                <section>
+                                    <h6>People with access</h6>
+                                    <div id="my-safari-collaborators" class="my-safari-access-list"><p>No collaborators yet.</p></div>
+                                </section>
+                                <section>
+                                    <h6>Open invitations</h6>
+                                    <div id="my-safari-invites" class="my-safari-access-list"><p>No open invitations.</p></div>
+                                </section>
+                                <section>
+                                    <h6>Recent activity</h6>
+                                    <div id="my-safari-activity" class="my-safari-activity-list"><p>No collaboration activity yet.</p></div>
+                                </section>
+                            </div>
+                        </section>
                     </div>
                     <article id="my-safari-shared-view" class="my-safari-shared-view" hidden aria-labelledby="shared-safari-name">
                         <span class="my-safari-shared-label"><i class="fas fa-link"></i> Shared read-only safari</span>
@@ -827,6 +870,29 @@
                         <section id="shared-safari-notes-section" hidden><h5>Trip notes</h5><p id="shared-safari-notes"></p></section>
                         <section id="shared-safari-itinerary-section" hidden><h5>AI itinerary draft</h5><pre id="shared-safari-itinerary"></pre></section>
                         <a class="btn btn-outline" href="/#hub-my-safari">Plan your own safari</a>
+                    </article>
+                    <article id="my-safari-collaboration-view" class="my-safari-shared-view my-safari-collaboration-view" hidden aria-labelledby="collaboration-safari-name">
+                        <span class="my-safari-shared-label"><i class="fas fa-user-group"></i> Collaborative safari · <span id="collaboration-safari-role"></span></span>
+                        <h4 id="collaboration-safari-name">Opening collaborative safari…</h4>
+                        <p id="collaboration-safari-meta"></p>
+                        <div class="my-safari-summary">
+                            <div class="my-safari-stat"><span>Expenses logged</span><strong id="collaboration-safari-expenses"></strong></div>
+                            <div class="my-safari-stat"><span>Packing progress</span><strong id="collaboration-safari-packing"></strong></div>
+                            <div class="my-safari-stat"><span>Last updated</span><strong id="collaboration-safari-updated"></strong></div>
+                        </div>
+                        <label class="my-safari-notes-label" for="collaboration-safari-notes">Shared trip notes
+                            <textarea id="collaboration-safari-notes" class="my-safari-notes" maxlength="2000" placeholder="Add an idea or group reminder…"></textarea>
+                        </label>
+                        <div class="my-safari-links">
+                            <button type="button" class="btn btn-primary" id="collaboration-safari-save"><i class="fas fa-cloud-arrow-up"></i> Save shared notes</button>
+                            <button type="button" class="btn btn-outline" id="collaboration-safari-refresh"><i class="fas fa-rotate"></i> Refresh</button>
+                            <a class="btn btn-outline" href="/my-safari">Back to My Safari</a>
+                        </div>
+                        <p id="collaboration-safari-status" class="my-safari-cloud-status" role="status" aria-live="polite"></p>
+                        <section class="my-safari-collaboration-activity">
+                            <h5>Recent activity</h5>
+                            <div id="collaboration-safari-activity" class="my-safari-activity-list"></div>
+                        </section>
                     </article>
                 </div>
                 <div class="hub-card hub-card--full" id="hub-trip-planner">

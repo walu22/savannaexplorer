@@ -28,6 +28,11 @@
 .my-safari-cloud-actions { display: flex; gap: 0.5rem; }
 .my-safari-cloud-status { min-height: 1.2em; margin: 0.55rem 0 0; color: rgba(247, 243, 237, 0.78); font-size: 0.8rem; }
 .my-safari-cloud-status.is-error { color: #ffb4a8; }
+.my-safari-shared-with-me { margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.my-safari-shared-with-me > strong { display: block; margin-bottom: 0.55rem; }
+.my-safari-shared-with-me > div { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.my-safari-collaboration-chip { border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 999px; background: rgba(0, 0, 0, 0.28); color: var(--text-inverse); padding: 0.45rem 0.7rem; cursor: pointer; }
+.my-safari-collaboration-chip small { color: rgba(247, 243, 237, 0.7); }
 
 .my-safari-create {
     display: grid;
@@ -116,6 +121,31 @@
 .my-safari-share-panel > div { display: flex; gap: 0.5rem; }
 .my-safari-share-panel input { flex: 1; }
 .my-safari-share-panel p { margin: 0.5rem 0 0; color: rgba(247, 243, 237, 0.72); font-size: 0.78rem; }
+.my-safari-collaboration-panel { margin-top: 0.9rem; padding: 1rem; border: 1px solid rgba(196, 103, 42, 0.4); border-radius: var(--radius-md); background: rgba(0, 0, 0, 0.24); }
+.my-safari-panel-head { display: flex; justify-content: space-between; gap: 1rem; align-items: start; }
+.my-safari-panel-head h5,
+.my-safari-collaboration-grid h6 { margin: 0 0 0.35rem; color: var(--text-inverse); }
+.my-safari-panel-head p { margin: 0; color: rgba(247, 243, 237, 0.72); font-size: 0.82rem; }
+.my-safari-invite-form { display: flex; align-items: end; gap: 0.6rem; margin: 1rem 0; }
+.my-safari-invite-form label { font-size: 0.8rem; font-weight: 700; }
+.my-safari-invite-form select { border: 1px solid rgba(255, 255, 255, 0.2); border-radius: var(--radius-sm); background: #241c17; color: var(--text-inverse); padding: 0.6rem; }
+.my-safari-invite-result { margin-bottom: 1rem; }
+.my-safari-invite-result > label { display: block; margin-bottom: 0.35rem; font-size: 0.8rem; font-weight: 700; }
+.my-safari-invite-result > div { display: flex; gap: 0.5rem; }
+.my-safari-invite-result input { flex: 1; min-width: 0; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: var(--radius-sm); background: rgba(0, 0, 0, 0.35); color: var(--text-inverse); padding: 0.65rem; }
+.my-safari-collaboration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+.my-safari-collaboration-grid > section { min-width: 0; padding: 0.8rem; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.05); }
+.my-safari-access-list,
+.my-safari-activity-list { display: grid; gap: 0.5rem; }
+.my-safari-access-item,
+.my-safari-activity-item { display: grid; grid-template-columns: 1fr auto; gap: 0.2rem 0.5rem; align-items: center; padding-bottom: 0.45rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.78rem; }
+.my-safari-access-item span,
+.my-safari-activity-item span,
+.my-safari-access-list > p,
+.my-safari-activity-list > p { color: rgba(247, 243, 237, 0.7); overflow-wrap: anywhere; }
+.my-safari-access-item button { border: 0; background: none; color: #ffb4a8; cursor: pointer; font-size: 0.75rem; }
+.my-safari-collaboration-view .my-safari-collaboration-activity { margin-top: 1.2rem; }
+.my-safari-collaboration-view textarea:disabled { opacity: 0.72; cursor: not-allowed; }
 .my-safari-shared-view { border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 1.25rem; }
 .my-safari-shared-label { color: var(--primary-light); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
 .my-safari-shared-view h4 { color: var(--text-inverse); font-size: 1.6rem; margin: 0.45rem 0; }
@@ -130,9 +160,13 @@
     .my-safari-cloud > div,
     .my-safari-signed-in { display: grid; }
     .my-safari-signin-form,
-    .my-safari-share-panel > div { display: grid; }
+    .my-safari-share-panel > div,
+    .my-safari-invite-result > div,
+    .my-safari-invite-form { display: grid; }
     .my-safari-signin-form input { width: 100%; }
     .my-safari-country-options { grid-column: 1; }
     .my-safari-workspace-head { display: grid; }
     .my-safari-summary { grid-template-columns: 1fr; }
+    .my-safari-panel-head { display: grid; }
+    .my-safari-collaboration-grid { grid-template-columns: 1fr; }
 }

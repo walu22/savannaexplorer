@@ -74,6 +74,8 @@ The site works offline with local JSON data. Connect **Supabase** to store marke
    - `supabase/schema.sql` — creates tables and row-level security policies (fresh installs)
    - `supabase/migrate-phase-e.sql` — only if upgrading from pre-v4.11 (`quotations` / `inquiries` tables)
    - `supabase/migrate-trip-cloud.sql` — adds owner-only trip sync and token-based read-only sharing to an existing project
+   - `supabase/migrations/20260903090000_trip_collaboration.sql` — adds expiring editor/viewer invitations and collaboration activity
+   - `supabase/migrations/20260903093000_lock_collaboration_rpc.sql` — restricts collaboration functions to authenticated travellers
    - `supabase/seed.sql` — loads marketplace inspiration listings
 4. In **Authentication → URL Configuration**, set the production site URL and allow `https://savannaexplorer.com/**` plus the local development URL.
 5. Keep email authentication enabled, then restart the dev server: `npm run dev`

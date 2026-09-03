@@ -131,3 +131,7 @@ $$;
 
 revoke all on function public.get_shared_trip(uuid) from public;
 grant execute on function public.get_shared_trip(uuid) to anon, authenticated;
+
+-- Authenticated collaboration is added by the tracked v4.38 migration:
+-- supabase/migrations/20260903090000_trip_collaboration.sql
+-- supabase/migrations/20260903093000_lock_collaboration_rpc.sql

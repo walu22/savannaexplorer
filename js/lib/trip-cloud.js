@@ -35,7 +35,7 @@ export function onAuthChange(callback) {
 
 export async function sendSignInLink(email) {
     const client = requireClient();
-    const redirectTo = `${window.location.origin}${window.location.pathname}#hub-my-safari`;
+    const redirectTo = `${window.location.origin}${window.location.pathname}${window.location.search}#hub-my-safari`;
     const { error } = await client.auth.signInWithOtp({
         email,
         options: { emailRedirectTo: redirectTo },
@@ -176,4 +176,104 @@ export async function loadSharedTrip(token) {
     const { data, error } = await client.rpc('get_shared_trip', { p_token: token });
     if (error) throw error;
     return data?.[0]?.data || null;
+}
+
+export async function createCollaborationInvite(tripId, role = 'editor') {
+    await syncTrips();
+    const client = requireClient();
+    await requireUser(client);
+    const { data, error } = await client.rpc('create_trip_collaboration_invite', {
+        p_client_id: tripId,
+        p_role: role,
+    });
+    if (error) throw error;
+    const invite = data?.[0];
+    if (!invite?.invite_token) throw new Error('The collaboration invite could not be created.');
+    return {
+        ...invite,
+        url: `${window.location.origin}${window.location.pathname}?invite=${invite.invite_token}#hub-my-safari`,
+    };
+}
+
+export async function acceptCollaborationInvite(token) {
+    if (!UUID_PATTERN.test(token || '')) throw new Error('This collaboration invite is invalid.');
+    const client = requireClient();
+    await requireUser(client);
+    const { data, error } = await client.rpc('accept_trip_collaboration_invite', { p_token: token });
+    if (error) throw error;
+    return data?.[0] || null;
+}
+
+export async function listMyCollaborations() {
+    const client = requireClient();
+    await requireUser(client);
+    const { data, error } = await client.rpc('get_my_trip_collaborations');
+    if (error) throw error;
+    return data || [];
+}
+
+export async function loadCollaboration(tripId) {
+    if (!UUID_PATTERN.test(tripId || '')) throw new Error('This collaborative trip is invalid.');
+    const client = requireClient();
+    await requireUser(client);
+    const { data, error } = await client.rpc('get_trip_collaboration', { p_trip_id: tripId });
+    if (error) throw error;
+    return data?.[0] || null;
+}
+
+export async function saveCollaboration(tripId, trip) {
+    if (!UUID_PATTERN.test(tripId || '')) throw new Error('This collaborative trip is invalid.');
+    const client = requireClient();
+    await requireUser(client);
+    const { data, error } = await client.rpc('save_trip_collaboration', {
+        p_trip_id: tripId,
+        p_data: trip,
+    });
+    if (error) throw error;
+    return data?.[0] || null;
+}
+
+export async function getCollaborationManagement(tripId) {
+    const client = requireClient();
+    await requireUser(client);
+    const [collaborators, invites, activity] = await Promise.all([
+        client.rpc('list_trip_collaborators', { p_client_id: tripId }),
+        client.rpc('list_trip_collaboration_invites', { p_client_id: tripId }),
+        client.rpc('get_trip_activity', { p_client_id: tripId, p_limit: 12 }),
+    ]);
+    const error = collaborators.error || invites.error || activity.error;
+    if (error) throw error;
+    return {
+        collaborators: collaborators.data || [],
+        invites: invites.data || [],
+        activity: activity.data || [],
+    };
+}
+
+export async function getCollaborationActivity(tripId) {
+    const client = requireClient();
+    await requireUser(client);
+    const { data, error } = await client.rpc('get_trip_activity', {
+        p_client_id: tripId,
+        p_limit: 12,
+    });
+    if (error) throw error;
+    return data || [];
+}
+
+export async function revokeCollaborationInvite(inviteId) {
+    const client = requireClient();
+    await requireUser(client);
+    const { error } = await client.rpc('revoke_trip_collaboration_invite', { p_invite_id: inviteId });
+    if (error) throw error;
+}
+
+export async function removeCollaborator(tripId, userId) {
+    const client = requireClient();
+    await requireUser(client);
+    const { error } = await client.rpc('remove_trip_collaborator', {
+        p_client_id: tripId,
+        p_user_id: userId,
+    });
+    if (error) throw error;
 }

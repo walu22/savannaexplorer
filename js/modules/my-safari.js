@@ -9,12 +9,21 @@ import {
     updateTrip,
 } from '../lib/trip-store.js';
 import {
+    acceptCollaborationInvite,
+    createCollaborationInvite,
     disableTripShare,
     enableTripShare,
+    getCollaborationActivity,
+    getCollaborationManagement,
     getCurrentSession,
     getTripShareStatus,
+    listMyCollaborations,
+    loadCollaboration,
     loadSharedTrip,
     onAuthChange,
+    removeCollaborator,
+    revokeCollaborationInvite,
+    saveCollaboration,
     sendSignInLink,
     signOut,
     startAutomaticTripSync,
@@ -22,6 +31,8 @@ import {
 } from '../lib/trip-cloud.js';
 
 const COUNTRIES = ['Botswana', 'Eswatini', 'Lesotho', 'Malawi', 'Mozambique', 'Namibia', 'South Africa', 'Zambia', 'Zimbabwe'];
+let collaborationPoll = null;
+let openCollaborativeTrip = null;
 
 function escapeHtml(value) {
     return String(value || '').replace(/[&<>"']/g, char => ({
@@ -87,6 +98,171 @@ function friendlyCloudError(error) {
     return message;
 }
 
+function invitationUrl(token) {
+    return `${window.location.origin}${window.location.pathname}?invite=${token}#hub-my-safari`;
+}
+
+function activityLabel(item) {
+    const actions = {
+        collaborator_joined: 'joined the trip',
+        collaborator_removed: 'removed a collaborator',
+        invite_created: 'created a collaboration invitation',
+        invite_revoked: 'revoked a collaboration invitation',
+        trip_updated: 'updated the shared trip',
+    };
+    return `${item.actor_email || 'A collaborator'} ${actions[item.action] || item.action.replaceAll('_', ' ')}`;
+}
+
+function renderActivity(targetId, activity = []) {
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    target.replaceChildren();
+    if (!activity.length) {
+        const empty = document.createElement('p');
+        empty.textContent = 'No collaboration activity yet.';
+        target.append(empty);
+        return;
+    }
+    activity.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'my-safari-activity-item';
+        const label = document.createElement('strong');
+        label.textContent = activityLabel(item);
+        const date = document.createElement('span');
+        date.textContent = new Date(item.created_at).toLocaleString();
+        row.append(label, date);
+        target.append(row);
+    });
+}
+
+async function refreshCollaborationManagement() {
+    const active = getActiveTrip();
+    const panel = document.getElementById('my-safari-collaboration-panel');
+    if (!active || !panel || panel.hidden) return;
+    try {
+        const management = await getCollaborationManagement(active.id);
+        const people = document.getElementById('my-safari-collaborators');
+        people.replaceChildren();
+        if (!management.collaborators.length) people.append(Object.assign(document.createElement('p'), { textContent: 'No collaborators yet.' }));
+        management.collaborators.forEach(person => {
+            const row = document.createElement('div');
+            row.className = 'my-safari-access-item';
+            const identity = document.createElement('strong');
+            identity.textContent = person.email;
+            const role = document.createElement('span');
+            role.textContent = person.role === 'editor' ? 'Can edit' : 'View only';
+            const remove = document.createElement('button');
+            remove.type = 'button';
+            remove.dataset.removeCollaborator = person.user_id;
+            remove.textContent = 'Remove';
+            row.append(identity, remove, role);
+            people.append(row);
+        });
+
+        const invites = document.getElementById('my-safari-invites');
+        invites.replaceChildren();
+        if (!management.invites.length) invites.append(Object.assign(document.createElement('p'), { textContent: 'No open invitations.' }));
+        management.invites.forEach(invite => {
+            const row = document.createElement('div');
+            row.className = 'my-safari-access-item';
+            const role = document.createElement('strong');
+            role.textContent = invite.invite_role === 'editor' ? 'Editor invitation' : 'Viewer invitation';
+            const revoke = document.createElement('button');
+            revoke.type = 'button';
+            revoke.dataset.revokeInvite = invite.invite_id;
+            revoke.textContent = 'Revoke';
+            const expiry = document.createElement('span');
+            expiry.textContent = invite.claimed ? 'Accepted' : `Expires ${new Date(invite.expires_at).toLocaleDateString()}`;
+            const copy = document.createElement('button');
+            copy.type = 'button';
+            copy.dataset.copyInvite = invite.invite_token;
+            copy.textContent = 'Copy';
+            row.append(role, revoke, expiry, copy);
+            invites.append(row);
+        });
+        renderActivity('my-safari-activity', management.activity);
+    } catch (error) {
+        setCloudStatus(friendlyCloudError(error), true);
+    }
+}
+
+async function refreshMyCollaborations() {
+    const box = document.getElementById('my-safari-shared-with-me');
+    const list = document.getElementById('my-safari-collaboration-list');
+    if (!box || !list) return;
+    try {
+        const collaborations = await listMyCollaborations();
+        list.replaceChildren();
+        collaborations.forEach(item => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'my-safari-collaboration-chip';
+            button.dataset.openCollaboration = item.trip_id;
+            const name = document.createElement('strong');
+            name.textContent = item.data?.name || 'Shared safari';
+            const role = document.createElement('small');
+            role.textContent = ` · ${item.access_role === 'editor' ? 'Can edit' : 'View only'}`;
+            button.append(name, role);
+            list.append(button);
+        });
+        box.hidden = collaborations.length === 0;
+    } catch {
+        box.hidden = true;
+    }
+}
+
+function enterCollaborationLayout() {
+    ['my-safari-create-form', 'my-safari-trip-list', 'my-safari-empty', 'my-safari-workspace', 'my-safari-shared-view', 'my-safari-shared-with-me']
+        .forEach(id => document.getElementById(id)?.setAttribute('hidden', ''));
+    document.getElementById('my-safari-collaboration-view').hidden = false;
+}
+
+function renderCollaboration(record) {
+    const trip = record?.data || {};
+    openCollaborativeTrip = record;
+    const canEdit = record?.access_role === 'editor' || record?.access_role === 'owner';
+    document.getElementById('collaboration-safari-name').textContent = trip.name || 'Collaborative safari';
+    document.getElementById('collaboration-safari-role').textContent = canEdit ? 'Editor' : 'Viewer';
+    document.getElementById('collaboration-safari-meta').textContent = `${formatDates(trip)} · ${trip.countries?.length ? trip.countries.join(', ') : 'Destinations not listed'}`;
+    const expenseCount = trip.expenses?.items?.length || 0;
+    document.getElementById('collaboration-safari-expenses').textContent = `${expenseCount} item${expenseCount === 1 ? '' : 's'}`;
+    document.getElementById('collaboration-safari-packing').textContent = `${trip.packing?.packedItems?.length || 0} packed`;
+    document.getElementById('collaboration-safari-updated').textContent = new Date(record.updated_at || trip.updatedAt || Date.now()).toLocaleString();
+    const notes = document.getElementById('collaboration-safari-notes');
+    notes.value = trip.notes || '';
+    notes.disabled = !canEdit;
+    document.getElementById('collaboration-safari-save').hidden = !canEdit;
+}
+
+async function refreshOpenCollaboration(showStatus = false) {
+    if (!openCollaborativeTrip?.trip_id) return;
+    const record = await loadCollaboration(openCollaborativeTrip.trip_id);
+    if (!record) throw new Error('You no longer have access to this safari.');
+    renderCollaboration(record);
+    renderActivity('collaboration-safari-activity', await getCollaborationActivity(record.data.id));
+    if (showStatus) document.getElementById('collaboration-safari-status').textContent = 'Shared trip refreshed.';
+}
+
+async function openCollaboration(recordOrId) {
+    enterCollaborationLayout();
+    const status = document.getElementById('collaboration-safari-status');
+    status.classList.remove('is-error');
+    status.textContent = 'Opening shared trip…';
+    try {
+        const record = typeof recordOrId === 'string' ? await loadCollaboration(recordOrId) : recordOrId;
+        if (!record) throw new Error('This collaborative trip is unavailable.');
+        renderCollaboration(record);
+        renderActivity('collaboration-safari-activity', await getCollaborationActivity(record.data.id));
+        status.textContent = 'Changes are shared with everyone who has access.';
+        clearInterval(collaborationPoll);
+        collaborationPoll = window.setInterval(() => refreshOpenCollaboration(false).catch(() => {}), 12000);
+    } catch (error) {
+        document.getElementById('collaboration-safari-name').textContent = 'Collaborative safari unavailable';
+        status.textContent = friendlyCloudError(error);
+        status.classList.add('is-error');
+    }
+}
+
 function renderAccount(session) {
     const signedOut = document.getElementById('my-safari-signed-out');
     const signedIn = document.getElementById('my-safari-signed-in');
@@ -96,7 +272,13 @@ function renderAccount(session) {
     if (email) email.textContent = session?.user?.email || '';
     const shareButton = document.getElementById('my-safari-share');
     if (shareButton) shareButton.hidden = !session;
-    if (!session) document.getElementById('my-safari-share-panel')?.setAttribute('hidden', '');
+    const collaborateButton = document.getElementById('my-safari-collaborate');
+    if (collaborateButton) collaborateButton.hidden = !session;
+    if (!session) {
+        document.getElementById('my-safari-share-panel')?.setAttribute('hidden', '');
+        document.getElementById('my-safari-collaboration-panel')?.setAttribute('hidden', '');
+        document.getElementById('my-safari-shared-with-me')?.setAttribute('hidden', '');
+    }
 }
 
 async function copyText(value) {
@@ -104,9 +286,15 @@ async function copyText(value) {
         await navigator.clipboard.writeText(value);
         return;
     }
-    const input = document.getElementById('my-safari-share-url');
-    input?.select();
+    const input = document.createElement('textarea');
+    input.value = value;
+    input.setAttribute('readonly', '');
+    input.style.position = 'fixed';
+    input.style.opacity = '0';
+    document.body.append(input);
+    input.select();
     document.execCommand('copy');
+    input.remove();
 }
 
 function renderSharedTrip(trip) {
@@ -185,7 +373,10 @@ export async function initMySafari() {
     renderCountryChoices();
     renderDashboard();
 
-    const shareToken = new URLSearchParams(window.location.search).get('share');
+    const params = new URLSearchParams(window.location.search);
+    const shareToken = params.get('share');
+    const inviteToken = params.get('invite');
+    const collaborationId = params.get('collaboration');
     if (shareToken) {
         await openSharedTrip(shareToken);
         return;
@@ -193,18 +384,61 @@ export async function initMySafari() {
 
     let session = await getCurrentSession();
     renderAccount(session);
-    if (session) await syncAndReport('Signed in and synced.');
+    if (inviteToken || collaborationId) {
+        enterCollaborationLayout();
+        document.getElementById('collaboration-safari-name').textContent = session
+            ? 'Opening collaborative safari…'
+            : 'Sign in to join this safari';
+        document.getElementById('collaboration-safari-status').textContent = session
+            ? 'Checking your access…'
+            : 'Use the email sign-in form above. This invitation will remain open.';
+        if (session) {
+            try {
+                const record = inviteToken
+                    ? await acceptCollaborationInvite(inviteToken)
+                    : await loadCollaboration(collaborationId);
+                if (inviteToken && record?.trip_id) {
+                    history.replaceState(null, '', `${window.location.pathname}?collaboration=${record.trip_id}#hub-my-safari`);
+                }
+                await openCollaboration(record);
+            } catch (error) {
+                document.getElementById('collaboration-safari-name').textContent = 'Could not join this safari';
+                document.getElementById('collaboration-safari-status').textContent = friendlyCloudError(error);
+                document.getElementById('collaboration-safari-status').classList.add('is-error');
+            }
+        }
+    } else if (session) {
+        await syncAndReport('Signed in and synced.');
+        await refreshMyCollaborations();
+    }
 
     onAuthChange(nextSession => {
         const wasSignedIn = Boolean(session);
         session = nextSession;
         renderAccount(session);
         if (session && !wasSignedIn) {
-            window.setTimeout(() => syncAndReport('Signed in and synced.'), 0);
+            window.setTimeout(async () => {
+                if (inviteToken) {
+                    try {
+                        const record = await acceptCollaborationInvite(inviteToken);
+                        if (record?.trip_id) history.replaceState(null, '', `${window.location.pathname}?collaboration=${record.trip_id}#hub-my-safari`);
+                        await openCollaboration(record);
+                    } catch (error) {
+                        document.getElementById('collaboration-safari-status').textContent = friendlyCloudError(error);
+                    }
+                } else if (collaborationId) {
+                    await openCollaboration(collaborationId);
+                } else {
+                    await syncAndReport('Signed in and synced.');
+                    await refreshMyCollaborations();
+                }
+            }, 0);
         }
         if (!session) setCloudStatus('Signed out. Trips remain available on this device.');
     });
-    startAutomaticTripSync(error => setCloudStatus(friendlyCloudError(error), true));
+    if (!inviteToken && !collaborationId) {
+        startAutomaticTripSync(error => setCloudStatus(friendlyCloudError(error), true));
+    }
 
     document.getElementById('my-safari-signin-form')?.addEventListener('submit', async event => {
         event.preventDefault();
@@ -232,6 +466,11 @@ export async function initMySafari() {
         }
     });
 
+    document.getElementById('my-safari-collaboration-list')?.addEventListener('click', event => {
+        const button = event.target.closest('[data-open-collaboration]');
+        if (button) window.location.assign(`${window.location.pathname}?collaboration=${button.dataset.openCollaboration}#hub-my-safari`);
+    });
+
     document.getElementById('my-safari-create-form')?.addEventListener('submit', event => {
         event.preventDefault();
         const form = new FormData(event.currentTarget);
@@ -251,6 +490,7 @@ export async function initMySafari() {
         if (button) {
             setActiveTrip(button.dataset.tripSelect);
             refreshSharePanel();
+            refreshCollaborationManagement();
         }
     });
 
@@ -309,6 +549,98 @@ export async function initMySafari() {
         } catch (error) {
             setCloudStatus(friendlyCloudError(error), true);
         }
+    });
+
+    document.getElementById('my-safari-collaborate')?.addEventListener('click', async () => {
+        const panel = document.getElementById('my-safari-collaboration-panel');
+        panel.hidden = false;
+        setCloudStatus('Loading collaboration access…');
+        await syncAndReport('Trip ready to share.');
+        await refreshCollaborationManagement();
+    });
+
+    document.getElementById('my-safari-close-collaboration')?.addEventListener('click', () => {
+        document.getElementById('my-safari-collaboration-panel').hidden = true;
+    });
+
+    document.getElementById('my-safari-invite-form')?.addEventListener('submit', async event => {
+        event.preventDefault();
+        const active = getActiveTrip();
+        if (!active) return;
+        const button = event.currentTarget.querySelector('button[type="submit"]');
+        button.disabled = true;
+        try {
+            const role = new FormData(event.currentTarget).get('role')?.toString() || 'editor';
+            const invite = await createCollaborationInvite(active.id, role);
+            document.getElementById('my-safari-invite-url').value = invite.url;
+            document.getElementById('my-safari-invite-result').hidden = false;
+            await copyText(invite.url);
+            setCloudStatus('Private invitation created and copied. It expires in seven days.');
+            await refreshCollaborationManagement();
+        } catch (error) {
+            setCloudStatus(friendlyCloudError(error), true);
+        } finally {
+            button.disabled = false;
+        }
+    });
+
+    document.getElementById('my-safari-copy-invite')?.addEventListener('click', async () => {
+        const url = document.getElementById('my-safari-invite-url')?.value;
+        if (url) {
+            await copyText(url);
+            setCloudStatus('Invitation link copied.');
+        }
+    });
+
+    document.getElementById('my-safari-collaboration-panel')?.addEventListener('click', async event => {
+        const copy = event.target.closest('[data-copy-invite]');
+        const revoke = event.target.closest('[data-revoke-invite]');
+        const remove = event.target.closest('[data-remove-collaborator]');
+        try {
+            if (copy) {
+                await copyText(invitationUrl(copy.dataset.copyInvite));
+                setCloudStatus('Invitation link copied.');
+            } else if (revoke) {
+                await revokeCollaborationInvite(revoke.dataset.revokeInvite);
+                setCloudStatus('Invitation revoked.');
+                await refreshCollaborationManagement();
+            } else if (remove) {
+                const active = getActiveTrip();
+                if (!active || !confirm('Remove this person from the trip?')) return;
+                await removeCollaborator(active.id, remove.dataset.removeCollaborator);
+                setCloudStatus('Collaborator removed.');
+                await refreshCollaborationManagement();
+            }
+        } catch (error) {
+            setCloudStatus(friendlyCloudError(error), true);
+        }
+    });
+
+    document.getElementById('collaboration-safari-save')?.addEventListener('click', async () => {
+        if (!openCollaborativeTrip?.data) return;
+        const status = document.getElementById('collaboration-safari-status');
+        status.textContent = 'Saving shared notes…';
+        try {
+            const data = {
+                ...openCollaborativeTrip.data,
+                notes: document.getElementById('collaboration-safari-notes').value.trim(),
+                updatedAt: new Date().toISOString(),
+            };
+            const saved = await saveCollaboration(openCollaborativeTrip.trip_id, data);
+            renderCollaboration({ ...openCollaborativeTrip, ...saved, data: saved.data });
+            renderActivity('collaboration-safari-activity', await getCollaborationActivity(data.id));
+            status.classList.remove('is-error');
+            status.textContent = 'Shared notes saved for everyone.';
+        } catch (error) {
+            status.textContent = friendlyCloudError(error);
+            status.classList.add('is-error');
+        }
+    });
+
+    document.getElementById('collaboration-safari-refresh')?.addEventListener('click', () => {
+        refreshOpenCollaboration(true).catch(error => {
+            document.getElementById('collaboration-safari-status').textContent = friendlyCloudError(error);
+        });
     });
 
     window.addEventListener(TRIP_CHANGE_EVENT, renderDashboard);

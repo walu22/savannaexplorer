@@ -96,3 +96,61 @@ test('shared safari link renders a read-only trip safely', async ({ page }) => {
     await expect(shared.locator('#shared-safari-notes')).toContainText('<img src=x');
     expect(await page.evaluate(() => window.__sharedTripScriptRan)).toBe(false);
 });
+
+test('signed-in editor can accept an invitation and save shared notes', async ({ page }) => {
+    const inviteToken = '11111111-1111-4111-8111-111111111111';
+    const tripId = '22222222-2222-4222-8222-222222222222';
+    const user = { id: '33333333-3333-4333-8333-333333333333', email: 'friend@example.com', aud: 'authenticated', role: 'authenticated' };
+    const session = {
+        access_token: 'test-access-token',
+        refresh_token: 'test-refresh-token',
+        token_type: 'bearer',
+        expires_in: 3600,
+        expires_at: Math.floor(Date.now() / 1000) + 3600,
+        user,
+    };
+    await page.addInitScript(value => {
+        localStorage.setItem('sb-pyfxdiqbpiwmpfutvxbh-auth-token', JSON.stringify(value));
+    }, session);
+
+    await page.route('**/auth/v1/user**', route => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(user) }));
+    await page.route('**/rest/v1/rpc/accept_trip_collaboration_invite', route => route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify([{
+            trip_id: tripId,
+            access_role: 'editor',
+            updated_at: '2026-09-03T08:00:00.000Z',
+            data: {
+                id: 'trip-group-safari', name: 'Friends in Etosha', startDate: '2026-10-10', endDate: '2026-10-14',
+                countries: ['Namibia'], notes: 'Book the waterhole camp', expenses: { items: [] }, packing: { packedItems: [] },
+            },
+        }]),
+    }));
+    await page.route('**/rest/v1/rpc/get_trip_activity', route => route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify([{ action: 'collaborator_joined', actor_email: 'friend@example.com', details: { role: 'editor' }, created_at: '2026-09-03T08:00:00.000Z' }]),
+    }));
+    await page.route('**/rest/v1/rpc/save_trip_collaboration', async route => {
+        const request = route.request();
+        const body = request.postDataJSON();
+        expect(body.p_trip_id).toBe(tripId);
+        expect(body.p_data.notes).toBe('Meet at the south gate');
+        await route.fulfill({
+            status: 200,
+            contentType: 'application/json',
+            body: JSON.stringify([{ data: body.p_data, updated_at: '2026-09-03T08:10:00.000Z' }]),
+        });
+    });
+
+    await page.goto(`/?invite=${inviteToken}#hub-my-safari`, { waitUntil: 'domcontentloaded' });
+    const view = page.locator('#my-safari-collaboration-view');
+    await expect(view.getByRole('heading', { name: 'Friends in Etosha' })).toBeVisible();
+    await expect(view.locator('#collaboration-safari-role')).toHaveText('Editor');
+    await expect(view.locator('#collaboration-safari-notes')).toHaveValue('Book the waterhole camp');
+    await view.locator('#collaboration-safari-notes').fill('Meet at the south gate');
+    await view.getByRole('button', { name: 'Save shared notes' }).click();
+    await expect(view.locator('#collaboration-safari-status')).toHaveText('Shared notes saved for everyone.');
+    await expect(page).toHaveURL(new RegExp(`collaboration=${tripId}`));
+});
