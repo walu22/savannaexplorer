@@ -1,3 +1,5 @@
+import { normalizeRouteDays } from './trip-route.js';
+
 export const TRIP_STORE_KEY = 'se_my_safari_v1';
 export const TRIP_CHANGE_EVENT = 'se:trip-change';
 
@@ -33,6 +35,7 @@ function cleanTrip(trip) {
         createdAt: trip.createdAt || new Date().toISOString(),
         updatedAt: trip.updatedAt || new Date().toISOString(),
         aiItinerary: trip.aiItinerary && typeof trip.aiItinerary === 'object' ? trip.aiItinerary : null,
+        routeDays: normalizeRouteDays(trip.routeDays),
         expenses: {
             linkedItineraryId: String(trip.expenses?.linkedItineraryId || ''),
             items: Array.isArray(trip.expenses?.items) ? trip.expenses.items : [],
@@ -161,6 +164,7 @@ export function duplicateTrip(tripId, storage) {
     return updateTrip(copy.id, {
         notes: source.notes,
         aiItinerary: source.aiItinerary,
+        routeDays: source.routeDays,
         expenses: source.expenses,
         packing: source.packing,
     }, storage);

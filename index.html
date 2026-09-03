@@ -800,6 +800,7 @@
                             <div class="my-safari-stat"><span>Expenses</span><strong id="my-safari-expense-count">0 items</strong></div>
                             <div class="my-safari-stat"><span>Packing</span><strong id="my-safari-packing-count">0 packed</strong></div>
                         </div>
+                        <div id="my-safari-route-builder"></div>
                         <label class="my-safari-notes-label" for="my-safari-notes">Trip notes
                             <textarea id="my-safari-notes" class="my-safari-notes" maxlength="2000" placeholder="Booking references, ideas, reminders…"></textarea>
                         </label>
@@ -867,6 +868,7 @@
                             <div class="my-safari-stat"><span>Packing progress</span><strong id="shared-safari-packing"></strong></div>
                             <div class="my-safari-stat"><span>Last updated</span><strong id="shared-safari-updated"></strong></div>
                         </div>
+                        <div id="shared-safari-route"></div>
                         <section id="shared-safari-notes-section" hidden><h5>Trip notes</h5><p id="shared-safari-notes"></p></section>
                         <section id="shared-safari-itinerary-section" hidden><h5>AI itinerary draft</h5><pre id="shared-safari-itinerary"></pre></section>
                         <a class="btn btn-outline" href="/#hub-my-safari">Plan your own safari</a>
@@ -880,11 +882,12 @@
                             <div class="my-safari-stat"><span>Packing progress</span><strong id="collaboration-safari-packing"></strong></div>
                             <div class="my-safari-stat"><span>Last updated</span><strong id="collaboration-safari-updated"></strong></div>
                         </div>
+                        <div id="collaboration-safari-route"></div>
                         <label class="my-safari-notes-label" for="collaboration-safari-notes">Shared trip notes
                             <textarea id="collaboration-safari-notes" class="my-safari-notes" maxlength="2000" placeholder="Add an idea or group reminder…"></textarea>
                         </label>
                         <div class="my-safari-links">
-                            <button type="button" class="btn btn-primary" id="collaboration-safari-save"><i class="fas fa-cloud-arrow-up"></i> Save shared notes</button>
+                            <button type="button" class="btn btn-primary" id="collaboration-safari-save"><i class="fas fa-cloud-arrow-up"></i> Save shared plan</button>
                             <button type="button" class="btn btn-outline" id="collaboration-safari-refresh"><i class="fas fa-rotate"></i> Refresh</button>
                             <a class="btn btn-outline" href="/my-safari">Back to My Safari</a>
                         </div>

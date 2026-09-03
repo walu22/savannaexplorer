@@ -146,6 +146,45 @@
 .my-safari-access-item button { border: 0; background: none; color: #ffb4a8; cursor: pointer; font-size: 0.75rem; }
 .my-safari-collaboration-view .my-safari-collaboration-activity { margin-top: 1.2rem; }
 .my-safari-collaboration-view textarea:disabled { opacity: 0.72; cursor: not-allowed; }
+.trip-route-builder { margin: 1.1rem 0; padding: 1rem; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: var(--radius-md); background: rgba(0, 0, 0, 0.22); }
+.trip-route-head { display: flex; justify-content: space-between; gap: 1rem; align-items: start; }
+.trip-route-head h5 { margin: 0.3rem 0 0.15rem; color: var(--text-inverse); font-size: 1.05rem; }
+.trip-route-head p,
+.trip-route-empty p { margin: 0; color: rgba(247, 243, 237, 0.7); font-size: 0.8rem; }
+.trip-route-empty { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin-top: 0.85rem; padding: 0.9rem; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.05); }
+.route-stop-form { display: grid; grid-template-columns: minmax(110px, 0.7fr) minmax(100px, 0.6fr) minmax(170px, 1.2fr) minmax(150px, 1fr) 100px; gap: 0.6rem; align-items: end; margin-top: 1rem; padding: 0.8rem; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.06); }
+.route-stop-form label { display: grid; gap: 0.25rem; color: rgba(247, 243, 237, 0.75); font-size: 0.74rem; font-weight: 700; }
+.route-stop-form input,
+.route-stop-form select,
+.route-stop-actions select { min-width: 0; width: 100%; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: var(--radius-sm); background: #241c17; color: var(--text-inverse); padding: 0.55rem; color-scheme: dark; }
+.route-stop-form-notes { grid-column: 1 / -2; }
+.route-stop-form-actions { display: flex; gap: 0.4rem; align-items: center; }
+.trip-route-board { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(270px, 1fr); gap: 0.75rem; overflow-x: auto; padding: 0.85rem 0 0.35rem; scroll-snap-type: x proximity; }
+.route-day { min-width: 0; border: 1px solid rgba(255, 255, 255, 0.13); border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.045); scroll-snap-align: start; }
+.route-day > header { display: flex; justify-content: space-between; gap: 0.5rem; padding: 0.7rem 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.11); }
+.route-day > header strong { color: var(--text-inverse); font-size: 0.82rem; }
+.route-day > header span { color: rgba(247, 243, 237, 0.62); font-size: 0.72rem; }
+.route-day-stops { min-height: 100px; display: grid; align-content: start; gap: 0.55rem; padding: 0.65rem; }
+.route-day-empty { margin: auto; color: rgba(247, 243, 237, 0.55); font-size: 0.76rem; }
+.route-stop { border: 1px solid rgba(255, 255, 255, 0.14); border-left: 3px solid var(--primary-light); border-radius: var(--radius-sm); background: rgba(0, 0, 0, 0.28); padding: 0.65rem; cursor: grab; }
+.trip-route-builder.is-readonly .route-stop { cursor: default; }
+.route-stop.is-dragging { opacity: 0.45; }
+.route-stop-main { display: grid; grid-template-columns: 26px 1fr; gap: 0.55rem; }
+.route-stop-icon { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: rgba(196, 103, 42, 0.2); color: var(--primary-light); font-size: 0.72rem; }
+.route-stop-heading { display: flex; justify-content: space-between; gap: 0.5rem; }
+.route-stop-heading strong { color: var(--text-inverse); font-size: 0.83rem; }
+.route-stop-heading time,
+.route-stop-main span { color: rgba(247, 243, 237, 0.68); font-size: 0.72rem; }
+.route-stop-main p { margin: 0.35rem 0 0; color: rgba(247, 243, 237, 0.75); font-size: 0.74rem; }
+.route-stop-actions { display: grid; grid-template-columns: auto auto 1fr auto auto; gap: 0.25rem; align-items: center; margin-top: 0.55rem; padding-top: 0.45rem; border-top: 1px solid rgba(255, 255, 255, 0.09); }
+.route-stop-actions button { display: grid; place-items: center; min-width: 28px; min-height: 28px; border: 0; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.07); color: var(--text-inverse); cursor: pointer; }
+.route-stop-actions button:last-child { color: #ffb4a8; }
+.route-stop-actions select { padding: 0.35rem; font-size: 0.7rem; }
+.route-stop--park { border-left-color: #7fb069; }
+.route-stop--stay { border-left-color: #77a6d9; }
+.route-stop--border { border-left-color: #dbb365; }
+.route-stop--activity { border-left-color: #c58ad9; }
+.route-stop--meal { border-left-color: #df8b76; }
 .my-safari-shared-view { border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 1.25rem; }
 .my-safari-shared-label { color: var(--primary-light); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
 .my-safari-shared-view h4 { color: var(--text-inverse); font-size: 1.6rem; margin: 0.45rem 0; }
@@ -169,4 +208,10 @@
     .my-safari-summary { grid-template-columns: 1fr; }
     .my-safari-panel-head { display: grid; }
     .my-safari-collaboration-grid { grid-template-columns: 1fr; }
+    .trip-route-head,
+    .trip-route-empty { display: grid; }
+    .route-stop-form { grid-template-columns: 1fr 1fr; }
+    .route-stop-form-notes { grid-column: 1 / -1; }
+    .route-stop-form-actions { grid-column: 1 / -1; }
+    .trip-route-board { grid-auto-columns: minmax(84vw, 1fr); }
 }

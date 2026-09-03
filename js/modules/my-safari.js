@@ -29,10 +29,15 @@ import {
     startAutomaticTripSync,
     syncTrips,
 } from '../lib/trip-cloud.js';
+import { createRouteBuilder } from './trip-route-builder.js';
 
 const COUNTRIES = ['Botswana', 'Eswatini', 'Lesotho', 'Malawi', 'Mozambique', 'Namibia', 'South Africa', 'Zambia', 'Zimbabwe'];
 let collaborationPoll = null;
 let openCollaborativeTrip = null;
+let collaborationDirty = false;
+let localRouteBuilder = null;
+let sharedRouteBuilder = null;
+let collaborationRouteBuilder = null;
 
 function escapeHtml(value) {
     return String(value || '').replace(/[&<>"']/g, char => ({
@@ -72,7 +77,10 @@ function renderDashboard() {
 
     empty.hidden = Boolean(active);
     workspace.hidden = !active;
-    if (!active) return;
+    if (!active) {
+        localRouteBuilder?.render(null);
+        return;
+    }
 
     document.getElementById('my-safari-active-name').textContent = active.name;
     document.getElementById('my-safari-active-meta').textContent = `${formatDates(active)} · ${active.countries.length ? active.countries.join(', ') : 'Add destinations when editing this trip'}`;
@@ -80,6 +88,7 @@ function renderDashboard() {
     document.getElementById('my-safari-itinerary-count').textContent = active.aiItinerary ? '1 saved' : 'None yet';
     document.getElementById('my-safari-expense-count').textContent = `${active.expenses.items.length} item${active.expenses.items.length === 1 ? '' : 's'}`;
     document.getElementById('my-safari-packing-count').textContent = `${active.packing.packedItems.length} packed`;
+    localRouteBuilder?.render(active, true);
 }
 
 function setCloudStatus(message = '', error = false) {
@@ -232,10 +241,15 @@ function renderCollaboration(record) {
     notes.value = trip.notes || '';
     notes.disabled = !canEdit;
     document.getElementById('collaboration-safari-save').hidden = !canEdit;
+    collaborationRouteBuilder?.render(trip, canEdit);
 }
 
 async function refreshOpenCollaboration(showStatus = false) {
     if (!openCollaborativeTrip?.trip_id) return;
+    if (collaborationDirty) {
+        if (showStatus) document.getElementById('collaboration-safari-status').textContent = 'Save your changes before refreshing.';
+        return;
+    }
     const record = await loadCollaboration(openCollaborativeTrip.trip_id);
     if (!record) throw new Error('You no longer have access to this safari.');
     renderCollaboration(record);
@@ -251,6 +265,7 @@ async function openCollaboration(recordOrId) {
     try {
         const record = typeof recordOrId === 'string' ? await loadCollaboration(recordOrId) : recordOrId;
         if (!record) throw new Error('This collaborative trip is unavailable.');
+        collaborationDirty = false;
         renderCollaboration(record);
         renderActivity('collaboration-safari-activity', await getCollaborationActivity(record.data.id));
         status.textContent = 'Changes are shared with everyone who has access.';
@@ -310,6 +325,7 @@ function renderSharedTrip(trip) {
     document.getElementById('shared-safari-updated').textContent = trip.updatedAt
         ? new Date(trip.updatedAt).toLocaleDateString()
         : 'Not provided';
+    sharedRouteBuilder?.render(trip, false);
 
     const notesSection = document.getElementById('shared-safari-notes-section');
     notesSection.hidden = !trip.notes;
@@ -371,6 +387,23 @@ export async function initMySafari() {
     const root = document.getElementById('hub-my-safari');
     if (!root) return;
     renderCountryChoices();
+    localRouteBuilder = createRouteBuilder(document.getElementById('my-safari-route-builder'), {
+        onChange(routeDays) {
+            const active = getActiveTrip();
+            if (active) updateTrip(active.id, { routeDays });
+        },
+    });
+    sharedRouteBuilder = createRouteBuilder(document.getElementById('shared-safari-route'));
+    collaborationRouteBuilder = createRouteBuilder(document.getElementById('collaboration-safari-route'), {
+        onChange(routeDays) {
+            if (!openCollaborativeTrip?.data) return;
+            collaborationDirty = true;
+            openCollaborativeTrip = {
+                ...openCollaborativeTrip,
+                data: { ...openCollaborativeTrip.data, routeDays },
+            };
+        },
+    });
     renderDashboard();
 
     const params = new URLSearchParams(window.location.search);
@@ -619,7 +652,7 @@ export async function initMySafari() {
     document.getElementById('collaboration-safari-save')?.addEventListener('click', async () => {
         if (!openCollaborativeTrip?.data) return;
         const status = document.getElementById('collaboration-safari-status');
-        status.textContent = 'Saving shared notes…';
+        status.textContent = 'Saving shared plan…';
         try {
             const data = {
                 ...openCollaborativeTrip.data,
@@ -627,14 +660,19 @@ export async function initMySafari() {
                 updatedAt: new Date().toISOString(),
             };
             const saved = await saveCollaboration(openCollaborativeTrip.trip_id, data);
+            collaborationDirty = false;
             renderCollaboration({ ...openCollaborativeTrip, ...saved, data: saved.data });
             renderActivity('collaboration-safari-activity', await getCollaborationActivity(data.id));
             status.classList.remove('is-error');
-            status.textContent = 'Shared notes saved for everyone.';
+            status.textContent = 'Shared plan saved for everyone.';
         } catch (error) {
             status.textContent = friendlyCloudError(error);
             status.classList.add('is-error');
         }
+    });
+
+    document.getElementById('collaboration-safari-notes')?.addEventListener('input', () => {
+        collaborationDirty = true;
     });
 
     document.getElementById('collaboration-safari-refresh')?.addEventListener('click', () => {

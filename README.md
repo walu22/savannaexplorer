@@ -34,7 +34,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.35.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.39.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -51,6 +51,7 @@ The old root files `main.js`, `country-guide.js`, and `itinerary-data.js` were r
 - **Marketplace** activity inspiration with cost bands, planning tips, and official resource links (31 listings)
 - **Country guides** with regional breakdowns for every destination
 - **Trip checklist** — printable planner in Travel Tools (`#plan`): countries, route template, visa notes, official links, borders, packing
+- **My Safari** — separate cloud-synced trips, private collaboration invitations, and a day-by-day route builder
 - Enriched guides for Zambia, Zimbabwe, Mozambique, Malawi, Lesotho, and Eswatini
 
 ### Production build
@@ -132,6 +133,9 @@ After deploying, submit `https://savannaexplorer.com/sitemap.xml` in [Google Sea
 | `newsletter_subscribers` | Email signups |
 | `ai_planner_events` | AI Safari Planner opens and generation attempts (anonymous insert) |
 | `user_trips` | Owner-protected My Safari cloud copies, deletion tombstones, and revocable share tokens |
+| `trip_collaborators` | Editor/viewer access accepted through private invitations |
+| `trip_collaboration_invites` | Expiring single-use collaboration tokens |
+| `trip_activity` | Recent collaboration changes and access events |
 
 ## Scripts
 

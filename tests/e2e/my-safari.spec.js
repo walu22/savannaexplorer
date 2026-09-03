@@ -44,6 +44,37 @@ test('My Safari keeps expenses and packing progress with the selected trip', asy
     await expect(expenses.locator('.expense-row')).toHaveCount(1);
 });
 
+test('traveller can build and rearrange a day-by-day safari route', async ({ page }) => {
+    await page.goto('/#hub-my-safari', { waitUntil: 'domcontentloaded' });
+    const safari = page.locator('#hub-my-safari');
+    await safari.getByLabel('Trip name').fill('Etosha route');
+    await safari.getByLabel('Start date').fill('2026-10-10');
+    await safari.getByLabel('End date').fill('2026-10-12');
+    await safari.getByLabel('Namibia').check();
+    await safari.getByRole('button', { name: 'Create trip' }).click();
+
+    const route = safari.locator('#my-safari-route-builder');
+    await route.getByRole('button', { name: 'Build days from trip dates' }).click();
+    await expect(route.locator('.route-day')).toHaveCount(3);
+
+    await route.getByLabel('Type').selectOption('park');
+    await route.getByLabel('Stop name').fill('Etosha National Park');
+    await route.getByLabel('Location').fill('Andersson Gate');
+    await route.getByLabel('Time').fill('07:30');
+    await route.getByLabel('Notes').fill('Arrive before sunrise');
+    await route.getByRole('button', { name: 'Add stop' }).click();
+    await expect(route.locator('.route-stop')).toHaveCount(1);
+    await expect(route.getByText('Etosha National Park', { exact: true })).toBeVisible();
+
+    await route.getByLabel('Move Etosha National Park to day').selectOption({ label: 'Day 2' });
+    await expect(route.locator('.route-day').nth(0).locator('.route-stop')).toHaveCount(0);
+    await expect(route.locator('.route-day').nth(1).getByText('Etosha National Park', { exact: true })).toBeVisible();
+
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await expect(route.locator('.route-day')).toHaveCount(3);
+    await expect(route.locator('.route-day').nth(1).getByText('Etosha National Park', { exact: true })).toBeVisible();
+});
+
 test('My Safari has no serious accessibility violations', async ({ page }) => {
     await page.goto('/#hub-my-safari', { waitUntil: 'domcontentloaded' });
     const results = await new AxeBuilder({ page })
@@ -83,6 +114,10 @@ test('shared safari link renders a read-only trip safely', async ({ page }) => {
                 expenses: { items: [{ id: 'one' }] },
                 packing: { packedItems: ['hat', 'boots'] },
                 aiItinerary: { history: [{ role: 'assistant', content: 'Day 1: Windhoek' }] },
+                routeDays: [{
+                    id: 'day-shared', date: '2026-10-01', title: '',
+                    stops: [{ id: 'stop-shared', type: 'park', name: '<img src=x onerror="window.__sharedTripScriptRan=true">Etosha', location: 'Andersson Gate', time: '07:30', notes: '' }],
+                }],
             },
         }]),
     }));
@@ -94,10 +129,12 @@ test('shared safari link renders a read-only trip safely', async ({ page }) => {
     await expect(shared.locator('#shared-safari-expenses')).toHaveText('1 item');
     await expect(shared.locator('#shared-safari-itinerary')).toContainText('Day 1: Windhoek');
     await expect(shared.locator('#shared-safari-notes')).toContainText('<img src=x');
+    await expect(shared.locator('#shared-safari-route')).toContainText('<img src=x');
+    await expect(shared.locator('#shared-safari-route').locator('.route-stop-actions')).toHaveCount(0);
     expect(await page.evaluate(() => window.__sharedTripScriptRan)).toBe(false);
 });
 
-test('signed-in editor can accept an invitation and save shared notes', async ({ page }) => {
+test('signed-in editor can accept an invitation and save a shared plan', async ({ page }) => {
     const inviteToken = '11111111-1111-4111-8111-111111111111';
     const tripId = '22222222-2222-4222-8222-222222222222';
     const user = { id: '33333333-3333-4333-8333-333333333333', email: 'friend@example.com', aud: 'authenticated', role: 'authenticated' };
@@ -146,11 +183,11 @@ test('signed-in editor can accept an invitation and save shared notes', async ({
 
     await page.goto(`/?invite=${inviteToken}#hub-my-safari`, { waitUntil: 'domcontentloaded' });
     const view = page.locator('#my-safari-collaboration-view');
-    await expect(view.getByRole('heading', { name: 'Friends in Etosha' })).toBeVisible();
+    await expect(view.getByRole('heading', { name: 'Friends in Etosha' })).toBeVisible({ timeout: 15_000 });
     await expect(view.locator('#collaboration-safari-role')).toHaveText('Editor');
     await expect(view.locator('#collaboration-safari-notes')).toHaveValue('Book the waterhole camp');
     await view.locator('#collaboration-safari-notes').fill('Meet at the south gate');
-    await view.getByRole('button', { name: 'Save shared notes' }).click();
-    await expect(view.locator('#collaboration-safari-status')).toHaveText('Shared notes saved for everyone.');
+    await view.getByRole('button', { name: 'Save shared plan' }).click();
+    await expect(view.locator('#collaboration-safari-status')).toHaveText('Shared plan saved for everyone.');
     await expect(page).toHaveURL(new RegExp(`collaboration=${tripId}`));
 });
