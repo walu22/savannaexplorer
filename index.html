@@ -59,8 +59,9 @@
                 <li class="nav-dropdown">
                     <button type="button" class="nav-drop-toggle" aria-expanded="false">Plan trip <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="nav-drop-menu">
-                        <a href="#hub-my-safari">My Safari</a>
+                        <a href="/my-safari">My Safari</a>
                         <a href="#route-explorer">Route Explorer</a>
+                        <a href="#" class="open-ai-planner">Plan with AI</a>
                         <a href="#itineraries">Itineraries</a>
                         <a href="#book-direct">Book direct</a>
                         <a href="#guides">Planning guides</a>
@@ -78,12 +79,12 @@
                     </div>
                 </li>
                 <li><a href="#news">News</a></li>
-                <li><a href="#" id="open-ai-planner" class="btn-ai-nav"><i class="fas fa-magic"></i> Plan with AI</a></li>
+                <li><a href="/my-safari" class="btn-ai-nav"><i class="fas fa-map-location-dot"></i> My Safari</a></li>
                 <li class="nav-dropdown nav-dropdown--cta" id="nav-hub-dropdown"></li>
             </ul>
 
             <div class="nav-mobile-controls">
-                <a href="#plan" class="nav-mobile-cta">Plan my trip</a>
+                <a href="/my-safari" class="nav-mobile-cta">My Safari</a>
                 <button type="button" class="menu-toggle menu-toggle--labeled" id="mobile-menu" aria-expanded="false" aria-controls="mobile-nav-panel" aria-label="Open menu">
                     <span class="menu-toggle-label">Menu</span>
                     <i class="fa-solid fa-bars" aria-hidden="true"></i>
@@ -107,13 +108,12 @@
         <img src="https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1920" alt="Southern Africa savanna at sunset" class="hero-bg" id="hero-img" data-stock-image="heroSavanna">
         <div class="hero-content container">
             <span class="hero-eyebrow">Southern Africa</span>
-            <h1>Explore <span class="headline-rotate" id="headline-rotate"><span class="rotate-word active">Endless Horizons</span><span class="rotate-word">Untamed Wildlife</span><span class="rotate-word">Ancient Deserts</span><span class="rotate-word">Mighty Rivers</span></span></h1>
-            <p class="hero-subhead">Free planning reference for nine countries.</p>
-            <p class="hero-lead">Compare routes, national parks, border crossings, and travel tools — then book lodges and permits with official sources yourself.</p>
+            <h1>Plan your <span class="headline-rotate" id="headline-rotate"><span class="rotate-word active">Southern Africa journey</span><span class="rotate-word">independent safari</span><span class="rotate-word">great road trip</span><span class="rotate-word">wildlife adventure</span></span></h1>
+            <p class="hero-subhead">Research-backed routes across nine countries.</p>
+            <p class="hero-lead">Choose a practical route, personalise it in My Safari, then verify lodges, gates and permits with official sources.</p>
             <div class="hero-actions">
-                <a href="#destinations" class="btn">Explore Destinations</a>
-                <a href="#plan" class="btn btn-outline">Travel Tools</a>
-                <a href="#about" class="hero-about-link"><i class="fas fa-circle-info" aria-hidden="true"></i> About this site</a>
+                <a href="#route-explorer" class="btn">Find your route</a>
+                <a href="#destinations" class="btn btn-outline">Explore countries</a>
             </div>
             <div class="hero-stats" aria-label="Site coverage">
                 <div class="hero-stat"><strong>9</strong><span>countries</span></div>
@@ -128,7 +128,7 @@
     <main id="main-content" tabindex="-1">
 
     <!-- Hub notice -->
-    <section class="hub-notice" aria-label="About this site">
+    <section class="hub-notice home-featured" aria-label="About this site">
         <div class="container">
             <p><strong>Independent travel hub.</strong> Savanna Explorer is a free planning reference for Southern Africa. We publish country guides, route templates, and practical tools to help you research your trip — <em>we do not sell tours, take payments, or act as a travel agent.</em></p>
         </div>
@@ -204,33 +204,28 @@
     </section>
 
     <!-- How this site works -->
-    <section class="service-section">
+    <section class="service-section home-featured">
         <div class="container">
             <div class="section-header">
-                <span class="section-eyebrow">How This Site Works</span>
-                <h2>Plan Independently, Travel Confidently</h2>
-                <p>Research routes, compare countries, and use practical tools — then book lodges, guides, and activities directly with operators on the ground.</p>
+                <span class="section-eyebrow">How it works</span>
+                <h2>From inspiration to a usable travel plan</h2>
+                <p>Build an independent itinerary without losing sight of the practical details that make a Southern Africa journey work.</p>
             </div>
             <div class="service-grid">
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-book-open"></i></div>
-                    <h3>Country & Route Guides</h3>
-                    <p>In-depth pages for all nine countries — parks, borders, seasons, and suggested itineraries you can adapt to your dates and budget.</p>
+                    <div class="service-icon"><i class="fas fa-route"></i></div>
+                    <h3>1. Choose a route</h3>
+                    <p>Compare researched routes by country, duration, travel style and the vehicle each journey requires.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-map-marked-alt"></i></div>
-                    <h3>Practical Planning Tools</h3>
-                    <p>Visa matrix, currency converter, packing lists, border crossing guides, and health zone references in one place.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-leaf"></i></div>
-                    <h3>Sustainable Mindset</h3>
-                    <p>We highlight community conservancies, low-impact lodges, and operators who invest in local employment and environmental protection.</p>
+                    <div class="service-icon"><i class="fas fa-map-location-dot"></i></div>
+                    <h3>2. Personalise it</h3>
+                    <p>Turn the route into an editable My Safari plan with dates, daily stops, driving notes, budget and packing.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Editorial, Not Sales</h3>
-                    <p>Price ranges and route notes are for planning only. Always verify visas, park fees, and availability with official sources before you travel.</p>
+                    <h3>3. Verify and book</h3>
+                    <p>Use the dated road, fuel, border and park guidance, then complete bookings with the linked official sources.</p>
                 </div>
             </div>
         </div>
@@ -239,7 +234,7 @@
     <div class="page-chapter page-chapter--discover">
 
     <!-- Destinations -->
-    <section id="destinations" class="destinations">
+    <section id="destinations" class="destinations home-featured">
         <div class="container">
             <div class="section-header">
                 <span class="section-eyebrow">Where to Go</span>
@@ -332,7 +327,7 @@
     </section>
 
     <!-- Research-backed Route Explorer -->
-    <section id="route-explorer" class="route-explorer-section">
+    <section id="route-explorer" class="route-explorer-section home-featured">
         <div class="container">
             <div class="section-header">
                 <span class="section-eyebrow">Build your route</span>
@@ -379,11 +374,48 @@
             <div class="route-explorer-toolbar">
                 <p><strong id="route-explorer-count">0 routes</strong> in the curated collection</p>
                 <p><i class="fas fa-circle-info" aria-hidden="true"></i> Routes are planning templates, not live navigation.</p>
+                <a class="route-explorer-all-link" href="/routes">View all 19 routes <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
             </div>
 
             <div class="route-explorer-layout">
                 <div id="route-explorer-results" class="route-explorer-results" aria-label="Available routes"></div>
                 <article id="route-explorer-detail" class="route-explorer-detail" aria-live="polite"></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-my-safari home-featured" aria-labelledby="home-my-safari-title">
+        <div class="container home-feature-grid">
+            <div>
+                <span class="section-eyebrow">Your planning workspace</span>
+                <h2 id="home-my-safari-title">Keep the whole journey in My Safari</h2>
+                <p>Bring dates, daily drives, fuel checks, accommodation ideas, expenses and packing into one editable plan. Sign in only if you want cloud sync or collaboration.</p>
+                <div class="home-feature-actions">
+                    <a class="btn btn-primary" href="/my-safari">Open My Safari</a>
+                    <a class="home-text-link open-ai-planner" href="#" id="home-open-ai-planner"><i class="fas fa-sparkles" aria-hidden="true"></i> Or create a first draft with AI</a>
+                </div>
+            </div>
+            <ul class="home-feature-checks" aria-label="My Safari features">
+                <li><i class="fas fa-calendar-days" aria-hidden="true"></i><span><strong>Day-by-day itinerary</strong>Editable stops, dates and driving transitions</span></li>
+                <li><i class="fas fa-gas-pump" aria-hidden="true"></i><span><strong>Practical logistics</strong>Fuel anchors, route checks and gate reminders</span></li>
+                <li><i class="fas fa-wallet" aria-hidden="true"></i><span><strong>Trip readiness</strong>Budget, packing and shared planning in one place</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="home-essential-tools home-featured" aria-labelledby="home-tools-title">
+        <div class="container">
+            <div class="section-header section-header--compact">
+                <span class="section-eyebrow">Essential tools</span>
+                <h2 id="home-tools-title">Check the details before you travel</h2>
+                <p>Open the planning reference you need without searching through the full website.</p>
+            </div>
+            <div class="home-tools-grid">
+                <a href="/plan"><i class="fas fa-passport" aria-hidden="true"></i><span><strong>Visa matrix</strong>Check entry planning by passport</span></a>
+                <a href="/borders"><i class="fas fa-road-barrier" aria-hidden="true"></i><span><strong>Border guides</strong>Documents, hours and vehicle checks</span></a>
+                <a href="/parks"><i class="fas fa-tree" aria-hidden="true"></i><span><strong>Park information</strong>Fees, seasons and official links</span></a>
+                <a href="/planning-checklist"><i class="fas fa-list-check" aria-hidden="true"></i><span><strong>Planning checklist</strong>Documents and departure essentials</span></a>
+                <a href="/cost-estimator"><i class="fas fa-coins" aria-hidden="true"></i><span><strong>Cost estimator</strong>Create an indicative travel budget</span></a>
             </div>
         </div>
     </section>
@@ -1504,7 +1536,7 @@
     </section>
 
     <!-- Newsletter -->
-    <section class="newsletter">
+    <section class="newsletter home-featured">
         <div class="container">
             <h2>Get Traveler Updates</h2>
             <p>Route news, seasonal tips, and planning updates — or grab the <a href="#planning-checklist">free self-drive checklist</a> if you have not already.</p>

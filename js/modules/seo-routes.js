@@ -12,9 +12,9 @@ import {
     navigateToItinerary,
     navigateToListing,
     navigateToPark,
+    navigateToPlanningGuide,
+    navigateToRoute,
     parkPath,
-    planningGuidePath,
-    routePath,
     scrollToSection,
 } from '../lib/router.js';
 import { getCountryMeta } from '../lib/country-meta.js';
@@ -70,7 +70,7 @@ function bindSeoLinks() {
             handleSeoRoute({ type: 'itinerary', itineraryId: itinMatch[1] });
         } else if (routeMatch && getRouteById(routeMatch[1])) {
             e.preventDefault();
-            history.pushState({ view: 'route', routeId: routeMatch[1] }, '', routePath(routeMatch[1]));
+            navigateToRoute(routeMatch[1]);
             handleSeoRoute({ type: 'route', routeId: routeMatch[1] });
         } else if (stayMatch && getListingById(stayMatch[1])?.kind === 'stay') {
             e.preventDefault();
@@ -82,7 +82,7 @@ function bindSeoLinks() {
             handleSeoRoute({ type: 'listing', listingId: operatorMatch[1] });
         } else if (guideMatch && guidesData.guides[guideMatch[1]]) {
             e.preventDefault();
-            history.pushState({ view: 'planning-guide', countryId: guideMatch[1] }, '', planningGuidePath(guideMatch[1]));
+            navigateToPlanningGuide(guideMatch[1]);
             handleSeoRoute({ type: 'planning-guide', countryId: guideMatch[1] });
         }
     });
@@ -155,4 +155,4 @@ export function closeSeoRoute(sectionId = null) {
     }
 }
 
-export { parkPath, borderPath, itineraryPath, listingPath, routePath };
+export { parkPath, borderPath, itineraryPath, listingPath, routePath } from '../lib/router.js';

@@ -29,6 +29,24 @@ export const HOME_META = {
 
 const HUB_SECTIONS = [
     {
+        id: 'routes',
+        title: 'Southern Africa Route Explorer',
+        description: 'Compare researched road-trip and safari routes across nine Southern Africa countries, then save a route to your personal trip workspace.',
+        priority: '0.9',
+    },
+    {
+        id: 'my-safari',
+        title: 'My Safari Trip Planner',
+        description: 'Build your Southern Africa trip in one place with saved routes, dates, countries, notes, checklists, and planning progress.',
+        priority: '0.85',
+    },
+    {
+        id: 'cost-estimator',
+        title: 'Southern Africa Trip Cost Estimator',
+        description: 'Estimate accommodation, transport, park fees, food, and other costs for an independent Southern Africa journey.',
+        priority: '0.7',
+    },
+    {
         id: 'plan',
         title: 'Travel Tools & Trip Planner',
         description: 'Visa matrix, packing lists, expense tracker, currency converter, and printable trip checklists for Southern Africa self-drive and safari trips.',

@@ -36,7 +36,7 @@ export const NAV_JOURNEY_GROUPS = [
         id: 'plan-trip',
         label: 'Plan trip',
         items: [
-            { href: '#hub-my-safari', label: 'My Safari' },
+            { href: '/my-safari', label: 'My Safari' },
             { href: '#route-explorer', label: 'Route Explorer' },
             { href: '#itineraries', label: 'Itineraries' },
             { href: '#book-direct', label: 'Book direct' },

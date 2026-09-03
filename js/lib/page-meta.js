@@ -29,6 +29,18 @@ const HOME_META = {
 };
 
 const HUB_META = {
+    'route-explorer': {
+        title: 'Southern Africa Route Explorer',
+        description: 'Compare researched road-trip and safari routes across nine Southern Africa countries, then save a route to your personal trip workspace.',
+    },
+    'hub-my-safari': {
+        title: 'My Safari Trip Planner',
+        description: 'Build your Southern Africa trip in one place with saved routes, dates, countries, notes, checklists, and planning progress.',
+    },
+    'cost-estimator': {
+        title: 'Southern Africa Trip Cost Estimator',
+        description: 'Estimate accommodation, transport, park fees, food, and other costs for an independent Southern Africa journey.',
+    },
     plan: {
         title: 'Travel Tools & Trip Planner',
         description: 'Visa matrix, packing lists, expense tracker, currency converter, and printable trip checklists for Southern Africa self-drive and safari trips.',
@@ -176,7 +188,11 @@ export function setHubMeta(sectionId) {
         return;
     }
 
-    const path = `/${sectionId}`;
+    const publicPaths = {
+        'route-explorer': '/routes',
+        'hub-my-safari': '/my-safari',
+    };
+    const path = publicPaths[sectionId] || `/${sectionId}`;
     applyMeta({
         title: `${hub.title} | ${SITE_NAME}`,
         description: hub.description,

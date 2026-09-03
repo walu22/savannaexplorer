@@ -15,6 +15,7 @@ import { initNav } from './modules/nav.js';
 import { initScrollUx } from './modules/scroll-ux.js';
 import { initReveal } from './modules/reveal.js';
 import { initOfflineManager } from './modules/offline-manager.js';
+import { initHomeLayout } from './modules/home-layout.js';
 
 function whenIdle(callback) {
     if (typeof requestIdleCallback === 'function') {
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollUx();
     initReveal();
     initOfflineManager();
+    initHomeLayout();
 
     import('./modules/share.js').then(({ initShare }) => initShare());
 

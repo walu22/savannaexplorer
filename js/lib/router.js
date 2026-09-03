@@ -21,7 +21,18 @@ export const HUB_SECTIONS = new Set([
     'book-direct', 'plan', 'guides', 'tourism-stats', 'itineraries', 'destinations',
     'home', 'about', 'news', 'contact', 'cultures', 'gastronomy',
     'experiences', 'top-destinations', 'travel-essentials', 'planning-checklist',
+    'route-explorer', 'hub-my-safari', 'cost-estimator', 'packing-list',
+    'phrasebook', 'campsites', 'safari-bingo',
 ]);
+
+const HUB_PATH_ALIASES = new Map([
+    ['routes', 'route-explorer'],
+    ['my-safari', 'hub-my-safari'],
+]);
+
+function announceRouteChange() {
+    window.dispatchEvent(new CustomEvent('savanna:routechange'));
+}
 
 export function countryPath(countryId) {
     return `/countries/${countryId}`;
@@ -98,6 +109,9 @@ export function parseLocation(loc = window.location) {
     }
 
     const hubMatch = pathname.match(/^\/([a-z0-9-]+)\/?$/);
+    if (hubMatch && HUB_PATH_ALIASES.has(hubMatch[1])) {
+        return { type: 'home', sectionHash: HUB_PATH_ALIASES.get(hubMatch[1]) };
+    }
     if (hubMatch && HUB_SECTIONS.has(hubMatch[1])) {
         return { type: 'home', sectionHash: hubMatch[1] === 'home' ? null : hubMatch[1] };
     }
@@ -116,6 +130,7 @@ export function navigateToCountry(countryId, { replace = false } = {}) {
     const state = { view: 'country', countryId };
     if (replace) history.replaceState(state, '', url);
     else history.pushState(state, '', url);
+    announceRouteChange();
 }
 
 export function navigateToPark(parkId, { replace = false } = {}) {
@@ -124,6 +139,7 @@ export function navigateToPark(parkId, { replace = false } = {}) {
     const state = { view: 'park', parkId };
     if (replace) history.replaceState(state, '', url);
     else history.pushState(state, '', url);
+    announceRouteChange();
 }
 
 export function navigateToBorder(borderId, { replace = false } = {}) {
@@ -132,6 +148,7 @@ export function navigateToBorder(borderId, { replace = false } = {}) {
     const state = { view: 'border', borderId };
     if (replace) history.replaceState(state, '', url);
     else history.pushState(state, '', url);
+    announceRouteChange();
 }
 
 export function navigateToItinerary(itineraryId, { replace = false } = {}) {
@@ -140,6 +157,7 @@ export function navigateToItinerary(itineraryId, { replace = false } = {}) {
     const state = { view: 'itinerary', itineraryId };
     if (replace) history.replaceState(state, '', url);
     else history.pushState(state, '', url);
+    announceRouteChange();
 }
 
 export function navigateToRoute(routeId, { replace = false } = {}) {
@@ -148,6 +166,16 @@ export function navigateToRoute(routeId, { replace = false } = {}) {
     const state = { view: 'route', routeId };
     if (replace) history.replaceState(state, '', url);
     else history.pushState(state, '', url);
+    announceRouteChange();
+}
+
+export function navigateToPlanningGuide(countryId, { replace = false } = {}) {
+    if (!guidesData.guides[countryId]) return;
+    const url = planningGuidePath(countryId);
+    const state = { view: 'planning-guide', countryId };
+    if (replace) history.replaceState(state, '', url);
+    else history.pushState(state, '', url);
+    announceRouteChange();
 }
 
 export function navigateToListing(listingId, { replace = false } = {}) {
@@ -157,6 +185,7 @@ export function navigateToListing(listingId, { replace = false } = {}) {
     const state = { view: 'listing', listingId };
     if (replace) history.replaceState(state, '', url);
     else history.pushState(state, '', url);
+    announceRouteChange();
 }
 
 export function navigateHome(sectionId = null, { replace = false } = {}) {
@@ -164,11 +193,13 @@ export function navigateHome(sectionId = null, { replace = false } = {}) {
     const state = { view: 'home', sectionId };
     if (replace) history.replaceState(state, '', url);
     else history.pushState(state, '', url);
+    announceRouteChange();
 }
 
 export function replaceWithCountryPath(countryId) {
     if (!countries[countryId]) return;
     history.replaceState({ view: 'country', countryId }, '', countryPath(countryId));
+    announceRouteChange();
 }
 
 export function scrollToSection(sectionId) {
