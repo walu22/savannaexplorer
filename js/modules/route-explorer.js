@@ -1,5 +1,6 @@
 import routeCollection from '../../data/route-collections.json';
 import { filterRouteCollection, routeToTripTemplate } from '../lib/route-collection.js';
+import { MAX_COMPARE_ROUTES, normalizeComparisonIds, routeCostSignal, toggleComparisonId } from '../lib/route-comparison.js';
 import { mountRouteCollectionMap, destroyRouteCollectionMap } from '../lib/itinerary-maps.js';
 import { createTrip } from '../lib/trip-store.js';
 import { navigateHome, navigateToRoute, routePath, scrollToSection } from '../lib/router.js';
@@ -44,6 +45,10 @@ let selectedRouteId = routes[0]?.id || '';
 let sectionIsNearViewport = false;
 let visibilityObserver = null;
 let explorerActivated = false;
+let comparisonIds = [];
+let comparisonOpen = false;
+
+const COMPARISON_STORAGE_KEY = 'se_route_comparison_v1';
 
 function escapeHtml(value) {
     return String(value || '').replace(/[&<>"']/g, char => ({
@@ -126,6 +131,100 @@ function filteredRoutes() {
     return filterRouteCollection(routes, filters);
 }
 
+function restoreComparison() {
+    try {
+        comparisonIds = normalizeComparisonIds(JSON.parse(localStorage.getItem(COMPARISON_STORAGE_KEY) || '[]'), routes);
+    } catch {
+        comparisonIds = [];
+    }
+}
+
+function saveComparison() {
+    try {
+        localStorage.setItem(COMPARISON_STORAGE_KEY, JSON.stringify(comparisonIds));
+    } catch {
+        // Comparison remains available for the current page when storage is unavailable.
+    }
+}
+
+function comparisonRoutes() {
+    return comparisonIds.map(id => routes.find(route => route.id === id)).filter(Boolean);
+}
+
+function renderComparison() {
+    const root = document.getElementById('route-comparison');
+    if (!root) return;
+    const selected = comparisonRoutes();
+    if (!comparisonOpen || selected.length < 2) {
+        root.hidden = true;
+        root.innerHTML = '';
+        return;
+    }
+
+    const row = (label, renderValue) => `<tr><th scope="row">${escapeHtml(label)}</th>${selected.map(route => `<td>${renderValue(route)}</td>`).join('')}</tr>`;
+    const logisticsFor = route => routeLogisticsSummary(getRouteLogistics(route.id), getEditorialLogistics(route.id));
+    root.hidden = false;
+    root.innerHTML = `
+        <div class="route-comparison__heading">
+            <div><span class="section-eyebrow">Side-by-side decision</span><h3 id="route-comparison-title" tabindex="-1">Which route fits your trip?</h3></div>
+            <button type="button" class="route-comparison__close" data-compare-close aria-label="Close route comparison">&times;</button>
+        </div>
+        <p class="route-comparison__intro">The cost level is a relative planning signal based on duration, vehicle and route complexity—not a live price quote.</p>
+        <div class="route-comparison__scroll" tabindex="0" aria-label="Scrollable route comparison table">
+            <table>
+                <thead><tr><th scope="col">Compare</th>${selected.map(route => `<th scope="col"><a href="${escapeHtml(routePath(route.id))}" data-route-select="${escapeHtml(route.id)}">${escapeHtml(route.title)}</a></th>`).join('')}</tr></thead>
+                <tbody>
+                    ${row('Countries', route => escapeHtml(countryNames(route)))}
+                    ${row('Trip length', route => `<strong>${escapeHtml(route.duration.label)}</strong>`)}
+                    ${row('Relative cost planning', route => { const signal = routeCostSignal(route); return `<strong class="route-cost-signal route-cost-signal--${signal.level.toLowerCase()}">${escapeHtml(signal.level)}</strong><small>${escapeHtml(signal.reasons.join(' · '))}</small>`; })}
+                    ${row('Vehicle', route => `<strong>${escapeHtml(route.vehicle.label)}</strong>`)}
+                    ${row('Road planning', route => { const summary = logisticsFor(route); return `<strong>${summary.needsLocalCheck ? `${summary.mappedLegCount} of ${summary.legCount} legs mapped` : `${summary.distanceKm.toLocaleString()} km estimated`}</strong><small>${escapeHtml(formatDriveMinutes(summary.driveMinutes))} mapped driving · ${route.readiness === 'green' ? 'map ready' : 'check conditions'}</small>`; })}
+                    ${row('Stops', route => `<strong>${route.stops.length}</strong>`)}
+                    ${row('Best season', route => `<strong>${escapeHtml(route.bestSeason.label)}</strong><small>${escapeHtml(route.bestSeason.reason)}</small>`)}
+                    ${row('Best for', route => escapeHtml(route.travellerTypes.join(' · ')))}
+                    ${row('Highlights', route => `<ul>${route.highlights.slice(0, 3).map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`)}
+                    ${row('Main planning check', route => escapeHtml(route.warnings[0]))}
+                    ${row('Choose route', route => `<button type="button" class="btn btn-primary btn-sm" data-compare-start="${escapeHtml(route.id)}">Start in My Safari</button>`)}
+                </tbody>
+            </table>
+        </div>
+    `;
+}
+
+function renderCompareTray(message = '') {
+    const tray = document.getElementById('route-compare-tray');
+    const chips = document.getElementById('route-compare-chips');
+    const summary = document.getElementById('route-compare-summary');
+    const open = document.getElementById('route-compare-open');
+    if (!tray || !chips || !summary || !open) return;
+    const selected = comparisonRoutes();
+    tray.hidden = selected.length === 0;
+    chips.innerHTML = selected.map(route => `<button type="button" data-compare-remove="${escapeHtml(route.id)}" aria-label="Remove ${escapeHtml(route.title)} from comparison">${escapeHtml(route.title)} <span aria-hidden="true">&times;</span></button>`).join('');
+    open.disabled = selected.length < 2;
+    summary.textContent = message || (selected.length < 2
+        ? 'Choose one more route to compare.'
+        : `${selected.length} routes selected. You can compare up to ${MAX_COMPARE_ROUTES}.`);
+    if (selected.length < 2) comparisonOpen = false;
+    renderComparison();
+}
+
+function toggleRouteComparison(routeId) {
+    const result = toggleComparisonId(comparisonIds, routeId, routes);
+    comparisonIds = result.ids;
+    saveComparison();
+    renderCards(filteredRoutes());
+    renderDetail(routes.find(route => route.id === selectedRouteId));
+    const route = routes.find(item => item.id === routeId);
+    const message = result.outcome === 'limit'
+        ? `You can compare up to ${MAX_COMPARE_ROUTES} routes. Remove one before adding another.`
+        : result.outcome === 'added'
+            ? `${route?.title || 'Route'} added to your comparison.`
+            : result.outcome === 'removed'
+                ? `${route?.title || 'Route'} removed from your comparison.`
+                : 'That route could not be added.';
+    renderCompareTray(message);
+}
+
 function renderCards(visible) {
     const grid = document.getElementById('route-explorer-results');
     const count = document.getElementById('route-explorer-count');
@@ -136,7 +235,7 @@ function renderCards(visible) {
         return;
     }
     grid.innerHTML = visible.map(route => `
-        <article class="route-explorer-card${route.id === selectedRouteId ? ' is-selected' : ''}">
+        <article class="route-explorer-card${route.id === selectedRouteId ? ' is-selected' : ''}${comparisonIds.includes(route.id) ? ' is-comparing' : ''}">
             <div class="route-explorer-card__top">
                 <span>${escapeHtml(countryNames(route))}</span>
                 <span class="route-readiness route-readiness--${escapeHtml(route.readiness)}">${route.readiness === 'green' ? 'Map ready' : 'Check conditions'}</span>
@@ -148,7 +247,10 @@ function renderCards(visible) {
                 <span><i class="fas fa-car"></i> ${escapeHtml(route.vehicle.label)}</span>
                 <span><i class="fas fa-location-dot"></i> ${route.stops.length} stops</span>
             </div>
-            <a class="btn btn-outline btn-sm" href="${escapeHtml(routePath(route.id))}" data-route-select="${escapeHtml(route.id)}" aria-current="${route.id === selectedRouteId ? 'page' : 'false'}">Explore route</a>
+            <div class="route-explorer-card__actions">
+                <a class="btn btn-outline btn-sm" href="${escapeHtml(routePath(route.id))}" data-route-select="${escapeHtml(route.id)}" aria-current="${route.id === selectedRouteId ? 'page' : 'false'}">Explore route</a>
+                <button type="button" class="route-compare-toggle" data-route-compare="${escapeHtml(route.id)}" aria-pressed="${comparisonIds.includes(route.id)}"><i class="fas fa-scale-balanced" aria-hidden="true"></i> ${comparisonIds.includes(route.id) ? 'Selected' : 'Compare'}</button>
+            </div>
         </article>
     `).join('');
 }
@@ -172,6 +274,7 @@ function renderDetail(route) {
             <div class="route-detail-actions">
                 <label>Optional start date<input type="date" id="route-template-start-date"></label>
                 <button type="button" class="btn btn-primary" data-route-start="${escapeHtml(route.id)}"><i class="fas fa-route"></i> Start in My Safari</button>
+                <button type="button" class="btn btn-outline" data-route-compare="${escapeHtml(route.id)}" aria-pressed="${comparisonIds.includes(route.id)}"><i class="fas fa-scale-balanced" aria-hidden="true"></i> ${comparisonIds.includes(route.id) ? 'Selected for comparison' : 'Add to comparison'}</button>
             </div>
         </div>
         <div class="route-detail-facts" aria-label="Route planning facts">
@@ -222,6 +325,7 @@ function render() {
     if (!visible.some(route => route.id === selectedRouteId)) selectedRouteId = visible[0]?.id || '';
     renderCards(visible);
     renderDetail(visible.find(route => route.id === selectedRouteId));
+    renderCompareTray();
 }
 
 export function openRouteExplorer(routeId) {
@@ -254,6 +358,7 @@ function startRoute(routeId) {
 export function initRouteExplorer() {
     const section = document.getElementById('route-explorer');
     if (!section) return;
+    restoreComparison();
     const shouldActivateImmediately = window.location.pathname.startsWith('/routes/')
         || window.location.hash === '#route-explorer';
     if (shouldActivateImmediately) {
@@ -304,6 +409,9 @@ export function initRouteExplorer() {
     section.addEventListener('click', event => {
         const select = event.target.closest('[data-route-select]');
         const start = event.target.closest('[data-route-start]');
+        const compare = event.target.closest('[data-route-compare]');
+        const removeCompare = event.target.closest('[data-compare-remove]');
+        const compareStart = event.target.closest('[data-compare-start]');
         if (select) {
             event.preventDefault();
             selectedRouteId = select.dataset.routeSelect;
@@ -313,6 +421,28 @@ export function initRouteExplorer() {
             document.querySelector('#route-explorer-detail h3')?.focus({ preventScroll: true });
         } else if (start) {
             startRoute(start.dataset.routeStart);
+        } else if (compare) {
+            toggleRouteComparison(compare.dataset.routeCompare);
+        } else if (removeCompare) {
+            toggleRouteComparison(removeCompare.dataset.compareRemove);
+        } else if (compareStart) {
+            startRoute(compareStart.dataset.compareStart);
+        } else if (event.target.closest('#route-compare-open')) {
+            comparisonOpen = true;
+            renderComparison();
+            document.getElementById('route-comparison-title')?.focus({ preventScroll: true });
+            document.getElementById('route-comparison')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (event.target.closest('#route-compare-clear')) {
+            comparisonIds = [];
+            comparisonOpen = false;
+            saveComparison();
+            renderCards(filteredRoutes());
+            renderDetail(routes.find(route => route.id === selectedRouteId));
+            renderCompareTray();
+        } else if (event.target.closest('[data-compare-close]')) {
+            comparisonOpen = false;
+            renderComparison();
+            document.getElementById('route-compare-open')?.focus();
         } else if (event.target.closest('[data-route-print]')) {
             window.print();
         }

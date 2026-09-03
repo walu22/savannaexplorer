@@ -377,6 +377,21 @@
                 <a class="route-explorer-all-link" href="/routes">View all 19 routes <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
             </div>
 
+            <aside id="route-compare-tray" class="route-compare-tray" aria-labelledby="route-compare-tray-title" hidden>
+                <div>
+                    <span class="section-eyebrow">Shortlist</span>
+                    <h3 id="route-compare-tray-title">Compare routes</h3>
+                    <p id="route-compare-summary" aria-live="polite">Choose two or three routes to compare.</p>
+                </div>
+                <div id="route-compare-chips" class="route-compare-chips" aria-label="Routes selected for comparison"></div>
+                <div class="route-compare-tray__actions">
+                    <button type="button" class="btn btn-primary btn-sm" id="route-compare-open" disabled>Compare selected</button>
+                    <button type="button" class="btn btn-outline btn-sm" id="route-compare-clear">Clear</button>
+                </div>
+            </aside>
+
+            <section id="route-comparison" class="route-comparison" aria-labelledby="route-comparison-title" hidden></section>
+
             <div class="route-explorer-layout">
                 <div id="route-explorer-results" class="route-explorer-results" aria-label="Available routes"></div>
                 <article id="route-explorer-detail" class="route-explorer-detail" aria-live="polite"></article>

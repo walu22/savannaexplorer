@@ -60,6 +60,37 @@ test('dedicated route URL restores its route and metadata', async ({ page }) => 
     await expect(page.locator('#seo-prerender')).toHaveCount(0);
 });
 
+test('traveller can compare routes and choose one for My Safari', async ({ page }) => {
+    test.setTimeout(90_000);
+    await page.goto('/routes', { waitUntil: 'domcontentloaded' });
+    const explorer = page.locator('#route-explorer');
+    await expect(explorer.locator('.route-explorer-card')).toHaveCount(19);
+
+    const namibia = explorer.locator('.route-explorer-card').filter({ hasText: 'Namibia Essentials' });
+    const gardenRoute = explorer.locator('.route-explorer-card').filter({ hasText: 'Cape Town and Garden Route' });
+    await namibia.getByRole('button', { name: 'Compare' }).click();
+    await gardenRoute.getByRole('button', { name: 'Compare' }).click();
+
+    const tray = explorer.locator('#route-compare-tray');
+    await expect(tray).toBeVisible();
+    await expect(tray.locator('#route-compare-chips button')).toHaveCount(2);
+    await tray.getByRole('button', { name: 'Compare selected' }).click();
+
+    const comparison = explorer.locator('#route-comparison');
+    await expect(comparison).toBeVisible();
+    await expect(comparison.getByRole('heading', { name: 'Which route fits your trip?' })).toBeVisible();
+    await expect(comparison.getByRole('rowheader', { name: 'Relative cost planning' })).toBeVisible();
+    await expect(comparison.getByText('Namibia Essentials', { exact: true })).toBeVisible();
+    await expect(comparison.getByText('Cape Town and Garden Route', { exact: true })).toBeVisible();
+
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await expect(explorer.locator('#route-compare-chips button')).toHaveCount(2);
+    await explorer.locator('#route-compare-open').click();
+    await explorer.locator('#route-comparison').getByRole('button', { name: 'Start in My Safari' }).nth(1).click();
+    await expect(page).toHaveURL(/\/my-safari$/);
+    await expect(page.locator('#my-safari-active-name')).toHaveText('Cape Town and Garden Route');
+});
+
 test('Route Explorer has no serious accessibility violations', async ({ page }) => {
     test.setTimeout(90_000);
     await page.goto('/#route-explorer', { waitUntil: 'domcontentloaded' });
