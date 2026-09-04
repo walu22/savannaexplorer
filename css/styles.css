@@ -6564,3 +6564,192 @@ footer {
 .hub-visa-detail--action summary {
     color: #ffd166;
 }
+
+/* ─── UI Enhancement: Collapsible Article Text ─── */
+.guide-article p.collapsible-text {
+    max-height: 7.2em;
+    overflow: hidden;
+    position: relative;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.guide-article p.collapsible-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3em;
+    background: linear-gradient(transparent, var(--bg-cream, #fdfbf7));
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.guide-article p.collapsible-text.expanded {
+    max-height: 250em;
+}
+
+.guide-article p.collapsible-text.expanded::after {
+    opacity: 0;
+}
+
+.read-more-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent, #b87333);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.read-more-toggle:hover {
+    background: var(--accent, #b87333);
+    color: white;
+    border-color: var(--accent, #b87333);
+}
+
+.read-more-toggle i {
+    font-size: 0.65rem;
+    transition: transform 0.3s ease;
+}
+
+.read-more-toggle.toggled i {
+    transform: rotate(180deg);
+}
+
+/* ─── UI Enhancement: Country Highlights Chips ─── */
+.detail-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.detail-highlights:empty {
+    display: none;
+}
+
+.highlight-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+}
+
+.highlight-chip .chip-icon {
+    font-size: 0.9rem;
+}
+
+/* ─── UI Enhancement: Best Time For Grid ─── */
+.best-time-section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.best-time-section:empty {
+    display: none;
+}
+
+.best-time-section h3 {
+    font-family: var(--font-accent, serif);
+    font-size: 1.2rem;
+    color: var(--accent, #b87333);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.best-time-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+    gap: 0.75rem;
+}
+
+.best-time-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.25s ease;
+}
+
+.best-time-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.spot-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.65rem;
+}
+
+.spot-tags span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.65rem;
+    padding: 0.2rem 0.58rem;
+    border-radius: 999px;
+    background: rgba(26, 61, 50, 0.08);
+    color: var(--secondary, #1a3d32);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.best-time-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    width: 2rem;
+    text-align: center;
+}
+
+.best-time-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.best-time-activity {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--text-main, #1a1a1a);
+    margin: 0;
+}
+
+.best-time-months {
+    font-size: 0.78rem;
+    color: var(--text-muted, #777);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .best-time-grid {
+        grid-template-columns: 1fr;
+    }
+    .highlight-chip {
+        font-size: 0.72rem;
+        padding: 0.3rem 0.6rem;
+    }
+}

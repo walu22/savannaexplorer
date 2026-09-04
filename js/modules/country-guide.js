@@ -35,6 +35,7 @@ import { getCountryLastReviewed, lastReviewedLabel, toIsoReviewDate } from '../l
 import { getListingsForCountry, renderCountryBookRows } from './book-direct.js';
 import { closeMobileNav, setMainNavSuppressed } from './nav.js';
 import { syncOfflineButtonState } from './offline-manager.js';
+import { inferSpotTags } from '../lib/spot-tags.js';
 
 const detailView = document.getElementById('country-detail-view');
 const countryScroll = document.getElementById('country-detail-scroll');
@@ -98,6 +99,39 @@ function spotMetaHtml(spot) {
     return meta + tip;
 }
 
+function escapeHtml(value) {
+    return String(value || '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    })[char]);
+}
+
+function setCollapsibleText(el, text, threshold = 220) {
+    if (!el) return;
+    el.textContent = text || '';
+    el.classList.remove('collapsible-text', 'expanded');
+    const existingBtn = el.parentElement?.querySelector('.read-more-toggle');
+    if (existingBtn) existingBtn.remove();
+
+    if (!text || text.length <= threshold) return;
+
+    el.classList.add('collapsible-text');
+    const btn = document.createElement('button');
+    btn.className = 'read-more-toggle';
+    btn.type = 'button';
+    btn.setAttribute('aria-expanded', 'false');
+    if (el.id) btn.setAttribute('aria-controls', el.id);
+    btn.innerHTML = 'Read more <i class="fas fa-chevron-down"></i>';
+    el.after(btn);
+    btn.addEventListener('click', () => {
+        const isExpanded = el.classList.toggle('expanded');
+        btn.classList.toggle('toggled', isExpanded);
+        btn.setAttribute('aria-expanded', String(isExpanded));
+        btn.innerHTML = isExpanded
+            ? 'Show less <i class="fas fa-chevron-up"></i>'
+            : 'Read more <i class="fas fa-chevron-down"></i>';
+    });
+}
+
 function populateCountryPage(countryId) {
     const data = getFullCountryData(countryId);
     if (!data) return;
@@ -137,6 +171,13 @@ function populateCountryPage(countryId) {
         `;
     }
 
+    const highlightsEl = document.getElementById('detail-highlights');
+    if (highlightsEl) {
+        highlightsEl.innerHTML = data.highlights.map(item => `
+            <span class="highlight-chip"><span class="chip-icon" aria-hidden="true">${escapeHtml(item.icon)}</span>${escapeHtml(item.label)}</span>
+        `).join('');
+    }
+
     const aboutHeading = document.getElementById('detail-about-heading');
     const aboutIntro = document.getElementById('detail-about-intro');
     const summaryEl = document.getElementById('detail-summary');
@@ -170,18 +211,18 @@ function populateCountryPage(countryId) {
         summaryEl.textContent = data.about.summary || '';
         summaryEl.classList.toggle('hidden', !data.about.summary);
     }
-    if (gettingThereEl) gettingThereEl.textContent = data.about.gettingThere || '';
-    if (economyEl) economyEl.textContent = data.about.economy || '';
-
-    document.getElementById('detail-history').textContent = data.about.history || '';
-    document.getElementById('detail-wildlife').textContent = guide.wildlife;
-    detailGeo.textContent = data.about.geo;
-    detailPeople.textContent = data.about.people;
+    setCollapsibleText(detailGeo, data.about.geo);
+    setCollapsibleText(document.getElementById('detail-history'), data.about.history);
+    setCollapsibleText(detailPeople, data.about.people);
+    setCollapsibleText(document.getElementById('detail-wildlife'), guide.wildlife);
+    setCollapsibleText(gettingThereEl, data.about.gettingThere);
+    setCollapsibleText(economyEl, data.about.economy);
 
     detailSpotsGrid.innerHTML = data.spots.map(spot => `
         <div class="spot-detail-card">
             <img src="${spotImageUrl(spot)}" alt="${spot.name}" loading="lazy">
             <div class="spot-detail-info">
+                <div class="spot-tags" aria-label="Destination categories">${inferSpotTags(spot).map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
                 <h3>${spot.name}</h3>
                 <p>${spot.desc}</p>
                 ${spotMetaHtml(spot)}
@@ -262,6 +303,19 @@ function populateCountryPage(countryId) {
         `;
     } else if (weatherMatrix) {
         weatherMatrix.innerHTML = '';
+    }
+
+    const bestTimeEl = document.getElementById('detail-best-time');
+    if (bestTimeEl) {
+        bestTimeEl.innerHTML = data.bestTimeFor.length ? `
+            <h3><i class="fas fa-calendar-check" aria-hidden="true"></i> Best time for your interests</h3>
+            <div class="best-time-grid">
+                ${data.bestTimeFor.map(item => `<article class="best-time-card">
+                    <span class="best-time-icon" aria-hidden="true">${escapeHtml(item.icon)}</span>
+                    <div class="best-time-info"><p class="best-time-activity">${escapeHtml(item.activity)}</p><p class="best-time-months">${escapeHtml(item.months)}</p></div>
+                </article>`).join('')}
+            </div>
+        ` : '';
     }
 
     document.getElementById('detail-packing').innerHTML = guide.packing.map(item => `<li>${item}</li>`).join('');

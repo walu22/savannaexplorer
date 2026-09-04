@@ -65,7 +65,7 @@ test('Phrasebook remains visible, readable, and exposes accessible tabs', async 
     expect(contrastRatio(colors.foreground, colors.background)).toBeGreaterThanOrEqual(4.5);
 
     const tabs = section.getByRole('tab');
-    await expect(tabs).toHaveCount(4);
+    await expect(tabs).toHaveCount(10);
     await tabs.nth(1).click();
     await expect(tabs.nth(1)).toHaveAttribute('aria-selected', 'true');
     await expect(section.getByRole('tabpanel')).toHaveAttribute('aria-labelledby', 'phrasebook-tab-1');

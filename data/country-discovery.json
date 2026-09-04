@@ -1,0 +1,138 @@
+{
+  "namibia": {
+    "highlights": [
+      { "icon": "🏜️", "label": "Namib Desert" },
+      { "icon": "🦁", "label": "Etosha wildlife" },
+      { "icon": "🌊", "label": "Skeleton Coast" },
+      { "icon": "🪨", "label": "Ancient rock art" },
+      { "icon": "✨", "label": "Dark skies" }
+    ],
+    "bestTimeFor": [
+      { "icon": "🦁", "activity": "Etosha game viewing", "months": "Jun–Oct" },
+      { "icon": "🏜️", "activity": "Desert road trips", "months": "Apr–Oct" },
+      { "icon": "🦩", "activity": "Summer birding", "months": "Nov–Apr" },
+      { "icon": "✨", "activity": "Stargazing", "months": "May–Sep" }
+    ]
+  },
+  "south-africa": {
+    "highlights": [
+      { "icon": "🦁", "label": "Big Five country" },
+      { "icon": "⛰️", "label": "Table Mountain" },
+      { "icon": "🍷", "label": "Cape Winelands" },
+      { "icon": "🌊", "label": "Two-ocean coastline" },
+      { "icon": "🎭", "label": "Living heritage" }
+    ],
+    "bestTimeFor": [
+      { "icon": "🦁", "activity": "Kruger game viewing", "months": "May–Sep" },
+      { "icon": "🐋", "activity": "Cape whale watching", "months": "Jun–Nov" },
+      { "icon": "🌸", "activity": "West Coast wildflowers", "months": "Aug–Sep" },
+      { "icon": "🏖️", "activity": "Cape beach season", "months": "Dec–Feb" },
+      { "icon": "🥾", "activity": "Drakensberg hiking", "months": "Mar–May" }
+    ]
+  },
+  "botswana": {
+    "highlights": [
+      { "icon": "💧", "label": "Okavango Delta" },
+      { "icon": "🐘", "label": "Chobe elephants" },
+      { "icon": "🦁", "label": "Moremi wildlife" },
+      { "icon": "🧂", "label": "Makgadikgadi pans" },
+      { "icon": "🏕️", "label": "Remote wilderness" }
+    ],
+    "bestTimeFor": [
+      { "icon": "🛶", "activity": "Okavango waterways", "months": "Jun–Oct" },
+      { "icon": "🦁", "activity": "Dry-season safari", "months": "May–Oct" },
+      { "icon": "🦓", "activity": "Makgadikgadi zebra migration", "months": "Dec–Mar" },
+      { "icon": "🦅", "activity": "Green-season birding", "months": "Nov–Mar" }
+    ]
+  },
+  "zambia": {
+    "highlights": [
+      { "icon": "🌊", "label": "Victoria Falls" },
+      { "icon": "🐆", "label": "South Luangwa" },
+      { "icon": "🥾", "label": "Walking safaris" },
+      { "icon": "🛶", "label": "Lower Zambezi" },
+      { "icon": "🏞️", "label": "Wild rivers" }
+    ],
+    "bestTimeFor": [
+      { "icon": "🥾", "activity": "Walking safaris", "months": "Jun–Oct" },
+      { "icon": "🌊", "activity": "High-water Victoria Falls", "months": "Feb–May" },
+      { "icon": "🛶", "activity": "Lower Zambezi activities", "months": "May–Oct" },
+      { "icon": "🦅", "activity": "Migrant birding", "months": "Nov–Mar" }
+    ]
+  },
+  "zimbabwe": {
+    "highlights": [
+      { "icon": "🌊", "label": "Victoria Falls" },
+      { "icon": "🐘", "label": "Hwange wildlife" },
+      { "icon": "🛶", "label": "Mana Pools" },
+      { "icon": "🪨", "label": "Great Zimbabwe" },
+      { "icon": "⛰️", "label": "Eastern Highlands" }
+    ],
+    "bestTimeFor": [
+      { "icon": "🐘", "activity": "Hwange game viewing", "months": "Jul–Oct" },
+      { "icon": "🌊", "activity": "High-flow Victoria Falls", "months": "Feb–May" },
+      { "icon": "🛶", "activity": "Mana Pools canoe season", "months": "May–Oct" },
+      { "icon": "🥾", "activity": "Eastern Highlands hiking", "months": "Apr–Oct" }
+    ]
+  },
+  "mozambique": {
+    "highlights": [
+      { "icon": "🏝️", "label": "Indian Ocean islands" },
+      { "icon": "🐋", "label": "Marine giants" },
+      { "icon": "🦁", "label": "Gorongosa recovery" },
+      { "icon": "⛵", "label": "Dhow culture" },
+      { "icon": "🍤", "label": "Coastal cuisine" }
+    ],
+    "bestTimeFor": [
+      { "icon": "🏖️", "activity": "Beach travel", "months": "May–Oct" },
+      { "icon": "🐋", "activity": "Humpback whale season", "months": "Jul–Oct" },
+      { "icon": "🤿", "activity": "Diving and snorkelling", "months": "Apr–Jun · Sep–Nov" },
+      { "icon": "🦁", "activity": "Gorongosa safari", "months": "May–Oct" }
+    ]
+  },
+  "malawi": {
+    "highlights": [
+      { "icon": "🌊", "label": "Lake Malawi" },
+      { "icon": "🐘", "label": "Liwonde wildlife" },
+      { "icon": "⛰️", "label": "Mulanje massif" },
+      { "icon": "🐠", "label": "Freshwater diving" },
+      { "icon": "🤝", "label": "Warm Heart welcome" }
+    ],
+    "bestTimeFor": [
+      { "icon": "🏖️", "activity": "Lake beaches", "months": "May–Oct" },
+      { "icon": "🐘", "activity": "Wildlife viewing", "months": "May–Oct" },
+      { "icon": "🥾", "activity": "Highland hiking", "months": "Apr–Oct" },
+      { "icon": "🦅", "activity": "Summer birding", "months": "Nov–Apr" }
+    ]
+  },
+  "lesotho": {
+    "highlights": [
+      { "icon": "⛰️", "label": "Kingdom in the Sky" },
+      { "icon": "🐎", "label": "Basotho pony trails" },
+      { "icon": "🚙", "label": "Sani Pass" },
+      { "icon": "💧", "label": "Mountain waterfalls" },
+      { "icon": "🧶", "label": "Basotho culture" }
+    ],
+    "bestTimeFor": [
+      { "icon": "🥾", "activity": "Highland hiking", "months": "Mar–May" },
+      { "icon": "❄️", "activity": "Winter snow trips", "months": "Jun–Aug" },
+      { "icon": "🐎", "activity": "Pony trekking", "months": "Apr–Oct" },
+      { "icon": "🚙", "activity": "Sani Pass driving", "months": "Apr–May · Sep–Nov" }
+    ]
+  },
+  "eswatini": {
+    "highlights": [
+      { "icon": "🦏", "label": "Rhino encounters" },
+      { "icon": "👑", "label": "Royal traditions" },
+      { "icon": "⛰️", "label": "Compact highlands" },
+      { "icon": "🎨", "label": "Craft communities" },
+      { "icon": "🚗", "label": "Easy road loops" }
+    ],
+    "bestTimeFor": [
+      { "icon": "🦏", "activity": "Wildlife viewing", "months": "May–Sep" },
+      { "icon": "🥾", "activity": "Walking and cycling", "months": "Apr–Oct" },
+      { "icon": "🦅", "activity": "Summer birding", "months": "Nov–Apr" },
+      { "icon": "🎭", "activity": "Major cultural ceremonies", "months": "Dates vary annually" }
+    ]
+  }
+}

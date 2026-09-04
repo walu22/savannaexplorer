@@ -47,6 +47,78 @@
         { "english": "Yes", "local": "Ehe", "pronunciation": "eh-heh" },
         { "english": "Goodbye", "local": "Chisara zvakanaka", "pronunciation": "chee-sa-ra zva-ka-na-ka" }
       ]
+    },
+    {
+      "id": "isizulu",
+      "name": "isiZulu",
+      "regions": "South Africa, Eswatini",
+      "phrases": [
+        { "english": "Hello", "local": "Sawubona", "pronunciation": "sah-woo-boh-nah" },
+        { "english": "How are you?", "local": "Unjani?", "pronunciation": "oon-jah-nee" },
+        { "english": "Thank you", "local": "Ngiyabonga", "pronunciation": "ngee-yah-boh-ngah" },
+        { "english": "Please", "local": "Ngiyacela", "pronunciation": "ngee-yah-tseh-lah" },
+        { "english": "How much?", "local": "Malini?", "pronunciation": "mah-lee-nee" }
+      ]
+    },
+    {
+      "id": "isixhosa",
+      "name": "isiXhosa",
+      "regions": "South Africa",
+      "phrases": [
+        { "english": "Hello", "local": "Molo", "pronunciation": "moh-loh" },
+        { "english": "How are you?", "local": "Unjani?", "pronunciation": "oon-jah-nee" },
+        { "english": "Thank you", "local": "Enkosi", "pronunciation": "en-koh-see" },
+        { "english": "Please", "local": "Ndiyacela", "pronunciation": "n-dee-yah-tseh-lah" },
+        { "english": "How much?", "local": "Yimalini?", "pronunciation": "yee-mah-lee-nee" }
+      ]
+    },
+    {
+      "id": "chichewa",
+      "name": "Chichewa",
+      "regions": "Malawi, Zambia",
+      "phrases": [
+        { "english": "Hello", "local": "Moni", "pronunciation": "moh-nee" },
+        { "english": "How are you?", "local": "Muli bwanji?", "pronunciation": "moo-lee bwahn-jee" },
+        { "english": "Thank you", "local": "Zikomo", "pronunciation": "zee-koh-moh" },
+        { "english": "Please", "local": "Chonde", "pronunciation": "chon-deh" },
+        { "english": "Goodbye", "local": "Tsalani bwino", "pronunciation": "tsah-lah-nee bwin-oh" }
+      ]
+    },
+    {
+      "id": "sesotho",
+      "name": "Sesotho",
+      "regions": "Lesotho, South Africa",
+      "phrases": [
+        { "english": "Hello", "local": "Lumela", "pronunciation": "loo-meh-lah" },
+        { "english": "How are you?", "local": "U phela joang?", "pronunciation": "oo peh-lah jwahng" },
+        { "english": "Thank you", "local": "Kea leboha", "pronunciation": "keh-ah leh-boh-hah" },
+        { "english": "Please", "local": "Ka kopo", "pronunciation": "kah koh-poh" },
+        { "english": "Goodbye", "local": "Sala hantle", "pronunciation": "sah-lah hahn-tleh" }
+      ]
+    },
+    {
+      "id": "siswati",
+      "name": "siSwati",
+      "regions": "Eswatini, South Africa",
+      "phrases": [
+        { "english": "Hello", "local": "Sawubona", "pronunciation": "sah-woo-boh-nah" },
+        { "english": "How are you?", "local": "Unjani?", "pronunciation": "oon-jah-nee" },
+        { "english": "Thank you", "local": "Ngiyabonga", "pronunciation": "ngee-yah-boh-ngah" },
+        { "english": "Please", "local": "Ngiyacela", "pronunciation": "ngee-yah-tseh-lah" },
+        { "english": "Goodbye", "local": "Sala kahle", "pronunciation": "sah-lah gah-leh" }
+      ]
+    },
+    {
+      "id": "portuguese",
+      "name": "Portuguese",
+      "regions": "Mozambique",
+      "phrases": [
+        { "english": "Hello", "local": "Olá", "pronunciation": "oh-lah" },
+        { "english": "How are you?", "local": "Como está?", "pronunciation": "koh-moh es-tah" },
+        { "english": "Thank you", "local": "Obrigado / Obrigada", "pronunciation": "oh-bree-gah-doo / dah" },
+        { "english": "Please", "local": "Por favor", "pronunciation": "poor fah-vor" },
+        { "english": "How much?", "local": "Quanto custa?", "pronunciation": "kwahn-too koos-tah" }
+      ]
     }
   ]
 }

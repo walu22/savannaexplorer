@@ -2,6 +2,8 @@
 
 Southern Africa independent travel planning hub — country guides, route templates, parks, borders, and official resource links.
 
+Country guides now include concise article previews, destination-category tags, signature highlights, and interest-led seasonal guidance across all nine countries.
+
 ## About this site
 
 On the live site, open **About This Site** (`#about`) for our editorial policy, data sourcing, partner guidelines, and hub FAQs (including “Can you book my trip?”). Developer reference: `SOURCES.md` and `data/about.json`.

@@ -1,11 +1,18 @@
-import countries from '../../data/countries.json';
-import depth from '../../data/country-depth.json';
+import countries from '../../data/countries.json' with { type: 'json' };
+import depth from '../../data/country-depth.json' with { type: 'json' };
+import discovery from '../../data/country-discovery.json' with { type: 'json' };
 
 export function getFullCountryData(countryId) {
     const base = countries[countryId];
     const ext = depth[countryId];
+    const discoveryData = discovery[countryId] || {};
     if (!base) return null;
-    if (!ext) return { ...base, about: { ...base.about, summary: '', gettingThere: '', economy: '' } };
+    if (!ext) return {
+        ...base,
+        about: { ...base.about, summary: '', gettingThere: '', economy: '' },
+        highlights: discoveryData.highlights || [],
+        bestTimeFor: discoveryData.bestTimeFor || [],
+    };
 
     const mergedSpots = [...base.spots];
     for (const spot of ext.additionalSpots || []) {
@@ -30,6 +37,8 @@ export function getFullCountryData(countryId) {
             geo: ext.geoOverride || base.about.geo,
             people: ext.peopleOverride || base.about.people,
         },
+        highlights: discoveryData.highlights || ext.highlights || [],
+        bestTimeFor: discoveryData.bestTimeFor || ext.bestTimeFor || [],
         spots: mergedSpots,
         activities: mergedActivities,
         routes: ext.routesEnhanced || base.routes,
