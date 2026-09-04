@@ -77,8 +77,20 @@ test('traveller can build and rearrange a day-by-day safari route', async ({ pag
     await expect(route.locator('.route-day').nth(0).locator('.route-stop')).toHaveCount(0);
     await expect(route.locator('.route-day').nth(1).getByText('Etosha National Park', { exact: true })).toBeVisible();
 
+    await route.getByLabel('Trip length').fill('5');
+    await route.getByRole('button', { name: 'Update itinerary' }).click();
+    await expect(route.locator('.route-day')).toHaveCount(5);
+    await expect(route.getByRole('status')).toHaveText('Itinerary updated to 5 days.');
+    await expect(safari.locator('#my-safari-active-meta')).toContainText('Oct 14, 2026');
+
+    await route.getByLabel('Trip length').fill('2');
+    await route.getByRole('button', { name: 'Update itinerary' }).click();
+    await expect(route.locator('.route-day')).toHaveCount(2);
+    await expect(route.locator('.route-day').nth(1).getByText('Etosha National Park', { exact: true })).toBeVisible();
+    await expect(safari.locator('#my-safari-active-meta')).toContainText('Oct 11, 2026');
+
     await page.reload({ waitUntil: 'domcontentloaded' });
-    await expect(route.locator('.route-day')).toHaveCount(3);
+    await expect(route.locator('.route-day')).toHaveCount(2);
     await expect(route.locator('.route-day').nth(1).getByText('Etosha National Park', { exact: true })).toBeVisible();
 });
 

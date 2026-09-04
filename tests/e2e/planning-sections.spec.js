@@ -42,8 +42,8 @@ test('Safari Bingo remains visible, readable, and keyboard-operable', async ({ p
     await expect(section).toHaveClass(/reveal-active/);
     await expect(section.getByRole('heading', { name: /Safari Bingo/ })).toBeVisible();
 
+    await expect.poll(async () => (await sectionColors(page, '#safari-bingo', '.safari-bingo-header p')).opacity).toBe('1');
     const colors = await sectionColors(page, '#safari-bingo', '.safari-bingo-header p');
-    expect(colors.opacity).toBe('1');
     expect(contrastRatio(colors.foreground, colors.background)).toBeGreaterThanOrEqual(4.5);
 
     const firstCard = section.locator('.bingo-card').first();
@@ -60,8 +60,8 @@ test('Phrasebook remains visible, readable, and exposes accessible tabs', async 
     await expect(section).toHaveClass(/reveal-active/);
     await expect(section.getByRole('heading', { name: 'Essential Phrasebook' })).toBeVisible();
 
+    await expect.poll(async () => (await sectionColors(page, '#phrasebook', '.section-header h2')).opacity).toBe('1');
     const colors = await sectionColors(page, '#phrasebook', '.section-header h2');
-    expect(colors.opacity).toBe('1');
     expect(contrastRatio(colors.foreground, colors.background)).toBeGreaterThanOrEqual(4.5);
 
     const tabs = section.getByRole('tab');

@@ -51,7 +51,7 @@ The old root files `main.js`, `country-guide.js`, and `itinerary-data.js` were r
 - **Marketplace** activity inspiration with cost bands, planning tips, and official resource links (31 listings)
 - **Country guides** with regional breakdowns for every destination
 - **Trip checklist** — printable planner in Travel Tools (`#plan`): countries, route template, visa notes, official links, borders, packing
-- **My Safari** — separate cloud-synced trips, private collaboration invitations, and a day-by-day route builder
+- **My Safari** — separate cloud-synced trips, private collaboration invitations, and an interactive day-by-day itinerary builder with safe duration adjustment
 - Enriched guides for Zambia, Zimbabwe, Mozambique, Malawi, Lesotho, and Eswatini
 
 ### Production build

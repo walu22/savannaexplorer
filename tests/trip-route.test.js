@@ -6,6 +6,8 @@ import {
     createRouteDays,
     moveRouteStop,
     normalizeRouteDays,
+    resizeRouteDays,
+    routeEndDate,
     shiftRouteStop,
     updateRouteStop,
 } from '../js/lib/trip-route.js';
@@ -34,4 +36,17 @@ test('route normalization limits unsafe or oversized values', () => {
     assert.equal(days[0].stops[0].type, 'other');
     assert.equal(days[0].stops[0].time, '');
     assert.equal(days[0].stops[0].name, '<script>alert(1)</script>');
+});
+
+test('trip length can expand and safely condense an itinerary', () => {
+    let days = createRouteDays('2026-10-10', '2026-10-12');
+    days = addRouteStop(days, days[2].id, { type: 'park', name: 'Etosha' });
+    const expanded = resizeRouteDays(days, 5);
+    assert.equal(expanded.length, 5);
+    assert.equal(routeEndDate(expanded), '2026-10-14');
+
+    const condensed = resizeRouteDays(expanded, 2);
+    assert.equal(condensed.length, 2);
+    assert.equal(condensed[1].stops.at(-1).name, 'Etosha');
+    assert.equal(condensed.flatMap(day => day.stops).length, 1);
 });

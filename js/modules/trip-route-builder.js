@@ -1,10 +1,11 @@
 import {
-    addRouteDay,
     addRouteStop,
     createRouteDays,
     moveRouteStop,
     normalizeRouteDays,
     removeRouteStop,
+    resizeRouteDays,
+    routeEndDate,
     shiftRouteStop,
     updateRouteStop,
 } from '../lib/trip-route.js';
@@ -63,14 +64,16 @@ function formMarkup(days, prefix) {
     </form>`;
 }
 
-export function createRouteBuilder(root, { onChange = () => {} } = {}) {
+export function createRouteBuilder(root, { onChange = () => {}, autoSave = true } = {}) {
     if (!root) return { render() {} };
     let trip = null;
     let editable = false;
+    let notice = '';
 
-    const emit = days => {
+    const emit = (days, message = 'Changes saved on this device.', patch = {}) => {
         trip = { ...trip, routeDays: normalizeRouteDays(days) };
-        onChange(trip.routeDays);
+        notice = message;
+        onChange(trip.routeDays, patch);
         render();
     };
 
@@ -91,14 +94,36 @@ export function createRouteBuilder(root, { onChange = () => {} } = {}) {
         trip.routeDays = days;
         const prefix = `${root.id || 'route'}-form`;
         root.innerHTML = `<section class="trip-route-builder${editable ? '' : ' is-readonly'}">
-            <div class="trip-route-head"><div><span class="my-safari-shared-label"><i class="fas fa-route"></i> Day-by-day route</span><h5>Build the safari, stop by stop</h5><p>Drag stops between days or use the move controls on any device.</p></div>${editable ? `<div><button type="button" class="btn btn-outline btn-sm" data-route-add-day>Add day</button></div>` : ''}</div>
+            <div class="trip-route-head"><div><span class="my-safari-shared-label"><i class="fas fa-route"></i> Interactive itinerary</span><h5>Shape your safari, day by day</h5><p>Adjust the trip length, edit each stop, or drag stops between days.</p></div></div>
             ${!days.length ? `<div class="trip-route-empty"><p>No route days yet.</p>${editable ? `<button type="button" class="btn btn-primary btn-sm" data-route-create-days>Build days from trip dates</button>` : ''}</div>` : `
+                ${editable ? `<div class="trip-route-tools">
+                    <form class="trip-route-duration" data-route-duration-form>
+                        <label for="${prefix}-duration">Trip length</label>
+                        <div><input id="${prefix}-duration" name="duration" type="number" min="1" max="30" inputmode="numeric" value="${days.length}" required><span>days</span><button type="submit" class="btn btn-outline btn-sm">Update itinerary</button></div>
+                    </form>
+                    <p class="trip-route-save-status" role="status" aria-live="polite">${escapeHtml(notice || (autoSave ? 'Every change is saved automatically.' : 'Changes are ready when you save the shared plan.'))}</p>
+                </div>` : ''}
                 ${editable ? formMarkup(days, prefix) : ''}
-                <div class="trip-route-board">${days.map((day, index) => `<section class="route-day" data-route-day="${escapeHtml(day.id)}"><header><strong>${escapeHtml(dayLabel(day, index))}</strong><span>${day.stops.length} stop${day.stops.length === 1 ? '' : 's'}</span></header><div class="route-day-stops" data-route-drop="${escapeHtml(day.id)}">${day.stops.length ? day.stops.map(stop => stopMarkup(stop, day, days, editable)).join('') : '<p class="route-day-empty">Drop a stop here</p>'}</div></section>`).join('')}</div>`}
+                <div class="trip-route-board">${days.map((day, index) => `<section class="route-day" data-route-day="${escapeHtml(day.id)}"><header><div><strong>${escapeHtml(dayLabel(day, index))}</strong>${day.title ? `<small>${escapeHtml(day.title)}</small>` : ''}</div><span>${day.stops.length} stop${day.stops.length === 1 ? '' : 's'}</span></header><div class="route-day-stops" data-route-drop="${escapeHtml(day.id)}">${day.stops.length ? day.stops.map(stop => stopMarkup(stop, day, days, editable)).join('') : '<p class="route-day-empty">Drop a stop here</p>'}</div></section>`).join('')}</div>`}
         </section>`;
     };
 
     root.addEventListener('submit', event => {
+        const durationForm = event.target.closest('[data-route-duration-form]');
+        if (durationForm && editable) {
+            event.preventDefault();
+            const requested = Number(new FormData(durationForm).get('duration'));
+            const currentCount = trip.routeDays.length;
+            const days = resizeRouteDays(trip.routeDays, requested);
+            if (days.length === currentCount && requested !== currentCount) {
+                notice = 'This trip has too many stops to fit safely into that number of days.';
+                render();
+                return;
+            }
+            const endDate = routeEndDate(days);
+            emit(days, `Itinerary updated to ${days.length} day${days.length === 1 ? '' : 's'}.`, endDate ? { endDate } : {});
+            return;
+        }
         const form = event.target.closest('[data-route-form]');
         if (!form || !editable) return;
         event.preventDefault();
@@ -109,23 +134,21 @@ export function createRouteBuilder(root, { onChange = () => {} } = {}) {
         const current = stopId ? findStop(stopId) : null;
         let days = stopId ? updateRouteStop(trip.routeDays, stopId, input) : addRouteStop(trip.routeDays, targetDayId, input);
         if (stopId && current?.day.id !== targetDayId) days = moveRouteStop(days, stopId, targetDayId);
-        emit(days);
+        emit(days, stopId ? `Stop updated${autoSave ? ' and saved' : ''}.` : `Stop added${autoSave ? ' and saved' : ''}.`);
     });
 
     root.addEventListener('click', event => {
         if (!editable) return;
         const create = event.target.closest('[data-route-create-days]');
-        const addDay = event.target.closest('[data-route-add-day]');
         const remove = event.target.closest('[data-route-remove]');
         const earlier = event.target.closest('[data-route-earlier]');
         const later = event.target.closest('[data-route-later]');
         const edit = event.target.closest('[data-route-edit]');
         const cancel = event.target.closest('[data-route-cancel]');
-        if (create) emit(createRouteDays(trip.startDate, trip.endDate));
-        else if (addDay) emit(addRouteDay(trip.routeDays));
-        else if (remove) emit(removeRouteStop(trip.routeDays, remove.dataset.routeRemove));
-        else if (earlier) emit(shiftRouteStop(trip.routeDays, earlier.dataset.routeEarlier, -1));
-        else if (later) emit(shiftRouteStop(trip.routeDays, later.dataset.routeLater, 1));
+        if (create) emit(createRouteDays(trip.startDate, trip.endDate), 'Your dated itinerary is ready.');
+        else if (remove) emit(removeRouteStop(trip.routeDays, remove.dataset.routeRemove), autoSave ? 'Stop removed and itinerary saved.' : 'Stop removed.');
+        else if (earlier) emit(shiftRouteStop(trip.routeDays, earlier.dataset.routeEarlier, -1), 'Stop order updated.');
+        else if (later) emit(shiftRouteStop(trip.routeDays, later.dataset.routeLater, 1), 'Stop order updated.');
         else if (edit) {
             const found = findStop(edit.dataset.routeEdit);
             const form = root.querySelector('[data-route-form]');
@@ -141,7 +164,7 @@ export function createRouteBuilder(root, { onChange = () => {} } = {}) {
 
     root.addEventListener('change', event => {
         const select = event.target.closest('[data-route-move-day]');
-        if (select && editable) emit(moveRouteStop(trip.routeDays, select.dataset.routeMoveDay, select.value));
+        if (select && editable) emit(moveRouteStop(trip.routeDays, select.dataset.routeMoveDay, select.value), 'Stop moved to another day.');
     });
 
     root.addEventListener('dragstart', event => {
@@ -163,13 +186,15 @@ export function createRouteBuilder(root, { onChange = () => {} } = {}) {
         const card = event.target.closest('[data-route-stop]');
         const cards = [...target.querySelectorAll('[data-route-stop]')];
         const index = card ? cards.indexOf(card) : cards.length;
-        emit(moveRouteStop(trip.routeDays, stopId, target.dataset.routeDrop, index));
+        emit(moveRouteStop(trip.routeDays, stopId, target.dataset.routeDrop, index), 'Stop moved and saved.');
     });
 
     return {
         render(nextTrip, canEdit = false) {
+            const changedTrip = trip?.id !== nextTrip?.id;
             trip = nextTrip ? { ...nextTrip, routeDays: normalizeRouteDays(nextTrip.routeDays) } : null;
             editable = Boolean(canEdit);
+            if (changedTrip) notice = '';
             render();
         },
     };

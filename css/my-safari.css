@@ -151,6 +151,14 @@
 .trip-route-head h5 { margin: 0.3rem 0 0.15rem; color: var(--text-inverse); font-size: 1.05rem; }
 .trip-route-head p,
 .trip-route-empty p { margin: 0; color: rgba(247, 243, 237, 0.7); font-size: 0.8rem; }
+.trip-route-tools { display: flex; justify-content: space-between; gap: 1rem; align-items: end; margin-top: 0.9rem; padding: 0.75rem 0.8rem; border: 1px solid rgba(255, 255, 255, 0.11); border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.045); }
+.trip-route-duration { display: grid; gap: 0.3rem; }
+.trip-route-duration > label { color: rgba(247, 243, 237, 0.75); font-size: 0.74rem; font-weight: 700; }
+.trip-route-duration > div { display: flex; gap: 0.45rem; align-items: center; }
+.trip-route-duration input { width: 68px; min-height: 38px; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: var(--radius-sm); background: #241c17; color: var(--text-inverse); padding: 0.5rem; color-scheme: dark; }
+.trip-route-duration span,
+.trip-route-save-status { color: rgba(247, 243, 237, 0.7); font-size: 0.76rem; }
+.trip-route-save-status { margin: 0; text-align: right; }
 .trip-route-empty { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin-top: 0.85rem; padding: 0.9rem; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.05); }
 .route-stop-form { display: grid; grid-template-columns: minmax(110px, 0.7fr) minmax(100px, 0.6fr) minmax(170px, 1.2fr) minmax(150px, 1fr) 100px; gap: 0.6rem; align-items: end; margin-top: 1rem; padding: 0.8rem; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.06); }
 .route-stop-form label { display: grid; gap: 0.25rem; color: rgba(247, 243, 237, 0.75); font-size: 0.74rem; font-weight: 700; }
@@ -162,7 +170,9 @@
 .trip-route-board { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(270px, 1fr); gap: 0.75rem; overflow-x: auto; padding: 0.85rem 0 0.35rem; scroll-snap-type: x proximity; }
 .route-day { min-width: 0; border: 1px solid rgba(255, 255, 255, 0.13); border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.045); scroll-snap-align: start; }
 .route-day > header { display: flex; justify-content: space-between; gap: 0.5rem; padding: 0.7rem 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.11); }
+.route-day > header > div { display: grid; gap: 0.15rem; }
 .route-day > header strong { color: var(--text-inverse); font-size: 0.82rem; }
+.route-day > header small { max-width: 190px; color: rgba(247, 243, 237, 0.66); font-size: 0.7rem; line-height: 1.3; }
 .route-day > header span { color: rgba(247, 243, 237, 0.62); font-size: 0.72rem; }
 .route-day-stops { min-height: 100px; display: grid; align-content: start; gap: 0.55rem; padding: 0.65rem; }
 .route-day-empty { margin: auto; color: rgba(247, 243, 237, 0.55); font-size: 0.76rem; }
@@ -209,7 +219,10 @@
     .my-safari-panel-head { display: grid; }
     .my-safari-collaboration-grid { grid-template-columns: 1fr; }
     .trip-route-head,
-    .trip-route-empty { display: grid; }
+    .trip-route-empty,
+    .trip-route-tools { display: grid; }
+    .trip-route-save-status { text-align: left; }
+    .trip-route-duration > div { flex-wrap: wrap; }
     .route-stop-form { grid-template-columns: 1fr 1fr; }
     .route-stop-form-notes { grid-column: 1 / -1; }
     .route-stop-form-actions { grid-column: 1 / -1; }

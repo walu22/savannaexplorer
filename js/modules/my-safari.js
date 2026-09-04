@@ -388,19 +388,20 @@ export async function initMySafari() {
     if (!root) return;
     renderCountryChoices();
     localRouteBuilder = createRouteBuilder(document.getElementById('my-safari-route-builder'), {
-        onChange(routeDays) {
+        onChange(routeDays, tripPatch = {}) {
             const active = getActiveTrip();
-            if (active) updateTrip(active.id, { routeDays });
+            if (active) updateTrip(active.id, { routeDays, ...tripPatch });
         },
     });
     sharedRouteBuilder = createRouteBuilder(document.getElementById('shared-safari-route'));
     collaborationRouteBuilder = createRouteBuilder(document.getElementById('collaboration-safari-route'), {
-        onChange(routeDays) {
+        autoSave: false,
+        onChange(routeDays, tripPatch = {}) {
             if (!openCollaborativeTrip?.data) return;
             collaborationDirty = true;
             openCollaborativeTrip = {
                 ...openCollaborativeTrip,
-                data: { ...openCollaborativeTrip.data, routeDays },
+                data: { ...openCollaborativeTrip.data, routeDays, ...tripPatch },
             };
         },
     });

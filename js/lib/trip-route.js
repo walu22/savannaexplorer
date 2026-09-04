@@ -1,4 +1,4 @@
-const MAX_DAYS = 30;
+export const MAX_ROUTE_DAYS = 30;
 const MAX_STOPS_PER_DAY = 30;
 const STOP_TYPES = new Set(['drive', 'park', 'stay', 'border', 'activity', 'meal', 'other']);
 
@@ -12,7 +12,7 @@ function text(value, limit) {
 
 export function normalizeRouteDays(value) {
     if (!Array.isArray(value)) return [];
-    return value.slice(0, MAX_DAYS).map((day, dayIndex) => ({
+    return value.slice(0, MAX_ROUTE_DAYS).map((day, dayIndex) => ({
         id: text(day?.id, 128) || `route-day-${dayIndex + 1}`,
         date: /^\d{4}-\d{2}-\d{2}$/.test(day?.date || '') ? day.date : '',
         title: text(day?.title, 80),
@@ -31,7 +31,7 @@ export function createRouteDays(startDate, endDate) {
     const start = /^\d{4}-\d{2}-\d{2}$/.test(startDate || '') ? new Date(`${startDate}T12:00:00Z`) : null;
     const end = /^\d{4}-\d{2}-\d{2}$/.test(endDate || '') ? new Date(`${endDate}T12:00:00Z`) : null;
     const count = start && end && end >= start
-        ? Math.min(MAX_DAYS, Math.floor((end - start) / 86400000) + 1)
+        ? Math.min(MAX_ROUTE_DAYS, Math.floor((end - start) / 86400000) + 1)
         : 1;
     return Array.from({ length: count }, (_, index) => {
         const date = start ? new Date(start.getTime() + index * 86400000).toISOString().slice(0, 10) : '';
@@ -41,12 +41,39 @@ export function createRouteDays(startDate, endDate) {
 
 export function addRouteDay(days) {
     const next = normalizeRouteDays(days);
-    if (next.length >= MAX_DAYS) return next;
+    if (next.length >= MAX_ROUTE_DAYS) return next;
     const lastDate = next.at(-1)?.date;
     const date = lastDate
         ? new Date(new Date(`${lastDate}T12:00:00Z`).getTime() + 86400000).toISOString().slice(0, 10)
         : '';
     return [...next, { id: id('route-day'), date, title: '', stops: [] }];
+}
+
+export function resizeRouteDays(days, requestedCount) {
+    const current = normalizeRouteDays(days);
+    const count = Math.max(1, Math.min(MAX_ROUTE_DAYS, Math.round(Number(requestedCount) || 1)));
+    if (count === current.length) return current;
+    if (count > current.length) {
+        let expanded = current;
+        while (expanded.length < count) expanded = addRouteDay(expanded);
+        return expanded;
+    }
+
+    const retained = current.slice(0, count).map(day => ({ ...day, stops: [...day.stops] }));
+    const overflowStops = current.slice(count).flatMap(day => day.stops);
+    const availableCapacity = retained.reduce((total, day) => total + MAX_STOPS_PER_DAY - day.stops.length, 0);
+    if (overflowStops.length > availableCapacity) return current;
+
+    overflowStops.forEach(stop => {
+        const target = [...retained].reverse().find(day => day.stops.length < MAX_STOPS_PER_DAY);
+        target.stops.push(stop);
+    });
+    return retained;
+}
+
+export function routeEndDate(days) {
+    const lastDate = normalizeRouteDays(days).at(-1)?.date || '';
+    return /^\d{4}-\d{2}-\d{2}$/.test(lastDate) ? lastDate : '';
 }
 
 export function addRouteStop(days, dayId, input) {
