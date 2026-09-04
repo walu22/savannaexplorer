@@ -31,7 +31,8 @@ import {
     HUB_SECTIONS,
 } from '../lib/router.js';
 import { routeToTripTemplate } from '../lib/route-collection.js';
-import { createTrip } from '../lib/trip-store.js';
+import { createTrip, getActiveTrip, updateActiveTrip } from '../lib/trip-store.js';
+import { addRouteStop, createRouteDays } from '../lib/trip-route.js';
 import { setCountryMeta, setHomeMeta, setHubMeta } from '../lib/page-meta.js';
 import { dismissSeoPrerender } from '../lib/seo-prerender.js';
 import { handleSeoRoute } from './seo-routes.js';
@@ -118,7 +119,7 @@ function spotAnchorId(name) {
         .replace(/(^-|-$)/g, '')}`;
 }
 
-function regionCardHtml(region, availableSpots) {
+function regionCardHtml(region, availableSpots, index) {
     const facts = [
         ['fa-plane-arrival', 'Gateway', region.gateway],
         ['fa-clock', 'Ideal stay', region.idealStay],
@@ -128,6 +129,7 @@ function regionCardHtml(region, availableSpots) {
 
     return `
         <article class="region-card${facts.length ? ' region-card--detailed' : ''}">
+            <div class="region-card-topline"><span class="region-card-number">${String(index + 1).padStart(2, '0')}</span><span class="region-card-count">${linkedSpots.length} featured ${linkedSpots.length === 1 ? 'place' : 'places'}</span></div>
             ${region.province ? `<p class="region-card-kicker">${escapeHtml(region.province)}</p>` : ''}
             <h3>${escapeHtml(region.name)}</h3>
             <p class="region-card-desc">${escapeHtml(region.desc)}</p>
@@ -156,6 +158,68 @@ function regionCardHtml(region, availableSpots) {
             ` : ''}
         </article>
     `;
+}
+
+function applyAttractionFilter(filter = 'all') {
+    const cards = [...detailSpotsGrid.querySelectorAll('.spot-detail-card')];
+    let visible = 0;
+    cards.forEach(card => {
+        const tags = (card.dataset.spotTags || '').split('|').filter(Boolean);
+        const matches = filter === 'all' || tags.includes(filter);
+        card.hidden = !matches;
+        if (matches) visible += 1;
+    });
+    document.querySelectorAll('[data-attraction-filter]').forEach(button => {
+        const active = button.dataset.attractionFilter === filter;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+    });
+    const status = document.getElementById('attraction-filter-status');
+    if (status) status.textContent = `${visible} of ${cards.length} places shown`;
+}
+
+function saveAttractionToTrip(countryId, spotName) {
+    const country = getFullCountryData(countryId);
+    const spot = country?.spots.find(item => item.name === spotName);
+    if (!country || !spot) return null;
+
+    const active = getActiveTrip();
+    const existingStop = active?.routeDays?.some(day => day.stops.some(stop =>
+        stop.name === spot.name && stop.location === `${spot.name}, ${country.name}`,
+    ));
+    if (existingStop) return { trip: active, added: false };
+
+    const tags = inferSpotTags(spot);
+    const stop = {
+        type: tags.includes('Safari') || /park|reserve/i.test(spot.name) ? 'park' : 'activity',
+        name: spot.name,
+        location: `${spot.name}, ${country.name}`,
+        notes: [
+            spot.bestSeason ? `Best season: ${spot.bestSeason}.` : '',
+            spot.visitDuration ? `Suggested visit: ${spot.visitDuration}.` : '',
+            spot.tip || spot.desc,
+        ].filter(Boolean).join(' '),
+    };
+
+    if (!active) {
+        const trip = createTrip({
+            name: `${country.name} safari`,
+            countries: [countryId],
+            notes: `Started from the ${country.name} attractions guide.`,
+            routeDays: [{ title: `${country.name} ideas`, stops: [stop] }],
+        });
+        return { trip, added: true };
+    }
+
+    const routeDays = active.routeDays?.length
+        ? active.routeDays
+        : createRouteDays(active.startDate, active.endDate);
+    const targetDay = routeDays.at(-1);
+    const trip = updateActiveTrip({
+        countries: [...new Set([...active.countries, countryId])],
+        routeDays: addRouteStop(routeDays, targetDay.id, stop),
+    });
+    return { trip, added: true };
 }
 
 function setCollapsibleText(el, text, threshold = 220) {
@@ -212,6 +276,13 @@ function populateCountryPage(countryId) {
     if (countryTripStart) countryTripStart.dataset.countryTripStart = countryId;
     const countryTripStatus = document.querySelector('.travel-start-status');
     if (countryTripStatus) countryTripStatus.textContent = '';
+    const attractionsHeading = document.getElementById('detail-attractions-heading');
+    if (attractionsHeading) attractionsHeading.textContent = `Explore the essential places in ${data.name}`;
+    document.querySelectorAll('#panel-attractions .attractions-country-name').forEach(element => {
+        element.textContent = data.name;
+    });
+    const attractionsCount = document.getElementById('detail-attractions-count');
+    if (attractionsCount) attractionsCount.textContent = String(data.spots.length);
 
     const meta = getCountryMeta(countryId);
     const heroImg = document.getElementById('detail-hero-img');
@@ -283,30 +354,61 @@ function populateCountryPage(countryId) {
     setCollapsibleText(gettingThereEl, data.about.gettingThere);
     setCollapsibleText(economyEl, data.about.economy);
 
-    detailSpotsGrid.innerHTML = data.spots.map(spot => `
-        <div class="spot-detail-card" id="${spotAnchorId(spot.name)}">
-            <img src="${spotImageUrl(spot)}" alt="${spot.name}" loading="lazy">
-            <div class="spot-detail-info">
-                <div class="spot-tags" aria-label="Destination categories">${inferSpotTags(spot).map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
-                <h3>${spot.name}</h3>
-                <p>${spot.desc}</p>
-                ${spotMetaHtml(spot)}
+    const activeTrip = getActiveTrip();
+    detailSpotsGrid.innerHTML = data.spots.map((spot, index) => {
+        const tags = inferSpotTags(spot);
+        const isSaved = activeTrip?.routeDays?.some(day => day.stops.some(stop =>
+            stop.name === spot.name && stop.location === `${spot.name}, ${data.name}`,
+        ));
+        return `
+        <article class="spot-detail-card" id="${spotAnchorId(spot.name)}" data-spot-name="${escapeHtml(spot.name)}" data-spot-tags="${escapeHtml(tags.join('|'))}">
+            <div class="spot-detail-media">
+                <img src="${spotImageUrl(spot)}" alt="${escapeHtml(spot.name)}" loading="lazy">
+                <span class="spot-detail-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
             </div>
-        </div>
-    `).join('');
+            <div class="spot-detail-info">
+                <div class="spot-tags" aria-label="Destination categories">${tags.map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
+                <h3>${escapeHtml(spot.name)}</h3>
+                <p>${escapeHtml(spot.desc)}</p>
+                ${spotMetaHtml(spot)}
+                <div class="spot-detail-actions">
+                    <button type="button" class="btn btn-outline btn-sm spot-save-button" data-attraction-save="${escapeHtml(spot.name)}" data-country-id="${countryId}" ${isSaved ? 'disabled' : ''}>
+                        <i class="fas ${isSaved ? 'fa-check' : 'fa-plus'}" aria-hidden="true"></i> ${isSaved ? 'In My Safari' : 'Add stop to My Safari'}
+                    </button>
+                    <p class="spot-save-status" role="status" aria-live="polite"></p>
+                </div>
+            </div>
+        </article>
+    `; }).join('');
+
+    const filterBar = document.getElementById('attraction-filter-bar');
+    if (filterBar) {
+        const tags = [...new Set(data.spots.flatMap(spot => inferSpotTags(spot)))];
+        filterBar.innerHTML = `
+            <button type="button" class="attraction-filter active" data-attraction-filter="all" aria-pressed="true">All places <span>${data.spots.length}</span></button>
+            ${tags.map(tag => {
+                const count = data.spots.filter(spot => inferSpotTags(spot).includes(tag)).length;
+                return `<button type="button" class="attraction-filter" data-attraction-filter="${escapeHtml(tag)}" aria-pressed="false">${escapeHtml(tag)} <span>${count}</span></button>`;
+            }).join('')}
+        `;
+        applyAttractionFilter('all');
+    }
 
     const regionsGrid = document.getElementById('detail-regions-grid');
     const countryRegions = regions[countryId];
     const regionsSection = document.getElementById('detail-regions-section');
+    const regionsCount = document.getElementById('detail-regions-count');
+    if (regionsCount) regionsCount.textContent = String(countryRegions?.length || 0);
     if (regionsGrid && countryRegions?.length) {
         regionsSection?.classList.remove('hidden');
         const availableSpots = new Set(data.spots.map(spot => spot.name));
         regionsGrid.classList.toggle('regions-grid--detailed', countryRegions.some(region => region.gateway));
-        regionsGrid.innerHTML = countryRegions.map(region => regionCardHtml(region, availableSpots)).join('');
+        regionsGrid.innerHTML = countryRegions.map((region, index) => regionCardHtml(region, availableSpots, index)).join('');
         regionsGrid.querySelectorAll('.region-place-link').forEach(link => {
             link.addEventListener('click', () => {
                 const target = document.getElementById(link.dataset.spotTarget);
                 if (!target) return;
+                applyAttractionFilter('all');
                 detailSpotsGrid.querySelectorAll('.spot-card--spotlight').forEach(card => card.classList.remove('spot-card--spotlight'));
                 target.classList.add('spot-card--spotlight');
                 target.setAttribute('tabindex', '-1');
@@ -737,6 +839,26 @@ export function initCountryGuide() {
             });
             if (status) status.textContent = `${trip.name} is ready. Opening your editable plan…`;
             window.location.assign('/my-safari');
+            return;
+        }
+        const attractionFilter = e.target.closest('[data-attraction-filter]');
+        if (attractionFilter) {
+            applyAttractionFilter(attractionFilter.dataset.attractionFilter);
+            return;
+        }
+        const attractionSave = e.target.closest('[data-attraction-save]');
+        if (attractionSave) {
+            const result = saveAttractionToTrip(attractionSave.dataset.countryId, attractionSave.dataset.attractionSave);
+            const status = attractionSave.closest('.spot-detail-actions')?.querySelector('.spot-save-status');
+            if (!result?.trip) {
+                if (status) status.textContent = 'This stop could not be saved.';
+                return;
+            }
+            attractionSave.disabled = true;
+            attractionSave.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> In My Safari';
+            if (status) status.innerHTML = result.added
+                ? `Saved to ${escapeHtml(result.trip.name)}. <a href="/my-safari">Open trip</a>`
+                : `Already saved in ${escapeHtml(result.trip.name)}.`;
             return;
         }
         const parksBtn = e.target.closest('[data-action="view-parks"]');

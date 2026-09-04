@@ -129,6 +129,59 @@ test('country-level planner creates an editable My Safari trip', async ({ page }
     expect(trip.notes).toContain('Namibia country guide');
 });
 
+test('Attractions supports regional discovery and interest filtering', async ({ page, isMobile }) => {
+    await page.goto('/countries/namibia', { waitUntil: 'domcontentloaded' });
+    const guide = page.locator('#country-detail-view');
+    await guide.getByRole('button', { name: /Attractions/ }).click();
+
+    await expect(guide.getByRole('heading', { name: 'Explore the essential places in Namibia' })).toBeVisible();
+    await expect(guide.locator('#detail-attractions-count')).toHaveText('10');
+    await expect(guide.locator('#detail-regions-count')).toHaveText('6');
+    await expect(guide.locator('.spot-detail-card')).toHaveCount(10);
+    await expect(guide.locator('[data-attraction-filter]')).not.toHaveCount(1);
+
+    const columns = await guide.locator('#detail-spots-grid').evaluate(element =>
+        getComputedStyle(element).gridTemplateColumns.split(' ').length,
+    );
+    expect(columns).toBe(isMobile ? 1 : 2);
+
+    const interestFilter = guide.locator('[data-attraction-filter]').nth(1);
+    await interestFilter.click();
+    await expect(interestFilter).toHaveAttribute('aria-pressed', 'true');
+    const visibleCards = guide.locator('.spot-detail-card:not([hidden])');
+    expect(await visibleCards.count()).toBeGreaterThan(0);
+    expect(await visibleCards.count()).toBeLessThan(10);
+
+    const results = await new AxeBuilder({ page })
+        .include('#panel-attractions')
+        .withTags(['wcag2a', 'wcag2aa'])
+        .analyze();
+    expect(results.violations.filter(item => ['serious', 'critical'].includes(item.impact))).toEqual([]);
+});
+
+test('an attraction can start a country trip and become an editable route stop', async ({ page }) => {
+    await page.goto('/countries/namibia', { waitUntil: 'domcontentloaded' });
+    const guide = page.locator('#country-detail-view');
+    await guide.getByRole('button', { name: /Attractions/ }).click();
+
+    const firstCard = guide.locator('.spot-detail-card').first();
+    const attractionName = await firstCard.getByRole('heading').innerText();
+    await firstCard.getByRole('button', { name: 'Add stop to My Safari' }).click();
+    await expect(firstCard.getByRole('button', { name: 'In My Safari' })).toBeDisabled();
+    await firstCard.getByRole('link', { name: 'Open trip' }).click();
+
+    await page.waitForURL('**/my-safari');
+    await expect(page.locator('#my-safari-active-name')).toHaveText('Namibia safari');
+    await expect(page.locator('#my-safari-route-builder').getByText(attractionName, { exact: true })).toBeVisible();
+
+    const trip = await page.evaluate(() => {
+        const saved = JSON.parse(localStorage.getItem('se_my_safari_v1') || '{}');
+        return saved.trips?.find(item => item.name === 'Namibia safari');
+    });
+    expect(trip.countries).toEqual(['namibia']);
+    expect(trip.routeDays[0].stops[0].name).toBe(attractionName);
+});
+
 test('South Africa region planner connects practical regions to destination cards', async ({ page, isMobile }) => {
     await page.goto('/countries/south-africa', { waitUntil: 'domcontentloaded' });
     const guide = page.locator('#country-detail-view');

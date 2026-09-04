@@ -1984,24 +1984,59 @@
 
                 <!-- Tab: Attractions -->
                 <div class="guide-panel" id="panel-attractions">
-                    <div class="guide-intro">
-                        <span class="section-eyebrow">Discover</span>
-                        <h2>Must-Visit Attractions</h2>
-                        <p>Regional highlights and iconic landmarks — the places that define this destination.</p>
+                    <div class="attractions-planner-hero">
+                        <div class="guide-intro guide-intro--attractions">
+                            <span class="section-eyebrow">Discover the country</span>
+                            <h2 id="detail-attractions-heading">Explore the essential places</h2>
+                            <p>Move from regions to individual stops, compare the practical details and save the places that belong in your journey.</p>
+                        </div>
+                        <aside class="attractions-shortlist-card" aria-labelledby="attractions-shortlist-title">
+                            <span class="attractions-shortlist-card__icon" aria-hidden="true"><i class="fas fa-map-pin"></i></span>
+                            <p class="attractions-card-eyebrow">Your country shortlist</p>
+                            <h3 id="attractions-shortlist-title">Build a <span class="attractions-country-name">country</span> route</h3>
+                            <div class="attractions-summary-stats" aria-label="Attractions coverage">
+                                <div><strong id="detail-attractions-count">0</strong><span>featured places</span></div>
+                                <div><strong id="detail-regions-count">0</strong><span>travel regions</span></div>
+                            </div>
+                            <p>Save individual stops as you browse. They will be added to your active trip—or start a new country safari.</p>
+                            <a class="attractions-safari-link" href="/my-safari"><i class="fas fa-map-location-dot" aria-hidden="true"></i> Open My Safari</a>
+                        </aside>
                     </div>
+
+                    <section class="attractions-filter-section" aria-labelledby="attractions-filter-heading">
+                        <div>
+                            <span class="section-eyebrow">Find your focus</span>
+                            <h3 id="attractions-filter-heading">What do you want to experience?</h3>
+                        </div>
+                        <div class="attractions-filter-bar" id="attraction-filter-bar" aria-label="Filter attractions by interest"></div>
+                        <p class="attractions-filter-status" id="attraction-filter-status" role="status" aria-live="polite"></p>
+                    </section>
+
                     <div id="country-map-panel" class="country-map-panel" hidden>
-                        <h3 class="regions-heading"><i class="fas fa-map-marked-alt"></i> Interactive Map</h3>
-                        <div id="country-map-canvas" class="itin-map-canvas" style="height: 400px; margin-bottom: 1rem;" role="img" aria-label="Interactive country map"></div>
-                        <div class="map-controls" style="display: flex; gap: 1rem; margin-bottom: 2rem;">
-                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox" id="toggle-parks" checked> Show National Parks</label>
-                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox" id="toggle-borders" checked> Show Border Crossings</label>
+                        <div class="attractions-section-heading">
+                            <span class="attractions-heading-icon" aria-hidden="true"><i class="fas fa-map-marked-alt"></i></span>
+                            <div><span class="section-eyebrow">Orient yourself</span><h3>Country planning map</h3><p>See mapped national parks and border crossings before shaping your route.</p></div>
+                        </div>
+                        <div id="country-map-canvas" class="itin-map-canvas" role="img" aria-label="Interactive country map"></div>
+                        <div class="map-controls country-map-controls" aria-label="Map layers">
+                            <label><input type="checkbox" id="toggle-parks" checked> Show National Parks</label>
+                            <label><input type="checkbox" id="toggle-borders" checked> Show Border Crossings</label>
                         </div>
                     </div>
                     <div id="detail-regions-section" class="regions-section hidden">
-                        <h3 class="regions-heading"><i class="fas fa-map"></i> Plan by Region</h3>
+                        <div class="attractions-section-heading">
+                            <span class="attractions-heading-icon" aria-hidden="true"><i class="fas fa-compass"></i></span>
+                            <div><span class="section-eyebrow">Choose an area</span><h3>Plan by region</h3><p>Use these geographic clusters to understand how the country fits together.</p></div>
+                        </div>
                         <div id="detail-regions-grid" class="regions-grid"></div>
                     </div>
-                    <div id="detail-spots-grid" class="attractions-detail-grid"></div>
+                    <section class="attractions-stops-section" aria-labelledby="attractions-stops-heading">
+                        <div class="attractions-section-heading">
+                            <span class="attractions-heading-icon" aria-hidden="true"><i class="fas fa-location-dot"></i></span>
+                            <div><span class="section-eyebrow">Build your shortlist</span><h3 id="attractions-stops-heading">Choose your stops</h3><p>Save any place directly to the editable day-by-day planner in My Safari.</p></div>
+                        </div>
+                        <div id="detail-spots-grid" class="attractions-detail-grid"></div>
+                    </section>
                 </div>
 
                 <!-- Tab: Activities -->
