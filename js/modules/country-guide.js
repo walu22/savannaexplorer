@@ -207,8 +207,11 @@ function populateCountryPage(countryId) {
     const meta = getCountryMeta(countryId);
     const heroImg = document.getElementById('detail-hero-img');
     if (heroImg) {
+        heroImg.classList.remove('is-unavailable');
+        heroImg.onload = () => heroImg.classList.remove('is-unavailable');
+        heroImg.onerror = () => heroImg.classList.add('is-unavailable');
         heroImg.src = cardImageUrl(countryId);
-        heroImg.alt = `${data.name} — travel destination`;
+        heroImg.alt = '';
     }
     const flagEl = document.getElementById('detail-flag');
     if (flagEl) flagEl.textContent = meta.flag || '🌍';
@@ -237,7 +240,7 @@ function populateCountryPage(countryId) {
     const gettingThereEl = document.getElementById('detail-getting-there');
     const economyEl = document.getElementById('detail-economy');
 
-    if (aboutHeading) aboutHeading.textContent = `Information About ${data.name}`;
+    if (aboutHeading) aboutHeading.textContent = `Plan your trip to ${data.name}`;
     if (aboutIntro) aboutIntro.textContent = `Discover essential information for your trip to ${data.name} — geography, history, culture, wildlife, and practical travel advice.`;
 
     // Quick Facts

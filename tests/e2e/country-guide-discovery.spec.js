@@ -56,6 +56,32 @@ test('country article previews expand accessibly', async ({ page }) => {
     expect(results.violations.filter(item => ['serious', 'critical'].includes(item.impact))).toEqual([]);
 });
 
+test('country guides use the shared structured header and overview layout', async ({ page, isMobile }) => {
+    await page.goto('/countries/namibia', { waitUntil: 'domcontentloaded' });
+    const guide = page.locator('#country-detail-view');
+    const header = guide.locator('#country-page-header');
+
+    await expect(header.getByRole('button', { name: 'Savanna Explorer home' })).toBeVisible();
+    await expect(header.getByRole('button', { name: 'Back to all destinations' })).toBeVisible();
+    await expect(header.getByRole('link', { name: /My Safari/ })).toBeVisible();
+    await expect(header.locator('.guide-tab')).toHaveCount(5);
+    await expect(guide.locator('#detail-quick-facts .qf-item')).toHaveCount(10);
+    await expect(guide.getByRole('heading', { name: 'Plan your trip to Namibia' })).toBeVisible();
+
+    const layout = await page.evaluate(() => ({
+        headerTop: document.querySelector('#country-page-header').getBoundingClientRect().top,
+        overviewColumns: getComputedStyle(document.querySelector('.country-overview-grid')).gridTemplateColumns.split(' ').length,
+        articleColumns: getComputedStyle(document.querySelector('#panel-about .guide-article-grid')).gridTemplateColumns.split(' ').length,
+        width: document.documentElement.scrollWidth,
+        viewport: window.innerWidth,
+    }));
+
+    expect(layout.headerTop).toBeLessThanOrEqual(1);
+    expect(layout.overviewColumns).toBe(isMobile ? 1 : 2);
+    expect(layout.articleColumns).toBe(isMobile ? 1 : 2);
+    expect(layout.width).toBeLessThanOrEqual(layout.viewport + 1);
+});
+
 test('South Africa region planner connects practical regions to destination cards', async ({ page, isMobile }) => {
     await page.goto('/countries/south-africa', { waitUntil: 'domcontentloaded' });
     const guide = page.locator('#country-detail-view');

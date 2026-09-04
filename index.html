@@ -1736,15 +1736,20 @@
     <section id="country-detail-view" class="country-detail-view hidden" aria-hidden="true">
         <header id="country-page-header" class="country-page-header">
             <div class="container country-page-header__inner">
-                <div class="country-page-header__nav">
-                    <button type="button" class="country-nav-home" data-action="back-home" aria-label="Back to home page">
-                        <i class="fas fa-house" aria-hidden="true"></i>
-                        <span>Home</span>
+                <div class="country-page-header__top">
+                    <button type="button" class="country-nav-home country-brand" data-action="back-home" aria-label="Savanna Explorer home">
+                        <span class="country-brand__mark" aria-hidden="true">SE</span>
+                        <span class="country-brand__copy"><strong>Savanna Explorer</strong><small>Southern Africa country guides</small></span>
                     </button>
-                    <button type="button" id="close-detail" class="country-nav-back btn-back-main" aria-label="Back to destinations">
-                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
-                        <span id="detail-header-country-name">Country</span>
-                    </button>
+                    <div class="country-page-header__trail" aria-label="Breadcrumb">
+                        <button type="button" id="close-detail" class="country-nav-back btn-back-main" aria-label="Back to all destinations">
+                            <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                            <span>All countries</span>
+                        </button>
+                        <span class="country-page-header__divider" aria-hidden="true">/</span>
+                        <strong id="detail-header-country-name">Country</strong>
+                    </div>
+                    <a class="country-header-safari" href="/my-safari"><i class="fas fa-map-location-dot" aria-hidden="true"></i><span>My Safari</span></a>
                 </div>
                 <nav class="guide-tabs country-page-header__tabs" id="guide-tabs" aria-label="Country guide sections">
                     <button type="button" class="guide-tab active" data-tab="about"><i class="fas fa-compass"></i> About</button>
@@ -1778,7 +1783,7 @@
                             </button>
                         </div>
                         <div class="detail-quick-stats" id="detail-quick-stats" aria-label="Country highlights"></div>
-                        <div class="detail-highlights" id="detail-highlights" aria-label="Key highlights"></div>
+                        <div class="detail-highlights" id="detail-highlights" aria-label="Key highlights" tabindex="0"></div>
                     </div>
                 </div>
             </div>
@@ -1787,12 +1792,25 @@
             <div class="container">
                 <!-- Tab: About -->
                 <div class="guide-panel active" id="panel-about">
-                    <div class="guide-intro">
-                        <span class="section-eyebrow">About</span>
-                        <h2 id="detail-about-heading">Information About This Destination</h2>
-                        <p id="detail-about-intro">Discover essential information before you embark on your journey.</p>
-                        <div id="detail-quick-facts" class="quick-facts-grid"></div>
-                        <p id="detail-summary" class="detail-summary"></p>
+                    <div class="country-overview-grid">
+                        <div class="guide-intro guide-intro--country">
+                            <span class="section-eyebrow">Country overview</span>
+                            <h2 id="detail-about-heading">Information About This Destination</h2>
+                            <p id="detail-about-intro">Discover essential information before you embark on your journey.</p>
+                            <p id="detail-summary" class="detail-summary"></p>
+                        </div>
+                        <aside class="country-facts-panel" aria-labelledby="country-facts-title">
+                            <div class="country-section-kicker">
+                                <span>Plan at a glance</span>
+                                <h3 id="country-facts-title">Essential facts</h3>
+                            </div>
+                            <div id="detail-quick-facts" class="quick-facts-grid"></div>
+                        </aside>
+                    </div>
+                    <div class="country-section-heading">
+                        <span class="section-eyebrow">Know before you go</span>
+                        <h3>Understand the country</h3>
+                        <p>Useful context for planning where to go, how to arrive and what to expect.</p>
                     </div>
                     <div class="guide-article-grid">
                         <article class="guide-article">
