@@ -4,6 +4,8 @@ Southern Africa independent travel planning hub — country guides, route templa
 
 Country guides now include concise article previews, destination-category tags, signature highlights, and interest-led seasonal guidance across all nine countries.
 
+South Africa includes a deeper five-region planner with gateways, ideal stay lengths, seasonal guidance, traveller-fit tags, official sources, and direct links to 13 destination cards.
+
 ## About this site
 
 On the live site, open **About This Site** (`#about`) for our editorial policy, data sourcing, partner guidelines, and hub FAQs (including “Can you book my trip?”). Developer reference: `SOURCES.md` and `data/about.json`.
@@ -36,7 +38,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.48.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.51.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 

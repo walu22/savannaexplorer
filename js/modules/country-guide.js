@@ -105,6 +105,55 @@ function escapeHtml(value) {
     })[char]);
 }
 
+function spotAnchorId(name) {
+    return `country-spot-${String(name || '')
+        .normalize('NFKD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '')}`;
+}
+
+function regionCardHtml(region, availableSpots) {
+    const facts = [
+        ['fa-plane-arrival', 'Gateway', region.gateway],
+        ['fa-clock', 'Ideal stay', region.idealStay],
+        ['fa-calendar-alt', 'When to go', region.bestMonths],
+    ].filter(([, , value]) => value);
+    const linkedSpots = (region.spots || []).filter(name => availableSpots.has(name));
+
+    return `
+        <article class="region-card${facts.length ? ' region-card--detailed' : ''}">
+            ${region.province ? `<p class="region-card-kicker">${escapeHtml(region.province)}</p>` : ''}
+            <h3>${escapeHtml(region.name)}</h3>
+            <p class="region-card-desc">${escapeHtml(region.desc)}</p>
+            ${facts.length ? `<dl class="region-facts">${facts.map(([icon, label, value]) => `
+                <div><dt><i class="fas ${icon}" aria-hidden="true"></i>${label}</dt><dd>${escapeHtml(value)}</dd></div>
+            `).join('')}</dl>` : ''}
+            ${region.bestFor?.length ? `
+                <div class="region-best-for" aria-label="Best for">
+                    ${region.bestFor.map(item => `<span>${escapeHtml(item)}</span>`).join('')}
+                </div>
+            ` : ''}
+            ${linkedSpots.length ? `
+                <div class="region-places">
+                    <span class="region-places-label">Explore these places</span>
+                    <div>${linkedSpots.map(name => `
+                        <button type="button" class="region-place-link" data-spot-target="${spotAnchorId(name)}">${escapeHtml(name)}</button>
+                    `).join('')}</div>
+                </div>
+            ` : ''}
+            ${region.source?.url ? `
+                <a class="region-source-link" href="${escapeHtml(region.source.url)}" target="_blank" rel="noopener noreferrer">
+                    ${escapeHtml(region.source.label || 'Official regional guide')}
+                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                </a>
+                ${region.source.lastVerified ? `<span class="region-source-date">Link checked ${escapeHtml(region.source.lastVerified)}</span>` : ''}
+            ` : ''}
+        </article>
+    `;
+}
+
 function setCollapsibleText(el, text, threshold = 220) {
     if (!el) return;
     el.textContent = text || '';
@@ -219,7 +268,7 @@ function populateCountryPage(countryId) {
     setCollapsibleText(economyEl, data.about.economy);
 
     detailSpotsGrid.innerHTML = data.spots.map(spot => `
-        <div class="spot-detail-card">
+        <div class="spot-detail-card" id="${spotAnchorId(spot.name)}">
             <img src="${spotImageUrl(spot)}" alt="${spot.name}" loading="lazy">
             <div class="spot-detail-info">
                 <div class="spot-tags" aria-label="Destination categories">${inferSpotTags(spot).map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
@@ -235,14 +284,26 @@ function populateCountryPage(countryId) {
     const regionsSection = document.getElementById('detail-regions-section');
     if (regionsGrid && countryRegions?.length) {
         regionsSection?.classList.remove('hidden');
-        regionsGrid.innerHTML = countryRegions.map(region => `
-            <article class="region-card">
-                <h3>${region.name}</h3>
-                <p>${region.desc}</p>
-            </article>
-        `).join('');
+        const availableSpots = new Set(data.spots.map(spot => spot.name));
+        regionsGrid.classList.toggle('regions-grid--detailed', countryRegions.some(region => region.gateway));
+        regionsGrid.innerHTML = countryRegions.map(region => regionCardHtml(region, availableSpots)).join('');
+        regionsGrid.querySelectorAll('.region-place-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const target = document.getElementById(link.dataset.spotTarget);
+                if (!target) return;
+                detailSpotsGrid.querySelectorAll('.spot-card--spotlight').forEach(card => card.classList.remove('spot-card--spotlight'));
+                target.classList.add('spot-card--spotlight');
+                target.setAttribute('tabindex', '-1');
+                target.scrollIntoView({
+                    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+                    block: 'center',
+                });
+                target.focus({ preventScroll: true });
+            });
+        });
     } else {
         regionsSection?.classList.add('hidden');
+        regionsGrid?.classList.remove('regions-grid--detailed');
     }
 
     detailActivities.innerHTML = data.activities.map(act => `

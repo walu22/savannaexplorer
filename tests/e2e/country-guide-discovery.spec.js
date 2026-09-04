@@ -50,3 +50,25 @@ test('country article previews expand accessibly', async ({ page }) => {
         .analyze();
     expect(results.violations.filter(item => ['serious', 'critical'].includes(item.impact))).toEqual([]);
 });
+
+test('South Africa region planner connects practical regions to destination cards', async ({ page, isMobile }) => {
+    await page.goto('/countries/south-africa', { waitUntil: 'domcontentloaded' });
+    const guide = page.locator('#country-detail-view');
+    await guide.getByRole('button', { name: /Attractions/ }).click();
+
+    const regions = guide.locator('.region-card--detailed');
+    await expect(regions).toHaveCount(5);
+    const regionGrid = guide.locator('#detail-regions-grid');
+    await expect(regionGrid).toHaveClass(/regions-grid--detailed/);
+    const columnCount = await regionGrid.evaluate(element =>
+        getComputedStyle(element).gridTemplateColumns.split(' ').length,
+    );
+    expect(columnCount).toBe(isMobile ? 1 : 2);
+    await expect(regions.first().locator('.region-facts div')).toHaveCount(3);
+    await expect(regions.first().locator('.region-source-link')).toHaveAttribute('href', /^https:\/\//);
+
+    const targetLink = guide.getByRole('button', { name: 'Cradle of Humankind' });
+    await targetLink.click();
+    await expect(guide.locator('#country-spot-cradle-of-humankind')).toHaveClass(/spot-card--spotlight/);
+    await expect(guide.locator('#country-spot-cradle-of-humankind')).toBeFocused();
+});

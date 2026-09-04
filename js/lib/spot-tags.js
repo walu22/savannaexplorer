@@ -4,7 +4,7 @@ const TAG_RULES = [
     ['Coast & marine', /beach|coast|ocean|marine|island|reef|whale|penguin|lagoon|dolphin/],
     ['Mountains & hiking', /mountain|hiking|hike|trail|canyon|highland|peak|cliff|escarpment|waterfall/],
     ['Culture & heritage', /culture|heritage|historic|history|museum|village|rock art|palace|kingdom|archaeolog/],
-    ['Food & wine', /wine|vineyard|food|culinary|cuisine|tea estate|coffee/],
+    ['Food & wine', /wine|vineyard|food|culinary|cuisine|tea estate|coffee (?:estate|farm|plantation|tour)/],
     ['Desert landscapes', /desert|dune|salt pan|karoo|kalahari|arid/],
     ['Adventure', /4x4|diving|snorkel|rafting|kayak|bungee|cycling|trek|climb/],
     ['City break', /city|capital|urban|waterfront|market|architecture/],

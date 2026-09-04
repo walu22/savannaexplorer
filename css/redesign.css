@@ -1931,11 +1931,26 @@ body.site-v2 .regions-grid {
     gap: 1rem;
 }
 
+body.site-v2 .regions-grid--detailed {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
 body.site-v2 .region-card {
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-subtle);
     background: white;
     padding: 1.25rem;
+}
+
+body.site-v2 .region-card--detailed {
+    padding: 1.4rem;
+}
+
+@media (max-width: 800px) {
+    body.site-v2 .regions-grid--detailed {
+        grid-template-columns: 1fr;
+    }
 }
 
 body.site-v2 .routes-grid {

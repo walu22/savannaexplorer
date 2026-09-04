@@ -45,39 +45,122 @@
   ],
   "south-africa": [
     {
-      "name": "Cape Town & Peninsula",
-      "desc": "Table Mountain, V&A Waterfront, Cape Point, and Boulders penguins.",
+      "name": "Western Cape",
+      "province": "Cape Town · Winelands · Garden Route",
+      "desc": "Build a first South Africa trip around Cape Town, the Cape Peninsula, historic wine towns, and the forest-and-lagoon coast of the Garden Route.",
+      "gateway": "Cape Town (CPT)",
+      "idealStay": "5–8 days",
+      "bestMonths": "Nov–Mar for the Cape; Aug–Sep for West Coast flowers",
+      "bestFor": [
+        "First visits",
+        "Food & wine",
+        "Coast",
+        "Easy self-drive"
+      ],
       "spots": [
-        "Cape Town & Table Mountain"
-      ]
+        "Cape Town & Table Mountain",
+        "Cape Winelands",
+        "The Garden Route",
+        "Cederberg Wilderness Area"
+      ],
+      "source": {
+        "label": "South African Tourism — Western Cape",
+        "url": "https://www.southafrica.net/za/en/travel/article/western-cape",
+        "lastVerified": "2026-09"
+      }
     },
     {
-      "name": "Winelands & West Coast",
-      "desc": "Stellenbosch and Franschhoek estates plus wildflower coast in spring.",
+      "name": "Gauteng",
+      "province": "Johannesburg · Soweto · Cradle of Humankind",
+      "desc": "Treat Johannesburg as more than an airport: pair South Africa's modern urban story with Soweto's freedom history and the Cradle of Humankind.",
+      "gateway": "Johannesburg (JNB)",
+      "idealStay": "2–3 days",
+      "bestMonths": "Year-round; Apr–May and Sep–Oct are especially comfortable",
+      "bestFor": [
+        "History",
+        "Arts & culture",
+        "City breaks",
+        "Safari gateways"
+      ],
       "spots": [
-        "Cape Winelands"
-      ]
+        "Johannesburg & Soweto",
+        "Cradle of Humankind"
+      ],
+      "source": {
+        "label": "South African Tourism — Gauteng",
+        "url": "https://www.southafrica.net/gh/en/travel/article/gauteng",
+        "lastVerified": "2026-09"
+      }
     },
     {
-      "name": "Garden Route",
-      "desc": "Forests, lagoons, and coastal towns from Mossel Bay to Storms River.",
+      "name": "Mpumalanga & Kruger Lowveld",
+      "province": "Kruger · Panorama Route · Private reserves",
+      "desc": "Combine public self-drive safari in Kruger with the escarpment viewpoints and waterfalls of the Panorama Route.",
+      "gateway": "Mbombela (MQP) or Johannesburg",
+      "idealStay": "4–7 days",
+      "bestMonths": "May–Sep for dry-season safari; Panorama Route year-round",
+      "bestFor": [
+        "Big Five safari",
+        "Scenic drives",
+        "Photography",
+        "First-time safari"
+      ],
       "spots": [
-        "The Garden Route"
-      ]
+        "Kruger National Park",
+        "Blyde River Canyon & Panorama Route"
+      ],
+      "source": {
+        "label": "South African Tourism — Mpumalanga",
+        "url": "https://www.southafrica.net/gl/en/travel/article/mpumalanga-highlights",
+        "lastVerified": "2026-09"
+      }
     },
     {
-      "name": "Kruger & Lowveld",
-      "desc": "Big Five bushveld and private reserves along the park's western edge.",
+      "name": "KwaZulu-Natal",
+      "province": "Durban · Drakensberg · iSimangaliso",
+      "desc": "Link warm Indian Ocean beaches with Zulu heritage, mountain hikes, battlefields, wetlands, reefs, and wildlife along the Elephant Coast.",
+      "gateway": "Durban (DUR)",
+      "idealStay": "4–7 days",
+      "bestMonths": "May–Sep for drier coast and hiking conditions",
+      "bestFor": [
+        "Mountains",
+        "Warm-water coast",
+        "Heritage",
+        "Wildlife"
+      ],
       "spots": [
-        "Kruger National Park"
-      ]
+        "The Drakensberg (uKhahlamba)",
+        "iSimangaliso Wetland Park"
+      ],
+      "source": {
+        "label": "South African Tourism — KwaZulu-Natal",
+        "url": "https://www.southafrica.net/au/en/travel/article/kwazulu-natal-attractions",
+        "lastVerified": "2026-09"
+      }
     },
     {
-      "name": "Drakensberg & KZN",
-      "desc": "Amphitheatre hikes, battlefields history, and iSimangaliso wetlands.",
+      "name": "Eastern Cape",
+      "province": "Addo · Gqeberha · Wild Coast",
+      "desc": "Choose malaria-free wildlife around Addo, continue the Garden Route east, or slow down among beaches and Xhosa communities on the Wild Coast.",
+      "gateway": "Gqeberha (PLZ) or East London (ELS)",
+      "idealStay": "3–6 days",
+      "bestMonths": "May–Sep for safari; Dec–Mar for the coast",
+      "bestFor": [
+        "Family safari",
+        "Quiet beaches",
+        "Road trips",
+        "Living culture"
+      ],
       "spots": [
-        "The Drakensberg (uKhahlamba)"
-      ]
+        "Addo Elephant National Park",
+        "The Garden Route",
+        "Wild Coast"
+      ],
+      "source": {
+        "label": "South African Tourism — Eastern Cape",
+        "url": "https://www.southafrica.net/gl/en/travel/article/eastern-cape-highlights",
+        "lastVerified": "2026-09"
+      }
     }
   ],
   "botswana": [
