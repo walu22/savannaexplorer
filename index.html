@@ -2041,12 +2041,49 @@
 
                 <!-- Tab: Activities -->
                 <div class="guide-panel" id="panel-activities">
-                    <div class="guide-intro">
-                        <span class="section-eyebrow">Experiences</span>
-                        <h2>Signature Activities</h2>
+                    <div class="activities-planner-hero">
+                        <div class="guide-intro guide-intro--activities">
+                            <span class="section-eyebrow">Experience the country</span>
+                            <h2 id="detail-activities-heading">Find your signature experiences</h2>
+                            <p>Explore the wildlife, landscapes and culture through activities you can save directly into your own itinerary.</p>
+                        </div>
+                        <aside class="activities-planner-card" aria-labelledby="activities-planner-title">
+                            <span class="activities-planner-card__icon" aria-hidden="true"><i class="fas fa-hiking"></i></span>
+                            <p class="activities-card-eyebrow">Shape the experience</p>
+                            <h3 id="activities-planner-title">What will you do in <span class="activities-country-name">this country</span>?</h3>
+                            <div class="activities-summary-stats" aria-label="Activity coverage">
+                                <div><strong id="detail-activities-count">0</strong><span>curated activities</span></div>
+                                <div><strong id="detail-activity-categories-count">0</strong><span>experience styles</span></div>
+                            </div>
+                            <p>Add activities to the active My Safari trip or begin a new country plan as you browse.</p>
+                            <a class="activities-safari-link" href="/my-safari"><i class="fas fa-map-location-dot" aria-hidden="true"></i> Open My Safari</a>
+                        </aside>
                     </div>
-                    <div id="detail-activity-categories" class="activity-categories"></div>
-                    <div id="detail-activities" class="activities-detail-list"></div>
+
+                    <section class="activity-category-section" aria-labelledby="activity-category-heading">
+                        <div class="activities-section-heading">
+                            <span class="activities-heading-icon" aria-hidden="true"><i class="fas fa-compass"></i></span>
+                            <div><span class="section-eyebrow">Start with a style</span><h3 id="activity-category-heading">Ways to experience <span class="activities-country-name">the country</span></h3><p>Use the editorial collections to see the range of experiences before choosing individual activities.</p></div>
+                        </div>
+                        <div id="detail-activity-categories" class="activity-categories"></div>
+                    </section>
+
+                    <section class="activity-filter-section" aria-labelledby="activity-filter-heading">
+                        <div>
+                            <span class="section-eyebrow">Narrow the list</span>
+                            <h3 id="activity-filter-heading">Choose your interests</h3>
+                        </div>
+                        <div class="activity-filter-bar" id="activity-filter-bar" aria-label="Filter activities by interest"></div>
+                        <p class="activity-filter-status" id="activity-filter-status" role="status" aria-live="polite"></p>
+                    </section>
+
+                    <section class="activity-list-section" aria-labelledby="activity-list-heading">
+                        <div class="activities-section-heading">
+                            <span class="activities-heading-icon" aria-hidden="true"><i class="fas fa-binoculars"></i></span>
+                            <div><span class="section-eyebrow">Build your days</span><h3 id="activity-list-heading">Choose your activities</h3><p>Descriptions are planning inspiration; confirm current availability, conditions and prices directly with reputable local operators.</p></div>
+                        </div>
+                        <div id="detail-activities" class="activities-detail-list"></div>
+                    </section>
                 </div>
 
                 <!-- Tab: Routes -->

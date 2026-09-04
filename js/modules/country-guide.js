@@ -222,6 +222,81 @@ function saveAttractionToTrip(countryId, spotName) {
     return { trip, added: true };
 }
 
+const ACTIVITY_TAG_RULES = [
+    ['Wildlife', /safari|wildlife|animal|elephant|rhino|lion|leopard|bird|whale|dolphin|turtle|gorilla|tracking|game drive/],
+    ['Adventure', /adventure|hike|hiking|trek|climb|rafting|bungee|quad|board|cycling|bike|horse|canoe|kayak|diving|snorkel/],
+    ['Culture & community', /culture|cultural|community|village|heritage|historic|museum|market|festival|tradition|local/],
+    ['Water & coast', /water|river|lake|coast|ocean|beach|island|reef|marine|sailing|surf|fishing|mokoro/],
+    ['Scenic & air', /scenic|flight|fly-in|balloon|aerial|helicopter|landscape|sunrise|sunset|stargaz/],
+    ['Food & drink', /food|cuisine|culinary|wine|beer|coffee|tea|tasting|restaurant/],
+];
+
+function inferActivityTags(activity, limit = 2) {
+    const source = `${activity?.name || ''} ${activity?.desc || ''}`.toLowerCase();
+    const matches = ACTIVITY_TAG_RULES
+        .filter(([, pattern]) => pattern.test(source))
+        .map(([label]) => label);
+    return (matches.length ? matches : ['Signature experience']).slice(0, limit);
+}
+
+function applyActivityFilter(filter = 'all') {
+    const cards = [...detailActivities.querySelectorAll('.activity-detail-card')];
+    let visible = 0;
+    cards.forEach(card => {
+        const tags = (card.dataset.activityTags || '').split('|').filter(Boolean);
+        const matches = filter === 'all' || tags.includes(filter);
+        card.hidden = !matches;
+        if (matches) visible += 1;
+    });
+    document.querySelectorAll('[data-activity-filter]').forEach(button => {
+        const active = button.dataset.activityFilter === filter;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+    });
+    const status = document.getElementById('activity-filter-status');
+    if (status) status.textContent = `${visible} of ${cards.length} activities shown`;
+}
+
+function saveActivityToTrip(countryId, activityName) {
+    const country = getFullCountryData(countryId);
+    const activity = country?.activities.find(item => item.name === activityName);
+    if (!country || !activity) return null;
+
+    const active = getActiveTrip();
+    const location = country.name;
+    const existingStop = active?.routeDays?.some(day => day.stops.some(stop =>
+        stop.name === activity.name && stop.location === location,
+    ));
+    if (existingStop) return { trip: active, added: false };
+
+    const stop = {
+        type: 'activity',
+        name: activity.name,
+        location,
+        notes: activity.desc,
+    };
+
+    if (!active) {
+        const trip = createTrip({
+            name: `${country.name} safari`,
+            countries: [countryId],
+            notes: `Started from the ${country.name} activities guide.`,
+            routeDays: [{ title: `${country.name} experiences`, stops: [stop] }],
+        });
+        return { trip, added: true };
+    }
+
+    const routeDays = active.routeDays?.length
+        ? active.routeDays
+        : createRouteDays(active.startDate, active.endDate);
+    const targetDay = routeDays.at(-1);
+    const trip = updateActiveTrip({
+        countries: [...new Set([...active.countries, countryId])],
+        routeDays: addRouteStop(routeDays, targetDay.id, stop),
+    });
+    return { trip, added: true };
+}
+
 function setCollapsibleText(el, text, threshold = 220) {
     if (!el) return;
     el.textContent = text || '';
@@ -283,6 +358,13 @@ function populateCountryPage(countryId) {
     });
     const attractionsCount = document.getElementById('detail-attractions-count');
     if (attractionsCount) attractionsCount.textContent = String(data.spots.length);
+    const activitiesHeading = document.getElementById('detail-activities-heading');
+    if (activitiesHeading) activitiesHeading.textContent = `Find your signature experiences in ${data.name}`;
+    document.querySelectorAll('#panel-activities .activities-country-name').forEach(element => {
+        element.textContent = data.name;
+    });
+    const activitiesCount = document.getElementById('detail-activities-count');
+    if (activitiesCount) activitiesCount.textContent = String(data.activities.length);
 
     const meta = getCountryMeta(countryId);
     const heroImg = document.getElementById('detail-hero-img');
@@ -424,23 +506,55 @@ function populateCountryPage(countryId) {
         regionsGrid?.classList.remove('regions-grid--detailed');
     }
 
-    detailActivities.innerHTML = data.activities.map(act => `
-        <article class="activity-detail-card">
-            <img src="${activityImageUrl(act)}" alt="${act.name}" loading="lazy">
+    const activityTrip = getActiveTrip();
+    detailActivities.innerHTML = data.activities.map((act, index) => {
+        const tags = inferActivityTags(act);
+        const isSaved = activityTrip?.routeDays?.some(day => day.stops.some(stop =>
+            stop.name === act.name && stop.location === data.name,
+        ));
+        return `
+        <article class="activity-detail-card" data-activity-name="${escapeHtml(act.name)}" data-activity-tags="${escapeHtml(tags.join('|'))}">
+            <div class="activity-detail-media">
+                <img src="${activityImageUrl(act)}" alt="${escapeHtml(act.name)}" loading="lazy">
+                <span class="activity-detail-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
+            </div>
             <div class="activity-detail-body">
-                <h3>${act.name}</h3>
-                <p>${act.desc}</p>
+                <div class="activity-tags" aria-label="Activity categories">${tags.map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
+                <h3>${escapeHtml(act.name)}</h3>
+                <p>${escapeHtml(act.desc)}</p>
+                <div class="activity-detail-actions">
+                    <button type="button" class="btn btn-outline btn-sm activity-save-button" data-activity-save="${escapeHtml(act.name)}" data-country-id="${countryId}" ${isSaved ? 'disabled' : ''}>
+                        <i class="fas ${isSaved ? 'fa-check' : 'fa-plus'}" aria-hidden="true"></i> ${isSaved ? 'In My Safari' : 'Add activity to My Safari'}
+                    </button>
+                    <p class="activity-save-status" role="status" aria-live="polite"></p>
+                </div>
             </div>
         </article>
-    `).join('');
+    `; }).join('');
+
+    const activityFilterBar = document.getElementById('activity-filter-bar');
+    if (activityFilterBar) {
+        const tags = [...new Set(data.activities.flatMap(activity => inferActivityTags(activity)))];
+        activityFilterBar.innerHTML = `
+            <button type="button" class="activity-filter active" data-activity-filter="all" aria-pressed="true">All activities <span>${data.activities.length}</span></button>
+            ${tags.map(tag => {
+                const count = data.activities.filter(activity => inferActivityTags(activity).includes(tag)).length;
+                return `<button type="button" class="activity-filter" data-activity-filter="${escapeHtml(tag)}" aria-pressed="false">${escapeHtml(tag)} <span>${count}</span></button>`;
+            }).join('')}
+        `;
+        applyActivityFilter('all');
+    }
 
     const actCategories = document.getElementById('detail-activity-categories');
     if (actCategories) {
-        actCategories.innerHTML = guide.activityCategories.map(cat => `
-            <div class="activity-cat-card">
-                <div class="activity-cat-header"><span>${cat.icon}</span><h4>${cat.name}</h4></div>
-                <ul>${cat.items.map(i => `<li>${i}</li>`).join('')}</ul>
-            </div>
+        const categoriesCount = document.getElementById('detail-activity-categories-count');
+        if (categoriesCount) categoriesCount.textContent = String(guide.activityCategories.length);
+        actCategories.innerHTML = guide.activityCategories.map((cat, index) => `
+            <article class="activity-cat-card">
+                <span class="activity-cat-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
+                <div class="activity-cat-header"><span>${escapeHtml(cat.icon)}</span><h4>${escapeHtml(cat.name)}</h4></div>
+                <ul>${cat.items.map(i => `<li>${escapeHtml(i)}</li>`).join('')}</ul>
+            </article>
         `).join('');
     }
 
@@ -856,6 +970,26 @@ export function initCountryGuide() {
             }
             attractionSave.disabled = true;
             attractionSave.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> In My Safari';
+            if (status) status.innerHTML = result.added
+                ? `Saved to ${escapeHtml(result.trip.name)}. <a href="/my-safari">Open trip</a>`
+                : `Already saved in ${escapeHtml(result.trip.name)}.`;
+            return;
+        }
+        const activityFilter = e.target.closest('[data-activity-filter]');
+        if (activityFilter) {
+            applyActivityFilter(activityFilter.dataset.activityFilter);
+            return;
+        }
+        const activitySave = e.target.closest('[data-activity-save]');
+        if (activitySave) {
+            const result = saveActivityToTrip(activitySave.dataset.countryId, activitySave.dataset.activitySave);
+            const status = activitySave.closest('.activity-detail-actions')?.querySelector('.activity-save-status');
+            if (!result?.trip) {
+                if (status) status.textContent = 'This activity could not be saved.';
+                return;
+            }
+            activitySave.disabled = true;
+            activitySave.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> In My Safari';
             if (status) status.innerHTML = result.added
                 ? `Saved to ${escapeHtml(result.trip.name)}. <a href="/my-safari">Open trip</a>`
                 : `Already saved in ${escapeHtml(result.trip.name)}.`;
