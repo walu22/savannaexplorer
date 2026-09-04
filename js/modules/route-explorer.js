@@ -1,6 +1,7 @@
 import routeCollection from '../../data/route-collections.json';
 import { filterRouteCollection, routeToTripTemplate } from '../lib/route-collection.js';
 import { MAX_COMPARE_ROUTES, normalizeComparisonIds, routeCostSignal, toggleComparisonId } from '../lib/route-comparison.js';
+import { DEFAULT_ROUTE_PREFERENCES, normalizeRoutePreferences, rankRouteMatches } from '../lib/route-matcher.js';
 import { mountRouteCollectionMap, destroyRouteCollectionMap } from '../lib/itinerary-maps.js';
 import { createTrip } from '../lib/trip-store.js';
 import { navigateHome, navigateToRoute, routePath, scrollToSection } from '../lib/router.js';
@@ -47,8 +48,10 @@ let visibilityObserver = null;
 let explorerActivated = false;
 let comparisonIds = [];
 let comparisonOpen = false;
+let matcherMatches = [];
 
 const COMPARISON_STORAGE_KEY = 'se_route_comparison_v1';
+const MATCHER_STORAGE_KEY = 'se_route_matcher_v1';
 
 function escapeHtml(value) {
     return String(value || '').replace(/[&<>"']/g, char => ({
@@ -125,6 +128,11 @@ function renderFilters() {
         country.insertAdjacentHTML('beforeend', Object.entries(COUNTRY_LABELS)
             .map(([value, label]) => `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`).join(''));
     }
+    const matcherCountry = document.getElementById('route-match-country');
+    if (matcherCountry && matcherCountry.options.length <= 1) {
+        matcherCountry.insertAdjacentHTML('beforeend', Object.entries(COUNTRY_LABELS)
+            .map(([value, label]) => `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`).join(''));
+    }
 }
 
 function filteredRoutes() {
@@ -149,6 +157,89 @@ function saveComparison() {
 
 function comparisonRoutes() {
     return comparisonIds.map(id => routes.find(route => route.id === id)).filter(Boolean);
+}
+
+function setMatcherForm(preferences) {
+    const normalized = normalizeRoutePreferences(preferences);
+    const form = document.getElementById('route-matcher-form');
+    if (!form) return;
+    form.elements.country.value = normalized.country;
+    form.elements.days.value = String(normalized.days);
+    form.elements.vehicle.value = normalized.vehicle;
+    form.elements.theme.value = normalized.theme;
+}
+
+function readMatcherForm() {
+    const form = document.getElementById('route-matcher-form');
+    if (!form) return DEFAULT_ROUTE_PREFERENCES;
+    return normalizeRoutePreferences({
+        country: form.elements.country.value,
+        days: form.elements.days.value,
+        vehicle: form.elements.vehicle.value,
+        theme: form.elements.theme.value,
+    });
+}
+
+function saveMatcher(preferences) {
+    try {
+        localStorage.setItem(MATCHER_STORAGE_KEY, JSON.stringify(preferences));
+    } catch {
+        // Recommendations still work when storage is unavailable.
+    }
+}
+
+function renderRouteMatches() {
+    const root = document.getElementById('route-matcher-results');
+    if (!root) return;
+    if (!matcherMatches.length) {
+        root.hidden = true;
+        root.innerHTML = '';
+        return;
+    }
+    root.hidden = false;
+    root.innerHTML = `
+        <div class="route-matcher-results__heading">
+            <div><span class="section-eyebrow">Your strongest options</span><h4 tabindex="-1">Recommended routes</h4></div>
+            <button type="button" class="btn btn-outline btn-sm" data-match-compare-all><i class="fas fa-scale-balanced" aria-hidden="true"></i> Compare these routes</button>
+        </div>
+        <div class="route-matcher-results__grid">
+            ${matcherMatches.map((match, index) => `
+                <article class="route-match-card">
+                    <div class="route-match-card__top"><span>#${index + 1}</span><strong>${escapeHtml(match.label)}</strong></div>
+                    <h5>${escapeHtml(match.route.title)}</h5>
+                    <p>${escapeHtml(countryNames(match.route))} · ${escapeHtml(match.route.duration.label)} · ${escapeHtml(match.route.vehicle.label)}</p>
+                    <ul class="route-match-card__reasons">${match.reasons.map(reason => `<li><i class="fas fa-check" aria-hidden="true"></i>${escapeHtml(reason)}</li>`).join('')}</ul>
+                    ${match.cautions.length ? `<ul class="route-match-card__cautions">${match.cautions.map(caution => `<li><i class="fas fa-triangle-exclamation" aria-hidden="true"></i>${escapeHtml(caution)}</li>`).join('')}</ul>` : ''}
+                    <div class="route-match-card__actions">
+                        <a class="btn btn-outline btn-sm" href="${escapeHtml(routePath(match.route.id))}" data-route-select="${escapeHtml(match.route.id)}">Explore</a>
+                        <button type="button" class="btn btn-primary btn-sm" data-route-start="${escapeHtml(match.route.id)}">Start in My Safari</button>
+                    </div>
+                </article>
+            `).join('')}
+        </div>
+    `;
+}
+
+function runRouteMatcher(preferences, { focus = true } = {}) {
+    const normalized = normalizeRoutePreferences(preferences);
+    setMatcherForm(normalized);
+    saveMatcher(normalized);
+    matcherMatches = rankRouteMatches(routes, normalized);
+    renderRouteMatches();
+    if (focus) document.querySelector('#route-matcher-results h4')?.focus({ preventScroll: true });
+}
+
+function restoreRouteMatcher() {
+    try {
+        const saved = localStorage.getItem(MATCHER_STORAGE_KEY);
+        if (!saved) {
+            setMatcherForm(DEFAULT_ROUTE_PREFERENCES);
+            return;
+        }
+        runRouteMatcher(JSON.parse(saved), { focus: false });
+    } catch {
+        setMatcherForm(DEFAULT_ROUTE_PREFERENCES);
+    }
 }
 
 function renderComparison() {
@@ -359,6 +450,8 @@ export function initRouteExplorer() {
     const section = document.getElementById('route-explorer');
     if (!section) return;
     restoreComparison();
+    renderFilters();
+    restoreRouteMatcher();
     const shouldActivateImmediately = window.location.pathname.startsWith('/routes/')
         || window.location.hash === '#route-explorer';
     if (shouldActivateImmediately) {
@@ -406,12 +499,20 @@ export function initRouteExplorer() {
         }
     });
 
+    section.addEventListener('submit', event => {
+        if (event.target.id !== 'route-matcher-form') return;
+        event.preventDefault();
+        if (!event.target.reportValidity()) return;
+        runRouteMatcher(readMatcherForm());
+    });
+
     section.addEventListener('click', event => {
         const select = event.target.closest('[data-route-select]');
         const start = event.target.closest('[data-route-start]');
         const compare = event.target.closest('[data-route-compare]');
         const removeCompare = event.target.closest('[data-compare-remove]');
         const compareStart = event.target.closest('[data-compare-start]');
+        const compareMatches = event.target.closest('[data-match-compare-all]');
         if (select) {
             event.preventDefault();
             selectedRouteId = select.dataset.routeSelect;
@@ -427,6 +528,21 @@ export function initRouteExplorer() {
             toggleRouteComparison(removeCompare.dataset.compareRemove);
         } else if (compareStart) {
             startRoute(compareStart.dataset.compareStart);
+        } else if (compareMatches) {
+            comparisonIds = normalizeComparisonIds(matcherMatches.map(match => match.route.id), routes);
+            comparisonOpen = true;
+            saveComparison();
+            renderCards(filteredRoutes());
+            renderDetail(routes.find(route => route.id === selectedRouteId));
+            renderCompareTray('Your recommended routes are ready to compare.');
+            document.getElementById('route-comparison-title')?.focus({ preventScroll: true });
+            document.getElementById('route-comparison')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (event.target.closest('#route-matcher-reset')) {
+            matcherMatches = [];
+            try { localStorage.removeItem(MATCHER_STORAGE_KEY); } catch { /* No stored preferences to clear. */ }
+            setMatcherForm(DEFAULT_ROUTE_PREFERENCES);
+            renderRouteMatches();
+            document.getElementById('route-match-country')?.focus();
         } else if (event.target.closest('#route-compare-open')) {
             comparisonOpen = true;
             renderComparison();

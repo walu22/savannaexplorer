@@ -19,7 +19,7 @@ test('traveller can filter routes and start an editable My Safari plan', async (
     await expect(explorer.locator('.route-explorer-card')).toHaveCount(19);
     await expect(explorer.locator('#route-explorer-count')).toHaveText('19 routes');
 
-    await explorer.getByLabel('Country').selectOption('botswana');
+    await explorer.locator('#route-filter-country').selectOption('botswana');
     await expect(explorer.locator('.route-explorer-card')).toHaveCount(2);
     await explorer.locator('.route-explorer-card').filter({ hasText: 'Okavango to Chobe Expedition' }).getByRole('link', { name: 'Explore route' }).click();
     await expect(page).toHaveURL(/\/routes\/botswana-okavango-chobe$/);
@@ -47,7 +47,7 @@ test('dedicated route URL restores its route and metadata', async ({ page }) => 
     const explorer = page.locator('#route-explorer');
 
     await expect(explorer.locator('#route-explorer-detail').getByRole('heading', { name: 'Four Rivers Wetlands Route' })).toBeVisible();
-    await expect(explorer.getByLabel('Country')).toHaveValue('all');
+    await expect(explorer.locator('#route-filter-country')).toHaveValue('all');
     await expect(explorer.locator('.route-detail-stops li')).toHaveCount(6);
     await expect(page).toHaveTitle(/Four Rivers Wetlands Route Road Trip/);
     await expect(page.locator('#canonical-link')).toHaveAttribute('href', /\/routes\/namibia-four-rivers-wetlands$/);
@@ -89,6 +89,40 @@ test('traveller can compare routes and choose one for My Safari', async ({ page 
     await explorer.locator('#route-comparison').getByRole('button', { name: 'Start in My Safari' }).nth(1).click();
     await expect(page).toHaveURL(/\/my-safari$/);
     await expect(page.locator('#my-safari-active-name')).toHaveText('Cape Town and Garden Route');
+});
+
+test('route matcher recommends explainable journeys and prepares a comparison', async ({ page }) => {
+    test.setTimeout(90_000);
+    await page.goto('/routes', { waitUntil: 'domcontentloaded' });
+    const explorer = page.locator('#route-explorer');
+    const matcher = explorer.locator('.route-matcher');
+
+    await matcher.getByLabel('Preferred country').selectOption('namibia');
+    await matcher.getByLabel('Days available').fill('12');
+    await matcher.getByLabel('Driving comfort').selectOption('suv');
+    await matcher.getByLabel('Main interest').selectOption('landscapes');
+    await matcher.getByRole('button', { name: 'Find my routes' }).click();
+
+    const recommendations = matcher.locator('.route-match-card');
+    await expect(recommendations).toHaveCount(3);
+    await expect(recommendations.first()).toContainText('Fits your 12-day window');
+    await expect(recommendations.first()).toContainText('Strong landscapes fit');
+    await expect(recommendations.first()).toContainText('Namibia');
+
+    const accessibility = await new AxeBuilder({ page })
+        .include('.route-matcher')
+        .withTags(['wcag2a', 'wcag2aa'])
+        .analyze();
+    expect(accessibility.violations.filter(item => ['serious', 'critical'].includes(item.impact))).toEqual([]);
+
+    await matcher.getByRole('button', { name: 'Compare these routes' }).click();
+    await expect(explorer.locator('#route-comparison')).toBeVisible();
+    await expect(explorer.locator('#route-comparison [data-compare-start]')).toHaveCount(3);
+
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await expect(matcher.locator('.route-match-card')).toHaveCount(3);
+    await expect(matcher.getByLabel('Preferred country')).toHaveValue('namibia');
+    await expect(matcher.getByLabel('Days available')).toHaveValue('12');
 });
 
 test('Route Explorer has no serious accessibility violations', async ({ page }) => {

@@ -335,6 +335,48 @@
                 <p>Compare practical, research-backed road-trip routes across all nine countries, then turn one into an editable My Safari plan.</p>
             </div>
 
+            <section class="route-matcher" aria-labelledby="route-matcher-title">
+                <div class="route-matcher__intro">
+                    <span class="section-eyebrow">Personal route finder</span>
+                    <h3 id="route-matcher-title">Which journey suits you?</h3>
+                    <p>Answer four practical questions. We’ll rank the strongest routes and explain every match.</p>
+                </div>
+                <form id="route-matcher-form" class="route-matcher__form">
+                    <label for="route-match-country">Preferred country
+                        <select id="route-match-country" name="country">
+                            <option value="all">Open to any country</option>
+                        </select>
+                    </label>
+                    <label for="route-match-days">Days available
+                        <input id="route-match-days" name="days" type="number" min="3" max="30" value="10" inputmode="numeric">
+                    </label>
+                    <label for="route-match-vehicle">Driving comfort
+                        <select id="route-match-vehicle" name="vehicle">
+                            <option value="standard">Standard-road driving</option>
+                            <option value="suv" selected>Gravel roads with an SUV</option>
+                            <option value="4x4">Experienced 4×4 driving</option>
+                        </select>
+                    </label>
+                    <label for="route-match-theme">Main interest
+                        <select id="route-match-theme" name="theme">
+                            <option value="wildlife">Wildlife</option>
+                            <option value="landscapes">Landscapes</option>
+                            <option value="culture">Culture</option>
+                            <option value="coast">Coast</option>
+                            <option value="water">Rivers &amp; lakes</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="family">Family</option>
+                            <option value="all">Open to any theme</option>
+                        </select>
+                    </label>
+                    <div class="route-matcher__actions">
+                        <button type="submit" class="btn btn-primary">Find my routes</button>
+                        <button type="button" class="btn btn-outline" id="route-matcher-reset">Reset</button>
+                    </div>
+                </form>
+                <div id="route-matcher-results" class="route-matcher-results" aria-live="polite" hidden></div>
+            </section>
+
             <div class="route-explorer-filters" aria-label="Filter routes">
                 <label for="route-filter-country">Country
                     <select id="route-filter-country" data-route-filter="country">

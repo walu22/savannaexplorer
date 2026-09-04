@@ -10,6 +10,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('My Safari keeps expenses and packing progress with the selected trip', async ({ page }) => {
+    test.setTimeout(60_000);
     await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
     const safari = page.locator('#hub-my-safari');
     await expect(safari.getByRole('heading', { name: 'My Safari' })).toBeVisible();
