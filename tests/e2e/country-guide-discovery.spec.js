@@ -259,6 +259,36 @@ test('South Africa region planner connects practical regions to destination card
     await expect(guide.locator('#country-spot-cradle-of-humankind')).toBeFocused();
 });
 
+test('Routes provides responsive comparison and theme filtering', async ({ page, isMobile }) => {
+    await page.goto('/countries/namibia', { waitUntil: 'domcontentloaded' });
+    const guide = page.locator('#country-detail-view');
+    await guide.getByRole('button', { name: /Routes/ }).click();
+
+    await expect(guide.getByRole('heading', { name: 'Compare practical routes through Namibia' })).toBeVisible();
+    await expect(guide.locator('#detail-routes-count')).toHaveText('3');
+    await expect(guide.locator('#detail-route-stops-count')).toHaveText('18');
+    await expect(guide.locator('.route-choice-grid article')).toHaveCount(3);
+    await expect(guide.locator('.country-route-card')).toHaveCount(3);
+    await expect(guide.locator('[data-country-route-filter]')).not.toHaveCount(1);
+
+    const columns = await guide.locator('#detail-routes-grid').evaluate(element =>
+        getComputedStyle(element).gridTemplateColumns.split(' ').length,
+    );
+    expect(columns).toBe(isMobile ? 1 : 2);
+
+    const waterFilter = guide.locator('[data-country-route-filter="water"]');
+    await waterFilter.click();
+    await expect(waterFilter).toHaveAttribute('aria-pressed', 'true');
+    await expect(guide.locator('.country-route-card:not([hidden])')).toHaveCount(1);
+    await expect(guide.locator('#country-route-filter-status')).toHaveText('1 of 3 routes shown');
+
+    const results = await new AxeBuilder({ page })
+        .include('#panel-routes')
+        .withTags(['wcag2a', 'wcag2aa'])
+        .analyze();
+    expect(results.violations.filter(item => ['serious', 'critical'].includes(item.impact))).toEqual([]);
+});
+
 test('country routes open the canonical route and start an editable My Safari plan', async ({ page }) => {
     await page.goto('/countries/south-africa', { waitUntil: 'domcontentloaded' });
     const guide = page.locator('#country-detail-view');

@@ -2088,12 +2088,53 @@
 
                 <!-- Tab: Routes -->
                 <div class="guide-panel" id="panel-routes">
-                    <div class="guide-intro">
-                        <span class="section-eyebrow">Itineraries</span>
-                        <h2>Suggested Routes</h2>
-                        <p>Curated journeys through this destination — adapt the pacing and stops to your own trip.</p>
+                    <div class="routes-planner-hero">
+                        <div class="guide-intro guide-intro--routes">
+                            <span class="section-eyebrow">Choose a journey</span>
+                            <h2 id="detail-routes-heading">Compare practical routes</h2>
+                            <p>Start with a researched route, understand the driving commitment and adapt every day inside My Safari.</p>
+                        </div>
+                        <aside class="routes-summary-card" aria-labelledby="routes-summary-title">
+                            <span class="routes-summary-card__icon" aria-hidden="true"><i class="fas fa-route"></i></span>
+                            <p class="routes-card-eyebrow">Country route collection</p>
+                            <h3 id="routes-summary-title"><span class="routes-country-name">Country</span> journeys at a glance</h3>
+                            <div class="routes-summary-stats" aria-label="Route collection coverage">
+                                <div><strong id="detail-routes-count">0</strong><span>curated routes</span></div>
+                                <div><strong id="detail-route-stops-count">0</strong><span>mapped stops</span></div>
+                            </div>
+                            <p id="detail-route-duration-summary">Choose a duration that gives the route room to breathe.</p>
+                            <a class="routes-explorer-link" href="/routes"><i class="fas fa-layer-group" aria-hidden="true"></i> Compare all regional routes</a>
+                        </aside>
                     </div>
-                    <div id="detail-routes-grid" class="routes-grid"></div>
+
+                    <section class="route-choice-section" aria-labelledby="route-choice-heading">
+                        <div class="routes-section-heading">
+                            <span class="routes-heading-icon" aria-hidden="true"><i class="fas fa-sliders-h"></i></span>
+                            <div><span class="section-eyebrow">Make the right trade-offs</span><h3 id="route-choice-heading">How to choose your route</h3><p>Compare time, vehicle requirements and route readiness before committing to a template.</p></div>
+                        </div>
+                        <div class="route-choice-grid">
+                            <article><span>01</span><i class="far fa-calendar" aria-hidden="true"></i><h4>Allow enough time</h4><p>Use the minimum duration as a floor, not a target. Extra days reduce driving pressure and create weather flexibility.</p></article>
+                            <article><span>02</span><i class="fas fa-car" aria-hidden="true"></i><h4>Match the vehicle</h4><p>Check the stated vehicle for the whole route, then verify seasonal road conditions before collecting your rental.</p></article>
+                            <article><span>03</span><i class="fas fa-shield-alt" aria-hidden="true"></i><h4>Read the confidence signal</h4><p>Map-ready routes have complete mapped legs; routes marked “check conditions” contain remote sections needing a fresh check.</p></article>
+                        </div>
+                    </section>
+
+                    <section class="route-filter-section" aria-labelledby="route-filter-heading">
+                        <div>
+                            <span class="section-eyebrow">Match your interests</span>
+                            <h3 id="route-filter-heading">Filter these journeys</h3>
+                        </div>
+                        <div class="country-route-filter-bar" id="country-route-filter-bar" aria-label="Filter country routes by trip style"></div>
+                        <p class="country-route-filter-status" id="country-route-filter-status" role="status" aria-live="polite"></p>
+                    </section>
+
+                    <section class="country-routes-section" aria-labelledby="country-routes-list-heading">
+                        <div class="routes-section-heading">
+                            <span class="routes-heading-icon" aria-hidden="true"><i class="fas fa-map-signs"></i></span>
+                            <div><span class="section-eyebrow">Select a starting point</span><h3 id="country-routes-list-heading"><span class="routes-country-name">Country</span> route templates</h3><p>Open the full research page for logistics and sources, or create the complete editable itinerary immediately.</p></div>
+                        </div>
+                        <div id="detail-routes-grid" class="routes-grid"></div>
+                    </section>
                 </div>
             </div>
         </div>

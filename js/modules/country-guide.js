@@ -257,6 +257,29 @@ function applyActivityFilter(filter = 'all') {
     if (status) status.textContent = `${visible} of ${cards.length} activities shown`;
 }
 
+function routeThemeLabel(theme) {
+    return String(theme || '').replace(/(^|[-\s])\w/g, match => match.toUpperCase());
+}
+
+function applyCountryRouteFilter(filter = 'all') {
+    const grid = document.getElementById('detail-routes-grid');
+    const cards = [...(grid?.querySelectorAll('.country-route-card') || [])];
+    let visible = 0;
+    cards.forEach(card => {
+        const themes = (card.dataset.routeThemes || '').split('|').filter(Boolean);
+        const matches = filter === 'all' || themes.includes(filter);
+        card.hidden = !matches;
+        if (matches) visible += 1;
+    });
+    document.querySelectorAll('[data-country-route-filter]').forEach(button => {
+        const active = button.dataset.countryRouteFilter === filter;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+    });
+    const status = document.getElementById('country-route-filter-status');
+    if (status) status.textContent = `${visible} of ${cards.length} routes shown`;
+}
+
 function saveActivityToTrip(countryId, activityName) {
     const country = getFullCountryData(countryId);
     const activity = country?.activities.find(item => item.name === activityName);
@@ -365,6 +388,11 @@ function populateCountryPage(countryId) {
     });
     const activitiesCount = document.getElementById('detail-activities-count');
     if (activitiesCount) activitiesCount.textContent = String(data.activities.length);
+    document.querySelectorAll('#panel-routes .routes-country-name').forEach(element => {
+        element.textContent = data.name;
+    });
+    const routesHeading = document.getElementById('detail-routes-heading');
+    if (routesHeading) routesHeading.textContent = `Compare practical routes through ${data.name}`;
 
     const meta = getCountryMeta(countryId);
     const heroImg = document.getElementById('detail-hero-img');
@@ -728,22 +756,47 @@ function populateCountryPage(countryId) {
     const detailRoutesGrid = document.getElementById('detail-routes-grid');
     if (detailRoutesGrid) {
         const countryRoutes = routeCollection.routes.filter(route => route.countryIds.includes(countryId));
-        detailRoutesGrid.innerHTML = countryRoutes.map(route => `
-            <article class="route-card country-route-card">
+        const routesCount = document.getElementById('detail-routes-count');
+        const stopsCount = document.getElementById('detail-route-stops-count');
+        const durationSummary = document.getElementById('detail-route-duration-summary');
+        if (routesCount) routesCount.textContent = String(countryRoutes.length);
+        if (stopsCount) stopsCount.textContent = String(countryRoutes.reduce((total, route) => total + route.stops.length, 0));
+        if (durationSummary && countryRoutes.length) {
+            const shortest = Math.min(...countryRoutes.map(route => route.duration.min));
+            const longest = Math.max(...countryRoutes.map(route => route.duration.max));
+            durationSummary.textContent = `The collection ranges from ${shortest} to ${longest} days. Use the minimum as a floor and add breathing room where possible.`;
+        }
+
+        detailRoutesGrid.innerHTML = countryRoutes.map((route, index) => `
+            <article class="route-card country-route-card" data-route-themes="${escapeHtml(route.themes.join('|'))}">
                 <div class="country-route-card__top">
-                    <span class="route-readiness route-readiness--${escapeHtml(route.readiness)}">${route.readiness === 'green' ? 'Map ready' : 'Check conditions'}</span>
-                    <span>${escapeHtml(route.duration.label)}</span>
+                    <span class="country-route-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
+                    <div>
+                        <span class="route-readiness route-readiness--${escapeHtml(route.readiness)}">${route.readiness === 'green' ? 'Map ready' : 'Check conditions'}</span>
+                        <span class="country-route-duration">${escapeHtml(route.duration.label)}</span>
+                    </div>
+                </div>
+                <div class="country-route-themes" aria-label="Route themes">
+                    ${route.themes.map(theme => `<span>${escapeHtml(routeThemeLabel(theme))}</span>`).join('')}
                 </div>
                 <h4>${escapeHtml(route.title)}</h4>
-                <p>${escapeHtml(route.promise)}</p>
-                <div class="route-meta">
-                    <span><i class="fas fa-car" aria-hidden="true"></i>${escapeHtml(route.vehicle.label)}</span>
-                    <span><i class="far fa-calendar" aria-hidden="true"></i>${escapeHtml(route.bestSeason.label)}</span>
-                </div>
+                <p class="country-route-promise">${escapeHtml(route.promise)}</p>
+                <dl class="country-route-facts">
+                    <div><dt><i class="far fa-calendar" aria-hidden="true"></i>Duration</dt><dd>${escapeHtml(route.duration.label)}</dd></div>
+                    <div><dt><i class="fas fa-car" aria-hidden="true"></i>Vehicle</dt><dd>${escapeHtml(route.vehicle.label)}</dd></div>
+                    <div><dt><i class="fas fa-cloud-sun" aria-hidden="true"></i>Best season</dt><dd>${escapeHtml(route.bestSeason.label)}</dd></div>
+                    <div><dt><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Route stops</dt><dd>${route.stops.length} mapped stops</dd></div>
+                </dl>
+                <p class="country-route-preview-label">Route preview</p>
                 <ol class="country-route-days" aria-label="Day-by-day preview">
                     ${route.phases.slice(0, 3).map(phase => `<li><span>Day ${phase.dayStart}</span>${escapeHtml(phase.title)}</li>`).join('')}
                 </ol>
-                <p class="country-route-card__plan-note"><i class="fas fa-pen-to-square" aria-hidden="true"></i>${route.duration.min}-day editable plan with ${route.stops.length} mapped stops</p>
+                ${route.phases.length > 3 ? `<p class="country-route-more">+ ${route.phases.length - 3} more route ${route.phases.length - 3 === 1 ? 'phase' : 'phases'} in the full guide</p>` : ''}
+                ${route.warnings?.length ? `<p class="country-route-card__warning"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>${escapeHtml(route.warnings[0])}</p>` : ''}
+                <div class="country-route-review">
+                    <span><i class="fas fa-pen-to-square" aria-hidden="true"></i>Complete ${route.duration.min}-day editable plan</span>
+                    <span>${route.officialSources?.length || 0} official ${route.officialSources?.length === 1 ? 'source' : 'sources'} · reviewed ${escapeHtml(route.lastReviewed)}</span>
+                </div>
                 <div class="country-route-card__actions">
                     <a class="btn btn-outline btn-sm" href="${escapeHtml(routePath(route.id))}" data-country-route-open="${escapeHtml(route.id)}">View full route</a>
                     <button type="button" class="btn btn-primary btn-sm" data-country-route-start="${escapeHtml(route.id)}">Start in My Safari</button>
@@ -751,6 +804,19 @@ function populateCountryPage(countryId) {
                 <p class="country-route-card__status" role="status" aria-live="polite"></p>
             </article>
         `).join('');
+
+        const filterBar = document.getElementById('country-route-filter-bar');
+        if (filterBar) {
+            const themes = [...new Set(countryRoutes.flatMap(route => route.themes))];
+            filterBar.innerHTML = `
+                <button type="button" class="country-route-filter active" data-country-route-filter="all" aria-pressed="true">All routes <span>${countryRoutes.length}</span></button>
+                ${themes.map(theme => {
+                    const count = countryRoutes.filter(route => route.themes.includes(theme)).length;
+                    return `<button type="button" class="country-route-filter" data-country-route-filter="${escapeHtml(theme)}" aria-pressed="false">${escapeHtml(routeThemeLabel(theme))} <span>${count}</span></button>`;
+                }).join('')}
+            `;
+            applyCountryRouteFilter('all');
+        }
     }
 
     if (detailFlavorInline) {
@@ -914,6 +980,11 @@ export function initCountryGuide() {
         const btn = e.target.closest('[data-action="view-itineraries"]');
         if (btn) {
             closeCountryPage('itineraries');
+            return;
+        }
+        const countryRouteFilter = e.target.closest('[data-country-route-filter]');
+        if (countryRouteFilter) {
+            applyCountryRouteFilter(countryRouteFilter.dataset.countryRouteFilter);
             return;
         }
         const routeOpen = e.target.closest('[data-country-route-open]');
