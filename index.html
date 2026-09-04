@@ -1845,60 +1845,141 @@
 
                 <!-- Tab: Travelling -->
                 <div class="guide-panel" id="panel-travelling">
-                    <div class="guide-intro">
-                        <span class="section-eyebrow">Travelling</span>
-                        <h2>Essential Pre-Trip Information</h2>
-                        <p>Everything you need to plan a safe, memorable journey.</p>
-                    </div>
-                    <div class="seasons-grid" id="detail-seasons"></div>
-                    <div id="detail-best-time" class="best-time-section"></div>
-                    <div id="detail-weather-matrix" class="weather-matrix"></div>
-                    <div class="travel-info-grid">
-                        <div class="travel-info-card"><i class="fas fa-passport"></i><h4>Visa & Entry</h4><p id="detail-visa"></p></div>
-                        <div class="travel-info-card"><i class="fas fa-heartbeat"></i><h4>Health</h4><p id="detail-health"></p></div>
-                        <div class="travel-info-card"><i class="fas fa-money-bill-wave"></i><h4>Currency & Money</h4><p id="detail-money"></p></div>
-                        <div class="travel-info-card"><i class="fas fa-hand-holding-usd"></i><h4>Tipping</h4><p id="detail-tipping"></p></div>
-                        <div class="travel-info-card"><i class="fas fa-utensils"></i><h4>Food & Drink</h4><p id="detail-food"></p></div>
-                        <div class="travel-info-card"><i class="fas fa-shield-alt"></i><h4>Safety</h4><p id="detail-safety"></p></div>
-                        <div class="travel-info-card"><i class="fas fa-route"></i><h4>Getting Around</h4><p id="detail-transport"></p></div>
-                        <div class="travel-info-card"><i class="fas fa-wallet"></i><h4>Budget</h4><p id="detail-budget"></p></div>
-                    </div>
-                    <div class="packing-section">
-                        <h3><i class="fas fa-suitcase"></i> Essential Packing List</h3>
-                        <ul class="packing-list" id="detail-packing"></ul>
-                    </div>
-                    <div class="country-resources-block" id="detail-resources-section" hidden>
-                        <h3><i class="fas fa-external-link-alt"></i> Official Resources</h3>
-                        <p class="country-resources-note" id="detail-resources-note"></p>
-                        <div id="detail-official-resources" class="official-resources-grid"></div>
-                    </div>
-                    <div class="country-resources-block" id="detail-parks-section" hidden>
-                        <div class="country-resources-header">
-                            <h3><i class="fas fa-tree"></i> National Parks — Book Direct</h3>
-                            <button type="button" class="btn btn-outline btn-sm" data-action="view-parks">All parks guide</button>
+                    <div class="travel-planner-hero">
+                        <div class="guide-intro guide-intro--travel">
+                            <span class="section-eyebrow">Trip planning</span>
+                            <h2 id="detail-travel-heading">Plan your visit</h2>
+                            <p>Turn inspiration into a practical journey with seasonal guidance, entry essentials and trusted planning links.</p>
+                            <nav class="travel-jump-links" aria-label="Travel planning sections">
+                                <a href="#travel-when-to-go"><i class="far fa-calendar" aria-hidden="true"></i> When to go</a>
+                                <a href="#travel-essentials"><i class="fas fa-passport" aria-hidden="true"></i> Essentials</a>
+                                <a href="#travel-on-the-ground"><i class="fas fa-car" aria-hidden="true"></i> On the ground</a>
+                                <a href="#travel-official-links"><i class="fas fa-shield-alt" aria-hidden="true"></i> Official links</a>
+                            </nav>
                         </div>
-                        <div id="detail-country-parks" class="country-resource-list"></div>
+                        <aside class="travel-starter-card" aria-labelledby="travel-starter-title">
+                            <span class="travel-starter-card__icon" aria-hidden="true"><i class="fas fa-map-location-dot"></i></span>
+                            <p class="travel-starter-card__eyebrow">Build as you browse</p>
+                            <h3 id="travel-starter-title">Start a <span class="travel-country-name">country</span> safari</h3>
+                            <p>Create an editable trip, then add dates, route stops, costs and a packing list in My Safari.</p>
+                            <button type="button" class="btn btn-primary travel-start-button" data-country-trip-start>
+                                <i class="fas fa-plus" aria-hidden="true"></i> Add to My Safari
+                            </button>
+                            <p class="travel-start-status" role="status" aria-live="polite"></p>
+                        </aside>
                     </div>
-                    <div class="country-resources-block" id="detail-book-section" hidden>
-                        <div class="country-resources-header">
-                            <h3><i class="fas fa-bed"></i> Stays &amp; Operators</h3>
-                            <button type="button" class="btn btn-outline btn-sm" data-action="view-book-direct">Full book-direct index</button>
+
+                    <section class="travel-section" id="travel-when-to-go" aria-labelledby="travel-when-heading">
+                        <div class="country-section-heading travel-section-heading">
+                            <span class="section-eyebrow">Choose your season</span>
+                            <h3 id="travel-when-heading">When to go</h3>
+                            <p>Compare the character of each season, then use the month-by-month conditions to choose dates that fit your priorities.</p>
                         </div>
-                        <div id="detail-country-book" class="official-resources-grid"></div>
-                    </div>
-                    <div class="country-resources-block" id="detail-borders-section" hidden>
-                        <div class="country-resources-header">
-                            <h3><i class="fas fa-border-all"></i> Border Crossings</h3>
-                            <button type="button" class="btn btn-outline btn-sm" data-action="view-borders">Full border guide</button>
+                        <div class="seasons-grid" id="detail-seasons"></div>
+                        <div id="detail-best-time" class="best-time-section"></div>
+                        <div id="detail-weather-matrix" class="weather-matrix"></div>
+                    </section>
+
+                    <section class="travel-section" id="travel-essentials" aria-labelledby="travel-essentials-heading">
+                        <div class="country-section-heading travel-section-heading">
+                            <span class="section-eyebrow">Before you leave</span>
+                            <h3 id="travel-essentials-heading">Travel essentials</h3>
+                            <p>Work through the checks that can affect whether, when and how you travel.</p>
                         </div>
-                        <div id="detail-country-borders" class="country-resource-list"></div>
-                        <p class="country-resources-more" id="detail-borders-more"></p>
-                    </div>
-                    <div class="day-narrative" id="detail-day-narrative"></div>
-                    <div class="faq-section">
-                        <h3><i class="fas fa-circle-question"></i> Common Questions</h3>
-                        <div id="detail-faq-list" class="faq-accordion"></div>
-                    </div>
+                        <div class="travel-planning-groups">
+                            <article class="travel-planning-group travel-planning-group--entry">
+                                <header>
+                                    <span class="travel-group-number">01</span>
+                                    <div><p>Entry &amp; wellbeing</p><h4>Arrive prepared</h4></div>
+                                </header>
+                                <div class="travel-info-grid">
+                                    <div class="travel-info-card"><i class="fas fa-passport"></i><div><h5>Visa &amp; Entry</h5><p id="detail-visa"></p></div></div>
+                                    <div class="travel-info-card"><i class="fas fa-heartbeat"></i><div><h5>Health</h5><p id="detail-health"></p></div></div>
+                                    <div class="travel-info-card"><i class="fas fa-shield-alt"></i><div><h5>Safety</h5><p id="detail-safety"></p></div></div>
+                                </div>
+                            </article>
+                            <article class="travel-planning-group travel-planning-group--money">
+                                <header>
+                                    <span class="travel-group-number">02</span>
+                                    <div><p>Money &amp; daily life</p><h4>Know what to expect</h4></div>
+                                </header>
+                                <div class="travel-info-grid">
+                                    <div class="travel-info-card"><i class="fas fa-money-bill-wave"></i><div><h5>Currency &amp; Money</h5><p id="detail-money"></p></div></div>
+                                    <div class="travel-info-card"><i class="fas fa-wallet"></i><div><h5>Budget</h5><p id="detail-budget"></p></div></div>
+                                    <div class="travel-info-card"><i class="fas fa-hand-holding-usd"></i><div><h5>Tipping</h5><p id="detail-tipping"></p></div></div>
+                                    <div class="travel-info-card"><i class="fas fa-utensils"></i><div><h5>Food &amp; Drink</h5><p id="detail-food"></p></div></div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="travel-section" id="travel-on-the-ground" aria-labelledby="travel-ground-heading">
+                        <div class="country-section-heading travel-section-heading">
+                            <span class="section-eyebrow">Make it practical</span>
+                            <h3 id="travel-ground-heading">On the ground</h3>
+                            <p>Plan how you will move around and pack for the conditions you are likely to meet.</p>
+                        </div>
+                        <div class="travel-ground-grid">
+                            <article class="travel-transport-card">
+                                <span class="travel-card-icon" aria-hidden="true"><i class="fas fa-car-side"></i></span>
+                                <p class="travel-card-eyebrow">Transport &amp; self-drive</p>
+                                <h4>Getting around <span class="travel-country-name">the country</span></h4>
+                                <p id="detail-transport"></p>
+                            </article>
+                            <div class="packing-section">
+                                <p class="travel-card-eyebrow">Pack with purpose</p>
+                                <h3><i class="fas fa-suitcase" aria-hidden="true"></i> Essential packing list</h3>
+                                <ul class="packing-list" id="detail-packing"></ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="travel-section travel-trusted-section" id="travel-official-links" aria-labelledby="travel-trusted-heading">
+                        <div class="country-section-heading travel-section-heading">
+                            <span class="section-eyebrow">Book and verify</span>
+                            <h3 id="travel-trusted-heading">Trusted planning links</h3>
+                            <p>Use first-party sources for final checks, park bookings, border information and local operators.</p>
+                        </div>
+                        <div class="country-resources-block" id="detail-resources-section" hidden>
+                            <h3><i class="fas fa-external-link-alt"></i> Official Resources</h3>
+                            <p class="country-resources-note" id="detail-resources-note"></p>
+                            <div id="detail-official-resources" class="official-resources-grid"></div>
+                        </div>
+                        <div class="country-resources-block" id="detail-parks-section" hidden>
+                            <div class="country-resources-header">
+                                <h3><i class="fas fa-tree"></i> National Parks — Book Direct</h3>
+                                <button type="button" class="btn btn-outline btn-sm" data-action="view-parks">All parks guide</button>
+                            </div>
+                            <div id="detail-country-parks" class="country-resource-list"></div>
+                        </div>
+                        <div class="country-resources-block" id="detail-book-section" hidden>
+                            <div class="country-resources-header">
+                                <h3><i class="fas fa-bed"></i> Stays &amp; Operators</h3>
+                                <button type="button" class="btn btn-outline btn-sm" data-action="view-book-direct">Full book-direct index</button>
+                            </div>
+                            <div id="detail-country-book" class="official-resources-grid"></div>
+                        </div>
+                        <div class="country-resources-block" id="detail-borders-section" hidden>
+                            <div class="country-resources-header">
+                                <h3><i class="fas fa-border-all"></i> Border Crossings</h3>
+                                <button type="button" class="btn btn-outline btn-sm" data-action="view-borders">Full border guide</button>
+                            </div>
+                            <div id="detail-country-borders" class="country-resource-list"></div>
+                            <p class="country-resources-more" id="detail-borders-more"></p>
+                        </div>
+                    </section>
+
+                    <section class="travel-section travel-final-section" aria-labelledby="travel-inspiration-heading">
+                        <div class="country-section-heading travel-section-heading">
+                            <span class="section-eyebrow">Picture the journey</span>
+                            <h3 id="travel-inspiration-heading">A day on safari</h3>
+                        </div>
+                        <div class="day-narrative" id="detail-day-narrative"></div>
+                        <div class="faq-section">
+                            <h3><i class="fas fa-circle-question"></i> Common Questions</h3>
+                            <div id="detail-faq-list" class="faq-accordion"></div>
+                        </div>
+                    </section>
                 </div>
 
                 <!-- Tab: Attractions -->

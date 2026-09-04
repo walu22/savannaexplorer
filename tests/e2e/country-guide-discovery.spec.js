@@ -82,6 +82,53 @@ test('country guides use the shared structured header and overview layout', asyn
     expect(layout.width).toBeLessThanOrEqual(layout.viewport + 1);
 });
 
+test('Travelling is a responsive trip-planning dashboard', async ({ page, isMobile }) => {
+    await page.goto('/countries/namibia', { waitUntil: 'domcontentloaded' });
+    const guide = page.locator('#country-detail-view');
+    await guide.getByRole('button', { name: /Travelling/ }).click();
+
+    await expect(guide.getByRole('heading', { name: 'Plan your visit to Namibia' })).toBeVisible();
+    await expect(guide.locator('.travel-jump-links a')).toHaveCount(4);
+    await expect(guide.locator('.travel-planning-group')).toHaveCount(2);
+    await expect(guide.locator('#travel-essentials .travel-info-card')).toHaveCount(7);
+    await expect(guide.locator('#detail-packing li')).not.toHaveCount(0);
+    await expect(guide.getByRole('button', { name: 'Add to My Safari' })).toBeVisible();
+
+    const layout = await page.evaluate(() => ({
+        planningColumns: getComputedStyle(document.querySelector('.travel-planning-groups')).gridTemplateColumns.split(' ').length,
+        groundColumns: getComputedStyle(document.querySelector('.travel-ground-grid')).gridTemplateColumns.split(' ').length,
+        width: document.documentElement.scrollWidth,
+        viewport: window.innerWidth,
+    }));
+
+    expect(layout.planningColumns).toBe(isMobile ? 1 : 2);
+    expect(layout.groundColumns).toBe(isMobile ? 1 : 2);
+    expect(layout.width).toBeLessThanOrEqual(layout.viewport + 1);
+
+    const results = await new AxeBuilder({ page })
+        .include('#panel-travelling')
+        .withTags(['wcag2a', 'wcag2aa'])
+        .analyze();
+    expect(results.violations.filter(item => ['serious', 'critical'].includes(item.impact))).toEqual([]);
+});
+
+test('country-level planner creates an editable My Safari trip', async ({ page }) => {
+    await page.goto('/countries/namibia', { waitUntil: 'domcontentloaded' });
+    const guide = page.locator('#country-detail-view');
+    await guide.getByRole('button', { name: /Travelling/ }).click();
+    await guide.getByRole('button', { name: 'Add to My Safari' }).click();
+
+    await page.waitForURL('**/my-safari');
+    await expect(page.locator('#my-safari-active-name')).toHaveText('Namibia safari');
+
+    const trip = await page.evaluate(() => {
+        const saved = JSON.parse(localStorage.getItem('se_my_safari_v1') || '{}');
+        return saved.trips?.find(item => item.name === 'Namibia safari');
+    });
+    expect(trip.countries).toEqual(['namibia']);
+    expect(trip.notes).toContain('Namibia country guide');
+});
+
 test('South Africa region planner connects practical regions to destination cards', async ({ page, isMobile }) => {
     await page.goto('/countries/south-africa', { waitUntil: 'domcontentloaded' });
     const guide = page.locator('#country-detail-view');

@@ -203,6 +203,15 @@ function populateCountryPage(countryId) {
     }
     const headerName = document.getElementById('detail-header-country-name');
     if (headerName) headerName.textContent = data.name;
+    const travelHeading = document.getElementById('detail-travel-heading');
+    if (travelHeading) travelHeading.textContent = `Plan your visit to ${data.name}`;
+    document.querySelectorAll('#panel-travelling .travel-country-name').forEach(element => {
+        element.textContent = data.name;
+    });
+    const countryTripStart = document.querySelector('[data-country-trip-start]');
+    if (countryTripStart) countryTripStart.dataset.countryTripStart = countryId;
+    const countryTripStatus = document.querySelector('.travel-start-status');
+    if (countryTripStatus) countryTripStatus.textContent = '';
 
     const meta = getCountryMeta(countryId);
     const heroImg = document.getElementById('detail-hero-img');
@@ -708,6 +717,24 @@ export function initCountryGuide() {
                 return;
             }
             const trip = createTrip(template);
+            if (status) status.textContent = `${trip.name} is ready. Opening your editable plan…`;
+            window.location.assign('/my-safari');
+            return;
+        }
+        const countryTripStart = e.target.closest('[data-country-trip-start]');
+        if (countryTripStart) {
+            const countryId = countryTripStart.dataset.countryTripStart;
+            const data = getFullCountryData(countryId);
+            const status = countryTripStart.closest('.travel-starter-card')?.querySelector('.travel-start-status');
+            if (!data) {
+                if (status) status.textContent = 'This trip could not be created.';
+                return;
+            }
+            const trip = createTrip({
+                name: `${data.name} safari`,
+                countries: [countryId],
+                notes: `Started from the ${data.name} country guide.`,
+            });
             if (status) status.textContent = `${trip.name} is ready. Opening your editable plan…`;
             window.location.assign('/my-safari');
             return;
