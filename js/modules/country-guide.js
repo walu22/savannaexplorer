@@ -4,6 +4,7 @@ import regions from '../../data/regions.json';
 import quickFacts from '../../data/country-quickfacts.json';
 import weatherData from '../../data/country-weather.json';
 import tipsData from '../../data/country-tips.json';
+import routeCollection from '../../data/route-collections.json';
 import { getFullCountryData } from '../lib/merge-country.js';
 import { getCountryGuide } from '../lib/guide.js';
 import { spotImageUrl, activityImageUrl } from '../lib/images.js';
@@ -25,9 +26,12 @@ import {
     replaceWithCountryPath,
     scrollToSection,
     countryPath,
+    routePath,
     COUNTRY_IDS,
     HUB_SECTIONS,
 } from '../lib/router.js';
+import { routeToTripTemplate } from '../lib/route-collection.js';
+import { createTrip } from '../lib/trip-store.js';
 import { setCountryMeta, setHomeMeta, setHubMeta } from '../lib/page-meta.js';
 import { dismissSeoPrerender } from '../lib/seo-prerender.js';
 import { handleSeoRoute } from './seo-routes.js';
@@ -494,23 +498,31 @@ function populateCountryPage(countryId) {
     }
 
     const detailRoutesGrid = document.getElementById('detail-routes-grid');
-    if (detailRoutesGrid && data.routes) {
-        detailRoutesGrid.innerHTML = data.routes.map(route => {
-            const highlights = route.highlights?.length
-                ? `<ul class="route-highlights">${route.highlights.map(h => `<li>${h}</li>`).join('')}</ul>`
-                : '';
-            const meta = route.duration || route.distance
-                ? `<div class="route-meta">${route.duration ? `<span><i class="far fa-clock"></i> ${route.duration}</span>` : ''}${route.distance ? `<span><i class="fas fa-road"></i> ${route.distance}</span>` : ''}</div>`
-                : '';
-            return `
-            <div class="route-card">
-                <h4>${route.name}</h4>
-                ${meta}
-                <p>${route.desc}</p>
-                ${highlights}
-                <button class="btn btn-outline btn-sm" data-action="view-itineraries">View All Itineraries</button>
-            </div>`;
-        }).join('');
+    if (detailRoutesGrid) {
+        const countryRoutes = routeCollection.routes.filter(route => route.countryIds.includes(countryId));
+        detailRoutesGrid.innerHTML = countryRoutes.map(route => `
+            <article class="route-card country-route-card">
+                <div class="country-route-card__top">
+                    <span class="route-readiness route-readiness--${escapeHtml(route.readiness)}">${route.readiness === 'green' ? 'Map ready' : 'Check conditions'}</span>
+                    <span>${escapeHtml(route.duration.label)}</span>
+                </div>
+                <h4>${escapeHtml(route.title)}</h4>
+                <p>${escapeHtml(route.promise)}</p>
+                <div class="route-meta">
+                    <span><i class="fas fa-car" aria-hidden="true"></i>${escapeHtml(route.vehicle.label)}</span>
+                    <span><i class="far fa-calendar" aria-hidden="true"></i>${escapeHtml(route.bestSeason.label)}</span>
+                </div>
+                <ol class="country-route-days" aria-label="Day-by-day preview">
+                    ${route.phases.slice(0, 3).map(phase => `<li><span>Day ${phase.dayStart}</span>${escapeHtml(phase.title)}</li>`).join('')}
+                </ol>
+                <p class="country-route-card__plan-note"><i class="fas fa-pen-to-square" aria-hidden="true"></i>${route.duration.min}-day editable plan with ${route.stops.length} mapped stops</p>
+                <div class="country-route-card__actions">
+                    <a class="btn btn-outline btn-sm" href="${escapeHtml(routePath(route.id))}" data-country-route-open="${escapeHtml(route.id)}">View full route</a>
+                    <button type="button" class="btn btn-primary btn-sm" data-country-route-start="${escapeHtml(route.id)}">Start in My Safari</button>
+                </div>
+                <p class="country-route-card__status" role="status" aria-live="polite"></p>
+            </article>
+        `).join('');
     }
 
     if (detailFlavorInline) {
@@ -674,6 +686,27 @@ export function initCountryGuide() {
         const btn = e.target.closest('[data-action="view-itineraries"]');
         if (btn) {
             closeCountryPage('itineraries');
+            return;
+        }
+        const routeOpen = e.target.closest('[data-country-route-open]');
+        if (routeOpen) {
+            e.preventDefault();
+            hideCountryPage();
+            window.location.assign(routePath(routeOpen.dataset.countryRouteOpen));
+            return;
+        }
+        const routeStart = e.target.closest('[data-country-route-start]');
+        if (routeStart) {
+            const route = routeCollection.routes.find(item => item.id === routeStart.dataset.countryRouteStart);
+            const template = routeToTripTemplate(route);
+            const status = routeStart.closest('.country-route-card')?.querySelector('.country-route-card__status');
+            if (!template) {
+                if (status) status.textContent = 'This route could not be added.';
+                return;
+            }
+            const trip = createTrip(template);
+            if (status) status.textContent = `${trip.name} is ready. Opening your editable plan…`;
+            window.location.assign('/my-safari');
             return;
         }
         const parksBtn = e.target.closest('[data-action="view-parks"]');

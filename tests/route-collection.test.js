@@ -79,6 +79,20 @@ test('every route creates a complete editable day-by-day template', () => {
     });
 });
 
+test('South Africa flagship routes provide a distinct practical plan for every minimum day', () => {
+    const expectations = {
+        'south-africa-garden-route': ['Arrive and settle into Cape Town', 'Table Mountain and the city', 'Cape Peninsula day', 'Cape Winelands', 'Route 62 to Oudtshoorn', 'Wilderness lakes and coast', 'Knysna forests and lagoon', 'Plettenberg Bay and Tsitsikamma', 'Continue to Gqeberha'],
+        'south-africa-panorama-kruger': ['Arrive in Johannesburg', 'Johannesburg to Dullstroom', 'Panorama Route viewpoints', 'Lowveld and Kruger preparation', 'Enter southern Kruger', 'Full Kruger safari day', 'Final drive and park exit'],
+    };
+
+    Object.entries(expectations).forEach(([routeId, titles]) => {
+        const route = routes.find(item => item.id === routeId);
+        assert.equal(route.phases.length, route.duration.min, routeId);
+        assert.ok(route.phases.every(phase => phase.dayStart === phase.dayEnd), routeId);
+        assert.deepEqual(routeToTripTemplate(route).routeDays.map(day => day.title), titles);
+    });
+});
+
 test('every route has one cached logistics leg between each pair of stops', () => {
     routes.forEach(route => {
         const logistics = logisticsCollection.routes[route.id];

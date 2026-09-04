@@ -61,16 +61,19 @@
         { "id": "gqeberha", "name": "Gqeberha", "region": "Eastern Cape", "lat": -33.9608, "lng": 25.6022, "type": "stay", "summary": "Airport endpoint and optional wildlife extension." }
       ],
       "phases": [
-        { "dayStart": 1, "dayEnd": 3, "title": "Cape Town and Peninsula", "stopIds": ["cape-town"], "summary": "Keep weather flexibility for mountain activities." },
-        { "dayStart": 4, "dayEnd": 4, "title": "Cape Winelands", "stopIds": ["winelands"], "summary": "Use a driver or transfer if tasting wine." },
-        { "dayStart": 5, "dayEnd": 5, "title": "Klein Karoo", "stopIds": ["oudtshoorn"], "summary": "Cross inland with enough daylight for a scenic pass." },
-        { "dayStart": 6, "dayEnd": 7, "title": "Garden Route", "stopIds": ["knysna"], "summary": "Slow down around the lagoons and forests." },
-        { "dayStart": 8, "dayEnd": 8, "title": "Tsitsikamma", "stopIds": ["tsitsikamma"], "summary": "Reserve time for a coastal walk." },
-        { "dayStart": 9, "dayEnd": 9, "title": "Finish in Gqeberha", "stopIds": ["gqeberha"], "summary": "Return the vehicle or add an Eastern Cape reserve." }
+        { "dayStart": 1, "dayEnd": 1, "title": "Arrive and settle into Cape Town", "stopIds": ["cape-town"], "summary": "Collect the car only when you need it, keep the first day light and avoid leaving luggage visible in the vehicle." },
+        { "dayStart": 2, "dayEnd": 2, "title": "Table Mountain and the city", "stopIds": ["cape-town"], "summary": "Use the clearest weather window for the mountain and keep an indoor city alternative ready." },
+        { "dayStart": 3, "dayEnd": 3, "title": "Cape Peninsula day", "stopIds": ["cape-town"], "summary": "Make this a full daylight loop and choose fewer stops so the return to Cape Town is not rushed." },
+        { "dayStart": 4, "dayEnd": 4, "title": "Cape Winelands", "stopIds": ["winelands"], "summary": "Choose one or two towns; arrange a driver or transfer if anyone in the group will be tasting wine." },
+        { "dayStart": 5, "dayEnd": 5, "title": "Route 62 to Oudtshoorn", "stopIds": ["oudtshoorn"], "summary": "Cross into the Klein Karoo in daylight, confirm pass conditions and leave time for an afternoon activity." },
+        { "dayStart": 6, "dayEnd": 6, "title": "Wilderness lakes and coast", "stopIds": ["knysna"], "summary": "Enter the Garden Route slowly with a lagoon, beach or short SANParks walk rather than stacking activities." },
+        { "dayStart": 7, "dayEnd": 7, "title": "Knysna forests and lagoon", "stopIds": ["knysna"], "summary": "Use Knysna as a low-driving day for the lagoon, viewpoints and an established forest excursion." },
+        { "dayStart": 8, "dayEnd": 8, "title": "Plettenberg Bay and Tsitsikamma", "stopIds": ["tsitsikamma"], "summary": "Choose a coastal walk suited to the weather and check the relevant SANParks section, gate and access notice." },
+        { "dayStart": 9, "dayEnd": 9, "title": "Continue to Gqeberha", "stopIds": ["gqeberha"], "summary": "Finish at the airport or add a separately booked Eastern Cape wildlife stay without forcing it into the same driving day." }
       ],
       "officialSources": [
-        { "label": "South African Tourism road trip", "url": "https://www.southafrica.net/gl/en/travel/article/two-week-south-african-road-trip-itinerary" },
-        { "label": "SANParks", "url": "https://www.sanparks.org/" }
+        { "label": "South African Tourism: Cape Town and Garden Route", "url": "https://live.southafrica.net/media/282674/cape-town-garden-route.pdf" },
+        { "label": "SANParks: Garden Route National Park", "url": "https://www.sanparks.org/parks/garden-route" }
       ]
     },
     {
@@ -96,10 +99,12 @@
       ],
       "phases": [
         { "dayStart": 1, "dayEnd": 1, "title": "Arrive in Johannesburg", "stopIds": ["johannesburg"], "summary": "Rest before the road trip." },
-        { "dayStart": 2, "dayEnd": 2, "title": "Mpumalanga Highlands", "stopIds": ["dullstroom"], "summary": "Position into the highlands." },
-        { "dayStart": 3, "dayEnd": 3, "title": "Panorama Route", "stopIds": ["graskop"], "summary": "Prioritize a few viewpoints rather than racing every stop." },
-        { "dayStart": 4, "dayEnd": 4, "title": "Descend to the Lowveld", "stopIds": ["hazyview"], "summary": "Prepare supplies and confirm the gate plan." },
-        { "dayStart": 5, "dayEnd": 7, "title": "Kruger safari", "stopIds": ["kruger"], "summary": "Mix self-drive loops with an optional guided drive." }
+        { "dayStart": 2, "dayEnd": 2, "title": "Johannesburg to Dullstroom", "stopIds": ["dullstroom"], "summary": "Leave after the commuter peak, break the eastbound drive in the highlands and refuel before the escarpment." },
+        { "dayStart": 3, "dayEnd": 3, "title": "Panorama Route viewpoints", "stopIds": ["graskop"], "summary": "Prioritize a few canyon and waterfall stops, allow for fog and finish before the mountain roads become a tired night drive." },
+        { "dayStart": 4, "dayEnd": 4, "title": "Lowveld and Kruger preparation", "stopIds": ["hazyview"], "summary": "Use Hazyview for supplies, confirm the entrance that matches the booked camp and check current gate times." },
+        { "dayStart": 5, "dayEnd": 5, "title": "Enter southern Kruger", "stopIds": ["kruger"], "summary": "Reach the selected gate early and allow SANParks travel time to the booked camp, with extra time for wildlife stops." },
+        { "dayStart": 6, "dayEnd": 6, "title": "Full Kruger safari day", "stopIds": ["kruger"], "summary": "Build a conservative self-drive loop around your camp and consider one SANParks-guided drive instead of chasing distance." },
+        { "dayStart": 7, "dayEnd": 7, "title": "Final drive and park exit", "stopIds": ["kruger"], "summary": "Use a short final loop, refuel if needed and be outside the gate—or back at camp—before the published closing time." }
       ],
       "officialSources": [
         { "label": "South African Tourism Panorama Route", "url": "https://www.southafrica.net/za/en/travel/article/road-tripping-along-the-panorama-route" },

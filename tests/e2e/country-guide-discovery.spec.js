@@ -7,7 +7,12 @@ const countries = [
 ];
 
 test.beforeEach(async ({ page }) => {
-    await page.addInitScript(() => localStorage.clear());
+    await page.addInitScript(() => {
+        if (!sessionStorage.getItem('savanna-country-guide-test-started')) {
+            localStorage.clear();
+            sessionStorage.setItem('savanna-country-guide-test-started', 'true');
+        }
+    });
 });
 
 test('every country guide exposes concise discovery and seasonal guidance', async ({ page, isMobile }) => {
@@ -71,4 +76,27 @@ test('South Africa region planner connects practical regions to destination card
     await targetLink.click();
     await expect(guide.locator('#country-spot-cradle-of-humankind')).toHaveClass(/spot-card--spotlight/);
     await expect(guide.locator('#country-spot-cradle-of-humankind')).toBeFocused();
+});
+
+test('country routes open the canonical route and start an editable My Safari plan', async ({ page }) => {
+    await page.goto('/countries/south-africa', { waitUntil: 'domcontentloaded' });
+    const guide = page.locator('#country-detail-view');
+    await guide.getByRole('button', { name: /Routes/ }).click();
+
+    const cards = guide.locator('.country-route-card');
+    await expect(cards).toHaveCount(2);
+    const gardenRoute = cards.filter({ hasText: 'Cape Town and Garden Route' });
+    await expect(gardenRoute.locator('.country-route-days li')).toHaveCount(3);
+    await expect(gardenRoute.getByRole('link', { name: 'View full route' })).toHaveAttribute('href', '/routes/south-africa-garden-route');
+
+    await gardenRoute.getByRole('button', { name: 'Start in My Safari' }).click();
+    await page.waitForURL('**/my-safari');
+    const safari = page.locator('#hub-my-safari');
+    await expect(safari.locator('#my-safari-active-name')).toHaveText('Cape Town and Garden Route');
+    await expect(safari.locator('#my-safari-route-builder .route-day')).toHaveCount(9);
+
+    const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('se_my_safari_v1') || '{}'));
+    const trip = saved.trips.find(item => item.templateRouteId === 'south-africa-garden-route');
+    expect(trip.routeDays).toHaveLength(9);
+    expect(trip.routeDays.map(day => day.title)).toContain('Plettenberg Bay and Tsitsikamma');
 });
