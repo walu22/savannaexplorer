@@ -30,7 +30,14 @@ import {
     syncTrips,
 } from '../lib/trip-cloud.js';
 import { createRouteBuilder } from './trip-route-builder.js';
-import { buildTripReadiness, setReadinessTask } from '../lib/trip-readiness.js';
+import { rebaseRouteDays } from '../lib/trip-route.js';
+import {
+    addReadinessTask,
+    buildTripReadiness,
+    removeReadinessTask,
+    setReadinessTask,
+} from '../lib/trip-readiness.js';
+import { addBooking, removeBooking, updateBooking } from '../lib/trip-bookings.js';
 
 const COUNTRIES = ['Botswana', 'Eswatini', 'Lesotho', 'Malawi', 'Mozambique', 'Namibia', 'South Africa', 'Zambia', 'Zimbabwe'];
 let collaborationPoll = null;
@@ -52,11 +59,11 @@ function formatDates(trip) {
     return `${display(trip.startDate)} – ${display(trip.endDate)}`;
 }
 
-function renderCountryChoices() {
-    const root = document.getElementById('my-safari-country-options');
+function renderCountryChoices(rootId = 'my-safari-country-options', inputName = 'trip-country', accessiblePrefix = '') {
+    const root = document.getElementById(rootId);
     if (!root) return;
     root.innerHTML = COUNTRIES.map(country => `
-        <label class="my-safari-country"><input type="checkbox" name="trip-country" value="${escapeHtml(country)}"> <span>${escapeHtml(country)}</span></label>
+        <label class="my-safari-country"><input type="checkbox" name="${escapeHtml(inputName)}" value="${escapeHtml(country)}"${accessiblePrefix ? ` aria-label="${escapeHtml(accessiblePrefix)} ${escapeHtml(country)}"` : ''}> <span>${escapeHtml(country)}</span></label>
     `).join('');
 }
 
@@ -73,10 +80,62 @@ function readinessTaskHtml(item) {
             </label>
             <div class="my-safari-readiness-task-meta">
                 <span class="my-safari-readiness-deadline"><i class="far fa-clock" aria-hidden="true"></i> ${escapeHtml(item.dueLabel)}</span>
-                <a href="${escapeHtml(item.href)}">${escapeHtml(item.linkLabel)} <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                ${item.isCustom
+        ? `<button type="button" class="my-safari-readiness-remove" data-readiness-remove="${escapeHtml(item.id)}" aria-label="Remove ${escapeHtml(item.title)}">Remove</button>`
+        : `<a href="${escapeHtml(item.href)}">${escapeHtml(item.linkLabel)} <i class="fas fa-arrow-right" aria-hidden="true"></i></a>`}
             </div>
         </article>
     `;
+}
+
+const BOOKING_ICONS = {
+    stay: 'fa-bed', transport: 'fa-car', activity: 'fa-binoculars', permit: 'fa-ticket', other: 'fa-receipt',
+};
+
+function bookingDateLabel(value) {
+    return value
+        ? new Date(`${value}T12:00:00`).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })
+        : 'Date not set';
+}
+
+function renderBookings(trip) {
+    const list = document.getElementById('my-safari-booking-list');
+    const empty = document.getElementById('my-safari-booking-empty');
+    const progress = document.getElementById('my-safari-bookings-progress');
+    if (!list || !empty || !progress) return;
+    const bookings = trip.bookings || [];
+    const confirmed = bookings.filter(booking => booking.status === 'confirmed').length;
+    progress.textContent = `${confirmed} of ${bookings.length} confirmed`;
+    empty.hidden = Boolean(bookings.length);
+    list.innerHTML = bookings.map(booking => `
+        <article class="my-safari-booking-row">
+            <span class="my-safari-booking-type" aria-hidden="true"><i class="fas ${BOOKING_ICONS[booking.type] || BOOKING_ICONS.other}"></i></span>
+            <div class="my-safari-booking-copy"><strong>${escapeHtml(booking.provider)}</strong><small>${booking.reference ? `Reference: ${escapeHtml(booking.reference)}` : 'No reference recorded'}</small></div>
+            <span class="my-safari-booking-date">${escapeHtml(bookingDateLabel(booking.date))}</span>
+            <label class="sr-only" for="booking-status-${escapeHtml(booking.id)}">Status for ${escapeHtml(booking.provider)}</label>
+            <select id="booking-status-${escapeHtml(booking.id)}" class="my-safari-booking-status-select" data-booking-status="${escapeHtml(booking.id)}">
+                <option value="planned"${booking.status === 'planned' ? ' selected' : ''}>Planned</option>
+                <option value="reserved"${booking.status === 'reserved' ? ' selected' : ''}>Reserved</option>
+                <option value="confirmed"${booking.status === 'confirmed' ? ' selected' : ''}>Confirmed</option>
+            </select>
+            <button type="button" class="my-safari-booking-remove" data-booking-remove="${escapeHtml(booking.id)}" aria-label="Remove ${escapeHtml(booking.provider)}"><i class="far fa-trash-can" aria-hidden="true"></i></button>
+        </article>
+    `).join('');
+}
+
+function openTripEditor(trip) {
+    const form = document.getElementById('my-safari-edit-form');
+    if (!form || !trip) return;
+    form.elements['edit-trip-name'].value = trip.name;
+    form.elements['edit-trip-start'].value = trip.startDate;
+    form.elements['edit-trip-end'].value = trip.endDate;
+    form.elements['edit-trip-travellers'].value = trip.travellers || 1;
+    form.querySelectorAll('[name="edit-trip-country"]').forEach(input => {
+        input.checked = trip.countries.includes(input.value);
+    });
+    document.getElementById('my-safari-edit-status').textContent = '';
+    form.hidden = false;
+    form.elements['edit-trip-name'].focus();
 }
 
 function renderReadiness(trip) {
@@ -139,9 +198,11 @@ function renderDashboard() {
     document.getElementById('my-safari-active-meta').textContent = `${formatDates(active)} · ${active.countries.length ? active.countries.join(', ') : 'Add destinations when editing this trip'}`;
     document.getElementById('my-safari-notes').value = active.notes;
     document.getElementById('my-safari-itinerary-count').textContent = active.aiItinerary ? '1 saved' : 'None yet';
+    document.getElementById('my-safari-booking-count').textContent = `${active.bookings.length} recorded`;
     document.getElementById('my-safari-expense-count').textContent = `${active.expenses.items.length} item${active.expenses.items.length === 1 ? '' : 's'}`;
     document.getElementById('my-safari-packing-count').textContent = `${active.packing.packedItems.length} packed`;
     renderReadiness(active);
+    renderBookings(active);
     localRouteBuilder?.render(active, true);
 }
 
@@ -441,6 +502,7 @@ export async function initMySafari() {
     const root = document.getElementById('hub-my-safari');
     if (!root) return;
     renderCountryChoices();
+    renderCountryChoices('my-safari-edit-country-options', 'edit-trip-country', 'Edit destination');
     localRouteBuilder = createRouteBuilder(document.getElementById('my-safari-route-builder'), {
         onChange(routeDays, tripPatch = {}) {
             const active = getActiveTrip();
@@ -582,11 +644,36 @@ export async function initMySafari() {
         }
     });
 
-    document.getElementById('my-safari-rename')?.addEventListener('click', () => {
+    document.getElementById('my-safari-edit')?.addEventListener('click', () => {
+        const active = getActiveTrip();
+        if (active) openTripEditor(active);
+    });
+
+    document.getElementById('my-safari-edit-cancel')?.addEventListener('click', () => {
+        document.getElementById('my-safari-edit-form').hidden = true;
+    });
+
+    document.getElementById('my-safari-edit-form')?.addEventListener('submit', event => {
+        event.preventDefault();
         const active = getActiveTrip();
         if (!active) return;
-        const name = prompt('Rename this trip', active.name)?.trim();
-        if (name) updateTrip(active.id, { name: name.slice(0, 80) });
+        const data = new FormData(event.currentTarget);
+        const startDate = String(data.get('edit-trip-start') || '');
+        const endDate = String(data.get('edit-trip-end') || '');
+        const status = document.getElementById('my-safari-edit-status');
+        if (startDate && endDate && endDate < startDate) {
+            status.textContent = 'End date must be on or after the start date.';
+            return;
+        }
+        updateTrip(active.id, {
+            name: String(data.get('edit-trip-name') || '').trim(),
+            startDate,
+            endDate,
+            travellers: Number(data.get('edit-trip-travellers')) || 1,
+            countries: data.getAll('edit-trip-country').map(String),
+            routeDays: rebaseRouteDays(active.routeDays, startDate, endDate),
+        });
+        event.currentTarget.hidden = true;
     });
 
     document.getElementById('my-safari-duplicate')?.addEventListener('click', () => {
@@ -616,6 +703,62 @@ export async function initMySafari() {
         if (status) status.textContent = checkbox.checked
             ? `Check completed. Trip readiness is now ${plan.score}%.`
             : `Check reopened. Trip readiness is now ${plan.score}%.`;
+    });
+
+    document.getElementById('my-safari-readiness-groups')?.addEventListener('click', event => {
+        const button = event.target.closest('[data-readiness-remove]');
+        const active = getActiveTrip();
+        if (!button || !active) return;
+        updateTrip(active.id, { readiness: removeReadinessTask(active.readiness, button.dataset.readinessRemove) });
+        document.getElementById('my-safari-readiness-status').textContent = 'Personal task removed.';
+    });
+
+    document.getElementById('my-safari-custom-task-form')?.addEventListener('submit', event => {
+        event.preventDefault();
+        const active = getActiveTrip();
+        if (!active) return;
+        const data = new FormData(event.currentTarget);
+        const readiness = addReadinessTask(active.readiness, {
+            title: data.get('custom-task-title'),
+            category: data.get('custom-task-category'),
+            dueDate: data.get('custom-task-date'),
+        });
+        updateTrip(active.id, { readiness });
+        event.currentTarget.reset();
+        document.getElementById('my-safari-readiness-status').textContent = 'Personal task added to this trip.';
+    });
+
+    document.getElementById('my-safari-booking-form')?.addEventListener('submit', event => {
+        event.preventDefault();
+        const active = getActiveTrip();
+        if (!active) return;
+        const data = new FormData(event.currentTarget);
+        const bookings = addBooking(active.bookings, {
+            type: data.get('booking-type'),
+            provider: data.get('booking-provider'),
+            reference: data.get('booking-reference'),
+            date: data.get('booking-date'),
+            status: 'planned',
+        });
+        updateTrip(active.id, { bookings });
+        event.currentTarget.reset();
+        document.getElementById('my-safari-booking-status').textContent = 'Booking record added.';
+    });
+
+    document.getElementById('my-safari-booking-list')?.addEventListener('change', event => {
+        const select = event.target.closest('[data-booking-status]');
+        const active = getActiveTrip();
+        if (!select || !active) return;
+        updateTrip(active.id, { bookings: updateBooking(active.bookings, select.dataset.bookingStatus, { status: select.value }) });
+        document.getElementById('my-safari-booking-status').textContent = `Booking marked ${select.value}.`;
+    });
+
+    document.getElementById('my-safari-booking-list')?.addEventListener('click', event => {
+        const button = event.target.closest('[data-booking-remove]');
+        const active = getActiveTrip();
+        if (!button || !active) return;
+        updateTrip(active.id, { bookings: removeBooking(active.bookings, button.dataset.bookingRemove) });
+        document.getElementById('my-safari-booking-status').textContent = 'Booking record removed.';
     });
 
     document.getElementById('my-safari-share')?.addEventListener('click', async () => {

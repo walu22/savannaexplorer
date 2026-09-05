@@ -937,13 +937,31 @@
                                 <p id="my-safari-active-meta"></p>
                             </div>
                             <div class="my-safari-actions" aria-label="Trip actions">
-                                <button type="button" id="my-safari-rename"><i class="fas fa-pen"></i> Rename</button>
+                                <button type="button" id="my-safari-edit"><i class="fas fa-pen"></i> Edit trip</button>
                                 <button type="button" id="my-safari-duplicate"><i class="far fa-copy"></i> Duplicate</button>
                                 <button type="button" id="my-safari-delete" class="is-danger"><i class="far fa-trash-can"></i> Delete</button>
                             </div>
                         </div>
+                        <form id="my-safari-edit-form" class="my-safari-edit-form" hidden>
+                            <div class="my-safari-edit-head">
+                                <div><strong>Edit trip details</strong><span>Dates and destinations update your readiness deadlines.</span></div>
+                                <button type="button" id="my-safari-edit-cancel" class="my-safari-icon-button" aria-label="Close trip editor"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+                            </div>
+                            <div class="my-safari-edit-grid">
+                                <label class="my-safari-field"><span>Trip name</span><input id="my-safari-edit-name" name="edit-trip-name" type="text" maxlength="80" aria-label="Edit trip name" required></label>
+                                <label class="my-safari-field"><span>Start date</span><input id="my-safari-edit-start" name="edit-trip-start" type="date" aria-label="Edit start date"></label>
+                                <label class="my-safari-field"><span>End date</span><input id="my-safari-edit-end" name="edit-trip-end" type="date" aria-label="Edit end date"></label>
+                                <label class="my-safari-field"><span>Travellers</span><input id="my-safari-edit-travellers" name="edit-trip-travellers" type="number" min="1" max="99" value="1" aria-label="Edit traveller count"></label>
+                            </div>
+                            <fieldset class="my-safari-country-options" id="my-safari-edit-country-options"><legend>Destinations</legend></fieldset>
+                            <div class="my-safari-edit-actions">
+                                <p id="my-safari-edit-status" role="status" aria-live="polite"></p>
+                                <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-check" aria-hidden="true"></i> Save changes</button>
+                            </div>
+                        </form>
                         <div class="my-safari-summary">
                             <div class="my-safari-stat"><span>AI itinerary</span><strong id="my-safari-itinerary-count">None yet</strong></div>
+                            <div class="my-safari-stat"><span>Bookings</span><strong id="my-safari-booking-count">0 recorded</strong></div>
                             <div class="my-safari-stat"><span>Expenses</span><strong id="my-safari-expense-count">0 items</strong></div>
                             <div class="my-safari-stat"><span>Packing</span><strong id="my-safari-packing-count">0 packed</strong></div>
                         </div>
@@ -960,9 +978,34 @@
                                 </div>
                             </div>
                             <div id="my-safari-readiness-next" class="my-safari-readiness-next"></div>
+                            <details class="my-safari-custom-task">
+                                <summary><i class="fas fa-plus" aria-hidden="true"></i> Add a personal task</summary>
+                                <form id="my-safari-custom-task-form">
+                                    <label><span>Task</span><input name="custom-task-title" type="text" maxlength="100" placeholder="Download offline maps" required></label>
+                                    <label><span>Group</span><select name="custom-task-category"><option value="essentials">Essentials</option><option value="bookings">Bookings</option><option value="road">On the road</option></select></label>
+                                    <label><span>Target date</span><input name="custom-task-date" type="date"></label>
+                                    <button type="submit" class="btn btn-outline btn-sm">Add task</button>
+                                </form>
+                            </details>
                             <div id="my-safari-readiness-groups" class="my-safari-readiness-groups"></div>
                             <p id="my-safari-readiness-status" class="my-safari-readiness-status" role="status" aria-live="polite"></p>
                             <p class="my-safari-readiness-disclaimer"><i class="fas fa-circle-info" aria-hidden="true"></i> This is a planning aid. Always verify entry, health, road and safety requirements with current official sources.</p>
+                        </section>
+                        <section id="my-safari-bookings" class="my-safari-bookings" aria-labelledby="my-safari-bookings-title">
+                            <div class="my-safari-section-head">
+                                <div><span class="my-safari-readiness-eyebrow"><i class="fas fa-receipt" aria-hidden="true"></i> Keep confirmations together</span><h5 id="my-safari-bookings-title">Booking records</h5><p>Store references and confirmation status. Payments still happen directly with providers.</p></div>
+                                <strong id="my-safari-bookings-progress">0 confirmed</strong>
+                            </div>
+                            <form id="my-safari-booking-form" class="my-safari-booking-form">
+                                <label><span>Type</span><select name="booking-type"><option value="stay">Stay</option><option value="transport">Transport</option><option value="activity">Activity</option><option value="permit">Permit</option><option value="other">Other</option></select></label>
+                                <label><span>Provider or place</span><input name="booking-provider" type="text" maxlength="100" placeholder="Etosha Safari Camp" required></label>
+                                <label><span>Reference</span><input name="booking-reference" type="text" maxlength="100" placeholder="Optional"></label>
+                                <label><span>Date</span><input name="booking-date" type="date"></label>
+                                <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Add record</button>
+                            </form>
+                            <div id="my-safari-booking-list" class="my-safari-booking-list"></div>
+                            <p id="my-safari-booking-empty" class="my-safari-booking-empty">No booking records yet. Add stays, transport, activities or permits as you confirm them.</p>
+                            <p id="my-safari-booking-status" class="my-safari-readiness-status" role="status" aria-live="polite"></p>
                         </section>
                         <div id="my-safari-route-builder"></div>
                         <label class="my-safari-notes-label" for="my-safari-notes">Trip notes

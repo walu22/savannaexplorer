@@ -1,5 +1,6 @@
 import { normalizeRouteDays } from './trip-route.js';
 import { normalizeReadiness } from './trip-readiness.js';
+import { normalizeBookings } from './trip-bookings.js';
 
 export const TRIP_STORE_KEY = 'se_my_safari_v1';
 export const TRIP_CHANGE_EVENT = 'se:trip-change';
@@ -32,6 +33,7 @@ function cleanTrip(trip) {
         startDate: String(trip.startDate || ''),
         endDate: String(trip.endDate || ''),
         countries: Array.isArray(trip.countries) ? trip.countries.filter(Boolean).map(String).slice(0, 9) : [],
+        travellers: Math.max(1, Math.min(99, Math.round(Number(trip.travellers) || 1))),
         templateRouteId: String(trip.templateRouteId || '').slice(0, 128),
         notes: String(trip.notes || '').slice(0, 2000),
         createdAt: trip.createdAt || new Date().toISOString(),
@@ -48,6 +50,7 @@ function cleanTrip(trip) {
             packedItems: Array.isArray(trip.packing?.packedItems) ? trip.packing.packedItems.map(String) : [],
         },
         readiness: normalizeReadiness(trip.readiness),
+        bookings: normalizeBookings(trip.bookings),
     };
 }
 
@@ -109,6 +112,7 @@ export function createTrip(input, storage) {
         startDate: input?.startDate,
         endDate: input?.endDate,
         countries: input?.countries,
+        travellers: input?.travellers,
         templateRouteId: input?.templateRouteId,
         routeDays: input?.routeDays,
         notes: input?.notes,
@@ -175,6 +179,8 @@ export function duplicateTrip(tripId, storage) {
         expenses: source.expenses,
         packing: source.packing,
         readiness: source.readiness,
+        bookings: source.bookings,
+        travellers: source.travellers,
     }, storage);
 }
 

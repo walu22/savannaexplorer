@@ -14,9 +14,23 @@ function cleanIds(ids) {
         .slice(0, 80);
 }
 
+function cleanCustomTasks(tasks) {
+    if (!Array.isArray(tasks)) return [];
+    const categories = new Set(Object.keys(CATEGORY_META));
+    return tasks.slice(0, 20).map((item, index) => ({
+        id: String(item?.id || `custom-${index + 1}`).trim().slice(0, 80),
+        category: categories.has(item?.category) ? item.category : 'essentials',
+        title: String(item?.title || '').trim().slice(0, 100),
+        description: String(item?.description || '').trim().slice(0, 240),
+        dueDate: /^\d{4}-\d{2}-\d{2}$/.test(item?.dueDate || '') ? item.dueDate : '',
+        isCustom: true,
+    })).filter(item => item.id && item.title);
+}
+
 export function normalizeReadiness(readiness) {
     return {
         completedTaskIds: cleanIds(readiness?.completedTaskIds),
+        customTasks: cleanCustomTasks(readiness?.customTasks),
     };
 }
 
@@ -59,7 +73,7 @@ function dueState(date, completed, now) {
 }
 
 function task(definition, trip, completedIds, now) {
-    const dueDate = deadline(trip.startDate, definition.daysBefore);
+    const dueDate = definition.dueDate ? parseTripDate(definition.dueDate) : deadline(trip.startDate, definition.daysBefore);
     const completed = completedIds.has(definition.id);
     const state = dueState(dueDate, completed, now);
     return {
@@ -146,7 +160,7 @@ export function buildTripReadiness(trip, now = new Date()) {
             href: '/planning-checklist', linkLabel: 'Open planning checklist',
         },
     ];
-    const tasks = definitions.map(definition => task(definition, trip || {}, completedIds, now));
+    const tasks = [...definitions, ...readiness.customTasks].map(definition => task(definition, trip || {}, completedIds, now));
     const completedCount = tasks.filter(item => item.completed).length;
     const score = tasks.length ? Math.round((completedCount / tasks.length) * 100) : 0;
     const categories = Object.entries(CATEGORY_META).map(([id, meta]) => {
@@ -183,5 +197,29 @@ export function setReadinessTask(readiness, taskId, completed) {
     const ids = new Set(current.completedTaskIds);
     if (completed) ids.add(String(taskId));
     else ids.delete(String(taskId));
-    return normalizeReadiness({ completedTaskIds: [...ids] });
+    return normalizeReadiness({ ...current, completedTaskIds: [...ids] });
+}
+
+export function addReadinessTask(readiness, input) {
+    const current = normalizeReadiness(readiness);
+    if (current.customTasks.length >= 20) return current;
+    return normalizeReadiness({
+        ...current,
+        customTasks: [...current.customTasks, {
+            id: `custom-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+            category: input?.category,
+            title: input?.title,
+            description: input?.description,
+            dueDate: input?.dueDate,
+            isCustom: true,
+        }],
+    });
+}
+
+export function removeReadinessTask(readiness, taskId) {
+    const current = normalizeReadiness(readiness);
+    return normalizeReadiness({
+        completedTaskIds: current.completedTaskIds.filter(id => id !== taskId),
+        customTasks: current.customTasks.filter(taskItem => taskItem.id !== taskId),
+    });
 }

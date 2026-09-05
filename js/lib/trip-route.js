@@ -76,6 +76,20 @@ export function routeEndDate(days) {
     return /^\d{4}-\d{2}-\d{2}$/.test(lastDate) ? lastDate : '';
 }
 
+export function rebaseRouteDays(days, startDate, endDate) {
+    const current = normalizeRouteDays(days);
+    if (!current.length || !/^\d{4}-\d{2}-\d{2}$/.test(startDate || '')) return current;
+    const dateTemplate = createRouteDays(startDate, endDate);
+    const targetCount = endDate ? dateTemplate.length : current.length;
+    const resized = resizeRouteDays(current, targetCount);
+    if (resized.length !== targetCount) return current;
+    const dates = endDate ? dateTemplate : createRouteDays(startDate, '').slice(0, 1);
+    return resized.map((day, index) => ({
+        ...day,
+        date: dates[index]?.date || new Date(new Date(`${startDate}T12:00:00Z`).getTime() + index * 86400000).toISOString().slice(0, 10),
+    }));
+}
+
 export function addRouteStop(days, dayId, input) {
     return normalizeRouteDays(days).map(day => day.id === dayId && day.stops.length < MAX_STOPS_PER_DAY
         ? { ...day, stops: [...day.stops, {

@@ -13,10 +13,11 @@ test('My Safari keeps expenses and packing progress with the selected trip', asy
     test.setTimeout(60_000);
     await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
     const safari = page.locator('#hub-my-safari');
+    const createForm = safari.locator('#my-safari-create-form');
     await expect(safari.getByRole('heading', { name: 'My Safari' })).toBeVisible();
 
-    await safari.getByLabel('Trip name').fill('Botswana adventure');
-    await safari.getByLabel('Botswana').check();
+    await createForm.getByLabel('Trip name').fill('Botswana adventure');
+    await createForm.getByLabel('Botswana').check();
     await safari.getByRole('button', { name: 'Create trip' }).click();
     await expect(safari.locator('#my-safari-active-name')).toHaveText('Botswana adventure');
 
@@ -34,8 +35,8 @@ test('My Safari keeps expenses and packing progress with the selected trip', asy
     await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
     await expect(safari.locator('#my-safari-packing-count')).toHaveText('1 packed');
 
-    await safari.getByLabel('Trip name').fill('Zambia escape');
-    await safari.getByLabel('Zambia').check();
+    await createForm.getByLabel('Trip name').fill('Zambia escape');
+    await createForm.getByLabel('Zambia').check();
     await safari.getByRole('button', { name: 'Create trip' }).click();
     await expect(safari.locator('#my-safari-active-name')).toHaveText('Zambia escape');
     await expect(safari.locator('#my-safari-expense-count')).toHaveText('0 items');
@@ -54,10 +55,11 @@ test('My Safari keeps expenses and packing progress with the selected trip', asy
 test('traveller can build and rearrange a day-by-day safari route', async ({ page }) => {
     await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
     const safari = page.locator('#hub-my-safari');
-    await safari.getByLabel('Trip name').fill('Etosha route');
-    await safari.getByLabel('Start date').fill('2026-10-10');
-    await safari.getByLabel('End date').fill('2026-10-12');
-    await safari.getByLabel('Namibia').check();
+    const createForm = safari.locator('#my-safari-create-form');
+    await createForm.getByLabel('Trip name').fill('Etosha route');
+    await createForm.getByLabel('Start date').fill('2026-10-10');
+    await createForm.getByLabel('End date').fill('2026-10-12');
+    await createForm.getByLabel('Namibia').check();
     await safari.getByRole('button', { name: 'Create trip' }).click();
 
     const route = safari.locator('#my-safari-route-builder');
@@ -97,11 +99,12 @@ test('traveller can build and rearrange a day-by-day safari route', async ({ pag
 test('trip readiness adapts to the journey and keeps completed checks', async ({ page }) => {
     await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
     const safari = page.locator('#hub-my-safari');
-    await safari.getByLabel('Trip name').fill('Cross-border safari');
-    await safari.getByLabel('Start date').fill('2026-10-10');
-    await safari.getByLabel('End date').fill('2026-10-20');
-    await safari.getByLabel('Namibia').check();
-    await safari.getByLabel('Botswana').check();
+    const createForm = safari.locator('#my-safari-create-form');
+    await createForm.getByLabel('Trip name').fill('Cross-border safari');
+    await createForm.getByLabel('Start date').fill('2026-10-10');
+    await createForm.getByLabel('End date').fill('2026-10-20');
+    await createForm.getByLabel('Namibia').check();
+    await createForm.getByLabel('Botswana').check();
     await safari.getByRole('button', { name: 'Create trip' }).click();
 
     const readiness = safari.locator('#my-safari-readiness');
@@ -122,6 +125,56 @@ test('trip readiness adapts to the journey and keeps completed checks', async ({
 
     const accessibility = await new AxeBuilder({ page })
         .include('#my-safari-readiness')
+        .withTags(['wcag2a', 'wcag2aa'])
+        .analyze();
+    expect(accessibility.violations.filter(item => ['serious', 'critical'].includes(item.impact))).toEqual([]);
+});
+
+test('traveller edits trip details, adds a personal task and records a booking', async ({ page }) => {
+    await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
+    const safari = page.locator('#hub-my-safari');
+    const createForm = safari.locator('#my-safari-create-form');
+    await createForm.getByLabel('Trip name').fill('Namibia draft');
+    await createForm.getByLabel('Namibia').check();
+    await safari.getByRole('button', { name: 'Create trip' }).click();
+
+    await safari.getByRole('button', { name: 'Edit trip' }).click();
+    const editor = safari.locator('#my-safari-edit-form');
+    await editor.getByLabel('Edit trip name').fill('Namibia family safari');
+    await editor.getByLabel('Edit start date').fill('2026-11-01');
+    await editor.getByLabel('Edit end date').fill('2026-11-04');
+    await editor.getByLabel('Edit traveller count').fill('4');
+    await editor.getByLabel('Edit destination Botswana').check();
+    await editor.getByRole('button', { name: 'Save changes' }).click();
+    await expect(safari.locator('#my-safari-active-name')).toHaveText('Namibia family safari');
+    await expect(safari.locator('#my-safari-active-meta')).toContainText('Botswana, Namibia');
+
+    const readiness = safari.locator('#my-safari-readiness');
+    await readiness.getByText('Add a personal task').click();
+    await readiness.getByLabel('Task').fill('Download offline maps');
+    await readiness.getByLabel('Group').selectOption('road');
+    await readiness.getByLabel('Target date').fill('2026-10-28');
+    await readiness.getByRole('button', { name: 'Add task' }).click();
+    await expect(readiness.getByText('Download offline maps', { exact: true })).toBeVisible();
+
+    const bookings = safari.locator('#my-safari-bookings');
+    await bookings.getByLabel('Type').selectOption('stay');
+    await bookings.getByLabel('Provider or place').fill('Etosha Safari Camp');
+    await bookings.getByLabel('Reference').fill('ET-42');
+    await bookings.getByLabel('Date').fill('2026-11-02');
+    await bookings.getByRole('button', { name: 'Add record' }).click();
+    await expect(bookings.getByText('Etosha Safari Camp', { exact: true })).toBeVisible();
+    await expect(bookings.getByText('Reference: ET-42', { exact: true })).toBeVisible();
+    await bookings.getByLabel('Status for Etosha Safari Camp').selectOption('confirmed');
+    await expect(bookings.locator('#my-safari-bookings-progress')).toHaveText('1 of 1 confirmed');
+
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await expect(safari.locator('#my-safari-active-name')).toHaveText('Namibia family safari');
+    await expect(readiness.getByText('Download offline maps', { exact: true })).toBeVisible();
+    await expect(bookings.getByLabel('Status for Etosha Safari Camp')).toHaveValue('confirmed');
+
+    const accessibility = await new AxeBuilder({ page })
+        .include('#my-safari-workspace')
         .withTags(['wcag2a', 'wcag2aa'])
         .analyze();
     expect(accessibility.violations.filter(item => ['serious', 'critical'].includes(item.impact))).toEqual([]);

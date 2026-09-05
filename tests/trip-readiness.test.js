@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildTripReadiness, normalizeReadiness, setReadinessTask } from '../js/lib/trip-readiness.js';
+import { addReadinessTask, buildTripReadiness, normalizeReadiness, removeReadinessTask, setReadinessTask } from '../js/lib/trip-readiness.js';
 
 test('readiness plan adapts to destinations and trip dates', () => {
     const plan = buildTripReadiness({
@@ -35,5 +35,17 @@ test('readiness completion is normalized and can be reopened', () => {
 
     const reopened = setReadinessTask(completed, 'entry-rules', false);
     assert.deepEqual(reopened.completedTaskIds, ['health-plan']);
-    assert.deepEqual(normalizeReadiness(null), { completedTaskIds: [] });
+    assert.deepEqual(normalizeReadiness(null), { completedTaskIds: [], customTasks: [] });
+});
+
+test('personal readiness tasks keep their deadline and completion state', () => {
+    const readiness = addReadinessTask(null, { title: 'Download offline maps', category: 'road', dueDate: '2026-10-01' });
+    const taskId = readiness.customTasks[0].id;
+    const completed = setReadinessTask(readiness, taskId, true);
+    const plan = buildTripReadiness({ countries: ['Namibia'], readiness: completed }, new Date('2026-09-01T12:00:00'));
+
+    assert.equal(plan.totalCount, 11);
+    assert.equal(plan.tasks.find(item => item.id === taskId).dueDate.slice(0, 10), '2026-10-01');
+    assert.equal(plan.tasks.find(item => item.id === taskId).completed, true);
+    assert.deepEqual(removeReadinessTask(completed, taskId), { completedTaskIds: [], customTasks: [] });
 });

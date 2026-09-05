@@ -8,6 +8,7 @@ import {
     normalizeRouteDays,
     resizeRouteDays,
     routeEndDate,
+    rebaseRouteDays,
     shiftRouteStop,
     updateRouteStop,
 } from '../js/lib/trip-route.js';
@@ -49,4 +50,15 @@ test('trip length can expand and safely condense an itinerary', () => {
     assert.equal(condensed.length, 2);
     assert.equal(condensed[1].stops.at(-1).name, 'Etosha');
     assert.equal(condensed.flatMap(day => day.stops).length, 1);
+});
+
+test('editing trip dates realigns itinerary days without losing stops', () => {
+    const original = createRouteDays('2026-10-10', '2026-10-12');
+    const withStop = addRouteStop(original, original[1].id, { name: 'Etosha' });
+    const rebased = rebaseRouteDays(withStop, '2026-11-01', '2026-11-04');
+
+    assert.equal(rebased.length, 4);
+    assert.equal(rebased[0].date, '2026-11-01');
+    assert.equal(rebased[3].date, '2026-11-04');
+    assert.equal(rebased[1].stops[0].name, 'Etosha');
 });

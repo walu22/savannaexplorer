@@ -105,9 +105,22 @@
 .my-safari-actions button { border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(0, 0, 0, 0.28); color: var(--text-inverse); border-radius: 999px; padding: 0.45rem 0.7rem; cursor: pointer; }
 .my-safari-actions .is-danger { color: #ff9d8e; }
 
+.my-safari-edit-form { margin: 1rem 0; padding: 1rem; border: 1px solid rgba(244, 162, 97, 0.35); border-radius: var(--radius-md); background: rgba(0, 0, 0, 0.24); }
+.my-safari-edit-head,
+.my-safari-edit-actions,
+.my-safari-section-head { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+.my-safari-edit-head > div { display: grid; gap: 0.2rem; }
+.my-safari-edit-head span,
+.my-safari-section-head p { color: rgba(247, 243, 237, 0.7); font-size: 0.78rem; }
+.my-safari-icon-button { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%; background: transparent; color: var(--text-inverse); cursor: pointer; }
+.my-safari-edit-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 0.75rem; margin: 1rem 0 0.75rem; }
+.my-safari-edit-form legend { margin-bottom: 0.5rem; color: rgba(247, 243, 237, 0.76); font-size: 0.8rem; font-weight: 700; }
+.my-safari-edit-actions { margin-top: 0.8rem; }
+.my-safari-edit-actions p { min-height: 1.2em; margin: 0; color: #ffc38f; font-size: 0.78rem; }
+
 .my-safari-summary {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.75rem;
     margin: 1rem 0;
 }
@@ -171,6 +184,30 @@
 .my-safari-readiness-status { min-height: 1.2em; margin: 0.75rem 0 0; color: #b6d7c9; font-size: 0.76rem; }
 .my-safari-readiness-disclaimer { margin: 0.5rem 0 0; color: rgba(247, 243, 237, 0.57); font-size: 0.7rem; line-height: 1.45; }
 .my-safari-readiness.is-complete { border-color: rgba(127, 176, 105, 0.68); }
+.my-safari-custom-task { margin: 0 0 1rem; border: 1px dashed rgba(244, 162, 97, 0.35); border-radius: var(--radius-md); }
+.my-safari-custom-task summary { padding: 0.7rem 0.85rem; color: #f4b27d; font-size: 0.78rem; font-weight: 800; cursor: pointer; }
+.my-safari-custom-task form { display: grid; grid-template-columns: 1.6fr 1fr 1fr auto; gap: 0.65rem; align-items: end; padding: 0 0.85rem 0.85rem; }
+.my-safari-custom-task label,
+.my-safari-booking-form label { display: grid; gap: 0.3rem; color: rgba(247, 243, 237, 0.72); font-size: 0.72rem; font-weight: 700; }
+.my-safari-custom-task input,
+.my-safari-custom-task select,
+.my-safari-booking-form input,
+.my-safari-booking-form select,
+.my-safari-booking-status-select { min-width: 0; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: var(--radius-sm); background: #241c17; color: var(--text-inverse); padding: 0.58rem; color-scheme: dark; }
+.my-safari-readiness-remove { border: 0; background: transparent; color: #ffb4a8; font: inherit; font-weight: 700; cursor: pointer; }
+.my-safari-bookings { margin: 1.25rem 0; padding: clamp(1rem, 2.5vw, 1.4rem); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: var(--radius-lg); background: rgba(0, 0, 0, 0.2); }
+.my-safari-section-head h5 { margin: 0.3rem 0 0.2rem; color: var(--text-inverse); font-size: 1.2rem; }
+.my-safari-section-head p { margin: 0; }
+.my-safari-section-head > strong { flex: 0 0 auto; padding: 0.45rem 0.7rem; border-radius: 999px; background: rgba(127, 176, 105, 0.15); color: #b6d7c9; font-size: 0.76rem; }
+.my-safari-booking-form { display: grid; grid-template-columns: 0.8fr 1.5fr 1.1fr 1fr auto; gap: 0.65rem; align-items: end; margin: 1rem 0; }
+.my-safari-booking-list { display: grid; gap: 0.55rem; }
+.my-safari-booking-row { display: grid; grid-template-columns: auto minmax(140px, 1.5fr) minmax(100px, 1fr) auto auto; gap: 0.7rem; align-items: center; padding: 0.7rem 0.8rem; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.045); }
+.my-safari-booking-type { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(196, 103, 42, 0.18); color: #f4b27d; }
+.my-safari-booking-copy { display: grid; gap: 0.12rem; }
+.my-safari-booking-copy small,
+.my-safari-booking-date { color: rgba(247, 243, 237, 0.64); font-size: 0.72rem; }
+.my-safari-booking-remove { border: 0; background: transparent; color: #ffb4a8; cursor: pointer; }
+.my-safari-booking-empty { margin: 0; padding: 0.8rem; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.04); color: rgba(247, 243, 237, 0.68); font-size: 0.78rem; }
 .my-safari-notes-label { display: grid; gap: 0.4rem; font-weight: 600; }
 .my-safari-notes { min-height: 90px; resize: vertical; }
 .my-safari-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
@@ -263,6 +300,17 @@
 .my-safari-empty { padding: 1rem; text-align: center; color: rgba(247, 243, 237, 0.72); background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-md); }
 
 @media (max-width: 760px) {
+    .my-safari-edit-grid,
+    .my-safari-custom-task form,
+    .my-safari-booking-form { grid-template-columns: 1fr; }
+    .my-safari-edit-head,
+    .my-safari-edit-actions,
+    .my-safari-section-head { align-items: flex-start; }
+    .my-safari-booking-row { grid-template-columns: auto 1fr auto; }
+    .my-safari-booking-copy { grid-column: 2 / -1; grid-row: 1; }
+    .my-safari-booking-date { grid-column: 2; }
+    .my-safari-booking-status-select { grid-column: 2; }
+    .my-safari-booking-remove { grid-column: 3; grid-row: 1; }
     .my-safari-create { grid-template-columns: 1fr; }
     .my-safari-cloud > div,
     .my-safari-signed-in { display: grid; }

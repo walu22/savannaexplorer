@@ -86,3 +86,15 @@ test('trip readiness progress is saved and duplicated with the trip', () => {
     const copy = duplicateTrip(trip.id, storage);
     assert.deepEqual(copy.readiness.completedTaskIds, ['entry-rules', 'health-plan']);
 });
+
+test('trip details and booking records survive storage and duplication', () => {
+    const storage = memoryStorage();
+    const trip = createTrip({ name: 'Family safari', countries: ['Namibia'], travellers: 4 }, storage);
+    updateActiveTrip({ bookings: [{ id: 'booking-one', type: 'stay', provider: 'Etosha Camp', reference: 'ET-42', status: 'confirmed' }] }, storage);
+
+    assert.equal(getActiveTrip(storage).travellers, 4);
+    assert.equal(getActiveTrip(storage).bookings[0].status, 'confirmed');
+    const copy = duplicateTrip(trip.id, storage);
+    assert.equal(copy.travellers, 4);
+    assert.equal(copy.bookings[0].reference, 'ET-42');
+});
