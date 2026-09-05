@@ -2,6 +2,8 @@
 
 Southern Africa independent travel planning hub — country guides, route templates, parks, borders, and official resource links.
 
+Product direction and the acquisition-ready delivery roadmap are documented in [`docs/PRODUCT-BLUEPRINT.md`](docs/PRODUCT-BLUEPRINT.md).
+
 Country guides now include concise article previews, destination-category tags, signature highlights, and interest-led seasonal guidance across all nine countries.
 
 South Africa includes a deeper five-region planner with gateways, ideal stay lengths, seasonal guidance, traveller-fit tags, official sources, and direct links to 13 destination cards.
@@ -38,7 +40,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.58.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.59.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
