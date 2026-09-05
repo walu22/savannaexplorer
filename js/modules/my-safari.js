@@ -30,6 +30,7 @@ import {
     syncTrips,
 } from '../lib/trip-cloud.js';
 import { createRouteBuilder } from './trip-route-builder.js';
+import { buildTripReadiness, setReadinessTask } from '../lib/trip-readiness.js';
 
 const COUNTRIES = ['Botswana', 'Eswatini', 'Lesotho', 'Malawi', 'Mozambique', 'Namibia', 'South Africa', 'Zambia', 'Zimbabwe'];
 let collaborationPoll = null;
@@ -57,6 +58,58 @@ function renderCountryChoices() {
     root.innerHTML = COUNTRIES.map(country => `
         <label class="my-safari-country"><input type="checkbox" name="trip-country" value="${escapeHtml(country)}"> <span>${escapeHtml(country)}</span></label>
     `).join('');
+}
+
+function readinessTaskHtml(item) {
+    return `
+        <article class="my-safari-readiness-task${item.completed ? ' is-complete' : ''}" data-due-state="${item.dueState}">
+            <label>
+                <input type="checkbox" data-readiness-task="${escapeHtml(item.id)}"${item.completed ? ' checked' : ''}>
+                <span class="my-safari-readiness-check" aria-hidden="true"><i class="fas fa-check"></i></span>
+                <span class="my-safari-readiness-copy">
+                    <strong>${escapeHtml(item.title)}</strong>
+                    <small>${escapeHtml(item.description)}</small>
+                </span>
+            </label>
+            <div class="my-safari-readiness-task-meta">
+                <span class="my-safari-readiness-deadline"><i class="far fa-clock" aria-hidden="true"></i> ${escapeHtml(item.dueLabel)}</span>
+                <a href="${escapeHtml(item.href)}">${escapeHtml(item.linkLabel)} <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+        </article>
+    `;
+}
+
+function renderReadiness(trip) {
+    const root = document.getElementById('my-safari-readiness');
+    const score = document.getElementById('my-safari-readiness-score');
+    const next = document.getElementById('my-safari-readiness-next');
+    const groups = document.getElementById('my-safari-readiness-groups');
+    if (!root || !score || !next || !groups) return;
+    const plan = buildTripReadiness(trip);
+    score.style.setProperty('--readiness-score', `${plan.score * 3.6}deg`);
+    score.querySelector('strong').textContent = `${plan.score}%`;
+    score.setAttribute('aria-label', `Trip readiness ${plan.score} percent, ${plan.completedCount} of ${plan.totalCount} checks complete`);
+
+    if (plan.nextTask) {
+        next.innerHTML = `
+            <span>Next priority</span>
+            <strong>${escapeHtml(plan.nextTask.title)}</strong>
+            <small>${escapeHtml(plan.nextTask.dueLabel)}</small>
+        `;
+    } else {
+        next.innerHTML = '<span>All checks complete</span><strong>Your planning checklist is ready for a final official-source review.</strong>';
+    }
+
+    groups.innerHTML = plan.categories.map(category => `
+        <section class="my-safari-readiness-group" aria-labelledby="readiness-${category.id}-title">
+            <header>
+                <span class="my-safari-readiness-category-icon"><i class="fas ${category.icon}" aria-hidden="true"></i></span>
+                <div><h6 id="readiness-${category.id}-title">${escapeHtml(category.label)}</h6><p>${category.completedCount} of ${category.tasks.length} complete</p></div>
+            </header>
+            <div>${category.tasks.map(readinessTaskHtml).join('')}</div>
+        </section>
+    `).join('');
+    root.classList.toggle('is-complete', plan.score === 100);
 }
 
 function renderDashboard() {
@@ -88,6 +141,7 @@ function renderDashboard() {
     document.getElementById('my-safari-itinerary-count').textContent = active.aiItinerary ? '1 saved' : 'None yet';
     document.getElementById('my-safari-expense-count').textContent = `${active.expenses.items.length} item${active.expenses.items.length === 1 ? '' : 's'}`;
     document.getElementById('my-safari-packing-count').textContent = `${active.packing.packedItems.length} packed`;
+    renderReadiness(active);
     localRouteBuilder?.render(active, true);
 }
 
@@ -549,6 +603,19 @@ export async function initMySafari() {
     document.getElementById('my-safari-notes')?.addEventListener('change', event => {
         const active = getActiveTrip();
         if (active) updateTrip(active.id, { notes: event.target.value.trim() });
+    });
+
+    document.getElementById('my-safari-readiness-groups')?.addEventListener('change', event => {
+        const checkbox = event.target.closest('[data-readiness-task]');
+        const active = getActiveTrip();
+        if (!checkbox || !active) return;
+        const readiness = setReadinessTask(active.readiness, checkbox.dataset.readinessTask, checkbox.checked);
+        updateTrip(active.id, { readiness });
+        const plan = buildTripReadiness({ ...active, readiness });
+        const status = document.getElementById('my-safari-readiness-status');
+        if (status) status.textContent = checkbox.checked
+            ? `Check completed. Trip readiness is now ${plan.score}%.`
+            : `Check reopened. Trip readiness is now ${plan.score}%.`;
     });
 
     document.getElementById('my-safari-share')?.addEventListener('click', async () => {

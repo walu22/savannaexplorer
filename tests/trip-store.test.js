@@ -76,3 +76,13 @@ test('route templates create trips with editable days and preserve their source'
     assert.equal(trip.notes, 'Check current road information.');
     assert.equal(duplicateTrip(trip.id, storage).templateRouteId, 'eswatini-royal-heartland');
 });
+
+test('trip readiness progress is saved and duplicated with the trip', () => {
+    const storage = memoryStorage();
+    const trip = createTrip({ name: 'Ready Namibia', countries: ['Namibia'] }, storage);
+    updateActiveTrip({ readiness: { completedTaskIds: ['entry-rules', 'health-plan'] } }, storage);
+
+    assert.deepEqual(getActiveTrip(storage).readiness.completedTaskIds, ['entry-rules', 'health-plan']);
+    const copy = duplicateTrip(trip.id, storage);
+    assert.deepEqual(copy.readiness.completedTaskIds, ['entry-rules', 'health-plan']);
+});

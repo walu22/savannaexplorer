@@ -94,6 +94,39 @@ test('traveller can build and rearrange a day-by-day safari route', async ({ pag
     await expect(route.locator('.route-day').nth(1).getByText('Etosha National Park', { exact: true })).toBeVisible();
 });
 
+test('trip readiness adapts to the journey and keeps completed checks', async ({ page }) => {
+    await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
+    const safari = page.locator('#hub-my-safari');
+    await safari.getByLabel('Trip name').fill('Cross-border safari');
+    await safari.getByLabel('Start date').fill('2026-10-10');
+    await safari.getByLabel('End date').fill('2026-10-20');
+    await safari.getByLabel('Namibia').check();
+    await safari.getByLabel('Botswana').check();
+    await safari.getByRole('button', { name: 'Create trip' }).click();
+
+    const readiness = safari.locator('#my-safari-readiness');
+    await expect(readiness.getByRole('heading', { name: 'Trip readiness' })).toBeVisible();
+    await expect(readiness.getByText('Prepare cross-border documents', { exact: true })).toBeVisible();
+    await expect(readiness.locator('[data-readiness-task]')).toHaveCount(11);
+    await expect(readiness.locator('#my-safari-readiness-score')).toContainText('0%');
+
+    await expect(readiness.locator('.my-safari-readiness-task').getByText('Verify entry rules for Botswana and Namibia', { exact: true })).toBeVisible();
+    const entryCheck = readiness.locator('[data-readiness-task="entry-rules"]');
+    await entryCheck.check();
+    await expect(readiness.locator('#my-safari-readiness-score')).toContainText('9%');
+    await expect(readiness.getByRole('status')).toContainText('Trip readiness is now 9%');
+
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await expect(readiness.locator('[data-readiness-task="entry-rules"]')).toBeChecked();
+    await expect(readiness.locator('#my-safari-readiness-score')).toContainText('9%');
+
+    const accessibility = await new AxeBuilder({ page })
+        .include('#my-safari-readiness')
+        .withTags(['wcag2a', 'wcag2aa'])
+        .analyze();
+    expect(accessibility.violations.filter(item => ['serious', 'critical'].includes(item.impact))).toEqual([]);
+});
+
 test('My Safari has no serious accessibility violations', async ({ page }) => {
     await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
     const results = await new AxeBuilder({ page })
