@@ -58,11 +58,11 @@ No Vercel deployment token is required in GitHub. Application environment variab
 
 ## Local Vercel CLI
 
-**Windows (recommended)** — build locally, upload `dist/` (avoids `vercel build` / `cmd.exe` issues):
+**Windows (recommended)** — verify locally, then deploy from the repository root so Vercel includes both `dist/` and the root `/api` functions:
 
 ```powershell
 npm run build
-npx vercel deploy dist --prod --yes
+npx --yes vercel@59.11.7 deploy --prod --yes
 ```
 
 Or use the one-click script (same flow):
@@ -73,13 +73,13 @@ npm run deploy:live
 
 First run: `npx vercel link` to connect the local folder to the Vercel project.
 
-**Linux / CI (optional prebuilt path):**
+Do not run `vercel deploy dist`: it publishes the static frontend but omits the root `api/` serverless functions. The release command pins the verified CLI version so a future CLI release cannot silently change the pipeline.
 
-```bash
-npm run deploy:live:prebuilt
+After Vercel reports the deployment ready, run the smoke check against its URL:
+
+```powershell
+npm run verify:deployment -- https://your-deployment.vercel.app
 ```
-
-This packages `dist/` with `scripts/package-vercel-output.mjs` instead of calling `vercel build`.
 
 ## What Vercel serves
 
@@ -100,7 +100,8 @@ After Vercel serves `savannaexplorer.com` correctly:
 
 | Issue | Fix |
 |-------|-----|
-| `spawn cmd.exe ENOENT` on Windows | Use `npm run deploy:live` (uploads `dist/` — no local `vercel build`). Or add `C:\Windows\System32` to PATH and set `ComSpec` to `C:\Windows\System32\cmd.exe` |
+| `spawn cmd.exe ENOENT` on Windows | Keep the local `npm run build` gate, then let `vercel deploy --prod` build remotely from the repository root. Or add `C:\Windows\System32` to PATH and set `ComSpec` to `C:\Windows\System32\cmd.exe` |
+| `/api/*` returns Vercel 404 | The site was probably deployed from `dist/`. Redeploy from the repository root with `npm run deploy:live` |
 | Old version after deploy | Hard refresh; check Vercel deployment log for build errors |
 | `#parks` blank | Ensure `postbuild` ran (`Wrote 12 hub SPA fallbacks` in build log) |
 | 404 on `/countries/namibia` | Confirm prerender step wrote `dist/countries/namibia/index.html` |

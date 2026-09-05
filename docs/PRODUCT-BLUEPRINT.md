@@ -2,7 +2,7 @@
 
 **Status:** Working product strategy  
 **Baseline date:** 5 September 2026  
-**Product baseline:** v4.60.0 observability increment, building from readiness baseline `719780c`
+**Product baseline:** v4.60.1 observability increment, building from readiness baseline `719780c`
 
 **Scope:** Build an acquisition-ready tourism product, beginning with independent travel in Southern Africa.
 
