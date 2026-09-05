@@ -1,4 +1,4 @@
--- Savanna Explorer — Supabase schema (hub mode v4.11+)
+-- Savanna Explorer — Supabase schema (hub mode v4.60+)
 -- Run in Supabase SQL Editor (Dashboard → SQL → New query)
 --
 -- Upgrading from pre-v4.11 (quotations / inquiries tables)?
@@ -67,11 +67,39 @@ create index if not exists ai_planner_events_country_idx
     on public.ai_planner_events (country)
     where event_type = 'generate';
 
+-- Privacy-conscious product funnel events. User-entered content and identifiers are excluded.
+create table if not exists public.product_events (
+    id uuid primary key default gen_random_uuid(),
+    event_type text not null check (event_type in (
+        'route_match_completed', 'route_added_to_trip', 'trip_created',
+        'trip_details_updated', 'readiness_task_added', 'readiness_task_completed',
+        'booking_record_added', 'booking_status_updated', 'trip_share_created',
+        'collaboration_invite_created', 'collaboration_invite_accepted',
+        'newsletter_signup', 'client_error'
+    )),
+    page_type text not null check (char_length(page_type) between 1 and 50),
+    source text check (source is null or char_length(source) between 1 and 40),
+    status text check (status is null or char_length(status) between 1 and 40),
+    item_type text check (item_type is null or char_length(item_type) between 1 and 40),
+    country_count smallint check (country_count is null or country_count between 0 and 9),
+    has_dates boolean,
+    client text not null check (client in ('mobile', 'desktop', 'unknown')),
+    app_version text not null check (char_length(app_version) between 1 and 24),
+    created_at timestamptz not null default now()
+);
+
+create index if not exists product_events_created_at_idx
+    on public.product_events (created_at desc);
+
+create index if not exists product_events_event_type_idx
+    on public.product_events (event_type, created_at desc);
+
 -- Row Level Security
 alter table public.experiences enable row level security;
 alter table public.site_messages enable row level security;
 alter table public.newsletter_subscribers enable row level security;
 alter table public.ai_planner_events enable row level security;
+alter table public.product_events enable row level security;
 
 -- Public read for marketplace inspiration
 create policy "Anyone can read experiences"
@@ -90,6 +118,13 @@ create policy "Anyone can subscribe to newsletter"
 create policy "Anyone can log planner events"
     on public.ai_planner_events for insert
     with check (true);
+
+create policy "Anyone can log product events"
+    on public.product_events for insert to anon, authenticated
+    with check (true);
+
+revoke all on table public.product_events from anon, authenticated;
+grant insert on table public.product_events to anon, authenticated;
 
 -- Authenticated My Safari workspaces (v4.37+)
 create table if not exists public.user_trips (

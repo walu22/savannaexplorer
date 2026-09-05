@@ -1,4 +1,5 @@
 import Groq from 'groq-sdk';
+import { observeRequest } from '../_lib/observability.js';
 
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 10;
@@ -45,7 +46,7 @@ export async function generateItineraryCompletion(groq, messages, models = getIt
     } catch (error) {
       lastError = error;
       if (index === models.length - 1 || !isModelUnavailable(error)) throw error;
-      console.warn(`Groq model ${model} is unavailable; trying the next configured itinerary model.`);
+      console.warn(JSON.stringify({ level: 'warn', message: 'itinerary_model_fallback', model }));
     }
   }
 
@@ -110,6 +111,7 @@ function validateHistory(value) {
 }
 
 export default async function handler(req, res) {
+  const observation = observeRequest(req, res, '/api/itinerary/generate');
   const origin = allowedOrigin(req);
   if (origin === false) {
     return res.status(403).json({ error: 'Origin not allowed' });
@@ -199,10 +201,9 @@ Instructions:
 
     const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
-      console.error('No GROQ_API_KEY found in environment.');
-      return res.status(500).json({ 
-        error: 'Generation failed', 
-        details: 'GROQ_API_KEY is missing.' 
+      observation.error({ name: 'ConfigurationError' }, 503);
+      return res.status(503).json({
+        error: 'Generation failed',
       });
     }
 
@@ -212,14 +213,12 @@ Instructions:
 
     const itinerary = chatCompletion.choices[0]?.message?.content || "";
     const methodUsed = `Groq (${model})`;
-    console.log(`SUCCESS: Generated itinerary via Groq (${model}).`);
 
     res.status(200).json({ itinerary, method: methodUsed });
   } catch (error) {
-    console.error('Error generating itinerary in relay:', error);
-    res.status(500).json({ 
-      error: 'Failed to generate itinerary', 
-      details: error.message || error.toString() 
+    observation.error(error);
+    res.status(500).json({
+      error: 'Failed to generate itinerary',
     });
   }
 };

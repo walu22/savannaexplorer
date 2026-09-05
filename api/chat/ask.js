@@ -1,6 +1,8 @@
 import Groq from 'groq-sdk';
+import { observeRequest } from '../_lib/observability.js';
 
 export default async function handler(req, res) {
+  const observation = observeRequest(req, res, '/api/chat/ask');
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -18,7 +20,8 @@ export default async function handler(req, res) {
 
     const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
-      return res.status(500).json({ error: 'GROQ_API_KEY is missing.' });
+      observation.error({ name: 'ConfigurationError' }, 503);
+      return res.status(503).json({ error: 'Assistant service is unavailable.' });
     }
 
     const systemPrompt = `You are the SavannaExplorer Travel Assistant — a friendly, knowledgeable AI concierge specializing in Southern Africa travel (South Africa, Namibia, Botswana, Zimbabwe, Zambia, Mozambique, Malawi, Lesotho, Eswatini).
@@ -64,10 +67,9 @@ Use the above context to ground your answers in real data from the site. If the 
 
     res.status(200).json({ reply, suggestedLinks });
   } catch (error) {
-    console.error('Chat assistant error:', error);
+    observation.error(error);
     res.status(500).json({
       error: 'Failed to get response',
-      details: error.message || error.toString(),
     });
   }
 }

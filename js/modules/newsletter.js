@@ -1,6 +1,7 @@
 import { CONFIG, isSupabaseConfigured } from '../config.js';
 import { getSupabaseClient } from '../lib/supabase.js';
 import { showFormFeedback, clearFormFeedback } from '../lib/form-feedback.js';
+import { trackProductEvent } from '../lib/product-analytics.js';
 
 export async function subscribeNewsletter(email, { source } = {}) {
     const supabase = getSupabaseClient();
@@ -14,9 +15,7 @@ export async function subscribeNewsletter(email, { source } = {}) {
             return { ok: false, type: 'error', message: 'Could not subscribe right now. Please try again later.' };
         }
 
-        if (typeof gtag === 'function') {
-            gtag('event', 'newsletter_signup', { source: source || 'newsletter' });
-        }
+        trackProductEvent('newsletter_signup', { source: source || 'newsletter' });
 
         return { ok: true, type: 'success', message: 'Check your inbox — your printable checklist is ready below.' };
     }

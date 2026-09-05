@@ -131,6 +131,10 @@ test('trip readiness adapts to the journey and keeps completed checks', async ({
 });
 
 test('traveller edits trip details, adds a personal task and records a booking', async ({ page }) => {
+    await page.addInitScript(() => {
+        window.__productEvents = [];
+        window.addEventListener('savanna:product-event', event => window.__productEvents.push(event.detail));
+    });
     await page.goto('/my-safari', { waitUntil: 'domcontentloaded' });
     const safari = page.locator('#hub-my-safari');
     const createForm = safari.locator('#my-safari-create-form');
@@ -167,6 +171,20 @@ test('traveller edits trip details, adds a personal task and records a booking',
     await expect(bookings.getByText('Reference: ET-42', { exact: true })).toBeVisible();
     await bookings.getByLabel('Status for Etosha Safari Camp').selectOption('confirmed');
     await expect(bookings.locator('#my-safari-bookings-progress')).toHaveText('1 of 1 confirmed');
+
+    const productEvents = await page.evaluate(() => window.__productEvents);
+    expect(productEvents.map(event => event.event_type)).toEqual(expect.arrayContaining([
+        'trip_created',
+        'trip_details_updated',
+        'readiness_task_added',
+        'booking_record_added',
+        'booking_status_updated',
+    ]));
+    const telemetry = JSON.stringify(productEvents);
+    expect(telemetry).not.toContain('Namibia family safari');
+    expect(telemetry).not.toContain('Download offline maps');
+    expect(telemetry).not.toContain('Etosha Safari Camp');
+    expect(telemetry).not.toContain('ET-42');
 
     await page.reload({ waitUntil: 'domcontentloaded' });
     await expect(safari.locator('#my-safari-active-name')).toHaveText('Namibia family safari');

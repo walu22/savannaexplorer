@@ -31,6 +31,8 @@ Redeploy after adding or changing variables (Vite bakes them in at build time).
 
 For My Safari cloud sync, run `supabase/migrate-trip-cloud.sql`, `supabase/migrations/20260903090000_trip_collaboration.sql`, and `supabase/migrations/20260903093000_lock_collaboration_rpc.sql` in order in the Supabase SQL Editor. Add `https://savannaexplorer.com/**` to **Supabase Authentication → URL Configuration → Redirect URLs** and keep email authentication enabled for password-free sign-in links.
 
+For product observability, run `supabase/migrations/20260905180000_product_analytics.sql`, then enable **Web Analytics** and **Speed Insights** in the Vercel project. See `docs/product-observability.md` for the privacy boundary, event dictionary and reporting workflow.
+
 ### 3. Custom domain
 
 1. Vercel → **Project → Settings → Domains**

@@ -38,6 +38,7 @@ import {
     setReadinessTask,
 } from '../lib/trip-readiness.js';
 import { addBooking, removeBooking, updateBooking } from '../lib/trip-bookings.js';
+import { trackProductEvent } from '../lib/product-analytics.js';
 
 const COUNTRIES = ['Botswana', 'Eswatini', 'Lesotho', 'Malawi', 'Mozambique', 'Namibia', 'South Africa', 'Zambia', 'Zimbabwe'];
 let collaborationPoll = null;
@@ -547,6 +548,7 @@ export async function initMySafari() {
                 const record = inviteToken
                     ? await acceptCollaborationInvite(inviteToken)
                     : await loadCollaboration(collaborationId);
+                if (inviteToken) trackProductEvent('collaboration_invite_accepted', { source: 'my_safari' });
                 if (inviteToken && record?.trip_id) {
                     history.replaceState(null, '', `${window.location.pathname}?collaboration=${record.trip_id}#hub-my-safari`);
                 }
@@ -571,6 +573,7 @@ export async function initMySafari() {
                 if (inviteToken) {
                     try {
                         const record = await acceptCollaborationInvite(inviteToken);
+                        trackProductEvent('collaboration_invite_accepted', { source: 'my_safari' });
                         if (record?.trip_id) history.replaceState(null, '', `${window.location.pathname}?collaboration=${record.trip_id}#hub-my-safari`);
                         await openCollaboration(record);
                     } catch (error) {
@@ -626,11 +629,19 @@ export async function initMySafari() {
         const form = new FormData(event.currentTarget);
         const name = String(form.get('trip-name') || '').trim();
         if (!name) return;
+        const countries = form.getAll('trip-country').map(String);
+        const startDate = String(form.get('trip-start') || '');
+        const endDate = String(form.get('trip-end') || '');
         createTrip({
             name,
-            startDate: String(form.get('trip-start') || ''),
-            endDate: String(form.get('trip-end') || ''),
-            countries: form.getAll('trip-country').map(String),
+            startDate,
+            endDate,
+            countries,
+        });
+        trackProductEvent('trip_created', {
+            source: 'my_safari',
+            countryCount: countries.length,
+            hasDates: Boolean(startDate && endDate),
         });
         event.currentTarget.reset();
     });
@@ -665,20 +676,33 @@ export async function initMySafari() {
             status.textContent = 'End date must be on or after the start date.';
             return;
         }
+        const countries = data.getAll('edit-trip-country').map(String);
         updateTrip(active.id, {
             name: String(data.get('edit-trip-name') || '').trim(),
             startDate,
             endDate,
             travellers: Number(data.get('edit-trip-travellers')) || 1,
-            countries: data.getAll('edit-trip-country').map(String),
+            countries,
             routeDays: rebaseRouteDays(active.routeDays, startDate, endDate),
+        });
+        trackProductEvent('trip_details_updated', {
+            source: 'my_safari',
+            countryCount: countries.length,
+            hasDates: Boolean(startDate && endDate),
         });
         event.currentTarget.hidden = true;
     });
 
     document.getElementById('my-safari-duplicate')?.addEventListener('click', () => {
         const active = getActiveTrip();
-        if (active) duplicateTrip(active.id);
+        if (active) {
+            duplicateTrip(active.id);
+            trackProductEvent('trip_created', {
+                source: 'duplicate',
+                countryCount: active.countries.length,
+                hasDates: Boolean(active.startDate && active.endDate),
+            });
+        }
     });
 
     document.getElementById('my-safari-delete')?.addEventListener('click', () => {
@@ -698,6 +722,10 @@ export async function initMySafari() {
         if (!checkbox || !active) return;
         const readiness = setReadinessTask(active.readiness, checkbox.dataset.readinessTask, checkbox.checked);
         updateTrip(active.id, { readiness });
+        trackProductEvent('readiness_task_completed', {
+            source: 'readiness',
+            status: checkbox.checked ? 'completed' : 'reopened',
+        });
         const plan = buildTripReadiness({ ...active, readiness });
         const status = document.getElementById('my-safari-readiness-status');
         if (status) status.textContent = checkbox.checked
@@ -724,6 +752,10 @@ export async function initMySafari() {
             dueDate: data.get('custom-task-date'),
         });
         updateTrip(active.id, { readiness });
+        trackProductEvent('readiness_task_added', {
+            source: 'my_safari',
+            status: data.get('custom-task-date') ? 'dated' : 'undated',
+        });
         event.currentTarget.reset();
         document.getElementById('my-safari-readiness-status').textContent = 'Personal task added to this trip.';
     });
@@ -741,6 +773,10 @@ export async function initMySafari() {
             status: 'planned',
         });
         updateTrip(active.id, { bookings });
+        trackProductEvent('booking_record_added', {
+            source: 'my_safari',
+            itemType: data.get('booking-type'),
+        });
         event.currentTarget.reset();
         document.getElementById('my-safari-booking-status').textContent = 'Booking record added.';
     });
@@ -750,6 +786,7 @@ export async function initMySafari() {
         const active = getActiveTrip();
         if (!select || !active) return;
         updateTrip(active.id, { bookings: updateBooking(active.bookings, select.dataset.bookingStatus, { status: select.value }) });
+        trackProductEvent('booking_status_updated', { source: 'my_safari', status: select.value });
         document.getElementById('my-safari-booking-status').textContent = `Booking marked ${select.value}.`;
     });
 
@@ -771,6 +808,7 @@ export async function initMySafari() {
             document.getElementById('my-safari-share-panel').hidden = false;
             await copyText(url);
             setCloudStatus('Share link created and copied.');
+            trackProductEvent('trip_share_created', { source: 'my_safari' });
         } catch (error) {
             setCloudStatus(friendlyCloudError(error), true);
         }
@@ -820,6 +858,7 @@ export async function initMySafari() {
             document.getElementById('my-safari-invite-result').hidden = false;
             await copyText(invite.url);
             setCloudStatus('Private invitation created and copied. It expires in seven days.');
+            trackProductEvent('collaboration_invite_created', { source: 'my_safari', status: role });
             await refreshCollaborationManagement();
         } catch (error) {
             setCloudStatus(friendlyCloudError(error), true);

@@ -4,6 +4,7 @@ import { MAX_COMPARE_ROUTES, normalizeComparisonIds, routeCostSignal, toggleComp
 import { DEFAULT_ROUTE_PREFERENCES, normalizeRoutePreferences, rankRouteMatches } from '../lib/route-matcher.js';
 import { mountRouteCollectionMap, destroyRouteCollectionMap } from '../lib/itinerary-maps.js';
 import { createTrip } from '../lib/trip-store.js';
+import { trackProductEvent } from '../lib/product-analytics.js';
 import { navigateHome, navigateToRoute, routePath, scrollToSection } from '../lib/router.js';
 import { routeShareUrl } from '../lib/share.js';
 import { setHomeMeta, setRouteMeta } from '../lib/page-meta.js';
@@ -432,7 +433,7 @@ export function openRouteExplorer(routeId) {
     return true;
 }
 
-function startRoute(routeId) {
+function startRoute(routeId, source = 'route_explorer') {
     const route = routes.find(item => item.id === routeId);
     const startDate = document.getElementById('route-template-start-date')?.value || '';
     const template = routeToTripTemplate(route, startDate);
@@ -442,6 +443,11 @@ function startRoute(routeId) {
         return;
     }
     const trip = createTrip(template);
+    trackProductEvent('route_added_to_trip', {
+        source,
+        countryCount: route.countryIds.length,
+        hasDates: Boolean(startDate),
+    });
     if (status) status.textContent = `${trip.name} is ready in My Safari. Opening your editable plan…`;
     window.location.assign('/my-safari');
 }
@@ -504,6 +510,7 @@ export function initRouteExplorer() {
         event.preventDefault();
         if (!event.target.reportValidity()) return;
         runRouteMatcher(readMatcherForm());
+        trackProductEvent('route_match_completed', { source: 'route_explorer', status: 'matched' });
     });
 
     section.addEventListener('click', event => {
@@ -521,13 +528,14 @@ export function initRouteExplorer() {
             render();
             document.querySelector('#route-explorer-detail h3')?.focus({ preventScroll: true });
         } else if (start) {
-            startRoute(start.dataset.routeStart);
+            const source = start.closest('#route-matcher-results') ? 'route_matcher' : 'route_explorer';
+            startRoute(start.dataset.routeStart, source);
         } else if (compare) {
             toggleRouteComparison(compare.dataset.routeCompare);
         } else if (removeCompare) {
             toggleRouteComparison(removeCompare.dataset.compareRemove);
         } else if (compareStart) {
-            startRoute(compareStart.dataset.compareStart);
+            startRoute(compareStart.dataset.compareStart, 'route_comparison');
         } else if (compareMatches) {
             comparisonIds = normalizeComparisonIds(matcherMatches.map(match => match.route.id), routes);
             comparisonOpen = true;

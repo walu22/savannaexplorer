@@ -41,6 +41,7 @@ import { getListingsForCountry, renderCountryBookRows } from './book-direct.js';
 import { closeMobileNav, setMainNavSuppressed } from './nav.js';
 import { syncOfflineButtonState } from './offline-manager.js';
 import { inferSpotTags } from '../lib/spot-tags.js';
+import { trackProductEvent } from '../lib/product-analytics.js';
 
 const detailView = document.getElementById('country-detail-view');
 const countryScroll = document.getElementById('country-detail-scroll');
@@ -208,6 +209,7 @@ function saveAttractionToTrip(countryId, spotName) {
             notes: `Started from the ${country.name} attractions guide.`,
             routeDays: [{ title: `${country.name} ideas`, stops: [stop] }],
         });
+        trackProductEvent('trip_created', { source: 'country_attraction', countryCount: 1, hasDates: false });
         return { trip, added: true };
     }
 
@@ -306,6 +308,7 @@ function saveActivityToTrip(countryId, activityName) {
             notes: `Started from the ${country.name} activities guide.`,
             routeDays: [{ title: `${country.name} experiences`, stops: [stop] }],
         });
+        trackProductEvent('trip_created', { source: 'country_activity', countryCount: 1, hasDates: false });
         return { trip, added: true };
     }
 
@@ -1004,6 +1007,11 @@ export function initCountryGuide() {
                 return;
             }
             const trip = createTrip(template);
+            trackProductEvent('route_added_to_trip', {
+                source: 'country_guide',
+                countryCount: route.countryIds.length,
+                hasDates: false,
+            });
             if (status) status.textContent = `${trip.name} is ready. Opening your editable plan…`;
             window.location.assign('/my-safari');
             return;
@@ -1022,6 +1030,7 @@ export function initCountryGuide() {
                 countries: [countryId],
                 notes: `Started from the ${data.name} country guide.`,
             });
+            trackProductEvent('trip_created', { source: 'country_guide', countryCount: 1, hasDates: false });
             if (status) status.textContent = `${trip.name} is ready. Opening your editable plan…`;
             window.location.assign('/my-safari');
             return;

@@ -17,6 +17,9 @@ import { initReveal } from './modules/reveal.js';
 import { initOfflineManager } from './modules/offline-manager.js';
 import { initHomeLayout } from './modules/home-layout.js';
 import { initFeatureLoader } from './modules/feature-loader.js';
+import { initProductObservability } from './lib/product-analytics.js';
+
+initProductObservability();
 
 document.addEventListener('DOMContentLoaded', () => {
     const versionEl = document.getElementById('app-version');

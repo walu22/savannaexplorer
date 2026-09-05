@@ -2,7 +2,8 @@
 
 **Status:** Working product strategy  
 **Baseline date:** 5 September 2026  
-**Product baseline:** repository at `719780c` (v4.59.0)  
+**Product baseline:** v4.60.0 observability increment, building from readiness baseline `719780c`
+
 **Scope:** Build an acquisition-ready tourism product, beginning with independent travel in Southern Africa.
 
 ## 1. The honest ambition
@@ -34,7 +35,7 @@ This baseline describes the repository, not an assumption that every change is a
 | AI planning | Built, guarded | Itinerary generation, input safeguards, rate limiting and analytics events | Verified retrieval with citations, evaluation suite and confidence handling |
 | Direct booking discovery | Built | 46 official link-only directories; no payment handling | Verified operator profiles, availability signals and transparent commercial model |
 | Offline capability | Partial | Installable PWA shell and network-first cache | Selectable destination/trip downloads, offline maps and reliable cache lifecycle |
-| Analytics | Partial | Optional GA4 and AI planner event storage/reporting | Complete acquisition-to-retention funnel and real-user performance monitoring |
+| Analytics | Built in code; production activation pending | Privacy-safe product event taxonomy, aggregate report, Vercel Web Analytics/Speed Insights integration, client failures and structured API logs | Enable production services, publish privacy/retention terms, collect four-week baseline and add retention cohorts |
 | Editorial operations | Partial | Source policy, review dates and source URLs in several datasets | Central editorial queue, expiry rules, broken-source monitoring and reviewer accountability |
 | Accessibility/testing | Strong foundation | 59 unit definitions, 38 browser-flow definitions and automated axe checks | WCAG 2.2 manual audit and permanent regression budget |
 | Security/privacy | Partial | Supabase RLS, tested collaboration permissions and API validation | CSP/security headers, privacy controls, data export/deletion and formal incident process |
@@ -332,7 +333,7 @@ Durations are working ranges, not promises. Each phase advances only when its ex
 
 ## 10. The next four delivery increments
 
-1. **Product observability:** full event taxonomy, Web Vitals, error reporting and a baseline dashboard.
+1. **Product observability (implementation complete; activation/baseline pending):** enable the production services, validate delivery and record the first four-week baseline.
 2. **Editorial freshness dashboard:** start with visa, border, park fee, emergency and travel-advisory data.
 3. **My Safari trip pack:** calendar export, booking edit, reminders and printable/offline plan.
 4. **Global search and unified navigation:** search all countries, regions, parks, routes, borders and guides from one fast interface.
