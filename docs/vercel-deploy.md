@@ -26,8 +26,11 @@ In Vercel → **Project → Settings → Environment Variables**, add for **Prod
 | `VITE_SUPABASE_ANON_KEY` | `sb_publishable_...` | Yes |
 | `VITE_GSC_VERIFICATION` | Google Search Console tag value | Optional |
 | `VITE_GA4_ID` | `G-XXXXXXXXXX` | Optional |
+| `CRON_SECRET` | Random value of at least 16 characters | Yes for advisory monitoring |
 
 Redeploy after adding or changing variables (Vite bakes them in at build time).
+
+`vercel.json` schedules `/api/cron/advisory-health` every day at 04:17 UTC. Vercel automatically sends `CRON_SECRET` as a Bearer authorization header, and the endpoint rejects missing or mismatched credentials. The monitor checks all 18 official FCDO and U.S. State Department country links and fails on broken links or overdue human review; it does not automatically rewrite advisory content or advance review dates.
 
 For My Safari cloud sync, run `supabase/migrate-trip-cloud.sql`, `supabase/migrations/20260903090000_trip_collaboration.sql`, and `supabase/migrations/20260903093000_lock_collaboration_rpc.sql` in order in the Supabase SQL Editor. Add `https://savannaexplorer.com/**` to **Supabase Authentication → URL Configuration → Redirect URLs** and keep email authentication enabled for password-free sign-in links.
 

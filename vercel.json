@@ -4,6 +4,12 @@
   "outputDirectory": "dist",
   "installCommand": "npm ci",
   "framework": null,
+  "crons": [
+    {
+      "path": "/api/cron/advisory-health",
+      "schedule": "17 4 * * *"
+    }
+  ],
   "redirects": [
     {
       "source": "/borders/groblersbrug",

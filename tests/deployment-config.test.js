@@ -24,3 +24,12 @@ test('corrected border slugs retain permanent redirects', async () => {
     assert.equal(redirects['/borders/calelonspoort'].destination, '/borders/caledonspoort');
     assert.ok(Object.values(redirects).every(rule => rule.permanent));
 });
+
+test('production schedules a protected daily advisory health check', async () => {
+    const config = JSON.parse(await readFile(new URL('../vercel.json', import.meta.url), 'utf8'));
+
+    assert.deepEqual(config.crons, [{
+        path: '/api/cron/advisory-health',
+        schedule: '17 4 * * *',
+    }]);
+});
