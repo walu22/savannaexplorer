@@ -22,6 +22,18 @@ function linkHtml(resource) {
     return `<a class="data-source-link" href="${href}"${target}>${escapeHtml(resource.label)}${icon}</a>`;
 }
 
+function formatVerifiedDate(value) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(value || '')) return '';
+    const date = new Date(`${value}T00:00:00.000Z`);
+    if (Number.isNaN(date.getTime())) return '';
+    return new Intl.DateTimeFormat('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        timeZone: 'UTC',
+    }).format(date);
+}
+
 function initTabs() {
     const tabs = document.querySelectorAll('[data-essentials-tab]');
     const panels = document.querySelectorAll('[data-essentials-panel]');
@@ -262,10 +274,12 @@ function renderAdvisories() {
         const links = c.links.map(l =>
             `<li><a class="data-source-link" href="${l.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)} <i class="fas fa-external-link-alt"></i></a></li>`
         ).join('');
+        const checkedOn = formatVerifiedDate(c.lastVerified);
         return `
             <article class="essentials-advisory-card">
                 <h4>${c.flag} ${escapeHtml(c.name)}</h4>
                 <ul>${links}</ul>
+                ${checkedOn ? `<p class="essentials-muted">Links checked ${escapeHtml(checkedOn)}</p>` : ''}
             </article>
         `;
     }).join('');

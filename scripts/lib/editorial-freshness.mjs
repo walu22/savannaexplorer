@@ -238,7 +238,7 @@ export function buildFreshnessReport(data, { asOf = isoDate(new Date()), dueSoon
             country: countryName(countries, item.id, item.name),
             sourceFile: 'data/travel-advisories.json',
             sourceUrls: (item.links || []).map(link => link.url),
-            reviewed: travelAdvisories.meta?.lastUpdated,
+            reviewed: item.lastVerified || travelAdvisories.meta?.lastUpdated,
             detail: `${item.links?.length || 0} government advisory links`,
             review: reviewFor(id),
         }, asOf, dueSoonDays));

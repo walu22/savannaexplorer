@@ -2,7 +2,7 @@
 
 This document records where practical travel data comes from and how we keep content original.
 
-**Last reviewed:** March 2026
+**Last reviewed:** 6 September 2026
 
 A visitor-facing summary also lives on the site at **About This Site** (`#about` / `#about-sources`).
 
@@ -39,6 +39,7 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 | `data/tourism-stats.json` | International arrival context by country | National statistics offices & tourism authorities |
 | `data/expense-tracker.json` | Trip expense tracker categories & config | Original editorial |
 | `data/itinerary-maps.json` | Google Maps waypoints per route template | Original editorial; Google Maps links |
+| `data/travel-advisories.json` | Official advisory links by country | UK FCDO and U.S. Department of State (`lastVerified` per country) |
 
 ## Visa & entry (high-change items)
 

@@ -160,6 +160,87 @@
       "outcome": "rewritten",
       "evidence": "Eswatini's official guidelines make the requirement nationality-specific and limit the visitor visa category to stays of no more than one month.",
       "sourceUrls": ["https://evisa.gov.sz/VisaApplicationGuidelines"]
+    },
+    {
+      "recordId": "travel-advisory:south-africa",
+      "outcome": "confirmed-and-canonicalized",
+      "evidence": "The FCDO destination advice and U.S. State Department advisory both resolve and identify South Africa. The retired U.S. country-information URL was replaced with its current advisory URL.",
+      "sourceUrls": [
+        "https://www.gov.uk/foreign-travel-advice/south-africa",
+        "https://travel.state.gov/en/international-travel/travel-advisories/south-africa.html"
+      ]
+    },
+    {
+      "recordId": "travel-advisory:namibia",
+      "outcome": "confirmed-and-canonicalized",
+      "evidence": "The FCDO destination advice and U.S. State Department advisory both resolve and identify Namibia. The retired U.S. country-information URL was replaced with its current advisory URL.",
+      "sourceUrls": [
+        "https://www.gov.uk/foreign-travel-advice/namibia",
+        "https://travel.state.gov/en/international-travel/travel-advisories/namibia.html"
+      ]
+    },
+    {
+      "recordId": "travel-advisory:botswana",
+      "outcome": "confirmed-and-canonicalized",
+      "evidence": "The FCDO destination advice and U.S. State Department advisory both resolve and identify Botswana. The retired U.S. country-information URL was replaced with its current advisory URL.",
+      "sourceUrls": [
+        "https://www.gov.uk/foreign-travel-advice/botswana",
+        "https://travel.state.gov/en/international-travel/travel-advisories/botswana.html"
+      ]
+    },
+    {
+      "recordId": "travel-advisory:zambia",
+      "outcome": "confirmed-and-canonicalized",
+      "evidence": "The FCDO destination advice and U.S. State Department advisory both resolve and identify Zambia. The retired U.S. country-information URL was replaced with its current advisory URL.",
+      "sourceUrls": [
+        "https://www.gov.uk/foreign-travel-advice/zambia",
+        "https://travel.state.gov/en/international-travel/travel-advisories/zambia.html"
+      ]
+    },
+    {
+      "recordId": "travel-advisory:zimbabwe",
+      "outcome": "confirmed-and-canonicalized",
+      "evidence": "The FCDO destination advice and U.S. State Department advisory both resolve and identify Zimbabwe. The retired U.S. country-information URL was replaced with its current advisory URL.",
+      "sourceUrls": [
+        "https://www.gov.uk/foreign-travel-advice/zimbabwe",
+        "https://travel.state.gov/en/international-travel/travel-advisories/zimbabwe.html"
+      ]
+    },
+    {
+      "recordId": "travel-advisory:mozambique",
+      "outcome": "confirmed-and-canonicalized",
+      "evidence": "The FCDO destination advice and U.S. State Department advisory both resolve and identify Mozambique. The retired U.S. country-information URL was replaced with its current advisory URL.",
+      "sourceUrls": [
+        "https://www.gov.uk/foreign-travel-advice/mozambique",
+        "https://travel.state.gov/en/international-travel/travel-advisories/mozambique.html"
+      ]
+    },
+    {
+      "recordId": "travel-advisory:malawi",
+      "outcome": "confirmed-and-canonicalized",
+      "evidence": "The FCDO destination advice and U.S. State Department advisory both resolve and identify Malawi. The retired U.S. country-information URL was replaced with its current advisory URL.",
+      "sourceUrls": [
+        "https://www.gov.uk/foreign-travel-advice/malawi",
+        "https://travel.state.gov/en/international-travel/travel-advisories/malawi.html"
+      ]
+    },
+    {
+      "recordId": "travel-advisory:lesotho",
+      "outcome": "confirmed-with-source-exception",
+      "evidence": "The FCDO destination advice resolves and identifies Lesotho. The State Department's new-style destination URL returned an error, so this record uses the functioning official advisory page dated 17 June 2026.",
+      "sourceUrls": [
+        "https://www.gov.uk/foreign-travel-advice/lesotho",
+        "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/lesotho-travel-advisory.html"
+      ]
+    },
+    {
+      "recordId": "travel-advisory:eswatini",
+      "outcome": "confirmed-and-canonicalized",
+      "evidence": "The FCDO destination advice and U.S. State Department advisory both resolve and identify Eswatini. The retired U.S. country-information URL was replaced with its current advisory URL.",
+      "sourceUrls": [
+        "https://www.gov.uk/foreign-travel-advice/eswatini",
+        "https://travel.state.gov/en/international-travel/travel-advisories/eswatini.html"
+      ]
     }
   ]
 }

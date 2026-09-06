@@ -37,7 +37,7 @@ test('freshness classification distinguishes overdue, due soon and current recor
 });
 
 test('editorial report covers every first-slice high-change record', () => {
-    const report = buildFreshnessReport(productionData, { asOf: '2026-09-05' });
+    const report = buildFreshnessReport(productionData, { asOf: '2026-09-06' });
     const expected = productionData.practical.visaHealth.length
         + Object.keys(productionData.visaPassport.rules).length
         + productionData.borders.length
@@ -49,16 +49,27 @@ test('editorial report covers every first-slice high-change record', () => {
     assert.equal(report.summary.total, 93);
     assert.equal(report.summary.overdue + report.summary.dueSoon + report.summary.current + report.summary.unknown, 93);
     assert.equal(report.records[0].status, 'overdue');
-    assert.ok(report.summary.criticalOverdue > 0);
+    assert.equal(report.summary.criticalOverdue, 0);
     assert.ok(report.summary.sourceLinked >= 90);
-    assert.equal(report.summary.evidenceComplete, 21);
+    assert.equal(report.summary.evidenceComplete, 30);
     assert.equal(report.records.filter(record => record.category === 'emergency' && record.status === 'current').length, 9);
     assert.equal(report.records.filter(record => record.id.startsWith('visa-summary:') && record.status === 'current').length, 9);
     assert.equal(report.records.find(record => record.id === 'visa-matrix:zimbabwe').status, 'current');
     assert.equal(report.records.find(record => record.id === 'visa-matrix:mozambique').status, 'current');
+    assert.equal(report.records.filter(record => record.category === 'travel-advisory' && record.status === 'due-soon').length, 9);
     assert.deepEqual(new Set(report.records.map(record => record.category)), new Set([
         'visa', 'border', 'park-fee', 'emergency', 'travel-advisory',
     ]));
+});
+
+test('travel advisories use record-level review dates and working official URLs', () => {
+    const advisories = productionData.travelAdvisories.countries;
+    const usLinks = advisories.map(country => country.links.find(link => link.label.startsWith('US State Dept'))?.url);
+
+    assert.ok(advisories.every(country => country.lastVerified === '2026-09-06'));
+    assert.ok(usLinks.every(Boolean));
+    assert.ok(usLinks.every(url => !url.includes('International-Travel-Country-Information-Pages')));
+    assert.ok(usLinks.every(url => url.startsWith('https://travel.state.gov/')));
 });
 
 test('invalid report date is rejected', () => {
