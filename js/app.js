@@ -1,7 +1,13 @@
 import { CONFIG } from './config.js';
+import { getEditorialAuthRedirect } from './lib/editorial-auth-callback.js';
+
+const editorialAuthRedirect = getEditorialAuthRedirect(window.location);
+if (editorialAuthRedirect) {
+    window.location.replace(editorialAuthRedirect);
+}
 
 // Register Service Worker for PWA
-if ('serviceWorker' in navigator) {
+if (!editorialAuthRedirect && 'serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js').then(registration => {
             console.log('[PWA] ServiceWorker registration successful');
@@ -19,9 +25,9 @@ import { initHomeLayout } from './modules/home-layout.js';
 import { initFeatureLoader } from './modules/feature-loader.js';
 import { initProductObservability } from './lib/product-analytics.js';
 
-initProductObservability();
+if (!editorialAuthRedirect) initProductObservability();
 
-document.addEventListener('DOMContentLoaded', () => {
+if (!editorialAuthRedirect) document.addEventListener('DOMContentLoaded', () => {
     const versionEl = document.getElementById('app-version');
     if (versionEl && CONFIG.appVersion) {
         versionEl.textContent = `v${CONFIG.appVersion}`;
