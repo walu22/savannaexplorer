@@ -83,7 +83,7 @@ function renderVisaMatrix(passportId) {
             const noteText = passportVisa?.note || row.note;
             return `
             <details class="hub-visa-detail${passportVisa && needsVisaAction(passportVisa.status) ? ' hub-visa-detail--action' : ''}">
-                <summary>${row.flag} ${row.name} — <a href="${row.sourceUrl}" target="_blank" rel="noopener noreferrer">Official source</a> · verified ${getVisaPassportLastVerified()}</summary>
+                <summary>${row.flag} ${row.name} — <a href="${row.sourceUrl}" target="_blank" rel="noopener noreferrer">Official source</a> · verified ${getVisaPassportLastVerified(row.id)}</summary>
                 <p>${escapeHtml(noteText)}</p>
             </details>
         `;
@@ -120,7 +120,7 @@ export function buildTripVisaBlock(countryId, passportId) {
         <p class="print-meta"><strong>Visa (${escapeHtml(passportMeta?.short || passportMeta?.label || passportId)}):</strong> ${escapeHtml(visaLabel)} ·
         <strong>Health:</strong> ${escapeHtml(visa.health.label)} ·
         <strong>Advisory:</strong> ${escapeHtml(visa.advisory.label)}
-        <span class="print-verified">(verified ${escapeHtml(getVisaPassportLastVerified())})</span></p>
+        <span class="print-verified">(verified ${escapeHtml(getVisaPassportLastVerified(countryId))})</span></p>
         <p>${escapeHtml(noteText)}</p>
         <p class="print-source"><strong>Official immigration:</strong> ${escapeHtml(visa.sourceUrl)}</p>
     `;

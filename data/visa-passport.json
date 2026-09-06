@@ -1,6 +1,11 @@
 {
   "meta": {
     "lastVerified": "2026-06",
+    "countryLastVerified": {
+      "zimbabwe": "2026-09-06",
+      "mozambique": "2026-09-06",
+      "malawi": "2026-09-06"
+    },
     "disclaimer": "Passport-specific summaries are for trip planning only. Immigration rules change without notice — always confirm with the official source for your nationality before booking flights."
   },
   "passports": [
@@ -60,37 +65,37 @@
       "other": { "status": "verify", "label": "Check / e-visa", "badgeClass": "yellow", "note": "E-visa available for many nationalities — check zambiaimmigration.gov.zm." }
     },
     "zimbabwe": {
-      "uk": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "UK nationals visa-free 90 days. KAZA UniVisa (USD 50) at Victoria Falls if also visiting Zambia." },
-      "us": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "US citizens visa-free 90 days for tourism." },
-      "eu": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "EU passport holders typically visa-free 90 days." },
-      "au": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Australian passport holders typically visa-free 90 days." },
-      "ca": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Canadian passport holders typically visa-free 90 days." },
+      "uk": { "status": "e-visa-or-voa", "label": "VOA or eVisa", "badgeClass": "yellow", "note": "UK nationals are Category B: a visa is required but can be obtained at the port of entry or through the official eVisa service. Eligible travellers may consider the KAZA UniVisa." },
+      "us": { "status": "e-visa-or-voa", "label": "VOA or eVisa", "badgeClass": "yellow", "note": "US nationals are Category B: obtain a visa at the port of entry or use the official eVisa service." },
+      "eu": { "status": "verify", "label": "Check category", "badgeClass": "yellow", "note": "The EU / Schengen group is not one immigration category. Many passports are Category B and need a visa obtainable on arrival or online; check the exact nationality." },
+      "au": { "status": "e-visa-or-voa", "label": "VOA or eVisa", "badgeClass": "yellow", "note": "Australian nationals are Category B: obtain a visa at the port of entry or use the official eVisa service." },
+      "ca": { "status": "e-visa-or-voa", "label": "VOA or eVisa", "badgeClass": "yellow", "note": "Canadian nationals are Category B: obtain a visa at the port of entry or use the official eVisa service." },
       "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — Beitbridge busiest SA entry." },
       "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Most SADC nationals visa-free — carry USD cash for park fees." },
-      "in": { "status": "e-visa", "label": "E-visa", "badgeClass": "yellow", "note": "Indian nationals apply via evisa.gov.zw before travel." },
+      "in": { "status": "e-visa-or-voa", "label": "VOA or eVisa", "badgeClass": "yellow", "note": "Indian nationals are Category B: obtain a visa at the port of entry or use the official eVisa service." },
       "other": { "status": "verify", "label": "Check / e-visa", "badgeClass": "yellow", "note": "E-visa portal open for many nationalities — rules vary by passport." }
     },
     "mozambique": {
-      "uk": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "UK nationals: e-visa or visa-on-arrival (~USD 50). Apply online before travel when possible." },
-      "us": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "US citizens: e-visa or VOA required — confirm approval before non-refundable lodge bookings." },
-      "eu": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "EU nationals: e-visa or VOA typically required." },
-      "au": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Australian nationals: e-visa or VOA required." },
-      "ca": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Canadian nationals: e-visa or VOA required." },
-      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — Lebombo/Ressano Garcia from Kruger popular." },
-      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Many SADC nationals visa-free — confirm on evisa.gov.mz." },
-      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require visa — apply via e-visa portal." },
-      "other": { "status": "verify", "label": "E-visa likely", "badgeClass": "yellow", "note": "Most visitors need visa — e-visa at evisa.gov.mz." }
+      "uk": { "status": "eta", "label": "eTA · 30 days", "badgeClass": "yellow", "note": "UK ordinary passports are eligible for a 30-day tourist or business eTA. Complete the official online process before travel." },
+      "us": { "status": "eta", "label": "eTA · 30 days", "badgeClass": "yellow", "note": "US ordinary passports are eligible for a 30-day tourist or business eTA. Complete the official online process before travel." },
+      "eu": { "status": "verify", "label": "eTA or eVisa", "badgeClass": "yellow", "note": "Eligibility varies inside the EU / Schengen group: several nationalities qualify for a 30-day eTA while others use the eVisa route. Check the exact passport." },
+      "au": { "status": "e-visa", "label": "eVisa", "badgeClass": "yellow", "note": "Australian passports are listed for the eVisa scheme rather than the 30-day eTA list. Apply through the official portal before travel." },
+      "ca": { "status": "eta", "label": "eTA · 30 days", "badgeClass": "yellow", "note": "Canadian ordinary passports are eligible for a 30-day tourist or business eTA. Complete the official online process before travel." },
+      "za": { "status": "visa-free", "label": "Visa-exempt 30 days", "badgeClass": "green", "note": "South African ordinary passports are exempt for tourist or business visits up to 30 days." },
+      "sadc": { "status": "verify", "label": "Check exemption", "badgeClass": "yellow", "note": "Regional exemptions vary by nationality and permitted stay. Check the exact country in the official eligibility table." },
+      "in": { "status": "e-visa", "label": "eVisa", "badgeClass": "yellow", "note": "Indian passports are listed for the eVisa scheme. Apply through the official portal before travel." },
+      "other": { "status": "verify", "label": "Check eTA / eVisa", "badgeClass": "yellow", "note": "Use Mozambique's official eligibility table to determine whether the passport is exempt, eTA-eligible, eVisa-eligible, or embassy-only." }
     },
     "malawi": {
-      "uk": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "UK nationals: e-visa or visa-on-arrival for most visits." },
-      "us": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "US citizens: e-visa or VOA available." },
-      "eu": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "EU nationals: e-visa or VOA available." },
-      "au": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Australian nationals: e-visa or VOA available." },
-      "ca": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Canadian nationals: e-visa or VOA available." },
+      "uk": { "status": "e-visa-or-voa", "label": "eVisa or VOA", "badgeClass": "yellow", "note": "UK nationals require a visa under the 2026 rules. Visa on arrival is available, but applying through the official eVisa portal before departure is recommended." },
+      "us": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "US nationals require a visa under the 2026 rules. Use the official eligibility wizard to confirm whether visa on arrival is available or prior eVisa approval is required." },
+      "eu": { "status": "verify", "label": "Visa · check route", "badgeClass": "yellow", "note": "The EU / Schengen group is not one Malawi category. The 2026 exemption schedule removed the former broad EU exemption; check the exact nationality and whether eVisa or visa on arrival applies." },
+      "au": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Australian nationals require a visa under the 2026 rules. Use the official eligibility wizard to confirm whether visa on arrival is available or prior eVisa approval is required." },
+      "ca": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Canadian nationals require a visa under the 2026 rules. Use the official eligibility wizard to confirm whether visa on arrival is available or prior eVisa approval is required." },
       "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — Mwanza and Dedza borders from SA/Zambia." },
-      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Many SADC nationals visa-free — verify on immigration.gov.mw." },
-      "in": { "status": "e-visa", "label": "E-visa", "badgeClass": "yellow", "note": "Indian nationals apply e-visa before travel." },
-      "other": { "status": "verify", "label": "E-visa likely", "badgeClass": "yellow", "note": "E-visa required for many nationalities — immigration.gov.mw." }
+      "sadc": { "status": "verify", "label": "Check exemption", "badgeClass": "yellow", "note": "SADC nationals are exempt only where Malawi's reciprocity condition is met. Check the exact passport in the official eligibility wizard." },
+      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require a visa. Use the official eligibility wizard to confirm whether prior eVisa approval or visa on arrival applies." },
+      "other": { "status": "verify", "label": "Check visa route", "badgeClass": "yellow", "note": "Check the official 2026 exemption schedule and eligibility wizard; Category Two may use visa on arrival while Category One needs approval before departure." }
     },
     "lesotho": {
       "uk": { "status": "visa-free", "label": "Visa-free 14–90 days", "badgeClass": "green", "note": "UK nationals visa-free. Entry only via South Africa — ensure SA visa allows re-entry." },

@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "reviewedAt": "2026-09-06",
+    "reviewer": "Savanna Explorer editorial review",
+    "reviewMethod": "Official-source desk review",
+    "note": "Evidence records support editorial freshness dates. They do not replace the linked authority or a traveller's passport-specific confirmation."
+  },
+  "reviews": [
+    {
+      "recordId": "emergency:south-africa",
+      "outcome": "expanded",
+      "evidence": "SAPS confirms 10111 for police emergencies; South African government guidance confirms 10177 for ambulance and 112 for mobile emergencies.",
+      "sourceUrls": [
+        "https://www.saps.gov.za/services/cc_10111.php",
+        "https://www.sanews.gov.za/south-africa/arrive-alive-road-safety-tips"
+      ]
+    },
+    {
+      "recordId": "emergency:namibia",
+      "outcome": "clarified",
+      "evidence": "NamPol confirms the countrywide police emergency line 10111. City of Windhoek confirms 061 211111 for ambulance, fire and rescue within the municipal boundary.",
+      "sourceUrls": [
+        "https://www.nampol.gov.na/cyber-safety",
+        "https://www.windhoekcc.org.na/ambulance-fire-and-rescue-response-services/"
+      ]
+    },
+    {
+      "recordId": "emergency:botswana",
+      "outcome": "confirmed",
+      "evidence": "Botswana Police confirms 999; the Government of Botswana emergency medical service confirms ambulance 997. The police emergency directory also lists fire 998.",
+      "sourceUrls": [
+        "https://www.police.gov.bw/",
+        "https://gov.bw/public-health-services/emergency-medical-services-ambulance-services"
+      ]
+    },
+    {
+      "recordId": "emergency:zambia",
+      "outcome": "corrected",
+      "evidence": "Zambia Police lists emergency 991, ambulance 992 and fire 993. The previous police number 999 was removed.",
+      "sourceUrls": ["https://zambiapolice.gov.zm/contact-us/"]
+    },
+    {
+      "recordId": "emergency:zimbabwe",
+      "outcome": "corrected",
+      "evidence": "Zimbabwe's Ministry of Health Impilo service lists 999 for ambulance, police and fire, with 112 as the alternative emergency number. The previous service-specific numbers were removed.",
+      "sourceUrls": ["https://impilo.mohcc.gov.zw/welcome/emergency"]
+    },
+    {
+      "recordId": "emergency:mozambique",
+      "outcome": "corrected",
+      "evidence": "Mozambique's official tourism information lists 112 and 122 for police/emergency contact. The previous 119/117 summary was removed.",
+      "sourceUrls": ["https://fikani.visitmozambique.gov.mz/informacoes-uteis/"]
+    },
+    {
+      "recordId": "emergency:malawi",
+      "outcome": "corrected",
+      "evidence": "Malawi's Ministry of Homeland Security lists police 997, fire 998 and ambulance 999. The previous summary incorrectly labelled 998 as ambulance.",
+      "sourceUrls": ["https://www.homesecurity.gov.mw/contact"]
+    },
+    {
+      "recordId": "emergency:lesotho",
+      "outcome": "corrected",
+      "evidence": "The Government of Lesotho lists national emergency 112 and national ambulance 121. The unsubstantiated police number 123 was removed.",
+      "sourceUrls": ["https://www.gov.ls/"]
+    },
+    {
+      "recordId": "emergency:eswatini",
+      "outcome": "expanded",
+      "evidence": "The Government of Eswatini lists police 999 and fire 933; its health emergency service confirms ambulance 977.",
+      "sourceUrls": [
+        "https://www.gov.sz/index.php?id=61&view=category",
+        "https://www.gov.sz/index.php?catid=101%3Aservices&id=564%3Aemergency-and-ambulance-services"
+      ]
+    },
+    {
+      "recordId": "visa-summary:south-africa",
+      "outcome": "rewritten",
+      "evidence": "DHA guidance makes eligibility passport-specific and provides an ETA route for eligible travellers. Broad regional promises were replaced with a passport-dependent summary.",
+      "sourceUrls": ["https://eta.dha.gov.za/"]
+    },
+    {
+      "recordId": "visa-summary:namibia",
+      "outcome": "updated",
+      "evidence": "Namibia's official visa-on-arrival service and government fact sheet confirm the reciprocal regime introduced on 1 April 2025, including the N$1,600 standard adult fee for affected non-African passports.",
+      "sourceUrls": [
+        "https://eservices.mhaiss.gov.na/visaonarrival",
+        "https://mhaiss.gov.na/documents/292728/5902034/Fact%2BSheet%2B-%2BVisa%2BRequirements_version%2B3%2B-%2Bdated%2B31%2BMarch%2B2025%2B%281%29.pdf/990e4e96-3641-e719-488d-a738080a1f87?download=true&t=1745925479946"
+      ]
+    },
+    {
+      "recordId": "visa-summary:botswana",
+      "outcome": "rewritten",
+      "evidence": "Government guidance confirms nationality-based exemptions, six-month passport validity and a maximum 90-day visitor stay in a calendar year.",
+      "sourceUrls": ["https://www.gov.bw/about-our-country"]
+    },
+    {
+      "recordId": "visa-summary:zambia",
+      "outcome": "updated",
+      "evidence": "Zambia Immigration confirms three nationality categories, a visitor/tourist allowance up to 90 days in 12 months, and the USD 50 KAZA UniVisa for eligible trips.",
+      "sourceUrls": [
+        "https://www.zambiaimmigration.gov.zm/for-visitors/",
+        "https://www.zambiaimmigration.gov.zm/nationals-who-dont-require-visa/"
+      ]
+    },
+    {
+      "recordId": "visa-summary:zimbabwe",
+      "outcome": "corrected",
+      "evidence": "Zimbabwe Immigration confirms the A/B/C regime: visa-free, visa obtainable at port of entry, and prior eVisa respectively. The previous summary did not distinguish these categories.",
+      "sourceUrls": ["https://www.zimimmigration.gov.zw/?page_id=2984"]
+    },
+    {
+      "recordId": "visa-matrix:zimbabwe",
+      "outcome": "corrected",
+      "evidence": "Zimbabwe's current regime shows the selected UK, US, Australian, Canadian and Indian profiles as visa-required but eligible at the port of entry; the EU grouping requires nationality-specific checking. Incorrect visa-free claims were removed.",
+      "sourceUrls": [
+        "https://www.zimimmigration.gov.zw/?page_id=2984",
+        "https://www.zimimmigration.gov.zw/?p=7176"
+      ]
+    },
+    {
+      "recordId": "visa-summary:mozambique",
+      "outcome": "corrected",
+      "evidence": "Mozambique's new official portal distinguishes regional exemptions, a 30-day eTA list, the broader eVisa scheme and embassy-only passports. The former generic visa-on-arrival claim was removed.",
+      "sourceUrls": ["https://evisa.gov.mz/tourist-visa"]
+    },
+    {
+      "recordId": "visa-matrix:mozambique",
+      "outcome": "corrected",
+      "evidence": "The official eligibility table confirms 30-day eTA eligibility for UK, US and Canadian passports, eVisa eligibility for Australia and India, and 30-day exemption for ordinary South African passports.",
+      "sourceUrls": ["https://evisa.gov.mz/tourist-visa"]
+    },
+    {
+      "recordId": "visa-summary:malawi",
+      "outcome": "corrected",
+      "evidence": "Malawi's 2026 amendment requires visas except for the current exemption schedule. A notice effective 24 February 2026 allows Category Two nationals to use visa on arrival while Category One needs approval before departure; eVisa is recommended for eligible travellers.",
+      "sourceUrls": [
+        "https://www.immigration.gov.mw/visa/",
+        "https://evisa.gov.mw/Faq",
+        "https://embassymalawi.be/ova_sev/immigration-amendment-regulations-2025/"
+      ]
+    },
+    {
+      "recordId": "visa-matrix:malawi",
+      "outcome": "corrected",
+      "evidence": "The 2026 exemption schedule removed the former broad exemption for UK, US, EU, Australian and Canadian ordinary passports. The matrix now marks a visa action and sends travellers to the official eligibility wizard instead of promising visa on arrival across all profiles.",
+      "sourceUrls": [
+        "https://evisa.gov.mw/VisaAssistance",
+        "https://embassymalawi.be/ova_sev/immigration-amendment-regulations-2025/"
+      ]
+    },
+    {
+      "recordId": "visa-summary:lesotho",
+      "outcome": "rewritten",
+      "evidence": "Lesotho Home Affairs says foreign visitors generally need the eVisa unless covered by a visa-abolition agreement or an eligible Commonwealth exemption.",
+      "sourceUrls": ["https://www.homeaffairs.gov.ls/do-i-need-a-visa/"]
+    },
+    {
+      "recordId": "visa-summary:eswatini",
+      "outcome": "rewritten",
+      "evidence": "Eswatini's official guidelines make the requirement nationality-specific and limit the visitor visa category to stays of no more than one month.",
+      "sourceUrls": ["https://evisa.gov.sz/VisaApplicationGuidelines"]
+    }
+  ]
+}

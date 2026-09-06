@@ -80,11 +80,21 @@ function immigrationSource(resources, countryId) {
     return resources[countryId]?.links?.find(link => link.id === 'immigration')?.url || '';
 }
 
-function makeRecord({ id, category, subject, country, sourceFile, sourceUrls, reviewed, detail = '' }, asOf, dueSoonDays) {
+function makeRecord({ id, category, subject, country, sourceFile, sourceUrls, reviewed, detail = '', review = null }, asOf, dueSoonDays) {
     const policy = FRESHNESS_POLICIES[category];
     if (!policy) throw new Error(`Missing freshness policy for ${category}`);
-    const urls = [...new Set((sourceUrls || []).filter(Boolean))];
+    const evidenceUrls = review?.sourceUrls || [];
+    const urls = [...new Set([...(sourceUrls || []), ...evidenceUrls].filter(Boolean))];
     const freshness = classifyFreshness(reviewed, policy.cadenceDays, asOf, dueSoonDays);
+    const evidenceComplete = Boolean(
+        review?.reviewer
+        && review?.reviewedAt
+        && parseReviewedDate(review.reviewedAt)
+        && review?.outcome
+        && review?.evidence
+        && evidenceUrls.length
+        && evidenceUrls.every(validSourceUrl),
+    );
     return {
         id,
         category,
@@ -96,6 +106,15 @@ function makeRecord({ id, category, subject, country, sourceFile, sourceUrls, re
         sourceFile,
         sourceUrls: urls,
         hasPrimarySource: urls.length > 0 && urls.every(validSourceUrl),
+        review: review ? {
+            reviewer: review.reviewer,
+            reviewedAt: review.reviewedAt,
+            method: review.reviewMethod,
+            outcome: review.outcome,
+            evidence: review.evidence,
+            sourceUrls: evidenceUrls,
+        } : null,
+        evidenceComplete,
         detail,
         ...freshness,
     };
@@ -120,39 +139,55 @@ export function buildFreshnessReport(data, { asOf = isoDate(new Date()), dueSoon
 
     const {
         countries = {}, practical = {}, visaPassport = {}, countryResources = {},
-        borders = [], parks = [], travelAdvisories = {},
+        borders = [], parks = [], travelAdvisories = {}, editorialEvidence = {},
     } = data;
     const records = [];
+    const reviewDefaults = {
+        reviewer: editorialEvidence.meta?.reviewer,
+        reviewedAt: editorialEvidence.meta?.reviewedAt,
+        reviewMethod: editorialEvidence.meta?.reviewMethod,
+    };
+    const reviews = new Map((editorialEvidence.reviews || []).map(review => [
+        review.recordId,
+        { ...reviewDefaults, ...review },
+    ]));
+    const reviewFor = id => reviews.get(id) || null;
 
     for (const item of practical.visaHealth || []) {
+        const id = `visa-summary:${item.id}`;
         records.push(makeRecord({
-            id: `visa-summary:${item.id}`,
+            id,
             category: 'visa',
-            subject: 'Visa, health & advisory summary',
+            subject: 'Visa entry summary',
             country: countryName(countries, item.id, item.name),
             sourceFile: 'data/practical.json',
             sourceUrls: [item.sourceUrl],
-            reviewed: item.lastVerified,
+            reviewed: item.visaLastVerified || item.lastVerified,
             detail: item.visa?.label || '',
+            review: reviewFor(id),
         }, asOf, dueSoonDays));
     }
 
     for (const countryId of Object.keys(visaPassport.rules || {})) {
+        const id = `visa-matrix:${countryId}`;
         records.push(makeRecord({
-            id: `visa-matrix:${countryId}`,
+            id,
             category: 'visa',
             subject: 'Passport-specific visa matrix',
             country: countryName(countries, countryId),
             sourceFile: 'data/visa-passport.json',
             sourceUrls: [immigrationSource(countryResources, countryId)],
-            reviewed: visaPassport.meta?.lastVerified,
+            reviewed: visaPassport.meta?.countryLastVerified?.[countryId]
+                || visaPassport.meta?.lastVerified,
             detail: `${Object.keys(visaPassport.rules[countryId] || {}).length} passport profiles`,
+            review: reviewFor(id),
         }, asOf, dueSoonDays));
     }
 
     for (const item of borders) {
+        const id = `border:${item.id}`;
         records.push(makeRecord({
-            id: `border:${item.id}`,
+            id,
             category: 'border',
             subject: item.name,
             country: (item.countries || []).map(id => countryName(countries, id)).join(' / '),
@@ -160,12 +195,14 @@ export function buildFreshnessReport(data, { asOf = isoDate(new Date()), dueSoon
             sourceUrls: [item.sourceUrl],
             reviewed: item.lastVerified,
             detail: `${item.hours || 'Hours unknown'} · ${item.fees || 'Fees unknown'}`,
+            review: reviewFor(id),
         }, asOf, dueSoonDays));
     }
 
     for (const item of parks) {
+        const id = `park-fee:${item.id}`;
         records.push(makeRecord({
-            id: `park-fee:${item.id}`,
+            id,
             category: 'park-fee',
             subject: item.name,
             country: countryName(countries, item.country),
@@ -173,25 +210,29 @@ export function buildFreshnessReport(data, { asOf = isoDate(new Date()), dueSoon
             sourceUrls: [item.sourceUrl, item.bookingUrl],
             reviewed: item.lastVerified,
             detail: item.feeTable?.period ? `${item.fees} · tariff ${item.feeTable.period}` : item.fees,
+            review: reviewFor(id),
         }, asOf, dueSoonDays));
     }
 
     for (const item of practical.emergencies || []) {
+        const id = `emergency:${item.country.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
         records.push(makeRecord({
-            id: `emergency:${item.country.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+            id,
             category: 'emergency',
             subject: 'Emergency contact numbers',
             country: item.country,
             sourceFile: 'data/practical.json',
-            sourceUrls: [item.sourceUrl],
+            sourceUrls: item.sourceUrls || [item.sourceUrl],
             reviewed: item.lastVerified,
             detail: item.numbers,
+            review: reviewFor(id),
         }, asOf, dueSoonDays));
     }
 
     for (const item of travelAdvisories.countries || []) {
+        const id = `travel-advisory:${item.id}`;
         records.push(makeRecord({
-            id: `travel-advisory:${item.id}`,
+            id,
             category: 'travel-advisory',
             subject: 'Official travel-advisory links',
             country: countryName(countries, item.id, item.name),
@@ -199,6 +240,7 @@ export function buildFreshnessReport(data, { asOf = isoDate(new Date()), dueSoon
             sourceUrls: (item.links || []).map(link => link.url),
             reviewed: travelAdvisories.meta?.lastUpdated,
             detail: `${item.links?.length || 0} government advisory links`,
+            review: reviewFor(id),
         }, asOf, dueSoonDays));
     }
 
@@ -227,6 +269,8 @@ export function buildFreshnessReport(data, { asOf = isoDate(new Date()), dueSoon
             criticalOverdue: records.filter(record => record.risk === 'critical' && record.status === 'overdue').length,
             sourceLinked: records.filter(record => record.hasPrimarySource).length,
             missingSource: records.filter(record => !record.hasPrimarySource).length,
+            evidenceComplete: records.filter(record => record.evidenceComplete).length,
+            missingEvidence: records.filter(record => !record.evidenceComplete).length,
             categories: categoryCounts,
         },
         records,

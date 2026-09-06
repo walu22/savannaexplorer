@@ -20,4 +20,6 @@ Open `.reports/editorial-freshness.html` in a browser. The matching JSON snapsho
 
 The dashboard uses a 30-day review cadence for travel-advisory links and a 90-day cadence for the other high-change categories. A record becomes `due-soon` during the final 30 days of its review window. Month-only dates are treated as the final day of that month.
 
-This first version deliberately exposes duplicated or stale datasets instead of merging them silently. A later control-plane increment should add named reviewers, captured evidence, publication states, correction ownership, change history, and automated source-link checks.
+Review evidence is stored separately in `data/editorial-review-evidence.json`, keyed by the stable record IDs in the dashboard. A complete evidence record requires a reviewer, review date, outcome, written finding and valid HTTPS evidence links. Keeping evidence separate from traveller-facing copy makes the audit trail inspectable without bloating the public data.
+
+The next control-plane increment should add individual approvers, publication states, correction ownership, change history and automated source-link checks.

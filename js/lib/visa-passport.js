@@ -2,7 +2,7 @@ import visaPassportData from '../../data/visa-passport.json';
 
 const STORAGE_KEY = 'savanna-passport-id';
 
-/** @typedef {'visa-free'|'e-visa'|'voa'|'e-visa-or-voa'|'visa-required'|'verify'} VisaStatus */
+/** @typedef {'visa-free'|'eta'|'e-visa'|'voa'|'e-visa-or-voa'|'visa-required'|'verify'} VisaStatus */
 
 export function getPassportOptions() {
     return visaPassportData.passports || [];
@@ -47,7 +47,7 @@ export function getVisaForPassport(countryId, passportId) {
 }
 
 export function needsVisaAction(status) {
-    return status === 'e-visa' || status === 'voa' || status === 'e-visa-or-voa'
+    return status === 'eta' || status === 'e-visa' || status === 'voa' || status === 'e-visa-or-voa'
         || status === 'visa-required' || status === 'verify';
 }
 
@@ -122,6 +122,7 @@ export function getVisaPassportDisclaimer() {
     return visaPassportData.meta.disclaimer;
 }
 
-export function getVisaPassportLastVerified() {
-    return visaPassportData.meta.lastVerified;
+export function getVisaPassportLastVerified(countryId) {
+    return visaPassportData.meta.countryLastVerified?.[countryId]
+        || visaPassportData.meta.lastVerified;
 }

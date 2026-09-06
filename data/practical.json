@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-03",
+    "lastUpdated": "2026-09",
     "disclaimer": "Savanna Explorer provides planning information in our own words, based on publicly available official sources. Visa rules, fees, and health guidance change frequently. Always verify requirements with your government's travel advice and the relevant immigration authority before you book or travel.",
     "sourcesPage": "SOURCES.md"
   },
@@ -33,11 +33,12 @@
       "id": "south-africa",
       "flag": "🇿🇦",
       "name": "South Africa",
-      "visa": { "label": "Varies by passport", "badgeClass": "yellow" },
+      "visa": { "label": "Passport-dependent", "badgeClass": "yellow" },
       "health": { "label": "Yellow Fever*", "badgeClass": "yellow" },
       "advisory": { "label": "Exercise caution", "badgeClass": "yellow" },
-      "note": "Many EU, UK, US, and SADC passport holders receive 90-day visa-free tourism. Yellow fever certificate required if arriving from endemic countries.",
-      "sourceUrl": "https://www.dha.gov.za/index.php/immigration-services",
+      "note": "Visa status and the permitted stay depend on the passport used. Eligible short-stay visitors may be exempt; visa-required travellers should use South Africa's official immigration channels. A yellow fever certificate may be required after travel through a listed risk country.",
+      "sourceUrl": "https://eta.dha.gov.za/",
+      "visaLastVerified": "2026-09-06",
       "lastVerified": "2026-03"
     },
     {
@@ -47,8 +48,9 @@
       "visa": { "label": "E-visa / VOA*", "badgeClass": "yellow" },
       "health": { "label": "Malaria (north)", "badgeClass": "yellow" },
       "advisory": { "label": "Low risk", "badgeClass": "green" },
-      "note": "From 1 Apr 2025: nationals of UK, US, EU, Australia, Canada, and others without reciprocal exemption must apply for an e-visa or obtain visa-on-arrival (N$1,200–1,600). Many SADC nationals remain visa-free. Apply early at eservices.mhaiss.gov.na.",
-      "sourceUrl": "https://mha.gov.na",
+      "note": "From 1 Apr 2025, affected passports including UK, US, Canadian, Australian and many EU passports require an e-visa or visa on arrival; the standard adult fee for these passports is N$1,600. Many regional passports remain exempt. Check the official fact sheet and apply early.",
+      "sourceUrl": "https://eservices.mhaiss.gov.na/visaonarrival",
+      "visaLastVerified": "2026-09-06",
       "lastVerified": "2026-03"
     },
     {
@@ -58,52 +60,57 @@
       "visa": { "label": "Varies by passport", "badgeClass": "yellow" },
       "health": { "label": "Malaria (north)", "badgeClass": "yellow" },
       "advisory": { "label": "Low risk", "badgeClass": "green" },
-      "note": "EU, UK, US, and many SADC citizens typically receive 90-day visa-free entry. Confirm your passport category before travel.",
-      "sourceUrl": "https://www.gov.bw/",
+      "note": "Visa exemption depends on nationality and any applicable agreement. Visitors must normally hold a passport valid for at least six months and may not stay more than 90 days in a calendar year. Check the official list before travel.",
+      "sourceUrl": "https://www.gov.bw/about-our-country",
+      "visaLastVerified": "2026-09-06",
       "lastVerified": "2026-03"
     },
     {
       "id": "zambia",
       "flag": "🇿🇲",
       "name": "Zambia",
-      "visa": { "label": "KAZA / E-visa", "badgeClass": "yellow" },
+      "visa": { "label": "Visa-free / visa*", "badgeClass": "yellow" },
       "health": { "label": "Malaria risk", "badgeClass": "yellow" },
       "advisory": { "label": "Low risk", "badgeClass": "green" },
-      "note": "KAZA UniVisa (USD 50) covers Zambia and Zimbabwe for Victoria Falls circuits. E-visa available online for many nationalities.",
-      "sourceUrl": "https://www.zambiaimmigration.gov.zm/",
+      "note": "Passports fall into visa-free, visa-on-arrival and prior-visa categories. Eligible ordinary visitors and tourists may receive up to 90 days in a 12-month period. The USD 50 KAZA UniVisa can cover eligible Zambia–Zimbabwe trips and Botswana day trips.",
+      "sourceUrl": "https://www.zambiaimmigration.gov.zm/for-visitors/",
+      "visaLastVerified": "2026-09-06",
       "lastVerified": "2026-03"
     },
     {
       "id": "zimbabwe",
       "flag": "🇿🇼",
       "name": "Zimbabwe",
-      "visa": { "label": "KAZA / E-visa", "badgeClass": "yellow" },
+      "visa": { "label": "VOA / eVisa*", "badgeClass": "yellow" },
       "health": { "label": "Malaria risk", "badgeClass": "yellow" },
       "advisory": { "label": "Moderate", "badgeClass": "yellow" },
-      "note": "KAZA UniVisa available at Victoria Falls and Livingstone. E-visa portal open for many nationalities — rules vary by passport.",
-      "sourceUrl": "https://www.evisa.gov.zw/",
+      "note": "Zimbabwe uses three passport categories: A is visa-free, B requires a visa obtainable at the port of entry or online, and C requires an eVisa before travel. Check your exact category; eligible travellers can also consider the KAZA UniVisa.",
+      "sourceUrl": "https://www.zimimmigration.gov.zw/?page_id=2984",
+      "visaLastVerified": "2026-09-06",
       "lastVerified": "2026-03"
     },
     {
       "id": "mozambique",
       "flag": "🇲🇿",
       "name": "Mozambique",
-      "visa": { "label": "E-visa / VOA*", "badgeClass": "yellow" },
+      "visa": { "label": "eTA / eVisa*", "badgeClass": "yellow" },
       "health": { "label": "Malaria high", "badgeClass": "red" },
       "advisory": { "label": "Moderate", "badgeClass": "yellow" },
-      "note": "Most visitors need a visa — e-visa or visa-on-arrival for many nationalities (around USD 50). Malaria prophylaxis recommended for most regions.",
-      "sourceUrl": "https://www.evisa.gov.mz/",
+      "note": "Entry is passport-dependent: some regional passports are exempt, listed nationalities can use a 30-day eTA, and other eligible travellers can apply for an eVisa. Use the official eligibility table; do not rely on the former visa-on-arrival summary.",
+      "sourceUrl": "https://evisa.gov.mz/tourist-visa",
+      "visaLastVerified": "2026-09-06",
       "lastVerified": "2026-03"
     },
     {
       "id": "malawi",
       "flag": "🇲🇼",
       "name": "Malawi",
-      "visa": { "label": "E-visa", "badgeClass": "yellow" },
+      "visa": { "label": "Passport-dependent", "badgeClass": "yellow" },
       "health": { "label": "Malaria / bilharzia", "badgeClass": "yellow" },
       "advisory": { "label": "Low risk", "badgeClass": "green" },
-      "note": "E-visa required for many nationalities. Lake Malawi carries bilharzia risk in some areas — seek local advice before swimming.",
-      "sourceUrl": "https://www.immigration.gov.mw/",
+      "note": "Malawi's 2026 rules require visas except for nationalities and official documents in the exemption schedule. Category Two nationals may obtain a visa on arrival, although the government recommends applying online first; Category One nationals need a visa or prior authorisation before departure.",
+      "sourceUrl": "https://evisa.gov.mw/Faq",
+      "visaLastVerified": "2026-09-06",
       "lastVerified": "2026-03"
     },
     {
@@ -113,8 +120,9 @@
       "visa": { "label": "Varies by passport", "badgeClass": "yellow" },
       "health": { "label": "Low malaria", "badgeClass": "green" },
       "advisory": { "label": "Low risk", "badgeClass": "green" },
-      "note": "Many Commonwealth and EU nationals visa-free 14–90 days. Entry is almost always via South Africa — plan SA visa re-entry.",
-      "sourceUrl": "https://homeaffairs.gov.ls/",
+      "note": "Foreign visitors generally need an eVisa unless their country has a visa-abolition agreement or qualifies for a listed Commonwealth exemption. Check the official passport checker, and plan for South African entry and re-entry on an overland trip.",
+      "sourceUrl": "https://www.homeaffairs.gov.ls/do-i-need-a-visa/",
+      "visaLastVerified": "2026-09-06",
       "lastVerified": "2026-03"
     },
     {
@@ -124,8 +132,9 @@
       "visa": { "label": "Varies by passport", "badgeClass": "yellow" },
       "health": { "label": "Low malaria", "badgeClass": "green" },
       "advisory": { "label": "Low risk", "badgeClass": "green" },
-      "note": "Many Commonwealth and EU nationals receive 30-day visa-free entry. Access is via South Africa or Mozambique borders.",
-      "sourceUrl": "https://www.gov.sz/",
+      "note": "Visa status depends on nationality. If a country appears on Eswatini's visa-required list, apply through the official immigration or eVisa channel; a visitor visa is for stays of no more than one month. Confirm before crossing from South Africa or Mozambique.",
+      "sourceUrl": "https://evisa.gov.sz/VisaApplicationGuidelines",
+      "visaLastVerified": "2026-09-06",
       "lastVerified": "2026-03"
     }
   ],
@@ -166,14 +175,14 @@
     ]
   },
   "emergencies": [
-    { "flag": "🇿🇦", "country": "South Africa", "numbers": "Police 10111 · Ambulance 10177", "sourceUrl": "https://www.saps.gov.za/", "lastVerified": "2026-03" },
-    { "flag": "🇳🇦", "country": "Namibia", "numbers": "Police 10111 · Ambulance 211111", "sourceUrl": "https://www.nampol.gov.na/", "lastVerified": "2026-03" },
-    { "flag": "🇧🇼", "country": "Botswana", "numbers": "Police 999 · Ambulance 997", "sourceUrl": "https://www.gov.bw/", "lastVerified": "2026-03" },
-    { "flag": "🇿🇲", "country": "Zambia", "numbers": "Police 999 · Ambulance 992", "sourceUrl": "https://www.zambiapolice.gov.zm/", "lastVerified": "2026-03" },
-    { "flag": "🇿🇼", "country": "Zimbabwe", "numbers": "Police 995 · Ambulance 994", "sourceUrl": "https://www.zrp.gov.zw/", "lastVerified": "2026-03" },
-    { "flag": "🇲🇿", "country": "Mozambique", "numbers": "Police 119 · Ambulance 117", "sourceUrl": "https://www.policiam.gov.mz/", "lastVerified": "2026-03" },
-    { "flag": "🇲🇼", "country": "Malawi", "numbers": "Police 997 · Ambulance 998", "sourceUrl": "https://www.malawipolice.gov.mw/", "lastVerified": "2026-03" },
-    { "flag": "🇱🇸", "country": "Lesotho", "numbers": "Police 123 · Ambulance 121", "sourceUrl": "https://www.lmps.org.ls/", "lastVerified": "2026-03" },
-    { "flag": "🇸🇿", "country": "Eswatini", "numbers": "Police 999 · Ambulance 977", "sourceUrl": "https://www.gov.sz/", "lastVerified": "2026-03" }
+    { "flag": "🇿🇦", "country": "South Africa", "numbers": "Police 10111 · Ambulance 10177 · Mobile emergency 112", "sourceUrl": "https://www.saps.gov.za/services/cc_10111.php", "sourceUrls": ["https://www.saps.gov.za/services/cc_10111.php", "https://www.sanews.gov.za/south-africa/arrive-alive-road-safety-tips"], "lastVerified": "2026-09-06" },
+    { "flag": "🇳🇦", "country": "Namibia", "numbers": "Police / outside Windhoek 10111 · Windhoek ambulance/fire 061 211111", "sourceUrl": "https://www.nampol.gov.na/cyber-safety", "sourceUrls": ["https://www.nampol.gov.na/cyber-safety", "https://www.windhoekcc.org.na/ambulance-fire-and-rescue-response-services/"], "lastVerified": "2026-09-06" },
+    { "flag": "🇧🇼", "country": "Botswana", "numbers": "Police 999 · Ambulance 997 · Fire 998", "sourceUrl": "https://www.police.gov.bw/", "sourceUrls": ["https://www.police.gov.bw/", "https://gov.bw/public-health-services/emergency-medical-services-ambulance-services"], "lastVerified": "2026-09-06" },
+    { "flag": "🇿🇲", "country": "Zambia", "numbers": "Emergency 991 · Ambulance 992 · Fire 993", "sourceUrl": "https://zambiapolice.gov.zm/contact-us/", "sourceUrls": ["https://zambiapolice.gov.zm/contact-us/"], "lastVerified": "2026-09-06" },
+    { "flag": "🇿🇼", "country": "Zimbabwe", "numbers": "Ambulance / police / fire 999 · Alternative emergency 112", "sourceUrl": "https://impilo.mohcc.gov.zw/welcome/emergency", "sourceUrls": ["https://impilo.mohcc.gov.zw/welcome/emergency"], "lastVerified": "2026-09-06" },
+    { "flag": "🇲🇿", "country": "Mozambique", "numbers": "Emergency 112 · Police alternative 122", "sourceUrl": "https://fikani.visitmozambique.gov.mz/informacoes-uteis/", "sourceUrls": ["https://fikani.visitmozambique.gov.mz/informacoes-uteis/"], "lastVerified": "2026-09-06" },
+    { "flag": "🇲🇼", "country": "Malawi", "numbers": "Police 997 · Ambulance 999 · Fire 998", "sourceUrl": "https://www.homesecurity.gov.mw/contact", "sourceUrls": ["https://www.homesecurity.gov.mw/contact"], "lastVerified": "2026-09-06" },
+    { "flag": "🇱🇸", "country": "Lesotho", "numbers": "National emergency 112 · Ambulance 121", "sourceUrl": "https://www.gov.ls/", "sourceUrls": ["https://www.gov.ls/"], "lastVerified": "2026-09-06" },
+    { "flag": "🇸🇿", "country": "Eswatini", "numbers": "Police 999 · Ambulance 977 · Fire 933", "sourceUrl": "https://www.gov.sz/index.php?id=61&view=category", "sourceUrls": ["https://www.gov.sz/index.php?id=61&view=category", "https://www.gov.sz/index.php?catid=101%3Aservices&id=564%3Aemergency-and-ambulance-services"], "lastVerified": "2026-09-06" }
   ]
 }

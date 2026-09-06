@@ -20,6 +20,7 @@ const productionData = {
     borders: loadJson('borders.json'),
     parks: loadJson('parks.json'),
     travelAdvisories: loadJson('travel-advisories.json'),
+    editorialEvidence: loadJson('editorial-review-evidence.json'),
 };
 
 test('month-only review dates use the final day of the month', () => {
@@ -50,6 +51,11 @@ test('editorial report covers every first-slice high-change record', () => {
     assert.equal(report.records[0].status, 'overdue');
     assert.ok(report.summary.criticalOverdue > 0);
     assert.ok(report.summary.sourceLinked >= 90);
+    assert.equal(report.summary.evidenceComplete, 21);
+    assert.equal(report.records.filter(record => record.category === 'emergency' && record.status === 'current').length, 9);
+    assert.equal(report.records.filter(record => record.id.startsWith('visa-summary:') && record.status === 'current').length, 9);
+    assert.equal(report.records.find(record => record.id === 'visa-matrix:zimbabwe').status, 'current');
+    assert.equal(report.records.find(record => record.id === 'visa-matrix:mozambique').status, 'current');
     assert.deepEqual(new Set(report.records.map(record => record.category)), new Set([
         'visa', 'border', 'park-fee', 'emergency', 'travel-advisory',
     ]));
