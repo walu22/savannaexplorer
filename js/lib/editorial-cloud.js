@@ -3,6 +3,7 @@ import {
     ASSIGNMENT_STATUSES,
     CORRECTION_STATUSES,
     EDITORIAL_RECORD_ID,
+    deferEditorialAuthCallback,
     workflowFromEditorialRows,
 } from './editorial-cloud-model.js';
 
@@ -16,6 +17,22 @@ function requireClient() {
     const client = getSupabaseClient();
     if (!client) throw new Error('Supabase is not configured for the editorial workspace.');
     return client;
+}
+
+const EDITORIAL_REQUEST_TIMEOUT_MS = 12_000;
+
+async function withRequestTimeout(request, message) {
+    let timeoutId;
+    try {
+        return await Promise.race([
+            request,
+            new Promise((_resolve, reject) => {
+                timeoutId = setTimeout(() => reject(new Error(message)), EDITORIAL_REQUEST_TIMEOUT_MS);
+            }),
+        ]);
+    } finally {
+        clearTimeout(timeoutId);
+    }
 }
 
 async function requireEditorialAccess(client = requireClient()) {
@@ -36,7 +53,10 @@ async function requireEditorialAccess(client = requireClient()) {
 export async function getEditorialSession() {
     const client = getSupabaseClient();
     if (!client) return null;
-    const { data, error } = await client.auth.getSession();
+    const { data, error } = await withRequestTimeout(
+        client.auth.getSession(),
+        'The secure session check timed out. Refresh the page or close another open editorial tab.',
+    );
     if (error) throw error;
     return data.session || null;
 }
@@ -44,7 +64,10 @@ export async function getEditorialSession() {
 export function onEditorialAuthChange(callback) {
     const client = getSupabaseClient();
     if (!client) return () => {};
-    const { data } = client.auth.onAuthStateChange((_event, session) => callback(session));
+    // Supabase holds its cross-tab auth lock while this callback runs. Deferring
+    // follow-up API work avoids requesting the same lock from inside the callback.
+    const deferredCallback = deferEditorialAuthCallback(callback);
+    const { data } = client.auth.onAuthStateChange((_event, session) => deferredCallback(session));
     return () => data.subscription.unsubscribe();
 }
 

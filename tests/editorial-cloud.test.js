@@ -3,8 +3,25 @@ import assert from 'node:assert/strict';
 import {
     allowedAssignmentStatuses,
     canManageCorrection,
+    deferEditorialAuthCallback,
     workflowFromEditorialRows,
 } from '../js/lib/editorial-cloud-model.js';
+
+test('auth follow-up work is deferred until Supabase releases its cross-tab lock', () => {
+    const calls = [];
+    const scheduled = [];
+    const callback = deferEditorialAuthCallback(
+        value => calls.push(value),
+        task => scheduled.push(task),
+    );
+
+    callback('session-ready');
+    assert.deepEqual(calls, []);
+    assert.equal(scheduled.length, 1);
+
+    scheduled[0]();
+    assert.deepEqual(calls, ['session-ready']);
+});
 
 test('cloud rows map to workflow data without retaining removed member identities', () => {
     const workflow = workflowFromEditorialRows({

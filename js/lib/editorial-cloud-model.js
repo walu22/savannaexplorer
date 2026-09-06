@@ -2,6 +2,10 @@ export const ASSIGNMENT_STATUSES = new Set(['draft', 'in-review', 'changes-reque
 export const CORRECTION_STATUSES = new Set(['open', 'investigating', 'resolved', 'rejected']);
 export const EDITORIAL_RECORD_ID = /^(visa-summary|visa-matrix|border|park-fee|emergency|travel-advisory):[a-z0-9-]+$/;
 
+export function deferEditorialAuthCallback(callback, schedule = setTimeout) {
+    return (...args) => schedule(() => callback(...args), 0);
+}
+
 function dateOnly(value) {
     return typeof value === 'string' ? value.slice(0, 10) : null;
 }
