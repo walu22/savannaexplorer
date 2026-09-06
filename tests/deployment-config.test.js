@@ -33,3 +33,12 @@ test('production schedules a protected daily advisory health check', async () =>
         schedule: '17 4 * * *',
     }]);
 });
+
+test('editorial workspace gets a private direct-load fallback and stays out of SEO routes', async () => {
+    const prerender = await readFile(new URL('../scripts/prerender-seo.mjs', import.meta.url), 'utf8');
+    const seoData = await readFile(new URL('../scripts/lib/seo-data.mjs', import.meta.url), 'utf8');
+
+    assert.match(prerender, /resolve\(distDir, 'editorial', 'index\.html'\)/);
+    assert.match(prerender, /noindex,nofollow,noarchive/);
+    assert.doesNotMatch(seoData, /['"]editorial['"]/);
+});

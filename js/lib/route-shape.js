@@ -5,6 +5,7 @@ export const HUB_SECTIONS = new Set([
     'experiences', 'top-destinations', 'travel-essentials', 'planning-checklist',
     'route-explorer', 'hub-my-safari', 'cost-estimator', 'packing-list',
     'phrasebook', 'campsites', 'safari-bingo',
+    'editorial',
 ]);
 
 const HUB_PATH_ALIASES = new Map([

@@ -40,7 +40,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.68.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.69.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -84,6 +84,7 @@ The site works offline with local JSON data. Connect **Supabase** to store marke
    - `supabase/migrations/20260903090000_trip_collaboration.sql` — adds expiring editor/viewer invitations and collaboration activity
    - `supabase/migrations/20260903093000_lock_collaboration_rpc.sql` — restricts collaboration functions to authenticated travellers
    - `supabase/migrations/20260905180000_product_analytics.sql` — adds insert-only, privacy-conscious product event storage
+   - `supabase/migrations/20260906130000_editorial_workspace.sql` — adds the authenticated editorial allowlist, assignments, corrections, audit events, RLS and role-enforced workflow transitions
    - `supabase/seed.sql` — loads marketplace inspiration listings
 4. In **Authentication → URL Configuration**, set the production site URL and allow `https://savannaexplorer.com/**` plus the local development URL.
 5. Keep email authentication enabled, then restart the dev server: `npm run dev`
@@ -144,6 +145,10 @@ After deploying, submit `https://savannaexplorer.com/sitemap.xml` in [Google Sea
 | `trip_collaborators` | Editor/viewer access accepted through private invitations |
 | `trip_collaboration_invites` | Expiring single-use collaboration tokens |
 | `trip_activity` | Recent collaboration changes and access events |
+| `editorial_members` | Explicit allowlist and role for each editorial account |
+| `editorial_assignments` | Owner, independent approver and publication state for high-change facts |
+| `editorial_corrections` | Owned correction investigations and written closure decisions |
+| `editorial_events` | Append-only assignment and correction audit history |
 
 ## Scripts
 
@@ -155,3 +160,4 @@ After deploying, submit `https://savannaexplorer.com/sitemap.xml` in [Google Sea
 | `npm run verify:deployment -- https://example.vercel.app` | Confirm a deployed version, focused route and API function |
 | `npm run analytics:product` | Aggregate product-action and client-error report (service key required) |
 | `npm run editorial:freshness` | Generate the internal high-change content review dashboard in `.reports/` |
+| `npm run editorial:control` | Generate the local six-gate accountability dashboard in `.reports/` |

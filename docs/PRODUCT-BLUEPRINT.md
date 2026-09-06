@@ -107,6 +107,8 @@ Create a single content model for every high-change fact:
 
 Build an internal editorial dashboard that shows overdue facts, broken sources, upcoming events, unresolved corrections and pages without adequate provenance. High-risk records—entry, health, safety, border status, emergency numbers and fees—must never silently appear current.
 
+**Implemented foundation (v4.69):** the 93-record freshness model, daily advisory-source monitor, six publication gates, authenticated `/editorial` workspace, explicit Supabase member allowlist, owner/approver separation, correction lifecycle and append-only workflow audit events. Production activation still requires applying the migration, adding real accountable members and exercising the RLS policies against the linked Supabase project.
+
 Add public author/reviewer profiles and a transparent correction log. Recruit country-based contributors under written agreements that assign or license usable rights to Savanna Explorer.
 
 ### B. Best-in-class discovery

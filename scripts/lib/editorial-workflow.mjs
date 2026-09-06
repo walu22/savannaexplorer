@@ -89,10 +89,6 @@ function validateWorkflow(freshnessReport, workflow) {
             if (!assignment.approverId || !validIsoDate(assignment.approvedAt)) {
                 throw new Error(`Assignment ${assignment.recordId} requires an approver and approvedAt before ${assignment.status}`);
             }
-            const reviewedOn = recordMap.get(assignment.recordId).reviewedOn;
-            if (reviewedOn && assignment.approvedAt < reviewedOn) {
-                throw new Error(`Assignment ${assignment.recordId} approval cannot predate its evidence review`);
-            }
             if (assignment.approvedAt > assignment.updatedAt) {
                 throw new Error(`Assignment ${assignment.recordId} updatedAt cannot predate its approval`);
             }
@@ -145,11 +141,12 @@ function baseHistory(record) {
     }];
 }
 
-function nextAction({ record, assignment, owner, approver, openCorrections }) {
+function nextAction({ record, assignment, owner, approver, approvalCurrent, openCorrections }) {
     if (openCorrections.length) return 'resolve-correction';
     if (['overdue', 'unknown'].includes(record.status)) return 'refresh-record';
     if (!record.evidenceComplete) return 'capture-evidence';
     if (!owner?.active || !approver?.active) return 'assign-roles';
+    if (['approved', 'published'].includes(assignment.status) && !approvalCurrent) return 'approve-review';
     if (assignment.status === 'draft') return 'submit-review';
     if (assignment.status === 'changes-requested') return 'address-changes';
     if (assignment.status === 'blocked') return 'resolve-blocker';
@@ -190,15 +187,22 @@ export function buildEditorialControlReport(freshnessReport, workflow) {
             .sort((left, right) => right.at.localeCompare(left.at) || right.id.localeCompare(left.id));
         const owner = displayPerson(validated.people, assignment?.ownerId);
         const approver = displayPerson(validated.people, assignment?.approverId);
+        const approvalCurrent = Boolean(
+            assignment
+            && ['approved', 'published'].includes(assignment.status)
+            && assignment.approvedAt
+            && record.reviewedOn
+            && assignment.approvedAt >= record.reviewedOn,
+        );
         const gates = {
             source: record.hasPrimarySource,
             evidence: record.evidenceComplete,
             freshness: ['current', 'due-soon'].includes(record.status),
             ownership: Boolean(owner?.active && approver?.active && owner.id !== approver.id),
-            approval: Boolean(assignment && ['approved', 'published'].includes(assignment.status)),
+            approval: approvalCurrent,
             corrections: openCorrections.length === 0,
         };
-        const nextActionValue = nextAction({ record, assignment, owner, approver, openCorrections });
+        const nextActionValue = nextAction({ record, assignment, owner, approver, approvalCurrent, openCorrections });
 
         return {
             ...record,

@@ -33,6 +33,7 @@ const loaders = {
     'packing-list': () => import('./packing-list.js').then(module => module.initPackingList()),
     phrasebook: () => import('./phrasebook.js').then(module => module.initPhrasebook()),
     campsites: () => import('./campsites.js').then(module => module.initCampsites()),
+    editorial: () => import('./editorial.js').then(module => module.initEditorialWorkspace()),
 };
 
 const loaded = new Map();
@@ -73,6 +74,7 @@ const SECTION_FEATURES = {
     'packing-list': ['packing-list'],
     phrasebook: ['phrasebook'],
     campsites: ['campsites'],
+    editorial: ['editorial'],
     cultures: ['marketplace'],
     gastronomy: ['marketplace'],
     experiences: ['marketplace'],

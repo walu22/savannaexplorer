@@ -169,6 +169,26 @@ function pruneHomepageHtml(html) {
     return output;
 }
 
+function buildPrivateEditorialHtml(baseHtml) {
+    const title = 'Editorial Workspace | Savanna Explorer';
+    const description = 'Restricted editorial workspace for Savanna Explorer content operations.';
+    const canonical = `${baseUrl}/editorial`;
+    let html = pruneHubHtml(baseHtml, 'editorial');
+    html = setTag(html, /<title>[^<]*<\/title>/, `<title>${title}</title>`);
+    html = upsertMeta(html, 'name', 'description', description);
+    html = upsertMeta(html, 'name', 'robots', 'noindex,nofollow,noarchive');
+    html = upsertMeta(html, 'property', 'og:title', title, true);
+    html = upsertMeta(html, 'property', 'og:description', description, true);
+    html = upsertMeta(html, 'property', 'og:url', canonical, true);
+    html = upsertMeta(html, 'name', 'twitter:title', title);
+    html = upsertMeta(html, 'name', 'twitter:description', description);
+    html = html.replace(
+        /<link rel="canonical" id="canonical-link" href="[^"]*">/,
+        `<link rel="canonical" id="canonical-link" href="${canonical}">`,
+    );
+    return removeElement(html, 'structured-data', 'script');
+}
+
 const pages = allSeoPages(baseUrl);
 let written = 0;
 
@@ -190,6 +210,13 @@ for (const page of hubFallbackPages) {
     writeFileSync(outPath, pruneHubHtml(buildPageHtml(template, page), section), 'utf8');
 }
 console.log(`Wrote ${hubFallbackPages.length} hub SPA fallbacks.`);
+
+// The restricted workspace needs a physical SPA entry for direct loads, but it
+// deliberately stays outside hubPages/allSeoPages so it never enters the sitemap.
+const editorialPath = resolve(distDir, 'editorial', 'index.html');
+mkdirSync(dirname(editorialPath), { recursive: true });
+writeFileSync(editorialPath, buildPrivateEditorialHtml(template), 'utf8');
+console.log('Wrote private, no-index editorial SPA fallback.');
 
 writeFileSync(templatePath, pruneHomepageHtml(template), 'utf8');
 console.log('Pruned the homepage to its seven visible sections.');

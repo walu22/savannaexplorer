@@ -31,6 +31,16 @@ The workflow schema uses:
 
 Allowed assignment states are `draft`, `in-review`, `changes-requested`, `approved`, `published` and `blocked`. Corrections may be `open`, `investigating`, `resolved` or `rejected`. The owner and approver cannot be the same person.
 
+## Authenticated workspace
+
+Version 4.69 adds a restricted browser workspace at `/editorial`. It is intentionally absent from public navigation and the sitemap, and its generated fallback carries `noindex,nofollow,noarchive`. Hiding the route is not the security boundary: Supabase authentication, the active `editorial_members` allowlist, row-level security and database trigger guards decide what each account may read or change.
+
+Apply `supabase/migrations/20260906130000_editorial_workspace.sql` in the Supabase SQL Editor before opening the workspace. Then sign in once with the intended administrator email and run the commented bootstrap statement at the top of the migration with that real account email and display name. Do not create generic or invented editorial identities.
+
+The owner may move assigned work through draft, in-review and blocked states. Only the separately assigned approver may approve or request changes. An administrator may publish only after that independent approval, and ownership changes require approval to be reset first. Correction owners and administrators can investigate a correction; resolving or rejecting one requires a written decision. Assignment and correction changes append audit events automatically.
+
+The migration has static security-contract coverage in the repository, but must still be exercised against the linked Supabase project before production use. Begin with two real people so owner/approver separation can be tested end to end.
+
 Check the live health of all 18 country-advisory source links with:
 
 ```bash
@@ -59,4 +69,4 @@ Visa reviews treat a passport group as a convenience filter, not a legal categor
 
 Border reviews use the usable overlap between both sides of a crossing rather than the latest closing time published by either country. When no dependable current authority schedule or live wait-time feed is available, the public record says to confirm directly; old operating hours, numeric wait ranges and vehicle-fee estimates are not advanced with a new review date. Opposite-side names are treated as one crossing, while renamed or corrected URL slugs retain permanent redirects.
 
-The next control-plane increment should connect the validated workflow model to an authenticated editor interface, populate it with real accountable people, and extend source monitoring beyond travel advisories.
+The next control-plane increment should apply and verify the migration in the linked Supabase project, populate it with real accountable people, add a database-backed registry for the 93 valid record IDs, and extend source monitoring beyond travel advisories.

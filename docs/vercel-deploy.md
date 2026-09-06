@@ -36,6 +36,8 @@ For My Safari cloud sync, run `supabase/migrate-trip-cloud.sql`, `supabase/migra
 
 For product observability, run `supabase/migrations/20260905180000_product_analytics.sql`, then enable **Web Analytics** and **Speed Insights** in the Vercel project. See `docs/product-observability.md` for the privacy boundary, event dictionary and reporting workflow.
 
+For the restricted editorial workspace, run `supabase/migrations/20260906130000_editorial_workspace.sql`. Sign in at `/editorial` with the intended administrator account, then use the commented SQL at the top of the migration to bootstrap that existing `auth.users` identity. Add at least one different real person as approver before attempting the approval-to-publication flow. The existing `https://savannaexplorer.com/**` redirect allowlist covers editorial magic links.
+
 ### 3. Custom domain
 
 1. Vercel → **Project → Settings → Domains**
@@ -89,6 +91,7 @@ npm run verify:deployment -- https://your-deployment.vercel.app
 - **SPA fallback** — unknown paths rewrite to `/index.html` (see `vercel.json`)
 - **Prerendered SEO pages** — `dist/countries/*`, `dist/parks/*`, etc. from `postbuild` take precedence over the fallback
 - **Hub sections** — `/parks`, `/embassies`, … have dedicated `index.html` fallbacks
+- **Restricted editorial workspace** — `/editorial` has a physical no-index SPA fallback; Supabase RLS remains the authorization boundary
 - **Static assets** — long cache on `/assets/*`
 
 ## Turning off Hostinger

@@ -120,7 +120,7 @@ test('approval states require an approver and decision date', () => {
     );
 });
 
-test('approval cannot predate the evidence it approves', () => {
+test('approval that predates fresh evidence returns to the approval queue', () => {
     const recordId = freshnessReport.records[0].id;
     const assignment = {
         ...publishedAssignment(recordId),
@@ -128,10 +128,12 @@ test('approval cannot predate the evidence it approves', () => {
         approvedAt: '2026-09-05',
     };
 
-    assert.throws(
-        () => buildEditorialControlReport(freshnessReport, workflow({ assignments: [assignment] })),
-        /approval cannot predate its evidence review/,
-    );
+    const report = buildEditorialControlReport(freshnessReport, workflow({ assignments: [assignment] }));
+    const record = report.records.find(item => item.id === recordId);
+
+    assert.equal(record.gates.approval, false);
+    assert.equal(record.publishable, false);
+    assert.equal(record.nextAction, 'approve-review');
 });
 
 test('workflow items cannot point at unknown records', () => {
