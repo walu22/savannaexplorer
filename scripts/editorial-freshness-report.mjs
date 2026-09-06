@@ -101,7 +101,7 @@ function dashboardHtml(report) {
       <div class="result-count" id="result-count">Showing ${report.summary.total} records</div>
       <div class="table-wrap"><table><thead><tr><th>Status</th><th>Fact</th><th>Country</th><th>Review</th><th>Evidence</th></tr></thead><tbody id="records">${rows}</tbody></table><p class="empty" id="empty">No records match these filters.</p></div>
     </section>
-    <p class="footnote"><strong>Policy:</strong> month-only review dates are conservatively treated as the final day of that month. Travel-advisory links are checked every 30 days; visa, border, park-fee and emergency data every 90 days. Evidence is complete only when the record has a reviewer, review date, outcome, written finding and valid HTTPS evidence links. Correction ownership, approval states, change history and automated link checks come next.</p>
+    <p class="footnote"><strong>Policy:</strong> month-only review dates are conservatively treated as the final day of that month. Travel-advisory links are checked every 30 days; visa, border, park-fee and emergency data every 90 days. Evidence is complete only when the record has a reviewer, review date, outcome, written finding and valid HTTPS evidence links. Run <code>npm run editorial:control</code> for ownership, independent approval, publication gates, corrections and record history.</p>
   </main>
   <script>
     const rows=[...document.querySelectorAll('#records tr')];const search=document.querySelector('#search');const status=document.querySelector('#status');const category=document.querySelector('#category');const count=document.querySelector('#result-count');const empty=document.querySelector('#empty');

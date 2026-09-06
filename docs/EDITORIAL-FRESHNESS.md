@@ -10,6 +10,27 @@ npm run editorial:freshness
 
 Open `.reports/editorial-freshness.html` in a browser. The matching JSON snapshot is written beside it for future CI, monitoring, or CMS integration.
 
+Generate the companion approval and accountability view with:
+
+```bash
+npm run editorial:control
+```
+
+Open `.reports/editorial-control-centre.html`. It combines the same 93-record freshness queue with named ownership, an independent approver, publication state, correction blocking and a per-record history. The matching JSON snapshot is suitable for later CI or a protected CMS interface.
+
+Workflow data lives in `data/editorial-workflow.json`. Its `people`, `assignments`, `corrections` and `events` arrays are intentionally empty at the first release: no person was invented from a workstation name or generic editorial label. Until real accountable people are added, existing evidence-backed public records appear as `published-unassigned` and fail the ownership and explicit-approval gates.
+
+A record is publishable in the control model only when all six gates pass: official source, complete evidence, freshness, a named active owner plus a different named active approver, an approved or published decision, and no open correction. Approved and published assignments require an `approvedAt` date. Invalid people, record IDs, states or dates stop report generation rather than silently weakening the workflow.
+
+The workflow schema uses:
+
+- `people`: `id`, display `name`, operational `role`, and optional `active` flag;
+- `assignments`: a tracked `recordId`, `ownerId`, optional `approverId`, workflow `status`, `updatedAt`, and `approvedAt` for approved or published work;
+- `corrections`: unique `id`, `recordId`, named `ownerId`, status, summary, `openedAt`, and `closedAt` when resolved or rejected;
+- `events`: unique `id`, `recordId`, event type, accountable `actorId` or explicit `actorName`, date and note.
+
+Allowed assignment states are `draft`, `in-review`, `changes-requested`, `approved`, `published` and `blocked`. Corrections may be `open`, `investigating`, `resolved` or `rejected`. The owner and approver cannot be the same person.
+
 Check the live health of all 18 country-advisory source links with:
 
 ```bash
@@ -38,4 +59,4 @@ Visa reviews treat a passport group as a convenience filter, not a legal categor
 
 Border reviews use the usable overlap between both sides of a crossing rather than the latest closing time published by either country. When no dependable current authority schedule or live wait-time feed is available, the public record says to confirm directly; old operating hours, numeric wait ranges and vehicle-fee estimates are not advanced with a new review date. Opposite-side names are treated as one crossing, while renamed or corrected URL slugs retain permanent redirects.
 
-The next control-plane increment should add individual approvers, publication states, correction ownership and change history, then extend source monitoring beyond travel advisories.
+The next control-plane increment should connect the validated workflow model to an authenticated editor interface, populate it with real accountable people, and extend source monitoring beyond travel advisories.

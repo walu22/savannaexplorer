@@ -1,7 +1,7 @@
 {
   "name": "savannaexplorer",
   "private": true,
-  "version": "4.67.0",
+  "version": "4.68.0",
   "engines": {
     "node": ">=22"
   },
@@ -27,6 +27,7 @@
     "analytics:planner": "node scripts/planner-analytics-report.mjs",
     "analytics:product": "node scripts/product-analytics-report.mjs",
     "editorial:freshness": "node scripts/editorial-freshness-report.mjs",
+    "editorial:control": "node scripts/editorial-control-centre.mjs",
     "editorial:advisory-health": "node scripts/advisory-health-report.mjs",
     "verify:deployment": "node scripts/deployment-smoke.mjs",
     "routes:logistics": "node scripts/generate-route-logistics.mjs",

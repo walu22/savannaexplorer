@@ -36,8 +36,8 @@ This baseline describes the repository, not an assumption that every change is a
 | Direct booking discovery | Built | 46 official link-only directories; no payment handling | Verified operator profiles, availability signals and transparent commercial model |
 | Offline capability | Partial | Installable PWA shell and network-first cache | Selectable destination/trip downloads, offline maps and reliable cache lifecycle |
 | Analytics | Built in code; production activation pending | Privacy-safe product event taxonomy, aggregate report, Vercel Web Analytics/Speed Insights integration, client failures and structured API logs | Enable production services, publish privacy/retention terms, collect four-week baseline and add retention cohorts |
-| Editorial operations | Partial, improving | Central 93-record freshness queue, evidence trail and daily protected monitoring for 18 official advisory links | Approvals, publication states, correction ownership, change history and monitoring for remaining source classes |
-| Accessibility/testing | Strong foundation | 82 unit tests, 78 desktop/mobile browser scenarios and automated axe checks | WCAG 2.2 manual audit and permanent regression budget |
+| Editorial operations | Partial, improving | Central 93-record queue, six-gate approval model, correction/history ledger and daily protected monitoring for 18 official advisory links | Authenticated editor UI, real staff assignments and monitoring for remaining source classes |
+| Accessibility/testing | Strong foundation | 91 unit tests, 78 desktop/mobile browser scenarios and automated axe checks | WCAG 2.2 manual audit and permanent regression budget |
 | Security/privacy | Partial | Supabase RLS, tested collaboration permissions and API validation | CSP/security headers, privacy controls, data export/deletion and formal incident process |
 | Revenue | Not built | No tours, payments or paid placement | Evidence-led revenue experiments with clear editorial separation |
 | Community/reviews | Not built | No traveller review or moderation system | Only pursue after identity, moderation and fraud controls exist |
@@ -334,7 +334,7 @@ Durations are working ranges, not promises. Each phase advances only when its ex
 ## 10. The next four delivery increments
 
 1. **Product observability (implementation and activation complete; baseline in progress):** production analytics, performance telemetry, structured errors and privacy-safe product events are live; record the first four-week baseline next.
-2. **Editorial freshness dashboard (advisory monitoring implemented):** visa, border, park fee, emergency and travel-advisory data feed a local review queue; all 18 visa records, nine emergency-contact records, nine country advisory records, 27 park records and 30 border records now include record-level official-source evidence. A protected daily Vercel Cron checks all 18 advisory links without auto-advancing human review dates. Add individual approval ownership, change history and automated checks for the remaining source classes next.
+2. **Editorial control centre (validated workflow model implemented):** visa, border, park fee, emergency and travel-advisory data feed a 93-record review queue with official-source evidence. The local control centre now enforces six publication gates, separate owner and approver roles, corrections and record history; its deliberately empty people register exposes all 93 legacy records as ownership gaps instead of inventing staff. A protected daily Vercel Cron checks all 18 advisory links without auto-advancing human review dates. Add an authenticated editor UI, real assignments and automated checks for the remaining source classes next.
 3. **My Safari trip pack:** calendar export, booking edit, reminders and printable/offline plan.
 4. **Global search and unified navigation:** search all countries, regions, parks, routes, borders and guides from one fast interface.
 
