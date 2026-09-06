@@ -15,6 +15,7 @@ function loadJson(file) {
 
 const productionData = {
     countries: loadJson('countries.json'),
+    countryDepth: loadJson('country-depth.json'),
     practical: loadJson('practical.json'),
     visaPassport: loadJson('visa-passport.json'),
     countryResources: loadJson('country-resources.json'),
@@ -22,6 +23,13 @@ const productionData = {
     parks: loadJson('parks.json'),
     travelAdvisories: loadJson('travel-advisories.json'),
     editorialEvidence: loadJson('editorial-review-evidence.json'),
+    planningGuides: loadJson('planning-guides.json'),
+    faqs: loadJson('faqs.json'),
+    crossBorder: loadJson('cross-border.json'),
+    transport: loadJson('transport.json'),
+    packing: loadJson('packing.json'),
+    itineraryBudgets: loadJson('itinerary-budgets.json'),
+    vehicleBorderFees: loadJson('vehicle-border-fees.json'),
 };
 
 test('month-only review dates use the final day of the month', () => {
@@ -53,17 +61,77 @@ test('editorial report covers every first-slice high-change record', () => {
     assert.equal(report.records[0].status, 'due-soon');
     assert.equal(report.summary.criticalOverdue, 0);
     assert.ok(report.summary.sourceLinked >= 90);
-    assert.equal(report.summary.evidenceComplete, 87);
+    assert.equal(report.summary.evidenceComplete, 93);
     assert.equal(report.records.filter(record => record.category === 'emergency' && record.status === 'current').length, 9);
     assert.equal(report.records.filter(record => record.id.startsWith('visa-summary:') && record.status === 'current').length, 9);
-    assert.equal(report.records.find(record => record.id === 'visa-matrix:zimbabwe').status, 'current');
-    assert.equal(report.records.find(record => record.id === 'visa-matrix:mozambique').status, 'current');
+    assert.equal(report.records.filter(record => record.category === 'visa' && record.status === 'current').length, 18);
     assert.equal(report.records.filter(record => record.category === 'travel-advisory' && record.status === 'due-soon').length, 9);
     assert.equal(report.records.filter(record => record.category === 'park-fee' && record.status === 'current').length, 27);
     assert.equal(report.records.filter(record => record.category === 'border' && record.status === 'current').length, 30);
     assert.deepEqual(new Set(report.records.map(record => record.category)), new Set([
         'visa', 'border', 'park-fee', 'emergency', 'travel-advisory',
     ]));
+});
+
+test('passport matrix avoids unsafe regional generalisations and links its evidence', () => {
+    const matrix = productionData.visaPassport;
+    const { rules, meta } = matrix;
+
+    assert.equal(meta.lastVerified, '2026-09-06');
+    assert.equal(Object.keys(meta.countryLastVerified).length, 9);
+    assert.equal(Object.keys(meta.countrySources).length, 9);
+    assert.ok(Object.values(meta.countrySources).every(sources => sources.length > 0));
+    assert.ok(Object.values(meta.countrySources).flat().every(source => (
+        source.label && source.url.startsWith('https://')
+    )));
+
+    assert.equal(rules['south-africa'].eu.status, 'verify');
+    assert.match(rules['south-africa'].eu.note, /Cyprus and Poland/);
+    assert.equal(rules.namibia.in.status, 'visa-required');
+    assert.equal(rules.botswana.eu.status, 'verify');
+    assert.equal(rules.botswana.sadc.status, 'verify');
+    assert.equal(rules.zambia.in.status, 'visa-required');
+    assert.match(rules.zambia.in.label, /Prior approval/);
+    assert.equal(rules.lesotho.au.label, 'Visa-exempt · up to 14 days');
+    assert.equal(rules.lesotho.eu.status, 'verify');
+    assert.equal(rules.eswatini.in.status, 'visa-required');
+    assert.equal(rules.eswatini.eu.status, 'verify');
+
+    const visaSections = {
+        namibia: 'entry-visa',
+        'south-africa': 'visa-safety',
+        botswana: 'entry-visa',
+        zambia: 'kaza-univisa',
+        zimbabwe: 'entry-visa',
+        mozambique: 'e-visa',
+        malawi: 'e-visa',
+        lesotho: 'border-entry',
+        eswatini: 'kruger-add-on',
+    };
+    Object.entries(visaSections).forEach(([countryId, sectionId]) => {
+        const section = productionData.planningGuides.guides[countryId].sections
+            .find(candidate => candidate.id === sectionId);
+        assert.equal(section?.lastVerified, '2026-09-06', `${countryId} guide visa section is current`);
+    });
+
+    const publishedVisaCopy = JSON.stringify({
+        countries: productionData.countries,
+        countryDepth: productionData.countryDepth,
+        practical: productionData.practical,
+        planningGuides: productionData.planningGuides,
+        faqs: productionData.faqs,
+        crossBorder: productionData.crossBorder,
+        transport: productionData.transport,
+        packing: productionData.packing,
+        itineraryBudgets: productionData.itineraryBudgets,
+        vehicleBorderFees: productionData.vehicleBorderFees,
+        kazaTip: matrix.kazaTip,
+    });
+    assert.doesNotMatch(publishedVisaCopy, /South Africa requires an unabridged birth certificate/i);
+    assert.doesNotMatch(publishedVisaCopy, /USD 50 cash on arrival/i);
+    assert.doesNotMatch(publishedVisaCopy, /UK, US, EU, AU, CA/i);
+    assert.doesNotMatch(publishedVisaCopy, /Visa-free: UK, US, EU/i);
+    assert.doesNotMatch(publishedVisaCopy, /no e-visa system/i);
 });
 
 test('park records expose reviewed authority links without stale unsupported tariffs', () => {

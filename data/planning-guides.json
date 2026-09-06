@@ -50,12 +50,13 @@
         {
           "id": "entry-visa",
           "title": "Entry & Visa",
-          "body": "Significant changes came into effect from 1 April 2025: visitors from the UK, USA, EU member states, Australia, and Canada who previously entered Namibia visa-free now require either an e-visa applied for in advance or a visa-on-arrival at designated entry points. The visa-on-arrival costs approximately N$1,200–1,600 for a single entry and is available at Hosea Kutako International Airport (Windhoek), Walvis Bay Airport, and major land border crossings. However, the official Namibian e-visa portal at eservices.mhaiss.gov.na is strongly recommended to avoid potential queues and delays at the border — particularly important if connecting to a domestic or international flight.\n\nSouth African passport holders and most other SADC nationals continue to enter visa-free for up to 90 days. A passport valid for at least six months beyond your departure date and at least one blank page for visa stamps is required at all borders. Yellow fever vaccination certificate is required if arriving from a yellow fever endemic country. Malaria prophylaxis is strongly recommended for travel to the Zambezi Region and northern areas; the rest of Namibia is generally low risk.",
+          "body": "Significant changes came into effect from 1 April 2025: affected passports including UK, US, Canadian, Australian and many European nationalities now need an eVisa or visa on arrival. The standard adult fee for these non-African passports is N$1,600. Apply through eservices.mhaiss.gov.na before travel where practical. Namibia's official fact sheet distinguishes ports that process both eVisa and in-person visa on arrival from ports that accept eVisa only, so the route and entry point matter.\n\nRegional treatment also depends on the exact passport; do not assume every SADC nationality has the same exemption. Namibia requires a passport valid for at least six months beyond the intended stay, sufficient stamp pages and a valid return ticket. A yellow-fever certificate may be required after travel through a listed risk country. Malaria prophylaxis is strongly recommended for the Zambezi Region and northern areas; the rest of Namibia is generally lower risk.",
+          "lastVerified": "2026-09-06",
           "bullets": [
-            "UK, US, EU, AU, CA: e-visa required from 1 Apr 2025 — apply in advance at eservices.mhaiss.gov.na",
-            "Visa-on-arrival: available at Windhoek airport (~N$1,200–1,600 single entry, cash or card)",
-            "South Africa and most SADC nationals: visa-free up to 90 days — confirm at mha.gov.na",
-            "Passport valid 6+ months beyond departure; at least one blank visa page required",
+            "Affected UK, US, European, Australian and Canadian passports: eVisa or visa on arrival; standard non-African adult fee N$1,600",
+            "Check the official fact sheet: some entry points process in-person VOA, while others accept eVisa only",
+            "Regional passports: check the exact nationality against the exemption and visa-on-arrival lists",
+            "Passport valid 6+ months beyond the intended stay, with sufficient stamp pages and a return ticket",
             "Yellow fever certificate needed if arriving from endemic countries; malaria risk in Zambezi/Caprivi region"
           ]
         },
@@ -75,7 +76,7 @@
       "officialLinks": [
         { "label": "Namibia Tourism Board", "url": "https://namibiatourism.com.na" },
         { "label": "E-Visa Portal (MHA)", "url": "https://eservices.mhaiss.gov.na" },
-        { "label": "Ministry of Home Affairs (visa info)", "url": "https://mha.gov.na" },
+        { "label": "Ministry of Home Affairs (visa exemptions)", "url": "https://mhaiss.gov.na/countries-exempted" },
         { "label": "NWR Park Accommodation Bookings", "url": "https://www.nwr.com.na" },
         { "label": "Namibia Wildlife Resorts (parks)", "url": "https://www.nwr.com.na/parks-resorts/etosha-national-park/" }
       ]
@@ -126,10 +127,12 @@
         {
           "id": "visa-safety",
           "title": "Visa & Safety",
-          "body": "South Africa is straightforward for most Western visitors. UK, US, EU, Australian, and Canadian passport holders receive 90-day visa-free tourism entry — no advance application required. Your passport must have at least 30 days validity beyond your departure date and at least two consecutive blank pages for entry stamps. A critical requirement for families: children under 18 travelling with one parent, or unaccompanied by both parents, must carry an unabridged (full) birth certificate at all South African entry and exit points. This is strictly enforced and can result in being turned around — no exceptions. If in doubt, carry the document.\n\nSafety in South Africa is real and manageable with common-sense precautions. Some urban areas — particularly parts of Johannesburg CBD, Cape Town's outlying neighbourhoods, and certain townships after dark — have higher crime rates than most visitor nations. In practice: keep valuables out of sight in cars, use ATMs inside shopping centres rather than on street corners, avoid stopping at isolated roadside rest stops at night, and trust your instincts. Tourist areas like the V&A Waterfront, Stellenbosch, Franschhoek, and all national parks and private reserves are safe and well-managed. Crime against tourists in Kruger, the Winelands, and the Garden Route is extremely rare.",
+          "body": "South African entry permission depends on the exact passport and passport type. The current Home Affairs schedule lists ordinary UK, US, Australian and Canadian passports for 90-day exemption, while the combined EU profile is not uniform: most listed EU passports receive 90 days, but Cyprus and Poland receive 30. Visa-required travellers should check whether the ETA or another official application route applies. Carry a valid passport with an unused endorsement page and use Home Affairs' current child-travel guidance; the former blanket claim that every foreign child must present an unabridged birth certificate is not the current rule.\n\nSafety in South Africa is real and manageable with common-sense precautions. Some urban areas — particularly parts of Johannesburg CBD, Cape Town's outlying neighbourhoods, and certain townships after dark — have higher crime rates than most visitor nations. In practice: keep valuables out of sight in cars, use ATMs inside shopping centres rather than on street corners, avoid stopping at isolated roadside rest stops at night, and trust your instincts. Tourist areas like the V&A Waterfront, Stellenbosch, Franschhoek, and all national parks and private reserves are safe and well-managed. Crime against tourists in Kruger, the Winelands, and the Garden Route is extremely rare.",
+          "lastVerified": "2026-09-06",
           "bullets": [
-            "UK, US, EU, AU, CA: 90 days visa-free; passport valid 30+ days beyond departure; two blank pages required",
-            "Children under 18: unabridged birth certificate required — strictly enforced at all South African ports of entry",
+            "UK, US, Australian and Canadian ordinary passports: currently visa-exempt for 90 days",
+            "EU/Schengen and SADC profiles: check the exact nationality because allowances differ",
+            "Children's documents: follow current DHA guidance for the child's nationality and travel arrangement",
             "Yellow fever certificate: required if arriving directly from a yellow fever endemic country",
             "Johannesburg: use Sandton and Rosebank for accommodation; avoid the CBD after dark and leave nothing in cars",
             "Travel insurance strongly recommended — South African private medical care is excellent but very expensive"
@@ -214,10 +217,12 @@
         {
           "id": "entry-visa",
           "title": "Entry & Visa",
-          "body": "Botswana is one of Southern Africa's most visitor-friendly destinations for international travellers. UK, US, EU, Australian, and Canadian passport holders all receive 90-day visa-free entry on arrival at any designated port of entry — no advance application or fee required. South African passport holders are also visa-free, and SADC nationals generally receive visa-free entry though days permitted can vary by nationality. There is no e-visa system for Botswana; entry permission is granted on arrival with a valid passport.\n\nYellow fever vaccination is required if you are arriving from a yellow fever endemic country. Malaria prophylaxis is strongly recommended for the Okavango Delta, Chobe, and all of northern Botswana year-round — the disease is endemic in these areas, transmitted by Anopheles mosquitoes. Your passport should be valid for at least six months beyond your entry date with at least one blank visa page. Daily wildlife concession and national park fees in the Okavango area are built into lodge rates for fly-in guests, but self-drivers pay at park gates in Pula or by card.",
+          "body": "Botswana applies passport-specific exemptions. UK, Australian and Canadian citizens are covered by the Commonwealth exemption, while India is one of the named Commonwealth exceptions and needs a tourism visa. US tourists are currently visa-exempt; EU and SADC groupings should be checked by exact nationality because Botswana relies on bilateral agreements rather than one regional rule. Visitors may not stay more than 90 days in a calendar year, and visa-required travellers can apply through Botswana's official eVisa system.\n\nA yellow-fever certificate may be required after arrival from a listed risk country. Malaria prophylaxis is strongly recommended for the Okavango Delta, Chobe and northern Botswana. The government requires a passport valid for at least six months; confirm blank-page and child-document requirements with your travel provider and immigration authority before departure. Daily wildlife concession and national park fees may be included in fly-in lodge rates, while self-drivers should confirm payment arrangements before reaching remote gates.",
+          "lastVerified": "2026-09-06",
           "bullets": [
-            "UK, US, EU, AU, CA: 90 days visa-free on arrival at any designated entry point — no e-visa required",
-            "South African and most SADC passport holders: visa-free — confirm permitted days at gov.bw",
+            "UK, Australian and Canadian citizens: Commonwealth-exempt; India explicitly requires a tourism visa",
+            "US tourists: currently visa-exempt; EU and SADC passports require an exact-nationality check",
+            "Visa-required travellers: apply through Botswana's official eVisa service before travel",
             "Malaria prophylaxis: strongly recommended for Delta, Chobe, and northern Botswana year-round",
             "Yellow fever certificate required if arriving from endemic countries",
             "Self-drive park fees: pay at the gate in Pula or by Visa card; lodge guests have fees included"
@@ -277,13 +282,14 @@
         {
           "id": "kaza-univisa",
           "title": "KAZA UniVisa",
-          "body": "The Kavango–Zambezi Transfrontier Conservation Area (KAZA TFCA) UniVisa is a practical arrangement that allows eligible passport holders to cover both Zambia and Zimbabwe on a single USD 50 visa, paid in cash on arrival at designated crossing points. The visa is available to nationals of over 60 countries — including UK, US, EU member states, Australia, Canada, and most Commonwealth passports. It allows unlimited crossings between Zambia and Zimbabwe for 30 days, plus same-day excursions into Botswana's Chobe National Park from the Kazungula crossing. It cannot be used for overnight stays in Botswana.\n\nThe KAZA UniVisa is available at Livingstone airport and the Livingstone/Victoria Falls land border, Victoria Falls airport and land border on the Zimbabwe side, and the Kazungula land crossing between Botswana and Zambia. Carry USD 50 in cash — crisp, post-2013 notes in the exact amount are standard practice. The UniVisa was confirmed as continuing through 2026. If you plan to spend substantial time independently in both Zambia and Zimbabwe beyond the immediate Victoria Falls area, individual single-entry visas or the Zimbabwe e-visa route may offer better value. Always confirm eligible nationalities at the official portal before purchasing flights.",
+          "body": "The KAZA UniVisa is an optional USD 50 visa for eligible visitors whose itinerary needs both Zambia and Zimbabwe. It permits multiple crossings between those two countries for up to 30 days and covers Botswana day trips through the Kazungula border, but it does not permit an overnight stay in Botswana. A traveller visiting only visa-exempt Zambia does not need KAZA simply to enter Zambia.\n\nKAZA is issued only to eligible nationalities at designated ports of entry, so confirm both the passport and planned crossing on Zambia Immigration's current KAZA page before travel. Do not assume every airport or land border can issue it. Payment methods and operational availability can change at the port; check the official guidance and carry a separate payment method rather than relying on an unsourced cash-only promise.",
+          "lastVerified": "2026-09-06",
           "bullets": [
-            "USD 50 cash on arrival — crisp post-2013 notes; bring the exact amount to avoid change complications",
-            "Available at: Livingstone airport, Victoria Falls border (both countries), Kazungula land crossing",
-            "Covers: unlimited ZM↔ZW crossings for 30 days + same-day Botswana Chobe day trips from Kazungula",
+            "USD 50 for eligible passports; verify the current payment method at the issuing port",
+            "Available only at designated Zambia and Zimbabwe ports — check the official list for your route",
+            "Covers: multiple Zambia–Zimbabwe crossings for up to 30 days plus Botswana day trips through Kazungula",
             "Does NOT cover overnight stays in Botswana or onward travel to Mozambique or Namibia",
-            "Confirm your nationality is eligible at zambiaimmigration.gov.zm before travel"
+            "Confirm nationality, port availability and conditions at zambiaimmigration.gov.zm before travel"
           ]
         },
         {
@@ -364,11 +370,13 @@
         {
           "id": "entry-visa",
           "title": "Entry & Visa",
-          "body": "Zimbabwe operates a relatively open visa system for most Western visitors. UK, US, EU, Australian, and Canadian nationals are eligible for a single-entry visa (USD 30) payable in cash on arrival at the port of entry, or via the e-visa portal at evisa.gov.zw for advance processing. South African passport holders enter visa-free. Visitors combining Zimbabwe and Zambia for the Victoria Falls circuit should seriously consider the KAZA UniVisa (USD 50 cash at the border) rather than two separate visas — it provides better value and allows unlimited crossings between both countries for 30 days.\n\nZimbabwe's main entry points for visitors are Victoria Falls International Airport (most popular for safari travellers), Harare Robert Gabriel Mugabe International Airport, and the Beitbridge land border with South Africa — the busiest land crossing in Sub-Saharan Africa, which can queue significantly on weekends and public holidays. The Forbes and Plumtree land borders are quieter alternatives. A passport valid for at least six months beyond your departure date is required. Yellow fever vaccination is required if arriving from an endemic country. Malaria is present in Zimbabwe's low-lying areas including the Victoria Falls area, Mana Pools, and parts of Hwange — carry prophylaxis.",
+          "body": "Zimbabwe uses three passport-specific categories: Category A enters without a visa, Category B needs a visa but may obtain it at the port of entry or through the official eVisa service, and Category C must secure an eVisa before travel. UK, US, Australian, Canadian and Indian passports are currently Category B; the combined EU profile is not one category and must be checked by exact nationality. South African passports are currently Category A. Eligible visitors who need both Zambia and Zimbabwe can compare the USD 50 KAZA UniVisa with separate permissions, but KAZA is not automatically the right choice for every Victoria Falls itinerary.\n\nZimbabwe's principal visitor gateways include Victoria Falls International Airport, Robert Gabriel Mugabe International Airport and Beitbridge. Border conditions, fees and document rules can change, so confirm the exact category in Zimbabwe Immigration's current table and use the official eVisa portal where applicable. Check passport validity, yellow-fever and malaria advice against current official guidance before departure.",
+          "lastVerified": "2026-09-06",
           "bullets": [
-            "UK, US, EU, AU, CA: USD 30 visa-on-arrival or apply in advance at evisa.gov.zw",
-            "KAZA UniVisa (USD 50): covers Zambia + Zimbabwe — better value for any Victoria Falls visit",
-            "South African passport holders: visa-free entry at all Zimbabwe land borders and airports",
+            "Category A: visa-exempt; Category B: port-of-entry visa or eVisa; Category C: eVisa before travel",
+            "UK, US, Australian, Canadian and Indian passports: currently Category B",
+            "EU/Schengen and other regional groupings: check the exact nationality rather than assuming one rule",
+            "KAZA UniVisa (USD 50): consider only for an eligible Zambia–Zimbabwe itinerary",
             "Beitbridge (SA border): very busy on weekends and public holidays — use Forbes or Plumtree if flexible",
             "Malaria prophylaxis: recommended for Victoria Falls, Mana Pools, and low-lying areas of Hwange"
           ]
@@ -376,6 +384,7 @@
       ],
       "officialLinks": [
         { "label": "Zimbabwe Tourism Authority", "url": "https://www.zimbabwetourism.net" },
+        { "label": "Zimbabwe Immigration visa categories", "url": "https://www.zimimmigration.gov.zw/?page_id=2984" },
         { "label": "Zimbabwe E-Visa Portal", "url": "https://evisa.gov.zw" },
         { "label": "Zimbabwe Parks & Wildlife (bookings)", "url": "https://www.zimparks.org.zw" },
         { "label": "Victoria Falls Info", "url": "https://www.viczambezi.com" }
@@ -427,10 +436,13 @@
         {
           "id": "e-visa",
           "title": "E-Visa",
-          "body": "Mozambique requires a visa for most non-SADC visitors, and the e-visa system at evisa.gov.mz is the strongly recommended route for nationals of the UK, USA, EU member states, Australia, and Canada. Applications are submitted online before travel; standard single-entry visa fees are approximately USD 50–70 depending on nationality, and processing typically takes 3–10 working days. Approval documentation should be printed and presented at the airport or border post along with your passport. Visa-on-arrival is available at Maputo International Airport and major land borders, but this introduces uncertainty — always secure the e-visa before booking non-refundable flights and accommodation.\n\nSouth African passport holders enter Mozambique visa-free (as do most SADC nationals), which explains the established popularity of the Maputo–Vilanculos–Tofo corridor among South African overland travellers. If driving from South Africa, the Lebombo/Ressano Garcia crossing east of Kruger is the main entry point and generally processes quickly on weekdays. The Giriyondo crossing directly through Kruger National Park allows passage from the Kruger gate into Parque Nacional do Limpopo. A standard single-entry e-visa covers 30 days; multi-entry options are available for return visitors. Malaria is present throughout Mozambique year-round — take prophylaxis before departure.",
+          "body": "Mozambique's official portal separates travellers into visa-exempt, 30-day eTA, eVisa and embassy-only routes. UK, US and Canadian ordinary passports are currently on the 30-day tourist/business eTA list; Australian and Indian passports use the eVisa route. EU/Schengen eligibility varies by exact nationality. South African ordinary passports are currently exempt for tourist or business visits up to 30 days, while other SADC passports must be checked individually.\n\nUse the official eligibility table with the passport you will actually travel on, complete any required online process before departure, and print the preliminary approval for boarding and arrival. Do not rely on a generic visa-on-arrival promise. If driving from South Africa, Lebombo/Ressano Garcia is the main crossing; Giriyondo has route-specific and seasonal operating considerations. Malaria risk is present throughout Mozambique, so seek current health advice before travel.",
+          "lastVerified": "2026-09-06",
           "bullets": [
-            "E-visa: apply at evisa.gov.mz before travel — typical fee USD 50–70; allow 3–10 working days for processing",
-            "South African and SADC nationals: visa-free entry — most common entry via Lebombo/Ressano Garcia",
+            "UK, US and Canadian ordinary passports: currently eligible for a 30-day tourist/business eTA",
+            "Australian and Indian passports: currently use the eVisa route; EU/Schengen passports vary",
+            "South African ordinary passports: currently exempt for tourist/business visits up to 30 days",
+            "Other SADC passports: check the exact nationality in the official eligibility table",
             "Lebombo/Ressano Garcia: main SA–Mozambique crossing; busy on weekends — cross early in the morning",
             "Giriyondo: direct Kruger Park crossing into Parque Nacional do Limpopo; check seasonal hours before using",
             "Malaria: high risk year-round throughout Mozambique — take prophylaxis and use DEET-based repellent"
@@ -451,7 +463,7 @@
       ],
       "officialLinks": [
         { "label": "Mozambique Tourism (INATUR)", "url": "https://www.visitmozambique.net" },
-        { "label": "E-Visa Portal", "url": "https://evisa.gov.mz" },
+        { "label": "Mozambique visa eligibility", "url": "https://evisa.gov.mz/tourist-visa" },
         { "label": "Gorongosa National Park", "url": "https://www.gorongosa.org" },
         { "label": "Airlink (Vilanculos flights)", "url": "https://www.flyairlink.com" }
       ]
@@ -502,10 +514,13 @@
         {
           "id": "e-visa",
           "title": "E-Visa",
-          "body": "Malawi has an e-visa system for most international visitors and applying online before travel is the recommended approach. UK, US, EU, Australian, and Canadian passport holders can apply for a single-entry visa (approximately USD 75) or a multi-entry visa (approximately USD 150) at immigration.gov.mw. Processing generally takes 3–7 working days. Print the approval email and carry it with your passport. Visa-on-arrival has historically been available at Kamuzu International Airport but the e-visa provides significantly greater certainty — particularly before booking non-refundable accommodation.\n\nSouth African passport holders and most SADC nationals enter Malawi visa-free for tourism. The Mwanza border crossing (from South Africa via Mozambique) and the Dedza crossing (from central Mozambique into central Malawi) are the main overland entry points from the south. From Zambia, the Chipata–Mchinji crossing is well-established and manageable. A passport valid for at least six months beyond your departure date is required. Yellow fever certificate is required if arriving from an endemic country. Malaria is present throughout Malawi including the lakeshore and in Liwonde — take appropriate prophylaxis and use DEET-based repellent consistently.",
+          "body": "Malawi's 2026 rules require UK, US, EU/Schengen, Australian and Canadian travellers to take a visa action; the previous broad exemption no longer applies. South African passports remain visa-exempt, while other SADC exemptions depend on reciprocity and the exact nationality. Malawi distinguishes Category Two travellers, who may use visa on arrival, from Category One travellers, who need approval before departure. The official eVisa route is recommended where eligible.\n\nUse Malawi Immigration's current exemption schedule and eligibility wizard rather than assuming that nationality group or an old fee table settles the answer. Complete any required approval before booking non-refundable travel. Mwanza and Dedza are established southern crossings, while Chipata–Mchinji connects with Zambia. Confirm passport validity, yellow-fever and malaria requirements against current official guidance before departure.",
+          "lastVerified": "2026-09-06",
           "bullets": [
-            "E-visa: apply at immigration.gov.mw; USD 75 single entry, USD 150 multi-entry; allow 3–7 working days",
-            "South African and SADC nationals: visa-free entry for tourism",
+            "UK, US, EU/Schengen, Australian and Canadian passports: a visa action is required under 2026 rules",
+            "Category Two may use visa on arrival; Category One needs approval before departure",
+            "South African passports: currently visa-exempt; other SADC passports depend on reciprocity",
+            "Use the official eligibility wizard to confirm the route for the exact passport",
             "Mwanza (from SA via Moz) and Dedza (from central Mozambique): main south–entry border crossings",
             "Chipata–Mchinji: principal crossing from Zambia; functional and well-used by overland travellers",
             "Malaria: endemic throughout including lakeshore — take prophylaxis and use DEET consistently"
@@ -526,7 +541,8 @@
       ],
       "officialLinks": [
         { "label": "Malawi Tourism (MTPA)", "url": "https://www.malawitourism.com" },
-        { "label": "Malawi Immigration (e-visa)", "url": "https://www.immigration.gov.mw" },
+        { "label": "Malawi Immigration visa guidance", "url": "https://www.immigration.gov.mw/visa/" },
+        { "label": "Malawi visa eligibility checker", "url": "https://evisa.gov.mw/VisaAssistance" },
         { "label": "African Parks Malawi (Liwonde)", "url": "https://www.africanparks.org/the-parks/liwonde" },
         { "label": "Nyika–Vwaza Trust (Nyika Plateau)", "url": "https://www.nyika.com" }
       ]
@@ -577,12 +593,16 @@
         {
           "id": "border-entry",
           "title": "Border Entry",
-          "body": "All entry into Lesotho is via South Africa — the country is a complete enclave surrounded entirely by South African territory with no direct international flight connections except through OR Tambo or Cape Town. Moshoeshoe I International Airport outside Maseru handles only regional and domestic traffic. The principal land crossings for visitors are Maseru Bridge (the main commercial crossing on the western border), Sani Pass (Drakensberg, 4x4 mandatory on the Lesotho side), Van Rooyen's Gate (for Malealea access), and Caledonspoort (northeast, for the Afriski and Buthe-Buthe route). Most Western passport holders — UK, US, EU, Australia, Canada — enter visa-free for up to 30 days at the border without advance paperwork.\n\nA critical planning point for multi-country travellers: if you hold a single-entry South African visa (rather than visa-free access), entering Lesotho counts as exiting South Africa. You will need a multi-entry South African visa to cross back into South Africa after visiting Lesotho. Most Western passport holders are visa-free for South Africa and this is transparent, but visitors from India, China, or countries requiring a South African visa must specifically request a multi-entry visa before booking the Lesotho excursion.",
+          "body": "Lesotho is surrounded by South Africa, so most itineraries cross South African immigration before and after the visit. Principal land crossings include Maseru Bridge, Sani Pass, Van Rooyen's Gate and Caledonspoort. Entry permission is passport-specific: UK, US and South African passports are currently exempt; Australian and Canadian citizens are exempt only for stays not exceeding 14 days; EU/Schengen and SADC nationalities are mixed; and Indian citizens require a visa. Lesotho Home Affairs currently reports that its eVisa application system is suspended and publishes an email/manual application route.\n\nIf you need a South African visa, a Lesotho visit counts as leaving South Africa, so confirm that your permission allows re-entry before booking the side trip. Sani Pass requires a suitable 4x4 on the mountain route, and the official Lesotho border-hours schedule currently lists Sani Top from 06:00 to 18:00; recheck shortly before travel because operational hours can change.",
+          "lastVerified": "2026-09-06",
           "bullets": [
             "Lesotho is a complete enclave — all land access is via South Africa; no direct international border",
-            "UK, US, EU, AU, CA passport holders: visa-free up to 30 days at any designated Lesotho crossing",
+            "UK, US and South African passports: currently visa-exempt",
+            "Australian and Canadian passports: visa-exempt only for stays not exceeding 14 days",
+            "EU/Schengen and SADC passports: check exact nationality; Indian passports require a visa",
+            "Visa-required travellers: eVisa applications are currently suspended; follow Home Affairs' published route",
             "Maseru Bridge: main crossing; open 24 hours; can be congested during morning and evening rush hours",
-            "Sani Pass border hours: approximately 8am–4pm (both sides) — confirm before travel as hours can change",
+            "Sani Top: currently listed 06:00–18:00 — confirm before travel as hours can change",
             "Multi-entry SA visa: required if your South African visa is single-entry and you plan a Lesotho side trip"
           ]
         },
@@ -601,7 +621,8 @@
       ],
       "officialLinks": [
         { "label": "Lesotho Tourism Development Corporation", "url": "https://www.ltdc.org.ls" },
-        { "label": "Ministry of Home Affairs (entry requirements)", "url": "https://www.homeaffairs.gov.ls" },
+        { "label": "Lesotho Home Affairs entry guidance", "url": "https://www.homeaffairs.gov.ls/do-i-need-a-visa/" },
+        { "label": "Lesotho eVisa service status", "url": "https://www.homeaffairs.gov.ls/eservices/" },
         { "label": "Malealea Lodge (pony trekking)", "url": "https://www.malealea.ls" },
         { "label": "Afriski Mountain Resort", "url": "https://www.afriski.net" }
       ]
@@ -652,11 +673,14 @@
         {
           "id": "kruger-add-on",
           "title": "Kruger Add-on",
-          "body": "Eswatini occupies a natural position on the classic Southern Africa overland route between Kruger National Park and the KwaZulu-Natal coast — making it an effortless and rewarding addition to any Kruger trip. Driving from Kruger's Crocodile Bridge gate to the Oshoek/Ngwenya border crossing with Eswatini takes approximately 1.5–2 hours. From Eswatini's Lavumisa/Golela crossing to the KwaZulu-Natal coast (Durban) is a further 2.5 hours. The country fits neatly into a one or two-night stop that adds genuine cultural depth and wildlife variety: a sunrise game drive at Hlane or a rhino tracking walk at Mkhaya, an afternoon at Swazi Candles or Mantenga Cultural Village, and dinner at a lodge in the Ezulwini Valley.\n\nThe logistics are impressively simple. South African, UK, US, EU, Australian, and Canadian visitors enter Eswatini visa-free for 30 days with no advance paperwork whatsoever. The Swazi lilangeni is permanently pegged exactly 1:1 with the South African rand, and rand is accepted in every shop, restaurant, and filling station across the country — eliminating currency exchange entirely. The Ezulwini Valley (the Valley of Heaven in siSwati) sits directly between the two main border crossings and contains most of the country's lodges, craft markets, and the vehicle-free Mlilwane Wildlife Sanctuary.",
+          "body": "Eswatini sits naturally on the classic overland route between Kruger National Park and the KwaZulu-Natal coast. Driving from Kruger's Crocodile Bridge gate to the Oshoek/Ngwenya crossing typically takes about 1.5–2 hours, and the country works well as a one- or two-night stop for Hlane, Mkhaya, Mlilwane and the Ezulwini Valley.\n\nEntry is straightforward for many travellers but still passport-specific. Eswatini's current government table lists South African, UK, US, Australian and Canadian passports as visa-exempt. EU/Schengen and SADC groupings must be checked by exact nationality. Indian passports are visa-required, and official guidance says visa on arrival is suspended during the eVisa rollout, so permission should be arranged before departure. The lilangeni is pegged 1:1 to the South African rand, which is widely accepted, but travellers should still confirm vehicle papers, border hours and re-entry permissions for the full route.",
+          "lastVerified": "2026-09-06",
           "bullets": [
             "Oshoek/Ngwenya border: 1.5 hrs from Kruger's Crocodile Bridge gate; opens early morning at 7am",
             "Lavumisa/Golela border: connects Eswatini south to the KwaZulu-Natal coast road (Durban ~2.5 hrs)",
-            "Visa-free: UK, US, EU, AU, CA, SA nationals — 30 days; zero advance paperwork required",
+            "South African, UK, US, Australian and Canadian passports: currently visa-exempt",
+            "EU/Schengen and SADC passports: check the exact nationality in the official table",
+            "Indian passports: visa required before travel; visa on arrival is currently suspended",
             "Lilangeni = ZAR exactly: both currencies accepted everywhere; no currency exchange needed",
             "Recommended circuit: Kruger (3+ nights) → Eswatini (1–2 nights) → KZN Drakensberg or Durban coast"
           ]
@@ -676,7 +700,8 @@
       ],
       "officialLinks": [
         { "label": "Eswatini Tourism Authority", "url": "https://www.thekingdomofeswatini.com" },
-        { "label": "Government of Eswatini (entry info)", "url": "https://www.gov.sz" },
+        { "label": "Government of Eswatini nationality table", "url": "https://www.gov.sz/index.php?id=314" },
+        { "label": "Eswatini eVisa application guidance", "url": "https://evisa.gov.sz/VisaApplicationGuidelines" },
         { "label": "Big Game Parks Eswatini (Hlane, Mkhaya, Mlilwane)", "url": "https://www.biggameparks.org" },
         { "label": "Swazi Candles", "url": "https://www.swazicandles.com" }
       ]

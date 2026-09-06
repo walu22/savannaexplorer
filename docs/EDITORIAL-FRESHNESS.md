@@ -24,6 +24,8 @@ Review evidence is stored separately in `data/editorial-review-evidence.json`, k
 
 Park reviews distinguish current exact tariffs, the latest official published tariff that still needs reconfirmation, and authorities that do not expose a dependable current public tariff. In the latter case, unsupported numeric estimates are removed from the public fee table rather than advanced with a new review date.
 
+Visa reviews treat a passport group as a convenience filter, not a legal category. Where a combined EU/Schengen or SADC profile contains different nationality rules, the public result must require an exact-passport check rather than promote the most generous allowance to the whole group. Visa-free duration, arrival eligibility and application-channel claims need record-level authority evidence; a generic government homepage is not enough. Country pages and the interactive matrix must be updated together so they cannot contradict each other.
+
 Border reviews use the usable overlap between both sides of a crossing rather than the latest closing time published by either country. When no dependable current authority schedule or live wait-time feed is available, the public record says to confirm directly; old operating hours, numeric wait ranges and vehicle-fee estimates are not advanced with a new review date. Opposite-side names are treated as one crossing, while renamed or corrected URL slugs retain permanent redirects.
 
 The next control-plane increment should add individual approvers, publication states, correction ownership, change history and automated source-link checks.

@@ -1,10 +1,61 @@
 {
   "meta": {
-    "lastVerified": "2026-06",
+    "lastVerified": "2026-09-06",
     "countryLastVerified": {
+      "south-africa": "2026-09-06",
+      "namibia": "2026-09-06",
+      "botswana": "2026-09-06",
+      "zambia": "2026-09-06",
       "zimbabwe": "2026-09-06",
       "mozambique": "2026-09-06",
-      "malawi": "2026-09-06"
+      "malawi": "2026-09-06",
+      "lesotho": "2026-09-06",
+      "eswatini": "2026-09-06"
+    },
+    "countrySources": {
+      "south-africa": [
+        { "label": "Visa-exemption list", "url": "https://www.dha.gov.za/index.php/immigration-services/exempt-countries" },
+        { "label": "Official ETA", "url": "https://eta.dha.gov.za/" },
+        { "label": "Children's travel guidance", "url": "https://www.dha.gov.za/index.php/statements-speeches/621-advisory-new-requirements-for-children-travelling-through-south-african-ports-of-entry-effective-1-june-2015" }
+      ],
+      "namibia": [
+        { "label": "Visa on arrival", "url": "https://eservices.mhaiss.gov.na/visaonarrival" },
+        { "label": "Holiday visa", "url": "https://eservices.mhaiss.gov.na/holidayvisa-services" },
+        { "label": "Official fact sheet", "url": "https://eservices.mhaiss.gov.na/form/FactSheetVisaRequirementstoNamibia.pdf" },
+        { "label": "Exempt passports", "url": "https://mhaiss.gov.na/countries-exempted" }
+      ],
+      "botswana": [
+        { "label": "Entry rules", "url": "https://www.gov.bw/about-our-country" },
+        { "label": "Visa applications", "url": "https://www.gov.bw/taxonomy/term/114?page=0" },
+        { "label": "Official eVisa checker", "url": "https://www.evisa.gov.bw/" }
+      ],
+      "zambia": [
+        { "label": "Visa-exempt passports", "url": "https://www.zambiaimmigration.gov.zm/nationals-who-dont-require-visa/" },
+        { "label": "Prior-visa passports", "url": "https://www.zambiaimmigration.gov.zm/nationals-requiring-visa-prior-to-travel/" },
+        { "label": "KAZA UniVisa", "url": "https://www.zambiaimmigration.gov.zm/kaza-univisa/" }
+      ],
+      "zimbabwe": [
+        { "label": "Visa categories", "url": "https://www.zimimmigration.gov.zw/?page_id=2984" },
+        { "label": "Official eVisa", "url": "https://evisa.gov.zw/" }
+      ],
+      "mozambique": [
+        { "label": "Visa eligibility", "url": "https://evisa.gov.mz/tourist-visa" }
+      ],
+      "malawi": [
+        { "label": "Visa guidance", "url": "https://www.immigration.gov.mw/visa/" },
+        { "label": "Official eVisa FAQ", "url": "https://evisa.gov.mw/Faq" },
+        { "label": "Eligibility checker", "url": "https://evisa.gov.mw/VisaAssistance" }
+      ],
+      "lesotho": [
+        { "label": "Home Affairs guidance", "url": "https://www.homeaffairs.gov.ls/do-i-need-a-visa/" },
+        { "label": "Nationality list", "url": "https://www.lesothoemb-usa.gov.ls/visa/" },
+        { "label": "eVisa service status", "url": "https://www.homeaffairs.gov.ls/eservices/" }
+      ],
+      "eswatini": [
+        { "label": "Nationality table", "url": "https://www.gov.sz/index.php?id=314" },
+        { "label": "Visa-exempt list", "url": "https://www.gov.sz/index.php?id=315&view=article" },
+        { "label": "Official eVisa guide", "url": "https://evisa.gov.sz/VisaApplicationGuidelines" }
+      ]
     },
     "disclaimer": "Passport-specific summaries are for trip planning only. Immigration rules change without notice — always confirm with the official source for your nationality before booking flights."
   },
@@ -21,48 +72,48 @@
   ],
   "rules": {
     "south-africa": {
-      "uk": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Tourism up to 90 days. Passport valid 30 days beyond departure; two blank pages. Minors need unabridged birth certificate." },
-      "us": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Same as UK — 90-day tourism. Yellow fever certificate if arriving from endemic countries." },
-      "eu": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "EU/Schengen passport holders typically receive 90-day visa-free entry." },
-      "au": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "90-day tourism standard for Australian passports." },
-      "ca": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Canadian passport holders typically visa-free 90 days." },
-      "za": { "status": "visa-free", "label": "Citizen / resident", "badgeClass": "green", "note": "South African citizens — ID or passport. SADC visitors check DHA list for visa-free days." },
-      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Most SADC nationals visa-free for tourism — confirm days allowed on DHA list." },
-      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require a visa before travel — apply via VFS or DHA channels." },
-      "other": { "status": "verify", "label": "Check official list", "badgeClass": "yellow", "note": "Verify your nationality on the Department of Home Affairs visa exemption list." }
+      "uk": { "status": "visa-free", "label": "Visa-exempt · 90 days", "badgeClass": "green", "note": "The current DHA exemption schedule lists ordinary UK passports for 90 days. Entry permission and the period stamped at the border remain an immigration decision." },
+      "us": { "status": "visa-free", "label": "Visa-exempt · 90 days", "badgeClass": "green", "note": "The current DHA exemption schedule lists ordinary US passports for 90 days. A yellow-fever certificate may be required after travel through a listed risk country." },
+      "eu": { "status": "verify", "label": "Check exact EU passport", "badgeClass": "yellow", "note": "EU and Schengen passports do not share one South African allowance. Most on the current DHA list receive 90 days, but Cyprus and Poland ordinary passports are listed for 30 days; verify the exact nationality." },
+      "au": { "status": "visa-free", "label": "Visa-exempt · 90 days", "badgeClass": "green", "note": "The current DHA exemption schedule lists ordinary Australian passports for 90 days." },
+      "ca": { "status": "visa-free", "label": "Visa-exempt · 90 days", "badgeClass": "green", "note": "The current DHA exemption schedule lists ordinary Canadian passports for 90 days." },
+      "za": { "status": "visa-free", "label": "South African citizen", "badgeClass": "green", "note": "Use a valid South African passport for international travel and confirm any additional documents required for the countries on your route." },
+      "sadc": { "status": "verify", "label": "Check exact SADC passport", "badgeClass": "yellow", "note": "SADC nationality alone does not create one visitor allowance. The current DHA schedule ranges from no ordinary-passport exemption to 30 or 90 days depending on the country." },
+      "in": { "status": "visa-required", "label": "Visa required before travel", "badgeClass": "red", "note": "Ordinary Indian passports are not visa-exempt. Check eligibility for South Africa's ETA or eVisa channel and note that online eligibility can depend on the arrival airport." },
+      "other": { "status": "verify", "label": "Check exact passport", "badgeClass": "yellow", "note": "Use the DHA exemption schedule for the exact passport type and nationality, then check whether the ETA or another visa channel applies." }
     },
     "namibia": {
-      "uk": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "From 1 Apr 2025: UK nationals need e-visa or visa-on-arrival (approx. N$1,200–1,600). Apply at eservices.mhaiss.gov.na." },
-      "us": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "US nationals require e-visa or VOA from Apr 2025 — not visa-free. Apply early online." },
-      "eu": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Most EU nationals need e-visa or VOA from Apr 2025 unless on reciprocal exemption list." },
-      "au": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Australian nationals need e-visa or VOA from Apr 2025." },
-      "ca": { "status": "e-visa-or-voa", "label": "E-visa or VOA", "badgeClass": "yellow", "note": "Canadian nationals need e-visa or VOA from Apr 2025." },
-      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South African passport holders visa-free — common self-drive loop with SA." },
-      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Many SADC nationals remain visa-free — confirm on mha.gov.na." },
-      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require visa — check Namibia e-visa portal." },
-      "other": { "status": "verify", "label": "Check official list", "badgeClass": "yellow", "note": "Rules changed Apr 2025 — verify exemption status on mha.gov.na before travel." }
+      "uk": { "status": "e-visa-or-voa", "label": "eVisa or VOA · N$1,600", "badgeClass": "yellow", "note": "Ordinary UK passports are in Namibia's visa-on-arrival programme. Apply online early or use in-person processing only at a supported port; the standard non-African adult fee is N$1,600." },
+      "us": { "status": "e-visa-or-voa", "label": "eVisa or VOA · N$1,600", "badgeClass": "yellow", "note": "Ordinary US passports are in Namibia's visa-on-arrival programme. Apply online early or use in-person processing only at a supported port; the standard non-African adult fee is N$1,600." },
+      "eu": { "status": "e-visa-or-voa", "label": "eVisa or VOA · check country", "badgeClass": "yellow", "note": "EU and Schengen passports on the official visa-on-arrival list can apply online or use supported arrival points. Confirm the exact nationality, fee and port before travel." },
+      "au": { "status": "e-visa-or-voa", "label": "eVisa or VOA · N$1,600", "badgeClass": "yellow", "note": "Ordinary Australian passports are in Namibia's visa-on-arrival programme. Apply online early or use in-person processing only at a supported port; the standard non-African adult fee is N$1,600." },
+      "ca": { "status": "e-visa-or-voa", "label": "eVisa or VOA · N$1,600", "badgeClass": "yellow", "note": "Ordinary Canadian passports are in Namibia's visa-on-arrival programme. Apply online early or use in-person processing only at a supported port; the standard non-African adult fee is N$1,600." },
+      "za": { "status": "visa-free", "label": "Visa-exempt", "badgeClass": "green", "note": "Ordinary South African passports are covered by Namibia's regional exemption arrangements. Confirm the permitted stay and carry a passport valid for at least six months beyond the intended stay." },
+      "sadc": { "status": "verify", "label": "Check exact SADC passport", "badgeClass": "yellow", "note": "Regional treatment varies by nationality. Check the exact passport against Namibia's exemption and visa-on-arrival lists rather than relying on SADC membership alone." },
+      "in": { "status": "visa-required", "label": "Holiday visa required", "badgeClass": "red", "note": "India is not listed for Namibia's visa-on-arrival programme. Use the official Holiday Visa service and obtain approval before travel." },
+      "other": { "status": "verify", "label": "Check exact passport", "badgeClass": "yellow", "note": "Check both the exemption list and visa-on-arrival list, then confirm whether your entry point handles in-person VOA, eVisa only, or neither." }
     },
     "botswana": {
-      "uk": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "UK passport holders typically 90-day visa-free tourism." },
-      "us": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "US citizens visa-free up to 90 days for tourism." },
-      "eu": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "EU/Schengen passport holders typically visa-free 90 days." },
-      "au": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Australian passport holders typically visa-free 90 days." },
-      "ca": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Canadian passport holders typically visa-free 90 days." },
-      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — Martin's Drift and Tlokweng common entry points." },
-      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "SADC nationals generally visa-free — confirm on gov.bw." },
-      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require visa before travel." },
-      "other": { "status": "verify", "label": "Check official list", "badgeClass": "yellow", "note": "Confirm visa requirements on Botswana immigration guidance." }
+      "uk": { "status": "visa-free", "label": "Visa-exempt · up to 90 days", "badgeClass": "green", "note": "UK citizens are covered by Botswana's Commonwealth exemption. Visitor time is limited to 90 days in a calendar year; the border stamp controls the permitted stay." },
+      "us": { "status": "visa-free", "label": "Visa-exempt · up to 90 days", "badgeClass": "green", "note": "US tourist and business visits are visa-exempt for up to 90 days. Use Botswana's official eVisa checker before travel because bilateral exemptions can change." },
+      "eu": { "status": "verify", "label": "Check exact EU passport", "badgeClass": "yellow", "note": "Botswana applies nationality-specific bilateral agreements, not an EU-wide rule. Check the exact passport in the official eVisa service before travel." },
+      "au": { "status": "visa-free", "label": "Visa-exempt · up to 90 days", "badgeClass": "green", "note": "Australian citizens are covered by Botswana's Commonwealth exemption. Visitor time is limited to 90 days in a calendar year." },
+      "ca": { "status": "visa-free", "label": "Visa-exempt · up to 90 days", "badgeClass": "green", "note": "Canadian citizens are covered by Botswana's Commonwealth exemption. Visitor time is limited to 90 days in a calendar year." },
+      "za": { "status": "visa-free", "label": "Visa-exempt", "badgeClass": "green", "note": "Ordinary South African passports are visa-exempt. Carry a passport valid for at least six months and confirm the stay granted at entry." },
+      "sadc": { "status": "verify", "label": "Check exact SADC passport", "badgeClass": "yellow", "note": "SADC membership is not a blanket Botswana visa exemption. Check the exact nationality in the official eVisa service." },
+      "in": { "status": "visa-required", "label": "Tourism visa required", "badgeClass": "red", "note": "India is one of the Commonwealth countries Botswana explicitly excludes from the exemption. Apply online before travel; official guidance gives a typical 7–14 working-day service window." },
+      "other": { "status": "verify", "label": "Check exact passport", "badgeClass": "yellow", "note": "Use Botswana's official eVisa checker. Visa-required tourists should apply online and travel with the approval letter if instructed." }
     },
     "zambia": {
-      "uk": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "UK nationals visa-free 90 days. KAZA UniVisa (USD 50) useful for Zimbabwe side of Victoria Falls." },
-      "us": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "US citizens visa-free 90 days. KAZA UniVisa covers Zambia + Zimbabwe for Falls circuits." },
-      "eu": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "EU passport holders typically visa-free 90 days." },
-      "au": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Australian passport holders typically visa-free 90 days." },
-      "ca": { "status": "visa-free", "label": "Visa-free 90 days", "badgeClass": "green", "note": "Canadian passport holders typically visa-free 90 days." },
-      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — Kazungula bridge from Botswana." },
-      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Most SADC nationals visa-free — verify on zambiaimmigration.gov.zm." },
-      "in": { "status": "e-visa", "label": "E-visa", "badgeClass": "yellow", "note": "Indian nationals apply e-visa online before travel." },
-      "other": { "status": "verify", "label": "Check / e-visa", "badgeClass": "yellow", "note": "E-visa available for many nationalities — check zambiaimmigration.gov.zm." }
+      "uk": { "status": "visa-free", "label": "Visa-exempt · up to 90 days", "badgeClass": "green", "note": "The Zambia Immigration exemption list includes the United Kingdom. Visitors and tourists may be permitted up to 90 days in a 12-month period; KAZA is relevant only when an eligible itinerary also needs Zimbabwe access." },
+      "us": { "status": "visa-free", "label": "Visa-exempt · up to 90 days", "badgeClass": "green", "note": "The Zambia Immigration exemption list includes the United States. Visitors and tourists may be permitted up to 90 days in a 12-month period; KAZA is relevant only when an eligible itinerary also needs Zimbabwe access." },
+      "eu": { "status": "visa-free", "label": "Visa-exempt · check country", "badgeClass": "green", "note": "Current Zambia Immigration guidance lists EU and Schengen nationalities in this profile as visa-exempt. Confirm the exact passport and permitted stay before departure." },
+      "au": { "status": "visa-free", "label": "Visa-exempt · up to 90 days", "badgeClass": "green", "note": "The Zambia Immigration exemption list includes Australia. Visitors and tourists may be permitted up to 90 days in a 12-month period." },
+      "ca": { "status": "visa-free", "label": "Visa-exempt · up to 90 days", "badgeClass": "green", "note": "The Zambia Immigration exemption list includes Canada. Visitors and tourists may be permitted up to 90 days in a 12-month period." },
+      "za": { "status": "visa-free", "label": "Visa-exempt", "badgeClass": "green", "note": "The Zambia Immigration exemption list includes South Africa. Confirm the stay stamped at entry and any re-entry requirements for the rest of the route." },
+      "sadc": { "status": "verify", "label": "Check exact SADC passport", "badgeClass": "yellow", "note": "Zambia splits regional passports across visa-exempt, visa-on-arrival and prior-approval categories. Check the exact nationality rather than relying on SADC membership." },
+      "in": { "status": "visa-required", "label": "Prior approval required", "badgeClass": "red", "note": "India is on Zambia's prior-visa list. Apply through the official eServices portal and receive the approval letter before travelling; this is not a standard visa-on-arrival route." },
+      "other": { "status": "verify", "label": "Check visa category", "badgeClass": "yellow", "note": "Check whether the passport is visa-exempt, eligible for visa on arrival, or requires approval before travel. These are distinct Zambia Immigration categories." }
     },
     "zimbabwe": {
       "uk": { "status": "e-visa-or-voa", "label": "VOA or eVisa", "badgeClass": "yellow", "note": "UK nationals are Category B: a visa is required but can be obtained at the port of entry or through the official eVisa service. Eligible travellers may consider the KAZA UniVisa." },
@@ -98,32 +149,32 @@
       "other": { "status": "verify", "label": "Check visa route", "badgeClass": "yellow", "note": "Check the official 2026 exemption schedule and eligibility wizard; Category Two may use visa on arrival while Category One needs approval before departure." }
     },
     "lesotho": {
-      "uk": { "status": "visa-free", "label": "Visa-free 14–90 days", "badgeClass": "green", "note": "UK nationals visa-free. Entry only via South Africa — ensure SA visa allows re-entry." },
-      "us": { "status": "visa-free", "label": "Visa-free 14–90 days", "badgeClass": "green", "note": "US citizens visa-free. Must enter through South Africa." },
-      "eu": { "status": "visa-free", "label": "Visa-free 14–90 days", "badgeClass": "green", "note": "EU passport holders typically visa-free." },
-      "au": { "status": "visa-free", "label": "Visa-free 14–90 days", "badgeClass": "green", "note": "Australian passport holders typically visa-free." },
-      "ca": { "status": "visa-free", "label": "Visa-free 14–90 days", "badgeClass": "green", "note": "Canadian passport holders typically visa-free." },
-      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — Maseru Bridge and Sani Pass entries." },
-      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "SADC nationals generally visa-free — entry via SA only." },
-      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require visa — apply before travel." },
-      "other": { "status": "verify", "label": "Check official list", "badgeClass": "yellow", "note": "Verify on homeaffairs.gov.ls — entry always via South Africa." }
+      "uk": { "status": "visa-free", "label": "Visa-exempt", "badgeClass": "green", "note": "Lesotho's official embassy nationality table lists UK passports as visa-exempt. Most routes transit South Africa, so confirm South African entry and re-entry separately." },
+      "us": { "status": "visa-free", "label": "Visa-exempt", "badgeClass": "green", "note": "Lesotho's official embassy nationality table lists US passports as visa-exempt. Most routes transit South Africa, so confirm South African entry and re-entry separately." },
+      "eu": { "status": "verify", "label": "Check exact EU passport", "badgeClass": "yellow", "note": "EU and Schengen passports do not share one Lesotho rule. Some nationalities are exempt, some are exempt only for stays up to 14 days, and others require a visa." },
+      "au": { "status": "visa-free", "label": "Visa-exempt · up to 14 days", "badgeClass": "green", "note": "Australian citizens are listed as visa-exempt only for stays not exceeding 14 days. A longer stay requires a visa." },
+      "ca": { "status": "visa-free", "label": "Visa-exempt · up to 14 days", "badgeClass": "green", "note": "Canadian citizens are listed as visa-exempt only for stays not exceeding 14 days. A longer stay requires a visa." },
+      "za": { "status": "visa-free", "label": "Visa-exempt", "badgeClass": "green", "note": "Lesotho's official nationality table lists South African passports as visa-exempt. Carry a valid passport and confirm any vehicle documents for the crossing." },
+      "sadc": { "status": "verify", "label": "Check exact SADC passport", "badgeClass": "yellow", "note": "Lesotho's nationality table is mixed across SADC: several passports are exempt while others require a visa. Check the exact nationality." },
+      "in": { "status": "visa-required", "label": "Visa required before travel", "badgeClass": "red", "note": "Indian citizens are listed as visa-required. Lesotho currently says its eVisa application system is suspended; follow Home Affairs' published email/manual application instructions before travel." },
+      "other": { "status": "verify", "label": "Check exact passport", "badgeClass": "yellow", "note": "Check the official nationality table. If a visa is required, note that Home Affairs currently reports the eVisa application system as suspended and provides an email application route." }
     },
     "eswatini": {
-      "uk": { "status": "visa-free", "label": "Visa-free 30 days", "badgeClass": "green", "note": "UK nationals visa-free 30 days. Enter via Oshoek or Golela from South Africa." },
-      "us": { "status": "visa-free", "label": "Visa-free 30 days", "badgeClass": "green", "note": "US citizens visa-free 30 days for tourism." },
-      "eu": { "status": "visa-free", "label": "Visa-free 30 days", "badgeClass": "green", "note": "EU passport holders typically visa-free 30 days." },
-      "au": { "status": "visa-free", "label": "Visa-free 30 days", "badgeClass": "green", "note": "Australian passport holders typically visa-free 30 days." },
-      "ca": { "status": "visa-free", "label": "Visa-free 30 days", "badgeClass": "green", "note": "Canadian passport holders typically visa-free 30 days." },
-      "za": { "status": "visa-free", "label": "Visa-free", "badgeClass": "green", "note": "South Africans visa-free — day trip from Kruger/Mpumalanga common." },
-      "sadc": { "status": "visa-free", "label": "Usually visa-free", "badgeClass": "green", "note": "Most SADC nationals visa-free — verify on gov.sz." },
-      "in": { "status": "visa-required", "label": "Visa required", "badgeClass": "red", "note": "Indian nationals require visa before travel." },
-      "other": { "status": "verify", "label": "Check official list", "badgeClass": "yellow", "note": "Verify on gov.sz — access via South Africa or Mozambique." }
+      "uk": { "status": "visa-free", "label": "Visa-exempt", "badgeClass": "green", "note": "The current Eswatini government nationality table lists the United Kingdom as not requiring a visa. Confirm the stay granted at entry." },
+      "us": { "status": "visa-free", "label": "Visa-exempt", "badgeClass": "green", "note": "The current Eswatini government nationality table lists the USA as not requiring a visa. Confirm the stay granted at entry." },
+      "eu": { "status": "verify", "label": "Check exact EU passport", "badgeClass": "yellow", "note": "Most EU and Schengen passports in this combined profile are visa-exempt, but Eswatini publishes nationality-specific rules. Check the exact passport in the official table." },
+      "au": { "status": "visa-free", "label": "Visa-exempt", "badgeClass": "green", "note": "The current Eswatini government nationality table lists Australia as not requiring a visa. Confirm the stay granted at entry." },
+      "ca": { "status": "visa-free", "label": "Visa-exempt", "badgeClass": "green", "note": "The current Eswatini government nationality table lists Canada as not requiring a visa. Confirm the stay granted at entry." },
+      "za": { "status": "visa-free", "label": "Visa-exempt", "badgeClass": "green", "note": "The current Eswatini government nationality table lists South Africa as not requiring a visa. Carry a valid passport for the international crossing." },
+      "sadc": { "status": "verify", "label": "Check exact SADC passport", "badgeClass": "yellow", "note": "Eswatini's published table is nationality-specific, so SADC membership alone is not enough to determine the requirement." },
+      "in": { "status": "visa-required", "label": "Visa required before travel", "badgeClass": "red", "note": "The current Eswatini government table marks India as visa-required. Apply before departure; official guidance says visa on arrival is suspended during the eVisa rollout." },
+      "other": { "status": "verify", "label": "Check exact passport", "badgeClass": "yellow", "note": "Check the official nationality table. If a visa is required, apply before departure because government guidance says visa on arrival is suspended." }
     }
   },
   "kazaTip": {
     "passports": ["uk", "us", "eu", "au", "ca"],
     "countries": ["zambia", "zimbabwe"],
     "label": "KAZA UniVisa tip",
-    "note": "Eligible passports: USD 50 cash on arrival at Livingstone, Victoria Falls, or Kazungula — 30 days unlimited ZM↔ZW crossings plus same-day Chobe day trips. Does not cover overnight Botswana stays. See cross-border guide in Transport hub."
+    "note": "Eligible passports: USD 50 at a designated issuing port for multiple Zambia–Zimbabwe crossings for up to 30 days, plus Botswana day trips through Kazungula. It does not cover overnight Botswana stays. Verify passport eligibility, port availability and payment method before travel."
   }
 }

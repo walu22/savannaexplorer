@@ -36,8 +36,8 @@
       "visa": { "label": "Passport-dependent", "badgeClass": "yellow" },
       "health": { "label": "Yellow Fever*", "badgeClass": "yellow" },
       "advisory": { "label": "Exercise caution", "badgeClass": "yellow" },
-      "note": "Visa status and the permitted stay depend on the passport used. Eligible short-stay visitors may be exempt; visa-required travellers should use South Africa's official immigration channels. A yellow fever certificate may be required after travel through a listed risk country.",
-      "sourceUrl": "https://eta.dha.gov.za/",
+    "note": "Visa status and the permitted stay depend on the exact passport used. The current exemption schedule gives different allowances even within EU and SADC groupings; visa-required travellers should check ETA or other official channels. A yellow fever certificate may be required after travel through a listed risk country.",
+    "sourceUrl": "https://www.dha.gov.za/index.php/immigration-services/exempt-countries",
       "visaLastVerified": "2026-09-06",
       "lastVerified": "2026-03"
     },
@@ -120,7 +120,7 @@
       "visa": { "label": "Varies by passport", "badgeClass": "yellow" },
       "health": { "label": "Low malaria", "badgeClass": "green" },
       "advisory": { "label": "Low risk", "badgeClass": "green" },
-      "note": "Foreign visitors generally need an eVisa unless their country has a visa-abolition agreement or qualifies for a listed Commonwealth exemption. Check the official passport checker, and plan for South African entry and re-entry on an overland trip.",
+    "note": "Foreign visitors generally need a visa unless their country has an exemption. The official nationality list includes different rules and stay limits; Lesotho currently reports its eVisa application system as suspended. Check the exact passport and plan for South African entry and re-entry.",
       "sourceUrl": "https://www.homeaffairs.gov.ls/do-i-need-a-visa/",
       "visaLastVerified": "2026-09-06",
       "lastVerified": "2026-03"
@@ -132,8 +132,8 @@
       "visa": { "label": "Varies by passport", "badgeClass": "yellow" },
       "health": { "label": "Low malaria", "badgeClass": "green" },
       "advisory": { "label": "Low risk", "badgeClass": "green" },
-      "note": "Visa status depends on nationality. If a country appears on Eswatini's visa-required list, apply through the official immigration or eVisa channel; a visitor visa is for stays of no more than one month. Confirm before crossing from South Africa or Mozambique.",
-      "sourceUrl": "https://evisa.gov.sz/VisaApplicationGuidelines",
+    "note": "Visa status depends on nationality, not a broad regional grouping. If a country is marked visa-required in Eswatini's official table, apply before departure because government guidance says visa on arrival is suspended during the eVisa rollout.",
+    "sourceUrl": "https://www.gov.sz/index.php?id=314",
       "visaLastVerified": "2026-09-06",
       "lastVerified": "2026-03"
     }

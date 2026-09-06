@@ -3,6 +3,7 @@ import {
     getPassportMeta,
     getVisaForPassport,
     getVisaPassportLastVerified,
+    getVisaSourceLinks,
     needsVisaAction,
     summarizeAllCountries,
     summarizeTripVisas,
@@ -81,9 +82,13 @@ function renderVisaMatrix(passportId) {
         notes.innerHTML = practical.visaHealth.map(row => {
             const passportVisa = getVisaForPassport(row.id, passportId);
             const noteText = passportVisa?.note || row.note;
+            const sourceLinks = getVisaSourceLinks(row.id);
+            const sourceHtml = sourceLinks.length
+                ? sourceLinks.map(source => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a>`).join(' · ')
+                : `<a href="${escapeHtml(row.sourceUrl)}" target="_blank" rel="noopener noreferrer">Official source</a>`;
             return `
             <details class="hub-visa-detail${passportVisa && needsVisaAction(passportVisa.status) ? ' hub-visa-detail--action' : ''}">
-                <summary>${row.flag} ${row.name} — <a href="${row.sourceUrl}" target="_blank" rel="noopener noreferrer">Official source</a> · verified ${getVisaPassportLastVerified(row.id)}</summary>
+                <summary>${row.flag} ${row.name} — ${sourceHtml} · verified ${getVisaPassportLastVerified(row.id)}</summary>
                 <p>${escapeHtml(noteText)}</p>
             </details>
         `;
@@ -115,6 +120,8 @@ export function buildTripVisaBlock(countryId, passportId) {
 
     const visaLabel = passportVisa?.label || visa.visa.label;
     const noteText = passportVisa?.note || visa.note;
+    const sourceUrls = getVisaSourceLinks(countryId).map(source => source.url);
+    const officialSources = sourceUrls.length ? sourceUrls.join(' · ') : visa.sourceUrl;
 
     return `
         <p class="print-meta"><strong>Visa (${escapeHtml(passportMeta?.short || passportMeta?.label || passportId)}):</strong> ${escapeHtml(visaLabel)} ·
@@ -122,7 +129,7 @@ export function buildTripVisaBlock(countryId, passportId) {
         <strong>Advisory:</strong> ${escapeHtml(visa.advisory.label)}
         <span class="print-verified">(verified ${escapeHtml(getVisaPassportLastVerified(countryId))})</span></p>
         <p>${escapeHtml(noteText)}</p>
-        <p class="print-source"><strong>Official immigration:</strong> ${escapeHtml(visa.sourceUrl)}</p>
+        <p class="print-source"><strong>Official immigration:</strong> ${escapeHtml(officialSources)}</p>
     `;
 }
 

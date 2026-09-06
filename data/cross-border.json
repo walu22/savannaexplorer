@@ -9,12 +9,12 @@
       "id": "kaza-univisa",
       "icon": "🛂",
       "title": "KAZA UniVisa (Zambia & Zimbabwe)",
-      "summary": "One USD 50 visa for unlimited crossings between Zambia and Zimbabwe for 30 days, plus same-day Chobe day trips via Kazungula — the essential document for Victoria Falls circuits.",
+      "summary": "An optional USD 50 visa for eligible passports covering multiple Zambia–Zimbabwe crossings for up to 30 days, plus Botswana day trips through Kazungula.",
       "facts": [
-        { "label": "Cost", "value": "USD 50 cash on arrival" },
+        { "label": "Cost", "value": "USD 50 at a designated issuing port" },
         { "label": "Validity", "value": "30 days · multiple entries ZM ↔ ZW" },
         { "label": "Botswana", "value": "Day trips only via Kazungula — no overnight stay" },
-        { "label": "Payment", "value": "USD cash — carry exact notes; cards unreliable" }
+        { "label": "Before travel", "value": "Verify passport eligibility, port availability and payment method" }
       ],
       "sections": [
         {
@@ -42,7 +42,7 @@
       ],
       "sourceUrl": "https://www.zambiaimmigration.gov.zm/kaza-univisa/",
       "linkLabel": "Zambia Immigration — KAZA UniVisa",
-      "lastVerified": "2026-06"
+      "lastVerified": "2026-09-06"
     },
     {
       "id": "comesa-yellow-card",
@@ -154,7 +154,7 @@
           "heading": "What to budget in cash",
           "body": "Per-vehicle road access, carbon tax, and third-party insurance vary by country. Rental cross-border fees are paid to the company, not at the post.",
           "bullets": [
-            "KAZA UniVisa: USD 50 exact per eligible traveller",
+            "KAZA UniVisa: USD 50 per eligible traveller; confirm payment method at the issuing port",
             "Namibia VOA/e-visa: NAD cash at some posts — confirm current N$ amount before travel",
             "Bridge tolls: Kazungula, Beitbridge — small USD or local notes",
             "Keep receipt stubs — some countries require exit proof of entry payment"
@@ -200,7 +200,7 @@
       "name": "South Africa",
       "currency": "ZAR / USD at some posts",
       "vehicleEstimate": "Included in exit — ensure rental letter covers return",
-      "notes": "Unabridged birth certificate for travelling minors. ZA sticker on foreign-registered vehicles entering SA.",
+      "notes": "Check current Home Affairs child-travel documents for your circumstances. ZA sticker on foreign-registered vehicles entering SA.",
       "lastVerified": "2026-06"
     },
     {

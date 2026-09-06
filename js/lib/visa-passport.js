@@ -126,3 +126,10 @@ export function getVisaPassportLastVerified(countryId) {
     return visaPassportData.meta.countryLastVerified?.[countryId]
         || visaPassportData.meta.lastVerified;
 }
+
+export function getVisaSourceLinks(countryId) {
+    const links = visaPassportData.meta.countrySources?.[countryId];
+    if (!Array.isArray(links)) return [];
+
+    return links.filter(link => link?.label && /^https:\/\//.test(link?.url));
+}

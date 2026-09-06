@@ -75,9 +75,22 @@
     },
     {
       "recordId": "visa-summary:south-africa",
-      "outcome": "rewritten",
-      "evidence": "DHA guidance makes eligibility passport-specific and provides an ETA route for eligible travellers. Broad regional promises were replaced with a passport-dependent summary.",
-      "sourceUrls": ["https://eta.dha.gov.za/"]
+      "outcome": "clarified",
+      "evidence": "DHA's exemption schedule issued 9 December 2025 confirms that passport and passport type control eligibility and permitted stay. The ETA is a separate route for eligible visa-required and visa-exempt travellers.",
+      "sourceUrls": [
+        "https://www.dha.gov.za/index.php/immigration-services/exempt-countries",
+        "https://eta.dha.gov.za/"
+      ]
+    },
+    {
+      "recordId": "visa-matrix:south-africa",
+      "outcome": "corrected",
+      "evidence": "The current DHA schedule confirms 90-day ordinary-passport exemptions for UK, US, Australia and Canada, but only 30 days for Cyprus and Poland, making the old EU-wide 90-day claim unsafe. The blanket birth-certificate statement and ID-or-passport advice were also removed in favour of current passport and child-travel guidance.",
+      "sourceUrls": [
+        "https://www.dha.gov.za/index.php/immigration-services/exempt-countries",
+        "https://eta.dha.gov.za/",
+        "https://www.dha.gov.za/index.php/statements-speeches/621-advisory-new-requirements-for-children-travelling-through-south-african-ports-of-entry-effective-1-june-2015"
+      ]
     },
     {
       "recordId": "visa-summary:namibia",
@@ -85,7 +98,18 @@
       "evidence": "Namibia's official visa-on-arrival service and government fact sheet confirm the reciprocal regime introduced on 1 April 2025, including the N$1,600 standard adult fee for affected non-African passports.",
       "sourceUrls": [
         "https://eservices.mhaiss.gov.na/visaonarrival",
-        "https://mhaiss.gov.na/documents/292728/5902034/Fact%2BSheet%2B-%2BVisa%2BRequirements_version%2B3%2B-%2Bdated%2B31%2BMarch%2B2025%2B%281%29.pdf/990e4e96-3641-e719-488d-a738080a1f87?download=true&t=1745925479946"
+        "https://eservices.mhaiss.gov.na/form/FactSheetVisaRequirementstoNamibia.pdf"
+      ]
+    },
+    {
+      "recordId": "visa-matrix:namibia",
+      "outcome": "clarified",
+      "evidence": "Namibia's current portal lists UK, US, EU/Schengen, Australian and Canadian passports for visa on arrival, with the fact sheet distinguishing entry points that process in-person VOA from eVisa-only ports. India is absent from the VOA list and must use the Holiday Visa route; broad SADC treatment was replaced with an exact-nationality check.",
+      "sourceUrls": [
+        "https://eservices.mhaiss.gov.na/visaonarrival",
+        "https://eservices.mhaiss.gov.na/form/FactSheetVisaRequirementstoNamibia.pdf",
+        "https://eservices.mhaiss.gov.na/holidayvisa-services",
+        "https://mhaiss.gov.na/countries-exempted"
       ]
     },
     {
@@ -95,12 +119,33 @@
       "sourceUrls": ["https://www.gov.bw/about-our-country"]
     },
     {
+      "recordId": "visa-matrix:botswana",
+      "outcome": "clarified",
+      "evidence": "Botswana confirms Commonwealth visa exemption with named exceptions including India, while other exemptions depend on bilateral agreements and visitor time is capped at 90 days per calendar year. The old EU-wide and SADC-wide promises were replaced with exact-nationality checks; visa-required tourists are directed to the official application route.",
+      "sourceUrls": [
+        "https://www.gov.bw/about-our-country",
+        "https://www.gov.bw/taxonomy/term/114?page=0",
+        "https://www.evisa.gov.bw/"
+      ]
+    },
+    {
       "recordId": "visa-summary:zambia",
       "outcome": "updated",
       "evidence": "Zambia Immigration confirms three nationality categories, a visitor/tourist allowance up to 90 days in 12 months, and the USD 50 KAZA UniVisa for eligible trips.",
       "sourceUrls": [
         "https://www.zambiaimmigration.gov.zm/for-visitors/",
         "https://www.zambiaimmigration.gov.zm/nationals-who-dont-require-visa/"
+      ]
+    },
+    {
+      "recordId": "visa-matrix:zambia",
+      "outcome": "corrected",
+      "evidence": "Zambia's current lists confirm visa exemption for the selected UK, US, EU/Schengen, Australian, Canadian and South African profiles. India is explicitly in the prior-visa category and requires online approval before travel, correcting the old generic eVisa label. Regional passports span all three categories and can no longer be described as uniformly visa-free.",
+      "sourceUrls": [
+        "https://www.zambiaimmigration.gov.zm/nationals-who-dont-require-visa/",
+        "https://www.zambiaimmigration.gov.zm/nationals-requiring-visa-prior-to-travel/",
+        "https://www.zambiaimmigration.gov.zm/for-visitors/",
+        "https://www.zambiaimmigration.gov.zm/kaza-univisa/"
       ]
     },
     {
@@ -151,15 +196,41 @@
     },
     {
       "recordId": "visa-summary:lesotho",
-      "outcome": "rewritten",
-      "evidence": "Lesotho Home Affairs says foreign visitors generally need the eVisa unless covered by a visa-abolition agreement or an eligible Commonwealth exemption.",
-      "sourceUrls": ["https://www.homeaffairs.gov.ls/do-i-need-a-visa/"]
+      "outcome": "clarified",
+      "evidence": "Lesotho Home Affairs says visitors need a visa unless covered by an agreement or exemption, and its eServices page currently reports eVisa applications as suspended with an email application route.",
+      "sourceUrls": [
+        "https://www.homeaffairs.gov.ls/do-i-need-a-visa/",
+        "https://www.homeaffairs.gov.ls/eservices/"
+      ]
+    },
+    {
+      "recordId": "visa-matrix:lesotho",
+      "outcome": "corrected",
+      "evidence": "Lesotho's official embassy table shows that UK, US and South African passports are exempt, Australia and Canada are exempt only for stays up to 14 days, EU/Schengen nationalities vary substantially, and India requires a visa. This replaces the unsupported blanket '14–90 days' claim and records the current eVisa suspension.",
+      "sourceUrls": [
+        "https://www.lesothoemb-usa.gov.ls/visa/",
+        "https://www.homeaffairs.gov.ls/do-i-need-a-visa/",
+        "https://www.homeaffairs.gov.ls/eservices/"
+      ]
     },
     {
       "recordId": "visa-summary:eswatini",
-      "outcome": "rewritten",
-      "evidence": "Eswatini's official guidelines make the requirement nationality-specific and limit the visitor visa category to stays of no more than one month.",
-      "sourceUrls": ["https://evisa.gov.sz/VisaApplicationGuidelines"]
+      "outcome": "clarified",
+      "evidence": "Eswatini publishes nationality-specific requirements and says visa-required visitors should obtain permission before departure because visa on arrival is suspended during the eVisa rollout.",
+      "sourceUrls": [
+        "https://www.gov.sz/index.php?id=314",
+        "https://evisa.gov.sz/VisaApplicationGuidelines"
+      ]
+    },
+    {
+      "recordId": "visa-matrix:eswatini",
+      "outcome": "corrected",
+      "evidence": "Eswatini's current government table marks UK, US, Australia, Canada and South Africa as visa-exempt and India as visa-required. The old fixed 30-day promise was removed because the published exemption list does not state one universal stay, while EU and SADC groupings now require an exact-nationality check.",
+      "sourceUrls": [
+        "https://www.gov.sz/index.php?id=314",
+        "https://www.gov.sz/index.php?id=315&view=article",
+        "https://evisa.gov.sz/VisaApplicationGuidelines"
+      ]
     },
     {
       "recordId": "travel-advisory:south-africa",
