@@ -322,6 +322,96 @@
     },
     {
       "recordId": "park-fee:malolotja", "outcome": "corrected-authority-and-withdrawn-price", "evidence": "Malolotja is managed by the Eswatini National Trust Commission, not Big Game Parks. ENTC confirms 06:00 to 18:00 daily visiting hours but no dependable current tariff was captured, so the old E50/E25/E40 values were withdrawn.", "sourceUrls": ["https://entc.org.sz/malolotja-game-reserve/"]
+    },
+    {
+      "recordId": "border:vioolsdrift", "outcome": "confirmed-and-canonicalized", "evidence": "South Africa's BMA and Namibia's published customs schedule both list Vioolsdrift / Noordoewer as a 24-hour crossing. The generic ministry link and unsupported fee range were replaced.", "sourceUrls": ["https://www.bma.gov.za/ports-of-entry-2/", "https://www.namra.org.na/documents/cms/uploaded/hours-of-general-and-special-attendance-ac170f50bc.pdf"]
+    },
+    {
+      "recordId": "border:martins-drift", "outcome": "deduplicated-and-corrected", "evidence": "Martin's Drift and Groblersbrug are opposite sides of one crossing. BMA lists Groblersbrug at 08:00 to 22:00; the duplicate Groblersbrug card and unsupported 06:00 opening were removed.", "sourceUrls": ["https://www.bma.gov.za/ports-of-entry-2/"]
+    },
+    {
+      "recordId": "border:beitbridge", "outcome": "confirmed", "evidence": "BMA lists Beitbridge as a 24-hour port. The card no longer presents invented live-wait or numeric vehicle-fee ranges.", "sourceUrls": ["https://www.bma.gov.za/ports-of-entry-2/", "https://www.zimra.co.zw/contact-us/contacts"]
+    },
+    {
+      "recordId": "border:kazungula", "outcome": "corrected-with-live-status-warning", "evidence": "Kazungula Bridge directly joins Botswana and Zambia, not Zimbabwe. Botswana's April 2026 notice says the planned 24-hour rollout was stalled without a new date; Zambia's published schedule lists 06:00 to 18:00.", "sourceUrls": ["https://dailynews.gov.bw/news-detail/90675", "https://www.zambiaimmigration.gov.zm/wp-content/uploads/2020/06/SI-129-of-2011.pdf"]
+    },
+    {
+      "recordId": "border:vic-falls-bridge", "outcome": "corrected", "evidence": "Zambia's official schedule lists Victoria Falls Border Control at 06:00 to 20:00. The crossing serves both pedestrians and vehicles, and the immigration authority confirms the passport-dependent KAZA and day-tripper facilities.", "sourceUrls": ["https://www.zambiaimmigration.gov.zm/for-visitors/", "https://www.zambiaimmigration.gov.zm/wp-content/uploads/2020/06/SI-129-of-2011.pdf"]
+    },
+    {
+      "recordId": "border:ngoma", "outcome": "unverified-hours-withdrawn", "evidence": "Namibia confirms Ngoma as an official land border and visa-on-arrival point but the reviewed authority pages do not publish dependable current passenger hours. The unsupported 06:00 to 18:00 claim was replaced with a direct-confirmation instruction.", "sourceUrls": ["https://mhaiss.gov.na/map-of-port-of-entries", "https://eservices.mhaiss.gov.na/form/FactSheetVisaRequirementstoNamibia.pdf"]
+    },
+    {
+      "recordId": "border:lebombo", "outcome": "deduplicated-and-corrected", "evidence": "Lebombo and Ressano Garcia are the two sides of one crossing. BMA publishes 06:00 to midnight on the South African side; Mozambique reports 24-hour Ressano Garcia operations, so the practical joint window uses the earlier close.", "sourceUrls": ["https://www.bma.gov.za/ports-of-entry-2/", "https://www.mtc.gov.mz/images/Leme%20Julho%202024%20123.pdf"]
+    },
+    {
+      "recordId": "border:maseru-bridge", "outcome": "confirmed", "evidence": "Both Lesotho Home Affairs and South Africa's BMA list Maseru Bridge as a 24-hour crossing. Unsupported wait and fee estimates were removed.", "sourceUrls": ["https://www.homeaffairs.gov.ls/immigration/", "https://www.bma.gov.za/ports-of-entry-2/"]
+    },
+    {
+      "recordId": "border:oshoek", "outcome": "corrected-to-shared-window", "evidence": "BMA lists Oshoek at 07:00 to 22:00 while Eswatini customs publishes later processing at Ngwenya. The card now uses the South African-side close as the safe practical limit.", "sourceUrls": ["https://www.bma.gov.za/ports-of-entry-2/", "https://www.ers.org.sz/CustomExcise/OfficeandOperating"]
+    },
+    {
+      "recordId": "border:mwami-mchinji", "outcome": "replaced-invalid-crossing", "evidence": "Malawi Immigration confirms Mchinji borders Zambia's Mwami post; Zambia's statutory schedule lists Mwami for 24-hour operation. This replaces the geographically incorrect Nakonde / Tunduma Zambia–Malawi card.", "sourceUrls": ["https://www.immigration.gov.mw/physical-addresses/", "https://www.zambiaimmigration.gov.zm/wp-content/uploads/2020/06/SI-129-of-2011.pdf"]
+    },
+    {
+      "recordId": "border:chirundu", "outcome": "corrected", "evidence": "Zambia's published statutory schedule lists Chirundu at 06:00 to 20:00, not 18:00. The unsupported KAZA reference, numeric fee range and live-wait estimate were removed.", "sourceUrls": ["https://www.zambiaimmigration.gov.zm/wp-content/uploads/2020/06/SI-129-of-2011.pdf", "https://www.zimra.co.zw/contact-us/contacts"]
+    },
+    {
+      "recordId": "border:plumtree", "outcome": "corrected-and-qualified", "evidence": "ZIMRA confirms the Plumtree post and Botswana reporting identifies 06:00 to 22:00 normal staffing. Official notices show that 24-hour schedules have been temporary festive extensions, not normal hours.", "sourceUrls": ["https://www.zimra.co.zw/contact-us/contacts", "https://dailynews.gov.bw/news-detail/83858"]
+    },
+    {
+      "recordId": "border:mamuno", "outcome": "corrected", "evidence": "Botswana and Namibia authority reporting confirms that Mamuno / Trans-Kalahari moved to round-the-clock operation in 2023. The former 06:00 to 22:00 hours were corrected.", "sourceUrls": ["https://dailynews.gov.bw/news-detail/80127", "https://www.namra.org.na/documents/cms/uploaded/namra-annual-report--20234-b0ca93ea50.pdf"]
+    },
+    {
+      "recordId": "border:pafuri-border-gate", "outcome": "corrected-geography-and-requirements", "evidence": "SANParks confirms Pafuri is a South Africa–Mozambique border gate operating 08:00 to 16:00 year-round. The former South Africa–Zimbabwe pairing and unsupported four-night / 4x4 claims were removed.", "sourceUrls": ["https://www.sanparks.org/conservation/transfrontier/great-limpopo/location", "https://www.bma.gov.za/ports-of-entry-2/"]
+    },
+    {
+      "recordId": "border:wenela", "outcome": "corrected", "evidence": "Namibia's revenue and home-affairs reporting confirms that Katima Mulilo moved to 24-hour operation in August 2023. The obsolete ferry-or-bridge wording and 06:00 to 18:00 hours were replaced.", "sourceUrls": ["https://www.namra.org.na/documents/cms/uploaded/namra-annual-report--20234-b0ca93ea50.pdf", "https://mhaiss.gov.na/map-of-port-of-entries"]
+    },
+    {
+      "recordId": "border:kopfontein", "outcome": "unverified-hours-withdrawn", "evidence": "BMA confirms Kopfontein as a South African port but its current public hours table does not provide a dependable row. The unsupported 06:00 to 22:00 claim was replaced with direct confirmation.", "sourceUrls": ["https://www.bma.gov.za/ports-of-entry/list-of-ports-of-entry/", "https://www.bma.gov.za/ports-of-entry-2/"]
+    },
+    {
+      "recordId": "border:skilpadshek", "outcome": "corrected-and-canonicalized", "evidence": "BMA lists Skilpadshek at 06:00 to midnight. The card now names Botswana's Pioneer Gate side and removes the unsupported 22:00 close and numeric fee range.", "sourceUrls": ["https://www.bma.gov.za/ports-of-entry-2/"]
+    },
+    {
+      "recordId": "border:nakop", "outcome": "confirmed-and-canonicalized", "evidence": "South African BMA and Namibia customs both list Nakop / Ariamsvlei for 24-hour operation. The Namibia-side name and current visa-on-arrival context were added.", "sourceUrls": ["https://www.bma.gov.za/ports-of-entry-2/", "https://www.namra.org.na/documents/cms/uploaded/hours-of-general-and-special-attendance-ac170f50bc.pdf"]
+    },
+    {
+      "recordId": "border:caledonspoort", "outcome": "corrected", "evidence": "BMA lists Caledonspoort at 06:00 to 22:00 and Lesotho government notices confirm that it is not normally a 24-hour crossing. The misspelled ID and false 24-hour claim were corrected.", "sourceUrls": ["https://www.bma.gov.za/ports-of-entry-2/", "https://www.gov.ls/government/minister-visits-caledon-spoort/"]
+    },
+    {
+      "recordId": "border:qachas-nek", "outcome": "corrected-to-shared-window", "evidence": "Lesotho Home Affairs lists Qacha's Nek at 07:00 to 20:00 while BMA lists the South African side later. The card uses the earlier Lesotho-side close as the practical limit.", "sourceUrls": ["https://www.homeaffairs.gov.ls/immigration/", "https://www.bma.gov.za/ports-of-entry-2/"]
+    },
+    {
+      "recordId": "border:giriyondo", "outcome": "corrected-and-qualified", "evidence": "SANParks confirms seasonal 08:00 to 16:00 / 15:00 hours, tourism-only status and the compulsory park overnight. Temporary flood closures are now identified as a same-day confirmation risk.", "sourceUrls": ["https://www.sanparks.org/conservation/transfrontier/great-limpopo/location", "https://www.ndmc.gov.za/Data/ExtractedMedia/32"]
+    },
+    {
+      "recordId": "border:mhlumeni-goba", "outcome": "replaced-duplicate-crossing", "evidence": "Eswatini's revenue service confirms Mhlumeni as a 24-hour customs post. This useful Eswatini–Mozambique crossing replaces the duplicate Komatipoort / Ressano Garcia card.", "sourceUrls": ["https://www.ers.org.sz/CustomExcise/OfficeandOperating", "https://www.gov.sz/index.php?id=61&view=category"]
+    },
+    {
+      "recordId": "border:lomahasha", "outcome": "corrected", "evidence": "Current Eswatini government and revenue-service pages list Lomahasha at 07:00 to 20:00. The former 06:00 to 22:00 hours and unsupported vehicle-fee range were removed.", "sourceUrls": ["https://www.gov.sz/index.php?id=61&view=category", "https://www.ers.org.sz/CustomExcise/OfficeandOperating"]
+    },
+    {
+      "recordId": "border:mwanza-zobue", "outcome": "corrected-geography-with-unverified-hours", "evidence": "Malawi Immigration confirms that Mwanza, not Mchinji, is paired with Mozambique's Zóbuè post. No dependable current passenger hours were located, so the old hours and fee estimates were withdrawn.", "sourceUrls": ["https://www.immigration.gov.mw/physical-addresses/"]
+    },
+    {
+      "recordId": "border:forbes", "outcome": "corrected", "evidence": "Zimbabwe and Mozambique authority sources identify the crossing as Forbes / Machipanda. ZIMRA confirms round-the-clock operation since January 2024; the incorrect Mukumbura pairing and 06:00 to 18:00 hours were removed.", "sourceUrls": ["https://zimra.co.zw/news/2287-forbes-border-post-rolls-out-24-hour-facility", "https://www.mtc.gov.mz/images/TERMOS_DE_REFERNCIA%20-%20MACHIPANDA%20Portugues.pdf"]
+    },
+    {
+      "recordId": "border:ramatlabama", "outcome": "added-by-deduplication", "evidence": "BMA lists Ramatlabama as a separate South Africa–Botswana crossing operating 06:00 to 22:00. It replaces the duplicate Groblersbrug record while preserving the collection's coverage count.", "sourceUrls": ["https://www.bma.gov.za/ports-of-entry-2/"]
+    },
+    {
+      "recordId": "border:ponta-do-ouro", "outcome": "confirmed-and-corrected", "evidence": "BMA and Mozambique's conservation authority both list Kosi Bay / Ponta do Ouro at 08:00 to 17:00. The universal 4x4 and tide-track claims were removed because the main surfaced approach has changed access assumptions.", "sourceUrls": ["https://www.bma.gov.za/ports-of-entry-2/", "https://www.anac.gov.mz/en/parques/lubombo/"]
+    },
+    {
+      "recordId": "border:sani-pass", "outcome": "corrected", "evidence": "Both Lesotho Home Affairs and BMA list Sani Pass at 06:00 to 18:00 normal hours. The unsupported 08:00 to 16:00 schedule and universal vehicle claim were replaced with a road-condition confirmation instruction.", "sourceUrls": ["https://www.homeaffairs.gov.ls/immigration/", "https://www.bma.gov.za/ports-of-entry-2/"]
+    },
+    {
+      "recordId": "border:golela-lavumisa", "outcome": "corrected", "evidence": "South Africa's BMA and Eswatini's revenue service both list Golela / Lavumisa at 07:00 to 22:00. The unsupported 06:00 opening and numeric fee wording were removed.", "sourceUrls": ["https://www.bma.gov.za/ports-of-entry-2/", "https://www.ers.org.sz/CustomExcise/OfficeandOperating"]
+    },
+    {
+      "recordId": "border:ficksburg-maputsoe", "outcome": "corrected-geography", "evidence": "Lesotho Home Affairs and BMA both identify Ficksburg Bridge / Maputsoe as a 24-hour crossing. Van Rooyen's Gate is separate, so the former combined name and misleading route description were corrected.", "sourceUrls": ["https://www.homeaffairs.gov.ls/immigration/", "https://www.bma.gov.za/ports-of-entry-2/"]
     }
   ]
 }

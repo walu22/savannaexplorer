@@ -24,4 +24,6 @@ Review evidence is stored separately in `data/editorial-review-evidence.json`, k
 
 Park reviews distinguish current exact tariffs, the latest official published tariff that still needs reconfirmation, and authorities that do not expose a dependable current public tariff. In the latter case, unsupported numeric estimates are removed from the public fee table rather than advanced with a new review date.
 
+Border reviews use the usable overlap between both sides of a crossing rather than the latest closing time published by either country. When no dependable current authority schedule or live wait-time feed is available, the public record says to confirm directly; old operating hours, numeric wait ranges and vehicle-fee estimates are not advanced with a new review date. Opposite-side names are treated as one crossing, while renamed or corrected URL slugs retain permanent redirects.
+
 The next control-plane increment should add individual approvers, publication states, correction ownership, change history and automated source-link checks.

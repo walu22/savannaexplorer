@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { finalizeHubRoute } from '../js/lib/hub-hydration.js';
 import { parseRouteShape } from '../js/lib/route-shape.js';
 
 const location = (pathname, hash = '') => ({ pathname, hash });
@@ -8,6 +9,17 @@ test('public hubs resolve to their focused sections', () => {
     assert.deepEqual(parseRouteShape(location('/routes')), { type: 'home', sectionHash: 'route-explorer' });
     assert.deepEqual(parseRouteShape(location('/my-safari')), { type: 'home', sectionHash: 'hub-my-safari' });
     assert.deepEqual(parseRouteShape(location('/parks')), { type: 'home', sectionHash: 'parks' });
+});
+
+test('hydrated hubs remove crawlable fallback content and set focused metadata', () => {
+    const calls = [];
+
+    finalizeHubRoute('borders', {
+        dismiss: () => calls.push('dismiss'),
+        setMeta: sectionId => calls.push(`meta:${sectionId}`),
+    });
+
+    assert.deepEqual(calls, ['dismiss', 'meta:borders']);
 });
 
 test('detail routes are classified without loading content datasets', () => {

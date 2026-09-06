@@ -40,7 +40,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.64.0** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.65.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -113,7 +113,7 @@ Legacy Hostinger SSH deploy has been removed from CI in favour of Vercel.
 
 ### SEO Phase 3 (v4.14+)
 
-- **Build-time prerender** — `postbuild` writes `dist/countries/*`, `dist/parks/*`, `dist/borders/*`, and `dist/itineraries/*` with correct meta tags and crawlable HTML (78 URLs in sitemap)
+- **Build-time prerender** — `postbuild` writes crawlable country, park, border, route, guide, stay, operator, itinerary, and hub pages with correct meta tags (203 URLs in sitemap)
 - **Expanded routes** — `/parks/kruger`, `/borders/vioolsdrift`, `/itineraries/desert-to-delta` scroll to or open the matching section in the SPA
 - **BreadcrumbList** JSON-LD on detail pages
 - **Optional analytics** — set `VITE_GA4_ID` and `VITE_GSC_VERIFICATION` in `.env` before `npm run build`

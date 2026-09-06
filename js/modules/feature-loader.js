@@ -1,4 +1,7 @@
 import { parseRouteShape } from '../lib/route-shape.js';
+import { finalizeHubRoute } from '../lib/hub-hydration.js';
+import { setHubMeta } from '../lib/page-meta.js';
+import { dismissSeoPrerender } from '../lib/seo-prerender.js';
 
 const loaders = {
     destinations: () => import('./destinations.js').then(module => module.initDestinations()),
@@ -132,6 +135,10 @@ async function loadForCurrentRoute() {
 
     if (route.type === 'home' && route.sectionHash) {
         await Promise.all((SECTION_FEATURES[route.sectionHash] || []).map(loadFeature));
+        finalizeHubRoute(route.sectionHash, {
+            dismiss: dismissSeoPrerender,
+            setMeta: setHubMeta,
+        });
         return;
     }
 

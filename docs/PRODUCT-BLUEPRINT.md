@@ -29,7 +29,7 @@ This baseline describes the repository, not an assumption that every change is a
 |---|---|---|---|
 | Destination coverage | Built | Nine countries with country, regional, attraction, activity and practical content | Uneven depth outside the strongest countries; no expert bylines |
 | Routes | Built | 19 curated routes with editable route templates and reviewed logistics | More field verification, alternatives and disruption handling |
-| Parks and borders | Built | 27 park records and 27 border guides | Automated freshness workflow and more granular operating data |
+| Parks and borders | Built | 27 park records and 30 unique border guides | Automated link checks and live disruption signals |
 | Search presence | Built, improving | 203 sitemap URLs, prerendered pages, canonical metadata and JSON-LD | Search Console operating cadence, stronger internal linking and query-led improvements |
 | My Safari | Built, improving | Local/cloud trips, route editor, collaboration, readiness, personal tasks and booking records | Reminders, document vault, reservation import, expense splitting and offline trip packs |
 | AI planning | Built, guarded | Itinerary generation, input safeguards, rate limiting and analytics events | Verified retrieval with citations, evaluation suite and confidence handling |
@@ -334,7 +334,7 @@ Durations are working ranges, not promises. Each phase advances only when its ex
 ## 10. The next four delivery increments
 
 1. **Product observability (implementation and activation complete; baseline in progress):** production analytics, performance telemetry, structured errors and privacy-safe product events are live; record the first four-week baseline next.
-2. **Editorial freshness dashboard (evidence capture implemented):** visa, border, park fee, emergency and travel-advisory data feed a local review queue; emergency contacts, visa summaries, all nine country advisory records and all 27 park records now include record-level official-source evidence. Add individual approval ownership, change history and automated link checks next.
+2. **Editorial freshness dashboard (evidence capture implemented):** visa, border, park fee, emergency and travel-advisory data feed a local review queue; emergency contacts, visa summaries, all nine country advisory records, all 27 park records and all 30 border records now include record-level official-source evidence. Add individual approval ownership, change history and automated link checks next.
 3. **My Safari trip pack:** calendar export, booking edit, reminders and printable/offline plan.
 4. **Global search and unified navigation:** search all countries, regions, parks, routes, borders and guides from one fast interface.
 

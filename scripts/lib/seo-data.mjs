@@ -92,7 +92,7 @@ const HUB_SECTIONS = [
     {
         id: 'borders',
         title: 'Border Crossings Guide',
-        description: 'Documents, fees, hours, and wait times for major Southern Africa land borders — plan self-drive routes between nine countries.',
+        description: 'Reviewed hours, document guidance, official sources, and practical cautions for major Southern Africa land borders across nine countries.',
         priority: '0.8',
     },
     {

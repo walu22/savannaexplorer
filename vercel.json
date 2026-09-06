@@ -4,6 +4,43 @@
   "outputDirectory": "dist",
   "installCommand": "npm ci",
   "framework": null,
+  "redirects": [
+    {
+      "source": "/borders/groblersbrug",
+      "destination": "/borders/martins-drift",
+      "permanent": true
+    },
+    {
+      "source": "/borders/komatipoort",
+      "destination": "/borders/lebombo",
+      "permanent": true
+    },
+    {
+      "source": "/borders/nakonde",
+      "destination": "/borders/mwami-mchinji",
+      "permanent": true
+    },
+    {
+      "source": "/borders/mchinji",
+      "destination": "/borders/mwami-mchinji",
+      "permanent": true
+    },
+    {
+      "source": "/borders/pafuri-sengwe",
+      "destination": "/borders/pafuri-border-gate",
+      "permanent": true
+    },
+    {
+      "source": "/borders/ficksburg-van-rooyens",
+      "destination": "/borders/ficksburg-maputsoe",
+      "permanent": true
+    },
+    {
+      "source": "/borders/calelonspoort",
+      "destination": "/borders/caledonspoort",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",

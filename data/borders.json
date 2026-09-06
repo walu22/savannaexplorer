@@ -1,497 +1,556 @@
 [
   {
     "id": "vioolsdrift",
-    "coordinates": { "lat": -28.7667, "lng": 17.627 },
+    "coordinates": {
+      "lat": -28.7667,
+      "lng": 17.627
+    },
     "name": "Vioolsdrift / Noordoewer",
     "countries": [
       "south-africa",
       "namibia"
     ],
-    "route": "N7 Cape Town \u2192 Windhoek",
+    "route": "N7 Cape Town → Windhoek",
     "hours": "24 hours",
-    "typicalWait": "15\u201345 min",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R200\u2013R400 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "ZA sticker",
-      "Cross-border letter if financed"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Quietest major SA\u2013Namibia crossing",
-      "Orange River bridge \u2014 scenic stop",
-      "Fuel up before crossing"
+      "Both the South African and Namibian published schedules list round-the-clock operation",
+      "Noordoewer is listed for eligible Namibia eVisa and visa-on-arrival processing",
+      "Confirm vehicle and road charges before departure"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://mha.gov.na/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.bma.gov.za/ports-of-entry-2/"
   },
   {
     "id": "martins-drift",
-    "coordinates": { "lat": -22.9954683, "lng": 27.9332331 },
-    "name": "Martin's Drift",
+    "coordinates": {
+      "lat": -22.9954683,
+      "lng": 27.9332331
+    },
+    "name": "Martin's Drift / Groblersbrug",
     "countries": [
       "south-africa",
       "botswana"
     ],
-    "route": "N1 north \u2192 central Botswana",
-    "hours": "06:00\u201322:00",
-    "typicalWait": "30\u201390 min",
+    "route": "Mokopane / N11 → Palapye",
+    "hours": "08:00–22:00",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R200\u2013R500 vehicle + road tax",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "Proof of insurance",
-      "Cross-border permit if rented"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Standard entry for the overland loop",
-      "Busy during school holidays",
-      "No fresh meat/dairy into Botswana"
+      "Martin's Drift and Groblersbrug are the Botswana and South African sides of one crossing",
+      "Use the current BMA hours unless both countries announce a temporary extension",
+      "Veterinary controls can restrict animal products entering Botswana"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.gov.bw/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.bma.gov.za/ports-of-entry-2/"
   },
   {
     "id": "beitbridge",
-    "coordinates": { "lat": -22.1986233, "lng": 29.9917535 },
+    "coordinates": {
+      "lat": -22.1986233,
+      "lng": 29.9917535
+    },
     "name": "Beitbridge",
     "countries": [
       "south-africa",
       "zimbabwe"
     ],
-    "route": "N1 \u2192 Harare / Victoria Falls",
+    "route": "N1 → Harare / Victoria Falls",
     "hours": "24 hours",
-    "typicalWait": "1\u20133 hours (peak)",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R300\u2013R600+ vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "Third-party insurance",
-      "Temporary import permit"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Busiest border in Southern Africa",
-      "Cross early morning on weekdays",
-      "Have every document ready before the queue"
+      "BMA lists round-the-clock operation",
+      "Use official pre-clearance channels where applicable",
+      "Allow substantial extra time during holiday peaks"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.evisa.gov.zw/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.bma.gov.za/ports-of-entry-2/"
   },
   {
     "id": "kazungula",
-    "coordinates": { "lat": -17.791016, "lng": 25.2624547 },
+    "coordinates": {
+      "lat": -17.791016,
+      "lng": 25.2624547
+    },
     "name": "Kazungula Bridge",
     "countries": [
       "botswana",
-      "zambia",
-      "zimbabwe"
+      "zambia"
     ],
-    "route": "Chobe day trips / Victoria Falls circuit",
-    "hours": "06:00\u201320:00",
-    "typicalWait": "30\u201390 min",
+    "route": "Kasane / Chobe → Livingstone",
+    "hours": "06:00–18:00 published schedule — reconfirm",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R200\u2013R500 per vehicle",
+    "fees": "KAZA UniVisa US$50 if eligible; vehicle charges vary",
     "documents": [
-      "Valid passport",
-      "KAZA UniVisa or valid visas",
-      "Vehicle papers if driving"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Bridge replaced the old pontoon in 2021",
-      "Gateway to Chobe from Victoria Falls",
-      "Popular for same-day Chobe safaris"
+      "The bridge directly connects Botswana and Zambia; Zimbabwe is reached through a separate crossing",
+      "A planned move to 24-hour operation was delayed in April 2026 with no confirmed implementation date",
+      "The KAZA UniVisa can cover eligible Zambia–Zimbabwe travel and Botswana day trips"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.zambiaimmigration.gov.zm/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://dailynews.gov.bw/news-detail/90675"
   },
   {
     "id": "vic-falls-bridge",
-    "coordinates": { "lat": -17.9282884, "lng": 25.857152 },
+    "coordinates": {
+      "lat": -17.9282884,
+      "lng": 25.857152
+    },
     "name": "Victoria Falls Bridge",
     "countries": [
       "zimbabwe",
       "zambia"
     ],
-    "route": "Victoria Falls town \u2194 Livingstone",
-    "hours": "06:00\u201320:00",
-    "typicalWait": "15\u201330 min",
-    "vehicleCrossing": false,
-    "fees": "Walk across free; day visa may apply",
+    "route": "Victoria Falls town ↔ Livingstone",
+    "hours": "06:00–20:00",
+    "typicalWait": "No official live estimate",
+    "vehicleCrossing": true,
+    "fees": "KAZA UniVisa US$50 if eligible; other visa and vehicle charges vary",
     "documents": [
-      "Valid passport",
-      "KAZA UniVisa or single/double-entry visa"
+      "Valid passport and any required visa",
+      "Re-entry permission if returning to the departure country",
+      "Vehicle documents when driving across"
     ],
     "tips": [
-      "Most photographed border in Africa",
-      "Bungee jumping available on the bridge",
-      "UniVisa covers both sides for 30 days"
+      "The bridge carries pedestrians and vehicles between Victoria Falls and Livingstone",
+      "The KAZA UniVisa and day-tripper facilities are passport- and itinerary-dependent",
+      "Check re-entry conditions before walking across for a day visit"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.kazavisa.info/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.zambiaimmigration.gov.zm/for-visitors/"
   },
   {
     "id": "ngoma",
-    "coordinates": { "lat": -17.9274783, "lng": 24.7202492 },
+    "coordinates": {
+      "lat": -17.9274783,
+      "lng": 24.7202492
+    },
     "name": "Ngoma Bridge",
     "countries": [
       "namibia",
       "botswana"
     ],
-    "route": "Caprivi / Zambezi region \u2192 Chobe",
-    "hours": "06:00\u201318:00",
-    "typicalWait": "20\u201360 min",
+    "route": "Caprivi / Zambezi region → Chobe",
+    "hours": "Confirm current daily hours",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R200\u2013R400 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "Veterinary check possible"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Foot-and-mouth controls common",
-      "No fresh meat into Botswana",
-      "Links Caprivi Strip to Kasane"
+      "Namibia lists Ngoma as an official land border and visa-on-arrival point for eligible travellers",
+      "Machine-readable national IDs may be used by eligible Namibian and Botswana citizens",
+      "Veterinary controls can affect meat and animal products entering Botswana"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.gov.bw/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://mhaiss.gov.na/map-of-port-of-entries"
   },
   {
     "id": "lebombo",
-    "coordinates": { "lat": -25.442, "lng": 31.986 },
+    "coordinates": {
+      "lat": -25.442,
+      "lng": 31.986
+    },
     "name": "Lebombo / Ressano Garcia",
     "countries": [
       "south-africa",
       "mozambique"
     ],
-    "route": "Kruger \u2192 Maputo coast",
-    "hours": "06:00\u201322:00",
-    "typicalWait": "45\u2013120 min",
+    "route": "Mbombela / Kruger south → Maputo",
+    "hours": "06:00–00:00",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R200\u2013R500 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Mozambique visa or e-visa",
-      "Vehicle registration",
-      "Insurance"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Main gateway to Maputo and beaches",
-      "Check Mozambique visa rules before travel",
-      "Malaria prophylaxis recommended"
+      "Lebombo and Ressano Garcia are the South African and Mozambican sides of the same crossing",
+      "Mozambique reports 24-hour operations at Ressano Garcia, but travellers must also meet the South African-side hours",
+      "Festive-period arrangements can change at short notice"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.evisa.gov.mz/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.bma.gov.za/ports-of-entry-2/"
   },
   {
     "id": "maseru-bridge",
-    "coordinates": { "lat": -29.298048, "lng": 27.4547051 },
+    "coordinates": {
+      "lat": -29.298048,
+      "lng": 27.4547051
+    },
     "name": "Maseru Bridge",
     "countries": [
       "south-africa",
       "lesotho"
     ],
-    "route": "Free State \u2192 Maseru",
+    "route": "Free State → Maseru",
     "hours": "24 hours",
-    "typicalWait": "15\u201330 min",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "Minimal vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Lesotho is visa-free for most visitors",
-      "Mountain roads beyond border require caution",
-      "Snow possible in winter"
+      "Lesotho and South Africa both list Maseru Bridge for round-the-clock operation",
+      "This is a high-volume crossing; holiday queues can be substantial",
+      "Check mountain-road and weather conditions after crossing"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://homeaffairs.gov.ls/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.homeaffairs.gov.ls/immigration/"
   },
   {
     "id": "oshoek",
-    "coordinates": { "lat": -26.154, "lng": 30.985 },
+    "coordinates": {
+      "lat": -26.154,
+      "lng": 30.985
+    },
     "name": "Oshoek / Ngwenya",
     "countries": [
       "south-africa",
       "eswatini"
     ],
-    "route": "Mpumalanga \u2192 Mbabane / Ezulwini",
-    "hours": "06:00\u201322:00",
-    "typicalWait": "15\u201345 min",
+    "route": "Mpumalanga → Mbabane / Ezulwini",
+    "hours": "07:00–22:00 on the South African side",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "Minimal vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Closest border to Kruger and Eswatini game reserves",
-      "Often combined with Kingdom Circuit itineraries",
-      "Eswatini uses the lilangeni (pegged to rand)"
+      "Eswatini customs publishes later hours, but vehicle travellers must clear the South African side by 22:00",
+      "Use 22:00 as the practical latest crossing time unless both authorities announce an extension",
+      "Peak-event and holiday traffic can be heavy"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.gov.sz/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.bma.gov.za/ports-of-entry-2/"
   },
   {
-    "id": "nakonde",
-    "coordinates": { "lat": -9.3314463, "lng": 32.7547861 },
-    "name": "Nakonde / Tunduma",
+    "id": "mwami-mchinji",
+    "coordinates": {
+      "lat": -13.7484,
+      "lng": 32.7956
+    },
+    "name": "Mwami / Mchinji",
     "countries": [
       "zambia",
       "malawi"
     ],
-    "route": "Lusaka \u2192 Lilongwe corridor",
-    "hours": "06:00\u201318:00",
-    "typicalWait": "30\u201390 min",
+    "route": "Chipata / Lusaka → Lilongwe",
+    "hours": "Zambia lists 24 hours — confirm Malawi-side processing",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "$20\u2013$50 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Zambia e-visa if required",
-      "Malawi e-visa if required",
-      "Vehicle papers"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Key link for Lake Malawi itineraries",
-      "Allow extra time for cargo traffic",
-      "Check both countries' e-visa portals"
+      "Mwami and Mchinji are the Zambian and Malawian sides of this crossing",
+      "This is the direct Zambia–Malawi link between Chipata and Lilongwe",
+      "Confirm Malawi-side hours before an overnight arrival"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.immigration.gov.mw/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.immigration.gov.mw/physical-addresses/"
   },
   {
     "id": "chirundu",
-    "coordinates": { "lat": -16.031977, "lng": 28.85148 },
+    "coordinates": {
+      "lat": -16.031977,
+      "lng": 28.85148
+    },
     "name": "Chirundu",
     "countries": [
       "zambia",
       "zimbabwe"
     ],
-    "route": "Lusaka \u2192 Harare",
-    "hours": "06:00\u201318:00",
-    "typicalWait": "30\u201360 min",
+    "route": "Lusaka → Harare",
+    "hours": "06:00–20:00",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "$20\u2013$50 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "KAZA UniVisa or valid visas",
-      "Vehicle registration"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Zambezi River crossing on the Lusaka\u2013Harare route",
-      "Less busy than Beitbridge",
-      "Malaria zone \u2014 take precautions"
+      "This is the Zambia–Zimbabwe one-stop border on the main Lusaka–Harare corridor",
+      "The published Zambian statutory schedule is dated; reconfirm before a late crossing",
+      "The KAZA UniVisa is not listed for issuance at Chirundu"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.zambiaimmigration.gov.zm/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.zambiaimmigration.gov.zm/wp-content/uploads/2020/06/SI-129-of-2011.pdf"
   },
   {
     "id": "plumtree",
-    "coordinates": { "lat": -20.4880677, "lng": 27.805601 },
+    "coordinates": {
+      "lat": -20.4880677,
+      "lng": 27.805601
+    },
     "name": "Plumtree / Ramokgwebana",
     "countries": [
       "botswana",
       "zimbabwe"
     ],
-    "route": "Bulawayo \u2192 Francistown",
-    "hours": "06:00\u201318:00",
-    "typicalWait": "20\u201345 min",
+    "route": "Bulawayo → Francistown",
+    "hours": "06:00–22:00 published schedule — reconfirm",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R200\u2013R400 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Valid visas",
-      "Vehicle registration",
-      "Insurance"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Useful for Zimbabwe\u2013Botswana overland routes",
-      "Quieter than Kazungula for some itineraries",
-      "Fuel available in Plumtree town"
+      "Plumtree and Ramokgwebana are the Zimbabwean and Botswana sides of one crossing",
+      "Past 24-hour festive extensions were temporary and should not be treated as the normal schedule",
+      "Check current ZIMRA and Botswana notices during peak travel periods"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.zimparks.org/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.zimra.co.zw/contact-us/contacts"
   },
   {
     "id": "mamuno",
-    "coordinates": { "lat": -22.2812541, "lng": 20.0076811 },
+    "coordinates": {
+      "lat": -22.2812541,
+      "lng": 20.0076811
+    },
     "name": "Mamuno / Trans-Kalahari",
     "countries": [
       "namibia",
       "botswana"
     ],
-    "route": "Windhoek \u2192 Gaborone (Trans-Kalahari Highway)",
-    "hours": "06:00\u201322:00",
-    "typicalWait": "20\u201345 min",
+    "route": "Windhoek → Gaborone (Trans-Kalahari Highway)",
+    "hours": "24 hours",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R200\u2013R400 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "Insurance"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Paved highway through the Kalahari",
-      "Fastest Windhoek\u2013Gaborone route",
-      "Watch for wildlife near the road at dusk"
+      "Mamuno / Trans-Kalahari has operated around the clock since 2023",
+      "Eligible Namibian and Botswana citizens can use machine-readable national IDs",
+      "It is the principal Windhoek–Gaborone road crossing"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://mha.gov.na/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://dailynews.gov.bw/news-detail/80127"
   },
   {
-    "id": "pafuri-sengwe",
-    "coordinates": { "lat": -22.4503987, "lng": 31.3101485 },
-    "name": "Pafuri\u2013Sengwe (Gonarezhou)",
+    "id": "pafuri-border-gate",
+    "coordinates": {
+      "lat": -22.4503987,
+      "lng": 31.3101485
+    },
+    "name": "Pafuri Border Gate",
     "countries": [
       "south-africa",
-      "zimbabwe"
+      "mozambique"
     ],
-    "route": "Kruger \u2192 Gonarezhou (tourism corridor)",
-    "hours": "Seasonal \u2014 check SANParks",
-    "typicalWait": "45\u201390 min",
+    "route": "Kruger north → Limpopo National Park / onward to Zimbabwe via Sango",
+    "hours": "08:00–16:00 year-round",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "Park fees + border fees",
+    "fees": "Park, visa and vehicle charges vary — confirm before departure",
     "documents": [
-      "Valid passport",
-      "Pre-booked 4-night itinerary",
-      "4x4 vehicle",
-      "SANParks & ZIMParks registration"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Tourism-only pilot crossing",
-      "4x4 mandatory",
-      "Must book minimum 4 nights in advance",
-      "Remote wilderness experience"
+      "Pafuri crosses directly between South Africa and Mozambique, not South Africa and Zimbabwe",
+      "Onward travel to Gonarezhou requires a separate Mozambique–Zimbabwe crossing",
+      "Flooding can temporarily close the post and park access roads"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.sanparks.org/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.sanparks.org/conservation/transfrontier/great-limpopo/location"
   },
   {
     "id": "wenela",
-    "coordinates": { "lat": -17.474, "lng": 24.279 },
-    "name": "Wenela / Sesheke",
+    "coordinates": {
+      "lat": -17.474,
+      "lng": 24.279
+    },
+    "name": "Katima Mulilo / Wenela–Sesheke",
     "countries": [
       "zambia",
       "namibia"
     ],
-    "route": "Caprivi \u2194 western Zambia",
-    "hours": "06:00\u201318:00",
-    "typicalWait": "20\u201345 min",
+    "route": "Namibia Zambezi Region ↔ western Zambia",
+    "hours": "24 hours",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "$20\u2013$40 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Useful for Caprivi\u2013Kafue corridor",
-      "Ferry or bridge depending on season \u2014 verify locally",
-      "Remote but scenic route"
+      "Katima Mulilo border operations moved to 24 hours in August 2023",
+      "The road crossing uses the Zambezi bridge; the former ferry wording was removed",
+      "Confirm visa and vehicle processing requirements for both countries"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://mha.gov.na/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.namra.org.na/documents/cms/uploaded/namra-annual-report--20234-b0ca93ea50.pdf"
   },
   {
     "id": "kopfontein",
-    "name": "Kopfontein",
+    "name": "Kopfontein / Tlokweng",
     "countries": [
       "south-africa",
       "botswana"
     ],
-    "route": "North West \u2192 eastern Botswana",
-    "hours": "06:00\u201322:00",
-    "typicalWait": "20\u201345 min",
+    "route": "Gauteng / North West → Gaborone",
+    "hours": "Confirm current hours with both authorities",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R200\u2013R400 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "Proof of insurance"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Quieter alternative to Skilpadshek for some routes",
-      "Useful for Madikwe and eastern Botswana",
-      "Veterinary checks possible"
+      "Kopfontein and Tlokweng are the South African and Botswana sides of one crossing",
+      "The current BMA public hours table does not provide a dependable Kopfontein row",
+      "Do not rely on older 06:00–22:00 listings without same-day confirmation"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.gov.bw/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.bma.gov.za/ports-of-entry/list-of-ports-of-entry/"
   },
   {
     "id": "skilpadshek",
-    "name": "Skilpadshek",
+    "name": "Skilpadshek / Pioneer Gate",
     "countries": [
       "south-africa",
       "botswana"
     ],
-    "route": "Rustenburg \u2192 Gaborone corridor",
-    "hours": "06:00\u201322:00",
-    "typicalWait": "30\u201360 min",
+    "route": "Rustenburg → Gaborone corridor",
+    "hours": "06:00–00:00",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R200\u2013R500 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "Cross-border letter if financed"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Busy weekend gateway to Gaborone",
-      "No fresh meat into Botswana",
-      "ATM available on SA side"
+      "Skilpadshek and Pioneer Gate are the South African and Botswana sides of one crossing",
+      "The BMA lists operation until midnight, not 22:00",
+      "Veterinary controls can restrict animal products entering Botswana"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.gov.bw/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.bma.gov.za/ports-of-entry-2/"
   },
   {
     "id": "nakop",
-    "name": "Nakop",
+    "name": "Nakop / Ariamsvlei",
     "countries": [
       "south-africa",
       "namibia"
     ],
-    "route": "Upington \u2192 Karas region",
+    "route": "Upington → Karas region",
     "hours": "24 hours",
-    "typicalWait": "15\u201330 min",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R200\u2013R400 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "ZA sticker"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Quiet desert crossing via Northern Cape",
-      "Good for Cape\u2013Fish River Canyon routes",
-      "Fuel in Upington before crossing"
+      "Nakop and Ariamsvlei are the South African and Namibian sides of one crossing",
+      "Both published customs schedules list round-the-clock operation",
+      "Ariamsvlei is listed for eligible Namibia eVisa and visa-on-arrival processing"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://mha.gov.na/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.bma.gov.za/ports-of-entry-2/"
   },
   {
-    "id": "calelonspoort",
+    "id": "caledonspoort",
     "name": "Caledonspoort",
     "countries": [
       "south-africa",
       "lesotho"
     ],
-    "route": "Free State highlands \u2192 eastern Lesotho",
-    "hours": "24 hours",
-    "typicalWait": "15\u201330 min",
+    "route": "Free State highlands → eastern Lesotho",
+    "hours": "06:00–22:00",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "Minimal vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Scenic mountain approach to Lesotho",
-      "Snow possible Jun\u2013Aug",
-      "Gateway to Afriski in winter"
+      "The former 24-hour claim was removed; both current authority information and Lesotho notices describe limited daily hours",
+      "Temporary festive extensions do not change the normal schedule",
+      "Check winter weather on onward highland routes"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://homeaffairs.gov.ls/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.bma.gov.za/ports-of-entry-2/"
   },
   {
     "id": "qachas-nek",
@@ -500,288 +559,315 @@
       "south-africa",
       "lesotho"
     ],
-    "route": "Southern Drakensberg \u2192 eastern Lesotho",
-    "hours": "06:00\u201322:00",
-    "typicalWait": "20\u201345 min",
+    "route": "Southern Drakensberg → eastern Lesotho",
+    "hours": "07:00–20:00 on the Lesotho side",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "Minimal vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Remote pass \u2014 allow extra time",
-      "Stunning highland scenery",
-      "Check road conditions after rain"
+      "South Africa lists later hours, but the Lesotho schedule closes at 20:00",
+      "Use 20:00 as the practical cut-off unless both authorities announce an extension",
+      "Check mountain-road conditions after heavy rain or snow"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://homeaffairs.gov.ls/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.homeaffairs.gov.ls/immigration/"
   },
   {
     "id": "giriyondo",
-    "coordinates": { "lat": -23.5838348, "lng": 31.6601132 },
+    "coordinates": {
+      "lat": -23.5838348,
+      "lng": 31.6601132
+    },
     "name": "Giriyondo",
     "countries": [
       "south-africa",
       "mozambique"
     ],
-    "route": "Kruger \u2192 Limpopo National Park (Mozambique)",
-    "hours": "08:00\u201315:00",
-    "typicalWait": "45\u201390 min",
+    "route": "Kruger → Limpopo National Park (Mozambique)",
+    "hours": "08:00–16:00 Oct–Mar; 08:00–15:00 Apr–Sep",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "Park + border fees apply",
+    "fees": "Park, visa and vehicle charges vary — confirm before departure",
     "documents": [
-      "Valid passport",
-      "Mozambique visa/e-visa",
-      "SANParks Giriyondo permit",
-      "4x4 recommended"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Tourism access point into Great Limpopo",
-      "Book SANParks transit in advance",
-      "Malaria zone \u2014 take precautions"
+      "Giriyondo is a tourism-only, non-commercial crossing inside the transfrontier park",
+      "SANParks requires an overnight stay in one of the parks",
+      "Flooding and park-road conditions can temporarily close the post"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.sanparks.org/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.sanparks.org/conservation/transfrontier/great-limpopo/location"
   },
   {
-    "id": "komatipoort",
-    "coordinates": { "lat": -25.4327778, "lng": 31.9558333 },
-    "name": "Komatipoort / Ressano Garcia",
+    "id": "mhlumeni-goba",
+    "coordinates": {
+      "lat": -26.146,
+      "lng": 32.056
+    },
+    "name": "Mhlumeni / Goba",
     "countries": [
-      "south-africa",
+      "eswatini",
       "mozambique"
     ],
-    "route": "Mpumalanga \u2192 Maputo",
-    "hours": "06:00\u201322:00",
-    "typicalWait": "45\u2013120 min",
+    "route": "Eswatini lowveld → Maputo",
+    "hours": "24 hours on the Eswatini side — reconfirm Mozambique processing",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R200\u2013R500 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Mozambique visa/e-visa",
-      "Vehicle registration",
-      "Insurance"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Main Maputo corridor from Kruger",
-      "Very busy \u2014 cross early weekday mornings",
-      "Have printed e-visa confirmation"
+      "This is a direct Eswatini–Mozambique option that avoids routing through South Africa",
+      "Mhlumeni and Goba are the Eswatini and Mozambican sides of this crossing",
+      "Confirm that all immigration and customs desks needed for your vehicle are processing overnight"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.evisa.gov.mz/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.ers.org.sz/CustomExcise/OfficeandOperating"
   },
   {
     "id": "lomahasha",
-    "coordinates": { "lat": -25.9900748, "lng": 31.9965301 },
+    "coordinates": {
+      "lat": -25.9900748,
+      "lng": 31.9965301
+    },
     "name": "Lomahasha / Namaacha",
     "countries": [
       "mozambique",
       "eswatini"
     ],
-    "route": "Maputo \u2192 Mbabane",
-    "hours": "06:00\u201322:00",
-    "typicalWait": "20\u201345 min",
+    "route": "Maputo → Mbabane",
+    "hours": "07:00–20:00",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "$20\u2013$40 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "Insurance for both countries"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Links Mozambique coast to Eswatini highlands",
-      "Alternative to routing via South Africa",
-      "Mountain road beyond border is scenic"
+      "Lomahasha and Namaacha are the Eswatini and Mozambican sides of one crossing",
+      "Current Eswatini government and revenue-service pages list a 20:00 close",
+      "Older midnight listings should not be used without direct confirmation"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.gov.sz/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.gov.sz/index.php?id=61&view=category"
   },
   {
-    "id": "mchinji",
-    "coordinates": { "lat": -13.79, "lng": 32.89 },
-    "name": "Mchinji / Z\u00f3bu\u00e8",
+    "id": "mwanza-zobue",
+    "coordinates": {
+      "lat": -15.5931,
+      "lng": 34.4381
+    },
+    "name": "Mwanza / Zóbuè",
     "countries": [
       "malawi",
       "mozambique"
     ],
-    "route": "Central Malawi \u2194 Tete corridor",
-    "hours": "06:00\u201318:00",
-    "typicalWait": "30\u201360 min",
+    "route": "Blantyre → Tete",
+    "hours": "Confirm current daily hours",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "$20\u2013$50 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Both countries' visas if required",
-      "Vehicle papers"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Useful for lake-to-Mozambique overland routes",
-      "Cargo traffic can slow crossings",
-      "Carry USD cash for fees"
+      "Mwanza and Zóbuè are the Malawian and Mozambican sides of this crossing",
+      "This is the principal Blantyre–Tete road crossing",
+      "The authorities do not publish dependable current passenger hours on the linked pages"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.immigration.gov.mw/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.immigration.gov.mw/physical-addresses/"
   },
   {
     "id": "forbes",
-    "name": "Forbes / Mukumbura",
+    "name": "Forbes / Machipanda",
     "countries": [
       "zimbabwe",
       "mozambique"
     ],
-    "route": "Harare \u2192 central Mozambique",
-    "hours": "06:00\u201318:00",
-    "typicalWait": "30\u201360 min",
+    "route": "Mutare / Harare → Chimoio / Beira",
+    "hours": "24 hours",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "$20\u2013$50 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Valid visas",
-      "Vehicle registration"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Eastern Zimbabwe\u2013Mozambique link",
-      "Less touristy than southern borders",
-      "Confirm road security locally"
+      "Forbes and Machipanda are the Zimbabwean and Mozambican sides of this crossing",
+      "This is the principal Mutare–Chimoio / Beira corridor crossing",
+      "ZIMRA reports round-the-clock passenger and agency operation since January 2024"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.evisa.gov.zw/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://zimra.co.zw/news/2287-forbes-border-post-rolls-out-24-hour-facility"
   },
   {
-    "id": "groblersbrug",
-    "coordinates": { "lat": -23.0010874, "lng": 27.9459561 },
-    "name": "Groblersbrug",
+    "id": "ramatlabama",
+    "coordinates": {
+      "lat": -25.64886,
+      "lng": 25.57546
+    },
+    "name": "Ramatlabama",
     "countries": [
       "south-africa",
       "botswana"
     ],
-    "route": "Free State \u2192 central Botswana",
-    "hours": "06:00\u201322:00",
-    "typicalWait": "20\u201340 min",
+    "route": "Mahikeng → southern Botswana / Gaborone",
+    "hours": "06:00–22:00",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "R200\u2013R400 vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "Insurance"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Quiet crossing east of Palapye route",
-      "Good for Botswana interior loops",
-      "Cattle country \u2014 veterinary checks"
+      "This is an alternative southern approach to Botswana via Mahikeng",
+      "Ramatlabama is a separate South Africa–Botswana road and rail crossing",
+      "Check veterinary restrictions before carrying animal products into Botswana"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.gov.bw/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.bma.gov.za/ports-of-entry-2/"
   },
   {
     "id": "ponta-do-ouro",
-    "coordinates": { "lat": -26.959124, "lng": 32.8248255 },
+    "coordinates": {
+      "lat": -26.959124,
+      "lng": 32.8248255
+    },
     "name": "Kosi Bay / Ponta do Ouro",
     "countries": [
       "south-africa",
       "mozambique"
     ],
-    "route": "iSimangaliso \u2192 southern Mozambique coast",
-    "hours": "08:00\u201317:00",
-    "typicalWait": "30\u201360 min",
+    "route": "iSimangaliso → southern Mozambique coast",
+    "hours": "08:00–17:00",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "Conservation + border fees",
+    "fees": "Visa, vehicle and conservation charges vary — confirm before departure",
     "documents": [
-      "Valid passport",
-      "Mozambique visa/e-visa",
-      "4x4 recommended for sand track"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "4x4 only on the sand track to Ponta",
-      "Popular dive and beach gateway",
-      "Check tide times for border track"
+      "South African and Mozambican official sources both publish 08:00–17:00",
+      "The main border approach is surfaced, but beach and reserve detours may still need a suitable vehicle",
+      "Check current reserve access and vehicle requirements for any beach or sand-track detour"
     ],
-    "lastVerified": "2026-06",
-    "sourceUrl": "https://www.evisa.gov.mz/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.bma.gov.za/ports-of-entry-2/"
   },
   {
     "id": "sani-pass",
-    "coordinates": { "lat": -29.5851984, "lng": 29.2870241 },
+    "coordinates": {
+      "lat": -29.5851984,
+      "lng": 29.2870241
+    },
     "name": "Sani Pass",
     "countries": [
       "south-africa",
       "lesotho"
     ],
-    "route": "KwaZulu-Natal Drakensberg \u2192 Mokhotlong / Sani Top",
-    "hours": "08:00\u201316:00 (typical; weather dependent)",
-    "typicalWait": "20\u201345 min",
+    "route": "KwaZulu-Natal Drakensberg → Mokhotlong / Sani Top",
+    "hours": "06:00–18:00 — weather dependent",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "Minimal border fees; guided tour tariffs separate",
+    "fees": "Border processing charges vary; guided-tour prices are separate",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "SA rental cross-border letter naming Lesotho",
-      "4\u00d74 vehicle mandatory on SA ascent"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Passport control at summit \u2014 Africa's highest pub at 2,874 m",
-      "4\u00d74 only on South African side; snow closes pass Jun\u2013Aug some years",
-      "No fuel on the pass \u2014 fill Underberg or Maseru before ascending",
-      "Single-entry SA visa: entering Lesotho exits South Africa \u2014 need multi-entry to return",
-      "Guided convoys from Underberg recommended for first-timers"
+      "Both the Lesotho and South African authorities publish 06:00–18:00 normal hours",
+      "Snow, flooding or road damage can close the pass at short notice",
+      "Confirm current vehicle restrictions and road conditions before ascending"
     ],
-    "lastVerified": "2026-07",
-    "sourceUrl": "https://www.visitlesotho.travel/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.homeaffairs.gov.ls/immigration/"
   },
   {
     "id": "golela-lavumisa",
-    "coordinates": { "lat": -27.3186717, "lng": 31.8915069 },
+    "coordinates": {
+      "lat": -27.3186717,
+      "lng": 31.8915069
+    },
     "name": "Golela / Lavumisa",
     "countries": [
       "south-africa",
       "eswatini"
     ],
-    "route": "KwaZulu-Natal lowveld \u2192 Hlane / lowveld reserves",
-    "hours": "06:00\u201322:00",
-    "typicalWait": "15\u201340 min",
+    "route": "KwaZulu-Natal lowveld → Hlane / lowveld reserves",
+    "hours": "07:00–22:00",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "Minimal vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "SA rental cross-border letter if not your vehicle"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Main KZN gateway to Eswatini lowveld \u2014 Hlane 45 min north",
-      "Often faster than busier Gauteng borders",
-      "Lilangeni pegged 1:1 to rand \u2014 rand widely accepted",
-      "Combine with Kruger south and KZN coast loops",
-      "Malaria prophylaxis for lowveld in summer"
+      "Both the South African and Eswatini authority tables publish 07:00–22:00",
+      "This is the main KwaZulu-Natal approach to Eswatini’s southern lowveld",
+      "Check veterinary restrictions before carrying animal products"
     ],
-    "lastVerified": "2026-07",
-    "sourceUrl": "https://www.thekingdomofeswatini.com/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.ers.org.sz/CustomExcise/OfficeandOperating"
   },
   {
-    "id": "ficksburg-van-rooyens",
-    "name": "Ficksburg / Van Rooyen's Gate",
+    "id": "ficksburg-maputsoe",
+    "name": "Ficksburg Bridge / Maputsoe",
     "countries": [
       "south-africa",
       "lesotho"
     ],
-    "route": "Free State \u2192 Malealea & western highlands",
+    "route": "Free State → Leribe / western Lesotho",
     "hours": "24 hours",
-    "typicalWait": "15\u201330 min",
+    "typicalWait": "No official live estimate",
     "vehicleCrossing": true,
-    "fees": "Minimal vehicle fees",
+    "fees": "Confirm current visa, road, insurance and customs charges",
     "documents": [
-      "Valid passport",
-      "Vehicle registration",
-      "Cross-border letter if SA rental"
+      "Valid passport and any required visa or eVisa",
+      "Original vehicle registration",
+      "Owner, finance or rental authorisation when applicable",
+      "Country-specific insurance and temporary-import documents"
     ],
     "tips": [
-      "Gateway for Malealea pony trekking and western Lesotho",
-      "Tar to Maseru corridor \u2014 4\u00d72 OK; mountain villages need caution",
-      "Scenic alternative to Maseru Bridge from Bloemfontein direction",
-      "Carry loti/rand cash for highland villages \u2014 limited ATMs",
-      "SA multi-entry visa needed if looping back on single-entry permit"
+      "Ficksburg Bridge and Maputsoe are the South African and Lesotho sides of one crossing",
+      "Do not confuse this crossing with Van Rooyen’s Gate, which is a separate port farther south",
+      "Both authorities list Ficksburg / Maputsoe for round-the-clock operation"
     ],
-    "lastVerified": "2026-07",
-    "sourceUrl": "https://homeaffairs.gov.ls/"
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.homeaffairs.gov.ls/immigration/"
   }
 ]

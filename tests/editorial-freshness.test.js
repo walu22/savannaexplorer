@@ -53,13 +53,14 @@ test('editorial report covers every first-slice high-change record', () => {
     assert.equal(report.records[0].status, 'due-soon');
     assert.equal(report.summary.criticalOverdue, 0);
     assert.ok(report.summary.sourceLinked >= 90);
-    assert.equal(report.summary.evidenceComplete, 57);
+    assert.equal(report.summary.evidenceComplete, 87);
     assert.equal(report.records.filter(record => record.category === 'emergency' && record.status === 'current').length, 9);
     assert.equal(report.records.filter(record => record.id.startsWith('visa-summary:') && record.status === 'current').length, 9);
     assert.equal(report.records.find(record => record.id === 'visa-matrix:zimbabwe').status, 'current');
     assert.equal(report.records.find(record => record.id === 'visa-matrix:mozambique').status, 'current');
     assert.equal(report.records.filter(record => record.category === 'travel-advisory' && record.status === 'due-soon').length, 9);
     assert.equal(report.records.filter(record => record.category === 'park-fee' && record.status === 'current').length, 27);
+    assert.equal(report.records.filter(record => record.category === 'border' && record.status === 'current').length, 30);
     assert.deepEqual(new Set(report.records.map(record => record.category)), new Set([
         'visa', 'border', 'park-fee', 'emergency', 'travel-advisory',
     ]));
@@ -92,6 +93,37 @@ test('parks hub review metadata follows the latest park audit', () => {
 
     assert.match(parksHub.bodyHtml, /Last reviewed September 6, 2026/);
     assert.equal(parksHub.jsonLd.dateModified, '2026-09-06');
+});
+
+test('border records use audited crossing pairs without invented live estimates', () => {
+    const borders = productionData.borders;
+    const byId = Object.fromEntries(borders.map(border => [border.id, border]));
+
+    assert.equal(borders.length, 30);
+    assert.equal(new Set(borders.map(border => border.id)).size, 30);
+    assert.ok(borders.every(border => border.lastVerified === '2026-09-06'));
+    assert.ok(borders.every(border => border.sourceUrl.startsWith('https://')));
+    assert.ok(borders.every(border => border.typicalWait === 'No official live estimate'));
+    assert.ok(borders.every(border => !/\d+[–-]\d+/.test(border.fees)));
+    assert.equal(byId['martins-drift'].name, "Martin's Drift / Groblersbrug");
+    assert.deepEqual(byId.kazungula.countries, ['botswana', 'zambia']);
+    assert.equal(byId['vic-falls-bridge'].vehicleCrossing, true);
+    assert.deepEqual(byId['pafuri-border-gate'].countries, ['south-africa', 'mozambique']);
+    assert.equal(byId['mwami-mchinji'].name, 'Mwami / Mchinji');
+    assert.equal(byId['mwanza-zobue'].name, 'Mwanza / Zóbuè');
+    assert.equal(byId.forbes.name, 'Forbes / Machipanda');
+    assert.equal(byId.caledonspoort.hours, '06:00–22:00');
+    assert.equal(byId['sani-pass'].hours, '06:00–18:00 — weather dependent');
+    assert.ok(!byId.nakonde);
+    assert.ok(!byId.groblersbrug);
+    assert.ok(!byId.komatipoort);
+});
+
+test('borders hub review metadata follows the latest border audit', () => {
+    const bordersHub = hubPages('https://savannaexplorer.com').find(page => page.path === '/borders');
+
+    assert.match(bordersHub.bodyHtml, /Last reviewed September 6, 2026/);
+    assert.equal(bordersHub.jsonLd.dateModified, '2026-09-06');
 });
 
 test('travel advisories use record-level review dates and working official URLs', () => {
