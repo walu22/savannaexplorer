@@ -333,8 +333,8 @@ Durations are working ranges, not promises. Each phase advances only when its ex
 
 ## 10. The next four delivery increments
 
-1. **Product observability (implementation complete; activation/baseline pending):** enable the production services, validate delivery and record the first four-week baseline.
-2. **Editorial freshness dashboard:** start with visa, border, park fee, emergency and travel-advisory data.
+1. **Product observability (implementation and activation complete; baseline in progress):** production analytics, performance telemetry, structured errors and privacy-safe product events are live; record the first four-week baseline next.
+2. **Editorial freshness dashboard (read-only first slice implemented):** visa, border, park fee, emergency and travel-advisory data now feed a local, source-linked review queue; add named reviewers, evidence, corrections and automated link checks next.
 3. **My Safari trip pack:** calendar export, booking edit, reminders and printable/offline plan.
 4. **Global search and unified navigation:** search all countries, regions, parks, routes, borders and guides from one fast interface.
 

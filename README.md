@@ -40,7 +40,7 @@ Use a hard refresh if the page looks stale: **Ctrl + Shift + R**
 
 ### Verify you have the latest build
 
-After the page loads, scroll to the footer. You should see **v4.60.1** next to the copyright line.
+After the page loads, scroll to the footer. You should see **v4.61.0** next to the copyright line.
 
 You should also have these files/folders (not the old flat layout):
 
@@ -154,3 +154,4 @@ After deploying, submit `https://savannaexplorer.com/sitemap.xml` in [Google Sea
 | `npm run preview` | Preview production build |
 | `npm run verify:deployment -- https://example.vercel.app` | Confirm a deployed version, focused route and API function |
 | `npm run analytics:product` | Aggregate product-action and client-error report (service key required) |
+| `npm run editorial:freshness` | Generate the internal high-change content review dashboard in `.reports/` |

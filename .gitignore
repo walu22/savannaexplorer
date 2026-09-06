@@ -91,6 +91,7 @@ dist
 .env*
 playwright-report/
 test-results/
+.reports/
 .playwright-browsers/
 .npm-cache-browser-tests/
 supabase/.temp/
