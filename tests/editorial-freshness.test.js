@@ -7,6 +7,7 @@ import {
     classifyFreshness,
     parseReviewedDate,
 } from '../scripts/lib/editorial-freshness.mjs';
+import { hubPages } from '../scripts/lib/seo-data.mjs';
 
 function loadJson(file) {
     return JSON.parse(readFileSync(resolve(process.cwd(), 'data', file), 'utf8'));
@@ -48,18 +49,49 @@ test('editorial report covers every first-slice high-change record', () => {
     assert.equal(report.summary.total, expected);
     assert.equal(report.summary.total, 93);
     assert.equal(report.summary.overdue + report.summary.dueSoon + report.summary.current + report.summary.unknown, 93);
-    assert.equal(report.records[0].status, 'overdue');
+    assert.equal(report.summary.overdue, 0);
+    assert.equal(report.records[0].status, 'due-soon');
     assert.equal(report.summary.criticalOverdue, 0);
     assert.ok(report.summary.sourceLinked >= 90);
-    assert.equal(report.summary.evidenceComplete, 30);
+    assert.equal(report.summary.evidenceComplete, 57);
     assert.equal(report.records.filter(record => record.category === 'emergency' && record.status === 'current').length, 9);
     assert.equal(report.records.filter(record => record.id.startsWith('visa-summary:') && record.status === 'current').length, 9);
     assert.equal(report.records.find(record => record.id === 'visa-matrix:zimbabwe').status, 'current');
     assert.equal(report.records.find(record => record.id === 'visa-matrix:mozambique').status, 'current');
     assert.equal(report.records.filter(record => record.category === 'travel-advisory' && record.status === 'due-soon').length, 9);
+    assert.equal(report.records.filter(record => record.category === 'park-fee' && record.status === 'current').length, 27);
     assert.deepEqual(new Set(report.records.map(record => record.category)), new Set([
         'visa', 'border', 'park-fee', 'emergency', 'travel-advisory',
     ]));
+});
+
+test('park records expose reviewed authority links without stale unsupported tariffs', () => {
+    const parks = productionData.parks;
+    const byId = Object.fromEntries(parks.map(park => [park.id, park]));
+    const confirmOnlyCountries = new Set(['botswana', 'malawi', 'lesotho']);
+
+    assert.equal(parks.length, 27);
+    assert.ok(parks.every(park => park.lastVerified === '2026-09-06'));
+    assert.ok(parks.every(park => park.sourceUrl.startsWith('https://')));
+    assert.equal(byId.kruger.feeTable.rows.find(row => row.label === 'International adult').amount, '602');
+    assert.equal(byId.addo.feeTable.rows.find(row => row.label === 'International adult').amount, '492');
+    assert.equal(byId.hwange.feeTable.rows.find(row => row.label === 'International adult').amount, '24');
+    assert.equal(byId.gonarezhou.feeTable.rows.find(row => row.label === 'International adult').amount, '30');
+    assert.equal(byId.gorongosa.feeTable.rows.find(row => row.label === 'Vehicle conservation fee').amount, 'Free');
+    assert.equal(byId.hlane.feeTable.rows.find(row => row.label === 'Daily conservation fee').amount, '95');
+    assert.equal(byId.malolotja.sourceUrl, 'https://entc.org.sz/malolotja-game-reserve/');
+    assert.ok(parks
+        .filter(park => confirmOnlyCountries.has(park.country))
+        .every(park => park.feeTable.rows
+            .filter(row => ['person', 'vehicle', 'camping'].includes(row.category))
+            .every(row => row.amount === 'Confirm')));
+});
+
+test('parks hub review metadata follows the latest park audit', () => {
+    const parksHub = hubPages('https://savannaexplorer.com').find(page => page.path === '/parks');
+
+    assert.match(parksHub.bodyHtml, /Last reviewed September 6, 2026/);
+    assert.equal(parksHub.jsonLd.dateModified, '2026-09-06');
 });
 
 test('travel advisories use record-level review dates and working official URLs', () => {

@@ -10,13 +10,13 @@
       "Self-drive"
     ],
     "bestSeason": "May–Oct",
-    "fees": "From R486/day (SADC)",
+    "fees": "R602/day international",
     "difficulty": "Easy–Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.sanparks.org/",
-    "feeDetail": "Standard conservation fee ~R486/day for international adults (2025/26 SANParks tariff). Wild Card available.",
-    "gateHours": "05:30–18:30 summer · 06:00–17:30 winter",
-    "bookingUrl": "https://www.sanparks.org/reservations/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.sanparks.org/parks/kruger/rates-entry-fees",
+    "feeDetail": "Current SANParks conservation fee through 31 October 2026. SADC and South African rates require qualifying identification; Wild Card holders should still check day-visitor reservation rules.",
+    "gateHours": "Seasonal and gate-specific — check the official entrance-gate schedule",
+    "bookingUrl": "https://www.sanparks.org/parks/kruger/what-to-do/day-visits",
     "feeTable": {
       "currency": "ZAR",
       "symbol": "R",
@@ -25,19 +25,19 @@
         {
           "category": "person",
           "label": "International adult",
-          "amount": "486",
+          "amount": "602",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "243",
+          "amount": "275",
           "unit": "day"
         },
         {
           "category": "person",
-          "label": "Child (2–11)",
-          "amount": "243",
+          "label": "International child (2–11)",
+          "amount": "300",
           "unit": "day"
         },
         {
@@ -46,13 +46,6 @@
           "amount": "Included",
           "unit": "day",
           "note": "In daily conservation fee"
-        },
-        {
-          "category": "camping",
-          "label": "Rest camp site",
-          "amount": "400+",
-          "unit": "night",
-          "note": "Plus conservation fee; Wild Card available"
         }
       ]
     }
@@ -68,34 +61,34 @@
       "Hiking"
     ],
     "bestSeason": "Sep–Apr",
-    "fees": "Cableway from R420",
+    "fees": "Boulders from R245/day international",
     "difficulty": "Easy–Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.sanparks.org/",
-    "feeDetail": "Table Mountain Cableway from ~R420 return (2025). Park entry at Boulders penguin beach separate.",
-    "gateHours": "Cableway: first car ~08:00",
-    "bookingUrl": "https://www.sanparks.org/reservations/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.sanparks.org/parks/table-mountain/rates-entry-fees",
+    "feeDetail": "Table Mountain National Park charges by access point. The aerial cableway is independently operated and is not included in SANParks conservation fees.",
+    "gateHours": "Access-point and season specific — check the official gate schedule",
+    "bookingUrl": "https://www.sanparks.org/tickets/",
     "feeTable": {
       "currency": "ZAR",
       "symbol": "R",
-      "period": "2025",
+      "period": "1 Nov 2025–31 Oct 2026",
       "rows": [
         {
-          "category": "activity",
-          "label": "Cableway return (international)",
-          "amount": "420+",
-          "unit": "trip"
-        },
-        {
           "category": "person",
-          "label": "Boulders Beach entry",
-          "amount": "190+",
+          "label": "Boulders international adult",
+          "amount": "245",
           "unit": "day"
         },
         {
           "category": "person",
-          "label": "TMNP conservation (where applicable)",
-          "amount": "Varies",
+          "label": "Boulders SADC adult",
+          "amount": "110",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "Cape Point international adult",
+          "amount": "515",
           "unit": "day"
         }
       ]
@@ -112,13 +105,13 @@
       "Self-drive"
     ],
     "bestSeason": "Year-round",
-    "fees": "From R376/day",
+    "fees": "R492/day international",
     "difficulty": "Easy",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.sanparks.org/",
-    "feeDetail": "Conservation fee ~R376/day international adults. Marine eco-tours extra.",
-    "gateHours": "07:00–19:00 (seasonal)",
-    "bookingUrl": "https://www.sanparks.org/reservations/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.sanparks.org/parks/addo-elephant/rates-entry-fees",
+    "feeDetail": "Current SANParks conservation fee through 31 October 2026. Accommodation and guided activities are priced separately.",
+    "gateHours": "Main entrance 07:00–19:00; game-area times vary seasonally",
+    "bookingUrl": "https://www.sanparks.org/travel/book",
     "feeTable": {
       "currency": "ZAR",
       "symbol": "R",
@@ -127,13 +120,13 @@
         {
           "category": "person",
           "label": "International adult",
-          "amount": "376",
+          "amount": "492",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "188",
+          "amount": "225",
           "unit": "day"
         },
         {
@@ -141,13 +134,6 @@
           "label": "Foreign vehicle",
           "amount": "Included",
           "unit": "day"
-        },
-        {
-          "category": "camping",
-          "label": "Camp site",
-          "amount": "350+",
-          "unit": "night",
-          "note": "Plus conservation fee"
         }
       ]
     }
@@ -163,42 +149,35 @@
       "Self-drive"
     ],
     "bestSeason": "Jul–Oct",
-    "fees": "From N$142/day",
+    "fees": "Published tariff: N$150/day international",
     "difficulty": "Easy",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.nwr.com.na/",
-    "feeDetail": "NWR park fee ~N$142/person/day + N$30/vehicle (2025 rates).",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.meft.gov.na/files/downloads/543_Park%20Entrance%20and%20Conservation%20Fees.PDF",
+    "feeDetail": "Latest official public MEFT schedule located lists N$150 per international adult plus N$50 for a vehicle with 10 seats or fewer. Reconfirm before travel because the published schedule took effect in 2021.",
     "gateHours": "Sunrise–sunset; gates close strictly",
     "bookingUrl": "https://www.nwr.com.na/",
     "feeTable": {
       "currency": "NAD",
       "symbol": "N$",
-      "period": "2025",
+      "period": "Official schedule effective 2021 — reconfirm",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "142",
+          "amount": "150",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "80",
+          "amount": "100",
           "unit": "day"
         },
         {
           "category": "vehicle",
-          "label": "Foreign vehicle",
-          "amount": "30",
+          "label": "Vehicle (10 seats or fewer)",
+          "amount": "50",
           "unit": "day"
-        },
-        {
-          "category": "camping",
-          "label": "Camp site",
-          "amount": "300+",
-          "unit": "night",
-          "note": "Plus park fees"
         }
       ]
     }
@@ -214,40 +193,40 @@
       "Photography"
     ],
     "bestSeason": "May–Sep",
-    "fees": "From N$142/day",
+    "fees": "Published tariff: N$150/day international",
     "difficulty": "Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.nwr.com.na/",
-    "feeDetail": "Sesriem/Sossusvlei access ~N$142/person + vehicle fee. Sossusvlei gate opens before sunrise for dune visits.",
-    "gateHours": "Sesriem gate ~06:00 (check NWR seasonal times)",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.meft.gov.na/files/downloads/543_Park%20Entrance%20and%20Conservation%20Fees.PDF",
+    "feeDetail": "Latest official public MEFT schedule located lists N$150 per international adult plus N$50 for a vehicle with 10 seats or fewer. Reconfirm the tariff and Sesriem gate time before travel.",
+    "gateHours": "Seasonal — confirm the Sesriem gate time with NWR",
     "bookingUrl": "https://www.nwr.com.na/",
     "feeTable": {
       "currency": "NAD",
       "symbol": "N$",
-      "period": "2025",
+      "period": "Official schedule effective 2021 — reconfirm",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "142",
+          "amount": "150",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "80",
+          "amount": "100",
           "unit": "day"
         },
         {
           "category": "vehicle",
-          "label": "Foreign vehicle",
-          "amount": "30",
+          "label": "Vehicle (10 seats or fewer)",
+          "amount": "50",
           "unit": "day"
         },
         {
           "category": "camping",
           "label": "Sesriem camp",
-          "amount": "350+",
+          "amount": "Confirm",
           "unit": "night",
           "note": "Book via NWR"
         }
@@ -267,15 +246,15 @@
     "bestSeason": "May–Oct",
     "fees": "Permit required",
     "difficulty": "Advanced",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.nwr.com.na/",
-    "feeDetail": "Restricted access — permit via NWR/Dorob-Skeleton Coast. Tour operators arrange access.",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.meft.gov.na/files/downloads/543_Park%20Entrance%20and%20Conservation%20Fees.PDF",
+    "feeDetail": "The official schedule covers Skeleton Coast park fees, but access conditions vary by section. Confirm permits, route restrictions and current charges with NWR or MEFT.",
     "gateHours": "Permit-dependent",
     "bookingUrl": "https://www.nwr.com.na/",
     "feeTable": {
       "currency": "NAD",
       "symbol": "N$",
-      "period": "2025",
+      "period": "Official schedule effective 2021 — reconfirm",
       "rows": [
         {
           "category": "permit",
@@ -287,13 +266,13 @@
         {
           "category": "person",
           "label": "International adult (where applicable)",
-          "amount": "142+",
+          "amount": "150",
           "unit": "day"
         },
         {
           "category": "vehicle",
-          "label": "4×4 vehicle fee",
-          "amount": "30+",
+          "label": "Vehicle (10 seats or fewer)",
+          "amount": "50",
           "unit": "day"
         }
       ]
@@ -310,34 +289,34 @@
       "Boat safari"
     ],
     "bestSeason": "May–Oct",
-    "fees": "From P120/day",
+    "fees": "Confirm current DWNP tariff",
     "difficulty": "Easy",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.gov.bw/tourism",
-    "feeDetail": "Park fee ~P120/person/day + P$10 vehicle (approx. 2025). River cruise fees separate.",
-    "gateHours": "06:00–18:30",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.gov.bw/ministries/ministry-environment-and-tourism",
+    "feeDetail": "Botswana announced revised wildlife and national-park fees for 2026. The former P120 estimate has been removed; obtain the current Category A tariff from DWNP before budgeting.",
+    "gateHours": "Confirm current seasonal gate times with DWNP",
     "bookingUrl": "https://www.botswanatourism.co.bw/",
     "feeTable": {
       "currency": "BWP",
       "symbol": "P",
-      "period": "2025",
+      "period": "2026 tariff — confirm with DWNP",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "120",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "60",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "vehicle",
           "label": "Foreign vehicle",
-          "amount": "10",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
@@ -361,34 +340,34 @@
       "Mokoro"
     ],
     "bestSeason": "Jul–Oct",
-    "fees": "From P120/day",
+    "fees": "Confirm current DWNP tariff",
     "difficulty": "Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.gov.bw/tourism",
-    "feeDetail": "Moremi Game Reserve fee ~P120/person/day. Mokoro trips booked via lodges.",
-    "gateHours": "06:00–18:30",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.gov.bw/ministries/ministry-environment-and-tourism",
+    "feeDetail": "Botswana announced revised wildlife and national-park fees for 2026. The former P120 estimate has been removed; obtain the current Category A tariff from DWNP before budgeting.",
+    "gateHours": "Confirm current seasonal gate times with DWNP",
     "bookingUrl": "https://www.botswanatourism.co.bw/",
     "feeTable": {
       "currency": "BWP",
       "symbol": "P",
-      "period": "2025",
+      "period": "2026 tariff — confirm with DWNP",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "120",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "60",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "vehicle",
           "label": "Foreign vehicle",
-          "amount": "10",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
@@ -411,40 +390,40 @@
       "Self-drive"
     ],
     "bestSeason": "Dec–Apr",
-    "fees": "From P50/day",
+    "fees": "Confirm current DWNP tariff",
     "difficulty": "Advanced",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.gov.bw/tourism",
-    "feeDetail": "Lower park fees but remote — fuel and self-sufficiency essential.",
-    "gateHours": "06:00–18:30",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.gov.bw/ministries/ministry-environment-and-tourism",
+    "feeDetail": "Botswana announced revised wildlife and national-park fees for 2026. The former P50 estimate has been removed; obtain the current Category B tariff from DWNP before budgeting.",
+    "gateHours": "Confirm current seasonal gate times with DWNP",
     "bookingUrl": "https://www.botswanatourism.co.bw/",
     "feeTable": {
       "currency": "BWP",
       "symbol": "P",
-      "period": "2025",
+      "period": "2026 tariff — confirm with DWNP",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "50",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "30",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "vehicle",
           "label": "Foreign vehicle",
-          "amount": "10",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "camping",
           "label": "Remote camp",
-          "amount": "Minimal",
+          "amount": "Confirm",
           "unit": "night",
           "note": "Self-sufficient 4×4 required"
         }
@@ -462,33 +441,39 @@
       "Walking safari"
     ],
     "bestSeason": "May–Oct",
-    "fees": "From $30/day",
+    "fees": "2025 guide: $30/day self-drive",
     "difficulty": "Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.znp.co.zm/",
-    "feeDetail": "Park fee ~$30/day international visitors. Walking safaris require licensed guide.",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.zambiatourism.com/park-entry-fees/",
+    "feeDetail": "The latest published tourism-authority guide located is labelled 2025: $25 international entry or $30 for self-drivers. Reconfirm with DNPW before travel; walking safaris require a licensed guide.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.znp.co.zm/",
+    "bookingUrl": "https://www.mot.gov.zm/dnpw/",
     "feeTable": {
       "currency": "USD",
       "symbol": "$",
-      "period": "2025",
+      "period": "2025 published guide — reconfirm",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "30",
+          "amount": "25",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC / resident",
-          "amount": "15",
+          "amount": "20",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "International self-driver",
+          "amount": "30",
           "unit": "day"
         },
         {
           "category": "vehicle",
-          "label": "Foreign vehicle",
+          "label": "Foreign vehicle under 3 tons",
           "amount": "15",
           "unit": "day"
         },
@@ -512,17 +497,17 @@
       "Remote"
     ],
     "bestSeason": "Jul–Oct",
-    "fees": "From $20/day",
+    "fees": "2025 guide: $20/day international",
     "difficulty": "Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.znp.co.zm/",
-    "feeDetail": "Park entry ~$20/day. Busanga Plains seasonal (dry season only).",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.zambiatourism.com/park-entry-fees/",
+    "feeDetail": "The latest published tourism-authority guide located is labelled 2025. Reconfirm with DNPW before travel; Busanga Plains access is seasonal.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.znp.co.zm/",
+    "bookingUrl": "https://www.mot.gov.zm/dnpw/",
     "feeTable": {
       "currency": "USD",
       "symbol": "$",
-      "period": "2025",
+      "period": "2025 published guide — reconfirm",
       "rows": [
         {
           "category": "person",
@@ -533,13 +518,13 @@
         {
           "category": "person",
           "label": "SADC / resident",
-          "amount": "10",
+          "amount": "15",
           "unit": "day"
         },
         {
           "category": "vehicle",
-          "label": "Foreign vehicle",
-          "amount": "10",
+          "label": "Foreign vehicle under 3 tons",
+          "amount": "15",
           "unit": "day"
         },
         {
@@ -563,34 +548,40 @@
       "Elephants"
     ],
     "bestSeason": "May–Oct",
-    "fees": "From $20/day",
+    "fees": "2025 guide: $30/day self-drive",
     "difficulty": "Easy–Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.znp.co.zm/",
-    "feeDetail": "Park fee ~$20/day. Canoe safaris arranged via lodges.",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.zambiatourism.com/park-entry-fees/",
+    "feeDetail": "The latest published tourism-authority guide located is labelled 2025: $25 international entry or $30 for self-drivers. Reconfirm with DNPW; canoeing attracts a separate activity fee.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.znp.co.zm/",
+    "bookingUrl": "https://www.mot.gov.zm/dnpw/",
     "feeTable": {
       "currency": "USD",
       "symbol": "$",
-      "period": "2025",
+      "period": "2025 published guide — reconfirm",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "20",
+          "amount": "25",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC / resident",
-          "amount": "10",
+          "amount": "20",
+          "unit": "day"
+        },
+        {
+          "category": "person",
+          "label": "International self-driver",
+          "amount": "30",
           "unit": "day"
         },
         {
           "category": "vehicle",
-          "label": "Foreign vehicle",
-          "amount": "10",
+          "label": "Foreign vehicle under 3 tons",
+          "amount": "15",
           "unit": "day"
         },
         {
@@ -613,40 +604,40 @@
       "Self-drive"
     ],
     "bestSeason": "Jul–Oct",
-    "fees": "From $15/day",
+    "fees": "From $24/day international",
     "difficulty": "Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.zimparks.org/",
-    "feeDetail": "Park fee ~$15/day. Main camp waterholes best at dry season dusk.",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.zimparks.org.zw/wp-content/uploads/2026/02/De-Gazetted-Tariff-2026.pdf",
+    "feeDetail": "ZimParks' 2026 tariff lists $24 for an international day visitor at Hwange Main Camp, Robins or Sinamatella; accommodated and SADC rates differ.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.zimparks.org/",
+    "bookingUrl": "https://book.zimparks.org.zw/",
     "feeTable": {
       "currency": "USD",
       "symbol": "$",
-      "period": "2025",
+      "period": "2026",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "15",
+          "amount": "24",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "7",
+          "amount": "18",
           "unit": "day"
         },
         {
           "category": "vehicle",
           "label": "Foreign vehicle",
-          "amount": "5",
+          "amount": "10",
           "unit": "day"
         },
         {
           "category": "camping",
           "label": "Main camp site",
-          "amount": "15+",
+          "amount": "Confirm",
           "unit": "night",
           "note": "Plus park fees"
         }
@@ -664,42 +655,42 @@
       "UNESCO"
     ],
     "bestSeason": "May–Oct",
-    "fees": "From $15/day",
+    "fees": "From $24/day international",
     "difficulty": "Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.zimparks.org/",
-    "feeDetail": "UNESCO wilderness — walking permits required. Book camps in advance.",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.zimparks.org.zw/wp-content/uploads/2026/02/De-Gazetted-Tariff-2026.pdf",
+    "feeDetail": "ZimParks' 2026 tariff lists $24 per international visitor. Mana Pools is a controlled wilderness area; confirm permits and reserve camps in advance.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.zimparks.org/",
+    "bookingUrl": "https://book.zimparks.org.zw/",
     "feeTable": {
       "currency": "USD",
       "symbol": "$",
-      "period": "2025",
+      "period": "2026",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "15",
+          "amount": "24",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "7",
+          "amount": "18",
           "unit": "day"
         },
         {
           "category": "vehicle",
           "label": "Foreign vehicle",
-          "amount": "5",
+          "amount": "10",
           "unit": "day"
         },
         {
           "category": "permit",
           "label": "Walking permit",
-          "amount": "Required",
+          "amount": "Confirm",
           "unit": "trip",
-          "note": "Licensed guide mandatory"
+          "note": "Check current permit and guide rules"
         }
       ]
     }
@@ -715,40 +706,40 @@
       "4x4 required"
     ],
     "bestSeason": "May–Oct",
-    "fees": "From $15/day",
+    "fees": "From $30/day international",
     "difficulty": "Advanced",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.zimparks.org/",
-    "feeDetail": "Remote 4x4 park. Chilojo Cliffs viewpoint highlight.",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.zimparks.org.zw/wp-content/uploads/2026/02/De-Gazetted-Tariff-2026.pdf",
+    "feeDetail": "ZimParks' 2026 tariff lists $30 for international day visitors and $20 for accommodated international visitors. Confirm remote-road conditions before entry.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.zimparks.org/",
+    "bookingUrl": "https://book.zimparks.org.zw/",
     "feeTable": {
       "currency": "USD",
       "symbol": "$",
-      "period": "2025",
+      "period": "2026",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "15",
+          "amount": "30",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "7",
+          "amount": "20",
           "unit": "day"
         },
         {
           "category": "vehicle",
           "label": "4×4 vehicle",
-          "amount": "5",
+          "amount": "10",
           "unit": "day"
         },
         {
           "category": "camping",
           "label": "Remote camp",
-          "amount": "10+",
+          "amount": "Confirm",
           "unit": "night",
           "note": "Self-drive 4×4 essential"
         }
@@ -768,15 +759,15 @@
     "bestSeason": "May–Nov",
     "fees": "From $20/day",
     "difficulty": "Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.anac.gov.mz/",
-    "feeDetail": "Park fee ~$20/day. Restoration success story — guided drives recommended.",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://gorongosa.org/park-fees-and-rules/",
+    "feeDetail": "Daily conservation fee is $20 international or $10 SADC. Self-driving inside the park is currently not allowed; use a guided safari from Chitengo or the park lodge.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.anac.gov.mz/",
+    "bookingUrl": "https://gorongosa.org/visit-gorongosa/",
     "feeTable": {
       "currency": "USD",
       "symbol": "$",
-      "period": "2025",
+      "period": "Official page checked Sep 2026",
       "rows": [
         {
           "category": "person",
@@ -792,14 +783,14 @@
         },
         {
           "category": "vehicle",
-          "label": "Foreign vehicle",
-          "amount": "5",
+          "label": "Vehicle conservation fee",
+          "amount": "Free",
           "unit": "day"
         },
         {
           "category": "activity",
-          "label": "Guided game drive",
-          "amount": "Recommended",
+          "label": "Guided safari",
+          "amount": "Separate",
           "unit": "trip"
         }
       ]
@@ -816,22 +807,22 @@
       "Diving"
     ],
     "bestSeason": "May–Nov",
-    "fees": "Park fee + lodge",
+    "fees": "Confirm park and operator charges",
     "difficulty": "Easy",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.anac.gov.mz/",
-    "feeDetail": "Marine park fees vary by activity. Dhow and dive permits through operators.",
-    "gateHours": "Boat-dependent",
-    "bookingUrl": "https://www.anac.gov.mz/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.anac.gov.mz/parques/bazaruto/",
+    "feeDetail": "ANAC publishes destination access and park contacts but no dependable current public visitor tariff. Confirm conservation, boat, diving and lodge charges with the park or licensed operator.",
+    "gateHours": "ANAC lists 24-hour visiting access; transfers remain boat and weather dependent",
+    "bookingUrl": "https://www.anac.gov.mz/parques/bazaruto/",
     "feeTable": {
       "currency": "MZN",
       "symbol": "MT",
-      "period": "2025",
+      "period": "Official page checked Sep 2026",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "700+",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
@@ -860,29 +851,29 @@
       "Remote"
     ],
     "bestSeason": "May–Dec",
-    "fees": "Park fee + lodge",
+    "fees": "Confirm park and operator charges",
     "difficulty": "Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.anac.gov.mz/",
-    "feeDetail": "Remote northern archipelago — fly-in lodges include park access.",
-    "gateHours": "Boat-dependent",
-    "bookingUrl": "https://www.anac.gov.mz/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://www.anac.gov.mz/parques/quirimbas/",
+    "feeDetail": "ANAC publishes destination access and contacts but no dependable current public visitor tariff. Confirm park, boat, diving and accommodation charges directly.",
+    "gateHours": "06:00–17:00 daily; island transfers remain boat and weather dependent",
+    "bookingUrl": "https://www.anac.gov.mz/parques/quirimbas/",
     "feeTable": {
       "currency": "MZN",
       "symbol": "MT",
-      "period": "2025",
+      "period": "Official page checked Sep 2026",
       "rows": [
         {
           "category": "person",
           "label": "Park entry",
-          "amount": "Via lodge",
+          "amount": "Confirm",
           "unit": "day",
           "note": "Fly-in packages often include fees"
         },
         {
           "category": "activity",
           "label": "Boat transfer",
-          "amount": "Operator rate",
+          "amount": "Confirm",
           "unit": "trip"
         }
       ]
@@ -899,34 +890,34 @@
       "Boat safari"
     ],
     "bestSeason": "May–Oct",
-    "fees": "From $25/day",
+    "fees": "Confirm current DNPW tariff",
     "difficulty": "Easy",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.malawiparks.org/",
-    "feeDetail": "Park fee ~$25/day. Boat safaris on Shire River extra.",
-    "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.malawiparks.org/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://visitmalawi.mw/liwonde-national-park/",
+    "feeDetail": "Malawi's tourism authority confirms the park, but no dependable current public visitor tariff was located. Confirm entry, vehicle and boat-safari charges with DNPW or your lodge.",
+    "gateHours": "Confirm locally with DNPW or your lodge",
+    "bookingUrl": "https://visitmalawi.mw/department-of-national-parks-and-wildlife/",
     "feeTable": {
       "currency": "USD",
       "symbol": "$",
-      "period": "2025",
+      "period": "No current public tariff — confirm",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "25",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC / resident",
-          "amount": "12",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "vehicle",
           "label": "Foreign vehicle",
-          "amount": "5",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
@@ -949,40 +940,40 @@
       "Hiking"
     ],
     "bestSeason": "May–Oct",
-    "fees": "From $20/day",
+    "fees": "Confirm current DNPW tariff",
     "difficulty": "Easy–Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.malawiparks.org/",
-    "feeDetail": "Plateau park ~$20/day. Cool climate — pack layers.",
-    "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.malawiparks.org/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://visitmalawi.mw/nyika-national-park/",
+    "feeDetail": "Malawi's tourism authority confirms the park, but no dependable current public visitor tariff was located. Confirm entry, vehicle, camping and fishing charges with DNPW before the remote drive.",
+    "gateHours": "Confirm locally with DNPW before the remote drive",
+    "bookingUrl": "https://visitmalawi.mw/department-of-national-parks-and-wildlife/",
     "feeTable": {
       "currency": "USD",
       "symbol": "$",
-      "period": "2025",
+      "period": "No current public tariff — confirm",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "20",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC / resident",
-          "amount": "10",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "vehicle",
           "label": "Foreign vehicle",
-          "amount": "5",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "camping",
           "label": "Plateau camp",
-          "amount": "15+",
+          "amount": "Confirm",
           "unit": "night"
         }
       ]
@@ -999,34 +990,34 @@
       "Snorkelling"
     ],
     "bestSeason": "May–Oct",
-    "fees": "From $10/day",
+    "fees": "Confirm current DNPW tariff",
     "difficulty": "Easy",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.malawiparks.org/",
-    "feeDetail": "Lake shore park ~$10/day. Snorkelling fees at Cape Maclear.",
-    "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.malawiparks.org/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://visitmalawi.mw/lake-malawi-national-park/",
+    "feeDetail": "Malawi's tourism authority confirms the park and activities, but no dependable current public visitor tariff was located. Confirm entry and activity charges locally.",
+    "gateHours": "Confirm locally with DNPW or your activity operator",
+    "bookingUrl": "https://visitmalawi.mw/department-of-national-parks-and-wildlife/",
     "feeTable": {
       "currency": "USD",
       "symbol": "$",
-      "period": "2025",
+      "period": "No current public tariff — confirm",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "10",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC / resident",
-          "amount": "5",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "activity",
           "label": "Snorkelling (Cape Maclear)",
-          "amount": "5+",
+          "amount": "Confirm",
           "unit": "day"
         }
       ]
@@ -1043,40 +1034,40 @@
       "Remote"
     ],
     "bestSeason": "Oct–Apr",
-    "fees": "From M100/day",
+    "fees": "Confirm current park tariff",
     "difficulty": "Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.forestry.gov.ls/",
-    "feeDetail": "Remote highland park — 4x4 recommended.",
-    "gateHours": "08:00–17:00",
-    "bookingUrl": "https://www.forestry.gov.ls/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://environment.gov.ls/category/protected-places/",
+    "feeDetail": "Lesotho's Department of Environment confirms the protected area, but it does not publish a dependable current visitor tariff or gate schedule online. Confirm both before the remote journey.",
+    "gateHours": "Confirm with the Department of Environment before departure",
+    "bookingUrl": "https://environment.gov.ls/national-parks/",
     "feeTable": {
       "currency": "LSL",
       "symbol": "M",
-      "period": "2025",
+      "period": "No current public tariff — confirm",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "100",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "50",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "vehicle",
           "label": "4×4 vehicle",
-          "amount": "50",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "camping",
           "label": "Backpack camp",
-          "amount": "80+",
+          "amount": "Confirm",
           "unit": "night"
         }
       ]
@@ -1093,34 +1084,34 @@
       "Hiking"
     ],
     "bestSeason": "Oct–Apr",
-    "fees": "From M50/day",
+    "fees": "Confirm current park tariff",
     "difficulty": "Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.forestry.gov.ls/",
-    "feeDetail": "Maloti Mountains entry ~M50/day.",
-    "gateHours": "08:00–17:00",
-    "bookingUrl": "https://www.forestry.gov.ls/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://environment.gov.ls/protected-places/tsehlanyane-national-park/",
+    "feeDetail": "Lesotho's Department of Environment confirms the park, but it does not publish a dependable current visitor tariff or gate schedule online. Confirm entry and accommodation directly.",
+    "gateHours": "Confirm with the park before departure",
+    "bookingUrl": "https://environment.gov.ls/national-parks/",
     "feeTable": {
       "currency": "LSL",
       "symbol": "M",
-      "period": "2025",
+      "period": "No current public tariff — confirm",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "50",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "25",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "camping",
           "label": "Camp site",
-          "amount": "60+",
+          "amount": "Confirm",
           "unit": "night"
         }
       ]
@@ -1137,34 +1128,34 @@
       "Landscapes"
     ],
     "bestSeason": "Nov–Mar",
-    "fees": "From M50/day",
+    "fees": "Confirm current reserve tariff",
     "difficulty": "Easy–Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.forestry.gov.ls/",
-    "feeDetail": "Katse Dam plateau reserve ~M50/day.",
-    "gateHours": "08:00–17:00",
-    "bookingUrl": "https://www.forestry.gov.ls/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://environment.gov.ls/category/protected-places/",
+    "feeDetail": "Lesotho's Department of Environment confirms the reserve, but it does not publish a dependable current visitor tariff or gate schedule online. Confirm entry and accommodation directly.",
+    "gateHours": "Confirm with the reserve before departure",
+    "bookingUrl": "https://environment.gov.ls/national-parks/",
     "feeTable": {
       "currency": "LSL",
       "symbol": "M",
-      "period": "2025",
+      "period": "No current public tariff — confirm",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "50",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "25",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "camping",
           "label": "Plateau camp",
-          "amount": "60+",
+          "amount": "Confirm",
           "unit": "night"
         }
       ]
@@ -1181,34 +1172,28 @@
       "Guided drives"
     ],
     "bestSeason": "May–Sep",
-    "fees": "From E250/day",
+    "fees": "E95/day conservation fee",
     "difficulty": "Easy",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.biggameparks.org/",
-    "feeDetail": "Big Game Parks fee ~E250/day. Guided drives for lion enclosure.",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://biggameparks.org/rates.php",
+    "feeDetail": "Big Game Parks lists a ZAR/E95 daily conservation fee. Activities are separate, children under 13 are half price, and all properties have been cashless since 1 July 2026.",
     "gateHours": "06:00–18:00",
-    "bookingUrl": "https://www.biggameparks.org/",
+    "bookingUrl": "https://biggameparks.org/properties.php?id=hlane-royal-national-park",
     "feeTable": {
       "currency": "SZL",
       "symbol": "E",
-      "period": "2025",
+      "period": "1 Dec 2025–30 Nov 2026",
       "rows": [
         {
           "category": "person",
-          "label": "International adult",
-          "amount": "250",
+          "label": "Daily conservation fee",
+          "amount": "95",
           "unit": "day"
         },
         {
           "category": "person",
-          "label": "SADC adult",
-          "amount": "125",
-          "unit": "day"
-        },
-        {
-          "category": "vehicle",
-          "label": "Foreign vehicle",
-          "amount": "50",
+          "label": "Child under 13",
+          "amount": "Half price",
           "unit": "day"
         },
         {
@@ -1231,28 +1216,28 @@
       "Family-friendly"
     ],
     "bestSeason": "Year-round",
-    "fees": "From E80/day",
+    "fees": "E95/day conservation fee",
     "difficulty": "Easy",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.biggameparks.org/",
-    "feeDetail": "Sanctuary entry ~E80/day. Walking and cycling included.",
-    "gateHours": "07:00–18:00",
-    "bookingUrl": "https://www.biggameparks.org/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://biggameparks.org/rates.php",
+    "feeDetail": "Big Game Parks lists a ZAR/E95 daily conservation fee. Designated walking and cycling trails are included; paid activities are separate. All properties are cashless.",
+    "gateHours": "06:00–18:00 for day visitors",
+    "bookingUrl": "https://biggameparks.org/rates.php",
     "feeTable": {
       "currency": "SZL",
       "symbol": "E",
-      "period": "2025",
+      "period": "1 Dec 2025–30 Nov 2026",
       "rows": [
         {
           "category": "person",
-          "label": "International adult",
-          "amount": "80",
+          "label": "Daily conservation fee",
+          "amount": "95",
           "unit": "day"
         },
         {
           "category": "person",
-          "label": "SADC adult",
-          "amount": "40",
+          "label": "Child under 13",
+          "amount": "Half price",
           "unit": "day"
         },
         {
@@ -1275,28 +1260,28 @@
       "Adventure"
     ],
     "bestSeason": "Apr–Oct",
-    "fees": "From E50/day",
+    "fees": "Confirm current ENTC tariff",
     "difficulty": "Moderate",
-    "lastVerified": "2026-03",
-    "sourceUrl": "https://www.biggameparks.org/",
-    "feeDetail": "Nature reserve ~E50/day. Canopy tour separate booking.",
-    "gateHours": "08:00–17:00",
-    "bookingUrl": "https://www.biggameparks.org/",
+    "lastVerified": "2026-09-06",
+    "sourceUrl": "https://entc.org.sz/malolotja-game-reserve/",
+    "feeDetail": "Malolotja is managed by the Eswatini National Trust Commission, not Big Game Parks. Confirm current entry, camping and canopy-tour charges with ENTC.",
+    "gateHours": "06:00–18:00 daily",
+    "bookingUrl": "https://entc.org.sz/malolotja-game-reserve/",
     "feeTable": {
       "currency": "SZL",
       "symbol": "E",
-      "period": "2025",
+      "period": "Current ENTC tariff — confirm",
       "rows": [
         {
           "category": "person",
           "label": "International adult",
-          "amount": "50",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
           "category": "person",
           "label": "SADC adult",
-          "amount": "25",
+          "amount": "Confirm",
           "unit": "day"
         },
         {
@@ -1308,7 +1293,7 @@
         {
           "category": "camping",
           "label": "Camp site",
-          "amount": "40+",
+          "amount": "Confirm",
           "unit": "night"
         }
       ]

@@ -241,6 +241,87 @@
         "https://www.gov.uk/foreign-travel-advice/eswatini",
         "https://travel.state.gov/en/international-travel/travel-advisories/eswatini.html"
       ]
+    },
+    {
+      "recordId": "park-fee:kruger", "outcome": "corrected", "evidence": "SANParks' current 2025/26 page lists R602 international adult and R275 SADC adult daily conservation fees. The old R486/R243 values and generic homepage citation were replaced.", "sourceUrls": ["https://www.sanparks.org/parks/kruger/rates-entry-fees", "https://www.sanparks.org/parks/kruger/travel/entrance-gates"]
+    },
+    {
+      "recordId": "park-fee:table-mountain", "outcome": "corrected", "evidence": "SANParks publishes separate fees by access point. Boulders is R245 and Cape Point R515 for international adults through 31 October 2026; the independently operated cableway was removed as the park headline price.", "sourceUrls": ["https://www.sanparks.org/parks/table-mountain/rates-entry-fees", "https://www.sanparks.org/parks/table-mountain/travel/entrance-gates"]
+    },
+    {
+      "recordId": "park-fee:addo", "outcome": "corrected", "evidence": "SANParks lists R492 international adult and R225 SADC adult daily conservation fees through 31 October 2026. The main entrance is listed as 07:00 to 19:00, with game-area times varying.", "sourceUrls": ["https://www.sanparks.org/parks/addo-elephant/rates-entry-fees", "https://www.sanparks.org/parks/addo-elephant/travel/entrance-gates"]
+    },
+    {
+      "recordId": "park-fee:etosha", "outcome": "corrected-with-reconfirmation-warning", "evidence": "The latest official public MEFT schedule located lists N$150 per international adult, N$100 per SADC adult and N$50 for a vehicle with 10 seats or fewer. It took effect in 2021, so the card explicitly requires reconfirmation.", "sourceUrls": ["https://www.meft.gov.na/files/downloads/543_Park%20Entrance%20and%20Conservation%20Fees.PDF", "https://www.nwr.com.na/"]
+    },
+    {
+      "recordId": "park-fee:namib-naukluft", "outcome": "corrected-with-reconfirmation-warning", "evidence": "The latest official public MEFT schedule located lists N$150 per international adult, N$100 per SADC adult and N$50 for a small vehicle. The former N$142/N$80/N$30 figures were removed and gate times require NWR confirmation.", "sourceUrls": ["https://www.meft.gov.na/files/downloads/543_Park%20Entrance%20and%20Conservation%20Fees.PDF", "https://www.nwr.com.na/resorts/sesriem-campsite/"]
+    },
+    {
+      "recordId": "park-fee:skeleton-coast", "outcome": "clarified-with-reconfirmation-warning", "evidence": "MEFT's public schedule covers Skeleton Coast fees, while access rules differ by section. The card now separates the published tariff from the need to confirm permits and route restrictions.", "sourceUrls": ["https://www.meft.gov.na/files/downloads/543_Park%20Entrance%20and%20Conservation%20Fees.PDF", "https://www.nwr.com.na/"]
+    },
+    {
+      "recordId": "park-fee:chobe", "outcome": "unverified-price-withdrawn", "evidence": "Botswana announced revised wildlife and park fees for 2026, but a dependable final public Category A tariff was not located. The unsupported P120/P60/P10 figures were withdrawn and travellers are directed to DWNP.", "sourceUrls": ["https://www.gov.bw/ministries/ministry-environment-and-tourism", "https://dailynews.gov.bw/news-detail/90220"]
+    },
+    {
+      "recordId": "park-fee:moremi", "outcome": "unverified-price-withdrawn", "evidence": "Botswana announced revised wildlife and park fees for 2026, but a dependable final public Category A tariff was not located. The unsupported P120/P60/P10 figures were withdrawn and travellers are directed to DWNP.", "sourceUrls": ["https://www.gov.bw/ministries/ministry-environment-and-tourism", "https://dailynews.gov.bw/news-detail/90220"]
+    },
+    {
+      "recordId": "park-fee:central-kalahari", "outcome": "unverified-price-withdrawn", "evidence": "Botswana announced revised wildlife and park fees for 2026, but a dependable final public Category B tariff was not located. The unsupported P50/P30/P10 figures were withdrawn and travellers are directed to DWNP.", "sourceUrls": ["https://www.gov.bw/ministries/ministry-environment-and-tourism", "https://dailynews.gov.bw/news-detail/90220"]
+    },
+    {
+      "recordId": "park-fee:south-luangwa", "outcome": "corrected-with-reconfirmation-warning", "evidence": "The latest published Zambia tourism-authority table located is labelled 2025 and lists $25 international entry, $30 for self-drivers, $20 resident/SADC and $15 for a foreign vehicle under three tons. The card preserves the year and requires DNPW confirmation.", "sourceUrls": ["https://www.zambiatourism.com/park-entry-fees/", "https://www.mot.gov.zm/dnpw/"]
+    },
+    {
+      "recordId": "park-fee:kafue", "outcome": "corrected-with-reconfirmation-warning", "evidence": "The latest published Zambia tourism-authority table located is labelled 2025 and lists $20 international entry, $15 resident/SADC and $15 for a foreign vehicle under three tons. The vehicle and SADC figures were corrected and marked for reconfirmation.", "sourceUrls": ["https://www.zambiatourism.com/park-entry-fees/", "https://www.mot.gov.zm/dnpw/"]
+    },
+    {
+      "recordId": "park-fee:lower-zambezi", "outcome": "corrected-with-reconfirmation-warning", "evidence": "The latest published Zambia tourism-authority table located is labelled 2025 and lists $25 international entry, $30 for self-drivers, $20 resident/SADC and $15 for a foreign vehicle. The old $20/$10 figures were corrected and marked for reconfirmation.", "sourceUrls": ["https://www.zambiatourism.com/park-entry-fees/", "https://www.mot.gov.zm/dnpw/"]
+    },
+    {
+      "recordId": "park-fee:hwange", "outcome": "corrected", "evidence": "ZimParks' 2026 tariff lists $24 for international day visitors, $18 for SADC day visitors and $10 for a foreign-registered day-visitor car. The former $15/$7/$5 values were replaced.", "sourceUrls": ["https://www.zimparks.org.zw/wp-content/uploads/2026/02/De-Gazetted-Tariff-2026.pdf", "https://book.zimparks.org.zw/"]
+    },
+    {
+      "recordId": "park-fee:mana-pools", "outcome": "corrected", "evidence": "ZimParks' 2026 tariff lists $24 international and $18 SADC daily conservation fees, with $10 for a foreign-registered day-visitor car. Permit and guide requirements remain an explicit confirmation step.", "sourceUrls": ["https://www.zimparks.org.zw/wp-content/uploads/2026/02/De-Gazetted-Tariff-2026.pdf", "https://book.zimparks.org.zw/booking_faqs"]
+    },
+    {
+      "recordId": "park-fee:gonarezhou", "outcome": "corrected", "evidence": "ZimParks' 2026 tariff lists $30 for international day visitors, $20 for SADC day visitors and $10 for a foreign-registered day-visitor car. Remote access remains subject to direct condition checks.", "sourceUrls": ["https://www.zimparks.org.zw/wp-content/uploads/2026/02/De-Gazetted-Tariff-2026.pdf", "https://www.zimparks.org.zw/gonarezhou-national-park/"]
+    },
+    {
+      "recordId": "park-fee:gorongosa", "outcome": "corrected", "evidence": "Gorongosa's official fees page lists $20 international and $10 SADC daily conservation fees, no vehicle conservation fee, gates from 06:00 to 18:00, and states that self-driving inside the park is not currently allowed.", "sourceUrls": ["https://gorongosa.org/park-fees-and-rules/", "https://gorongosa.org/visit-gorongosa/"]
+    },
+    {
+      "recordId": "park-fee:bazaruto", "outcome": "unverified-price-withdrawn", "evidence": "ANAC confirms the park, contact details and 24-hour visiting access but does not publish a dependable current visitor tariff. The unsupported MT700 estimate was withdrawn; park and operator charges require confirmation.", "sourceUrls": ["https://www.anac.gov.mz/parques/bazaruto/"]
+    },
+    {
+      "recordId": "park-fee:quirimbas", "outcome": "clarified", "evidence": "ANAC confirms 06:00 to 17:00 daily visiting hours and park contacts but no dependable current public visitor tariff. The card now requires direct confirmation of park and boat charges.", "sourceUrls": ["https://www.anac.gov.mz/parques/quirimbas/"]
+    },
+    {
+      "recordId": "park-fee:liwonde", "outcome": "unverified-price-withdrawn", "evidence": "Malawi's tourism authority confirms Liwonde and DNPW responsibility, but no dependable current public tariff was located. The former $25/$12/$5 figures were withdrawn.", "sourceUrls": ["https://visitmalawi.mw/liwonde-national-park/", "https://visitmalawi.mw/department-of-national-parks-and-wildlife/"]
+    },
+    {
+      "recordId": "park-fee:nyika", "outcome": "unverified-price-withdrawn", "evidence": "Malawi's tourism authority confirms Nyika and DNPW responsibility, but no dependable current public tariff was located. The former entry, vehicle and camping estimates were withdrawn.", "sourceUrls": ["https://visitmalawi.mw/nyika-national-park/", "https://visitmalawi.mw/department-of-national-parks-and-wildlife/"]
+    },
+    {
+      "recordId": "park-fee:lake-malawi", "outcome": "unverified-price-withdrawn", "evidence": "Malawi's tourism authority confirms Lake Malawi National Park and its visitor activities, but no dependable current public tariff was located. The former entry and snorkelling estimates were withdrawn.", "sourceUrls": ["https://visitmalawi.mw/lake-malawi-national-park/", "https://visitmalawi.mw/department-of-national-parks-and-wildlife/"]
+    },
+    {
+      "recordId": "park-fee:sehlathebe", "outcome": "unverified-price-withdrawn", "evidence": "Lesotho's Department of Environment confirms Sehlabathebe but publishes no dependable current visitor tariff or gate schedule. The former entry, vehicle and camping estimates were withdrawn.", "sourceUrls": ["https://environment.gov.ls/category/protected-places/", "https://environment.gov.ls/national-parks/"]
+    },
+    {
+      "recordId": "park-fee:tsenhlanyane", "outcome": "unverified-price-withdrawn", "evidence": "Lesotho's Department of Environment confirms Ts'ehlanyane but publishes no dependable current visitor tariff or gate schedule. The former entry and camping estimates were withdrawn.", "sourceUrls": ["https://environment.gov.ls/protected-places/tsehlanyane-national-park/", "https://environment.gov.ls/national-parks/"]
+    },
+    {
+      "recordId": "park-fee:bokong", "outcome": "unverified-price-withdrawn", "evidence": "Lesotho's Department of Environment confirms Bokong Nature Reserve but publishes no dependable current visitor tariff or gate schedule. The former entry and camping estimates were withdrawn.", "sourceUrls": ["https://environment.gov.ls/category/protected-places/", "https://environment.gov.ls/national-parks/"]
+    },
+    {
+      "recordId": "park-fee:hlane", "outcome": "corrected", "evidence": "Big Game Parks lists a ZAR/E95 daily conservation fee, 06:00 to 18:00 day visits, half price for children under 13, and cashless payment from 1 July 2026. The old E250/E125/E50 table was removed.", "sourceUrls": ["https://biggameparks.org/rates.php", "https://biggameparks.org/properties.php?id=hlane-royal-national-park"]
+    },
+    {
+      "recordId": "park-fee:mlilwane", "outcome": "corrected", "evidence": "Big Game Parks lists a ZAR/E95 daily conservation fee, 06:00 to 18:00 day visits, half price for children under 13, and cashless payment. The former E80/E40 values were corrected.", "sourceUrls": ["https://biggameparks.org/rates.php"]
+    },
+    {
+      "recordId": "park-fee:malolotja", "outcome": "corrected-authority-and-withdrawn-price", "evidence": "Malolotja is managed by the Eswatini National Trust Commission, not Big Game Parks. ENTC confirms 06:00 to 18:00 daily visiting hours but no dependable current tariff was captured, so the old E50/E25/E40 values were withdrawn.", "sourceUrls": ["https://entc.org.sz/malolotja-game-reserve/"]
     }
   ]
 }

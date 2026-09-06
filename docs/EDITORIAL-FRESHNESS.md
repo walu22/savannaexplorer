@@ -22,4 +22,6 @@ The dashboard uses a 30-day review cadence for travel-advisory links and a 90-da
 
 Review evidence is stored separately in `data/editorial-review-evidence.json`, keyed by the stable record IDs in the dashboard. A complete evidence record requires a reviewer, review date, outcome, written finding and valid HTTPS evidence links. Keeping evidence separate from traveller-facing copy makes the audit trail inspectable without bloating the public data.
 
+Park reviews distinguish current exact tariffs, the latest official published tariff that still needs reconfirmation, and authorities that do not expose a dependable current public tariff. In the latter case, unsupported numeric estimates are removed from the public fee table rather than advanced with a new review date.
+
 The next control-plane increment should add individual approvers, publication states, correction ownership, change history and automated source-link checks.

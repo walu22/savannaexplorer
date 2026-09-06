@@ -20,6 +20,15 @@ const planningGuides = loadJson('planning-guides.json');
 const routeCollection = loadJson('route-collections.json');
 const siteLastReviewed = loadJson('about.json').meta?.lastReviewed || '2026-06';
 
+function latestReviewed(values, fallback = siteLastReviewed) {
+    return values.filter(Boolean).sort().at(-1) || fallback;
+}
+
+const hubLastReviewed = {
+    parks: latestReviewed(parks.map(park => park.lastVerified)),
+    borders: latestReviewed(borders.map(border => border.lastVerified)),
+};
+
 export const HOME_OG_IMAGE = 'https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200';
 
 export const HOME_META = {
@@ -199,6 +208,7 @@ function truncate(text, max = 155) {
 
 function lastmodFromYm(ym) {
     if (ym && /^\d{4}-\d{2}$/.test(ym)) return `${ym}-01`;
+    if (ym && /^\d{4}-\d{2}-\d{2}$/.test(ym)) return ym;
     return new Date().toISOString().slice(0, 10);
 }
 
@@ -215,11 +225,14 @@ const MONTH_NAMES = [
     'July', 'August', 'September', 'October', 'November', 'December',
 ];
 
-function formatReviewDate(ym) {
-    if (!ym || !/^\d{4}-\d{2}$/.test(ym)) return '';
-    const [year, month] = ym.split('-');
+function formatReviewDate(value) {
+    if (!value || !/^\d{4}-\d{2}(?:-\d{2})?$/.test(value)) return '';
+    const [year, month, day] = value.split('-');
     const idx = parseInt(month, 10) - 1;
-    return `${MONTH_NAMES[idx]} ${year}`;
+    if (idx < 0 || idx > 11) return '';
+    return day
+        ? `${MONTH_NAMES[idx]} ${parseInt(day, 10)}, ${year}`
+        : `${MONTH_NAMES[idx]} ${year}`;
 }
 
 function reviewedLine(ym) {
@@ -230,8 +243,9 @@ function reviewedLine(ym) {
     return `<p class="last-reviewed"><time datetime="${iso}">Last reviewed ${label}</time></p>`;
 }
 
-function isoReviewDate(ym) {
-    return ym && /^\d{4}-\d{2}$/.test(ym) ? `${ym}-01` : undefined;
+function isoReviewDate(value) {
+    if (value && /^\d{4}-\d{2}$/.test(value)) return `${value}-01`;
+    return value && /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : undefined;
 }
 
 export function countryPages(baseUrl) {
@@ -608,12 +622,13 @@ export function hubPages(baseUrl) {
     return HUB_SECTIONS.map(hub => {
         const path = `/${hub.id}`;
         const title = `${hub.title} | ${SITE_NAME}`;
+        const reviewed = hubLastReviewed[hub.id] || siteLastReviewed;
         const bodyHtml = `
 <main id="seo-prerender" class="seo-prerender">
   <article>
     <nav aria-label="Breadcrumb"><a href="/">Home</a> › ${escapeHtml(hub.title)}</nav>
     <h1>${escapeHtml(hub.title)}</h1>
-    ${reviewedLine(siteLastReviewed)}
+    ${reviewedLine(reviewed)}
     <p class="seo-lead">${escapeHtml(hub.description)}</p>
     <p><a href="${path}">Open ${escapeHtml(hub.title)}</a> on Savanna Explorer.</p>
   </article>
@@ -631,7 +646,7 @@ export function hubPages(baseUrl) {
                 name: hub.title,
                 description: hub.description,
                 url: `${siteUrl(baseUrl)}${path}`,
-                ...(isoReviewDate(siteLastReviewed) && { dateModified: isoReviewDate(siteLastReviewed) }),
+                ...(isoReviewDate(reviewed) && { dateModified: isoReviewDate(reviewed) }),
             },
             breadcrumb: [
                 { name: 'Home', path: '/' },
