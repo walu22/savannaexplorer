@@ -568,21 +568,6 @@ body.site-v2 .gastro-card p {
     color: rgba(247, 243, 237, 0.82);
 }
 
-/* --- Experiences --- */
-body.site-v2 .experiences {
-    padding: var(--section-pad) 0;
-    background: var(--bg-warm);
-}
-
-body.site-v2 .experiences-grid {
-    gap: 1.25rem;
-}
-
-body.site-v2 .experience-card {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-}
-
 /* --- Itineraries --- */
 body.site-v2 .itineraries {
     padding: var(--section-pad) 0;

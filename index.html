@@ -260,51 +260,116 @@
         </div>
     </section>
 
-    <!-- Experiences Section -->
-    <section id="experiences" class="experiences">
+    <!-- Experience Finder -->
+    <section id="experiences" class="experience-finder-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Top Experiences</h2>
-                <p>31 curated activity ideas across all nine countries — typical cost bands and how to book locally.</p>
+            <div class="experience-finder-hero">
+                <div class="experience-finder-intro">
+                    <span class="section-eyebrow">Plan around what you love</span>
+                    <h2>Choose the kind of trip you want to remember</h2>
+                    <p>Start with an experience style, then compare the countries that suit it. These are planning pathways—not packages, paid rankings or unverified ratings.</p>
+                    <div class="experience-filter-panel" aria-labelledby="experience-filter-heading">
+                        <div class="experience-filter-heading">
+                            <div>
+                                <span class="section-eyebrow">Experience finder</span>
+                                <h3 id="experience-filter-heading">What should shape your trip?</h3>
+                            </div>
+                            <label for="experience-country-filter">Country
+                                <select id="experience-country-filter">
+                                    <option value="all">All nine countries</option>
+                                    <option value="namibia">Namibia</option>
+                                    <option value="south-africa">South Africa</option>
+                                    <option value="botswana">Botswana</option>
+                                    <option value="zambia">Zambia</option>
+                                    <option value="zimbabwe">Zimbabwe</option>
+                                    <option value="mozambique">Mozambique</option>
+                                    <option value="malawi">Malawi</option>
+                                    <option value="lesotho">Lesotho</option>
+                                    <option value="eswatini">Eswatini</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="experience-style-filters" id="experience-style-filters" aria-label="Filter by experience style">
+                            <button type="button" class="active" data-experience-style="all" aria-pressed="true">All styles</button>
+                            <button type="button" data-experience-style="wildlife" aria-pressed="false">Wildlife</button>
+                            <button type="button" data-experience-style="landscapes" aria-pressed="false">Landscapes</button>
+                            <button type="button" data-experience-style="water" aria-pressed="false">Water &amp; coast</button>
+                            <button type="button" data-experience-style="active" aria-pressed="false">Active</button>
+                            <button type="button" data-experience-style="culture" aria-pressed="false">Food &amp; culture</button>
+                            <button type="button" data-experience-style="road-trip" aria-pressed="false">Road trips</button>
+                        </div>
+                        <p class="experience-filter-status" id="experience-filter-status" role="status" aria-live="polite">6 experience styles shown</p>
+                    </div>
+                    <div class="experience-finder-actions">
+                        <a class="btn btn-primary" href="/routes">Match a route <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        <a class="btn btn-outline" href="/book-direct">Find reviewed operators</a>
+                    </div>
+                    <ul class="experience-confidence" aria-label="How experience guidance is selected">
+                        <li><i class="fas fa-route" aria-hidden="true"></i><span><strong>Useful for planning</strong>Ideas connect to detailed country guides and routes.</span></li>
+                        <li><i class="fas fa-scale-balanced" aria-hidden="true"></i><span><strong>Independent</strong>No paid ordering and no invented popularity scores.</span></li>
+                        <li><i class="fas fa-shield-halved" aria-hidden="true"></i><span><strong>Book carefully</strong>Use the reviewed directory, then reconfirm details before paying.</span></li>
+                    </ul>
+                </div>
+                <figure class="experience-finder-image">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=82&w=1200" alt="Elephants moving across open savanna in Southern Africa">
+                    <figcaption><span>Start with an interest</span>Turn a broad travel idea into a country and route shortlist.</figcaption>
+                </figure>
             </div>
-            <div class="experiences-grid">
-                <div class="experience-card">
-                    <img src="https://images.unsplash.com/photo-1547448415-e9f5b28e570d?auto=format&fit=crop&q=80&w=800" alt="Wildlife & Safari" data-stock-image="expSafari">
-                    <div class="exp-overlay">
-                        <span class="exp-category">Wildlife</span>
-                        <h3>Wildlife & Safari</h3>
-                        <p>Track the legendary Big Five across the vast savannas of Etosha and Kruger.</p>
-                        <a href="javascript:void(0)" class="exp-link" data-theme="safari">Explore Safari <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="experience-card">
-                    <img src="https://images.unsplash.com/photo-1776347164697-110b417abd4e?auto=format&fit=crop&q=80&w=800" alt="Coast & Adventure" data-stock-image="expAdventure">
-                    <div class="exp-overlay">
-                        <span class="exp-category">Adventure</span>
-                        <h3>Coast & Adventure</h3>
-                        <p>From dune surfing in the Namib to shark diving in the Atlantic, feel the adrenaline.</p>
-                        <a href="javascript:void(0)" class="exp-link" data-theme="adventure">Feel the Rush <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="experience-card">
-                    <img src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?auto=format&fit=crop&q=80&w=800" alt="Cultural Immersion" data-stock-image="expCulture">
-                    <div class="exp-overlay">
-                        <span class="exp-category">Heritage</span>
-                        <h3>Cultural Immersion</h3>
-                        <p>Connect with the ancient traditions of the Himba and San people in their ancestral lands.</p>
-                        <a href="javascript:void(0)" class="exp-link" data-theme="culture">Discover Traditions <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="experience-card">
-                    <img src="https://images.unsplash.com/photo-1759164882609-58b00ec3b09a?auto=format&fit=crop&q=80&w=800" alt="Nature's Wonders" data-stock-image="expNature">
-                    <div class="exp-overlay">
-                        <span class="exp-category">Nature</span>
-                        <h3>Nature's Wonders</h3>
-                        <p>Witness the awe-inspiring Victoria Falls and the deep silence of the Fish River Canyon.</p>
-                        <a href="javascript:void(0)" class="exp-link" data-theme="nature">See the Magic <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+
+            <div class="experience-path-grid" id="experience-path-grid">
+                <article class="experience-path-card" data-experience-card data-style="wildlife" data-countries="namibia south-africa botswana zambia zimbabwe mozambique malawi eswatini">
+                    <div class="experience-path-icon" aria-hidden="true"><i class="fas fa-binoculars"></i></div>
+                    <span class="experience-path-label">Wildlife</span>
+                    <h3>Safari in living landscapes</h3>
+                    <p>Choose between waterhole watching, river safaris, walking country and large self-drive parks. Season, vehicle rules and guiding requirements matter more than a generic rating.</p>
+                    <div class="experience-path-places"><span>Good places to start</span><a href="/countries/botswana">Botswana</a><a href="/countries/zambia">Zambia</a><a href="/countries/namibia">Namibia</a></div>
+                </article>
+                <article class="experience-path-card" data-experience-card data-style="landscapes" data-countries="namibia south-africa botswana lesotho zimbabwe">
+                    <div class="experience-path-icon" aria-hidden="true"><i class="fas fa-mountain-sun"></i></div>
+                    <span class="experience-path-label">Landscapes</span>
+                    <h3>Deserts, mountains and open horizons</h3>
+                    <p>Build around sunrise access, walking conditions and realistic driving time—not a race between viewpoints. The Namib, Maloti–Drakensberg and salt pans reward slower itineraries.</p>
+                    <div class="experience-path-places"><span>Good places to start</span><a href="/countries/namibia">Namibia</a><a href="/countries/lesotho">Lesotho</a><a href="/countries/south-africa">South Africa</a></div>
+                </article>
+                <article class="experience-path-card" data-experience-card data-style="water" data-countries="namibia botswana zambia zimbabwe mozambique malawi">
+                    <div class="experience-path-icon" aria-hidden="true"><i class="fas fa-water"></i></div>
+                    <span class="experience-path-label">Water &amp; coast</span>
+                    <h3>Rivers, lakes, islands and ocean</h3>
+                    <p>Compare dry-season river wildlife, lake stays and Indian Ocean time. Water levels, marine conditions and transfer logistics determine what is possible.</p>
+                    <div class="experience-path-places"><span>Good places to start</span><a href="/countries/mozambique">Mozambique</a><a href="/countries/malawi">Malawi</a><a href="/countries/botswana">Botswana</a></div>
+                </article>
+                <article class="experience-path-card" data-experience-card data-style="active" data-countries="namibia south-africa zambia zimbabwe mozambique malawi lesotho eswatini">
+                    <div class="experience-path-icon" aria-hidden="true"><i class="fas fa-person-hiking"></i></div>
+                    <span class="experience-path-label">Active travel</span>
+                    <h3>Walk, ride, paddle or climb</h3>
+                    <p>Match the activity to your fitness, season and guide requirements. Mountain weather, river levels and wildlife areas can change the risk quickly.</p>
+                    <div class="experience-path-places"><span>Good places to start</span><a href="/countries/lesotho">Lesotho</a><a href="/countries/malawi">Malawi</a><a href="/countries/zimbabwe">Zimbabwe</a></div>
+                </article>
+                <article class="experience-path-card" data-experience-card data-style="culture" data-countries="namibia south-africa botswana zambia zimbabwe mozambique malawi lesotho eswatini">
+                    <div class="experience-path-icon" aria-hidden="true"><i class="fas fa-people-group"></i></div>
+                    <span class="experience-path-label">Food &amp; culture</span>
+                    <h3>Meet places through people and food</h3>
+                    <p>Look for locally led walks, markets, museums, studios and community visits with clear consent and fair host benefit. Avoid experiences that turn people into attractions.</p>
+                    <div class="experience-path-places"><span>Plan responsibly</span><a href="/cultures">Community travel</a><a href="/gastronomy">Food guide</a><a href="/phrasebook">Phrasebook</a></div>
+                </article>
+                <article class="experience-path-card" data-experience-card data-style="road-trip" data-countries="namibia south-africa botswana zambia zimbabwe mozambique malawi lesotho eswatini">
+                    <div class="experience-path-icon" aria-hidden="true"><i class="fas fa-road"></i></div>
+                    <span class="experience-path-label">Road trips</span>
+                    <h3>Make the journey part of the experience</h3>
+                    <p>Compare road surface, border complexity, vehicle fit and driving hours before choosing stops. A beautiful route is only useful when its logistics match your trip.</p>
+                    <div class="experience-path-places"><span>Build your plan</span><a href="/routes">Route Explorer</a><a href="/borders">Border guides</a><a href="/my-safari">My Safari</a></div>
+                </article>
             </div>
+
+            <aside class="experience-booking-standard">
+                <div><span class="section-eyebrow">Before you commit</span><h3>Turn inspiration into a safe booking</h3></div>
+                <ol>
+                    <li><span>1</span><p><strong>Open the country guide</strong>Check season, location and realistic travel time.</p></li>
+                    <li><span>2</span><p><strong>Find a reviewed source</strong>Use an official park, tourism body or operator directory.</p></li>
+                    <li><span>3</span><p><strong>Reconfirm before paying</strong>Ask about inclusions, cancellation terms, permits and insurance.</p></li>
+                </ol>
+                <a href="/book-direct">Open Book Direct <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </aside>
         </div>
     </section>
 
@@ -734,9 +799,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Top Experiences Section (Already implemented) -->
-
 
     <!-- Safari Bingo -->
     <section id="safari-bingo" class="safari-bingo-section">

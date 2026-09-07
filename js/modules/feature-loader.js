@@ -33,6 +33,7 @@ const loaders = {
     'packing-list': () => import('./packing-list.js').then(module => module.initPackingList()),
     phrasebook: () => import('./phrasebook.js').then(module => module.initPhrasebook()),
     campsites: () => import('./campsites.js').then(module => module.initCampsites()),
+    experiences: () => import('./experiences.js').then(module => module.initExperiences()),
     editorial: () => import('./editorial.js').then(module => module.initEditorialWorkspace()),
 };
 
@@ -77,7 +78,7 @@ const SECTION_FEATURES = {
     editorial: ['editorial'],
     cultures: [],
     gastronomy: ['marketplace'],
-    experiences: ['marketplace'],
+    experiences: ['experiences'],
     news: ['discover'],
     'top-destinations': ['discover'],
     faq: ['discover'],

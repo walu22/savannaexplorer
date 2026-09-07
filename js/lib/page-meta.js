@@ -82,6 +82,10 @@ const HUB_META = {
         title: 'Responsible Community Travel',
         description: 'Plan respectful local experiences across Southern Africa with practical guidance on community benefit, consent, photography, language, and local guides.',
     },
+    experiences: {
+        title: 'Southern Africa Experience Finder',
+        description: 'Compare wildlife, landscape, coast, active, cultural, food, and road-trip ideas across nine Southern African countries without paid rankings or invented ratings.',
+    },
     editorial: {
         title: 'Editorial Workspace',
         description: 'Restricted Savanna Explorer editorial operations workspace.',

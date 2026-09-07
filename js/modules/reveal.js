@@ -2,7 +2,7 @@
 const STAGGER_CHILD_SELECTORS = [
     '.service-card',
     '.destination-card',
-    '.experience-card',
+    '.experience-path-card',
     '.community-practice-grid article',
     '.community-country-grid a',
     '.parks-card',

@@ -375,109 +375,368 @@ section {
     margin-top: 0.5rem;
 }
 
-/* --- Experiences Section --- */
-.experiences {
-    background-color: var(--bg-cream);
+/* --- Experience Finder --- */
+.experience-finder-section {
+    padding: var(--section-pad) 0;
+    background: var(--brand-dark-surface);
+    color: var(--white);
     overflow: hidden;
 }
 
-.experiences-grid {
+.experience-finder-hero {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-    padding: 1rem 0;
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: stretch;
 }
 
-.experience-card {
+.experience-finder-intro {
+    padding: clamp(1rem, 2vw, 2rem) 0;
+}
+
+.experience-finder-intro h2 {
+    max-width: 740px;
+    margin: 0.55rem 0 1.25rem;
+    color: var(--white);
+    font-size: clamp(2.7rem, 5vw, 5.1rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+}
+
+.experience-finder-intro > p {
+    max-width: 690px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.experience-finder-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.8rem;
+}
+
+.experience-finder-section .btn-outline {
+    border-color: rgba(255, 255, 255, 0.45);
+    color: var(--white);
+}
+
+.experience-finder-section .btn-outline:hover {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.experience-confidence {
+    display: grid;
+    gap: 0.8rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.experience-confidence li {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr;
+    gap: 0.85rem;
+    align-items: start;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.experience-confidence i {
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    place-items: center;
+    border: 1px solid rgba(229, 164, 64, 0.4);
+    border-radius: 50%;
+    color: var(--primary);
+}
+
+.experience-confidence strong {
+    display: block;
+    color: var(--white);
+}
+
+.experience-finder-image {
     position: relative;
-    height: 500px;
-    border-radius: 20px;
+    min-height: 570px;
+    margin: 0;
     overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-lg);
+    background: #15291f;
 }
 
-.experience-card img {
+.experience-finder-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(8, 24, 17, 0.92) 100%);
+}
+
+.experience-finder-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.experience-card:hover img {
-    transform: scale(1.15);
-}
-
-.exp-overlay {
+.experience-finder-image figcaption {
     position: absolute;
-    bottom: 2rem;
-    left: 2rem;
-    right: 2rem;
-    padding: 2.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    color: var(--white);
-    transform: translateY(20px);
-    transition: var(--transition-smooth);
+    z-index: 1;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.92rem;
+    line-height: 1.5;
 }
 
-.experience-card:hover .exp-overlay {
-    transform: translateY(0);
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.exp-category {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--primary);
+.experience-finder-image figcaption span {
     display: block;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.3rem;
+    color: var(--primary);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
 }
 
-.experience-card h3 {
+.experience-filter-panel {
+    margin-top: 1.7rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.experience-filter-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: end;
+}
+
+.experience-filter-heading h3 {
+    margin: 0.35rem 0 0;
     color: var(--white);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
 }
 
-.experience-card p {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
+.experience-filter-heading label {
+    display: grid;
+    min-width: 240px;
+    gap: 0.45rem;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.experience-filter-heading select {
+    min-height: 48px;
+    padding: 0 2.5rem 0 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    color: var(--text-dark);
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.experience-style-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1.5rem;
+}
+
+.experience-style-filters button {
+    min-height: 42px;
+    padding: 0.65rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.82);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
     transition: var(--transition-smooth);
 }
 
-.experience-card:hover p {
-    opacity: 1;
-    max-height: 100px;
+.experience-style-filters button:hover,
+.experience-style-filters button:focus-visible,
+.experience-style-filters button.active {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: #17261f;
 }
 
-.exp-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    color: var(--white);
-    font-weight: 600;
-    font-size: 0.9rem;
+.experience-filter-status {
+    margin: 1rem 0 0;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.88rem;
+}
+
+.experience-path-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+}
+
+.experience-path-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+    padding: clamp(1.3rem, 3vw, 2rem);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: var(--radius-md);
+    background: #fff;
+    color: var(--text-dark);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.experience-path-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+}
+
+.experience-path-card[hidden] {
+    display: none;
+}
+
+.experience-path-icon {
+    display: grid;
+    grid-row: span 4;
+    width: 3rem;
+    height: 3rem;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(229, 164, 64, 0.16);
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+}
+
+.experience-path-label {
+    color: var(--primary-dark);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-.exp-link i {
-    transition: transform 0.3s ease;
+.experience-path-card h3 {
+    margin: 0.35rem 0 0.7rem;
+    color: var(--accent);
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+    line-height: 1.15;
 }
 
-.exp-link:hover i {
-    transform: translateX(5px);
+.experience-path-card > p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.experience-path-places {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.8rem;
+    align-items: center;
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.experience-path-places span {
+    width: 100%;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.experience-path-places a {
+    color: var(--accent);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-color: rgba(229, 164, 64, 0.7);
+    text-underline-offset: 4px;
+}
+
+.experience-booking-standard {
+    display: grid;
+    grid-template-columns: minmax(210px, 0.8fr) minmax(0, 1.7fr) auto;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 1.25rem;
+    padding: clamp(1.5rem, 3vw, 2.2rem);
+    border: 1px solid rgba(229, 164, 64, 0.32);
+    border-radius: var(--radius-lg);
+    background: rgba(10, 29, 20, 0.78);
+}
+
+.experience-booking-standard h3 {
+    margin: 0.35rem 0 0;
+    color: var(--white);
+    font-size: 1.65rem;
+}
+
+.experience-booking-standard ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.experience-booking-standard li {
+    display: grid;
+    grid-template-columns: 1.8rem 1fr;
+    gap: 0.65rem;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.experience-booking-standard li > span {
+    display: grid;
+    width: 1.8rem;
+    height: 1.8rem;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #17261f;
+    font-weight: 900;
+}
+
+.experience-booking-standard p {
+    margin: 0;
+}
+
+.experience-booking-standard strong {
+    display: block;
+    color: var(--white);
+    font-size: 0.86rem;
+}
+
+.experience-booking-standard > a {
+    white-space: nowrap;
+    color: var(--primary);
+    font-weight: 800;
 }
 
 /* --- Facts Section --- */
@@ -1362,11 +1621,15 @@ footer {
     .destinations-grid, .itinerary-grid, .utility-grid {
         grid-template-columns: 1fr;
     }
-    .experiences-grid {
+    .experience-finder-hero,
+    .experience-booking-standard {
         grid-template-columns: 1fr;
     }
-    .experience-card {
-        height: 400px;
+    .experience-finder-image {
+        min-height: 430px;
+    }
+    .experience-booking-standard > a {
+        justify-self: start;
     }
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1377,17 +1640,27 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .experience-card {
-        height: 350px;
+    .experience-filter-heading,
+    .experience-finder-actions {
+        align-items: stretch;
+        flex-direction: column;
     }
-    .exp-overlay {
-        left: 1rem;
-        right: 1rem;
-        bottom: 1rem;
-        padding: 1.5rem;
+    .experience-filter-heading label {
+        min-width: 0;
     }
-    .experience-card h3 {
-        font-size: 1.5rem;
+    .experience-path-grid,
+    .experience-booking-standard ol {
+        grid-template-columns: 1fr;
+    }
+    .experience-finder-image {
+        min-height: 360px;
+    }
+    .experience-path-card {
+        grid-template-columns: 1fr;
+    }
+    .experience-path-icon {
+        grid-row: auto;
+        margin-bottom: 1rem;
     }
     .itinerary-card, .utility-card {
         padding: 2rem 1.5rem;

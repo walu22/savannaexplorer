@@ -147,7 +147,7 @@ function pruneHubHtml(html, path) {
     let output = replaceAppMain(html, [section]);
     output = removeElement(output, 'country-detail-view', 'section');
     if (path !== 'itineraries') output = removeElement(output, 'itinerary-modal', 'div');
-    if (!['gastronomy', 'experiences'].includes(path)) output = removeElement(output, 'marketplace-modal', 'div');
+    if (path !== 'gastronomy') output = removeElement(output, 'marketplace-modal', 'div');
     if (!['my-safari', 'plan'].includes(path)) output = removeElement(output, 'ai-planner-sidebar', 'div');
     return output;
 }
