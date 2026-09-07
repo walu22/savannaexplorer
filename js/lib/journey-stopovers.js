@@ -1,4 +1,5 @@
 import listings from '../../data/stays-operators.json' with { type: 'json' };
+import borderCorridorCollection from '../../data/border-corridor-stays.json' with { type: 'json' };
 
 const MAX_DRIVING_MINUTES_PER_TRANSFER_DAY = 420;
 
@@ -40,6 +41,34 @@ function sourcesFor(countryId, route) {
         }));
 }
 
+function preferredStopoverCountry(transfer, fromCountryId, toCountryId) {
+    const approach = transfer?.approach?.driveMinutes;
+    const onward = transfer?.onward?.driveMinutes;
+    if (!Number.isFinite(approach) || !Number.isFinite(onward)) return '';
+    if (approach > onward * 1.25) return fromCountryId;
+    if (onward > approach * 1.25) return toCountryId;
+    return '';
+}
+
+function corridorStaysFor(crossing, transfer, fromSegment, toSegment) {
+    const preferredCountry = preferredStopoverCountry(
+        transfer,
+        fromSegment?.countryId,
+        toSegment?.countryId,
+    );
+    return (borderCorridorCollection.stays || [])
+        .filter(stay => stay.borderId === crossing?.id)
+        .sort((a, b) => {
+            const priority = stay => stay.countryId === preferredCountry ? 0 : 1;
+            return priority(a) - priority(b) || a.distanceKm - b.distanceKm;
+        })
+        .map(stay => ({
+            ...stay,
+            preferredSide: Boolean(preferredCountry && stay.countryId === preferredCountry),
+            distanceLabel: `${stay.distanceKm} km straight-line from the crossing`,
+        }));
+}
+
 export function estimateTransferDays(transfer) {
     const minutes = Number.isFinite(transfer?.schedulingMinutes)
         ? transfer.schedulingMinutes
@@ -64,6 +93,7 @@ export function buildStopoverPlan(transfer, crossing, fromSegment, toSegment) {
         ...sourcesFor(fromSegment?.countryId, fromSegment?.route).map(source => ({ ...source, countryName: fromSegment?.countryName })),
         ...sourcesFor(toSegment?.countryId, toSegment?.route).map(source => ({ ...source, countryName: toSegment?.countryName })),
     ];
+    const corridorStays = corridorStaysFor(crossing, transfer, fromSegment, toSegment);
     const status = transfer?.status === 'estimated' ? (stopoverNights ? 'required' : 'same-day') : 'local-check';
     const summary = status === 'same-day'
         ? 'No extra stopover is built into this crossing, but keep the day free for border formalities and breaks.'
@@ -77,7 +107,10 @@ export function buildStopoverPlan(transfer, crossing, fromSegment, toSegment) {
         title: stopoverNights ? `${stopoverNights} stopover night${stopoverNights === 1 ? '' : 's'} needed` : 'Same-day transfer estimate',
         summary,
         placement: placementFor(transfer),
+        corridorStays,
         sources,
-        disclaimer: `These are reviewed booking sources for ${fromSegment?.countryName} and ${toSegment?.countryName}, not confirmed rooms near ${crossing?.name}. Check the exact property location, secure parking, late-arrival policy and current availability directly.`,
+        disclaimer: corridorStays.length
+            ? `These are researched corridor properties, not endorsements or confirmed rooms. Distances are straight-line estimates, not driving distances. Check current access, rates and availability directly.`
+            : `These are reviewed booking sources for ${fromSegment?.countryName} and ${toSegment?.countryName}, not confirmed rooms near ${crossing?.name}. Check the exact property location, secure parking, late-arrival policy and current availability directly.`,
     };
 }

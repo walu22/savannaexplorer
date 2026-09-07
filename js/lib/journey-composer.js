@@ -326,7 +326,7 @@ export function journeyToTripTemplate(journey, startDate = '') {
                     stageStops.push({
                         id: `journey-stopover-${segmentIndex + 1}-${stage + 1}-${crossing.id}`,
                         type: 'accommodation',
-                        name: `Choose secure stopover · night ${stage + 1} of ${stopover?.stopoverNights || transferDays - 1}`,
+                        name: `Choose a verified corridor stay · night ${stage + 1} of ${stopover?.stopoverNights || transferDays - 1}`,
                         location: `${crossing.name} corridor`,
                         time: '',
                         notes: `${stopover?.placement || 'Confirm the safest overnight location locally.'} ${stopoverSourceNotes(stopover)}`,
@@ -389,6 +389,10 @@ function transferDriveNotes(transfer, stopover, crossing) {
 }
 
 function stopoverSourceNotes(stopover) {
+    const corridorStays = (stopover?.corridorStays || []).slice(0, 3);
+    if (corridorStays.length) {
+        return `Researched corridor options (availability not checked): ${corridorStays.map(stay => `${stay.name}, ${stay.countryName}, ${stay.distanceKm} km straight-line from the crossing — ${stay.propertyUrl}. ${stay.parking.label} ${stay.checkIn.label}`).join('; ')} Confirm road distance, access, rates and availability directly.`;
+    }
     const sources = (stopover?.sources || []).slice(0, 3);
     if (!sources.length) return 'Ask your host or rental company for a locally suitable stopover.';
     return `Reviewed booking sources (not live availability): ${sources.map(source => `${source.title} — ${source.url}`).join('; ')}. Confirm the exact location and secure parking directly.`;

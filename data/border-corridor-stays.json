@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "lastReviewed": "2026-09-07",
+    "coverage": "Initial high-value border-corridor collection",
+    "methodology": "Properties are included only when a direct property or official tourism source can be paired with usable coordinates. Straight-line distances are calculated from the property coordinates to the reviewed border coordinates in data/borders.json; they are not road distances.",
+    "availability": "No live room availability is provided. Travellers must confirm dates, rates, access, parking and arrival arrangements directly with the property.",
+    "parkingPolicy": "Secure parking is shown only when the cited source explicitly publishes a security claim. Parking availability alone is not described as secure."
+  },
+  "stays": [
+    {
+      "id": "noordoewer-self-catering-chalets",
+      "borderId": "vioolsdrift",
+      "name": "Noordoewer Self Catering Chalets",
+      "countryId": "namibia",
+      "countryName": "Namibia",
+      "locality": "Noordoewer",
+      "coordinates": { "lat": -28.742682, "lng": 17.616629 },
+      "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=-28.742682&mlon=17.616629#map=16/-28.742682/17.616629",
+      "distanceKm": 2.9,
+      "publishedProximity": "The property describes itself as approximately 2 km from the South Africa–Namibia border.",
+      "propertyUrl": "https://www.noordoewer.com/",
+      "sourceUrl": "https://www.noordoewer.com/pages/facilities/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "secure",
+        "label": "Safe parking and CCTV are published.",
+        "sourceUrl": "https://www.noordoewer.com/pages/facilities/"
+      },
+      "checkIn": {
+        "status": "published",
+        "label": "24-hour check-in is published; the Shell service station handles arrival.",
+        "sourceUrl": "https://www.noordoewer.com/maps/location/"
+      },
+      "accessNotes": [
+        "The adjacent Shell service station is published as open 24 hours.",
+        "Confirm the after-hours handover process before travelling."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "east-gate-namibia",
+      "borderId": "mamuno",
+      "name": "East Gate Namibia",
+      "countryId": "namibia",
+      "countryName": "Namibia",
+      "locality": "Buitepos",
+      "coordinates": { "lat": -22.2821667, "lng": 19.9913333 },
+      "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=-22.2821667&mlon=19.9913333#map=16/-22.2821667/19.9913333",
+      "distanceKm": 1.7,
+      "publishedProximity": "The property describes itself as being at the Buitepos border post.",
+      "propertyUrl": "https://www.eastgate-namibia.com/",
+      "sourceUrl": "https://www.eastgate-namibia.com/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking security is not published on the reviewed property page.",
+        "sourceUrl": "https://www.eastgate-namibia.com/"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Check-in limits are not published on the reviewed property page.",
+        "sourceUrl": "https://www.eastgate-namibia.com/"
+      },
+      "accessNotes": [
+        "The property publishes a filling station, restaurant, takeaway and small shop on site.",
+        "Confirm reception hours and parking arrangements before departure."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "chobe-river-camp",
+      "borderId": "ngoma",
+      "name": "Chobe River Camp",
+      "countryId": "namibia",
+      "countryName": "Namibia",
+      "locality": "Ngoma",
+      "coordinates": { "lat": -17.898339, "lng": 24.728972 },
+      "coordinateSourceUrl": "https://gondwana-collection.com/accommodation/chobe-river-camp",
+      "distanceKm": 3.4,
+      "publishedProximity": "The property publishes a distance of 4 km from the Ngoma border.",
+      "propertyUrl": "https://gondwana-collection.com/accommodation/chobe-river-camp",
+      "sourceUrl": "https://gondwana-collection.com/accommodation/chobe-river-camp",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Secure on-property parking is not published on the reviewed page.",
+        "sourceUrl": "https://gondwana-collection.com/accommodation/chobe-river-camp"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Check-in limits are not published on the reviewed page.",
+        "sourceUrl": "https://gondwana-collection.com/accommodation/chobe-river-camp"
+      },
+      "accessNotes": [
+        "The property warns that its access road can require a 4x4 in the rainy season.",
+        "For non-4x4 vehicles in wet conditions, the property directs guests to arrange a transfer from Ngoma Police Station."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "river-view-lodge-chobe",
+      "borderId": "kazungula",
+      "name": "River View Lodge",
+      "countryId": "botswana",
+      "countryName": "Botswana",
+      "locality": "Kazungula",
+      "coordinates": { "lat": -17.794, "lng": 25.2320556 },
+      "coordinateSourceUrl": "https://riverviewlodgechobe.com/wp-content/uploads/2024/11/River-View-Lodge-Factsheet-2025-1.pdf",
+      "distanceKm": 3.2,
+      "publishedProximity": "The property publishes its location in Kazungula; the displayed distance is calculated from its published GPS position.",
+      "propertyUrl": "https://riverviewlodgechobe.com/",
+      "sourceUrl": "https://riverviewlodgechobe.com/contact-us/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking security is not published on the reviewed property pages.",
+        "sourceUrl": "https://riverviewlodgechobe.com/contact-us/"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Guest check-in limits are not published; office hours are not treated as check-in hours.",
+        "sourceUrl": "https://riverviewlodgechobe.com/contact-us/"
+      },
+      "accessNotes": [
+        "The property factsheet publishes Plot 5824, Kwena Road, Kazungula and GPS coordinates.",
+        "Confirm arrival timing and vehicle arrangements directly."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "528-victoria-falls",
+      "borderId": "vic-falls-bridge",
+      "name": "528 Victoria Falls",
+      "countryId": "zimbabwe",
+      "countryName": "Zimbabwe",
+      "locality": "Victoria Falls",
+      "coordinates": { "lat": -17.9255556, "lng": 25.8205 },
+      "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=-17.9255556&mlon=25.8205#map=16/-17.9255556/25.8205",
+      "distanceKm": 3.9,
+      "publishedProximity": "The property publishes a location 2.5 km from Victoria Falls town and 3 km from the waterfall; the border distance shown here is calculated.",
+      "propertyUrl": "https://528victoriafalls.com/",
+      "sourceUrl": "https://528victoriafalls.com/wp-content/uploads/2019/09/528-Fact-Sheet-Web-Resolution.pdf",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking security is not published in the reviewed property factsheet.",
+        "sourceUrl": "https://528victoriafalls.com/wp-content/uploads/2019/09/528-Fact-Sheet-Web-Resolution.pdf"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Check-in limits are not published in the reviewed property factsheet.",
+        "sourceUrl": "https://528victoriafalls.com/wp-content/uploads/2019/09/528-Fact-Sheet-Web-Resolution.pdf"
+      },
+      "accessNotes": [
+        "The displayed 3.9 km is a straight-line calculation to Victoria Falls Bridge, not a driving distance.",
+        "Confirm road transfer and arrival arrangements directly."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "border-country-inn",
+      "borderId": "lebombo",
+      "name": "Border Country Inn",
+      "countryId": "south-africa",
+      "countryName": "South Africa",
+      "locality": "Komatipoort",
+      "coordinates": { "lat": -25.44486, "lng": 31.97279 },
+      "coordinateSourceUrl": "https://www.mpumalanga.com/plan-your-trip/accommodation/wild-frontier/komatipoort/border-country-inn-MTACC7424",
+      "distanceKm": 1.4,
+      "publishedProximity": "The provincial tourism listing publishes a location 1 km before the Lebombo border post.",
+      "propertyUrl": "https://www.mpumalanga.com/plan-your-trip/accommodation/wild-frontier/komatipoort/border-country-inn-MTACC7424",
+      "sourceUrl": "https://www.mpumalanga.com/plan-your-trip/accommodation/wild-frontier/komatipoort/border-country-inn-MTACC7424",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "available",
+        "label": "The source publishes safe, secure parking for boats; confirm ordinary vehicle parking directly.",
+        "sourceUrl": "https://www.mpumalanga.com/plan-your-trip/accommodation/wild-frontier/komatipoort/border-country-inn-MTACC7424"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Check-in limits are not published on the reviewed tourism listing.",
+        "sourceUrl": "https://www.mpumalanga.com/plan-your-trip/accommodation/wild-frontier/komatipoort/border-country-inn-MTACC7424"
+      },
+      "accessNotes": [
+        "The official provincial tourism listing places the inn on the N4, one kilometre before the border post.",
+        "Confirm vehicle parking and late arrival directly."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "silverstone-lodge",
+      "borderId": "oshoek",
+      "name": "Silverstone Lodge",
+      "countryId": "eswatini",
+      "countryName": "Eswatini",
+      "locality": "Mbabane",
+      "coordinates": { "lat": -26.283863, "lng": 31.141638 },
+      "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=-26.283863&mlon=31.141638#map=15/-26.283863/31.141638",
+      "distanceKm": 21.3,
+      "publishedProximity": "The property publishes driving directions from the Oshoek / Ngwenya border; the displayed distance is calculated from mapped coordinates.",
+      "propertyUrl": "https://www.silverstonefalls.com/",
+      "sourceUrl": "https://www.silverstonefalls.com/contact-us",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking security is not published on the reviewed property page.",
+        "sourceUrl": "https://www.silverstonefalls.com/contact-us"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Guest check-in limits are not published; office hours are not treated as check-in hours.",
+        "sourceUrl": "https://www.silverstonefalls.com/contact-us"
+      },
+      "accessNotes": [
+        "The property provides turn-by-turn arrival directions from the Oshoek / Ngwenya border.",
+        "Confirm arrival timing and secure parking directly."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "avani-maseru-hotel",
+      "borderId": "maseru-bridge",
+      "name": "Avani Maseru Hotel",
+      "countryId": "lesotho",
+      "countryName": "Lesotho",
+      "locality": "Maseru",
+      "coordinates": { "lat": -29.3167549, "lng": 27.4731607 },
+      "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=-29.3167549&mlon=27.4731607#map=16/-29.3167549/27.4731607",
+      "distanceKm": 2.7,
+      "publishedProximity": "The property publishes a five-minute drive to Maseru Bridge; the displayed kilometre figure is calculated.",
+      "propertyUrl": "https://www.avanihotels.com/en/maseru",
+      "sourceUrl": "https://www.avanihotels.com/en/maseru",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking security was not confirmed from the reviewed property page.",
+        "sourceUrl": "https://www.avanihotels.com/en/maseru"
+      },
+      "checkIn": {
+        "status": "published",
+        "label": "Check-in from 14:00 is published.",
+        "sourceUrl": "https://www.avanihotels.com/en/maseru"
+      },
+      "accessNotes": [
+        "The property publishes an 11:00 check-out time.",
+        "Confirm late arrival and vehicle parking directly."
+      ],
+      "availability": "check-direct"
+    }
+  ]
+}

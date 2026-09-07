@@ -139,6 +139,20 @@ function transferMarkup(transfer, crossing, stopover, index) {
         ${legMarkup(transfer.approach, 'To the border', `Route endpoint → ${crossing.name}`)}
         ${legMarkup(transfer.onward, 'After the border', `${crossing.name} → next route`)}
     </div>` : `<div class="journey-transfer__withheld"><i class="fas fa-location-crosshairs" aria-hidden="true"></i><p><strong>Distance withheld</strong><br>The cached road match did not meet our confidence threshold. Confirm this transfer with your host, rental company or a local route planner.</p></div>`;
+    const corridorStays = (stopover.corridorStays || []).slice(0, 3).map(stay => `<article class="journey-corridor-stay">
+        <div class="journey-corridor-stay__head"><span>${escapeHtml(stay.countryName)} · ${escapeHtml(stay.locality)}</span>${stay.preferredSide ? '<em>Suggested side</em>' : ''}</div>
+        <h6>${escapeHtml(stay.name)}</h6>
+        <p><i class="fas fa-location-dot" aria-hidden="true"></i><strong>${escapeHtml(stay.distanceLabel)}</strong><br>${escapeHtml(stay.publishedProximity)}</p>
+        <ul>
+            <li class="${stay.parking.status === 'unknown' ? 'is-unknown' : 'is-known'}"><i class="fas fa-car" aria-hidden="true"></i>${escapeHtml(stay.parking.label)}</li>
+            <li class="${stay.checkIn.status === 'unknown' ? 'is-unknown' : 'is-known'}"><i class="fas fa-clock" aria-hidden="true"></i>${escapeHtml(stay.checkIn.label)}</li>
+        </ul>
+        ${stay.accessNotes?.[0] ? `<small>${escapeHtml(stay.accessNotes[0])}</small>` : ''}
+        <div class="journey-corridor-stay__actions">
+            <a href="${escapeHtml(stay.propertyUrl)}" target="_blank" rel="noopener noreferrer">Check availability <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            <a href="${escapeHtml(stay.sourceUrl)}" target="_blank" rel="noopener noreferrer">Source · ${escapeHtml(stay.lastVerified)}</a>
+        </div>
+    </article>`).join('');
     const stopoverSources = stopover.sources.slice(0, 3).map(source => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(source.countryName)} · ${escapeHtml(source.relevance)}</span><strong>${escapeHtml(source.title)}</strong><small>${escapeHtml(source.linkLabel)} · reviewed ${escapeHtml(source.lastVerified)}</small></a>`).join('');
     return `<section class="journey-transfer" aria-label="Cross-border transfer plan">
         <div class="journey-transfer__head">
@@ -155,7 +169,8 @@ function transferMarkup(transfer, crossing, stopover, index) {
         <div class="journey-stopover journey-stopover--${escapeHtml(stopover.status)}">
             <div class="journey-stopover__head"><span><i class="fas fa-bed" aria-hidden="true"></i> Stopover plan</span><strong>${escapeHtml(stopover.title)}</strong></div>
             <p>${escapeHtml(stopover.summary)} ${escapeHtml(stopover.placement)}</p>
-            ${stopoverSources ? `<div class="journey-stopover__sources">${stopoverSources}</div>` : ''}
+            ${corridorStays ? `<div class="journey-stopover__corridor"><div class="journey-stopover__label"><strong>Researched near this crossing</strong><span>Direct booking · availability not checked</span></div><div class="journey-corridor-stays">${corridorStays}</div></div>` : ''}
+            ${stopoverSources ? `<details class="journey-stopover__more"${corridorStays ? '' : ' open'}><summary>${corridorStays ? 'More places to search' : 'Reviewed accommodation directories'}</summary><div class="journey-stopover__sources">${stopoverSources}</div></details>` : ''}
             <small>${escapeHtml(stopover.disclaimer)}</small>
         </div>
         <details class="journey-transfer__documents"><summary>Vehicle and document checklist</summary><ul>${(crossing.documents || []).map(item => `<li>${escapeHtml(item)}</li>`).join('')}<li>${escapeHtml(crossing.fees || 'Confirm current fees and requirements')}</li></ul></details>
