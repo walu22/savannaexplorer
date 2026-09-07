@@ -57,7 +57,7 @@ const HUB_SECTIONS = [
     },
     { id: 'expenses', title: 'Safari Expense Tracker', description: 'Track accommodation, transport, park, food, fuel, and activity spending against your selected My Safari trip.', priority: '0.65' },
     { id: 'destinations', title: 'Southern Africa Destinations', description: 'Explore nine Southern Africa countries with practical travel highlights, route ideas, wildlife areas, and independent planning guides.', priority: '0.85' },
-    { id: 'top-destinations', title: 'Top Southern Africa Highlights', description: 'Compare the standout landscapes, wildlife areas, coastlines, cities, and cultural experiences across Southern Africa.', priority: '0.75' },
+    { id: 'top-destinations', title: 'Where Should I Go in Southern Africa?', description: 'Compare nine Southern African countries by travel month, interests, trip length, budget, pace, driving comfort, and researched route coverage.', priority: '0.75' },
     { id: 'experiences', title: 'Southern Africa Experience Finder', description: 'Compare wildlife, landscape, coast, active, cultural, food, and road-trip ideas across nine Southern African countries without paid rankings or invented ratings.', priority: '0.7' },
     { id: 'cultures', title: 'Responsible Community Travel in Southern Africa', description: 'Plan respectful local experiences with practical guidance on community benefit, consent, photography, language, and registered local guides.', priority: '0.7' },
     { id: 'gastronomy', title: 'Southern African Food & Flavours', description: 'Explore regional dishes, ingredients, markets, and food traditions across nine Southern Africa countries.', priority: '0.65' },

@@ -52,3 +52,12 @@ test('experience hub loads its own filters and excludes the legacy marketplace m
     assert.match(experiencesModule, /aria-pressed/);
     assert.match(prerender, /path !== 'gastronomy'/);
 });
+
+test('legacy must-visit gallery is replaced by an explainable destination matcher', () => {
+    assert.doesNotMatch(index, /<h2>Top Destinations<\/h2>|Must Visit|experiences you cannot miss|top-destinations-grid/);
+    assert.match(index, /Find the countries that fit your trip/);
+    assert.match(index, /No universal “best” destination/);
+    assert.match(index, /Find my best matches/);
+    assert.match(index, /Season labels are broad country-level planning signals, not forecasts/);
+    assert.match(featureLoader, /'top-destinations': \['destination-matcher'\]/);
+});

@@ -49,7 +49,7 @@
                 <li class="nav-dropdown">
                     <button type="button" class="nav-drop-toggle" aria-expanded="false">Discover <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="nav-drop-menu">
-                        <a href="/top-destinations">Top highlights</a>
+                        <a href="/top-destinations">Where should I go?</a>
                         <a href="/experiences">Experiences</a>
                         <a href="/parks">National parks</a>
                         <a href="/cultures">Community travel</a>
@@ -248,15 +248,71 @@
         </div>
     </section>
 
-    <!-- Top Destinations — Visit Namibia MUST-visit highlights -->
-    <section id="top-destinations" class="top-destinations-section">
+    <!-- Destination Matcher -->
+    <section id="top-destinations" class="destination-matcher-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-eyebrow">What to See</span>
-                <h2>Top Destinations</h2>
-                <p>Southern Africa has countless wonders — these are the experiences you cannot miss.</p>
+            <div class="destination-matcher-layout">
+                <div class="destination-matcher-intro">
+                    <span class="section-eyebrow">Where should I go?</span>
+                    <h2>Find the countries that fit your trip</h2>
+                    <p>Tell us when you are travelling and what matters most. We will compare all nine countries using broad seasonal conditions, trip practicality and researched route coverage.</p>
+                    <div class="destination-matcher-promise">
+                        <i class="fas fa-compass" aria-hidden="true"></i>
+                        <p><strong>No universal “best” destination</strong>Your result explains why a country fits—and what you should consider before choosing it.</p>
+                    </div>
+                </div>
+
+                <form class="destination-matcher-form" id="destination-matcher-form">
+                    <div class="destination-matcher-form-head">
+                        <span>01</span>
+                        <div><small>Your travel brief</small><h3>Shape the shortlist</h3></div>
+                    </div>
+                    <div class="destination-matcher-fields">
+                        <label>Travel month
+                            <select name="month" id="destination-match-month">
+                                <option value="0">January</option><option value="1">February</option><option value="2">March</option>
+                                <option value="3">April</option><option value="4">May</option><option value="5">June</option>
+                                <option value="6">July</option><option value="7">August</option><option value="8">September</option>
+                                <option value="9">October</option><option value="10">November</option><option value="11">December</option>
+                            </select>
+                        </label>
+                        <label>Days available
+                            <input name="days" type="number" min="4" max="30" value="10" inputmode="numeric" required>
+                        </label>
+                        <label>Budget style
+                            <select name="budget"><option value="value">Keep costs lean</option><option value="balanced" selected>Balanced comfort</option><option value="premium">Premium comfort</option></select>
+                        </label>
+                        <label>Driving comfort
+                            <select name="driving"><option value="no-drive">Prefer transfers or guides</option><option value="standard">Standard paved roads</option><option value="suv" selected>Gravel roads with an SUV</option><option value="4x4">Remote 4×4 routes</option></select>
+                        </label>
+                        <label>Travel pace
+                            <select name="pace"><option value="slow">Slow and immersive</option><option value="balanced" selected>Balanced</option><option value="fast">Cover more ground</option></select>
+                        </label>
+                    </div>
+                    <fieldset class="destination-interest-fieldset">
+                        <legend>Main interests <span>Choose any that matter</span></legend>
+                        <label><input type="checkbox" name="interests" value="wildlife" checked><span>Wildlife</span></label>
+                        <label><input type="checkbox" name="interests" value="landscapes" checked><span>Landscapes</span></label>
+                        <label><input type="checkbox" name="interests" value="water"><span>Water &amp; coast</span></label>
+                        <label><input type="checkbox" name="interests" value="culture"><span>Food &amp; culture</span></label>
+                        <label><input type="checkbox" name="interests" value="active"><span>Active travel</span></label>
+                        <label><input type="checkbox" name="interests" value="road-trip"><span>Road trips</span></label>
+                        <label><input type="checkbox" name="interests" value="family"><span>Family</span></label>
+                    </fieldset>
+                    <button class="btn btn-primary destination-match-submit" type="submit">Find my best matches <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                </form>
             </div>
-            <div class="top-destinations-grid" id="top-destinations-grid"></div>
+
+            <section class="destination-match-results" aria-labelledby="destination-match-results-title">
+                <div class="destination-match-results-head">
+                    <div><span class="section-eyebrow">Your shortlist</span><h3 id="destination-match-results-title" tabindex="-1">Three countries worth comparing</h3></div>
+                    <p id="destination-match-summary">Based on your travel brief</p>
+                </div>
+                <div class="destination-match-grid" id="destination-match-grid" aria-live="polite">
+                    <div class="destination-match-loading"><i class="fas fa-compass fa-spin" aria-hidden="true"></i> Comparing destinations…</div>
+                </div>
+                <p class="destination-match-method"><i class="fas fa-circle-info" aria-hidden="true"></i>Destination-fit model reviewed September 2026. Season labels are broad country-level planning signals, not forecasts. Conditions vary by region and should be checked again before travel.</p>
+            </section>
         </div>
     </section>
 
@@ -1866,7 +1922,7 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/destinations">Destinations</a></li>
                         <li><a href="/experiences">Experiences</a></li>
-                        <li><a href="/top-destinations">Top Destinations</a></li>
+                        <li><a href="/top-destinations">Where should I go?</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/faq">Travel FAQ</a></li>
                     </ul>

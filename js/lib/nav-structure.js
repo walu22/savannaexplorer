@@ -24,7 +24,7 @@ export const NAV_JOURNEY_GROUPS = [
         id: 'discover',
         label: 'Discover',
         items: [
-            { href: '/top-destinations', label: 'Top highlights' },
+            { href: '/top-destinations', label: 'Where should I go?' },
             { href: '/experiences', label: 'Experiences' },
             { href: '/parks', label: 'National parks' },
             { href: '/cultures', label: 'Community travel' },

@@ -1,0 +1,104 @@
+{
+  "lastReviewed": "2026-09",
+  "profiles": [
+    {
+      "countryId": "namibia",
+      "minDays": 10,
+      "maxDays": 14,
+      "budget": ["balanced", "premium"],
+      "driving": ["no-drive", "suv", "4x4"],
+      "pace": ["slow", "balanced"],
+      "interests": ["wildlife", "landscapes", "culture", "active", "road-trip"],
+      "strengths": ["Desert and wildlife circuits", "Strong researched self-drive coverage"],
+      "tradeoff": "Long distances and gravel roads make a rushed itinerary tiring."
+    },
+    {
+      "countryId": "south-africa",
+      "minDays": 7,
+      "maxDays": 16,
+      "budget": ["value", "balanced", "premium"],
+      "driving": ["no-drive", "standard", "suv", "4x4"],
+      "pace": ["slow", "balanced", "fast"],
+      "interests": ["wildlife", "landscapes", "water", "culture", "active", "road-trip", "family"],
+      "strengths": ["The widest mix of trip styles", "Several routes work with a standard car"],
+      "tradeoff": "The country is too large for one rushed highlights loop; choose a region."
+    },
+    {
+      "countryId": "botswana",
+      "minDays": 7,
+      "maxDays": 12,
+      "budget": ["balanced", "premium"],
+      "driving": ["no-drive", "4x4"],
+      "pace": ["slow", "balanced"],
+      "interests": ["wildlife", "water", "landscapes", "active", "road-trip"],
+      "strengths": ["Water and wilderness safari", "Excellent fit for fewer, longer stays"],
+      "tradeoff": "Remote self-drive and peak-season accommodation need early, careful planning."
+    },
+    {
+      "countryId": "zambia",
+      "minDays": 7,
+      "maxDays": 14,
+      "budget": ["balanced", "premium"],
+      "driving": ["no-drive", "suv", "4x4"],
+      "pace": ["slow", "balanced"],
+      "interests": ["wildlife", "water", "landscapes", "culture", "active", "road-trip"],
+      "strengths": ["Walking and river safari country", "Strong Falls-to-wildlife combinations"],
+      "tradeoff": "Wet-season access and long transfers can change what is practical."
+    },
+    {
+      "countryId": "zimbabwe",
+      "minDays": 7,
+      "maxDays": 12,
+      "budget": ["value", "balanced", "premium"],
+      "driving": ["no-drive", "standard", "suv", "4x4"],
+      "pace": ["slow", "balanced"],
+      "interests": ["wildlife", "water", "landscapes", "culture", "active", "road-trip"],
+      "strengths": ["Falls, wildlife and heritage in one trip", "Good compact regional circuits"],
+      "tradeoff": "Cash, fuel and road-condition planning deserve attention outside major centres."
+    },
+    {
+      "countryId": "mozambique",
+      "minDays": 8,
+      "maxDays": 14,
+      "budget": ["balanced", "premium"],
+      "driving": ["no-drive", "4x4"],
+      "pace": ["slow", "balanced"],
+      "interests": ["water", "culture", "wildlife", "active", "road-trip"],
+      "strengths": ["Indian Ocean and island time", "Coast, food and conservation pairings"],
+      "tradeoff": "Cyclone season and slow road transfers can affect coastal plans."
+    },
+    {
+      "countryId": "malawi",
+      "minDays": 8,
+      "maxDays": 14,
+      "budget": ["value", "balanced"],
+      "driving": ["no-drive", "standard", "suv"],
+      "pace": ["slow", "balanced"],
+      "interests": ["water", "culture", "wildlife", "landscapes", "active", "road-trip"],
+      "strengths": ["Lake stays with wildlife extensions", "A rewarding slower-paced journey"],
+      "tradeoff": "North–south distances are easy to underestimate on a short trip."
+    },
+    {
+      "countryId": "lesotho",
+      "minDays": 5,
+      "maxDays": 9,
+      "budget": ["value", "balanced"],
+      "driving": ["standard", "suv", "4x4"],
+      "pace": ["slow", "balanced"],
+      "interests": ["landscapes", "culture", "active", "road-trip"],
+      "strengths": ["Mountain travel and highland culture", "Works as a focused shorter trip"],
+      "tradeoff": "Snow, storms and mountain-road conditions can change quickly."
+    },
+    {
+      "countryId": "eswatini",
+      "minDays": 4,
+      "maxDays": 7,
+      "budget": ["value", "balanced", "premium"],
+      "driving": ["no-drive", "standard", "suv"],
+      "pace": ["slow", "balanced", "fast"],
+      "interests": ["wildlife", "culture", "landscapes", "active", "road-trip", "family"],
+      "strengths": ["Compact wildlife and cultural circuit", "Easy to combine with neighbouring regions"],
+      "tradeoff": "It is best planned as a focused circuit, not treated only as a transit stop."
+    }
+  ]
+}

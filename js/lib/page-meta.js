@@ -86,6 +86,10 @@ const HUB_META = {
         title: 'Southern Africa Experience Finder',
         description: 'Compare wildlife, landscape, coast, active, cultural, food, and road-trip ideas across nine Southern African countries without paid rankings or invented ratings.',
     },
+    'top-destinations': {
+        title: 'Where Should I Go in Southern Africa?',
+        description: 'Compare nine Southern African countries by travel month, interests, trip length, budget, pace, driving comfort, and researched route coverage.',
+    },
     editorial: {
         title: 'Editorial Workspace',
         description: 'Restricted Savanna Explorer editorial operations workspace.',

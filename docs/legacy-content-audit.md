@@ -15,7 +15,7 @@ Each public section must help a traveller discover, decide, prepare, act, or sta
 | Planning guides, Book Direct, phrasebook | Keep and connect | Useful supporting tools; strengthen links into My Safari over time. |
 | Cultural Mosaic | Replace now | Broad ethnic summaries were reductive, weakly actionable, and difficult to maintain. Replaced with responsible community-travel guidance. |
 | Experiences | Replaced | Legacy product-style cards and untraceable ratings were removed. The new finder uses transparent planning pathways into country guides, routes and reviewed operator sources. |
-| Top destinations | Consolidate | Duplicates country discovery. Replace with a decision-led seasonal highlights finder or merge into destinations. |
+| Top destinations | Replaced | The duplicated “must visit” gallery was replaced with an explainable matcher using month, interests, time, budget, pace, driving comfort and researched routes. |
 | Legacy itineraries | Consolidate | Overlaps the stronger Route Explorer. Migrate unique routes, then redirect the hub. |
 | Gastronomy | Refresh | Keep the topic, replace general dish cards with market etiquette, dietary planning, regional food routes, and reviewed sources. |
 | Events and travel news | Tighten governance | Valuable only while dates and advice are current. Require expiry dates, sources, and automatic stale-content suppression. |
@@ -27,7 +27,6 @@ Each public section must help a traveller discover, decide, prepare, act, or sta
 
 ## Next replacement order
 
-1. Merge Top Destinations into a seasonal “Where should I go?” decision tool.
-2. Consolidate legacy itineraries into Route Explorer.
-3. Rework gastronomy as practical regional food planning.
-4. Enforce expiry and review rules for Events and News.
+1. Consolidate legacy itineraries into Route Explorer.
+2. Rework gastronomy as practical regional food planning.
+3. Enforce expiry and review rules for Events and News.

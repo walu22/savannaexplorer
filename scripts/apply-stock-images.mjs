@@ -184,18 +184,6 @@ const activityImages = {
     'Ngwenya Glass Blowing Demo': I.culturalVillage,
 };
 
-const discoverImages = {
-    'Kruger National Park': I.krugerSafari,
-    'Etosha National Park': I.elephants,
-    'Okavango Delta': I.okavangoDelta,
-    'Victoria Falls': I.victoriaFalls,
-    'Hwange National Park': I.savannaWildlife,
-    'Bazaruto Archipelago': I.tropicalBeach,
-    'Lake Malawi': I.lakeMalawi,
-    'Sani Pass & Highlands': I.mountains,
-    'Hlane Royal National Park': I.safariVehicle,
-};
-
 const itineraryImages = {
     'desert-to-delta': I.sossusvleiDunes,
     'coastal-explorer': I.tropicalBeach,
@@ -271,13 +259,6 @@ for (const data of Object.values(depth)) {
     applyImageFields(data.additionalActivities, activityImages);
 }
 writeFileSync(resolve(root, 'data/country-depth.json'), JSON.stringify(depth, null, 2) + '\n');
-
-// discover.json
-const discover = JSON.parse(readFileSync(resolve(root, 'data/discover.json'), 'utf8'));
-for (const dest of discover.topDestinations) {
-    if (discoverImages[dest.name]) dest.image = discoverImages[dest.name];
-}
-writeFileSync(resolve(root, 'data/discover.json'), JSON.stringify(discover, null, 2) + '\n');
 
 // itineraries.json
 const itineraries = JSON.parse(readFileSync(resolve(root, 'data/itineraries.json'), 'utf8'));

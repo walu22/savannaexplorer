@@ -6,10 +6,6 @@ import { countryPath, planningGuidePath } from '../lib/router.js';
 import { openCountryPage } from './country-guide.js';
 import { openPlanningGuide } from './planning-guides.js';
 
-function imageUrl(imageId) {
-    return `https://images.unsplash.com/photo-${imageId}?auto=format&fit=crop&q=80&w=800`;
-}
-
 function renderFacts() {
     const grid = document.getElementById('facts-grid');
     if (!grid) return;
@@ -40,29 +36,6 @@ function renderPlanTrip() {
             <span class="plan-trip-arrow">Explore <i class="fas fa-arrow-right"></i></span>
         </a>
     `).join('');
-}
-
-function renderTopDestinations() {
-    const grid = document.getElementById('top-destinations-grid');
-    if (!grid) return;
-
-    grid.innerHTML = discover.topDestinations.map(dest => {
-        const meta = getCountryMeta(dest.country);
-        const badge = dest.mustVisit !== false
-            ? '<span class="top-dest-badge">Must Visit</span>'
-            : '';
-        return `
-            <a href="${countryPath(dest.country)}" class="top-dest-card" data-country-link="${dest.country}">
-                <img src="${imageUrl(dest.image)}" alt="${dest.name}" loading="lazy">
-                <div class="top-dest-overlay">
-                    ${badge}
-                    <span class="top-dest-region">${meta.flag} ${dest.region}</span>
-                    <h3>${dest.name}</h3>
-                    <p>${dest.desc}</p>
-                </div>
-            </a>
-        `;
-    }).join('');
 }
 
 function renderTravelNews() {
@@ -180,7 +153,6 @@ function bindCountryLinks() {
 export function initDiscover() {
     renderFacts();
     renderPlanTrip();
-    renderTopDestinations();
     renderTravelNews();
     renderPlanningGuides();
     renderHomeFaq();
