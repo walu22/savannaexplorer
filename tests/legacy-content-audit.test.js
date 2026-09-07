@@ -6,6 +6,7 @@ const index = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const featureLoader = readFileSync(new URL('../js/modules/feature-loader.js', import.meta.url), 'utf8');
 const experiencesModule = readFileSync(new URL('../js/modules/experiences.js', import.meta.url), 'utf8');
 const prerender = readFileSync(new URL('../scripts/prerender-seo.mjs', import.meta.url), 'utf8');
+const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'));
 
 test('legacy culture stereotypes are replaced by actionable community-travel guidance', () => {
     assert.doesNotMatch(index, /Cultural Mosaic|most fascinating peoples|legendary warriors|Masters of cattle and democracy/);
@@ -60,4 +61,16 @@ test('legacy must-visit gallery is replaced by an explainable destination matche
     assert.match(index, /Find my best matches/);
     assert.match(index, /Season labels are broad country-level planning signals, not forecasts/);
     assert.match(featureLoader, /'top-destinations': \['destination-matcher'\]/);
+});
+
+test('legacy itineraries are consolidated into one Route Explorer workflow', () => {
+    assert.doesNotMatch(index, /id="itineraries"|itinerary-grid|itinerary-modal/);
+    assert.match(index, /Start with a classic regional journey/);
+    assert.match(index, /id="journey-preset-list"/);
+    assert.doesNotMatch(featureLoader, /itineraries\.js|itineraries: \['itineraries'\]/);
+
+    const redirects = new Map(vercel.redirects.map(item => [item.source, item.destination]));
+    assert.equal(redirects.get('/itineraries'), '/routes');
+    assert.equal(redirects.get('/itineraries/desert-to-delta'), '/routes?journey=desert-to-delta');
+    assert.equal(redirects.get('/itineraries/namibia-essentials'), '/routes/namibia-essentials-extended');
 });

@@ -1,10 +1,9 @@
 import expenseConfig from '../../data/expense-tracker.json';
 import practical from '../../data/practical.json';
 import { fetchLiveCurrencyRates } from './transport-logistics.js';
-import { syncPlannerExpenseRoute, updateSyncNotes } from '../lib/planner-expense-sync.js';
 import {
     buildBudgetCompareModel,
-    listBudgetItineraries,
+    listBudgetBenchmarks,
     renderBudgetCompareHtml,
 } from '../lib/budget-expense-compare.js';
 import { TRIP_CHANGE_EVENT, getActiveTrip, updateActiveTrip, updateTrip } from '../lib/trip-store.js';
@@ -86,7 +85,7 @@ function populateItinerarySelect(selectedId = '') {
 
     const options = [
         '<option value="">Compare to route budget…</option>',
-        ...listBudgetItineraries().map(({ id, title, totalPerPerson }) =>
+        ...listBudgetBenchmarks().map(({ id, title, totalPerPerson }) =>
             `<option value="${escapeHtml(id)}"${id === selectedId ? ' selected' : ''}>${escapeHtml(title)} (USD ${totalPerPerson.toLocaleString()} pp)</option>`
         ),
     ];
@@ -204,13 +203,10 @@ export async function initExpenseTracker() {
     }
 
     await refreshTotals();
-    updateSyncNotes(data.linkedItineraryId);
-
     document.getElementById('expense-itinerary')?.addEventListener('change', async (e) => {
         const store = loadExpenses();
         store.linkedItineraryId = e.target.value || '';
         saveExpenses(store);
-        await syncPlannerExpenseRoute(store.linkedItineraryId, { source: 'expense' });
         await refreshTotals();
     });
 
@@ -310,7 +306,6 @@ export async function initExpenseTracker() {
         populateItinerarySelect(current.linkedItineraryId);
         if (nameInput) nameInput.value = current.tripName;
         await refreshTotals();
-        updateSyncNotes(current.linkedItineraryId);
     });
 }
 

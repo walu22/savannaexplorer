@@ -38,7 +38,6 @@ export const NAV_JOURNEY_GROUPS = [
             { href: '/my-safari', label: 'My Safari' },
             { href: '/routes', label: 'Route Explorer' },
             { href: '/routes#journey-composer', label: 'Multi-country builder' },
-            { href: '/itineraries', label: 'Itineraries' },
             { href: '/book-direct', label: 'Book direct' },
             { href: '/guides', label: 'Planning guides' },
         ],

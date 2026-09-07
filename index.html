@@ -63,7 +63,6 @@
                         <a href="/routes">Route Explorer</a>
                         <a href="/routes#journey-composer">Multi-country builder</a>
                         <a href="#" class="open-ai-planner">Plan with AI</a>
-                        <a href="/itineraries">Itineraries</a>
                         <a href="/book-direct">Book direct</a>
                         <a href="/guides">Planning guides</a>
                     </div>
@@ -198,7 +197,7 @@
                     <i class="fas fa-tree" aria-hidden="true"></i>
                     <span class="trust-feature-label">Park fees</span>
                 </a>
-                <a href="#itineraries" class="trust-feature">
+                <a href="/routes" class="trust-feature">
                     <i class="fas fa-route" aria-hidden="true"></i>
                     <span class="trust-feature-label">Route templates</span>
                 </a>
@@ -433,23 +432,6 @@
 
     <div class="page-chapter page-chapter--plan">
 
-    <!-- Journey Engine -->
-    <section id="itineraries" class="itineraries">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-eyebrow">Southern Africa Itineraries</span>
-                <h2>Curated Routes & Country Journeys</h2>
-                <p>Cross-border adventures and single-country deep dives — planning templates with indicative budgets, not packaged tours.</p>
-            </div>
-            <div class="itinerary-filters">
-                <button type="button" class="itinerary-filter active" data-scope="all">All Routes</button>
-                <button type="button" class="itinerary-filter" data-scope="single">Single Country</button>
-                <button type="button" class="itinerary-filter" data-scope="multi">Cross-Border</button>
-            </div>
-            <div class="itinerary-grid"></div>
-        </div>
-    </section>
-
     <!-- Research-backed Route Explorer -->
     <section id="route-explorer" class="route-explorer-section home-featured">
         <div class="container">
@@ -514,6 +496,17 @@
                         <li><i class="fas fa-pen-ruler" aria-hidden="true"></i><span>Saves as a fully editable My Safari itinerary</span></li>
                     </ul>
                 </div>
+
+                <section class="journey-presets" aria-labelledby="journey-presets-title">
+                    <div class="journey-presets__heading">
+                        <div>
+                            <span class="section-eyebrow">Proven starting points</span>
+                            <h4 id="journey-presets-title">Start with a classic regional journey</h4>
+                        </div>
+                        <p>Choose a concept, then adjust the countries, route order, pace and dates before saving it.</p>
+                    </div>
+                    <div id="journey-preset-list" class="journey-preset-list"></div>
+                </section>
 
                 <form id="journey-composer-form" class="journey-composer__form">
                     <fieldset class="journey-country-fieldset">
@@ -1278,7 +1271,7 @@
                         <span class="hub-icon"><i class="fas fa-clipboard-list"></i></span>
                         <h3>Trip Planner — Print Your Checklist</h3>
                     </div>
-                    <p class="trip-planner-intro">Select countries and an optional route template, then print or save as PDF. Includes visa notes, budget breakdown, official links, borders, and packing — for planning only, not a booking.</p>
+                    <p class="trip-planner-intro">Select countries and an optional researched Route Explorer template, then print or save as PDF. Includes visa notes, official links, borders, route pacing, and packing — for planning only, not a booking.</p>
                     <div id="trip-planner" class="trip-planner-form">
                         <div class="trip-planner-block">
                             <h4 class="trip-planner-label">Countries on your trip</h4>
@@ -1286,8 +1279,7 @@
                         </div>
                         <div class="trip-planner-row">
                             <label class="trip-planner-label" for="trip-route-select">Route template <span class="trip-optional">(optional)</span></label>
-                            <select id="trip-route-select" class="trip-planner-select" aria-describedby="trip-route-sync-note"></select>
-                            <p class="trip-planner-sync-note" id="trip-route-sync-note" hidden>Linked to the expense tracker budget template below.</p>
+                            <select id="trip-route-select" class="trip-planner-select"></select>
                         </div>
                         <div class="trip-planner-block">
                             <h4 class="trip-planner-label">Packing list</h4>
@@ -1312,10 +1304,9 @@
                         <span class="hub-icon"><i class="fas fa-wallet"></i></span>
                         <h3>Trip Expense Tracker</h3>
                     </div>
-                    <p class="hub-card-lead">Log fuel, park fees, and lodge deposits as you book — compare against a route budget template.</p>
-                    <label class="expense-trip-label" for="expense-itinerary">Route budget template</label>
-                    <select id="expense-itinerary" class="expense-itinerary-select" aria-describedby="expense-route-sync-note"></select>
-                    <p class="expense-sync-note" id="expense-route-sync-note" hidden>Matches the trip planner route template above.</p>
+                    <p class="hub-card-lead">Log fuel, park fees, and lodge deposits as you book. Optionally compare your spending with a broad, indicative trip benchmark.</p>
+                    <label class="expense-trip-label" for="expense-itinerary">Indicative budget benchmark <span class="trip-optional">(optional)</span></label>
+                    <select id="expense-itinerary" class="expense-itinerary-select"></select>
                     <div id="expense-budget-compare" class="expense-budget-compare"></div>
                     <label class="expense-trip-label" for="expense-trip-name">Trip name <span class="trip-optional">(optional)</span></label>
                     <input type="text" id="expense-trip-name" class="expense-trip-input" placeholder="e.g. Namibia self-drive June 2026" maxlength="80">
@@ -2391,54 +2382,6 @@
         </div>
         </div>
     </section>
-
-    <!-- Itinerary Detail Modal -->
-    <div id="itinerary-modal" class="modal itinerary-modal">
-        <div class="modal-overlay itin-close"></div>
-        <div class="modal-container itin-container">
-            <button class="modal-close itin-close">&times;</button>
-            <div class="itin-header">
-                <span class="itin-type" id="itin-type">Self-Drive Route</span>
-                <h2 id="itin-title">Route Title</h2>
-                <p id="itin-countries" class="itin-countries"></p>
-                <div class="itin-meta-bar">
-                    <span id="itin-duration"><i class="far fa-clock"></i> 14 Days</span>
-                    <span id="itin-price"><i class="fas fa-coins"></i> Typical budget</span>
-                    <span id="itin-customizable"><i class="fas fa-sliders-h"></i> Adapt to your dates</span>
-                </div>
-                <p class="itin-budget-note" id="itin-budget-note" hidden></p>
-            </div>
-            <div class="itin-body">
-                <p id="itin-description" class="itin-description"></p>
-                <div class="itin-route-map" id="itin-route-map" hidden>
-                    <img id="itin-map-img" src="" alt="Route map overview" loading="lazy">
-                    <p id="itin-map-caption" class="itin-map-caption"></p>
-                </div>
-                <div id="itin-maps-panel"></div>
-                <div class="itin-highlights" id="itin-highlights"></div>
-                <h3>Day-by-Day Itinerary</h3>
-                <div class="itin-accordion" id="itin-accordion"></div>
-                <div class="itin-includes-grid">
-                    <div class="itin-includes itin-planning-notes">
-                        <h4><i class="fas fa-map"></i> This route covers</h4>
-                        <ul id="itin-planning-notes"></ul>
-                    </div>
-                    <div class="itin-excludes itin-arrange-yourself">
-                        <h4><i class="fas fa-suitcase"></i> Arrange yourself</h4>
-                        <ul id="itin-arrange-yourself"></ul>
-                    </div>
-                </div>
-                <div id="itin-budget-breakdown"></div>
-                <p class="itin-template-disclaimer">Planning template only — Savanna Explorer does not sell or book any of the items above.</p>
-                <div class="itin-actions-bar">
-                    <button type="button" class="btn btn-primary" id="itin-plan-tools"><i class="fas fa-tools"></i> Open Travel Tools</button>
-                    <button type="button" class="btn btn-outline" id="itin-expense-tracker"><i class="fas fa-wallet"></i> Track Expenses</button>
-                    <button type="button" class="btn btn-save-offline" id="btn-save-itinerary-offline"><i class="fas fa-download"></i> <span>Save for Offline</span></button>
-                </div>
-                <div class="itin-share-wrap" id="itin-share-wrap"></div>
-            </div>
-        </div>
-    </div>
 
     <!-- Planning Guide Reader -->
     <div id="planning-guide-modal" class="modal planning-guide-modal">

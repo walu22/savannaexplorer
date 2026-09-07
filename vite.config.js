@@ -78,7 +78,7 @@ export default defineConfig(({ mode }) => ({
                         }
                         if (id.includes('parks.json') || id.includes('park-fees')) return 'data-parks';
                         if (id.includes('borders.json')) return 'data-borders';
-                        if (id.includes('itineraries.json') || id.includes('itinerary-')) return 'data-itineraries';
+                        if (id.includes('itinerary-budgets.json')) return 'data-budget-benchmarks';
                         if (id.includes('stays-operators.json')) return 'data-marketplace';
                     }
                     if (id.includes('/js/modules/marketplace')) return 'mod-marketplace';

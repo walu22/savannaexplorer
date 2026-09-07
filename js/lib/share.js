@@ -37,15 +37,6 @@ export function buildShareUrl(path = '/', utm = {}) {
     return query ? `${base}?${query}` : base;
 }
 
-export function itineraryShareUrl(itineraryId, medium = 'copy') {
-    return buildShareUrl(`/itineraries/${itineraryId}`, {
-        source: 'share',
-        medium,
-        campaign: 'itinerary',
-        content: itineraryId,
-    });
-}
-
 export function routeShareUrl(routeId, medium = 'copy') {
     return buildShareUrl(`/routes/${routeId}`, {
         source: 'share',

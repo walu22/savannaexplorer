@@ -184,24 +184,6 @@ const activityImages = {
     'Ngwenya Glass Blowing Demo': I.culturalVillage,
 };
 
-const itineraryImages = {
-    'desert-to-delta': I.sossusvleiDunes,
-    'coastal-explorer': I.tropicalBeach,
-    'falls-beyond': I.victoriaFalls,
-    'kingdom-circuit': I.mountains,
-    'lake-mountain': I.lakeMalawi,
-    'grand-safari': I.krugerSafari,
-    'namibia-essentials': I.deadvlei,
-    'south-africa-classic': I.vineyard,
-    'botswana-delta-focus': I.okavangoDelta,
-    'zambia-falls-safari': I.victoriaFallsSunrise,
-    'zimbabwe-wilderness': I.savannaWildlife,
-    'mozambique-bush-beach': I.marineOcean,
-    'malawi-lake-safari': I.lakeMalawi,
-    'lesotho-highlands': I.mountains,
-    'eswatini-kingdom': I.culturalVillage,
-};
-
 const marketplaceImages = {
     saf1: I.krugerSafari,
     saf2: I.okavangoDelta,
@@ -259,15 +241,6 @@ for (const data of Object.values(depth)) {
     applyImageFields(data.additionalActivities, activityImages);
 }
 writeFileSync(resolve(root, 'data/country-depth.json'), JSON.stringify(depth, null, 2) + '\n');
-
-// itineraries.json
-const itineraries = JSON.parse(readFileSync(resolve(root, 'data/itineraries.json'), 'utf8'));
-for (const [key, data] of Object.entries(itineraries)) {
-    if (itineraryImages[key]) {
-        data.mapImage = url(itineraryImages[key], 1200);
-    }
-}
-writeFileSync(resolve(root, 'data/itineraries.json'), JSON.stringify(itineraries, null, 2) + '\n');
 
 // marketplace.json
 const marketplace = JSON.parse(readFileSync(resolve(root, 'data/marketplace.json'), 'utf8'));
@@ -365,4 +338,4 @@ on conflict (id) do update set
 writeFileSync(resolve(root, 'supabase/seed.sql'), seedSql);
 
 console.log('Applied', Object.keys(I).length, 'verified stock images across the site.');
-console.log('Updated: countries, country-depth, discover, itineraries, marketplace, country-meta, seo-data, images.js, index.html, seed.sql');
+console.log('Updated: countries, country-depth, discover, marketplace, country-meta, seo-data, images.js, index.html, seed.sql');

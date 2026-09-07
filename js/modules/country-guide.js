@@ -931,7 +931,7 @@ function handleRoute(route) {
         return;
     }
 
-    if (route.type === 'park' || route.type === 'border' || route.type === 'itinerary' || route.type === 'route' || route.type === 'listing' || route.type === 'planning-guide') {
+    if (route.type === 'park' || route.type === 'border' || route.type === 'route' || route.type === 'listing' || route.type === 'planning-guide') {
         hideCountryPage();
         handleSeoRoute(route);
         return;
@@ -978,11 +978,6 @@ export function initCountryGuide() {
         }
         if (e.target.closest('[data-action="back-destinations"]')) {
             closeCountryPage('destinations');
-            return;
-        }
-        const btn = e.target.closest('[data-action="view-itineraries"]');
-        if (btn) {
-            closeCountryPage('itineraries');
             return;
         }
         const countryRouteFilter = e.target.closest('[data-country-route-filter]');

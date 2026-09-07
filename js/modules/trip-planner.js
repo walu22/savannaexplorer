@@ -1,4 +1,4 @@
-import itineraries from '../../data/itineraries.json';
+import routeCollection from '../../data/route-collections.json';
 import packingData from '../../data/packing.json';
 import practical from '../../data/practical.json';
 import bordersData from '../../data/borders.json';
@@ -10,12 +10,9 @@ import {
     buildTripVisaSummaryBlock,
     getActivePassportId,
 } from './visa-passport-ui.js';
-import { buildPrintBudgetHtml } from '../lib/itinerary-budget.js';
 import { buildPrintExpenseHtml } from '../lib/print-expense.js';
 import printCss from '../../css/print-checklist.css?inline';
 
-import { ITINERARY_COUNTRIES } from '../lib/itinerary-route-countries.js';
-import { syncPlannerExpenseRoute, initPlannerExpenseSync } from '../lib/planner-expense-sync.js';
 function escapeHtml(text) {
     return String(text)
         .replace(/&/g, '&amp;')
@@ -60,7 +57,7 @@ function renderPackList(type) {
 }
 
 async function buildChecklistHtml({ countryIds, routeId, packType, packingItems, passportId }) {
-    const route = routeId ? itineraries[routeId] : null;
+    const route = routeId ? routeCollection.routes.find(item => item.id === routeId) : null;
     const passportMeta = getPassportMeta(passportId) || { label: passportId };
     const generated = new Date().toLocaleDateString('en-GB', {
         day: 'numeric', month: 'long', year: 'numeric',
@@ -102,18 +99,22 @@ async function buildChecklistHtml({ countryIds, routeId, packType, packingItems,
         </section>
     ` : '';
 
+    const routeCountries = route?.countryIds.map(id => COUNTRY_META[id]?.name || id).join(', ') || '';
     const routeHtml = route ? `
         <section class="print-section print-route">
             <h2>Route template: ${escapeHtml(route.title)}</h2>
-            <p class="print-meta">${escapeHtml(route.duration)} · ${escapeHtml(route.countries)}</p>
-            <p>${escapeHtml(route.description)}</p>
+            <p class="print-meta">${escapeHtml(route.duration.label)} · ${escapeHtml(routeCountries)} · ${escapeHtml(route.vehicle.label)}</p>
+            <p>${escapeHtml(route.promise)}</p>
             ${route.highlights?.length ? `
                 <h3>Highlights</h3>
                 <ul>${route.highlights.map(h => `<li>${escapeHtml(h)}</li>`).join('')}</ul>
             ` : ''}
+            ${route.phases?.length ? `
+                <h3>Suggested pacing</h3>
+                <ol>${route.phases.map(phase => `<li><strong>${escapeHtml(phase.title)}</strong> — ${escapeHtml(phase.summary)}</li>`).join('')}</ol>
+            ` : ''}
             <p class="print-note">Template only — not a quote. Adapt dates and bookings yourself.</p>
         </section>
-        ${routeId ? buildPrintBudgetHtml(routeId) : ''}
     ` : '';
 
     const packingHtml = packingItems.length ? `
@@ -128,7 +129,7 @@ async function buildChecklistHtml({ countryIds, routeId, packType, packingItems,
     const countryNames = countryIds.map(id => COUNTRY_META[id]?.name || id).join(', ');
 
     const visaSummaryHtml = buildTripVisaSummaryBlock(countryIds, passportId);
-    const expenseHtml = await buildPrintExpenseHtml({ plannerRouteId: routeId || '' });
+    const expenseHtml = await buildPrintExpenseHtml();
 
     return `
         <article class="print-checklist-doc">
@@ -250,20 +251,17 @@ export function initTripPlanner() {
         `;
     }).join('');
 
-    const routeOptions = Object.entries(itineraries).map(([id, route]) =>
-        `<option value="${escapeHtml(id)}">${escapeHtml(route.title)} (${escapeHtml(route.duration)})</option>`
+    const routeOptions = routeCollection.routes.map(route =>
+        `<option value="${escapeHtml(route.id)}">${escapeHtml(route.title)} (${escapeHtml(route.duration.label)})</option>`
     ).join('');
     routeSelect.innerHTML = `<option value="">No route template</option>${routeOptions}`;
 
     renderPackList('safari');
 
     routeSelect.addEventListener('change', () => {
-        const ids = ITINERARY_COUNTRIES[routeSelect.value];
+        const ids = routeCollection.routes.find(route => route.id === routeSelect.value)?.countryIds;
         if (ids?.length) setCountrySelection(ids);
-        syncPlannerExpenseRoute(routeSelect.value, { source: 'planner' });
     });
-
-    void initPlannerExpenseSync();
 
     document.querySelectorAll('#trip-planner .hub-tab').forEach(tab => {
         tab.addEventListener('click', function () {

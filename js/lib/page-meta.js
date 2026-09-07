@@ -3,7 +3,6 @@ import { cardImageUrl, getCountryMeta } from './country-meta.js';
 import {
     borderPath,
     countryPath,
-    itineraryPath,
     listingPath,
     parkPath,
     planningGuidePath,
@@ -53,10 +52,6 @@ const HUB_META = {
     'book-direct': {
         title: 'Book Direct — Stays & Operators',
         description: 'Official park reservations, lodge booking pages, and licensed tour operators — no middleman markups, plan and book yourself.',
-    },
-    itineraries: {
-        title: 'Route Templates & Itineraries',
-        description: 'Multi-country route templates with day-by-day planning notes for classic safari, desert, and overland circuits across Southern Africa.',
     },
     health: {
         title: 'Health & Safety Planning',
@@ -367,40 +362,6 @@ export function setBorderMeta(border) {
             { name: 'Home', path: '/' },
             { name: 'Border crossings', path: '/#borders' },
             { name: border.name, path },
-        ]),
-    ]);
-}
-
-export function setItineraryMeta(itineraryId, data) {
-    if (!data) {
-        setHomeMeta();
-        return;
-    }
-
-    const path = itineraryPath(itineraryId);
-    const description = truncate(`${data.description} ${data.duration}. ${data.countries}.`);
-
-    applyMeta({
-        title: `${data.title} Route Template | ${SITE_NAME}`,
-        description,
-        path,
-        image: 'https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200',
-        type: 'article',
-    });
-
-    upsertJsonLd([
-        {
-            '@context': 'https://schema.org',
-            '@type': 'Trip',
-            name: data.title,
-            description: data.description,
-            url: absoluteUrl(path),
-            ...(toIsoReviewDate(getSiteLastReviewed()) && { dateModified: toIsoReviewDate(getSiteLastReviewed()) }),
-        },
-        breadcrumbJsonLd([
-            { name: 'Home', path: '/' },
-            { name: 'Route templates', path: '/#itineraries' },
-            { name: data.title, path },
         ]),
     ]);
 }

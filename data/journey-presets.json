@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "version": 1,
+    "purpose": "Curated starting points for the Route Explorer multi-country journey builder. These are planning presets, not fixed packages or live itineraries."
+  },
+  "presets": [
+    {
+      "id": "desert-to-delta",
+      "title": "Desert to Delta",
+      "summary": "Connect Namibia's desert circuit with Botswana's Okavango and Chobe wildlife route.",
+      "countries": ["namibia", "botswana"],
+      "startCountry": "namibia",
+      "days": 22,
+      "vehicle": "4x4",
+      "theme": "wildlife"
+    },
+    {
+      "id": "coastal-explorer",
+      "title": "Cape to Indian Ocean",
+      "summary": "Pair South Africa's southern coast with Mozambique's lagoons and beaches.",
+      "countries": ["south-africa", "mozambique"],
+      "startCountry": "south-africa",
+      "days": 22,
+      "vehicle": "suv",
+      "theme": "coast"
+    },
+    {
+      "id": "falls-beyond",
+      "title": "Falls and Northern Safari",
+      "summary": "Build a connected Zambia, Zimbabwe and Botswana journey around the Zambezi and major wildlife areas.",
+      "countries": ["zambia", "zimbabwe", "botswana"],
+      "startCountry": "zambia",
+      "days": 30,
+      "vehicle": "4x4",
+      "theme": "wildlife"
+    },
+    {
+      "id": "kingdom-circuit",
+      "title": "Mountain Kingdoms Circuit",
+      "summary": "Link Lesotho and Eswatini through a practical South Africa connection.",
+      "countries": ["lesotho", "south-africa", "eswatini"],
+      "startCountry": "lesotho",
+      "days": 24,
+      "vehicle": "suv",
+      "theme": "culture"
+    },
+    {
+      "id": "lake-mountain",
+      "title": "Lake and Indian Ocean",
+      "summary": "Combine Malawi's lake and highlands with a researched Mozambique route.",
+      "countries": ["malawi", "mozambique"],
+      "startCountry": "malawi",
+      "days": 22,
+      "vehicle": "suv",
+      "theme": "water"
+    },
+    {
+      "id": "grand-safari",
+      "title": "Grand Southern Safari",
+      "summary": "Join South Africa, Botswana and Namibia into one 30-day wildlife and landscapes journey.",
+      "countries": ["south-africa", "botswana", "namibia"],
+      "startCountry": "south-africa",
+      "days": 30,
+      "vehicle": "4x4",
+      "theme": "wildlife"
+    }
+  ]
+}

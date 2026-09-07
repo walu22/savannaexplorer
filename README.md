@@ -44,7 +44,7 @@ After the page loads, scroll to the footer. You should see **v4.69.0** next to t
 
 You should also have these files/folders (not the old flat layout):
 
-- `data/guides.json`, `data/itineraries.json`, `data/countries.json`
+- `data/guides.json`, `data/route-collections.json`, `data/countries.json`
 - `js/app.js`, `js/modules/`
 - `package.json` with a `"dev": "vite"` script
 
@@ -114,8 +114,8 @@ Legacy Hostinger SSH deploy has been removed from CI in favour of Vercel.
 
 ### SEO Phase 3 (v4.14+)
 
-- **Build-time prerender** — `postbuild` writes crawlable country, park, border, route, guide, stay, operator, itinerary, and hub pages with correct meta tags (203 URLs in sitemap)
-- **Expanded routes** — `/parks/kruger`, `/borders/vioolsdrift`, `/itineraries/desert-to-delta` scroll to or open the matching section in the SPA
+- **Build-time prerender** — `postbuild` writes crawlable country, park, border, route, guide, stay, operator, and hub pages with correct meta tags
+- **Expanded routes** — `/parks/kruger`, `/borders/vioolsdrift`, and `/routes/namibia-essentials-extended` open the matching researched detail view in the SPA
 - **BreadcrumbList** JSON-LD on detail pages
 - **Optional analytics** — set `VITE_GA4_ID` and `VITE_GSC_VERIFICATION` in `.env` before `npm run build`
 

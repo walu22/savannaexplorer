@@ -13,7 +13,6 @@ const countries = loadJson('countries.json');
 const countryDepth = loadJson('country-depth.json');
 const parks = loadJson('parks.json');
 const borders = loadJson('borders.json');
-const itineraries = loadJson('itineraries.json');
 const listings = loadJson('stays-operators.json');
 const countryResources = loadJson('country-resources.json');
 const planningGuides = loadJson('planning-guides.json');
@@ -100,12 +99,6 @@ const HUB_SECTIONS = [
         title: 'Book Direct — Stays & Operators',
         description: 'Official park reservations, lodge booking pages, and licensed tour operators — no middleman markups, plan and book yourself.',
         priority: '0.75',
-    },
-    {
-        id: 'itineraries',
-        title: 'Route Templates & Itineraries',
-        description: 'Multi-country route templates with day-by-day planning notes for classic safari, desert, and overland circuits across Southern Africa.',
-        priority: '0.8',
     },
     {
         id: 'health',
@@ -400,56 +393,6 @@ export function borderPages(baseUrl) {
     });
 }
 
-export function itineraryPages(baseUrl) {
-    return Object.entries(itineraries).map(([id, data]) => {
-        const path = `/itineraries/${id}`;
-        const title = `${data.title} Route Template | ${SITE_NAME}`;
-        const description = truncate(`${data.description} ${data.duration}. ${data.countries}.`);
-        const highlights = (data.highlights || []).slice(0, 5).map(h => `<li>${escapeHtml(h)}</li>`).join('');
-        const bodyHtml = `
-<main id="seo-prerender" class="seo-prerender">
-  <article>
-    <nav aria-label="Breadcrumb"><a href="/">Home</a> › Route templates › ${escapeHtml(data.title)}</nav>
-    <h1>${escapeHtml(data.title)}</h1>
-    ${reviewedLine(siteLastReviewed)}
-    <p class="seo-lead">${escapeHtml(data.type)} · ${escapeHtml(data.duration)} · ${escapeHtml(data.countries)}</p>
-    <p>${escapeHtml(data.description)}</p>
-    <h2>Highlights</h2>
-    <ul>${highlights}</ul>
-    <p><em>Planning template — not a package or quote.</em></p>
-    <p><a href="${path}">View full ${escapeHtml(data.title)} itinerary</a></p>
-  </article>
-</main>`;
-
-        return {
-            path,
-            title,
-            description,
-            ogType: 'article',
-            image: 'https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200',
-            jsonLd: {
-                '@context': 'https://schema.org',
-                '@type': 'Trip',
-                name: data.title,
-                description: data.description,
-                url: `${siteUrl(baseUrl)}${path}`,
-                ...(isoReviewDate(siteLastReviewed) && { dateModified: isoReviewDate(siteLastReviewed) }),
-                itinerary: (data.days || []).map(day => ({
-                    '@type': 'ItemList',
-                    name: day.title,
-                    description: day.narrative,
-                })),
-            },
-            breadcrumb: [
-                { name: 'Home', path: '/' },
-                { name: 'Route templates', path: '/#itineraries' },
-                { name: data.title, path },
-            ],
-            bodyHtml,
-        };
-    });
-}
-
 export function routePages(baseUrl) {
     return routeCollection.routes.map(route => {
         const path = `/routes/${route.id}`;
@@ -662,7 +605,6 @@ export function allSeoPages(baseUrl) {
         ...countryPages(baseUrl),
         ...parkPages(baseUrl),
         ...borderPages(baseUrl),
-        ...itineraryPages(baseUrl),
         ...routePages(baseUrl),
         ...listingPages(baseUrl),
         ...planningGuidePages(baseUrl),
@@ -685,7 +627,6 @@ export function sitemapEntries(baseUrl) {
         )),
         ...parks.map(p => entry(`${origin}/parks/${p.id}`, '0.8', 'monthly', lastmodFromYm(p.lastVerified))),
         ...borders.map(b => entry(`${origin}/borders/${b.id}`, '0.8', 'monthly', lastmodFromYm(b.lastVerified))),
-        ...Object.keys(itineraries).map(id => entry(`${origin}/itineraries/${id}`, '0.8', 'monthly', lastmodFromYm(siteLastReviewed))),
         ...routeCollection.routes.map(route => entry(`${origin}/routes/${route.id}`, '0.85', 'monthly', lastmodFromYm(route.lastReviewed))),
         ...listings.map(item => {
             const segment = item.kind === 'stay' ? 'stays' : 'operators';

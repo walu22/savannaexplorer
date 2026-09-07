@@ -26,7 +26,8 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 | `data/country-depth.json` | Extended country content | Original editorial copy; visa section cross-checked with immigration authorities |
 | `data/faqs.json` | Per-country FAQs | Original answers based on official facts |
 | `data/guides.json` | Seasons, packing, wildlife | Original editorial |
-| `data/itineraries.json` | Route templates | Original editorial |
+| `data/route-collections.json` | Research-backed route templates | Official tourism, park, road and destination sources listed per route |
+| `data/journey-presets.json` | Multi-country builder starting points | Editorial combinations of the researched route collection and border network |
 | `data/regions.json` | Per-country regional breakdowns for country guides | Original editorial informed by official tourism boards |
 | `data/marketplace.json` | Curated experience listings | Original editorial; representative pricing tiers |
 | `data/image-catalog.json` | Verified Unsplash stock photo IDs | [Unsplash License](https://unsplash.com/license) — free for commercial use with attribution appreciated |
@@ -38,7 +39,6 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 | `data/planning-guides.json` | Full country planning guides (read/print) | Original editorial; immigration URLs per country |
 | `data/tourism-stats.json` | International arrival context by country | National statistics offices & tourism authorities |
 | `data/expense-tracker.json` | Trip expense tracker categories & config | Original editorial |
-| `data/itinerary-maps.json` | Google Maps waypoints per route template | Original editorial; Google Maps links |
 | `data/travel-advisories.json` | Official advisory links by country | UK FCDO and U.S. Department of State (`lastVerified` per country) |
 
 ## Visa & entry (high-change items)

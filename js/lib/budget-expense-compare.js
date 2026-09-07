@@ -1,6 +1,23 @@
 import budgetData from '../../data/itinerary-budgets.json';
-import itineraryData from '../../data/itineraries.json';
-import { getItineraryBudget } from './itinerary-budget.js';
+import { getBudgetBenchmark } from './itinerary-budget.js';
+
+const BUDGET_BENCHMARK_COUNTRIES = {
+    'desert-to-delta': 'Namibia · Botswana',
+    'coastal-explorer': 'South Africa · Mozambique',
+    'falls-beyond': 'Zambia · Zimbabwe · Botswana',
+    'kingdom-circuit': 'Lesotho · South Africa · Eswatini',
+    'lake-mountain': 'Malawi · Mozambique',
+    'grand-safari': 'South Africa · Namibia · Botswana',
+    'namibia-essentials': 'Namibia',
+    'south-africa-classic': 'South Africa',
+    'botswana-delta-focus': 'Botswana',
+    'zambia-falls-safari': 'Zambia',
+    'zimbabwe-wilderness': 'Zimbabwe',
+    'mozambique-bush-beach': 'Mozambique',
+    'malawi-lake-safari': 'Malawi',
+    'lesotho-highlands': 'Lesotho',
+    'eswatini-kingdom': 'Eswatini',
+};
 
 /** Map expense-tracker category ids to budget line category labels. */
 export const EXPENSE_TO_BUDGET_LABELS = {
@@ -16,12 +33,12 @@ export const EXPENSE_TO_BUDGET_LABELS = {
     other: ['Contingency', 'Other'],
 };
 
-export function listBudgetItineraries() {
+export function listBudgetBenchmarks() {
     return Object.keys(budgetData.budgets)
-        .filter(id => itineraryData[id])
+        .filter(id => BUDGET_BENCHMARK_COUNTRIES[id])
         .map(id => ({
             id,
-            title: itineraryData[id].title,
+            title: `${BUDGET_BENCHMARK_COUNTRIES[id]} · ${budgetData.budgets[id].durationDays}-day benchmark`,
             totalPerPerson: budgetData.budgets[id].totalPerPerson,
         }))
         .sort((a, b) => a.title.localeCompare(b.title));
@@ -49,7 +66,7 @@ function sumTrackedByExpenseCategory(items, expenseCategory, amountInUsdFn) {
 }
 
 export async function buildBudgetCompareModel(linkedItineraryId, items, amountInUsd) {
-    const budget = getItineraryBudget(linkedItineraryId);
+    const budget = getBudgetBenchmark(linkedItineraryId);
     if (!budget) return null;
 
     let trackedTotal = 0;
@@ -87,7 +104,7 @@ export async function buildBudgetCompareModel(linkedItineraryId, items, amountIn
 
     return {
         itineraryId: linkedItineraryId,
-        itineraryTitle: itineraryData[linkedItineraryId]?.title || linkedItineraryId,
+        itineraryTitle: `${BUDGET_BENCHMARK_COUNTRIES[linkedItineraryId] || 'Trip'} · ${budget.durationDays}-day benchmark`,
         basis: budget.basis,
         budgetTotal,
         trackedTotal,

@@ -54,7 +54,7 @@ Use GSC → URL inspection → Request indexing:
 - [x] `https://savannaexplorer.com/parks/kruger`
 - [x] `https://savannaexplorer.com/parks/etosha`
 - [x] `https://savannaexplorer.com/borders/vioolsdrift`
-- [x] `https://savannaexplorer.com/itineraries/desert-to-delta`
+- [x] `https://savannaexplorer.com/routes`
 - [x] `https://savannaexplorer.com/stays/sanparks-reservations`
 - [x] `https://savannaexplorer.com/guides/planning/namibia`
 - [x] `https://savannaexplorer.com/plan`

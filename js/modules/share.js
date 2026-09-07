@@ -82,12 +82,6 @@ function mountShareBar(container, options) {
 
 const HUB_SHARE_TARGETS = [
     {
-        selector: '#itineraries .section-header',
-        sectionId: 'itineraries',
-        title: 'Southern Africa route templates',
-        text: 'Free cross-border and single-country itinerary templates for self-drive safari planning.',
-    },
-    {
         selector: '#borders .section-header',
         sectionId: 'borders',
         title: 'Southern Africa border crossings guide',

@@ -24,7 +24,7 @@ const PRIORITY_PATHS = [
     '/parks/kruger',
     '/parks/etosha',
     '/borders/vioolsdrift',
-    '/itineraries/desert-to-delta',
+    '/routes',
     '/stays/sanparks-reservations',
     '/guides/planning/namibia',
     '/guides/planning/south-africa',

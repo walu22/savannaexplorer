@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import routeCollection from '../data/route-collections.json' with { type: 'json' };
 import borders from '../data/borders.json' with { type: 'json' };
+import journeyPresets from '../data/journey-presets.json' with { type: 'json' };
 import {
     composeJourney,
     countryOrders,
@@ -28,6 +29,17 @@ test('journey preferences keep two to four supported countries and safe limits',
         startDate: '',
         transferDepartures: {},
     });
+});
+
+test('every classic regional preset builds through the researched journey composer', () => {
+    assert.equal(journeyPresets.presets.length, 6);
+    for (const preset of journeyPresets.presets) {
+        const journey = composeJourney(routeCollection.routes, borders, preset);
+        assert.equal(journey.status, 'ready', `${preset.id} should produce a connected journey`);
+        assert.equal(journey.totalDays, preset.days);
+        assert.deepEqual(new Set(journey.countryOrder), new Set(preset.countries));
+        assert.equal(journey.crossings.length, preset.countries.length - 1);
+    }
 });
 
 test('country order can be moved without losing or duplicating selections', () => {

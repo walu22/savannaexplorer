@@ -1,6 +1,6 @@
 export const HUB_SECTIONS = new Set([
     'parks', 'embassies', 'borders', 'transport', 'health', 'events',
-    'book-direct', 'plan', 'guides', 'tourism-stats', 'itineraries', 'destinations',
+    'book-direct', 'plan', 'guides', 'tourism-stats', 'destinations',
     'home', 'about', 'news', 'contact', 'cultures', 'gastronomy', 'faq',
     'experiences', 'top-destinations', 'travel-essentials', 'planning-checklist',
     'route-explorer', 'hub-my-safari', 'cost-estimator', 'packing-list',
@@ -24,8 +24,6 @@ export function parseRouteShape(loc = window.location) {
     if (match) return { type: 'park', parkId: match[1] };
     match = pathname.match(/^\/borders\/([a-z0-9-]+)\/?$/);
     if (match) return { type: 'border', borderId: match[1] };
-    match = pathname.match(/^\/itineraries\/([a-z0-9-]+)\/?$/);
-    if (match) return { type: 'itinerary', itineraryId: match[1] };
     match = pathname.match(/^\/routes\/([a-z0-9-]+)\/?$/);
     if (match) return { type: 'route', routeId: match[1] };
     match = pathname.match(/^\/(stays|operators)\/([a-z0-9-]+)\/?$/);

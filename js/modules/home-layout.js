@@ -3,7 +3,6 @@ import { parseRouteShape } from '../lib/route-shape.js';
 const DETAIL_SECTION = {
     park: 'parks',
     border: 'borders',
-    itinerary: 'itineraries',
     route: 'route-explorer',
     listing: 'book-direct',
     'planning-guide': 'guides',

@@ -5,7 +5,6 @@ import { scrollToSection as routerScrollToSection } from '../lib/router.js';
 /** Major homepage sections for scroll-spy and anchor focus. */
 const TRACKED_SECTIONS = [
     'destinations',
-    'itineraries',
     'parks',
     'book-direct',
     'borders',

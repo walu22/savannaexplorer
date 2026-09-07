@@ -1,5 +1,6 @@
 import routeCollection from '../../data/route-collections.json';
 import borders from '../../data/borders.json';
+import journeyPresets from '../../data/journey-presets.json';
 import {
     JOURNEY_COUNTRIES,
     composeJourney,
@@ -24,11 +25,42 @@ const DEFAULTS = {
 
 let currentJourney = null;
 let draggedCountry = '';
+const presets = Array.isArray(journeyPresets.presets) ? journeyPresets.presets : [];
 
 function escapeHtml(value) {
     return String(value || '').replace(/[&<>"']/g, char => ({
         '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
     })[char]);
+}
+
+function presetCountryNames(preset) {
+    return preset.countries.map(country => JOURNEY_COUNTRIES[country] || country).join(' · ');
+}
+
+function renderJourneyPresets(root) {
+    const list = root.querySelector('#journey-preset-list');
+    if (!list) return;
+    list.innerHTML = presets.map(preset => `<button type="button" class="journey-preset" data-journey-preset="${escapeHtml(preset.id)}" aria-pressed="false">
+        <span>${escapeHtml(presetCountryNames(preset))}</span>
+        <strong>${escapeHtml(preset.title)}</strong>
+        <small>${escapeHtml(preset.summary)}</small>
+        <em>${escapeHtml(`${preset.days} days · ${preset.vehicle === '4x4' ? '4×4' : 'SUV'} · editable`)}</em>
+    </button>`).join('');
+}
+
+function setActivePreset(root, presetId = '') {
+    root.querySelectorAll('[data-journey-preset]').forEach(button => {
+        const active = button.dataset.journeyPreset === presetId;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', String(active));
+    });
+}
+
+function updatePresetUrl(presetId = '') {
+    const url = new URL(window.location.href);
+    if (presetId) url.searchParams.set('journey', presetId);
+    else url.searchParams.delete('journey');
+    history.replaceState(history.state, '', `${url.pathname}${url.search}${url.hash}`);
 }
 
 function readStoredPreferences() {
@@ -313,6 +345,31 @@ function runComposer(form, results) {
     renderJourney(results, currentJourney);
 }
 
+function applyPreset(root, form, results, preset, { updateUrl = true } = {}) {
+    if (!preset) return false;
+    setForm(form, {
+        countries: preset.countries,
+        countryOrder: preset.countries,
+        startCountry: preset.startCountry,
+        days: preset.days,
+        vehicle: preset.vehicle,
+        theme: preset.theme,
+        startDate: '',
+    });
+    syncCountryControls(form, document.getElementById('journey-country-status'));
+    setActivePreset(root, preset.id);
+    if (updateUrl) updatePresetUrl(preset.id);
+    runComposer(form, results);
+    trackProductEvent('journey_preset_opened', {
+        source: 'journey_composer',
+        status: currentJourney?.status || 'unknown',
+        countryCount: preset.countries.length,
+        hasDates: false,
+    });
+    results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return true;
+}
+
 export function initJourneyComposer() {
     const root = document.getElementById('journey-composer');
     const form = document.getElementById('journey-composer-form');
@@ -320,8 +377,13 @@ export function initJourneyComposer() {
     const selectionStatus = document.getElementById('journey-country-status');
     if (!root || !form || !results || root.dataset.initialized === 'true') return;
     root.dataset.initialized = 'true';
+    renderJourneyPresets(root);
     setForm(form, readStoredPreferences());
     syncCountryControls(form, selectionStatus);
+
+    const requestedPresetId = new URLSearchParams(window.location.search).get('journey');
+    const requestedPreset = presets.find(preset => preset.id === requestedPresetId);
+    if (requestedPreset) applyPreset(root, form, results, requestedPreset, { updateUrl: false });
 
     form.addEventListener('change', event => {
         if (event.target.name === 'countries') syncCountryControls(form, selectionStatus);
@@ -337,6 +399,11 @@ export function initJourneyComposer() {
     });
 
     root.addEventListener('click', event => {
+        const presetButton = event.target.closest('[data-journey-preset]');
+        if (presetButton) {
+            applyPreset(root, form, results, presets.find(preset => preset.id === presetButton.dataset.journeyPreset));
+            return;
+        }
         const daysButton = event.target.closest('[data-journey-days]');
         if (daysButton) {
             form.elements.days.value = daysButton.dataset.journeyDays;
@@ -366,6 +433,8 @@ export function initJourneyComposer() {
             results.hidden = true;
             results.replaceChildren();
             destroyJourneyMap();
+            setActivePreset(root);
+            updatePresetUrl();
             form.querySelector('input[name="countries"]')?.focus();
             return;
         }

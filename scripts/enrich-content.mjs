@@ -5,7 +5,6 @@ const root = path.resolve('data');
 
 const guides = JSON.parse(fs.readFileSync(path.join(root, 'guides.json'), 'utf8'));
 const countries = JSON.parse(fs.readFileSync(path.join(root, 'countries.json'), 'utf8'));
-const itineraries = JSON.parse(fs.readFileSync(path.join(root, 'itineraries.json'), 'utf8'));
 
 const guideEnrichments = {
   zambia: {
@@ -218,21 +217,6 @@ for (const [id, images] of Object.entries(spotImages)) {
   });
 }
 
-const mapImages = {
-  'desert-to-delta': 'https://images.unsplash.com/photo-1504107123655-081832049e37?auto=format&fit=crop&q=80&w=1200',
-  'coastal-explorer': 'https://images.unsplash.com/photo-1506905925344-21ddaec4d32d?auto=format&fit=crop&q=80&w=1200',
-  'falls-beyond': 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=1200',
-  'kingdom-circuit': 'https://images.unsplash.com/photo-1541414779316-956a5084c0d4?auto=format&fit=crop&q=80&w=1200',
-  'lake-mountain': 'https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200',
-  'grand-safari': 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=1200',
-};
-
-for (const [id, url] of Object.entries(mapImages)) {
-  itineraries[id].mapImage = url;
-  itineraries[id].mapCaption = itineraries[id].mapCaption || 'Route overview — illustrative map showing key stops along this journey.';
-}
-
 fs.writeFileSync(path.join(root, 'guides.json'), JSON.stringify(guides, null, 2) + '\n');
 fs.writeFileSync(path.join(root, 'countries.json'), JSON.stringify(countries, null, 2) + '\n');
-fs.writeFileSync(path.join(root, 'itineraries.json'), JSON.stringify(itineraries, null, 2) + '\n');
-console.log('Enriched guides, countries, and itineraries.');
+console.log('Enriched guides and countries.');

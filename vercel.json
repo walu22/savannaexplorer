@@ -12,6 +12,86 @@
   ],
   "redirects": [
     {
+      "source": "/itineraries",
+      "destination": "/routes",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/desert-to-delta",
+      "destination": "/routes?journey=desert-to-delta",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/coastal-explorer",
+      "destination": "/routes?journey=coastal-explorer",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/falls-beyond",
+      "destination": "/routes?journey=falls-beyond",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/kingdom-circuit",
+      "destination": "/routes?journey=kingdom-circuit",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/lake-mountain",
+      "destination": "/routes?journey=lake-mountain",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/grand-safari",
+      "destination": "/routes?journey=grand-safari",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/namibia-essentials",
+      "destination": "/routes/namibia-essentials-extended",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/south-africa-classic",
+      "destination": "/routes/south-africa-garden-route",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/botswana-delta-focus",
+      "destination": "/routes/botswana-okavango-chobe",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/zambia-falls-safari",
+      "destination": "/routes/zambia-southern-zambezi",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/zimbabwe-wilderness",
+      "destination": "/routes/zimbabwe-falls-hwange-matobo",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/mozambique-bush-beach",
+      "destination": "/routes/mozambique-southern-lagoons",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/malawi-lake-safari",
+      "destination": "/routes/malawi-southern-wildlife-lake",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/lesotho-highlands",
+      "destination": "/routes/lesotho-highlands-dam-loop",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/eswatini-kingdom",
+      "destination": "/routes/eswatini-royal-heartland",
+      "permanent": true
+    },
+    {
       "source": "/borders/groblersbrug",
       "destination": "/borders/martins-drift",
       "permanent": true

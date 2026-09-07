@@ -13,7 +13,6 @@ const loaders = {
     utility: () => import('./utility-hub.js').then(module => module.initUtilityHub()),
     'trip-planner': () => import('./trip-planner.js').then(module => module.initTripPlanner()),
     marketplace: () => import('./marketplace.js').then(module => module.initMarketplace()),
-    itineraries: () => import('./itineraries.js').then(module => module.initItineraries()),
     parks: () => import('./parks.js').then(module => module.initParks()),
     borders: () => import('./borders.js').then(module => module.initBorders()),
     discover: () => import('./discover.js').then(module => module.initDiscover()),
@@ -59,7 +58,6 @@ const SECTION_FEATURES = {
     'route-explorer': ['routes'],
     'hub-my-safari': ['safari', 'ai'],
     plan: ['utility', 'trip-planner', 'safari', 'ai'],
-    itineraries: ['itineraries'],
     parks: ['parks'],
     borders: ['borders'],
     'book-direct': ['book-direct'],
@@ -91,7 +89,6 @@ const SECTION_FEATURES = {
 const DETAIL_FEATURES = {
     park: ['parks'],
     border: ['borders'],
-    itinerary: ['itineraries'],
     route: ['routes'],
     listing: ['book-direct'],
     'planning-guide': ['guides'],

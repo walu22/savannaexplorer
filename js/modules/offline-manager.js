@@ -76,7 +76,7 @@ function setupInstallBanner() {
 export async function syncOfflineButtonState(type, id, btn) {
     if (!btn) return;
 
-    const route = type === 'country' ? `/countries/${id}` : `/itineraries/${id}`;
+    const route = `/countries/${id}`;
     let isSaved = false;
     try {
         const cache = await caches.open(CACHE_NAME);
@@ -124,7 +124,7 @@ function setButtonDefault(btn) {
 }
 
 /**
- * Downloads a country guide or itinerary and its assets to Cache Storage
+ * Downloads a country guide and its assets to Cache Storage
  */
 export async function savePageOffline(type, id, btn) {
     if (!btn || btn.classList.contains('saving') || btn.classList.contains('saved')) return;
@@ -144,13 +144,9 @@ export async function savePageOffline(type, id, btn) {
         const urlsToCache = new Set();
 
         // 1. Add current virtual route path
-        if (type === 'country') {
-            urlsToCache.add(`/countries/${id}`);
-            urlsToCache.add(`/countries/${id}/`);
-        } else if (type === 'itinerary') {
-            urlsToCache.add(`/itineraries/${id}`);
-            urlsToCache.add(`/itineraries/${id}/`);
-        }
+        if (type !== 'country') throw new Error('Unsupported offline page type.');
+        urlsToCache.add(`/countries/${id}`);
+        urlsToCache.add(`/countries/${id}/`);
 
         // 2. Extract stylesheet and script dependencies loaded in DOM
         document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
@@ -161,8 +157,7 @@ export async function savePageOffline(type, id, btn) {
         });
 
         // 3. Extract active images in the relative container
-        const containerSelector = type === 'country' ? '#country-detail-view' : '#itinerary-modal';
-        const container = document.querySelector(containerSelector);
+        const container = document.querySelector('#country-detail-view');
         if (container) {
             container.querySelectorAll('img').forEach(img => {
                 if (img.src && !img.src.startsWith('data:')) {
@@ -192,9 +187,7 @@ export async function savePageOffline(type, id, btn) {
             console.warn(`[PWA] Failed to cache: ${url}`, result.reason);
         });
 
-        const routeUrls = type === 'country'
-            ? [`/countries/${id}`, `/countries/${id}/`]
-            : [`/itineraries/${id}`, `/itineraries/${id}/`];
+        const routeUrls = [`/countries/${id}`, `/countries/${id}/`];
         const requiredUrls = [...routeUrls, '/offline.html', '/manifest.json'];
         const requiredResults = await Promise.all(requiredUrls.map(url => cache.match(url)));
         if (requiredResults.some(response => !response)) {
@@ -210,7 +203,7 @@ export async function savePageOffline(type, id, btn) {
         // If native notifications are enabled, trigger a success alert
         if ('Notification' in window && Notification.permission === 'granted' && localStorage.getItem('se_notifications_enabled') === 'true') {
             new Notification('Destination Saved', {
-                body: `${type === 'country' ? 'Country guide' : 'Itinerary'} successfully downloaded for offline safari use!`,
+                body: 'Country guide successfully downloaded for offline safari use!',
                 icon: '/favicon.png'
             });
         }
@@ -234,16 +227,6 @@ function setupOfflineButtonListeners() {
             const match = pathname.match(/^\/countries\/([a-z-]+)\/?$/);
             if (match) {
                 savePageOffline('country', match[1], countryBtn);
-            }
-        }
-
-        const itinBtn = e.target.closest('#btn-save-itinerary-offline');
-        if (itinBtn) {
-            // Find active itinerary from pathname
-            const pathname = window.location.pathname;
-            const match = pathname.match(/^\/itineraries\/([a-z0-9-]+)\/?$/);
-            if (match) {
-                savePageOffline('itinerary', match[1], itinBtn);
             }
         }
     });

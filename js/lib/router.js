@@ -23,9 +23,6 @@ export function borderPath(borderId) {
     return `/borders/${borderId}`;
 }
 
-export function itineraryPath(itineraryId) {
-    return `/itineraries/${itineraryId}`;
-}
 export function routePath(routeId) {
     return `/routes/${routeId}`;
 }
@@ -71,15 +68,6 @@ export function navigateToBorder(borderId, { replace = false } = {}) {
     if (!borderId) return;
     const url = borderPath(borderId);
     const state = { view: 'border', borderId };
-    if (replace) history.replaceState(state, '', url);
-    else history.pushState(state, '', url);
-    announceRouteChange();
-}
-
-export function navigateToItinerary(itineraryId, { replace = false } = {}) {
-    if (!itineraryId) return;
-    const url = itineraryPath(itineraryId);
-    const state = { view: 'itinerary', itineraryId };
     if (replace) history.replaceState(state, '', url);
     else history.pushState(state, '', url);
     announceRouteChange();
