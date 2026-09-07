@@ -61,3 +61,51 @@ test('trip pack escapes traveller-authored content', () => {
     assert.doesNotMatch(pack.html, /<script>/);
     assert.match(pack.html, /&lt;script&gt;alert\(1\)&lt;\/script&gt;/);
 });
+
+test('cross-border pack includes selected crossing, vehicle paperwork and corridor stay', () => {
+    const crossBorderTrip = {
+        ...trip,
+        countries: ['Namibia', 'Botswana'],
+        operations: {
+            borderSelections: { 'botswana|namibia': 'mamuno' },
+            vehicleContext: 'rented',
+            completedDocumentIds: ['document:valid-passport-and-any-required-visa-or-evisa'],
+        },
+    };
+    const pack = buildTripPack(crossBorderTrip, { generatedAt: '2026-09-07T18:00:00Z' });
+
+    assert.equal(pack.stats.borderPairs, 1);
+    assert.ok(pack.stats.borderDocuments >= 6);
+    assert.equal(pack.stats.completedBorderDocuments, 1);
+    assert.match(pack.html, /Cross-border action pack/);
+    assert.match(pack.html, /Mamuno \/ Trans-Kalahari/);
+    assert.match(pack.html, /24 hours/);
+    assert.match(pack.html, /Rental vehicle/);
+    assert.match(pack.html, /Rental agreement covering every destination country/);
+    assert.match(pack.html, /Confirmed or packed/);
+    assert.match(pack.html, /Still to confirm or pack/);
+    assert.match(pack.html, /East Gate Namibia/);
+    assert.match(pack.html, /Straight-line distance, not driving distance/);
+    assert.match(pack.html, /https:\/\/dailynews\.gov\.bw\/news-detail\/80127/);
+});
+
+test('cross-border pack warns when the chosen crossing differs from the saved route', () => {
+    const pack = buildTripPack({
+        ...trip,
+        countries: ['Namibia', 'Botswana'],
+        routeDays: [{ stops: [{ type: 'border', name: 'Ngoma Bridge' }] }],
+        operations: { borderSelections: { 'botswana|namibia': 'mamuno' }, vehicleContext: 'owned' },
+    }, { generatedAt: '2026-09-07T18:00:00Z' });
+
+    assert.match(pack.html, /Route mismatch/);
+    assert.match(pack.html, /Driving itinerary needs updating/);
+    assert.match(pack.html, /differs from the border in the saved route/);
+});
+
+test('single-country packs omit cross-border paperwork cleanly', () => {
+    const pack = buildTripPack(trip, { generatedAt: '2026-09-07T18:00:00Z' });
+
+    assert.equal(pack.stats.borderPairs, 0);
+    assert.doesNotMatch(pack.html, /Cross-border action pack/);
+    assert.match(pack.html, /<span>03<\/span><div><h2>Readiness checklist/);
+});
