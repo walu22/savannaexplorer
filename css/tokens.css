@@ -5,9 +5,11 @@
     --primary: #C4672A;
     --primary-light: #E08B52;
     --primary-dark: #9A4E1C;
+    --primary-rgb: 196, 103, 42;
     --accent: #1A3D32;
     --accent-light: #2A5C4A;
     --accent-muted: #4A7A68;
+    --accent-rgb: 26, 61, 50;
 
     --bg-dark: #0C1210;
     --bg-warm: #F7F3ED;
@@ -20,6 +22,25 @@
     --text-body: #3A403D;
     --text-muted: #6B7280;
     --text-inverse: #F7F3ED;
+
+    /* Semantic aliases keep every feature on the Route Explorer palette. */
+    --primary-color: var(--accent);
+    --primary-accent: var(--primary);
+    --secondary: var(--accent);
+    --dark: var(--bg-dark);
+    --off-white: var(--bg-cream);
+    --surface-1: var(--bg-surface);
+    --surface-2: var(--bg-light);
+    --surface-elevated: var(--bg-surface);
+    --text: var(--text-body);
+    --text-color: var(--text-body);
+    --text-main: var(--text-dark);
+    --text-primary: var(--text-dark);
+    --border-color: var(--border-subtle);
+
+    --brand-dark-surface:
+        radial-gradient(circle at 8% 10%, rgba(var(--primary-rgb), 0.22), transparent 30rem),
+        linear-gradient(145deg, var(--accent) 0%, var(--bg-dark) 72%);
 
     --border-subtle: rgba(12, 18, 16, 0.08);
     --border-strong: rgba(12, 18, 16, 0.14);

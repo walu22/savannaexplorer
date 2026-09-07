@@ -4,7 +4,7 @@
 
 body.site-v2 .safari-bingo-section {
     padding: var(--section-pad) 0;
-    background: var(--bg-dark);
+    background: var(--brand-dark-surface);
     color: var(--white);
     position: relative;
 }

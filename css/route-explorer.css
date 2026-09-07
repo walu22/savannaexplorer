@@ -13,9 +13,7 @@
     margin-bottom: 1.25rem;
     padding: clamp(1.15rem, 3vw, 1.75rem);
     color: #fff;
-    background:
-        radial-gradient(circle at 5% 5%, rgba(196, 103, 42, 0.28), transparent 22rem),
-        var(--bg-dark);
+    background: var(--brand-dark-surface);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);

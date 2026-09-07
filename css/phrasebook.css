@@ -4,7 +4,7 @@
 
 body.site-v2 .phrasebook-section {
     padding: var(--section-pad) 0;
-    background: var(--bg-dark);
+    background: var(--brand-dark-surface);
     color: var(--white);
     border-top: 1px solid rgba(255,255,255,0.1);
 }

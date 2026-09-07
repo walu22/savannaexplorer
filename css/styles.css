@@ -657,7 +657,7 @@ section {
    TRAVELER UTILITY HUB — Premium Dashboard
    ============================================== */
 .utility-hub {
-    background: linear-gradient(165deg, #0F0F12 0%, #1A1A20 50%, #12120F 100%);
+    background: var(--brand-dark-surface);
     color: var(--white);
 }
 .utility-hub .section-header h2 { color: var(--white); }
@@ -1251,7 +1251,7 @@ section {
 
 /* --- Newsletter --- */
 .newsletter {
-    background: linear-gradient(to right, #2D5016, #1A1A2E);
+    background: var(--brand-dark-surface);
     color: var(--white);
     padding: 6rem 0;
 }
@@ -1495,7 +1495,7 @@ footer {
     width: 90%;
     max-width: 900px;
     max-height: 85vh;
-    background: #1A1A2E;
+    background: var(--bg-dark);
     color: var(--white);
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -2022,7 +2022,7 @@ footer {
 /* --- CULTURAL MOSAIC --- */
 .cultural-mosaic {
     padding: 5rem 0;
-    background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+    background: var(--brand-dark-surface);
 }
 .cultural-mosaic .section-header h2,
 .cultural-mosaic .section-header p {
@@ -2682,7 +2682,7 @@ footer {
 
 .gastronomy {
     padding: 5rem 0;
-    background: linear-gradient(135deg, #2D1B00 0%, #1A1A2E 100%);
+    background: var(--brand-dark-surface);
 }
 .gastronomy .section-header h2,
 .gastronomy .section-header p {

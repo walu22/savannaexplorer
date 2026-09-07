@@ -521,7 +521,7 @@ body.site-v2 .plan-trip-icon {
 /* --- Gastronomy Journey --- */
 body.site-v2 .gastronomy {
     padding: var(--section-pad) 0;
-    background: linear-gradient(145deg, #1a1208 0%, var(--bg-dark) 55%, #121820 100%);
+    background: var(--brand-dark-surface);
 }
 
 body.site-v2 .gastronomy .section-eyebrow {
@@ -780,7 +780,7 @@ body.site-v2 .border-card {
 
 body.site-v2 .utility-hub {
     padding: var(--section-pad) 0;
-    background: linear-gradient(165deg, #0f0f12 0%, #1a1a20 50%, #12120f 100%);
+    background: var(--brand-dark-surface);
 }
 
 body.site-v2 .utility-hub .section-header h2,
@@ -801,7 +801,7 @@ body.site-v2 .hub-card {
 body.site-v2 .hub-journey-nav {
     top: calc(var(--header-height, 56px) + 0.35rem);
     height: auto;
-    background: rgba(15, 15, 18, 0.92);
+    background: rgba(var(--accent-rgb), 0.92);
     border-bottom: none;
     box-shadow: none;
 }
