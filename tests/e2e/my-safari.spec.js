@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { readFile } from 'node:fs/promises';
 
 test.beforeEach(async ({ page }) => {
     await page.addInitScript(() => {
@@ -160,6 +161,8 @@ test('traveller edits trip details, adds a personal task and records a booking',
     await readiness.getByLabel('Target date').fill('2026-10-28');
     await readiness.getByRole('button', { name: 'Add task' }).click();
     await expect(readiness.getByText('Download offline maps', { exact: true })).toBeVisible();
+    await readiness.getByLabel('Calendar alert').selectOption('14');
+    await expect(readiness.locator('#my-safari-reminder-hint')).toContainText('14 days before each deadline');
 
     const bookings = safari.locator('#my-safari-bookings');
     await bookings.getByLabel('Type').selectOption('stay');
@@ -171,25 +174,63 @@ test('traveller edits trip details, adds a personal task and records a booking',
     await expect(bookings.getByText('Reference: ET-42', { exact: true })).toBeVisible();
     await bookings.getByLabel('Status for Etosha Safari Camp').selectOption('confirmed');
     await expect(bookings.locator('#my-safari-bookings-progress')).toHaveText('1 of 1 confirmed');
+    await bookings.getByRole('button', { name: 'Edit Etosha Safari Camp' }).click();
+    const bookingEditor = bookings.locator('[data-booking-edit-form]');
+    await bookingEditor.getByLabel('Provider or place').fill('Okaukuejo Camp');
+    await bookingEditor.getByLabel('Reference').fill('OK-84');
+    await bookingEditor.getByLabel('Date').fill('2026-11-03');
+    await bookingEditor.getByRole('button', { name: 'Save booking' }).click();
+    await expect(bookings.getByText('Okaukuejo Camp', { exact: true })).toBeVisible();
+    await expect(bookings.getByText('Reference: OK-84', { exact: true })).toBeVisible();
+    await safari.locator('#my-safari-notes').fill('Private policy ABC-SECRET');
+    await safari.locator('#my-safari-notes').press('Tab');
+
+    const calendarDownload = page.waitForEvent('download');
+    await safari.getByRole('button', { name: 'Add to calendar' }).click();
+    const download = await calendarDownload;
+    expect(download.suggestedFilename()).toBe('namibia-family-safari.ics');
+    const calendarPath = await download.path();
+    const calendarContent = await readFile(calendarPath, 'utf8');
+    expect(calendarContent).toContain('TRIGGER:-P14D');
+    expect(calendarContent).toContain('Reminder: Download offline maps');
+    expect(calendarContent).not.toContain('OK-84');
+    expect(calendarContent).not.toContain('ABC-SECRET');
+    await expect(safari.locator('#my-safari-export-status')).toContainText('calendar events downloaded');
+
+    const packDownload = page.waitForEvent('download');
+    await safari.getByRole('button', { name: 'Download offline pack' }).click();
+    const pack = await packDownload;
+    expect(pack.suggestedFilename()).toBe('namibia-family-safari-offline-pack.html');
+    const packPath = await pack.path();
+    const packHtml = await readFile(packPath, 'utf8');
+    expect(packHtml).toContain('Okaukuejo Camp');
+    expect(packHtml).not.toContain('OK-84');
+    expect(packHtml).not.toContain('ABC-SECRET');
+    await expect(safari.locator('#my-safari-pack-status')).toContainText('Offline pack downloaded');
 
     const productEvents = await page.evaluate(() => window.__productEvents);
     expect(productEvents.map(event => event.event_type)).toEqual(expect.arrayContaining([
         'trip_created',
         'trip_details_updated',
         'readiness_task_added',
+        'readiness_reminder_updated',
         'booking_record_added',
+        'booking_record_updated',
         'booking_status_updated',
+        'trip_calendar_exported',
+        'trip_pack_exported',
     ]));
     const telemetry = JSON.stringify(productEvents);
     expect(telemetry).not.toContain('Namibia family safari');
     expect(telemetry).not.toContain('Download offline maps');
-    expect(telemetry).not.toContain('Etosha Safari Camp');
-    expect(telemetry).not.toContain('ET-42');
+    expect(telemetry).not.toContain('Okaukuejo Camp');
+    expect(telemetry).not.toContain('OK-84');
 
     await page.reload({ waitUntil: 'domcontentloaded' });
     await expect(safari.locator('#my-safari-active-name')).toHaveText('Namibia family safari');
     await expect(readiness.getByText('Download offline maps', { exact: true })).toBeVisible();
-    await expect(bookings.getByLabel('Status for Etosha Safari Camp')).toHaveValue('confirmed');
+    await expect(readiness.getByLabel('Calendar alert')).toHaveValue('14');
+    await expect(bookings.getByLabel('Status for Okaukuejo Camp')).toHaveValue('confirmed');
 
     const accessibility = await new AxeBuilder({ page })
         .include('#my-safari-workspace')

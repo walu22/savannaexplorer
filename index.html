@@ -978,6 +978,22 @@
                                 </div>
                             </div>
                             <div id="my-safari-readiness-next" class="my-safari-readiness-next"></div>
+                            <div class="my-safari-reminder-control">
+                                <div>
+                                    <strong><i class="far fa-bell" aria-hidden="true"></i> Deadline alerts</strong>
+                                    <span id="my-safari-reminder-hint">Calendar export includes incomplete deadlines with alerts 7 days before each deadline.</span>
+                                </div>
+                                <label for="my-safari-reminder-days"><span>Calendar alert</span>
+                                    <select id="my-safari-reminder-days">
+                                        <option value="-1">No alert</option>
+                                        <option value="0">On due date</option>
+                                        <option value="3">3 days before</option>
+                                        <option value="7" selected>1 week before</option>
+                                        <option value="14">2 weeks before</option>
+                                        <option value="30">1 month before</option>
+                                    </select>
+                                </label>
+                            </div>
                             <details class="my-safari-custom-task">
                                 <summary><i class="fas fa-plus" aria-hidden="true"></i> Add a personal task</summary>
                                 <form id="my-safari-custom-task-form">
@@ -1011,13 +1027,31 @@
                         <label class="my-safari-notes-label" for="my-safari-notes">Trip notes
                             <textarea id="my-safari-notes" class="my-safari-notes" maxlength="2000" placeholder="Booking references, ideas, reminders…"></textarea>
                         </label>
+                        <section class="my-safari-pack-builder" aria-labelledby="my-safari-pack-title">
+                            <div class="my-safari-section-head">
+                                <div><span class="my-safari-readiness-eyebrow"><i class="fas fa-file-arrow-down" aria-hidden="true"></i> Carry the plan</span><h5 id="my-safari-pack-title">Offline trip pack</h5><p>Download one self-contained file or print a clean copy for the road.</p></div>
+                                <span class="my-safari-pack-badge"><i class="fas fa-wifi-slash" aria-hidden="true"></i> Works offline</span>
+                            </div>
+                            <div class="my-safari-pack-options">
+                                <label><input id="my-safari-pack-notes" type="checkbox"> <span>Include private trip notes</span></label>
+                                <label><input id="my-safari-pack-references" type="checkbox"> <span>Include booking references</span></label>
+                            </div>
+                            <p class="my-safari-pack-privacy"><i class="fas fa-lock" aria-hidden="true"></i> Private details are excluded by default. If included, protect the downloaded or printed copy.</p>
+                            <div class="my-safari-pack-actions">
+                                <button type="button" class="btn btn-primary" id="my-safari-pack-download"><i class="fas fa-download" aria-hidden="true"></i> Download offline pack</button>
+                                <button type="button" class="btn btn-outline" id="my-safari-pack-print"><i class="fas fa-print" aria-hidden="true"></i> Print / save PDF</button>
+                            </div>
+                            <p id="my-safari-pack-status" class="my-safari-export-status" role="status" aria-live="polite"></p>
+                        </section>
                         <div class="my-safari-links">
                             <button type="button" class="btn btn-primary open-ai-planner"><i class="fas fa-magic"></i> Plan with AI</button>
+                            <button type="button" class="btn btn-outline" id="my-safari-calendar-export"><i class="far fa-calendar-plus" aria-hidden="true"></i> Add to calendar</button>
                             <a class="btn btn-outline" href="/expenses"><i class="fas fa-wallet"></i> Open budget</a>
                             <a class="btn btn-outline" href="/packing-list"><i class="fas fa-suitcase-rolling"></i> Open packing list</a>
                             <button type="button" class="btn btn-outline" id="my-safari-share"><i class="fas fa-share-nodes"></i> Create share link</button>
                             <button type="button" class="btn btn-outline" id="my-safari-collaborate"><i class="fas fa-user-plus"></i> Invite collaborators</button>
                         </div>
+                        <p id="my-safari-export-status" class="my-safari-export-status" role="status" aria-live="polite"></p>
                         <div id="my-safari-share-panel" class="my-safari-share-panel" hidden>
                             <label for="my-safari-share-url">Read-only link</label>
                             <div>

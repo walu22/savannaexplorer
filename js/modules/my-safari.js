@@ -35,9 +35,14 @@ import {
     addReadinessTask,
     buildTripReadiness,
     removeReadinessTask,
+    setReadinessReminderDays,
     setReadinessTask,
 } from '../lib/trip-readiness.js';
 import { addBooking, removeBooking, updateBooking } from '../lib/trip-bookings.js';
+import { buildTripCalendar } from '../lib/trip-calendar.js';
+import { buildTripPack } from '../lib/trip-pack.js';
+import practical from '../../data/practical.json';
+import tripPackCss from '../../css/trip-pack.css?inline';
 import { trackProductEvent } from '../lib/product-analytics.js';
 
 const COUNTRIES = ['Botswana', 'Eswatini', 'Lesotho', 'Malawi', 'Mozambique', 'Namibia', 'South Africa', 'Zambia', 'Zimbabwe'];
@@ -47,6 +52,7 @@ let collaborationDirty = false;
 let localRouteBuilder = null;
 let sharedRouteBuilder = null;
 let collaborationRouteBuilder = null;
+let editingBookingId = '';
 
 function escapeHtml(value) {
     return String(value || '').replace(/[&<>"']/g, char => ({
@@ -93,10 +99,82 @@ const BOOKING_ICONS = {
     stay: 'fa-bed', transport: 'fa-car', activity: 'fa-binoculars', permit: 'fa-ticket', other: 'fa-receipt',
 };
 
+const BOOKING_TYPE_LABELS = {
+    stay: 'Stay', transport: 'Transport', activity: 'Activity', permit: 'Permit', other: 'Other',
+};
+
+const BOOKING_STATUS_LABELS = {
+    planned: 'Planned', reserved: 'Reserved', confirmed: 'Confirmed',
+};
+
 function bookingDateLabel(value) {
     return value
         ? new Date(`${value}T12:00:00`).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })
         : 'Date not set';
+}
+
+function downloadTripCalendar(trip) {
+    const calendar = buildTripCalendar(trip);
+    const blob = new Blob([calendar.content], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = calendar.filename;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
+    return calendar;
+}
+
+function tripPackOptions() {
+    return {
+        includeNotes: document.getElementById('my-safari-pack-notes')?.checked === true,
+        includeReferences: document.getElementById('my-safari-pack-references')?.checked === true,
+        emergencies: practical.emergencies || [],
+        disclaimer: practical.meta?.disclaimer || '',
+    };
+}
+
+function tripPackDocument(pack, title) {
+    return `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${escapeHtml(title)} — Offline trip pack</title><style>${tripPackCss.replace(/<\/style/gi, '<\\/style')}</style></head><body>${pack.html}</body></html>`;
+}
+
+function downloadTripPack(trip) {
+    const pack = buildTripPack(trip, tripPackOptions());
+    const blob = new Blob([tripPackDocument(pack, trip.name || 'My Safari')], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = pack.filename;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
+    return pack;
+}
+
+function printTripPack(trip) {
+    const pack = buildTripPack(trip, tripPackOptions());
+    const iframe = document.createElement('iframe');
+    iframe.title = 'My Safari trip pack print preview';
+    iframe.setAttribute('aria-hidden', 'true');
+    Object.assign(iframe.style, { position: 'fixed', width: '0', height: '0', border: '0', opacity: '0' });
+    document.body.append(iframe);
+    const doc = iframe.contentDocument;
+    doc.open();
+    doc.write(tripPackDocument(pack, trip.name || 'My Safari'));
+    doc.close();
+    const cleanup = () => iframe.remove();
+    const triggerPrint = () => {
+        iframe.contentWindow.focus();
+        iframe.contentWindow.print();
+        window.setTimeout(cleanup, 8000);
+    };
+    iframe.contentWindow.addEventListener('afterprint', cleanup, { once: true });
+    if (doc.readyState === 'complete') window.setTimeout(triggerPrint, 150);
+    else iframe.contentWindow.addEventListener('load', () => window.setTimeout(triggerPrint, 150), { once: true });
+    return pack;
 }
 
 function renderBookings(trip) {
@@ -119,7 +197,23 @@ function renderBookings(trip) {
                 <option value="reserved"${booking.status === 'reserved' ? ' selected' : ''}>Reserved</option>
                 <option value="confirmed"${booking.status === 'confirmed' ? ' selected' : ''}>Confirmed</option>
             </select>
-            <button type="button" class="my-safari-booking-remove" data-booking-remove="${escapeHtml(booking.id)}" aria-label="Remove ${escapeHtml(booking.provider)}"><i class="far fa-trash-can" aria-hidden="true"></i></button>
+            <div class="my-safari-booking-actions">
+                <button type="button" data-booking-edit="${escapeHtml(booking.id)}" aria-label="Edit ${escapeHtml(booking.provider)}"><i class="fas fa-pen" aria-hidden="true"></i></button>
+                <button type="button" class="my-safari-booking-remove" data-booking-remove="${escapeHtml(booking.id)}" aria-label="Remove ${escapeHtml(booking.provider)}"><i class="far fa-trash-can" aria-hidden="true"></i></button>
+            </div>
+            ${editingBookingId === booking.id ? `
+                <form class="my-safari-booking-edit-form" data-booking-edit-form="${escapeHtml(booking.id)}">
+                    <div class="my-safari-edit-head"><div><strong>Edit booking</strong><span>Update the saved record without losing its place in this trip.</span></div><button type="button" class="my-safari-icon-button" data-booking-edit-cancel aria-label="Cancel booking edit"><i class="fas fa-xmark" aria-hidden="true"></i></button></div>
+                    <div class="my-safari-booking-edit-grid">
+                        <label><span>Type</span><select name="booking-type">${Object.entries(BOOKING_TYPE_LABELS).map(([value, label]) => `<option value="${value}"${booking.type === value ? ' selected' : ''}>${label}</option>`).join('')}</select></label>
+                        <label><span>Provider or place</span><input name="booking-provider" type="text" maxlength="100" value="${escapeHtml(booking.provider)}" required></label>
+                        <label><span>Reference</span><input name="booking-reference" type="text" maxlength="100" value="${escapeHtml(booking.reference)}"></label>
+                        <label><span>Date</span><input name="booking-date" type="date" value="${escapeHtml(booking.date)}"></label>
+                        <label><span>Status</span><select name="booking-status">${Object.entries(BOOKING_STATUS_LABELS).map(([value, label]) => `<option value="${value}"${booking.status === value ? ' selected' : ''}>${label}</option>`).join('')}</select></label>
+                    </div>
+                    <div class="my-safari-edit-actions"><span></span><button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-check" aria-hidden="true"></i> Save booking</button></div>
+                </form>
+            ` : ''}
         </article>
     `).join('');
 }
@@ -144,8 +238,19 @@ function renderReadiness(trip) {
     const score = document.getElementById('my-safari-readiness-score');
     const next = document.getElementById('my-safari-readiness-next');
     const groups = document.getElementById('my-safari-readiness-groups');
+    const reminderSelect = document.getElementById('my-safari-reminder-days');
+    const reminderHint = document.getElementById('my-safari-reminder-hint');
     if (!root || !score || !next || !groups) return;
     const plan = buildTripReadiness(trip);
+    if (reminderSelect) reminderSelect.value = String(plan.reminderDays);
+    if (reminderHint) {
+        const reminderLabel = plan.reminderDays < 0
+            ? 'without alerts'
+            : plan.reminderDays === 0
+                ? 'with alerts on each due date'
+                : `with alerts ${plan.reminderDays} day${plan.reminderDays === 1 ? '' : 's'} before each deadline`;
+        reminderHint.textContent = `Calendar export includes incomplete deadlines ${reminderLabel}.`;
+    }
     score.style.setProperty('--readiness-score', `${plan.score * 3.6}deg`);
     score.querySelector('strong').textContent = `${plan.score}%`;
     score.setAttribute('aria-label', `Trip readiness ${plan.score} percent, ${plan.completedCount} of ${plan.totalCount} checks complete`);
@@ -733,6 +838,21 @@ export async function initMySafari() {
             : `Check reopened. Trip readiness is now ${plan.score}%.`;
     });
 
+    document.getElementById('my-safari-reminder-days')?.addEventListener('change', event => {
+        const active = getActiveTrip();
+        if (!active) return;
+        const readiness = setReadinessReminderDays(active.readiness, event.target.value);
+        updateTrip(active.id, { readiness });
+        trackProductEvent('readiness_reminder_updated', {
+            source: 'readiness',
+            status: readiness.calendarReminderDays < 0 ? 'disabled' : 'enabled',
+        });
+        const status = document.getElementById('my-safari-readiness-status');
+        if (status) status.textContent = readiness.calendarReminderDays < 0
+            ? 'Calendar deadlines will export without alerts.'
+            : 'Calendar alert timing updated for this trip.';
+    });
+
     document.getElementById('my-safari-readiness-groups')?.addEventListener('click', event => {
         const button = event.target.closest('[data-readiness-remove]');
         const active = getActiveTrip();
@@ -791,11 +911,95 @@ export async function initMySafari() {
     });
 
     document.getElementById('my-safari-booking-list')?.addEventListener('click', event => {
+        const editButton = event.target.closest('[data-booking-edit]');
+        const cancelButton = event.target.closest('[data-booking-edit-cancel]');
         const button = event.target.closest('[data-booking-remove]');
         const active = getActiveTrip();
-        if (!button || !active) return;
-        updateTrip(active.id, { bookings: removeBooking(active.bookings, button.dataset.bookingRemove) });
-        document.getElementById('my-safari-booking-status').textContent = 'Booking record removed.';
+        if (!active) return;
+        if (editButton) {
+            editingBookingId = editButton.dataset.bookingEdit;
+            renderBookings(active);
+            document.querySelector(`[data-booking-edit-form="${CSS.escape(editingBookingId)}"] [name="booking-provider"]`)?.focus();
+            return;
+        }
+        if (cancelButton) {
+            editingBookingId = '';
+            renderBookings(active);
+            return;
+        }
+        if (button) {
+            if (editingBookingId === button.dataset.bookingRemove) editingBookingId = '';
+            updateTrip(active.id, { bookings: removeBooking(active.bookings, button.dataset.bookingRemove) });
+            document.getElementById('my-safari-booking-status').textContent = 'Booking record removed.';
+        }
+    });
+
+    document.getElementById('my-safari-booking-list')?.addEventListener('submit', event => {
+        const form = event.target.closest('[data-booking-edit-form]');
+        const active = getActiveTrip();
+        if (!form || !active) return;
+        event.preventDefault();
+        const data = new FormData(form);
+        const bookings = updateBooking(active.bookings, form.dataset.bookingEditForm, {
+            type: data.get('booking-type'),
+            provider: data.get('booking-provider'),
+            reference: data.get('booking-reference'),
+            date: data.get('booking-date'),
+            status: data.get('booking-status'),
+        });
+        editingBookingId = '';
+        updateTrip(active.id, { bookings });
+        trackProductEvent('booking_record_updated', { source: 'my_safari', itemType: data.get('booking-type'), status: data.get('booking-status') });
+        document.getElementById('my-safari-booking-status').textContent = 'Booking record updated.';
+    });
+
+    document.getElementById('my-safari-calendar-export')?.addEventListener('click', () => {
+        const active = getActiveTrip();
+        const status = document.getElementById('my-safari-export-status');
+        if (!active || !status) return;
+        try {
+            const calendar = downloadTripCalendar(active);
+            status.textContent = `${calendar.eventCount} calendar event${calendar.eventCount === 1 ? '' : 's'} downloaded, including ${calendar.reminderCount} incomplete readiness deadline${calendar.reminderCount === 1 ? '' : 's'}.`;
+            status.classList.remove('is-error');
+            trackProductEvent('trip_calendar_exported', {
+                source: 'my_safari',
+                countryCount: active.countries.length,
+                hasDates: Boolean(active.startDate && active.endDate),
+            });
+        } catch (error) {
+            status.textContent = error?.message || 'The calendar could not be created.';
+            status.classList.add('is-error');
+        }
+    });
+
+    document.getElementById('my-safari-pack-download')?.addEventListener('click', () => {
+        const active = getActiveTrip();
+        const status = document.getElementById('my-safari-pack-status');
+        if (!active || !status) return;
+        try {
+            const pack = downloadTripPack(active);
+            status.textContent = `Offline pack downloaded with ${pack.stats.routeDays} route day${pack.stats.routeDays === 1 ? '' : 's'} and ${pack.stats.bookings} booking${pack.stats.bookings === 1 ? '' : 's'}.`;
+            status.classList.remove('is-error');
+            trackProductEvent('trip_pack_exported', { source: 'my_safari', status: 'offline', countryCount: active.countries.length, hasDates: Boolean(active.startDate && active.endDate) });
+        } catch (error) {
+            status.textContent = error?.message || 'The offline pack could not be created.';
+            status.classList.add('is-error');
+        }
+    });
+
+    document.getElementById('my-safari-pack-print')?.addEventListener('click', () => {
+        const active = getActiveTrip();
+        const status = document.getElementById('my-safari-pack-status');
+        if (!active || !status) return;
+        try {
+            printTripPack(active);
+            status.textContent = 'Print view opened. Choose Save as PDF to keep a PDF copy.';
+            status.classList.remove('is-error');
+            trackProductEvent('trip_pack_exported', { source: 'my_safari', status: 'print', countryCount: active.countries.length, hasDates: Boolean(active.startDate && active.endDate) });
+        } catch (error) {
+            status.textContent = error?.message || 'The print view could not be created.';
+            status.classList.add('is-error');
+        }
     });
 
     document.getElementById('my-safari-share')?.addEventListener('click', async () => {

@@ -1,0 +1,77 @@
+:root { color: #17251f; background: #efe9de; font-family: Arial, Helvetica, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #efe9de; }
+.trip-pack-document { width: min(900px, 100%); margin: 0 auto; background: #fff; color: #17251f; }
+.trip-pack-cover { padding: 54px 56px 42px; color: #fff; background: linear-gradient(145deg, #102d24, #245b48); }
+.trip-pack-brand, .trip-pack-kicker { margin: 0; text-transform: uppercase; letter-spacing: .16em; }
+.trip-pack-brand { color: #f4a261; font-size: 14px; font-weight: 800; }
+.trip-pack-kicker { margin-top: 36px; color: #c6d8cf; font-size: 11px; }
+.trip-pack-cover h1 { max-width: 680px; margin: 10px 0 8px; font-family: Georgia, serif; font-size: 42px; line-height: 1.05; }
+.trip-pack-destinations { margin: 0; color: #dce8e2; font-size: 17px; }
+.trip-pack-meta { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-top: 38px; }
+.trip-pack-meta span { display: grid; gap: 6px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.3); font-size: 14px; }
+.trip-pack-meta strong { color: #f4b27d; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.trip-pack-generated { margin: 24px 0 0; color: #b9cec4; font-size: 11px; }
+.trip-pack-warning { display: grid; grid-template-columns: 150px 1fr; gap: 18px; padding: 20px 56px; border-bottom: 1px solid #eaded0; background: #fff7ed; font-size: 12px; line-height: 1.55; }
+.trip-pack-warning strong { color: #9a4c1f; text-transform: uppercase; letter-spacing: .08em; }
+.trip-pack-section { padding: 38px 56px; border-bottom: 1px solid #e8e1d8; }
+.trip-pack-heading { display: grid; grid-template-columns: 42px 1fr; gap: 12px; align-items: start; margin-bottom: 22px; }
+.trip-pack-heading > span { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; color: #9a4c1f; background: #fbe8d5; font-weight: 800; }
+.trip-pack-heading h2 { margin: 0; font-family: Georgia, serif; font-size: 25px; }
+.trip-pack-heading p { margin: 5px 0 0; color: #68786f; font-size: 12px; }
+.trip-pack-day { break-inside: avoid; margin-bottom: 14px; border: 1px solid #dfe5e1; border-radius: 9px; overflow: hidden; }
+.trip-pack-day > header { display: grid; grid-template-columns: 70px 1fr; gap: 12px; padding: 13px 16px; background: #f3f7f5; }
+.trip-pack-day > header > span { color: #9a4c1f; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+.trip-pack-day > header div, .trip-pack-day li div, table td:first-child { display: grid; gap: 3px; }
+.trip-pack-day small, table small { color: #68786f; }
+.trip-pack-day ol { margin: 0; padding: 0; list-style: none; }
+.trip-pack-day li { display: grid; grid-template-columns: 70px 1fr; gap: 12px; padding: 12px 16px; border-top: 1px solid #edf0ee; }
+.trip-pack-day time { color: #68786f; font-size: 12px; }
+.trip-pack-day li span { color: #40564b; font-size: 12px; }
+.trip-pack-empty { margin: 0; padding: 16px; border-radius: 8px; color: #68786f; background: #f5f7f6; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th, td { padding: 11px 10px; border-bottom: 1px solid #e6eae8; text-align: left; vertical-align: top; }
+th { color: #68786f; background: #f4f7f5; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+.trip-pack-checks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.trip-pack-check-group { break-inside: avoid; border: 1px solid #dfe5e1; border-radius: 8px; overflow: hidden; }
+.trip-pack-check-group h3 { display: flex; justify-content: space-between; margin: 0; padding: 11px 12px; background: #f3f7f5; font-size: 13px; }
+.trip-pack-check-group h3 span { color: #68786f; }
+.trip-pack-check-group ul { margin: 0; padding: 0; list-style: none; }
+.trip-pack-check-group li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; padding: 10px 11px; border-top: 1px solid #edf0ee; }
+.trip-pack-check-group li div { display: grid; gap: 3px; }
+.trip-pack-check-group li small { color: #68786f; font-size: 10px; }
+.trip-pack-check-group li.is-complete strong { color: #718078; text-decoration: line-through; }
+.trip-pack-box { display: grid; place-items: center; width: 18px; height: 18px; border: 1px solid #91a49a; border-radius: 4px; color: #fff; font-size: 11px; }
+.is-complete .trip-pack-box { border-color: #46745f; background: #46745f; }
+.trip-pack-split { display: grid; grid-template-columns: 2fr 1fr; gap: 18px; }
+.trip-pack-split > div { padding: 18px; border-radius: 9px; background: #f4f7f5; }
+.trip-pack-split h3 { margin: 0 0 13px; font-size: 13px; }
+.trip-pack-totals { display: flex; flex-wrap: wrap; gap: 10px; }
+.trip-pack-totals span { display: grid; min-width: 100px; gap: 3px; }
+.trip-pack-totals small, .trip-pack-caption { color: #68786f; font-size: 10px; }
+.trip-pack-totals strong, .trip-pack-big-number { font-size: 25px; }
+.trip-pack-big-number { margin: 0; font-weight: 800; }
+.trip-pack-emergencies { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.trip-pack-emergency { break-inside: avoid; padding: 15px; border: 1px solid #f0d3b8; border-radius: 8px; background: #fff9f3; }
+.trip-pack-emergency p { margin: 8px 0; font-size: 13px; }
+.trip-pack-emergency small { display: block; margin-top: 4px; color: #68786f; font-size: 9px; overflow-wrap: anywhere; }
+.trip-pack-notes { padding: 18px; border-radius: 8px; background: #fffaf1; line-height: 1.6; white-space: normal; }
+footer { padding: 28px 56px; color: #c6d8cf; background: #102d24; font-size: 10px; line-height: 1.5; }
+footer strong { color: #f4b27d; font-size: 13px; }
+footer p { margin: 6px 0 0; }
+@media (max-width: 640px) {
+    .trip-pack-cover, .trip-pack-section { padding-left: 24px; padding-right: 24px; }
+    .trip-pack-warning, .trip-pack-meta, .trip-pack-checks, .trip-pack-split, .trip-pack-emergencies { grid-template-columns: 1fr; }
+    .trip-pack-warning, footer { padding-left: 24px; padding-right: 24px; }
+    .trip-pack-cover h1 { font-size: 34px; }
+}
+@media print {
+    @page { margin: 12mm; }
+    :root, body { background: #fff; }
+    .trip-pack-document { width: 100%; }
+    .trip-pack-cover, footer { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .trip-pack-section { padding: 28px 12px; }
+    .trip-pack-cover { padding: 36px 32px; }
+    .trip-pack-warning { padding: 16px 12px; }
+    footer { padding: 22px 32px; }
+}

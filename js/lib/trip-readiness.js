@@ -1,4 +1,6 @@
 const DAY_MS = 24 * 60 * 60 * 1000;
+const DEFAULT_CALENDAR_REMINDER_DAYS = 7;
+const CALENDAR_REMINDER_OPTIONS = new Set([-1, 0, 3, 7, 14, 30]);
 
 const CATEGORY_META = {
     essentials: { label: 'Essentials', icon: 'fa-shield-halved' },
@@ -28,9 +30,13 @@ function cleanCustomTasks(tasks) {
 }
 
 export function normalizeReadiness(readiness) {
+    const requestedReminderDays = Number(readiness?.calendarReminderDays);
     return {
         completedTaskIds: cleanIds(readiness?.completedTaskIds),
         customTasks: cleanCustomTasks(readiness?.customTasks),
+        calendarReminderDays: CALENDAR_REMINDER_OPTIONS.has(requestedReminderDays)
+            ? requestedReminderDays
+            : DEFAULT_CALENDAR_REMINDER_DAYS,
     };
 }
 
@@ -189,7 +195,15 @@ export function buildTripReadiness(trip, now = new Date()) {
         categories,
         nextTask,
         hasDates: Boolean(parseTripDate(trip?.startDate)),
+        reminderDays: readiness.calendarReminderDays,
     };
+}
+
+export function setReadinessReminderDays(readiness, days) {
+    return normalizeReadiness({
+        ...normalizeReadiness(readiness),
+        calendarReminderDays: Number(days),
+    });
 }
 
 export function setReadinessTask(readiness, taskId, completed) {
@@ -219,6 +233,7 @@ export function addReadinessTask(readiness, input) {
 export function removeReadinessTask(readiness, taskId) {
     const current = normalizeReadiness(readiness);
     return normalizeReadiness({
+        ...current,
         completedTaskIds: current.completedTaskIds.filter(id => id !== taskId),
         customTasks: current.customTasks.filter(taskItem => taskItem.id !== taskId),
     });
