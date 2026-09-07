@@ -149,7 +149,7 @@ function transferMarkup(transfer, crossing, stopover, index) {
         </ul>
         ${stay.accessNotes?.[0] ? `<small>${escapeHtml(stay.accessNotes[0])}</small>` : ''}
         <div class="journey-corridor-stay__actions">
-            <a href="${escapeHtml(stay.propertyUrl)}" target="_blank" rel="noopener noreferrer">Check availability <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            <a href="${escapeHtml(stay.propertyUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(stay.actionLabel || 'Check availability')} <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
             <a href="${escapeHtml(stay.sourceUrl)}" target="_blank" rel="noopener noreferrer">Source · ${escapeHtml(stay.lastVerified)}</a>
         </div>
     </article>`).join('');

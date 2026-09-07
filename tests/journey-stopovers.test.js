@@ -43,10 +43,10 @@ test('corridor stay collection is traceable, conservative and geographically con
         return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     };
 
-    assert.equal(corridorCollection.stays.length, 12);
-    assert.equal(new Set(corridorCollection.stays.map(stay => stay.borderId)).size, 12);
+    assert.equal(corridorCollection.stays.length, 16);
+    assert.equal(new Set(corridorCollection.stays.map(stay => stay.borderId)).size, 16);
     assert.deepEqual(
-        ['beitbridge', 'chirundu', 'martins-drift', 'mwami-mchinji'].filter(borderId => !corridorCollection.stays.some(stay => stay.borderId === borderId)),
+        ['plumtree', 'ponta-do-ouro', 'sani-pass', 'mwanza-zobue'].filter(borderId => !corridorCollection.stays.some(stay => stay.borderId === borderId)),
         [],
     );
     corridorCollection.stays.forEach(stay => {

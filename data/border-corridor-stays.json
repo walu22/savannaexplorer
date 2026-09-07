@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastReviewed": "2026-09-07",
-    "coverage": "Twelve high-value border corridors",
+    "coverage": "Sixteen high-value border corridors",
     "methodology": "Properties are included only when a direct property or official tourism source can be paired with usable coordinates. Straight-line distances are calculated from the property coordinates to the reviewed border coordinates in data/borders.json; they are not road distances.",
     "availability": "No live room availability is provided. Travellers must confirm dates, rates, access, parking and arrival arrangements directly with the property.",
     "parkingPolicy": "Secure parking is shown only when the cited source explicitly publishes a security claim. Parking availability alone is not described as secure."
@@ -364,6 +364,128 @@
       "accessNotes": [
         "The hotel is on Great East Road on the Chipata side of the crossing.",
         "Confirm the exact driving distance, late arrival and current availability directly."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "omadu-lodge-plumtree",
+      "borderId": "plumtree",
+      "name": "Omadu Lodge & Conference Centre",
+      "countryId": "zimbabwe",
+      "countryName": "Zimbabwe",
+      "locality": "Plumtree",
+      "coordinates": { "lat": -20.4908524, "lng": 27.8019115 },
+      "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=-20.4908524&mlon=27.8019115#map=16/-20.4908524/27.8019115",
+      "distanceKm": 0.5,
+      "publishedProximity": "The lodge is registered in Plumtree and mapped on the A7; the displayed distance is calculated from mapped coordinates.",
+      "propertyUrl": "https://byolife.co.zw/listing/omadu-lodge-conference-centre/",
+      "actionLabel": "Open contact details",
+      "sourceUrl": "https://zimbabwetourism.net/registered-tourism-operators/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking security is not published on the reviewed tourism and property listings.",
+        "sourceUrl": "https://byolife.co.zw/listing/omadu-lodge-conference-centre/"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "The listing says the property is open 24 hours, but guest check-in limits are not published.",
+        "sourceUrl": "https://byolife.co.zw/listing/omadu-lodge-conference-centre/"
+      },
+      "accessNotes": [
+        "The Zimbabwe Tourism Authority register lists Omadu Lodge as a registered tourism operator.",
+        "Call the property before relying on late arrival or room availability."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "ponta-mar-resort",
+      "borderId": "ponta-do-ouro",
+      "name": "Ponta Mar Resort",
+      "countryId": "mozambique",
+      "countryName": "Mozambique",
+      "locality": "Ponta do Ouro",
+      "coordinates": { "lat": -26.8409386, "lng": 32.8873907 },
+      "coordinateSourceUrl": "https://book.octorate.com/octobook/site/reservation/index.xhtml?codice=102773&lang=en",
+      "distanceKm": 14.5,
+      "publishedProximity": "The official booking page publishes Ponta do Ouro GPS coordinates; the displayed border distance is calculated.",
+      "propertyUrl": "https://book.octorate.com/octobook/site/reservation/index.xhtml?codice=102773&lang=en",
+      "sourceUrl": "https://book.octorate.com/octobook/site/reservation/index.xhtml?codice=102773&lang=en",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "available",
+        "label": "Free private parking is published; the source makes no security claim.",
+        "sourceUrl": "https://book.octorate.com/octobook/site/reservation/index.xhtml?codice=102773&lang=en"
+      },
+      "checkIn": {
+        "status": "published",
+        "label": "Arrival is published from 12:00 until 22:00.",
+        "sourceUrl": "https://book.octorate.com/octobook/site/reservation/index.xhtml?codice=102773&lang=en"
+      },
+      "accessNotes": [
+        "Mozambique’s conservation authority lists Ponta do Ouro accommodation and identifies Kosi Bay as the main South African approach.",
+        "Confirm the road and vehicle requirements for the exact accommodation access before crossing."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "sani-mountain-escape",
+      "borderId": "sani-pass",
+      "name": "Sani Mountain Escape",
+      "countryId": "lesotho",
+      "countryName": "Lesotho",
+      "locality": "Sani Top",
+      "coordinates": { "lat": -29.584577, "lng": 29.288123 },
+      "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=-29.584577&mlon=29.288123#map=17/-29.584577/29.288123",
+      "distanceKm": 0.1,
+      "publishedProximity": "The property describes itself as being at the top of Sani Pass just inside Lesotho; the displayed distance is calculated.",
+      "propertyUrl": "https://sanimountain.co.za/lesotho-accommodation/",
+      "sourceUrl": "https://sanimountain.co.za/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "secure",
+        "label": "Secure open parking and 24-hour security are published by the property.",
+        "sourceUrl": "https://sanimountain.co.za/"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Guest check-in limits are not published on the reviewed property pages.",
+        "sourceUrl": "https://sanimountain.co.za/lesotho-accommodation/"
+      },
+      "accessNotes": [
+        "A confirmed accommodation booking does not replace border access or a current road-condition check.",
+        "Snow, flooding and road damage can disrupt access at short notice."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "mwanza-hotel-malawi",
+      "borderId": "mwanza-zobue",
+      "name": "Mwanza Hotel",
+      "countryId": "malawi",
+      "countryName": "Malawi",
+      "locality": "Mwanza",
+      "coordinates": { "lat": -15.58856, "lng": 34.50722 },
+      "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=-15.58856&mlon=34.50722#map=16/-15.58856/34.50722",
+      "distanceKm": 7.4,
+      "publishedProximity": "The accommodation listing places the hotel on the M6 in Mwanza; the displayed border distance is calculated.",
+      "propertyUrl": "https://malawiplus.com/mwanza-hotel/",
+      "actionLabel": "Open contact details",
+      "sourceUrl": "https://malawiplus.com/mwanza-hotel/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking availability and security are not published on the reviewed accommodation listing.",
+        "sourceUrl": "https://malawiplus.com/mwanza-hotel/"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Check-in limits are not published on the reviewed accommodation listing.",
+        "sourceUrl": "https://malawiplus.com/mwanza-hotel/"
+      },
+      "accessNotes": [
+        "The listing publishes direct telephone contacts and identifies the hotel as an M6-road accommodation option.",
+        "Phone before arrival because online availability is not provided."
       ],
       "availability": "check-direct"
     }
