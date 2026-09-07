@@ -128,7 +128,7 @@ function segmentReason(segment, theme) {
     return reasons.join(' · ');
 }
 
-function transferMarkup(transfer, crossing, index) {
+function transferMarkup(transfer, crossing, stopover, index) {
     const confidence = transfer.status === 'estimated'
         ? `${transfer.confidence} confidence · cached ${transfer.capturedAt}`
         : transfer.status === 'partial' ? `Partial coverage · cached ${transfer.capturedAt}` : 'Local route check required';
@@ -139,6 +139,7 @@ function transferMarkup(transfer, crossing, index) {
         ${legMarkup(transfer.approach, 'To the border', `Route endpoint → ${crossing.name}`)}
         ${legMarkup(transfer.onward, 'After the border', `${crossing.name} → next route`)}
     </div>` : `<div class="journey-transfer__withheld"><i class="fas fa-location-crosshairs" aria-hidden="true"></i><p><strong>Distance withheld</strong><br>The cached road match did not meet our confidence threshold. Confirm this transfer with your host, rental company or a local route planner.</p></div>`;
+    const stopoverSources = stopover.sources.slice(0, 3).map(source => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(source.countryName)} · ${escapeHtml(source.relevance)}</span><strong>${escapeHtml(source.title)}</strong><small>${escapeHtml(source.linkLabel)} · reviewed ${escapeHtml(source.lastVerified)}</small></a>`).join('');
     return `<section class="journey-transfer" aria-label="Cross-border transfer plan">
         <div class="journey-transfer__head">
             <div><span class="journey-transfer__eyebrow">Cross-border logistics</span><strong>${transfer.status === 'estimated' ? `${transfer.totalDistanceKm} km · ${formatDriveMinutes(transfer.totalDriveMinutes)} driving` : transfer.status === 'partial' ? 'Partial estimate · complete locally' : 'Verify the road transfer locally'}</strong></div>
@@ -151,6 +152,12 @@ function transferMarkup(transfer, crossing, index) {
             <p id="journey-arrival-${index}"><i class="fas ${transfer.arrival.status === 'closed' ? 'fa-triangle-exclamation' : 'fa-clock'}" aria-hidden="true"></i>${escapeHtml(transfer.arrival.label)}</p>
         </div>
         <div class="journey-transfer__advice"><p><i class="fas fa-gas-pump" aria-hidden="true"></i>${escapeHtml(transfer.fuelGuidance)}</p><p><i class="fas fa-sun" aria-hidden="true"></i>${escapeHtml(transfer.dayGuidance)}</p></div>
+        <div class="journey-stopover journey-stopover--${escapeHtml(stopover.status)}">
+            <div class="journey-stopover__head"><span><i class="fas fa-bed" aria-hidden="true"></i> Stopover plan</span><strong>${escapeHtml(stopover.title)}</strong></div>
+            <p>${escapeHtml(stopover.summary)} ${escapeHtml(stopover.placement)}</p>
+            ${stopoverSources ? `<div class="journey-stopover__sources">${stopoverSources}</div>` : ''}
+            <small>${escapeHtml(stopover.disclaimer)}</small>
+        </div>
         <details class="journey-transfer__documents"><summary>Vehicle and document checklist</summary><ul>${(crossing.documents || []).map(item => `<li>${escapeHtml(item)}</li>`).join('')}<li>${escapeHtml(crossing.fees || 'Confirm current fees and requirements')}</li></ul></details>
         <p class="journey-transfer__source">Road figures are cached planning estimates from ${escapeHtml(transfer.source)}. They exclude stops, border processing, queues and current disruption.</p>
     </section>`;
@@ -165,6 +172,7 @@ function renderJourney(root, journey, focusHeading = true) {
         day = endDay + 1;
         const crossing = journey.crossings[index];
         const transfer = journey.transfers[index];
+        const stopover = journey.stopovers[index];
         const routeMarkup = `<article class="journey-step journey-step--route">
             <div class="journey-step__marker"><span>${index + 1}</span></div>
             <div class="journey-step__body">
@@ -176,16 +184,17 @@ function renderJourney(root, journey, focusHeading = true) {
             </div>
         </article>`;
         if (!crossing) return routeMarkup;
-        const crossingDay = day;
-        day += 1;
+        const crossingStartDay = day;
+        const crossingEndDay = day + stopover.transferDays - 1;
+        day = crossingEndDay + 1;
         return `${routeMarkup}<article class="journey-step journey-step--border">
             <div class="journey-step__marker"><i class="fas fa-passport" aria-hidden="true"></i></div>
             <div class="journey-step__body">
-                <div class="journey-step__meta"><span>Border day</span><span>Day ${crossingDay}</span></div>
+                <div class="journey-step__meta"><span>Border transfer</span><span>${crossingStartDay === crossingEndDay ? `Day ${crossingStartDay}` : `Days ${crossingStartDay}–${crossingEndDay}`}</span></div>
                 <h5>${escapeHtml(crossing.name)}</h5>
                 <p>${escapeHtml(crossing.route)} · ${escapeHtml(crossing.hours)}</p>
                 <div class="journey-step__reason"><i class="fas fa-shield-halved" aria-hidden="true"></i>Reviewed ${escapeHtml(crossing.lastVerified)} · reconfirm before travel</div>
-                ${transferMarkup(transfer, crossing, index)}
+                ${transferMarkup(transfer, crossing, stopover, index)}
                 <a href="/borders/${escapeHtml(crossing.id)}">Open border guide <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
             </div>
         </article>`;
@@ -203,7 +212,7 @@ function renderJourney(root, journey, focusHeading = true) {
     <div class="journey-result__facts" aria-label="Journey summary">
         <div><span>Total time</span><strong>${journey.totalDays} days</strong></div>
         <div><span>Countries</span><strong>${journey.segments.length}</strong></div>
-        <div><span>Border days</span><strong>${journey.crossings.length}</strong></div>
+        <div><span>Transfer days</span><strong>${journey.borderDays}</strong></div>
         <div><span>Flexible days</span><strong>${journey.extraDays}</strong></div>
     </div>
     ${orderControls(journey)}

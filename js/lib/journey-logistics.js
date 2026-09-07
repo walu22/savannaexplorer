@@ -31,6 +31,16 @@ function clockTime(totalMinutes) {
     return `${String(Math.floor(value / 60)).padStart(2, '0')}:${String(value % 60).padStart(2, '0')}`;
 }
 
+function distanceKm(from, to) {
+    if (![from?.lat, from?.lng, to?.lat, to?.lng].every(Number.isFinite)) return null;
+    const radians = degrees => degrees * Math.PI / 180;
+    const lat = radians(to.lat - from.lat);
+    const lng = radians(to.lng - from.lng);
+    const value = Math.sin(lat / 2) ** 2
+        + Math.cos(radians(from.lat)) * Math.cos(radians(to.lat)) * Math.sin(lng / 2) ** 2;
+    return 6371 * 2 * Math.atan2(Math.sqrt(value), Math.sqrt(1 - value));
+}
+
 export function parsePublishedHours(hours) {
     const value = String(hours || '').trim();
     if (/^24 hours$/i.test(value)) return { status: 'known', alwaysOpen: true, label: value };
@@ -92,6 +102,13 @@ export function buildTransferPlan(fromRoute, border, toRoute, departureTime = DE
     const status = usableLegCount === 2 ? 'estimated' : usableLegCount === 1 ? 'partial' : 'check-required';
     const totalDistanceKm = status === 'estimated' ? cached.totalDistanceKm : null;
     const totalDriveMinutes = status === 'estimated' ? cached.totalDriveMinutes : null;
+    const geometricDistanceKm = [
+        distanceKm(fromRoute?.stops?.at(-1), border?.coordinates),
+        distanceKm(border?.coordinates, toRoute?.stops?.[0]),
+    ].reduce((total, distance) => Number.isFinite(distance) ? total + distance : total, 0);
+    const schedulingMinutes = Number.isFinite(totalDriveMinutes)
+        ? totalDriveMinutes
+        : geometricDistanceKm > 0 ? Math.ceil((geometricDistanceKm * 1.3 / 65) * 60) : 840;
     const arrival = borderArrivalCheck(border?.hours, departure, approach?.driveMinutes);
     return {
         key,
@@ -102,6 +119,8 @@ export function buildTransferPlan(fromRoute, border, toRoute, departureTime = DE
         onward,
         totalDistanceKm,
         totalDriveMinutes,
+        schedulingMinutes,
+        schedulingMethod: status === 'estimated' ? 'cached-road-estimate' : 'conservative-geographic-buffer',
         arrival,
         dayGuidance: dayGuidance(totalDriveMinutes),
         fuelGuidance: fuelGuidance(totalDistanceKm),

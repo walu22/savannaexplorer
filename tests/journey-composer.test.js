@@ -86,7 +86,8 @@ test('composer builds an explainable journey that uses the exact available days'
     assert.deepEqual(result.countryOrder, ['namibia', 'botswana', 'zambia']);
     assert.equal(result.segments.length, 3);
     assert.equal(result.crossings.length, 2);
-    assert.equal(result.segments.reduce((total, segment) => total + segment.days, 0) + result.crossings.length, 30);
+    assert.equal(result.segments.reduce((total, segment) => total + segment.days, 0) + result.borderDays, 30);
+    assert.ok(result.borderDays >= result.crossings.length);
     assert.ok(result.segments.every(segment => segment.themeMatch));
 });
 
@@ -120,8 +121,10 @@ test('journey template includes border days and becomes an editable dated trip',
     assert.equal(trip.endDate, '2026-11-18');
     assert.deepEqual(trip.countries, ['South Africa', 'Eswatini']);
     assert.ok(trip.routeDays.some(day => day.stops.some(stop => stop.type === 'border')));
+    const transferStops = trip.routeDays.flatMap(day => day.stops);
     const borderDay = trip.routeDays.find(day => day.stops.some(stop => stop.type === 'border'));
-    assert.ok(borderDay.stops.some(stop => /Cached planning estimate|confidence threshold/.test(stop.notes)));
+    assert.ok(transferStops.some(stop => /Cached planning estimate|confidence threshold/.test(stop.notes)));
     assert.ok(borderDay.stops.some(stop => /Carry:/.test(stop.notes)));
+    assert.ok(transferStops.some(stop => stop.type === 'accommodation'));
     assert.match(trip.templateRouteId, /^journey:/);
 });
