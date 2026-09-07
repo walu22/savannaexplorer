@@ -5,9 +5,11 @@ import {
     composeJourney,
     journeyToTripTemplate,
     normalizeJourneyPreferences,
+    reorderJourneyCountries,
 } from '../lib/journey-composer.js';
 import { createTrip } from '../lib/trip-store.js';
 import { trackProductEvent } from '../lib/product-analytics.js';
+import { destroyJourneyMap, mountJourneyMap } from '../lib/itinerary-maps.js';
 
 const STORAGE_KEY = 'se_journey_composer_v1';
 const DEFAULTS = {
@@ -20,6 +22,7 @@ const DEFAULTS = {
 };
 
 let currentJourney = null;
+let draggedCountry = '';
 
 function escapeHtml(value) {
     return String(value || '').replace(/[&<>"']/g, char => ({
@@ -87,6 +90,7 @@ function setForm(form, preferences) {
 }
 
 function emptyResult(root, message, action = '') {
+    destroyJourneyMap();
     root.hidden = false;
     root.innerHTML = `<div class="journey-composer-empty">
         <span class="journey-composer-empty__icon" aria-hidden="true"><i class="fas fa-route"></i></span>
@@ -94,6 +98,24 @@ function emptyResult(root, message, action = '') {
         ${action ? `<button type="button" class="btn btn-outline btn-sm" data-journey-days="${escapeHtml(action)}">Use ${escapeHtml(action)} days</button>` : ''}</div>
     </div>`;
     root.querySelector('h4')?.focus({ preventScroll: true });
+}
+
+function orderControls(journey) {
+    return `<section class="journey-order" aria-labelledby="journey-order-title">
+        <div><span class="section-eyebrow">Travel order</span><h5 id="journey-order-title">Drag countries or use the arrow buttons</h5><p>Every change is checked against the reviewed land-border network.</p></div>
+        <ol class="journey-order__list" data-journey-order-list>
+            ${journey.countryOrder.map((country, index) => `<li draggable="true" data-journey-country="${escapeHtml(country)}">
+                <span class="journey-order__handle" aria-hidden="true"><i class="fas fa-grip-vertical"></i></span>
+                <span class="journey-order__number">${index + 1}</span>
+                <strong>${escapeHtml(JOURNEY_COUNTRIES[country])}</strong>
+                <span class="journey-order__buttons">
+                    <button type="button" data-journey-move="${escapeHtml(country)}" data-journey-target="${index - 1}" aria-label="Move ${escapeHtml(JOURNEY_COUNTRIES[country])} earlier"${index === 0 ? ' disabled' : ''}><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
+                    <button type="button" data-journey-move="${escapeHtml(country)}" data-journey-target="${index + 1}" aria-label="Move ${escapeHtml(JOURNEY_COUNTRIES[country])} later"${index === journey.countryOrder.length - 1 ? ' disabled' : ''}><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                </span>
+            </li>`).join('')}
+        </ol>
+        <p class="journey-order__status" role="status" aria-live="polite" tabindex="-1"></p>
+    </section>`;
 }
 
 function segmentReason(segment, theme) {
@@ -104,7 +126,8 @@ function segmentReason(segment, theme) {
     return reasons.join(' · ');
 }
 
-function renderJourney(root, journey) {
+function renderJourney(root, journey, focusHeading = true) {
+    destroyJourneyMap();
     let day = 1;
     const timeline = journey.segments.map((segment, index) => {
         const startDay = day;
@@ -151,12 +174,68 @@ function renderJourney(root, journey) {
         <div><span>Border days</span><strong>${journey.crossings.length}</strong></div>
         <div><span>Flexible days</span><strong>${journey.extraDays}</strong></div>
     </div>
+    ${orderControls(journey)}
     ${vehicleWarnings.length ? `<div class="journey-result__warning"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i><p><strong>Vehicle check:</strong> ${escapeHtml(vehicleWarnings.map(segment => `${segment.route.title} needs ${segment.route.vehicle.label}`).join('; '))}.</p></div>` : ''}
-    <div class="journey-timeline" aria-label="Day-by-day route structure">${timeline}</div>
+    <div class="journey-result__workspace">
+        <section class="journey-map-panel" aria-labelledby="journey-map-title">
+            <div class="journey-map-panel__head"><span class="section-eyebrow">Journey map</span><h5 id="journey-map-title">Route and border sequence</h5></div>
+            <div id="journey-map-canvas" class="journey-map-canvas" role="img" aria-label="Map of ${escapeHtml(journey.segments.map(segment => segment.countryName).join(' to '))}" aria-busy="true"></div>
+            <p class="journey-map-panel__note"><i class="fas fa-circle-info" aria-hidden="true"></i> Geographic sequence only. Lines between stops are not turn-by-turn navigation.</p>
+        </section>
+        <div class="journey-timeline" aria-label="Day-by-day route structure">${timeline}</div>
+    </div>
     <details class="journey-checks"><summary>Important checks before booking</summary><ul>${journey.warnings.map(item => `<li>${escapeHtml(item)}</li>`).join('')}<li>Recheck border hours, entry rules, vehicle paperwork and regional travel advice close to departure.</li></ul></details>
     <p class="journey-result__note"><i class="fas fa-circle-info" aria-hidden="true"></i> This is a planning sequence, not live navigation. Saving creates an editable itinerary; it does not make bookings.</p>
     <p class="journey-result__status" role="status" aria-live="polite"></p>`;
-    root.querySelector('h4')?.focus({ preventScroll: true });
+    if (focusHeading) root.querySelector('h4')?.focus({ preventScroll: true });
+    mountJourneyMap(journey).then(mounted => {
+        if (mounted) return;
+        const map = document.getElementById('journey-map-canvas');
+        if (map) {
+            map.removeAttribute('aria-busy');
+            map.innerHTML = '<p>The map is unavailable, but the ordered route timeline remains complete.</p>';
+        }
+    }).catch(() => {
+        const map = document.getElementById('journey-map-canvas');
+        if (map) {
+            map.removeAttribute('aria-busy');
+            map.innerHTML = '<p>The map could not load. Use the ordered route timeline below.</p>';
+        }
+    });
+}
+
+function applyCountryOrder(form, results, nextOrder) {
+    const nextJourney = composeJourney(routeCollection.routes, borders, {
+        ...currentJourney.preferences,
+        countries: nextOrder,
+        countryOrder: nextOrder,
+        startCountry: nextOrder[0],
+    });
+    const status = results.querySelector('.journey-order__status');
+    if (nextJourney.status !== 'ready') {
+        if (status) {
+            status.textContent = 'That order has no direct reviewed road connection between every neighbouring country.';
+            status.focus({ preventScroll: true });
+        }
+        return false;
+    }
+
+    currentJourney = nextJourney;
+    form.elements.startCountry.value = nextOrder[0];
+    savePreferences(nextJourney.preferences);
+    trackProductEvent('journey_reordered', {
+        source: 'journey_composer',
+        status: 'connected',
+        countryCount: nextOrder.length,
+        hasDates: Boolean(nextJourney.preferences.startDate),
+    });
+    renderJourney(results, nextJourney, false);
+    const nextStatus = results.querySelector('.journey-order__status');
+    if (nextStatus) {
+        nextStatus.textContent = `Journey reordered: ${nextOrder.map(country => JOURNEY_COUNTRIES[country]).join(' to ')}.`;
+        nextStatus.focus({ preventScroll: true });
+    }
+    return true;
 }
 
 function runComposer(form, results) {
@@ -212,6 +291,16 @@ export function initJourneyComposer() {
             form.querySelector('input[name="countries"]:checked')?.focus();
             return;
         }
+        const move = event.target.closest('[data-journey-move]');
+        if (move && currentJourney?.status === 'ready') {
+            const nextOrder = reorderJourneyCountries(
+                currentJourney.countryOrder,
+                move.dataset.journeyMove,
+                move.dataset.journeyTarget,
+            );
+            applyCountryOrder(form, results, nextOrder);
+            return;
+        }
         if (event.target.closest('[data-journey-reset]')) {
             currentJourney = null;
             try { localStorage.removeItem(STORAGE_KEY); } catch { /* Nothing to clear. */ }
@@ -219,6 +308,7 @@ export function initJourneyComposer() {
             syncCountryControls(form, selectionStatus);
             results.hidden = true;
             results.replaceChildren();
+            destroyJourneyMap();
             form.querySelector('input[name="countries"]')?.focus();
             return;
         }
@@ -239,5 +329,30 @@ export function initJourneyComposer() {
             if (status) status.textContent = `${trip.name} is ready. Opening your editable itinerary…`;
             window.location.assign('/my-safari');
         }
+    });
+
+    root.addEventListener('dragstart', event => {
+        const item = event.target.closest('[data-journey-country]');
+        if (!item || currentJourney?.status !== 'ready') return;
+        draggedCountry = item.dataset.journeyCountry;
+        event.dataTransfer.effectAllowed = 'move';
+        event.dataTransfer.setData('text/plain', draggedCountry);
+        item.classList.add('is-dragging');
+    });
+    root.addEventListener('dragover', event => {
+        if (draggedCountry && event.target.closest('[data-journey-country]')) event.preventDefault();
+    });
+    root.addEventListener('drop', event => {
+        const target = event.target.closest('[data-journey-country]');
+        if (!target || !draggedCountry || currentJourney?.status !== 'ready') return;
+        event.preventDefault();
+        const targetIndex = currentJourney.countryOrder.indexOf(target.dataset.journeyCountry);
+        const nextOrder = reorderJourneyCountries(currentJourney.countryOrder, draggedCountry, targetIndex);
+        applyCountryOrder(form, results, nextOrder);
+        draggedCountry = '';
+    });
+    root.addEventListener('dragend', event => {
+        event.target.closest('[data-journey-country]')?.classList.remove('is-dragging');
+        draggedCountry = '';
     });
 }

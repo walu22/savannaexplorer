@@ -145,6 +145,13 @@ test('multi-country builder creates a connected editable My Safari itinerary', a
     await expect(results.getByText('22 days')).toBeVisible();
     await expect(results.locator('.journey-step--route')).toHaveCount(2);
     await expect(results.locator('.journey-step--border')).toHaveCount(1);
+    await expect(results.locator('#journey-map-canvas')).toHaveAttribute('aria-label', /Namibia to Botswana/);
+
+    await results.getByRole('button', { name: 'Move Namibia later' }).click();
+    await expect(results.locator('.journey-order__list li').nth(0)).toContainText('Botswana');
+    await expect(results.locator('.journey-order__list li').nth(1)).toContainText('Namibia');
+    await expect(results.getByRole('status').filter({ hasText: 'Journey reordered' })).toContainText('Botswana to Namibia');
+    await expect(results.locator('#journey-map-canvas')).toHaveAttribute('aria-label', /Botswana to Namibia/);
 
     const accessibility = await new AxeBuilder({ page })
         .include('#journey-composer')
@@ -154,12 +161,12 @@ test('multi-country builder creates a connected editable My Safari itinerary', a
 
     await results.getByRole('button', { name: 'Save to My Safari' }).click();
     await expect(page).toHaveURL(/\/my-safari$/);
-    await expect(page.locator('#my-safari-active-name')).toContainText('Namibia · Botswana journey');
+    await expect(page.locator('#my-safari-active-name')).toContainText('Botswana · Namibia journey');
 
     const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('se_my_safari_v1')));
     expect(saved.trips).toHaveLength(1);
     expect(saved.trips[0].templateRouteId).toMatch(/^journey:/);
-    expect(saved.trips[0].countries).toEqual(['Namibia', 'Botswana']);
+    expect(saved.trips[0].countries).toEqual(['Botswana', 'Namibia']);
     expect(saved.trips[0].routeDays).toHaveLength(22);
     expect(saved.trips[0].routeDays.some(day => day.stops.some(stop => stop.type === 'border'))).toBe(true);
 });

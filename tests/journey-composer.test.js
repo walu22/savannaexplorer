@@ -7,6 +7,7 @@ import {
     countryOrders,
     journeyToTripTemplate,
     normalizeJourneyPreferences,
+    reorderJourneyCountries,
 } from '../js/lib/journey-composer.js';
 
 test('journey preferences keep two to four supported countries and safe limits', () => {
@@ -19,12 +20,47 @@ test('journey preferences keep two to four supported countries and safe limits',
         startDate: 'not-a-date',
     }), {
         countries: ['namibia', 'botswana', 'zambia', 'zimbabwe'],
+        countryOrder: [],
         startCountry: 'botswana',
         days: 30,
         vehicle: 'suv',
         theme: 'wildlife',
         startDate: '',
     });
+});
+
+test('country order can be moved without losing or duplicating selections', () => {
+    assert.deepEqual(
+        reorderJourneyCountries(['namibia', 'botswana', 'zambia'], 'zambia', 0),
+        ['zambia', 'namibia', 'botswana'],
+    );
+    assert.deepEqual(
+        reorderJourneyCountries(['namibia', 'botswana'], 'unknown', 1),
+        ['namibia', 'botswana'],
+    );
+});
+
+test('composer honours an explicit connected country order', () => {
+    const result = composeJourney(routeCollection.routes, borders, {
+        countries: ['south-africa', 'eswatini', 'mozambique'],
+        countryOrder: ['eswatini', 'south-africa', 'mozambique'],
+        days: 30,
+        vehicle: '4x4',
+        theme: 'culture',
+    });
+    assert.equal(result.status, 'ready');
+    assert.deepEqual(result.countryOrder, ['eswatini', 'south-africa', 'mozambique']);
+});
+
+test('composer rejects an explicit order without a direct neighbouring border', () => {
+    const result = composeJourney(routeCollection.routes, borders, {
+        countries: ['namibia', 'mozambique', 'botswana'],
+        countryOrder: ['namibia', 'mozambique', 'botswana'],
+        days: 30,
+        vehicle: '4x4',
+        theme: 'wildlife',
+    });
+    assert.equal(result.status, 'not-connected');
 });
 
 test('country ordering only returns directly connected road sequences', () => {

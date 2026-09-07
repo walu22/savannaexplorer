@@ -88,10 +88,16 @@ export function normalizeJourneyPreferences(value = {}) {
         .map(String)
         .filter(country => JOURNEY_COUNTRIES[country]))
         .slice(0, MAX_COUNTRIES);
-    const startCountry = countries.includes(value.startCountry) ? value.startCountry : (countries[0] || '');
+    const requestedOrder = unique((Array.isArray(value.countryOrder) ? value.countryOrder : [])
+        .map(String)
+        .filter(country => countries.includes(country)));
+    const countryOrder = requestedOrder.length === countries.length ? requestedOrder : [];
+    const startCountry = countryOrder[0]
+        || (countries.includes(value.startCountry) ? value.startCountry : (countries[0] || ''));
     const days = Math.max(7, Math.min(MAX_DAYS, Math.round(Number(value.days) || 18)));
     return {
         countries,
+        countryOrder,
         startCountry,
         days,
         vehicle: VEHICLE_LEVEL[value.vehicle] ? value.vehicle : 'suv',
@@ -144,7 +150,10 @@ export function composeJourney(routes, borders, rawPreferences = {}) {
         return { status: 'needs-countries', preferences, message: 'Choose at least two countries to build a connected journey.' };
     }
 
-    const orders = countryOrders(preferences.countries, borders, preferences.startCountry);
+    const orders = preferences.countryOrder.length
+        ? countryOrders(preferences.countryOrder, borders, preferences.countryOrder[0])
+            .filter(order => order.every((country, index) => country === preferences.countryOrder[index]))
+        : countryOrders(preferences.countries, borders, preferences.startCountry);
     if (!orders.length) {
         return {
             status: 'not-connected',
@@ -202,6 +211,18 @@ export function composeJourney(routes, borders, rawPreferences = {}) {
         extraDays: preferences.days - best.minimumDays,
         warnings: unique(best.selectedRoutes.flatMap(route => route.warnings || [])).slice(0, 4),
     };
+}
+
+export function reorderJourneyCountries(order, countryId, targetIndex) {
+    const current = unique((Array.isArray(order) ? order : []).map(String).filter(country => JOURNEY_COUNTRIES[country]));
+    const fromIndex = current.indexOf(countryId);
+    if (fromIndex === -1) return current;
+    const destination = Math.max(0, Math.min(current.length - 1, Math.round(Number(targetIndex) || 0)));
+    if (destination === fromIndex) return current;
+    const next = [...current];
+    const [moving] = next.splice(fromIndex, 1);
+    next.splice(destination, 0, moving);
+    return next;
 }
 
 function prefixRouteDays(days, segmentIndex) {

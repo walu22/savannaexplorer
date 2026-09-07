@@ -155,6 +155,85 @@ export async function mountRouteCollectionMap(route, containerId = 'route-explor
     return true;
 }
 
+export function destroyJourneyMap() {
+    destroyRouteMap('journey-composer');
+}
+
+export async function mountJourneyMap(journey, containerId = 'journey-map-canvas') {
+    const container = document.getElementById(containerId);
+    const segments = Array.isArray(journey?.segments) ? journey.segments : [];
+    const mappedSegments = segments.map(segment => ({
+        ...segment,
+        points: (segment.route?.stops || []).filter(point => Number.isFinite(point.lat) && Number.isFinite(point.lng)),
+    })).filter(segment => segment.points.length);
+    const crossings = (journey?.crossings || []).filter(hasCoordinates);
+    const allPoints = [
+        ...mappedSegments.flatMap(segment => segment.points.map(point => [point.lat, point.lng])),
+        ...crossings.map(crossing => [crossing.coordinates.lat, crossing.coordinates.lng]),
+    ];
+    if (!container || allPoints.length < 2) return false;
+
+    destroyJourneyMap();
+    container.replaceChildren();
+    container.setAttribute('aria-busy', 'true');
+    const L = await loadLeaflet();
+    const map = L.map(container, { scrollWheelZoom: false, attributionControl: true });
+    const colors = ['#C4672A', '#1A3D32', '#256D85', '#7C3F58'];
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
+
+    let markerNumber = 1;
+    mappedSegments.forEach((segment, segmentIndex) => {
+        const color = colors[segmentIndex % colors.length];
+        const latlngs = segment.points.map(point => [point.lat, point.lng]);
+        L.polyline(latlngs, { color, weight: 5, opacity: 0.9 }).addTo(map);
+        segment.points.forEach(point => {
+            const icon = L.divIcon({
+                className: `journey-map-pin journey-map-pin--${segmentIndex % colors.length}`,
+                html: `<span>${markerNumber}</span>`,
+                iconSize: [30, 30],
+                iconAnchor: [15, 15],
+            });
+            L.marker([point.lat, point.lng], { icon, title: point.name })
+                .addTo(map)
+                .bindPopup(`<strong>${markerNumber}. ${escapeHtml(point.name)}</strong><br>${escapeHtml(segment.countryName)}${point.region ? `<br>${escapeHtml(point.region)}` : ''}`);
+            markerNumber += 1;
+        });
+    });
+
+    crossings.forEach((crossing, index) => {
+        const icon = L.divIcon({
+            className: 'journey-map-border-pin',
+            html: '<span aria-hidden="true">&#128706;</span>',
+            iconSize: [34, 34],
+            iconAnchor: [17, 17],
+        });
+        L.marker([crossing.coordinates.lat, crossing.coordinates.lng], { icon, title: crossing.name })
+            .addTo(map)
+            .bindPopup(`<strong>${escapeHtml(crossing.name)}</strong><br>${escapeHtml(crossing.hours || 'Confirm current hours')}<br>Reviewed ${escapeHtml(crossing.lastVerified || 'date unavailable')}`);
+
+        const from = mappedSegments[index]?.points?.at(-1);
+        const to = mappedSegments[index + 1]?.points?.[0];
+        if (from && to) {
+            L.polyline([
+                [from.lat, from.lng],
+                [crossing.coordinates.lat, crossing.coordinates.lng],
+                [to.lat, to.lng],
+            ], { color: '#E08B52', weight: 4, opacity: 0.9, dashArray: '7 8' }).addTo(map);
+        }
+    });
+
+    map.fitBounds(L.latLngBounds(allPoints), { padding: [34, 34], maxZoom: 7 });
+    activeMaps.set('journey-composer', map);
+    container.removeAttribute('aria-busy');
+    requestAnimationFrame(() => map.invalidateSize());
+    setTimeout(() => map.invalidateSize(), 200);
+    return true;
+}
+
 // Country Maps Extension
 const COUNTRY_COORDS = {
     'south-africa': [-30.5595, 22.9375],
