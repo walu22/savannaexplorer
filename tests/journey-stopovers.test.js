@@ -43,8 +43,12 @@ test('corridor stay collection is traceable, conservative and geographically con
         return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     };
 
-    assert.equal(corridorCollection.stays.length, 8);
-    assert.equal(new Set(corridorCollection.stays.map(stay => stay.borderId)).size, 8);
+    assert.equal(corridorCollection.stays.length, 12);
+    assert.equal(new Set(corridorCollection.stays.map(stay => stay.borderId)).size, 12);
+    assert.deepEqual(
+        ['beitbridge', 'chirundu', 'martins-drift', 'mwami-mchinji'].filter(borderId => !corridorCollection.stays.some(stay => stay.borderId === borderId)),
+        [],
+    );
     corridorCollection.stays.forEach(stay => {
         const border = borders.find(item => item.id === stay.borderId);
         assert.ok(border, `${stay.id} references a reviewed border`);
@@ -67,7 +71,7 @@ test('corridor stay collection is traceable, conservative and geographically con
 test('unresearched crossings keep the honest country-directory fallback', () => {
     const fromSegment = { countryId: 'south-africa', countryName: 'South Africa', route: routeCollection.routes.find(route => route.countryIds[0] === 'south-africa') };
     const toSegment = { countryId: 'botswana', countryName: 'Botswana', route: routeCollection.routes.find(route => route.countryIds[0] === 'botswana') };
-    const plan = buildStopoverPlan({ status: 'partial', schedulingMinutes: 420 }, borders.find(border => border.id === 'martins-drift'), fromSegment, toSegment);
+    const plan = buildStopoverPlan({ status: 'partial', schedulingMinutes: 420 }, borders.find(border => border.id === 'ramatlabama'), fromSegment, toSegment);
 
     assert.deepEqual(plan.corridorStays, []);
     assert.ok(plan.sources.length >= 2);

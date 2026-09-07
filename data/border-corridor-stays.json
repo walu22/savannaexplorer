@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastReviewed": "2026-09-07",
-    "coverage": "Initial high-value border-corridor collection",
+    "coverage": "Twelve high-value border corridors",
     "methodology": "Properties are included only when a direct property or official tourism source can be paired with usable coordinates. Straight-line distances are calculated from the property coordinates to the reviewed border coordinates in data/borders.json; they are not road distances.",
     "availability": "No live room availability is provided. Travellers must confirm dates, rates, access, parking and arrival arrangements directly with the property.",
     "parkingPolicy": "Secure parking is shown only when the cited source explicitly publishes a security claim. Parking availability alone is not described as secure."
@@ -244,6 +244,126 @@
       "accessNotes": [
         "The property publishes an 11:00 check-out time.",
         "Confirm late arrival and vehicle parking directly."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "sleepover-beitbridge",
+      "borderId": "beitbridge",
+      "name": "SleepOver Beitbridge",
+      "countryId": "south-africa",
+      "countryName": "South Africa",
+      "locality": "Beitbridge / Musina",
+      "coordinates": { "lat": -22.2455, "lng": 29.986 },
+      "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=-22.2455&mlon=29.986#map=15/-22.2455/29.986",
+      "distanceKm": 5.2,
+      "publishedProximity": "The property describes this as a prime Beitbridge stopover; the displayed distance is calculated from mapped coordinates.",
+      "propertyUrl": "https://www.sleepover.travel/locations/beitbridge",
+      "sourceUrl": "https://www.sleepover.travel/locations/beitbridge",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "secure",
+        "label": "Secure parking is published by the reviewed booking source.",
+        "sourceUrl": "https://stayhere.co.za/accommodation/sleepover-beitbridge/"
+      },
+      "checkIn": {
+        "status": "published",
+        "label": "Check-in from 14:00; reception is published as 07:00–22:00.",
+        "sourceUrl": "https://www.sleepover.travel/locations/beitbridge"
+      },
+      "accessNotes": [
+        "The property publishes its address as Erf 14 Beitbrug Township, Musina.",
+        "Contact reception before travelling if border delays could push arrival beyond 22:00."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "tiger-safaris-chirundu",
+      "borderId": "chirundu",
+      "name": "Tiger Safaris",
+      "countryId": "zimbabwe",
+      "countryName": "Zimbabwe",
+      "locality": "Chirundu",
+      "coordinates": { "lat": -16.033, "lng": 28.8671 },
+      "coordinateSourceUrl": "https://www.tigersafaris.co.zw/bookings",
+      "distanceKm": 1.7,
+      "publishedProximity": "The property describes itself as being at Chirundu on the Zimbabwe–Zambia border and publishes approximate GPS coordinates.",
+      "propertyUrl": "https://www.tigersafaris.co.zw/bookings",
+      "sourceUrl": "https://www.tigersafaris.co.zw/bookings",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking security is not published on the reviewed booking page.",
+        "sourceUrl": "https://www.tigersafaris.co.zw/bookings"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Check-in limits are not published on the reviewed booking page.",
+        "sourceUrl": "https://www.tigersafaris.co.zw/bookings"
+      },
+      "accessNotes": [
+        "The property asks guests to enquire for availability and says it aims to respond within 48 hours.",
+        "A minimum deposit is published as required to secure a confirmed booking."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "kwa-nokeng-lodge",
+      "borderId": "martins-drift",
+      "name": "Kwa Nokeng Lodge",
+      "countryId": "botswana",
+      "countryName": "Botswana",
+      "locality": "Martin's Drift",
+      "coordinates": { "lat": -22.9999667, "lng": 27.94025 },
+      "coordinateSourceUrl": "https://www.kwanokeng.com/about/",
+      "distanceKm": 0.9,
+      "publishedProximity": "The property publishes its position at the Martin’s Drift border post together with GPS coordinates.",
+      "propertyUrl": "https://www.kwanokeng.com/accommodation/",
+      "sourceUrl": "https://www.kwanokeng.com/about/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "secure",
+        "label": "Secured parking and free parking are published by the property.",
+        "sourceUrl": "https://www.kwanokeng.com/accommodation/"
+      },
+      "checkIn": {
+        "status": "published",
+        "label": "A 24-hour front desk is published; confirm the room handover time directly.",
+        "sourceUrl": "https://www.kwanokeng.com/accommodation/"
+      },
+      "accessNotes": [
+        "The site also publishes fuel, food, groceries, foreign exchange and vehicle-document assistance.",
+        "Confirm room availability before relying on the lodge as an overnight stop."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "protea-hotel-chipata",
+      "borderId": "mwami-mchinji",
+      "name": "Protea Hotel by Marriott Chipata",
+      "countryId": "zambia",
+      "countryName": "Zambia",
+      "locality": "Chipata",
+      "coordinates": { "lat": -13.63017, "lng": 32.6211 },
+      "coordinateSourceUrl": "https://www.openstreetmap.org/?mlat=-13.63017&mlon=32.6211#map=15/-13.63017/32.6211",
+      "distanceKm": 23,
+      "publishedProximity": "The hotel describes itself as a Zambia–Malawi layover and publishes a distance of 15 km from the Malawi border; the displayed crossing distance is independently calculated.",
+      "propertyUrl": "https://www.marriott.com/en-us/hotels/cipbr-protea-hotel-chipata/overview/",
+      "sourceUrl": "https://www.marriott.com/en-us/hotels/cipbr-protea-hotel-chipata/overview/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "available",
+        "label": "Complimentary on-site self-parking is published; no security claim is made.",
+        "sourceUrl": "https://www.marriott.com/en-us/hotels/cipbr-protea-hotel-chipata/overview/"
+      },
+      "checkIn": {
+        "status": "published",
+        "label": "Check-in from 14:00 and a 24-hour front desk are published.",
+        "sourceUrl": "https://www.marriott.com/en-us/hotels/cipbr-protea-hotel-chipata/overview/"
+      },
+      "accessNotes": [
+        "The hotel is on Great East Road on the Chipata side of the crossing.",
+        "Confirm the exact driving distance, late arrival and current availability directly."
       ],
       "availability": "check-direct"
     }
