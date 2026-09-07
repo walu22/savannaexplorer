@@ -24,6 +24,7 @@ import { initOfflineManager } from './modules/offline-manager.js';
 import { initHomeLayout } from './modules/home-layout.js';
 import { initFeatureLoader } from './modules/feature-loader.js';
 import { initProductObservability } from './lib/product-analytics.js';
+import { initSearchLauncher } from './modules/search-launcher.js';
 
 if (!editorialAuthRedirect) initProductObservability();
 
@@ -34,6 +35,7 @@ if (!editorialAuthRedirect) document.addEventListener('DOMContentLoaded', () => 
     }
 
     initNav();
+    initSearchLauncher();
     initScrollUx();
     initReveal();
     initOfflineManager();

@@ -13,6 +13,8 @@ const PRODUCT_EVENTS = new Set([
     'booking_status_updated',
     'trip_calendar_exported',
     'trip_pack_exported',
+    'site_search_opened',
+    'site_search_result_selected',
     'trip_share_created',
     'collaboration_invite_created',
     'collaboration_invite_accepted',
