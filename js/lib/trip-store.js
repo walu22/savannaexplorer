@@ -1,6 +1,7 @@
 import { normalizeRouteDays } from './trip-route.js';
 import { normalizeReadiness } from './trip-readiness.js';
 import { normalizeBookings } from './trip-bookings.js';
+import { normalizeTripOperations } from './trip-action-centre.js';
 
 export const TRIP_STORE_KEY = 'se_my_safari_v1';
 export const TRIP_CHANGE_EVENT = 'se:trip-change';
@@ -51,6 +52,7 @@ function cleanTrip(trip) {
         },
         readiness: normalizeReadiness(trip.readiness),
         bookings: normalizeBookings(trip.bookings),
+        operations: normalizeTripOperations(trip.operations),
     };
 }
 
@@ -180,6 +182,7 @@ export function duplicateTrip(tripId, storage) {
         packing: source.packing,
         readiness: source.readiness,
         bookings: source.bookings,
+        operations: source.operations,
         travellers: source.travellers,
     }, storage);
 }

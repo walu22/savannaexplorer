@@ -1,11 +1,11 @@
 import routeCollection from '../../data/route-collections.json' with { type: 'json' };
-import borders from '../../data/borders.json' with { type: 'json' };
 import corridorCollection from '../../data/border-corridor-stays.json' with { type: 'json' };
 import {
     getEditorialLogistics,
     getRouteLogistics,
     routeLogisticsSummary,
 } from './route-logistics.js';
+import { buildTripActionCentre } from './trip-action-centre.js';
 
 function uniqueBy(items, key) {
     const seen = new Set();
@@ -25,11 +25,6 @@ function routeIds(templateRouteId = '') {
         : [value];
 }
 
-function crossingFromStop(stop) {
-    if (stop?.type !== 'border') return null;
-    return borders.find(border => border.name === stop.name || String(stop.id || '').endsWith(border.id)) || null;
-}
-
 function routeSource(source, route) {
     return { ...source, routeTitle: route.title };
 }
@@ -39,8 +34,8 @@ export function buildTripOperationsBrief(trip) {
     const routes = requestedRouteIds
         .map(id => routeCollection.routes.find(route => route.id === id))
         .filter(Boolean);
-    const borderStops = (trip?.routeDays || []).flatMap(day => day.stops || []).filter(stop => stop.type === 'border');
-    const crossings = uniqueBy(borderStops.map(crossingFromStop).filter(Boolean), crossing => crossing.id)
+    const actionCentre = buildTripActionCentre(trip);
+    const crossings = uniqueBy(actionCentre.selectedCrossings, crossing => crossing.id)
         .map(crossing => ({
             ...crossing,
             stays: corridorCollection.stays.filter(stay => stay.borderId === crossing.id),
@@ -85,7 +80,10 @@ export function buildTripOperationsBrief(trip) {
     if (!routes.length) actions.push('Choose or save a researched route to unlock route-specific fuel and access guidance.');
     if (requestedRouteIds.length > routes.length) actions.push('Part of this saved journey no longer matches the reviewed route collection; rebuild that segment.');
     if (road.needsLocalCheck) actions.push(`${road.legCount - road.mappedLegCount} road leg${road.legCount - road.mappedLegCount === 1 ? '' : 's'} still need a local route or operator check.`);
-    if (countries.length > 1 && !crossings.length) actions.push('Select the exact land crossing between countries so hours and vehicle documents can be checked.');
+    if (countries.length > 1 && !actionCentre.allSelected) actions.push('Select the exact land crossing between countries so hours and vehicle documents can be checked.');
+    if (actionCentre.pairs.length && !actionCentre.vehicleContext) actions.push('Choose whether the vehicle is owned, financed or rented to complete the paperwork list.');
+    if (actionCentre.totalCount > actionCentre.completedCount) actions.push(`${actionCentre.totalCount - actionCentre.completedCount} document check${actionCentre.totalCount - actionCentre.completedCount === 1 ? '' : 's'} still need confirmation or packing.`);
+    if (actionCentre.routeUpdateRequired) actions.push('The chosen crossing differs from the saved driving itinerary; rebuild the transfer before relying on its road times.');
     if (crossings.some(crossing => !crossing.stays.length)) actions.push('Choose a locally verified overnight for every long border transfer.');
     if (!confirmedStays && overnightAnchors.length) actions.push('Record at least the key overnight confirmations for this route.');
 
@@ -106,6 +104,7 @@ export function buildTripOperationsBrief(trip) {
             confirmedStays,
         },
         actions,
+        actionCentre,
         status: !routes.length || actions.length >= 3 ? 'planning' : actions.length ? 'check' : 'ready',
         statusLabel: !routes.length || actions.length >= 3 ? 'Planning needed' : actions.length ? 'Needs confirmation' : 'Ready for final checks',
         reviewedAt: routeDetails.map(({ editorial, route }) => editorial?.lastReviewed || route.lastReviewed).filter(Boolean).sort().at(-1) || '',

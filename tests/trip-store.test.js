@@ -98,3 +98,19 @@ test('trip details and booking records survive storage and duplication', () => {
     assert.equal(copy.travellers, 4);
     assert.equal(copy.bookings[0].reference, 'ET-42');
 });
+
+test('border and vehicle action-centre progress survives storage and duplication', () => {
+    const storage = memoryStorage();
+    const trip = createTrip({ name: 'Border trip', countries: ['Namibia', 'Botswana'] }, storage);
+    updateActiveTrip({ operations: {
+        borderSelections: { 'botswana|namibia': 'mamuno' },
+        vehicleContext: 'rented',
+        completedDocumentIds: ['document:valid-passport'],
+    } }, storage);
+
+    const saved = getActiveTrip(storage);
+    assert.equal(saved.operations.borderSelections['botswana|namibia'], 'mamuno');
+    assert.equal(saved.operations.vehicleContext, 'rented');
+    assert.deepEqual(saved.operations.completedDocumentIds, ['document:valid-passport']);
+    assert.deepEqual(duplicateTrip(trip.id, storage).operations, saved.operations);
+});

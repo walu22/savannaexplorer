@@ -46,6 +46,11 @@ import tripPackCss from '../../css/trip-pack.css?inline';
 import { trackProductEvent } from '../lib/product-analytics.js';
 import { buildTripOperationsBrief } from '../lib/trip-operations.js';
 import { formatDriveMinutes } from '../lib/route-logistics.js';
+import {
+    setTripBorderSelection,
+    setTripDocumentComplete,
+    setTripVehicleContext,
+} from '../lib/trip-action-centre.js';
 
 const COUNTRIES = ['Botswana', 'Eswatini', 'Lesotho', 'Malawi', 'Mozambique', 'Namibia', 'South Africa', 'Zambia', 'Zimbabwe'];
 let collaborationPoll = null;
@@ -309,6 +314,35 @@ function renderOperations(trip) {
         ? `<ol>${brief.actions.slice(0, 5).map(action => `<li>${escapeHtml(action)}</li>`).join('')}</ol>`
         : '<div class="my-safari-operation-ready"><i class="fas fa-circle-check" aria-hidden="true"></i><p><strong>Core planning is covered.</strong><span>Complete the checklist below and perform a final official-source review close to departure.</span></p></div>';
     const sourceMarkup = brief.sources.slice(0, 8).map(source => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)} <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`).join('');
+    const action = brief.actionCentre;
+    const borderControls = action.pairs.map(pair => `
+        <label class="my-safari-action-field"><span>${escapeHtml(pair.fromName)} to ${escapeHtml(pair.toName)}</span>
+            <select data-operation-border="${escapeHtml(pair.key)}" aria-label="Border crossing from ${escapeHtml(pair.fromName)} to ${escapeHtml(pair.toName)}">
+                <option value="">Choose a crossing</option>
+                ${pair.candidates.map(crossing => `<option value="${escapeHtml(crossing.id)}"${crossing.id === pair.selectedId ? ' selected' : ''}>${escapeHtml(crossing.name)} · ${escapeHtml(crossing.hours)}</option>`).join('')}
+            </select>
+            ${pair.needsRouteUpdate ? '<small class="is-warning">Paperwork updated; rebuild the saved road transfer before relying on its drive times.</small>' : pair.candidates.length ? `<small>${pair.candidates.length} reviewed road option${pair.candidates.length === 1 ? '' : 's'}</small>` : '<small>No direct reviewed vehicle crossing is available for this pair.</small>'}
+        </label>`).join('');
+    const vehicleOptions = [
+        ['owned', 'Owned', 'Registration matches you or a documented owner'],
+        ['financed', 'Financed', 'Provider permission may be required'],
+        ['rented', 'Rented', 'Rental-company cross-border approval required'],
+    ].map(([value, label, note]) => `<label class="my-safari-vehicle-option"><input type="radio" name="my-safari-vehicle-context" value="${value}" data-operation-vehicle${action.vehicleContext === value ? ' checked' : ''}><span><i class="fas ${value === 'owned' ? 'fa-car-side' : value === 'financed' ? 'fa-file-invoice-dollar' : 'fa-key'}" aria-hidden="true"></i><strong>${label}</strong><small>${note}</small></span></label>`).join('');
+    const documentMarkup = action.documents.length ? `
+        <div class="my-safari-action-documents">
+            <div class="my-safari-action-progress"><div><strong>Document pack</strong><span>${action.completedCount} of ${action.totalCount} confirmed</span></div><progress max="${action.totalCount}" value="${action.completedCount}">${action.completedCount} of ${action.totalCount}</progress></div>
+            <div class="my-safari-action-checklist">${action.documents.map(document => `<label><input type="checkbox" data-operation-document="${escapeHtml(document.id)}"${document.completed ? ' checked' : ''}><span class="my-safari-action-check"><i class="fas fa-check" aria-hidden="true"></i></span><span><strong>${escapeHtml(document.label)}</strong><small>${escapeHtml(document.reason)}</small></span></label>`).join('')}</div>
+        </div>` : `<div class="my-safari-action-waiting"><i class="fas fa-arrow-up" aria-hidden="true"></i><p><strong>Choose the crossing and vehicle first.</strong><span>The relevant document pack will appear here.</span></p></div>`;
+    const actionCentreMarkup = action.pairs.length ? `
+        <section class="my-safari-action-centre" aria-labelledby="my-safari-action-title">
+            <header><div><span>Action centre</span><h6 id="my-safari-action-title">Set the crossing and prepare the vehicle papers</h6><p>Tick an item only when it is confirmed or packed. Requirements can change, so the linked crossing guide remains the final check.</p></div><strong class="${action.isComplete ? 'is-complete' : ''}">${action.isComplete ? '<i class="fas fa-circle-check" aria-hidden="true"></i> Paperwork prepared' : `${action.completedCount} / ${action.totalCount} documents`}</strong></header>
+            <div class="my-safari-action-setup">
+                <div class="my-safari-action-borders"><h6>1. Crossing</h6>${borderControls}</div>
+                <fieldset class="my-safari-action-vehicle"><legend>2. Vehicle situation</legend><div>${vehicleOptions}</div></fieldset>
+            </div>
+            ${documentMarkup}
+            <p id="my-safari-action-status" class="my-safari-action-status" role="status" aria-live="polite"></p>
+        </section>` : '';
 
     root.innerHTML = `
         <div class="my-safari-operations-head">
@@ -321,6 +355,7 @@ function renderOperations(trip) {
             <div><span>Land crossings</span><strong>${brief.crossings.length}</strong><small>${brief.crossings.length ? 'hours and papers linked' : brief.countries.length > 1 ? 'selection required' : 'not required'}</small></div>
             <div><span>Confirmed bookings</span><strong>${brief.bookings.confirmed} of ${brief.bookings.total}</strong><small>${brief.bookings.confirmedStays} confirmed stay${brief.bookings.confirmedStays === 1 ? '' : 's'}</small></div>
         </div>
+        ${actionCentreMarkup}
         <div class="my-safari-operations-grid">
             <section class="my-safari-operation-card my-safari-operation-card--border"><header><span><i class="fas fa-passport" aria-hidden="true"></i></span><div><h6>Border plan</h6><p>Hours, documents and the overnight position</p></div></header><div>${borderMarkup}</div></section>
             <section class="my-safari-operation-card"><header><span><i class="fas fa-gas-pump" aria-hidden="true"></i></span><div><h6>Fuel and supplies</h6><p>Named anchors from the reviewed route</p></div></header>${fuelMarkup}</section>
@@ -874,6 +909,31 @@ export async function initMySafari() {
     document.getElementById('my-safari-notes')?.addEventListener('change', event => {
         const active = getActiveTrip();
         if (active) updateTrip(active.id, { notes: event.target.value.trim() });
+    });
+
+    document.getElementById('my-safari-operations')?.addEventListener('change', event => {
+        const active = getActiveTrip();
+        if (!active) return;
+        let operations = active.operations;
+        let message = '';
+        const border = event.target.closest('[data-operation-border]');
+        const vehicle = event.target.closest('[data-operation-vehicle]');
+        const documentInput = event.target.closest('[data-operation-document]');
+        if (border) {
+            operations = setTripBorderSelection(operations, border.dataset.operationBorder, border.value);
+            message = border.value ? 'Crossing saved. The paperwork list now matches this border; check whether the driving transfer also needs rebuilding.' : 'Crossing cleared.';
+        } else if (vehicle) {
+            operations = setTripVehicleContext(operations, vehicle.value);
+            message = 'Vehicle situation saved. The paperwork list has been updated.';
+        } else if (documentInput) {
+            operations = setTripDocumentComplete(operations, documentInput.dataset.operationDocument, documentInput.checked);
+            message = documentInput.checked ? 'Document marked confirmed or packed.' : 'Document returned to the open list.';
+        } else {
+            return;
+        }
+        updateTrip(active.id, { operations });
+        const status = document.getElementById('my-safari-action-status');
+        if (status) status.textContent = message;
     });
 
     document.getElementById('my-safari-readiness-groups')?.addEventListener('change', event => {

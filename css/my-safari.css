@@ -151,6 +151,57 @@ body.site-v2 .my-safari-card .btn-outline:hover { border-color: #f4a261; backgro
 .my-safari-operations-facts span { color: rgba(247, 243, 237, 0.62); font-size: 0.875rem; }
 .my-safari-operations-facts strong { color: #fffaf1; font-size: 1rem; }
 .my-safari-operations-facts small { color: rgba(247, 243, 237, 0.58); font-size: 0.8rem; }
+.my-safari-action-centre { margin: 1.25rem 1.35rem 0; overflow: hidden; border: 1px solid rgba(239, 189, 116, 0.28); border-radius: var(--radius-md); background: rgba(0, 0, 0, 0.18); }
+.my-safari-action-centre > header { display: flex; justify-content: space-between; gap: 1.25rem; align-items: flex-start; padding: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.my-safari-action-centre > header > div > span { color: #efbd74; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.my-safari-action-centre > header h6 { margin: 0.28rem 0 0.2rem; color: #fffaf1; font-size: 1.12rem; }
+.my-safari-action-centre > header p { max-width: 700px; margin: 0; color: rgba(247, 243, 237, 0.68); font-size: 0.875rem; line-height: 1.5; }
+.my-safari-action-centre > header > strong { flex: 0 0 auto; border-radius: 999px; background: rgba(239, 189, 116, 0.12); color: #f9d59d; padding: 0.48rem 0.7rem; font-size: 0.875rem; }
+.my-safari-action-centre > header > strong.is-complete { background: rgba(127, 176, 105, 0.16); color: #c8edb7; }
+.my-safari-action-setup { display: grid; grid-template-columns: minmax(230px, 0.8fr) minmax(0, 1.4fr); gap: 1rem; padding: 1rem; }
+.my-safari-action-borders,
+.my-safari-action-vehicle { min-width: 0; margin: 0; padding: 0; border: 0; }
+.my-safari-action-borders > h6,
+.my-safari-action-vehicle > legend { margin: 0 0 0.55rem; color: #fffaf1; font-size: 0.9rem; font-weight: 800; }
+.my-safari-action-field { display: grid; gap: 0.3rem; margin-bottom: 0.65rem; }
+.my-safari-action-field > span { color: rgba(247, 243, 237, 0.78); font-size: 0.875rem; font-weight: 700; }
+.my-safari-action-field select { width: 100%; min-width: 0; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: var(--radius-sm); background: #182c25; color: #fffaf1; padding: 0.68rem; font-size: 0.9rem; color-scheme: dark; }
+.my-safari-action-field small { color: rgba(247, 243, 237, 0.56); font-size: 0.8rem; }
+.my-safari-action-field small.is-warning { color: #ffc0ad; font-weight: 700; }
+.my-safari-action-vehicle > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.55rem; }
+.my-safari-vehicle-option { min-width: 0; cursor: pointer; }
+.my-safari-vehicle-option input { position: absolute; opacity: 0; }
+.my-safari-vehicle-option > span { display: grid; gap: 0.2rem; min-height: 100%; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.04); padding: 0.75rem; transition: 160ms ease; }
+.my-safari-vehicle-option i { margin-bottom: 0.2rem; color: #efbd74; }
+.my-safari-vehicle-option strong { color: #fffaf1; font-size: 0.9rem; }
+.my-safari-vehicle-option small { color: rgba(247, 243, 237, 0.62); font-size: 0.8rem; line-height: 1.4; }
+.my-safari-vehicle-option input:checked + span { border-color: #efbd74; background: rgba(239, 189, 116, 0.12); box-shadow: inset 0 0 0 1px rgba(239, 189, 116, 0.25); }
+.my-safari-vehicle-option input:focus-visible + span { outline: 3px solid #efbd74; outline-offset: 2px; }
+.my-safari-action-documents { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.my-safari-action-progress { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 0.8rem 1rem; background: rgba(255, 255, 255, 0.03); }
+.my-safari-action-progress > div { display: grid; gap: 0.1rem; }
+.my-safari-action-progress strong { color: #fffaf1; font-size: 0.9rem; }
+.my-safari-action-progress span { color: rgba(247, 243, 237, 0.6); font-size: 0.8rem; }
+.my-safari-action-progress progress { width: min(260px, 42%); height: 8px; overflow: hidden; border: 0; border-radius: 999px; background: rgba(255, 255, 255, 0.12); }
+.my-safari-action-progress progress::-webkit-progress-bar { background: rgba(255, 255, 255, 0.12); }
+.my-safari-action-progress progress::-webkit-progress-value { background: #efbd74; }
+.my-safari-action-progress progress::-moz-progress-bar { background: #efbd74; }
+.my-safari-action-checklist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.my-safari-action-checklist label { display: grid; grid-template-columns: 26px 1fr; gap: 0.65rem; align-items: start; padding: 0.82rem 1rem; border-top: 1px solid rgba(255, 255, 255, 0.07); cursor: pointer; }
+.my-safari-action-checklist label:nth-child(odd) { border-right: 1px solid rgba(255, 255, 255, 0.07); }
+.my-safari-action-checklist input { position: absolute; opacity: 0; }
+.my-safari-action-check { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid rgba(255, 255, 255, 0.32); border-radius: 50%; color: transparent; transition: 160ms ease; }
+.my-safari-action-checklist input:checked + .my-safari-action-check { border-color: #8fc77a; background: #8fc77a; color: #10281f; }
+.my-safari-action-checklist input:focus-visible + .my-safari-action-check { outline: 3px solid #efbd74; outline-offset: 2px; }
+.my-safari-action-checklist label > span:last-child { display: grid; gap: 0.16rem; }
+.my-safari-action-checklist strong { color: #fffaf1; font-size: 0.9rem; line-height: 1.4; }
+.my-safari-action-checklist small { color: rgba(247, 243, 237, 0.58); font-size: 0.8rem; }
+.my-safari-action-checklist input:checked ~ span strong { color: rgba(247, 243, 237, 0.58); text-decoration: line-through; }
+.my-safari-action-waiting { display: flex; gap: 0.75rem; align-items: center; padding: 0.9rem 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #efbd74; }
+.my-safari-action-waiting p { display: grid; gap: 0.16rem; margin: 0; }
+.my-safari-action-waiting strong { color: #fffaf1; font-size: 0.9rem; }
+.my-safari-action-waiting span { color: rgba(247, 243, 237, 0.62); font-size: 0.875rem; }
+.my-safari-action-status { min-height: 1.3em; margin: 0; padding: 0 1rem 0.75rem; color: #c8edb7; font-size: 0.875rem; }
 .my-safari-operations-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; padding: clamp(1rem, 2.2vw, 1.35rem); }
 .my-safari-operation-card { min-width: 0; border: 1px solid rgba(255, 255, 255, 0.11); border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.045); }
 .my-safari-operation-card > header { display: flex; gap: 0.75rem; align-items: center; padding: 0.9rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.09); }
@@ -429,6 +480,14 @@ body.site-v2 .my-safari-card .btn-outline:hover { border-color: #f4a261; backgro
     .my-safari-operations-facts > div:nth-child(2) { border-right: 0; }
     .my-safari-operations-facts > div:nth-child(-n+2) { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
     .my-safari-operations-grid { grid-template-columns: 1fr; }
+    .my-safari-action-centre > header,
+    .my-safari-action-setup,
+    .my-safari-action-progress { display: grid; }
+    .my-safari-action-centre > header > strong { justify-self: start; }
+    .my-safari-action-vehicle > div,
+    .my-safari-action-checklist { grid-template-columns: 1fr; }
+    .my-safari-action-checklist label:nth-child(odd) { border-right: 0; }
+    .my-safari-action-progress progress { width: 100%; }
     .my-safari-operation-item summary { align-items: flex-start; flex-direction: column; }
     .my-safari-operation-item summary em { text-align: left; }
     .my-safari-readiness-head,
