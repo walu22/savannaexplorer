@@ -44,6 +44,8 @@ import { buildTripPack } from '../lib/trip-pack.js';
 import practical from '../../data/practical.json';
 import tripPackCss from '../../css/trip-pack.css?inline';
 import { trackProductEvent } from '../lib/product-analytics.js';
+import { buildTripOperationsBrief } from '../lib/trip-operations.js';
+import { formatDriveMinutes } from '../lib/route-logistics.js';
 
 const COUNTRIES = ['Botswana', 'Eswatini', 'Lesotho', 'Malawi', 'Mozambique', 'Namibia', 'South Africa', 'Zambia', 'Zimbabwe'];
 let collaborationPoll = null;
@@ -277,6 +279,58 @@ function renderReadiness(trip) {
     root.classList.toggle('is-complete', plan.score === 100);
 }
 
+function renderOperations(trip) {
+    const root = document.getElementById('my-safari-operations');
+    if (!root) return;
+    const brief = buildTripOperationsBrief(trip);
+    const roadCoverage = brief.road.legCount
+        ? `${brief.road.mappedLegCount} of ${brief.road.legCount} legs`
+        : 'No route legs yet';
+    const routeLabel = brief.routeCount
+        ? `${brief.routeCount} researched route${brief.routeCount === 1 ? '' : 's'}`
+        : 'Route not selected';
+    const borderMarkup = brief.crossings.length ? brief.crossings.map(crossing => `
+        <details class="my-safari-operation-item">
+            <summary><span><strong>${escapeHtml(crossing.name)}</strong><small>${escapeHtml(crossing.route)}</small></span><em>${escapeHtml(crossing.hours)}</em></summary>
+            <div class="my-safari-operation-detail">
+                <p><b>Carry:</b> ${escapeHtml(crossing.documents.join(' · '))}</p>
+                <p><b>Charges:</b> ${escapeHtml(crossing.fees)}</p>
+                ${crossing.stays[0] ? `<p><b>Corridor stay:</b> ${escapeHtml(crossing.stays[0].name)} · ${escapeHtml(crossing.stays[0].distanceKm)} km straight-line from the crossing · availability not checked.</p>` : '<p><b>Overnight:</b> Confirm a suitable corridor stay locally.</p>'}
+                <a href="/borders/${escapeHtml(crossing.id)}">Open crossing guide <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+        </details>`).join('') : `<div class="my-safari-operation-empty"><i class="fas fa-route" aria-hidden="true"></i><p><strong>${brief.countries.length > 1 ? 'Crossing not selected' : 'No land border in this itinerary'}</strong><span>${brief.countries.length > 1 ? 'Choose the exact crossing to unlock hours, documents and corridor stays.' : 'This route remains within one country.'}</span></p></div>`;
+    const fuelMarkup = brief.fuelAnchors.length
+        ? `<ul>${brief.fuelAnchors.slice(0, 5).map(anchor => `<li><strong>${escapeHtml(anchor.name)}</strong><span>${escapeHtml(anchor.note)}</span></li>`).join('')}</ul>`
+        : '<p class="my-safari-operation-copy">Save a researched route to show its verified supply anchors.</p>';
+    const overnightMarkup = brief.overnightAnchors.length
+        ? `<div class="my-safari-operation-chips">${brief.overnightAnchors.slice(0, 8).map(anchor => `<span>${escapeHtml(anchor)}</span>`).join('')}</div>`
+        : '<p class="my-safari-operation-copy">No reviewed overnight anchors are attached to this trip yet.</p>';
+    const actionsMarkup = brief.actions.length
+        ? `<ol>${brief.actions.slice(0, 5).map(action => `<li>${escapeHtml(action)}</li>`).join('')}</ol>`
+        : '<div class="my-safari-operation-ready"><i class="fas fa-circle-check" aria-hidden="true"></i><p><strong>Core planning is covered.</strong><span>Complete the checklist below and perform a final official-source review close to departure.</span></p></div>';
+    const sourceMarkup = brief.sources.slice(0, 8).map(source => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)} <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`).join('');
+
+    root.innerHTML = `
+        <div class="my-safari-operations-head">
+            <div><span class="my-safari-operations-eyebrow"><i class="fas fa-compass" aria-hidden="true"></i> Departure briefing</span><h5 id="my-safari-operations-title">${escapeHtml(brief.countries.join(' · ') || 'Your journey')} readiness brief</h5><p>The route facts that matter before you commit money or begin driving.</p></div>
+            <span class="my-safari-operations-status is-${escapeHtml(brief.status)}"><i class="fas ${brief.status === 'ready' ? 'fa-circle-check' : brief.status === 'check' ? 'fa-circle-exclamation' : 'fa-pen-ruler'}" aria-hidden="true"></i>${escapeHtml(brief.statusLabel)}</span>
+        </div>
+        <div class="my-safari-operations-facts" aria-label="Route readiness summary">
+            <div><span>Route coverage</span><strong>${escapeHtml(routeLabel)}</strong></div>
+            <div><span>Road plan</span><strong>${escapeHtml(roadCoverage)}</strong><small>${brief.road.driveMinutes ? `${escapeHtml(formatDriveMinutes(brief.road.driveMinutes))} mapped driving` : 'Add a route to calculate'}</small></div>
+            <div><span>Land crossings</span><strong>${brief.crossings.length}</strong><small>${brief.crossings.length ? 'hours and papers linked' : brief.countries.length > 1 ? 'selection required' : 'not required'}</small></div>
+            <div><span>Confirmed bookings</span><strong>${brief.bookings.confirmed} of ${brief.bookings.total}</strong><small>${brief.bookings.confirmedStays} confirmed stay${brief.bookings.confirmedStays === 1 ? '' : 's'}</small></div>
+        </div>
+        <div class="my-safari-operations-grid">
+            <section class="my-safari-operation-card my-safari-operation-card--border"><header><span><i class="fas fa-passport" aria-hidden="true"></i></span><div><h6>Border plan</h6><p>Hours, documents and the overnight position</p></div></header><div>${borderMarkup}</div></section>
+            <section class="my-safari-operation-card"><header><span><i class="fas fa-gas-pump" aria-hidden="true"></i></span><div><h6>Fuel and supplies</h6><p>Named anchors from the reviewed route</p></div></header>${fuelMarkup}</section>
+            <section class="my-safari-operation-card"><header><span><i class="fas fa-bed" aria-hidden="true"></i></span><div><h6>Overnight anchors</h6><p>Places to structure the trip around</p></div></header>${overnightMarkup}</section>
+            <section class="my-safari-operation-card my-safari-operation-card--actions"><header><span><i class="fas fa-list-check" aria-hidden="true"></i></span><div><h6>Resolve next</h6><p>Only the gaps that still affect this journey</p></div></header>${actionsMarkup}</section>
+        </div>
+        ${brief.accessNotes.length ? `<details class="my-safari-operations-notes"><summary>Road, gate and permit cautions <span>${brief.accessNotes.length}</span></summary><ul>${brief.accessNotes.map(item => `<li><strong>${escapeHtml(item.routeTitle)}</strong><span>${escapeHtml(item.text)}</span></li>`).join('')}</ul></details>` : ''}
+        <footer><p><i class="fas fa-circle-info" aria-hidden="true"></i> Planning guidance only. Reconfirm changing conditions before departure.${brief.reviewedAt ? ` Route records reviewed ${escapeHtml(brief.reviewedAt)}.` : ''}</p>${sourceMarkup ? `<details><summary>Reviewed sources</summary><div>${sourceMarkup}</div></details>` : ''}</footer>`;
+}
+
 function renderDashboard() {
     const state = readTripState();
     const active = getActiveTrip();
@@ -307,6 +361,7 @@ function renderDashboard() {
     document.getElementById('my-safari-booking-count').textContent = `${active.bookings.length} recorded`;
     document.getElementById('my-safari-expense-count').textContent = `${active.expenses.items.length} item${active.expenses.items.length === 1 ? '' : 's'}`;
     document.getElementById('my-safari-packing-count').textContent = `${active.packing.packedItems.length} packed`;
+    renderOperations(active);
     renderReadiness(active);
     renderBookings(active);
     localRouteBuilder?.render(active, true);

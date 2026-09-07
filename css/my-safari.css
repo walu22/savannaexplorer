@@ -128,6 +128,80 @@ body.site-v2 .my-safari-card .btn-outline:hover { border-color: #f4a261; backgro
 }
 .my-safari-stat { border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.06); padding: 0.9rem; display: grid; gap: 0.25rem; }
 .my-safari-stat span { color: rgba(247, 243, 237, 0.72); font-size: 0.8rem; }
+.my-safari-operations {
+    margin: 1.25rem 0;
+    overflow: hidden;
+    border: 1px solid rgba(240, 190, 116, 0.32);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(145deg, rgba(8, 27, 23, 0.94), rgba(26, 48, 39, 0.86));
+    box-shadow: 0 24px 54px rgba(0, 0, 0, 0.16);
+}
+.my-safari-operations-head { display: flex; justify-content: space-between; gap: 1.5rem; align-items: flex-start; padding: clamp(1.1rem, 2.6vw, 1.6rem); border-bottom: 1px solid rgba(255, 255, 255, 0.11); }
+.my-safari-operations-eyebrow { color: #efbd74; font-size: 0.875rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.my-safari-operations-eyebrow i { margin-right: 0.4rem; }
+.my-safari-operations-head h5 { margin: 0.42rem 0 0.28rem; color: #fffaf1; font-size: clamp(1.45rem, 2.3vw, 2rem); line-height: 1.12; }
+.my-safari-operations-head p { margin: 0; color: rgba(247, 243, 237, 0.72); font-size: 1rem; }
+.my-safari-operations-status { display: inline-flex; flex: 0 0 auto; gap: 0.45rem; align-items: center; border: 1px solid; border-radius: 999px; padding: 0.55rem 0.75rem; font-size: 0.875rem; font-weight: 800; }
+.my-safari-operations-status.is-ready { border-color: rgba(127, 176, 105, 0.52); background: rgba(127, 176, 105, 0.16); color: #c8edb7; }
+.my-safari-operations-status.is-check { border-color: rgba(239, 189, 116, 0.52); background: rgba(239, 189, 116, 0.13); color: #ffdca8; }
+.my-safari-operations-status.is-planning { border-color: rgba(238, 137, 107, 0.52); background: rgba(238, 137, 107, 0.13); color: #ffc0ad; }
+.my-safari-operations-facts { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid rgba(255, 255, 255, 0.11); background: rgba(255, 255, 255, 0.035); }
+.my-safari-operations-facts > div { display: grid; gap: 0.16rem; min-width: 0; padding: 1rem 1.15rem; border-right: 1px solid rgba(255, 255, 255, 0.1); }
+.my-safari-operations-facts > div:last-child { border-right: 0; }
+.my-safari-operations-facts span { color: rgba(247, 243, 237, 0.62); font-size: 0.875rem; }
+.my-safari-operations-facts strong { color: #fffaf1; font-size: 1rem; }
+.my-safari-operations-facts small { color: rgba(247, 243, 237, 0.58); font-size: 0.8rem; }
+.my-safari-operations-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; padding: clamp(1rem, 2.2vw, 1.35rem); }
+.my-safari-operation-card { min-width: 0; border: 1px solid rgba(255, 255, 255, 0.11); border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.045); }
+.my-safari-operation-card > header { display: flex; gap: 0.75rem; align-items: center; padding: 0.9rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.09); }
+.my-safari-operation-card > header > span { display: grid; flex: 0 0 38px; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: rgba(239, 189, 116, 0.14); color: #efbd74; }
+.my-safari-operation-card h6 { margin: 0; color: #fffaf1; font-size: 1rem; }
+.my-safari-operation-card header p { margin: 0.14rem 0 0; color: rgba(247, 243, 237, 0.62); font-size: 0.875rem; }
+.my-safari-operation-card > ul { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.my-safari-operation-card > ul li { display: grid; gap: 0.16rem; padding: 0.78rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.075); }
+.my-safari-operation-card > ul li:last-child { border-bottom: 0; }
+.my-safari-operation-card li strong { color: #f9d59d; font-size: 0.93rem; }
+.my-safari-operation-card li span,
+.my-safari-operation-copy { color: rgba(247, 243, 237, 0.71); font-size: 0.875rem; line-height: 1.48; }
+.my-safari-operation-copy { margin: 0; padding: 1rem; }
+.my-safari-operation-item { border-bottom: 1px solid rgba(255, 255, 255, 0.075); }
+.my-safari-operation-item:last-child { border-bottom: 0; }
+.my-safari-operation-item summary { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 0.82rem 1rem; color: #fffaf1; cursor: pointer; }
+.my-safari-operation-item summary > span { display: grid; gap: 0.12rem; }
+.my-safari-operation-item summary small { color: rgba(247, 243, 237, 0.62); font-size: 0.8rem; }
+.my-safari-operation-item summary em { color: #efbd74; font-size: 0.8rem; font-style: normal; font-weight: 800; text-align: right; }
+.my-safari-operation-detail { padding: 0 1rem 0.9rem; }
+.my-safari-operation-detail p { margin: 0.4rem 0; color: rgba(247, 243, 237, 0.72); font-size: 0.875rem; line-height: 1.48; }
+.my-safari-operation-detail a { display: inline-block; margin-top: 0.35rem; color: #efbd74; font-size: 0.875rem; font-weight: 800; text-decoration: none; }
+.my-safari-operation-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 1rem; }
+.my-safari-operation-chips span { border: 1px solid rgba(239, 189, 116, 0.26); border-radius: 999px; background: rgba(239, 189, 116, 0.09); color: #f9d59d; padding: 0.42rem 0.65rem; font-size: 0.875rem; }
+.my-safari-operation-card--actions ol { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; counter-reset: operation-action; }
+.my-safari-operation-card--actions li { display: grid; grid-template-columns: 26px 1fr; gap: 0.65rem; align-items: start; padding: 0.78rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.075); color: rgba(247, 243, 237, 0.8); font-size: 0.9rem; line-height: 1.45; counter-increment: operation-action; }
+.my-safari-operation-card--actions li::before { content: counter(operation-action); display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(238, 137, 107, 0.14); color: #ffc0ad; font-size: 0.8rem; font-weight: 800; }
+.my-safari-operation-card--actions li:last-child { border-bottom: 0; }
+.my-safari-operation-empty,
+.my-safari-operation-ready { display: flex; gap: 0.75rem; align-items: flex-start; padding: 1rem; }
+.my-safari-operation-empty > i { color: #efbd74; }
+.my-safari-operation-ready > i { color: #a9d795; }
+.my-safari-operation-empty p,
+.my-safari-operation-ready p { display: grid; gap: 0.2rem; margin: 0; }
+.my-safari-operation-empty strong,
+.my-safari-operation-ready strong { color: #fffaf1; }
+.my-safari-operation-empty span,
+.my-safari-operation-ready span { color: rgba(247, 243, 237, 0.68); font-size: 0.875rem; }
+.my-safari-operations-notes { margin: 0 1.35rem 1.2rem; border: 1px solid rgba(255, 255, 255, 0.11); border-radius: var(--radius-md); background: rgba(0, 0, 0, 0.15); }
+.my-safari-operations-notes summary { padding: 0.85rem 1rem; color: #fffaf1; font-size: 0.9rem; font-weight: 800; cursor: pointer; }
+.my-safari-operations-notes summary span { margin-left: 0.4rem; border-radius: 999px; background: rgba(239, 189, 116, 0.15); color: #efbd74; padding: 0.15rem 0.4rem; }
+.my-safari-operations-notes ul { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.my-safari-operations-notes li { display: grid; gap: 0.2rem; padding: 0.8rem 1rem; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.my-safari-operations-notes li strong { color: #f9d59d; font-size: 0.875rem; }
+.my-safari-operations-notes li span { color: rgba(247, 243, 237, 0.71); font-size: 0.875rem; line-height: 1.48; }
+.my-safari-operations > footer { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 0.85rem 1.35rem; border-top: 1px solid rgba(255, 255, 255, 0.09); background: rgba(0, 0, 0, 0.14); }
+.my-safari-operations > footer p { margin: 0; color: rgba(247, 243, 237, 0.6); font-size: 0.8rem; }
+.my-safari-operations > footer details { flex: 0 0 auto; }
+.my-safari-operations > footer summary { color: #efbd74; font-size: 0.8rem; font-weight: 800; cursor: pointer; }
+.my-safari-operations > footer details > div { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+.my-safari-operations > footer a { color: #efbd74; font-size: 0.8rem; }
 .my-safari-readiness {
     margin: 1.25rem 0;
     padding: clamp(1rem, 2.5vw, 1.4rem);
@@ -348,6 +422,15 @@ body.site-v2 .my-safari-card .btn-outline:hover { border-color: #f4a261; backgro
     .my-safari-country-options { grid-column: 1; }
     .my-safari-workspace-head { display: grid; }
     .my-safari-summary { grid-template-columns: 1fr; }
+    .my-safari-operations-head,
+    .my-safari-operations > footer { display: grid; }
+    .my-safari-operations-status { justify-self: start; }
+    .my-safari-operations-facts { grid-template-columns: 1fr 1fr; }
+    .my-safari-operations-facts > div:nth-child(2) { border-right: 0; }
+    .my-safari-operations-facts > div:nth-child(-n+2) { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .my-safari-operations-grid { grid-template-columns: 1fr; }
+    .my-safari-operation-item summary { align-items: flex-start; flex-direction: column; }
+    .my-safari-operation-item summary em { text-align: left; }
     .my-safari-readiness-head,
     .my-safari-readiness-next,
     .my-safari-reminder-control { display: grid; grid-template-columns: 1fr; }
