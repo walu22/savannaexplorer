@@ -1,0 +1,3856 @@
+{
+  "meta": {
+    "generatedAt": "2026-09-07T07:27:41.224Z",
+    "source": "OSRM public routing service using OpenStreetMap road data",
+    "methodology": "Cached driving estimates connect the final stop of one route to the selected border and then to the first stop of the next route.",
+    "disclaimer": "Planning estimate only. Not live navigation. Road conditions, closures, queues and border processing time are not included and must be rechecked locally.",
+    "candidateCount": 124,
+    "estimatedCount": 124
+  },
+  "transfers": {
+    "namibia-essentials-extended__vioolsdrift__south-africa-garden-route": {
+      "fromRouteId": "namibia-essentials-extended",
+      "borderId": "vioolsdrift",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 2058,
+      "totalDriveMinutes": 1405,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Etosha National Park",
+          "toName": "Vioolsdrift / Noordoewer",
+          "distanceKm": 1381,
+          "driveMinutes": 960,
+          "fromSnapKm": 17.4,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Vioolsdrift / Noordoewer",
+          "toName": "Cape Town",
+          "distanceKm": 677,
+          "driveMinutes": 445,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-essentials-extended__vioolsdrift__south-africa-panorama-kruger": {
+      "fromRouteId": "namibia-essentials-extended",
+      "borderId": "vioolsdrift",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 2655,
+      "totalDriveMinutes": 1855,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Etosha National Park",
+          "toName": "Vioolsdrift / Noordoewer",
+          "distanceKm": 1381,
+          "driveMinutes": 960,
+          "fromSnapKm": 17.4,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Vioolsdrift / Noordoewer",
+          "toName": "Johannesburg",
+          "distanceKm": 1274,
+          "driveMinutes": 895,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-essentials-extended__mamuno__botswana-okavango-chobe": {
+      "fromRouteId": "namibia-essentials-extended",
+      "borderId": "mamuno",
+      "toRouteId": "botswana-okavango-chobe",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1228,
+      "totalDriveMinutes": 865,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Etosha National Park",
+          "toName": "Mamuno / Trans-Kalahari",
+          "distanceKm": 734,
+          "driveMinutes": 531,
+          "fromSnapKm": 17.4,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mamuno / Trans-Kalahari",
+          "toName": "Maun",
+          "distanceKm": 494,
+          "driveMinutes": 334,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-essentials-extended__wenela__zambia-southern-zambezi": {
+      "fromRouteId": "namibia-essentials-extended",
+      "borderId": "wenela",
+      "toRouteId": "zambia-southern-zambezi",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1660,
+      "totalDriveMinutes": 1257,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Etosha National Park",
+          "toName": "Katima Mulilo / Wenela–Sesheke",
+          "distanceKm": 965,
+          "driveMinutes": 721,
+          "fromSnapKm": 17.4,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Katima Mulilo / Wenela–Sesheke",
+          "toName": "Lusaka",
+          "distanceKm": 695,
+          "driveMinutes": 536,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-essentials-extended__mamuno__botswana-salt-pans-chobe": {
+      "fromRouteId": "namibia-essentials-extended",
+      "borderId": "mamuno",
+      "toRouteId": "botswana-salt-pans-chobe",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1228,
+      "totalDriveMinutes": 865,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Etosha National Park",
+          "toName": "Mamuno / Trans-Kalahari",
+          "distanceKm": 734,
+          "driveMinutes": 531,
+          "fromSnapKm": 17.4,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mamuno / Trans-Kalahari",
+          "toName": "Maun",
+          "distanceKm": 494,
+          "driveMinutes": 334,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-essentials-extended__wenela__zambia-eastern-safari-route": {
+      "fromRouteId": "namibia-essentials-extended",
+      "borderId": "wenela",
+      "toRouteId": "zambia-eastern-safari-route",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1660,
+      "totalDriveMinutes": 1257,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Etosha National Park",
+          "toName": "Katima Mulilo / Wenela–Sesheke",
+          "distanceKm": 965,
+          "driveMinutes": 721,
+          "fromSnapKm": 17.4,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Katima Mulilo / Wenela–Sesheke",
+          "toName": "Lusaka",
+          "distanceKm": 695,
+          "driveMinutes": 536,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__vioolsdrift__namibia-essentials-extended": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "vioolsdrift",
+      "toRouteId": "namibia-essentials-extended",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2100,
+      "totalDriveMinutes": 1443,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Vioolsdrift / Noordoewer",
+          "distanceKm": 1299,
+          "driveMinutes": 928,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Vioolsdrift / Noordoewer",
+          "toName": "Windhoek",
+          "distanceKm": 801,
+          "driveMinutes": 515,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__ramatlabama__botswana-okavango-chobe": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "ramatlabama",
+      "toRouteId": "botswana-okavango-chobe",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2166,
+      "totalDriveMinutes": 1487,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Ramatlabama",
+          "distanceKm": 1205,
+          "driveMinutes": 834,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Ramatlabama",
+          "toName": "Maun",
+          "distanceKm": 961,
+          "driveMinutes": 653,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__beitbridge__zimbabwe-falls-hwange-matobo": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "beitbridge",
+      "toRouteId": "zimbabwe-falls-hwange-matobo",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2358,
+      "totalDriveMinutes": 1576,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Beitbridge",
+          "distanceKm": 1597,
+          "driveMinutes": 1065,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Beitbridge",
+          "toName": "Victoria Falls",
+          "distanceKm": 761,
+          "driveMinutes": 511,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.3,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__ponta-do-ouro__mozambique-southern-lagoons": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "ponta-do-ouro",
+      "toRouteId": "mozambique-southern-lagoons",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1491,
+      "totalDriveMinutes": 1116,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Kosi Bay / Ponta do Ouro",
+          "distanceKm": 1362,
+          "driveMinutes": 1001,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Kosi Bay / Ponta do Ouro",
+          "toName": "Maputo",
+          "distanceKm": 129,
+          "driveMinutes": 115,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__maseru-bridge__lesotho-highlands-dam-loop": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "maseru-bridge",
+      "toRouteId": "lesotho-highlands-dam-loop",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 808,
+      "totalDriveMinutes": 576,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Maseru Bridge",
+          "distanceKm": 804,
+          "driveMinutes": 572,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Maseru Bridge",
+          "toName": "Maseru",
+          "distanceKm": 4,
+          "driveMinutes": 4,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__oshoek__eswatini-royal-heartland": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "oshoek",
+      "toRouteId": "eswatini-royal-heartland",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1439,
+      "totalDriveMinutes": 1006,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Oshoek / Ngwenya",
+          "distanceKm": 1399,
+          "driveMinutes": 960,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.8,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Oshoek / Ngwenya",
+          "toName": "Mbabane",
+          "distanceKm": 40,
+          "driveMinutes": 46,
+          "fromSnapKm": 0.8,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__vioolsdrift__namibia-arid-northwest-etosha": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "vioolsdrift",
+      "toRouteId": "namibia-arid-northwest-etosha",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2100,
+      "totalDriveMinutes": 1443,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Vioolsdrift / Noordoewer",
+          "distanceKm": 1299,
+          "driveMinutes": 928,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Vioolsdrift / Noordoewer",
+          "toName": "Windhoek",
+          "distanceKm": 801,
+          "driveMinutes": 515,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__vioolsdrift__namibia-four-rivers-wetlands": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "vioolsdrift",
+      "toRouteId": "namibia-four-rivers-wetlands",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2772,
+      "totalDriveMinutes": 1896,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Vioolsdrift / Noordoewer",
+          "distanceKm": 1299,
+          "driveMinutes": 928,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Vioolsdrift / Noordoewer",
+          "toName": "Rundu",
+          "distanceKm": 1473,
+          "driveMinutes": 968,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__ramatlabama__botswana-salt-pans-chobe": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "ramatlabama",
+      "toRouteId": "botswana-salt-pans-chobe",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2166,
+      "totalDriveMinutes": 1487,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Ramatlabama",
+          "distanceKm": 1205,
+          "driveMinutes": 834,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Ramatlabama",
+          "toName": "Maun",
+          "distanceKm": 961,
+          "driveMinutes": 653,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__beitbridge__zimbabwe-eastern-highlands": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "beitbridge",
+      "toRouteId": "zimbabwe-eastern-highlands",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2176,
+      "totalDriveMinutes": 1430,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Beitbridge",
+          "distanceKm": 1597,
+          "driveMinutes": 1065,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Beitbridge",
+          "toName": "Harare",
+          "distanceKm": 579,
+          "driveMinutes": 365,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__lebombo__mozambique-gorongosa-central-highlands": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "lebombo",
+      "toRouteId": "mozambique-gorongosa-central-highlands",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2792,
+      "totalDriveMinutes": 2010,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Lebombo / Ressano Garcia",
+          "distanceKm": 1514,
+          "driveMinutes": 1012,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Lebombo / Ressano Garcia",
+          "toName": "Beira",
+          "distanceKm": 1278,
+          "driveMinutes": 998,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__maseru-bridge__lesotho-southern-rustic-route": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "maseru-bridge",
+      "toRouteId": "lesotho-southern-rustic-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1017,
+      "totalDriveMinutes": 797,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Maseru Bridge",
+          "distanceKm": 804,
+          "driveMinutes": 572,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Maseru Bridge",
+          "toName": "Tele Bridge",
+          "distanceKm": 213,
+          "driveMinutes": 225,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.9,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-garden-route__oshoek__eswatini-northern-community-nature": {
+      "fromRouteId": "south-africa-garden-route",
+      "borderId": "oshoek",
+      "toRouteId": "eswatini-northern-community-nature",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1439,
+      "totalDriveMinutes": 1006,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Gqeberha",
+          "toName": "Oshoek / Ngwenya",
+          "distanceKm": 1399,
+          "driveMinutes": 960,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.8,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Oshoek / Ngwenya",
+          "toName": "Mbabane",
+          "distanceKm": 40,
+          "driveMinutes": 46,
+          "fromSnapKm": 0.8,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__vioolsdrift__namibia-essentials-extended": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "vioolsdrift",
+      "toRouteId": "namibia-essentials-extended",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 2618,
+      "totalDriveMinutes": 1875,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Vioolsdrift / Noordoewer",
+          "distanceKm": 1817,
+          "driveMinutes": 1360,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0.1,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Vioolsdrift / Noordoewer",
+          "toName": "Windhoek",
+          "distanceKm": 801,
+          "driveMinutes": 515,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__martins-drift__botswana-okavango-chobe": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "martins-drift",
+      "toRouteId": "botswana-okavango-chobe",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 1152,
+      "totalDriveMinutes": 1006,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Martin's Drift / Groblersbrug",
+          "distanceKm": 457,
+          "driveMinutes": 451,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0.1,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Martin's Drift / Groblersbrug",
+          "toName": "Maun",
+          "distanceKm": 695,
+          "driveMinutes": 555,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__beitbridge__zimbabwe-falls-hwange-matobo": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "beitbridge",
+      "toRouteId": "zimbabwe-falls-hwange-matobo",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 1116,
+      "totalDriveMinutes": 845,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Beitbridge",
+          "distanceKm": 355,
+          "driveMinutes": 334,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0.1,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Beitbridge",
+          "toName": "Victoria Falls",
+          "distanceKm": 761,
+          "driveMinutes": 511,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.3,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__lebombo__mozambique-southern-lagoons": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "lebombo",
+      "toRouteId": "mozambique-southern-lagoons",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 304,
+      "totalDriveMinutes": 462,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Lebombo / Ressano Garcia",
+          "distanceKm": 213,
+          "driveMinutes": 387,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Lebombo / Ressano Garcia",
+          "toName": "Maputo",
+          "distanceKm": 91,
+          "driveMinutes": 75,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__maseru-bridge__lesotho-highlands-dam-loop": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "maseru-bridge",
+      "toRouteId": "lesotho-highlands-dam-loop",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 984,
+      "totalDriveMinutes": 806,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Maseru Bridge",
+          "distanceKm": 980,
+          "driveMinutes": 802,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Maseru Bridge",
+          "toName": "Maseru",
+          "distanceKm": 4,
+          "driveMinutes": 4,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__oshoek__eswatini-royal-heartland": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "oshoek",
+      "toRouteId": "eswatini-royal-heartland",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 434,
+      "totalDriveMinutes": 493,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Oshoek / Ngwenya",
+          "distanceKm": 394,
+          "driveMinutes": 447,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0.8,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Oshoek / Ngwenya",
+          "toName": "Mbabane",
+          "distanceKm": 40,
+          "driveMinutes": 46,
+          "fromSnapKm": 0.8,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__vioolsdrift__namibia-arid-northwest-etosha": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "vioolsdrift",
+      "toRouteId": "namibia-arid-northwest-etosha",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 2618,
+      "totalDriveMinutes": 1875,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Vioolsdrift / Noordoewer",
+          "distanceKm": 1817,
+          "driveMinutes": 1360,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0.1,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Vioolsdrift / Noordoewer",
+          "toName": "Windhoek",
+          "distanceKm": 801,
+          "driveMinutes": 515,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__vioolsdrift__namibia-four-rivers-wetlands": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "vioolsdrift",
+      "toRouteId": "namibia-four-rivers-wetlands",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 3290,
+      "totalDriveMinutes": 2328,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Vioolsdrift / Noordoewer",
+          "distanceKm": 1817,
+          "driveMinutes": 1360,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0.1,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Vioolsdrift / Noordoewer",
+          "toName": "Rundu",
+          "distanceKm": 1473,
+          "driveMinutes": 968,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__martins-drift__botswana-salt-pans-chobe": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "martins-drift",
+      "toRouteId": "botswana-salt-pans-chobe",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 1152,
+      "totalDriveMinutes": 1006,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Martin's Drift / Groblersbrug",
+          "distanceKm": 457,
+          "driveMinutes": 451,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0.1,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Martin's Drift / Groblersbrug",
+          "toName": "Maun",
+          "distanceKm": 695,
+          "driveMinutes": 555,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__beitbridge__zimbabwe-eastern-highlands": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "beitbridge",
+      "toRouteId": "zimbabwe-eastern-highlands",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 934,
+      "totalDriveMinutes": 699,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Beitbridge",
+          "distanceKm": 355,
+          "driveMinutes": 334,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0.1,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Beitbridge",
+          "toName": "Harare",
+          "distanceKm": 579,
+          "driveMinutes": 365,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__giriyondo__mozambique-gorongosa-central-highlands": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "giriyondo",
+      "toRouteId": "mozambique-gorongosa-central-highlands",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 1345,
+      "totalDriveMinutes": 1080,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Giriyondo",
+          "distanceKm": 66,
+          "driveMinutes": 138,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Giriyondo",
+          "toName": "Beira",
+          "distanceKm": 1279,
+          "driveMinutes": 942,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__sani-pass__lesotho-southern-rustic-route": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "sani-pass",
+      "toRouteId": "lesotho-southern-rustic-route",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 1475,
+      "totalDriveMinutes": 1493,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Sani Pass",
+          "distanceKm": 1036,
+          "driveMinutes": 962,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0.1,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Sani Pass",
+          "toName": "Tele Bridge",
+          "distanceKm": 439,
+          "driveMinutes": 531,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.9,
+          "confidence": "high"
+        }
+      ]
+    },
+    "south-africa-panorama-kruger__oshoek__eswatini-northern-community-nature": {
+      "fromRouteId": "south-africa-panorama-kruger",
+      "borderId": "oshoek",
+      "toRouteId": "eswatini-northern-community-nature",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 434,
+      "totalDriveMinutes": 493,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kruger National Park",
+          "toName": "Oshoek / Ngwenya",
+          "distanceKm": 394,
+          "driveMinutes": 447,
+          "fromSnapKm": 3.9,
+          "toSnapKm": 0.8,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Oshoek / Ngwenya",
+          "toName": "Mbabane",
+          "distanceKm": 40,
+          "driveMinutes": 46,
+          "fromSnapKm": 0.8,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-okavango-chobe__ngoma__namibia-essentials-extended": {
+      "fromRouteId": "botswana-okavango-chobe",
+      "borderId": "ngoma",
+      "toRouteId": "namibia-essentials-extended",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1313,
+      "totalDriveMinutes": 901,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane",
+          "toName": "Ngoma Bridge",
+          "distanceKm": 55,
+          "driveMinutes": 57,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Ngoma Bridge",
+          "toName": "Windhoek",
+          "distanceKm": 1258,
+          "driveMinutes": 844,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-okavango-chobe__ramatlabama__south-africa-garden-route": {
+      "fromRouteId": "botswana-okavango-chobe",
+      "borderId": "ramatlabama",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2393,
+      "totalDriveMinutes": 1721,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane",
+          "toName": "Ramatlabama",
+          "distanceKm": 1052,
+          "driveMinutes": 789,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Ramatlabama",
+          "toName": "Cape Town",
+          "distanceKm": 1341,
+          "driveMinutes": 932,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-okavango-chobe__martins-drift__south-africa-panorama-kruger": {
+      "fromRouteId": "botswana-okavango-chobe",
+      "borderId": "martins-drift",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1215,
+      "totalDriveMinutes": 937,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane",
+          "toName": "Martin's Drift / Groblersbrug",
+          "distanceKm": 760,
+          "driveMinutes": 618,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Martin's Drift / Groblersbrug",
+          "toName": "Johannesburg",
+          "distanceKm": 455,
+          "driveMinutes": 319,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-okavango-chobe__kazungula__zambia-southern-zambezi": {
+      "fromRouteId": "botswana-okavango-chobe",
+      "borderId": "kazungula",
+      "toRouteId": "zambia-southern-zambezi",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 569,
+      "totalDriveMinutes": 432,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane",
+          "toName": "Kazungula Bridge",
+          "distanceKm": 20,
+          "driveMinutes": 22,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Kazungula Bridge",
+          "toName": "Lusaka",
+          "distanceKm": 549,
+          "driveMinutes": 410,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-okavango-chobe__plumtree__zimbabwe-falls-hwange-matobo": {
+      "fromRouteId": "botswana-okavango-chobe",
+      "borderId": "plumtree",
+      "toRouteId": "zimbabwe-falls-hwange-matobo",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1086,
+      "totalDriveMinutes": 798,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane",
+          "toName": "Plumtree / Ramokgwebana",
+          "distanceKm": 544,
+          "driveMinutes": 425,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Plumtree / Ramokgwebana",
+          "toName": "Victoria Falls",
+          "distanceKm": 542,
+          "driveMinutes": 373,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.3,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-okavango-chobe__ngoma__namibia-arid-northwest-etosha": {
+      "fromRouteId": "botswana-okavango-chobe",
+      "borderId": "ngoma",
+      "toRouteId": "namibia-arid-northwest-etosha",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1313,
+      "totalDriveMinutes": 901,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane",
+          "toName": "Ngoma Bridge",
+          "distanceKm": 55,
+          "driveMinutes": 57,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Ngoma Bridge",
+          "toName": "Windhoek",
+          "distanceKm": 1258,
+          "driveMinutes": 844,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-okavango-chobe__ngoma__namibia-four-rivers-wetlands": {
+      "fromRouteId": "botswana-okavango-chobe",
+      "borderId": "ngoma",
+      "toRouteId": "namibia-four-rivers-wetlands",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 631,
+      "totalDriveMinutes": 437,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane",
+          "toName": "Ngoma Bridge",
+          "distanceKm": 55,
+          "driveMinutes": 57,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Ngoma Bridge",
+          "toName": "Rundu",
+          "distanceKm": 576,
+          "driveMinutes": 380,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-okavango-chobe__kazungula__zambia-eastern-safari-route": {
+      "fromRouteId": "botswana-okavango-chobe",
+      "borderId": "kazungula",
+      "toRouteId": "zambia-eastern-safari-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 569,
+      "totalDriveMinutes": 432,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane",
+          "toName": "Kazungula Bridge",
+          "distanceKm": 20,
+          "driveMinutes": 22,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Kazungula Bridge",
+          "toName": "Lusaka",
+          "distanceKm": 549,
+          "driveMinutes": 410,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-okavango-chobe__plumtree__zimbabwe-eastern-highlands": {
+      "fromRouteId": "botswana-okavango-chobe",
+      "borderId": "plumtree",
+      "toRouteId": "zimbabwe-eastern-highlands",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1084,
+      "totalDriveMinutes": 775,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane",
+          "toName": "Plumtree / Ramokgwebana",
+          "distanceKm": 544,
+          "driveMinutes": 425,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Plumtree / Ramokgwebana",
+          "toName": "Harare",
+          "distanceKm": 540,
+          "driveMinutes": 350,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-southern-zambezi__wenela__namibia-essentials-extended": {
+      "fromRouteId": "zambia-southern-zambezi",
+      "borderId": "wenela",
+      "toRouteId": "namibia-essentials-extended",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1423,
+      "totalDriveMinutes": 1000,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Livingstone and Mosi-oa-Tunya",
+          "toName": "Katima Mulilo / Wenela–Sesheke",
+          "distanceKm": 220,
+          "driveMinutes": 193,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Katima Mulilo / Wenela–Sesheke",
+          "toName": "Windhoek",
+          "distanceKm": 1203,
+          "driveMinutes": 807,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-southern-zambezi__kazungula__botswana-okavango-chobe": {
+      "fromRouteId": "zambia-southern-zambezi",
+      "borderId": "kazungula",
+      "toRouteId": "botswana-okavango-chobe",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 672,
+      "totalDriveMinutes": 464,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Livingstone and Mosi-oa-Tunya",
+          "toName": "Kazungula Bridge",
+          "distanceKm": 68,
+          "driveMinutes": 50,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Kazungula Bridge",
+          "toName": "Maun",
+          "distanceKm": 604,
+          "driveMinutes": 414,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-southern-zambezi__vic-falls-bridge__zimbabwe-falls-hwange-matobo": {
+      "fromRouteId": "zambia-southern-zambezi",
+      "borderId": "vic-falls-bridge",
+      "toRouteId": "zimbabwe-falls-hwange-matobo",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 11,
+      "totalDriveMinutes": 9,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Livingstone and Mosi-oa-Tunya",
+          "toName": "Victoria Falls Bridge",
+          "distanceKm": 11,
+          "driveMinutes": 9,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Victoria Falls Bridge",
+          "toName": "Victoria Falls",
+          "distanceKm": 0,
+          "driveMinutes": 0,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.3,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-southern-zambezi__mwami-mchinji__malawi-southern-wildlife-lake": {
+      "fromRouteId": "zambia-southern-zambezi",
+      "borderId": "mwami-mchinji",
+      "toRouteId": "malawi-southern-wildlife-lake",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1496,
+      "totalDriveMinutes": 1125,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Livingstone and Mosi-oa-Tunya",
+          "toName": "Mwami / Mchinji",
+          "distanceKm": 1067,
+          "driveMinutes": 784,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwami / Mchinji",
+          "toName": "Blantyre",
+          "distanceKm": 429,
+          "driveMinutes": 341,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-southern-zambezi__wenela__namibia-arid-northwest-etosha": {
+      "fromRouteId": "zambia-southern-zambezi",
+      "borderId": "wenela",
+      "toRouteId": "namibia-arid-northwest-etosha",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1423,
+      "totalDriveMinutes": 1000,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Livingstone and Mosi-oa-Tunya",
+          "toName": "Katima Mulilo / Wenela–Sesheke",
+          "distanceKm": 220,
+          "driveMinutes": 193,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Katima Mulilo / Wenela–Sesheke",
+          "toName": "Windhoek",
+          "distanceKm": 1203,
+          "driveMinutes": 807,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-southern-zambezi__wenela__namibia-four-rivers-wetlands": {
+      "fromRouteId": "zambia-southern-zambezi",
+      "borderId": "wenela",
+      "toRouteId": "namibia-four-rivers-wetlands",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 742,
+      "totalDriveMinutes": 536,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Livingstone and Mosi-oa-Tunya",
+          "toName": "Katima Mulilo / Wenela–Sesheke",
+          "distanceKm": 220,
+          "driveMinutes": 193,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Katima Mulilo / Wenela–Sesheke",
+          "toName": "Rundu",
+          "distanceKm": 522,
+          "driveMinutes": 343,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-southern-zambezi__kazungula__botswana-salt-pans-chobe": {
+      "fromRouteId": "zambia-southern-zambezi",
+      "borderId": "kazungula",
+      "toRouteId": "botswana-salt-pans-chobe",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 672,
+      "totalDriveMinutes": 464,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Livingstone and Mosi-oa-Tunya",
+          "toName": "Kazungula Bridge",
+          "distanceKm": 68,
+          "driveMinutes": 50,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Kazungula Bridge",
+          "toName": "Maun",
+          "distanceKm": 604,
+          "driveMinutes": 414,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-southern-zambezi__vic-falls-bridge__zimbabwe-eastern-highlands": {
+      "fromRouteId": "zambia-southern-zambezi",
+      "borderId": "vic-falls-bridge",
+      "toRouteId": "zimbabwe-eastern-highlands",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 891,
+      "totalDriveMinutes": 604,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Livingstone and Mosi-oa-Tunya",
+          "toName": "Victoria Falls Bridge",
+          "distanceKm": 11,
+          "driveMinutes": 9,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Victoria Falls Bridge",
+          "toName": "Harare",
+          "distanceKm": 880,
+          "driveMinutes": 595,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-southern-zambezi__mwami-mchinji__malawi-northern-highlands-lake": {
+      "fromRouteId": "zambia-southern-zambezi",
+      "borderId": "mwami-mchinji",
+      "toRouteId": "malawi-northern-highlands-lake",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1190,
+      "totalDriveMinutes": 872,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Livingstone and Mosi-oa-Tunya",
+          "toName": "Mwami / Mchinji",
+          "distanceKm": 1067,
+          "driveMinutes": 784,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwami / Mchinji",
+          "toName": "Lilongwe",
+          "distanceKm": 123,
+          "driveMinutes": 88,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-falls-hwange-matobo__beitbridge__south-africa-garden-route": {
+      "fromRouteId": "zimbabwe-falls-hwange-matobo",
+      "borderId": "beitbridge",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2312,
+      "totalDriveMinutes": 1565,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Matobo Hills",
+          "toName": "Beitbridge",
+          "distanceKm": 379,
+          "driveMinutes": 305,
+          "fromSnapKm": 0.4,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Beitbridge",
+          "toName": "Cape Town",
+          "distanceKm": 1933,
+          "driveMinutes": 1260,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-falls-hwange-matobo__beitbridge__south-africa-panorama-kruger": {
+      "fromRouteId": "zimbabwe-falls-hwange-matobo",
+      "borderId": "beitbridge",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 918,
+      "totalDriveMinutes": 660,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Matobo Hills",
+          "toName": "Beitbridge",
+          "distanceKm": 379,
+          "driveMinutes": 305,
+          "fromSnapKm": 0.4,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Beitbridge",
+          "toName": "Johannesburg",
+          "distanceKm": 539,
+          "driveMinutes": 355,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-falls-hwange-matobo__plumtree__botswana-okavango-chobe": {
+      "fromRouteId": "zimbabwe-falls-hwange-matobo",
+      "borderId": "plumtree",
+      "toRouteId": "botswana-okavango-chobe",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 652,
+      "totalDriveMinutes": 529,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Matobo Hills",
+          "toName": "Plumtree / Ramokgwebana",
+          "distanceKm": 113,
+          "driveMinutes": 133,
+          "fromSnapKm": 0.4,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Plumtree / Ramokgwebana",
+          "toName": "Maun",
+          "distanceKm": 539,
+          "driveMinutes": 396,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-falls-hwange-matobo__chirundu__zambia-southern-zambezi": {
+      "fromRouteId": "zimbabwe-falls-hwange-matobo",
+      "borderId": "chirundu",
+      "toRouteId": "zambia-southern-zambezi",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 873,
+      "totalDriveMinutes": 672,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Matobo Hills",
+          "toName": "Chirundu",
+          "distanceKm": 731,
+          "driveMinutes": 562,
+          "fromSnapKm": 0.4,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Chirundu",
+          "toName": "Lusaka",
+          "distanceKm": 142,
+          "driveMinutes": 110,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-falls-hwange-matobo__plumtree__botswana-salt-pans-chobe": {
+      "fromRouteId": "zimbabwe-falls-hwange-matobo",
+      "borderId": "plumtree",
+      "toRouteId": "botswana-salt-pans-chobe",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 652,
+      "totalDriveMinutes": 529,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Matobo Hills",
+          "toName": "Plumtree / Ramokgwebana",
+          "distanceKm": 113,
+          "driveMinutes": 133,
+          "fromSnapKm": 0.4,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Plumtree / Ramokgwebana",
+          "toName": "Maun",
+          "distanceKm": 539,
+          "driveMinutes": 396,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-falls-hwange-matobo__chirundu__zambia-eastern-safari-route": {
+      "fromRouteId": "zimbabwe-falls-hwange-matobo",
+      "borderId": "chirundu",
+      "toRouteId": "zambia-eastern-safari-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 873,
+      "totalDriveMinutes": 672,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Matobo Hills",
+          "toName": "Chirundu",
+          "distanceKm": 731,
+          "driveMinutes": 562,
+          "fromSnapKm": 0.4,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Chirundu",
+          "toName": "Lusaka",
+          "distanceKm": 142,
+          "driveMinutes": 110,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-southern-lagoons__lebombo__south-africa-garden-route": {
+      "fromRouteId": "mozambique-southern-lagoons",
+      "borderId": "lebombo",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2411,
+      "totalDriveMinutes": 1677,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Tofo and Barra",
+          "toName": "Lebombo / Ressano Garcia",
+          "distanceKm": 560,
+          "driveMinutes": 471,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Lebombo / Ressano Garcia",
+          "toName": "Cape Town",
+          "distanceKm": 1851,
+          "driveMinutes": 1206,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-southern-lagoons__lebombo__south-africa-panorama-kruger": {
+      "fromRouteId": "mozambique-southern-lagoons",
+      "borderId": "lebombo",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1010,
+      "totalDriveMinutes": 772,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Tofo and Barra",
+          "toName": "Lebombo / Ressano Garcia",
+          "distanceKm": 560,
+          "driveMinutes": 471,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Lebombo / Ressano Garcia",
+          "toName": "Johannesburg",
+          "distanceKm": 450,
+          "driveMinutes": 301,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-southern-lagoons__mwanza-zobue__malawi-southern-wildlife-lake": {
+      "fromRouteId": "mozambique-southern-lagoons",
+      "borderId": "mwanza-zobue",
+      "toRouteId": "malawi-southern-wildlife-lake",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1336,
+      "totalDriveMinutes": 1108,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Tofo and Barra",
+          "toName": "Mwanza / Zóbuè",
+          "distanceKm": 1241,
+          "driveMinutes": 1013,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwanza / Zóbuè",
+          "toName": "Blantyre",
+          "distanceKm": 95,
+          "driveMinutes": 95,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-southern-lagoons__lomahasha__eswatini-royal-heartland": {
+      "fromRouteId": "mozambique-southern-lagoons",
+      "borderId": "lomahasha",
+      "toRouteId": "eswatini-royal-heartland",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 710,
+      "totalDriveMinutes": 625,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Tofo and Barra",
+          "toName": "Lomahasha / Namaacha",
+          "distanceKm": 567,
+          "driveMinutes": 496,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Lomahasha / Namaacha",
+          "toName": "Mbabane",
+          "distanceKm": 143,
+          "driveMinutes": 129,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-southern-lagoons__mwanza-zobue__malawi-northern-highlands-lake": {
+      "fromRouteId": "mozambique-southern-lagoons",
+      "borderId": "mwanza-zobue",
+      "toRouteId": "malawi-northern-highlands-lake",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1555,
+      "totalDriveMinutes": 1264,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Tofo and Barra",
+          "toName": "Mwanza / Zóbuè",
+          "distanceKm": 1241,
+          "driveMinutes": 1013,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwanza / Zóbuè",
+          "toName": "Lilongwe",
+          "distanceKm": 314,
+          "driveMinutes": 251,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-southern-lagoons__lomahasha__eswatini-northern-community-nature": {
+      "fromRouteId": "mozambique-southern-lagoons",
+      "borderId": "lomahasha",
+      "toRouteId": "eswatini-northern-community-nature",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 710,
+      "totalDriveMinutes": 625,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Tofo and Barra",
+          "toName": "Lomahasha / Namaacha",
+          "distanceKm": 567,
+          "driveMinutes": 496,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Lomahasha / Namaacha",
+          "toName": "Mbabane",
+          "distanceKm": 143,
+          "driveMinutes": 129,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "malawi-southern-wildlife-lake__mwami-mchinji__zambia-southern-zambezi": {
+      "fromRouteId": "malawi-southern-wildlife-lake",
+      "borderId": "mwami-mchinji",
+      "toRouteId": "zambia-southern-zambezi",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 914,
+      "totalDriveMinutes": 751,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Cape Maclear",
+          "toName": "Mwami / Mchinji",
+          "distanceKm": 325,
+          "driveMinutes": 325,
+          "fromSnapKm": 9.2,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwami / Mchinji",
+          "toName": "Lusaka",
+          "distanceKm": 589,
+          "driveMinutes": 426,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "malawi-southern-wildlife-lake__mwanza-zobue__mozambique-southern-lagoons": {
+      "fromRouteId": "malawi-southern-wildlife-lake",
+      "borderId": "mwanza-zobue",
+      "toRouteId": "mozambique-southern-lagoons",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 2016,
+      "totalDriveMinutes": 1583,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Cape Maclear",
+          "toName": "Mwanza / Zóbuè",
+          "distanceKm": 263,
+          "driveMinutes": 286,
+          "fromSnapKm": 9.2,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwanza / Zóbuè",
+          "toName": "Maputo",
+          "distanceKm": 1753,
+          "driveMinutes": 1297,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "malawi-southern-wildlife-lake__mwami-mchinji__zambia-eastern-safari-route": {
+      "fromRouteId": "malawi-southern-wildlife-lake",
+      "borderId": "mwami-mchinji",
+      "toRouteId": "zambia-eastern-safari-route",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 914,
+      "totalDriveMinutes": 751,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Cape Maclear",
+          "toName": "Mwami / Mchinji",
+          "distanceKm": 325,
+          "driveMinutes": 325,
+          "fromSnapKm": 9.2,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwami / Mchinji",
+          "toName": "Lusaka",
+          "distanceKm": 589,
+          "driveMinutes": 426,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "malawi-southern-wildlife-lake__mwanza-zobue__mozambique-gorongosa-central-highlands": {
+      "fromRouteId": "malawi-southern-wildlife-lake",
+      "borderId": "mwanza-zobue",
+      "toRouteId": "mozambique-gorongosa-central-highlands",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 966,
+      "totalDriveMinutes": 873,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Cape Maclear",
+          "toName": "Mwanza / Zóbuè",
+          "distanceKm": 263,
+          "driveMinutes": 286,
+          "fromSnapKm": 9.2,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwanza / Zóbuè",
+          "toName": "Beira",
+          "distanceKm": 703,
+          "driveMinutes": 587,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "lesotho-highlands-dam-loop__maseru-bridge__south-africa-garden-route": {
+      "fromRouteId": "lesotho-highlands-dam-loop",
+      "borderId": "maseru-bridge",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1296,
+      "totalDriveMinutes": 921,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Ts'ehlanyane National Park",
+          "toName": "Maseru Bridge",
+          "distanceKm": 156,
+          "driveMinutes": 154,
+          "fromSnapKm": 0.3,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Maseru Bridge",
+          "toName": "Cape Town",
+          "distanceKm": 1140,
+          "driveMinutes": 767,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "lesotho-highlands-dam-loop__maseru-bridge__south-africa-panorama-kruger": {
+      "fromRouteId": "lesotho-highlands-dam-loop",
+      "borderId": "maseru-bridge",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 571,
+      "totalDriveMinutes": 462,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Ts'ehlanyane National Park",
+          "toName": "Maseru Bridge",
+          "distanceKm": 156,
+          "driveMinutes": 154,
+          "fromSnapKm": 0.3,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Maseru Bridge",
+          "toName": "Johannesburg",
+          "distanceKm": 415,
+          "driveMinutes": 308,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "eswatini-royal-heartland__oshoek__south-africa-garden-route": {
+      "fromRouteId": "eswatini-royal-heartland",
+      "borderId": "oshoek",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1802,
+      "totalDriveMinutes": 1240,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Mlilwane Wildlife Sanctuary",
+          "toName": "Oshoek / Ngwenya",
+          "distanceKm": 68,
+          "driveMinutes": 84,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.8,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Oshoek / Ngwenya",
+          "toName": "Cape Town",
+          "distanceKm": 1734,
+          "driveMinutes": 1156,
+          "fromSnapKm": 0.8,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "eswatini-royal-heartland__oshoek__south-africa-panorama-kruger": {
+      "fromRouteId": "eswatini-royal-heartland",
+      "borderId": "oshoek",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 410,
+      "totalDriveMinutes": 341,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Mlilwane Wildlife Sanctuary",
+          "toName": "Oshoek / Ngwenya",
+          "distanceKm": 68,
+          "driveMinutes": 84,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.8,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Oshoek / Ngwenya",
+          "toName": "Johannesburg",
+          "distanceKm": 342,
+          "driveMinutes": 257,
+          "fromSnapKm": 0.8,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "eswatini-royal-heartland__mhlumeni-goba__mozambique-southern-lagoons": {
+      "fromRouteId": "eswatini-royal-heartland",
+      "borderId": "mhlumeni-goba",
+      "toRouteId": "mozambique-southern-lagoons",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 241,
+      "totalDriveMinutes": 311,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Mlilwane Wildlife Sanctuary",
+          "toName": "Mhlumeni / Goba",
+          "distanceKm": 136,
+          "driveMinutes": 172,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.2,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mhlumeni / Goba",
+          "toName": "Maputo",
+          "distanceKm": 105,
+          "driveMinutes": 139,
+          "fromSnapKm": 0.2,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "eswatini-royal-heartland__lomahasha__mozambique-gorongosa-central-highlands": {
+      "fromRouteId": "eswatini-royal-heartland",
+      "borderId": "lomahasha",
+      "toRouteId": "mozambique-gorongosa-central-highlands",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1415,
+      "totalDriveMinutes": 1166,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Mlilwane Wildlife Sanctuary",
+          "toName": "Lomahasha / Namaacha",
+          "distanceKm": 129,
+          "driveMinutes": 142,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Lomahasha / Namaacha",
+          "toName": "Beira",
+          "distanceKm": 1286,
+          "driveMinutes": 1024,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-arid-northwest-etosha__vioolsdrift__south-africa-garden-route": {
+      "fromRouteId": "namibia-arid-northwest-etosha",
+      "borderId": "vioolsdrift",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 2058,
+      "totalDriveMinutes": 1405,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Etosha National Park",
+          "toName": "Vioolsdrift / Noordoewer",
+          "distanceKm": 1381,
+          "driveMinutes": 960,
+          "fromSnapKm": 17.4,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Vioolsdrift / Noordoewer",
+          "toName": "Cape Town",
+          "distanceKm": 677,
+          "driveMinutes": 445,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-arid-northwest-etosha__vioolsdrift__south-africa-panorama-kruger": {
+      "fromRouteId": "namibia-arid-northwest-etosha",
+      "borderId": "vioolsdrift",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 2655,
+      "totalDriveMinutes": 1855,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Etosha National Park",
+          "toName": "Vioolsdrift / Noordoewer",
+          "distanceKm": 1381,
+          "driveMinutes": 960,
+          "fromSnapKm": 17.4,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Vioolsdrift / Noordoewer",
+          "toName": "Johannesburg",
+          "distanceKm": 1274,
+          "driveMinutes": 895,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-arid-northwest-etosha__mamuno__botswana-okavango-chobe": {
+      "fromRouteId": "namibia-arid-northwest-etosha",
+      "borderId": "mamuno",
+      "toRouteId": "botswana-okavango-chobe",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1228,
+      "totalDriveMinutes": 865,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Etosha National Park",
+          "toName": "Mamuno / Trans-Kalahari",
+          "distanceKm": 734,
+          "driveMinutes": 531,
+          "fromSnapKm": 17.4,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mamuno / Trans-Kalahari",
+          "toName": "Maun",
+          "distanceKm": 494,
+          "driveMinutes": 334,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-arid-northwest-etosha__wenela__zambia-southern-zambezi": {
+      "fromRouteId": "namibia-arid-northwest-etosha",
+      "borderId": "wenela",
+      "toRouteId": "zambia-southern-zambezi",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1660,
+      "totalDriveMinutes": 1257,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Etosha National Park",
+          "toName": "Katima Mulilo / Wenela–Sesheke",
+          "distanceKm": 965,
+          "driveMinutes": 721,
+          "fromSnapKm": 17.4,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Katima Mulilo / Wenela–Sesheke",
+          "toName": "Lusaka",
+          "distanceKm": 695,
+          "driveMinutes": 536,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-arid-northwest-etosha__mamuno__botswana-salt-pans-chobe": {
+      "fromRouteId": "namibia-arid-northwest-etosha",
+      "borderId": "mamuno",
+      "toRouteId": "botswana-salt-pans-chobe",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1228,
+      "totalDriveMinutes": 865,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Etosha National Park",
+          "toName": "Mamuno / Trans-Kalahari",
+          "distanceKm": 734,
+          "driveMinutes": 531,
+          "fromSnapKm": 17.4,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mamuno / Trans-Kalahari",
+          "toName": "Maun",
+          "distanceKm": 494,
+          "driveMinutes": 334,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-arid-northwest-etosha__wenela__zambia-eastern-safari-route": {
+      "fromRouteId": "namibia-arid-northwest-etosha",
+      "borderId": "wenela",
+      "toRouteId": "zambia-eastern-safari-route",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1660,
+      "totalDriveMinutes": 1257,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Etosha National Park",
+          "toName": "Katima Mulilo / Wenela–Sesheke",
+          "distanceKm": 965,
+          "driveMinutes": 721,
+          "fromSnapKm": 17.4,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Katima Mulilo / Wenela–Sesheke",
+          "toName": "Lusaka",
+          "distanceKm": 695,
+          "driveMinutes": 536,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-four-rivers-wetlands__vioolsdrift__south-africa-garden-route": {
+      "fromRouteId": "namibia-four-rivers-wetlands",
+      "borderId": "vioolsdrift",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2659,
+      "totalDriveMinutes": 1746,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Katima Mulilo",
+          "toName": "Vioolsdrift / Noordoewer",
+          "distanceKm": 1982,
+          "driveMinutes": 1301,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Vioolsdrift / Noordoewer",
+          "toName": "Cape Town",
+          "distanceKm": 677,
+          "driveMinutes": 445,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-four-rivers-wetlands__vioolsdrift__south-africa-panorama-kruger": {
+      "fromRouteId": "namibia-four-rivers-wetlands",
+      "borderId": "vioolsdrift",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 3256,
+      "totalDriveMinutes": 2196,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Katima Mulilo",
+          "toName": "Vioolsdrift / Noordoewer",
+          "distanceKm": 1982,
+          "driveMinutes": 1301,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Vioolsdrift / Noordoewer",
+          "toName": "Johannesburg",
+          "distanceKm": 1274,
+          "driveMinutes": 895,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-four-rivers-wetlands__ngoma__botswana-okavango-chobe": {
+      "fromRouteId": "namibia-four-rivers-wetlands",
+      "borderId": "ngoma",
+      "toRouteId": "botswana-okavango-chobe",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 736,
+      "totalDriveMinutes": 526,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Katima Mulilo",
+          "toName": "Ngoma Bridge",
+          "distanceKm": 71,
+          "driveMinutes": 52,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Ngoma Bridge",
+          "toName": "Maun",
+          "distanceKm": 665,
+          "driveMinutes": 474,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-four-rivers-wetlands__wenela__zambia-southern-zambezi": {
+      "fromRouteId": "namibia-four-rivers-wetlands",
+      "borderId": "wenela",
+      "toRouteId": "zambia-southern-zambezi",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 709,
+      "totalDriveMinutes": 565,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Katima Mulilo",
+          "toName": "Katima Mulilo / Wenela–Sesheke",
+          "distanceKm": 14,
+          "driveMinutes": 29,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Katima Mulilo / Wenela–Sesheke",
+          "toName": "Lusaka",
+          "distanceKm": 695,
+          "driveMinutes": 536,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-four-rivers-wetlands__ngoma__botswana-salt-pans-chobe": {
+      "fromRouteId": "namibia-four-rivers-wetlands",
+      "borderId": "ngoma",
+      "toRouteId": "botswana-salt-pans-chobe",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 736,
+      "totalDriveMinutes": 526,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Katima Mulilo",
+          "toName": "Ngoma Bridge",
+          "distanceKm": 71,
+          "driveMinutes": 52,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Ngoma Bridge",
+          "toName": "Maun",
+          "distanceKm": 665,
+          "driveMinutes": 474,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "namibia-four-rivers-wetlands__wenela__zambia-eastern-safari-route": {
+      "fromRouteId": "namibia-four-rivers-wetlands",
+      "borderId": "wenela",
+      "toRouteId": "zambia-eastern-safari-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 709,
+      "totalDriveMinutes": 565,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Katima Mulilo",
+          "toName": "Katima Mulilo / Wenela–Sesheke",
+          "distanceKm": 14,
+          "driveMinutes": 29,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Katima Mulilo / Wenela–Sesheke",
+          "toName": "Lusaka",
+          "distanceKm": 695,
+          "driveMinutes": 536,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-salt-pans-chobe__ngoma__namibia-essentials-extended": {
+      "fromRouteId": "botswana-salt-pans-chobe",
+      "borderId": "ngoma",
+      "toRouteId": "namibia-essentials-extended",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1313,
+      "totalDriveMinutes": 901,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane and Chobe Riverfront",
+          "toName": "Ngoma Bridge",
+          "distanceKm": 55,
+          "driveMinutes": 57,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Ngoma Bridge",
+          "toName": "Windhoek",
+          "distanceKm": 1258,
+          "driveMinutes": 844,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-salt-pans-chobe__ramatlabama__south-africa-garden-route": {
+      "fromRouteId": "botswana-salt-pans-chobe",
+      "borderId": "ramatlabama",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2393,
+      "totalDriveMinutes": 1721,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane and Chobe Riverfront",
+          "toName": "Ramatlabama",
+          "distanceKm": 1052,
+          "driveMinutes": 789,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Ramatlabama",
+          "toName": "Cape Town",
+          "distanceKm": 1341,
+          "driveMinutes": 932,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-salt-pans-chobe__martins-drift__south-africa-panorama-kruger": {
+      "fromRouteId": "botswana-salt-pans-chobe",
+      "borderId": "martins-drift",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1215,
+      "totalDriveMinutes": 937,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane and Chobe Riverfront",
+          "toName": "Martin's Drift / Groblersbrug",
+          "distanceKm": 760,
+          "driveMinutes": 618,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Martin's Drift / Groblersbrug",
+          "toName": "Johannesburg",
+          "distanceKm": 455,
+          "driveMinutes": 319,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-salt-pans-chobe__kazungula__zambia-southern-zambezi": {
+      "fromRouteId": "botswana-salt-pans-chobe",
+      "borderId": "kazungula",
+      "toRouteId": "zambia-southern-zambezi",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 569,
+      "totalDriveMinutes": 432,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane and Chobe Riverfront",
+          "toName": "Kazungula Bridge",
+          "distanceKm": 20,
+          "driveMinutes": 22,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Kazungula Bridge",
+          "toName": "Lusaka",
+          "distanceKm": 549,
+          "driveMinutes": 410,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-salt-pans-chobe__plumtree__zimbabwe-falls-hwange-matobo": {
+      "fromRouteId": "botswana-salt-pans-chobe",
+      "borderId": "plumtree",
+      "toRouteId": "zimbabwe-falls-hwange-matobo",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1086,
+      "totalDriveMinutes": 798,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane and Chobe Riverfront",
+          "toName": "Plumtree / Ramokgwebana",
+          "distanceKm": 544,
+          "driveMinutes": 425,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Plumtree / Ramokgwebana",
+          "toName": "Victoria Falls",
+          "distanceKm": 542,
+          "driveMinutes": 373,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.3,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-salt-pans-chobe__ngoma__namibia-arid-northwest-etosha": {
+      "fromRouteId": "botswana-salt-pans-chobe",
+      "borderId": "ngoma",
+      "toRouteId": "namibia-arid-northwest-etosha",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1313,
+      "totalDriveMinutes": 901,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane and Chobe Riverfront",
+          "toName": "Ngoma Bridge",
+          "distanceKm": 55,
+          "driveMinutes": 57,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Ngoma Bridge",
+          "toName": "Windhoek",
+          "distanceKm": 1258,
+          "driveMinutes": 844,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-salt-pans-chobe__ngoma__namibia-four-rivers-wetlands": {
+      "fromRouteId": "botswana-salt-pans-chobe",
+      "borderId": "ngoma",
+      "toRouteId": "namibia-four-rivers-wetlands",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 631,
+      "totalDriveMinutes": 437,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane and Chobe Riverfront",
+          "toName": "Ngoma Bridge",
+          "distanceKm": 55,
+          "driveMinutes": 57,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Ngoma Bridge",
+          "toName": "Rundu",
+          "distanceKm": 576,
+          "driveMinutes": 380,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-salt-pans-chobe__kazungula__zambia-eastern-safari-route": {
+      "fromRouteId": "botswana-salt-pans-chobe",
+      "borderId": "kazungula",
+      "toRouteId": "zambia-eastern-safari-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 569,
+      "totalDriveMinutes": 432,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane and Chobe Riverfront",
+          "toName": "Kazungula Bridge",
+          "distanceKm": 20,
+          "driveMinutes": 22,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Kazungula Bridge",
+          "toName": "Lusaka",
+          "distanceKm": 549,
+          "driveMinutes": 410,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "botswana-salt-pans-chobe__plumtree__zimbabwe-eastern-highlands": {
+      "fromRouteId": "botswana-salt-pans-chobe",
+      "borderId": "plumtree",
+      "toRouteId": "zimbabwe-eastern-highlands",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1084,
+      "totalDriveMinutes": 775,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Kasane and Chobe Riverfront",
+          "toName": "Plumtree / Ramokgwebana",
+          "distanceKm": 544,
+          "driveMinutes": 425,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Plumtree / Ramokgwebana",
+          "toName": "Harare",
+          "distanceKm": 540,
+          "driveMinutes": 350,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-eastern-safari-route__wenela__namibia-essentials-extended": {
+      "fromRouteId": "zambia-eastern-safari-route",
+      "borderId": "wenela",
+      "toRouteId": "namibia-essentials-extended",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 2624,
+      "totalDriveMinutes": 2023,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "South Luangwa National Park",
+          "toName": "Katima Mulilo / Wenela–Sesheke",
+          "distanceKm": 1421,
+          "driveMinutes": 1216,
+          "fromSnapKm": 16.9,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Katima Mulilo / Wenela–Sesheke",
+          "toName": "Windhoek",
+          "distanceKm": 1203,
+          "driveMinutes": 807,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-eastern-safari-route__kazungula__botswana-okavango-chobe": {
+      "fromRouteId": "zambia-eastern-safari-route",
+      "borderId": "kazungula",
+      "toRouteId": "botswana-okavango-chobe",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1873,
+      "totalDriveMinutes": 1487,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "South Luangwa National Park",
+          "toName": "Kazungula Bridge",
+          "distanceKm": 1269,
+          "driveMinutes": 1073,
+          "fromSnapKm": 16.9,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Kazungula Bridge",
+          "toName": "Maun",
+          "distanceKm": 604,
+          "driveMinutes": 414,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-eastern-safari-route__vic-falls-bridge__zimbabwe-falls-hwange-matobo": {
+      "fromRouteId": "zambia-eastern-safari-route",
+      "borderId": "vic-falls-bridge",
+      "toRouteId": "zimbabwe-falls-hwange-matobo",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1212,
+      "totalDriveMinutes": 1033,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "South Luangwa National Park",
+          "toName": "Victoria Falls Bridge",
+          "distanceKm": 1212,
+          "driveMinutes": 1033,
+          "fromSnapKm": 16.9,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Victoria Falls Bridge",
+          "toName": "Victoria Falls",
+          "distanceKm": 0,
+          "driveMinutes": 0,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.3,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-eastern-safari-route__mwami-mchinji__malawi-southern-wildlife-lake": {
+      "fromRouteId": "zambia-eastern-safari-route",
+      "borderId": "mwami-mchinji",
+      "toRouteId": "malawi-southern-wildlife-lake",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 611,
+      "totalDriveMinutes": 620,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "South Luangwa National Park",
+          "toName": "Mwami / Mchinji",
+          "distanceKm": 182,
+          "driveMinutes": 279,
+          "fromSnapKm": 16.9,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwami / Mchinji",
+          "toName": "Blantyre",
+          "distanceKm": 429,
+          "driveMinutes": 341,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-eastern-safari-route__wenela__namibia-arid-northwest-etosha": {
+      "fromRouteId": "zambia-eastern-safari-route",
+      "borderId": "wenela",
+      "toRouteId": "namibia-arid-northwest-etosha",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 2624,
+      "totalDriveMinutes": 2023,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "South Luangwa National Park",
+          "toName": "Katima Mulilo / Wenela–Sesheke",
+          "distanceKm": 1421,
+          "driveMinutes": 1216,
+          "fromSnapKm": 16.9,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Katima Mulilo / Wenela–Sesheke",
+          "toName": "Windhoek",
+          "distanceKm": 1203,
+          "driveMinutes": 807,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-eastern-safari-route__wenela__namibia-four-rivers-wetlands": {
+      "fromRouteId": "zambia-eastern-safari-route",
+      "borderId": "wenela",
+      "toRouteId": "namibia-four-rivers-wetlands",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1943,
+      "totalDriveMinutes": 1559,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "South Luangwa National Park",
+          "toName": "Katima Mulilo / Wenela–Sesheke",
+          "distanceKm": 1421,
+          "driveMinutes": 1216,
+          "fromSnapKm": 16.9,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Katima Mulilo / Wenela–Sesheke",
+          "toName": "Rundu",
+          "distanceKm": 522,
+          "driveMinutes": 343,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-eastern-safari-route__kazungula__botswana-salt-pans-chobe": {
+      "fromRouteId": "zambia-eastern-safari-route",
+      "borderId": "kazungula",
+      "toRouteId": "botswana-salt-pans-chobe",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1873,
+      "totalDriveMinutes": 1487,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "South Luangwa National Park",
+          "toName": "Kazungula Bridge",
+          "distanceKm": 1269,
+          "driveMinutes": 1073,
+          "fromSnapKm": 16.9,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Kazungula Bridge",
+          "toName": "Maun",
+          "distanceKm": 604,
+          "driveMinutes": 414,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-eastern-safari-route__chirundu__zimbabwe-eastern-highlands": {
+      "fromRouteId": "zambia-eastern-safari-route",
+      "borderId": "chirundu",
+      "toRouteId": "zimbabwe-eastern-highlands",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1220,
+      "totalDriveMinutes": 1018,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "South Luangwa National Park",
+          "toName": "Chirundu",
+          "distanceKm": 866,
+          "driveMinutes": 779,
+          "fromSnapKm": 16.9,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Chirundu",
+          "toName": "Harare",
+          "distanceKm": 354,
+          "driveMinutes": 239,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zambia-eastern-safari-route__mwami-mchinji__malawi-northern-highlands-lake": {
+      "fromRouteId": "zambia-eastern-safari-route",
+      "borderId": "mwami-mchinji",
+      "toRouteId": "malawi-northern-highlands-lake",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 305,
+      "totalDriveMinutes": 367,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "South Luangwa National Park",
+          "toName": "Mwami / Mchinji",
+          "distanceKm": 182,
+          "driveMinutes": 279,
+          "fromSnapKm": 16.9,
+          "toSnapKm": 0.1,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwami / Mchinji",
+          "toName": "Lilongwe",
+          "distanceKm": 123,
+          "driveMinutes": 88,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-eastern-highlands__beitbridge__south-africa-garden-route": {
+      "fromRouteId": "zimbabwe-eastern-highlands",
+      "borderId": "beitbridge",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2496,
+      "totalDriveMinutes": 1633,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Chimanimani",
+          "toName": "Beitbridge",
+          "distanceKm": 563,
+          "driveMinutes": 373,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Beitbridge",
+          "toName": "Cape Town",
+          "distanceKm": 1933,
+          "driveMinutes": 1260,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-eastern-highlands__beitbridge__south-africa-panorama-kruger": {
+      "fromRouteId": "zimbabwe-eastern-highlands",
+      "borderId": "beitbridge",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1102,
+      "totalDriveMinutes": 728,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Chimanimani",
+          "toName": "Beitbridge",
+          "distanceKm": 563,
+          "driveMinutes": 373,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Beitbridge",
+          "toName": "Johannesburg",
+          "distanceKm": 539,
+          "driveMinutes": 355,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-eastern-highlands__plumtree__botswana-okavango-chobe": {
+      "fromRouteId": "zimbabwe-eastern-highlands",
+      "borderId": "plumtree",
+      "toRouteId": "botswana-okavango-chobe",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1196,
+      "totalDriveMinutes": 830,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Chimanimani",
+          "toName": "Plumtree / Ramokgwebana",
+          "distanceKm": 657,
+          "driveMinutes": 434,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Plumtree / Ramokgwebana",
+          "toName": "Maun",
+          "distanceKm": 539,
+          "driveMinutes": 396,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-eastern-highlands__chirundu__zambia-southern-zambezi": {
+      "fromRouteId": "zimbabwe-eastern-highlands",
+      "borderId": "chirundu",
+      "toRouteId": "zambia-southern-zambezi",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 909,
+      "totalDriveMinutes": 632,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Chimanimani",
+          "toName": "Chirundu",
+          "distanceKm": 767,
+          "driveMinutes": 522,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Chirundu",
+          "toName": "Lusaka",
+          "distanceKm": 142,
+          "driveMinutes": 110,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-eastern-highlands__plumtree__botswana-salt-pans-chobe": {
+      "fromRouteId": "zimbabwe-eastern-highlands",
+      "borderId": "plumtree",
+      "toRouteId": "botswana-salt-pans-chobe",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1196,
+      "totalDriveMinutes": 830,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Chimanimani",
+          "toName": "Plumtree / Ramokgwebana",
+          "distanceKm": 657,
+          "driveMinutes": 434,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Plumtree / Ramokgwebana",
+          "toName": "Maun",
+          "distanceKm": 539,
+          "driveMinutes": 396,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "zimbabwe-eastern-highlands__chirundu__zambia-eastern-safari-route": {
+      "fromRouteId": "zimbabwe-eastern-highlands",
+      "borderId": "chirundu",
+      "toRouteId": "zambia-eastern-safari-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 909,
+      "totalDriveMinutes": 632,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Chimanimani",
+          "toName": "Chirundu",
+          "distanceKm": 767,
+          "driveMinutes": 522,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Chirundu",
+          "toName": "Lusaka",
+          "distanceKm": 142,
+          "driveMinutes": 110,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-gorongosa-central-highlands__pafuri-border-gate__south-africa-garden-route": {
+      "fromRouteId": "mozambique-gorongosa-central-highlands",
+      "borderId": "pafuri-border-gate",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 2833,
+      "totalDriveMinutes": 1902,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Chimanimani National Park",
+          "toName": "Pafuri Border Gate",
+          "distanceKm": 792,
+          "driveMinutes": 561,
+          "fromSnapKm": 5.9,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Pafuri Border Gate",
+          "toName": "Cape Town",
+          "distanceKm": 2041,
+          "driveMinutes": 1341,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-gorongosa-central-highlands__pafuri-border-gate__south-africa-panorama-kruger": {
+      "fromRouteId": "mozambique-gorongosa-central-highlands",
+      "borderId": "pafuri-border-gate",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1439,
+      "totalDriveMinutes": 997,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Chimanimani National Park",
+          "toName": "Pafuri Border Gate",
+          "distanceKm": 792,
+          "driveMinutes": 561,
+          "fromSnapKm": 5.9,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Pafuri Border Gate",
+          "toName": "Johannesburg",
+          "distanceKm": 647,
+          "driveMinutes": 436,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-gorongosa-central-highlands__mwanza-zobue__malawi-southern-wildlife-lake": {
+      "fromRouteId": "mozambique-gorongosa-central-highlands",
+      "borderId": "mwanza-zobue",
+      "toRouteId": "malawi-southern-wildlife-lake",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 884,
+      "totalDriveMinutes": 705,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Chimanimani National Park",
+          "toName": "Mwanza / Zóbuè",
+          "distanceKm": 789,
+          "driveMinutes": 610,
+          "fromSnapKm": 5.9,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwanza / Zóbuè",
+          "toName": "Blantyre",
+          "distanceKm": 95,
+          "driveMinutes": 95,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-gorongosa-central-highlands__lomahasha__eswatini-royal-heartland": {
+      "fromRouteId": "mozambique-gorongosa-central-highlands",
+      "borderId": "lomahasha",
+      "toRouteId": "eswatini-royal-heartland",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1385,
+      "totalDriveMinutes": 1152,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Chimanimani National Park",
+          "toName": "Lomahasha / Namaacha",
+          "distanceKm": 1242,
+          "driveMinutes": 1023,
+          "fromSnapKm": 5.9,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Lomahasha / Namaacha",
+          "toName": "Mbabane",
+          "distanceKm": 143,
+          "driveMinutes": 129,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-gorongosa-central-highlands__mwanza-zobue__malawi-northern-highlands-lake": {
+      "fromRouteId": "mozambique-gorongosa-central-highlands",
+      "borderId": "mwanza-zobue",
+      "toRouteId": "malawi-northern-highlands-lake",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1103,
+      "totalDriveMinutes": 861,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Chimanimani National Park",
+          "toName": "Mwanza / Zóbuè",
+          "distanceKm": 789,
+          "driveMinutes": 610,
+          "fromSnapKm": 5.9,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwanza / Zóbuè",
+          "toName": "Lilongwe",
+          "distanceKm": 314,
+          "driveMinutes": 251,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "mozambique-gorongosa-central-highlands__lomahasha__eswatini-northern-community-nature": {
+      "fromRouteId": "mozambique-gorongosa-central-highlands",
+      "borderId": "lomahasha",
+      "toRouteId": "eswatini-northern-community-nature",
+      "status": "estimated",
+      "confidence": "low",
+      "totalDistanceKm": 1385,
+      "totalDriveMinutes": 1152,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Chimanimani National Park",
+          "toName": "Lomahasha / Namaacha",
+          "distanceKm": 1242,
+          "driveMinutes": 1023,
+          "fromSnapKm": 5.9,
+          "toSnapKm": 0,
+          "confidence": "low"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Lomahasha / Namaacha",
+          "toName": "Mbabane",
+          "distanceKm": 143,
+          "driveMinutes": 129,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "malawi-northern-highlands-lake__mwami-mchinji__zambia-southern-zambezi": {
+      "fromRouteId": "malawi-northern-highlands-lake",
+      "borderId": "mwami-mchinji",
+      "toRouteId": "zambia-southern-zambezi",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1191,
+      "totalDriveMinutes": 875,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Karonga",
+          "toName": "Mwami / Mchinji",
+          "distanceKm": 602,
+          "driveMinutes": 449,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwami / Mchinji",
+          "toName": "Lusaka",
+          "distanceKm": 589,
+          "driveMinutes": 426,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "malawi-northern-highlands-lake__mwanza-zobue__mozambique-southern-lagoons": {
+      "fromRouteId": "malawi-northern-highlands-lake",
+      "borderId": "mwanza-zobue",
+      "toRouteId": "mozambique-southern-lagoons",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 2584,
+      "totalDriveMinutes": 1911,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Karonga",
+          "toName": "Mwanza / Zóbuè",
+          "distanceKm": 831,
+          "driveMinutes": 614,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwanza / Zóbuè",
+          "toName": "Maputo",
+          "distanceKm": 1753,
+          "driveMinutes": 1297,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "malawi-northern-highlands-lake__mwami-mchinji__zambia-eastern-safari-route": {
+      "fromRouteId": "malawi-northern-highlands-lake",
+      "borderId": "mwami-mchinji",
+      "toRouteId": "zambia-eastern-safari-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1191,
+      "totalDriveMinutes": 875,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Karonga",
+          "toName": "Mwami / Mchinji",
+          "distanceKm": 602,
+          "driveMinutes": 449,
+          "fromSnapKm": 0,
+          "toSnapKm": 0.1,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwami / Mchinji",
+          "toName": "Lusaka",
+          "distanceKm": 589,
+          "driveMinutes": 426,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "malawi-northern-highlands-lake__mwanza-zobue__mozambique-gorongosa-central-highlands": {
+      "fromRouteId": "malawi-northern-highlands-lake",
+      "borderId": "mwanza-zobue",
+      "toRouteId": "mozambique-gorongosa-central-highlands",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1534,
+      "totalDriveMinutes": 1201,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Karonga",
+          "toName": "Mwanza / Zóbuè",
+          "distanceKm": 831,
+          "driveMinutes": 614,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mwanza / Zóbuè",
+          "toName": "Beira",
+          "distanceKm": 703,
+          "driveMinutes": 587,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "lesotho-southern-rustic-route__maseru-bridge__south-africa-garden-route": {
+      "fromRouteId": "lesotho-southern-rustic-route",
+      "borderId": "maseru-bridge",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 1456,
+      "totalDriveMinutes": 1087,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Sehlabathebe National Park",
+          "toName": "Maseru Bridge",
+          "distanceKm": 316,
+          "driveMinutes": 320,
+          "fromSnapKm": 3.4,
+          "toSnapKm": 0,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Maseru Bridge",
+          "toName": "Cape Town",
+          "distanceKm": 1140,
+          "driveMinutes": 767,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "lesotho-southern-rustic-route__sani-pass__south-africa-panorama-kruger": {
+      "fromRouteId": "lesotho-southern-rustic-route",
+      "borderId": "sani-pass",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "medium",
+      "totalDistanceKm": 829,
+      "totalDriveMinutes": 870,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Sehlabathebe National Park",
+          "toName": "Sani Pass",
+          "distanceKm": 295,
+          "driveMinutes": 392,
+          "fromSnapKm": 3.4,
+          "toSnapKm": 0.1,
+          "confidence": "medium"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Sani Pass",
+          "toName": "Johannesburg",
+          "distanceKm": 534,
+          "driveMinutes": 478,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "eswatini-northern-community-nature__oshoek__south-africa-garden-route": {
+      "fromRouteId": "eswatini-northern-community-nature",
+      "borderId": "oshoek",
+      "toRouteId": "south-africa-garden-route",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1893,
+      "totalDriveMinutes": 1295,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Shewula Mountain Camp",
+          "toName": "Oshoek / Ngwenya",
+          "distanceKm": 159,
+          "driveMinutes": 139,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.8,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Oshoek / Ngwenya",
+          "toName": "Cape Town",
+          "distanceKm": 1734,
+          "driveMinutes": 1156,
+          "fromSnapKm": 0.8,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "eswatini-northern-community-nature__oshoek__south-africa-panorama-kruger": {
+      "fromRouteId": "eswatini-northern-community-nature",
+      "borderId": "oshoek",
+      "toRouteId": "south-africa-panorama-kruger",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 501,
+      "totalDriveMinutes": 396,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Shewula Mountain Camp",
+          "toName": "Oshoek / Ngwenya",
+          "distanceKm": 159,
+          "driveMinutes": 139,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.8,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Oshoek / Ngwenya",
+          "toName": "Johannesburg",
+          "distanceKm": 342,
+          "driveMinutes": 257,
+          "fromSnapKm": 0.8,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "eswatini-northern-community-nature__mhlumeni-goba__mozambique-southern-lagoons": {
+      "fromRouteId": "eswatini-northern-community-nature",
+      "borderId": "mhlumeni-goba",
+      "toRouteId": "mozambique-southern-lagoons",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 136,
+      "totalDriveMinutes": 199,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Shewula Mountain Camp",
+          "toName": "Mhlumeni / Goba",
+          "distanceKm": 31,
+          "driveMinutes": 60,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0.2,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Mhlumeni / Goba",
+          "toName": "Maputo",
+          "distanceKm": 105,
+          "driveMinutes": 139,
+          "fromSnapKm": 0.2,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    },
+    "eswatini-northern-community-nature__lomahasha__mozambique-gorongosa-central-highlands": {
+      "fromRouteId": "eswatini-northern-community-nature",
+      "borderId": "lomahasha",
+      "toRouteId": "mozambique-gorongosa-central-highlands",
+      "status": "estimated",
+      "confidence": "high",
+      "totalDistanceKm": 1310,
+      "totalDriveMinutes": 1054,
+      "legs": [
+        {
+          "kind": "approach",
+          "fromName": "Shewula Mountain Camp",
+          "toName": "Lomahasha / Namaacha",
+          "distanceKm": 24,
+          "driveMinutes": 30,
+          "fromSnapKm": 0.1,
+          "toSnapKm": 0,
+          "confidence": "high"
+        },
+        {
+          "kind": "onward",
+          "fromName": "Lomahasha / Namaacha",
+          "toName": "Beira",
+          "distanceKm": 1286,
+          "driveMinutes": 1024,
+          "fromSnapKm": 0,
+          "toSnapKm": 0,
+          "confidence": "high"
+        }
+      ]
+    }
+  }
+}

@@ -26,6 +26,7 @@ test('journey preferences keep two to four supported countries and safe limits',
         vehicle: 'suv',
         theme: 'wildlife',
         startDate: '',
+        transferDepartures: {},
     });
 });
 
@@ -119,5 +120,8 @@ test('journey template includes border days and becomes an editable dated trip',
     assert.equal(trip.endDate, '2026-11-18');
     assert.deepEqual(trip.countries, ['South Africa', 'Eswatini']);
     assert.ok(trip.routeDays.some(day => day.stops.some(stop => stop.type === 'border')));
+    const borderDay = trip.routeDays.find(day => day.stops.some(stop => stop.type === 'border'));
+    assert.ok(borderDay.stops.some(stop => /Cached planning estimate|confidence threshold/.test(stop.notes)));
+    assert.ok(borderDay.stops.some(stop => /Carry:/.test(stop.notes)));
     assert.match(trip.templateRouteId, /^journey:/);
 });

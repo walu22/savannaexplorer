@@ -10,6 +10,7 @@ import {
 import { createTrip } from '../lib/trip-store.js';
 import { trackProductEvent } from '../lib/product-analytics.js';
 import { destroyJourneyMap, mountJourneyMap } from '../lib/itinerary-maps.js';
+import { buildTransferPlan, formatDriveMinutes } from '../lib/journey-logistics.js';
 
 const STORAGE_KEY = 'se_journey_composer_v1';
 const DEFAULTS = {
@@ -73,6 +74,7 @@ function readForm(form) {
         vehicle: String(data.get('vehicle') || ''),
         theme: String(data.get('theme') || ''),
         startDate: String(data.get('startDate') || ''),
+        transferDepartures: currentJourney?.preferences?.transferDepartures || {},
     });
 }
 
@@ -126,6 +128,34 @@ function segmentReason(segment, theme) {
     return reasons.join(' · ');
 }
 
+function transferMarkup(transfer, crossing, index) {
+    const confidence = transfer.status === 'estimated'
+        ? `${transfer.confidence} confidence · cached ${transfer.capturedAt}`
+        : transfer.status === 'partial' ? `Partial coverage · cached ${transfer.capturedAt}` : 'Local route check required';
+    const arrivalClass = transfer.arrival.status === 'closed' ? 'is-warning'
+        : transfer.arrival.status === 'open' ? 'is-ready' : 'is-neutral';
+    const legMarkup = (leg, label, fallbackRoute) => `<div class="${leg ? '' : 'is-withheld'}"><span>${label}</span><strong>${leg ? `${escapeHtml(leg.fromName)} → ${escapeHtml(leg.toName)}` : escapeHtml(fallbackRoute)}</strong><small>${leg ? `${leg.distanceKm} km · ${formatDriveMinutes(leg.driveMinutes)}` : 'Road match withheld · check locally'}</small></div>`;
+    const legs = transfer.approach || transfer.onward ? `<div class="journey-transfer__legs">
+        ${legMarkup(transfer.approach, 'To the border', `Route endpoint → ${crossing.name}`)}
+        ${legMarkup(transfer.onward, 'After the border', `${crossing.name} → next route`)}
+    </div>` : `<div class="journey-transfer__withheld"><i class="fas fa-location-crosshairs" aria-hidden="true"></i><p><strong>Distance withheld</strong><br>The cached road match did not meet our confidence threshold. Confirm this transfer with your host, rental company or a local route planner.</p></div>`;
+    return `<section class="journey-transfer" aria-label="Cross-border transfer plan">
+        <div class="journey-transfer__head">
+            <div><span class="journey-transfer__eyebrow">Cross-border logistics</span><strong>${transfer.status === 'estimated' ? `${transfer.totalDistanceKm} km · ${formatDriveMinutes(transfer.totalDriveMinutes)} driving` : transfer.status === 'partial' ? 'Partial estimate · complete locally' : 'Verify the road transfer locally'}</strong></div>
+            <span class="journey-transfer__confidence ${transfer.status === 'estimated' ? '' : 'is-withheld'}">${escapeHtml(confidence)}</span>
+        </div>
+        ${legs}
+        <div class="journey-transfer__arrival ${arrivalClass}">
+            <label for="journey-departure-${index}">Planned departure</label>
+            <input id="journey-departure-${index}" type="time" value="${escapeHtml(transfer.departureTime)}" data-transfer-departure="${index}" aria-describedby="journey-arrival-${index}">
+            <p id="journey-arrival-${index}"><i class="fas ${transfer.arrival.status === 'closed' ? 'fa-triangle-exclamation' : 'fa-clock'}" aria-hidden="true"></i>${escapeHtml(transfer.arrival.label)}</p>
+        </div>
+        <div class="journey-transfer__advice"><p><i class="fas fa-gas-pump" aria-hidden="true"></i>${escapeHtml(transfer.fuelGuidance)}</p><p><i class="fas fa-sun" aria-hidden="true"></i>${escapeHtml(transfer.dayGuidance)}</p></div>
+        <details class="journey-transfer__documents"><summary>Vehicle and document checklist</summary><ul>${(crossing.documents || []).map(item => `<li>${escapeHtml(item)}</li>`).join('')}<li>${escapeHtml(crossing.fees || 'Confirm current fees and requirements')}</li></ul></details>
+        <p class="journey-transfer__source">Road figures are cached planning estimates from ${escapeHtml(transfer.source)}. They exclude stops, border processing, queues and current disruption.</p>
+    </section>`;
+}
+
 function renderJourney(root, journey, focusHeading = true) {
     destroyJourneyMap();
     let day = 1;
@@ -134,6 +164,7 @@ function renderJourney(root, journey, focusHeading = true) {
         const endDay = day + segment.days - 1;
         day = endDay + 1;
         const crossing = journey.crossings[index];
+        const transfer = journey.transfers[index];
         const routeMarkup = `<article class="journey-step journey-step--route">
             <div class="journey-step__marker"><span>${index + 1}</span></div>
             <div class="journey-step__body">
@@ -154,6 +185,7 @@ function renderJourney(root, journey, focusHeading = true) {
                 <h5>${escapeHtml(crossing.name)}</h5>
                 <p>${escapeHtml(crossing.route)} · ${escapeHtml(crossing.hours)}</p>
                 <div class="journey-step__reason"><i class="fas fa-shield-halved" aria-hidden="true"></i>Reviewed ${escapeHtml(crossing.lastVerified)} · reconfirm before travel</div>
+                ${transferMarkup(transfer, crossing, index)}
                 <a href="/borders/${escapeHtml(crossing.id)}">Open border guide <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
             </div>
         </article>`;
@@ -210,6 +242,7 @@ function applyCountryOrder(form, results, nextOrder) {
         countries: nextOrder,
         countryOrder: nextOrder,
         startCountry: nextOrder[0],
+        transferDepartures: currentJourney.preferences.transferDepartures,
     });
     const status = results.querySelector('.journey-order__status');
     if (nextJourney.status !== 'ready') {
@@ -329,6 +362,28 @@ export function initJourneyComposer() {
             if (status) status.textContent = `${trip.name} is ready. Opening your editable itinerary…`;
             window.location.assign('/my-safari');
         }
+    });
+
+    root.addEventListener('change', event => {
+        const input = event.target.closest('[data-transfer-departure]');
+        if (!input || currentJourney?.status !== 'ready') return;
+        const index = Number(input.dataset.transferDeparture);
+        const crossing = currentJourney.crossings[index];
+        const fromRoute = currentJourney.segments[index]?.route;
+        const toRoute = currentJourney.segments[index + 1]?.route;
+        if (!crossing || !fromRoute || !toRoute) return;
+        const transfer = buildTransferPlan(fromRoute, crossing, toRoute, input.value);
+        currentJourney.preferences.transferDepartures[transfer.key] = transfer.departureTime;
+        currentJourney.transfers[index] = transfer;
+        savePreferences(currentJourney.preferences);
+        trackProductEvent('journey_transfer_time_updated', {
+            source: 'journey_composer',
+            status: transfer.arrival.status,
+            countryCount: currentJourney.segments.length,
+            hasDates: Boolean(currentJourney.preferences.startDate),
+        });
+        renderJourney(results, currentJourney, false);
+        results.querySelector(`[data-transfer-departure="${index}"]`)?.focus({ preventScroll: true });
     });
 
     root.addEventListener('dragstart', event => {

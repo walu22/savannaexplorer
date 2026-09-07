@@ -1,7 +1,7 @@
 {
   "name": "savannaexplorer",
   "private": true,
-  "version": "4.73.0",
+  "version": "4.74.0",
   "engines": {
     "node": ">=22"
   },
@@ -31,6 +31,7 @@
     "editorial:advisory-health": "node scripts/advisory-health-report.mjs",
     "verify:deployment": "node scripts/deployment-smoke.mjs",
     "routes:logistics": "node scripts/generate-route-logistics.mjs",
+    "journeys:logistics": "node scripts/generate-journey-transfer-logistics.mjs",
     "deploy:live": "npm run build && npx --yes vercel@59.11.7 pull --yes --environment=production && npx --yes vercel@59.11.7 deploy --prod --yes"
   },
   "devDependencies": {

@@ -6,6 +6,7 @@ const PRODUCT_EVENTS = new Set([
     'journey_composed',
     'journey_added_to_trip',
     'journey_reordered',
+    'journey_transfer_time_updated',
     'trip_created',
     'trip_details_updated',
     'readiness_task_added',

@@ -1,4 +1,5 @@
 import { routeToTripTemplate } from './route-collection.js';
+import { buildTransferPlan } from './journey-logistics.js';
 
 export const JOURNEY_COUNTRIES = {
     namibia: 'Namibia',
@@ -23,6 +24,13 @@ function unique(values) {
 
 function validDate(value) {
     return /^\d{4}-\d{2}-\d{2}$/.test(value || '') ? value : '';
+}
+
+function normalizedDepartureTimes(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+    return Object.fromEntries(Object.entries(value)
+        .filter(([key, time]) => key.length <= 256 && /^([01]\d|2[0-3]):[0-5]\d$/.test(String(time || '')))
+        .slice(0, 6));
 }
 
 function addDays(value, amount) {
@@ -103,6 +111,7 @@ export function normalizeJourneyPreferences(value = {}) {
         vehicle: VEHICLE_LEVEL[value.vehicle] ? value.vehicle : 'suv',
         theme: THEMES.has(value.theme) ? value.theme : 'wildlife',
         startDate: validDate(value.startDate),
+        transferDepartures: normalizedDepartureTimes(value.transferDepartures),
     };
 }
 
@@ -199,6 +208,15 @@ export function composeJourney(routes, borders, rawPreferences = {}) {
         themeMatch: preferences.theme === 'all' || route.themes?.includes(preferences.theme),
         vehicleFit: (VEHICLE_LEVEL[preferences.vehicle] || 1) >= routeVehicleLevel(route),
     }));
+    const transfers = best.crossings.map((crossing, index) => {
+        const preview = buildTransferPlan(best.selectedRoutes[index], crossing, best.selectedRoutes[index + 1]);
+        return buildTransferPlan(
+            best.selectedRoutes[index],
+            crossing,
+            best.selectedRoutes[index + 1],
+            preferences.transferDepartures[preview.key],
+        );
+    });
 
     return {
         status: 'ready',
@@ -206,6 +224,7 @@ export function composeJourney(routes, borders, rawPreferences = {}) {
         countryOrder: best.order,
         segments,
         crossings: best.crossings,
+        transfers,
         totalDays: preferences.days,
         minimumDays: best.minimumDays,
         extraDays: preferences.days - best.minimumDays,
@@ -265,6 +284,7 @@ export function journeyToTripTemplate(journey, startDate = '') {
 
         const crossing = journey.crossings[segmentIndex];
         if (crossing) {
+            const transfer = journey.transfers?.[segmentIndex];
             const nextCountry = journey.segments[segmentIndex + 1].countryName;
             const dayNumber = routeDays.length + 1;
             routeDays.push({
@@ -276,15 +296,19 @@ export function journeyToTripTemplate(journey, startDate = '') {
                     type: 'drive',
                     name: `Drive to ${crossing.name}`,
                     location: crossing.route || `${segment.countryName} to ${nextCountry}`,
-                    time: '',
-                    notes: 'Confirm the approach, fuel stops and realistic daylight driving time before departure.',
+                    time: transfer?.departureTime || '',
+                    notes: transfer?.status === 'estimated'
+                        ? `Cached planning estimate: ${transfer.totalDistanceKm} km and ${formatTransferMinutes(transfer.totalDriveMinutes)} total driving via ${crossing.name}. ${transfer.fuelGuidance} ${transfer.dayGuidance} Estimate captured ${transfer.capturedAt}; excludes border processing, breaks, road disruption and queues.`
+                        : transfer?.status === 'partial'
+                            ? `Partial cached estimate via ${crossing.name}: ${[transfer.approach, transfer.onward].filter(Boolean).map(leg => `${leg.fromName} to ${leg.toName} is ${leg.distanceKm} km / ${formatTransferMinutes(leg.driveMinutes)}`).join('; ')}. The other road leg was withheld because it did not meet the confidence threshold. ${transfer.fuelGuidance} ${transfer.dayGuidance} Estimate captured ${transfer.capturedAt}.`
+                        : `${transfer?.fuelGuidance || 'Confirm fuel availability and range before departure.'} ${transfer?.dayGuidance || 'Confirm the approach and realistic daylight driving time locally.'} The cached road match was withheld because it did not meet the confidence threshold.`,
                 }, {
                     id: `journey-border-stop-${segmentIndex + 1}-${crossing.id}`,
                     type: 'border',
                     name: crossing.name,
                     location: `${segment.countryName} · ${nextCountry}`,
-                    time: '',
-                    notes: `${crossing.hours || 'Confirm current hours'}. ${crossing.fees || 'Confirm current fees and requirements'}. Last verified ${crossing.lastVerified || 'date unavailable'}.`,
+                    time: transfer?.arrival?.arrivalTime || '',
+                    notes: `${transfer?.arrival?.label || 'Confirm arrival against current border hours.'} Published hours: ${crossing.hours || 'confirm current hours'}. ${crossing.fees || 'Confirm current fees and requirements'}. Carry: ${(crossing.documents || []).join('; ') || 'confirm passport and vehicle paperwork'}. Border record last verified ${crossing.lastVerified || 'date unavailable'}; reconfirm before travel.`,
                 }],
             });
         }
@@ -301,4 +325,11 @@ export function journeyToTripTemplate(journey, startDate = '') {
         routeDays,
         notes: `Built from ${journey.segments.map(segment => segment.route.title).join(', ')}. Border, road, weather, permit and entry information must be rechecked before travel.`,
     };
+}
+
+function formatTransferMinutes(minutes) {
+    const value = Math.max(0, Math.round(Number(minutes) || 0));
+    const hours = Math.floor(value / 60);
+    const remainder = value % 60;
+    return remainder ? `${hours} hr ${remainder} min` : `${hours} hr`;
 }
