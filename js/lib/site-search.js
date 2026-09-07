@@ -19,6 +19,8 @@ const QUERY_ALIASES = {
     wildlife: ['safari', 'animals'],
     cheap: ['budget', 'cost'],
     money: ['budget', 'currency', 'cost'],
+    itinerary: ['planner', 'route', 'journey'],
+    multicountry: ['cross-border', 'journey', 'route'],
 };
 
 export const SEARCH_TYPES = Object.entries(TYPE_LABELS).map(([id, label]) => ({ id, label }));
@@ -69,6 +71,7 @@ const PRACTICAL_PAGES = [
     { id: 'budget', title: 'Trip budget and expenses', summary: 'Estimate costs and keep trip expenses together in My Safari.', href: '/expenses', keywords: ['money', 'currency', 'budget', 'cost', 'cheap'] },
     { id: 'phrasebook', title: 'Essential phrasebook', summary: 'Carry useful greetings and travel phrases for Southern Africa.', href: '/phrasebook', keywords: ['language', 'phrases', 'speak', 'local', 'greeting'] },
     { id: 'my-safari', title: 'My Safari trip workspace', summary: 'Save routes, bookings, readiness checks, budgets and offline trip packs.', href: '/my-safari', keywords: ['planner', 'itinerary', 'calendar', 'offline', 'booking'] },
+    { id: 'journey-builder', title: 'Multi-country journey builder', summary: 'Connect researched routes through reviewed land borders and save one editable itinerary.', href: '/routes#journey-composer', keywords: ['multi country', 'multicountry', 'cross border', 'road trip', 'route planner', 'itinerary'] },
 ];
 
 export function buildSiteSearchIndex({ countries = {}, routes = [], parks = [], borders = [], guides = {}, visaHealth = [] } = {}) {

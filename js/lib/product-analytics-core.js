@@ -3,6 +3,8 @@ import { parseRouteShape } from './route-shape.js';
 const PRODUCT_EVENTS = new Set([
     'route_match_completed',
     'route_added_to_trip',
+    'journey_composed',
+    'journey_added_to_trip',
     'trip_created',
     'trip_details_updated',
     'readiness_task_added',

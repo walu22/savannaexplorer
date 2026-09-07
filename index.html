@@ -61,6 +61,7 @@
                     <div class="nav-drop-menu">
                         <a href="/my-safari">My Safari</a>
                         <a href="/routes">Route Explorer</a>
+                        <a href="/routes#journey-composer">Multi-country builder</a>
                         <a href="#" class="open-ai-planner">Plan with AI</a>
                         <a href="/itineraries">Itineraries</a>
                         <a href="/book-direct">Book direct</a>
@@ -377,6 +378,52 @@
                     </div>
                 </form>
                 <div id="route-matcher-results" class="route-matcher-results" aria-live="polite" hidden></div>
+            </section>
+
+            <section id="journey-composer" class="journey-composer" aria-labelledby="journey-composer-title">
+                <div class="journey-composer__header">
+                    <div>
+                        <span class="section-eyebrow">Multi-country journey builder</span>
+                        <h3 id="journey-composer-title">Turn several routes into one workable trip</h3>
+                        <p>Choose two to four countries. We’ll connect compatible route templates through reviewed land borders and fit them to your available days.</p>
+                    </div>
+                    <ul class="journey-composer__promise" aria-label="How the journey is built">
+                        <li><i class="fas fa-route" aria-hidden="true"></i><span>Uses the existing researched route collection</span></li>
+                        <li><i class="fas fa-passport" aria-hidden="true"></i><span>Adds a dedicated day for every border crossing</span></li>
+                        <li><i class="fas fa-pen-ruler" aria-hidden="true"></i><span>Saves as a fully editable My Safari itinerary</span></li>
+                    </ul>
+                </div>
+
+                <form id="journey-composer-form" class="journey-composer__form">
+                    <fieldset class="journey-country-fieldset">
+                        <legend>Countries to include <span class="sr-only">Choose between two and four</span></legend>
+                        <div class="journey-country-grid">
+                            <label class="journey-country-option"><input type="checkbox" name="countries" value="namibia"> Namibia</label>
+                            <label class="journey-country-option"><input type="checkbox" name="countries" value="south-africa"> South Africa</label>
+                            <label class="journey-country-option"><input type="checkbox" name="countries" value="botswana"> Botswana</label>
+                            <label class="journey-country-option"><input type="checkbox" name="countries" value="zambia"> Zambia</label>
+                            <label class="journey-country-option"><input type="checkbox" name="countries" value="zimbabwe"> Zimbabwe</label>
+                            <label class="journey-country-option"><input type="checkbox" name="countries" value="mozambique"> Mozambique</label>
+                            <label class="journey-country-option"><input type="checkbox" name="countries" value="malawi"> Malawi</label>
+                            <label class="journey-country-option"><input type="checkbox" name="countries" value="lesotho"> Lesotho</label>
+                            <label class="journey-country-option"><input type="checkbox" name="countries" value="eswatini"> Eswatini</label>
+                        </div>
+                        <p id="journey-country-status" class="journey-country-status" aria-live="polite">Choose two to four countries.</p>
+                    </fieldset>
+
+                    <div class="journey-composer__controls">
+                        <div class="journey-composer__field"><label for="journey-start-country">Start in</label><select id="journey-start-country" name="startCountry"></select></div>
+                        <div class="journey-composer__field"><label for="journey-days">Days available</label><input id="journey-days" name="days" type="number" min="7" max="30" value="22" inputmode="numeric" required></div>
+                        <div class="journey-composer__field"><label for="journey-vehicle">Driving comfort</label><select id="journey-vehicle" name="vehicle"><option value="standard">Standard-road driving</option><option value="suv">Gravel roads with an SUV</option><option value="4x4">Experienced 4×4 driving</option></select></div>
+                        <div class="journey-composer__field"><label for="journey-theme">Main interest</label><select id="journey-theme" name="theme"><option value="wildlife">Wildlife</option><option value="landscapes">Landscapes</option><option value="culture">Culture</option><option value="coast">Coast</option><option value="water">Rivers &amp; lakes</option><option value="adventure">Adventure</option><option value="family">Family</option><option value="all">A balanced mix</option></select></div>
+                        <div class="journey-composer__field"><label for="journey-start-date">Start date <span class="sr-only">optional</span></label><input id="journey-start-date" name="startDate" type="date"><span class="sr-only">Optional</span></div>
+                        <div class="journey-composer__actions">
+                            <button type="button" class="btn btn-outline" data-journey-reset>Reset</button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> Build my journey</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="journey-composer-results" class="journey-composer-results" aria-live="polite" hidden></div>
             </section>
 
             <div class="route-explorer-filters" aria-label="Filter routes">

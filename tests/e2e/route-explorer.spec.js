@@ -125,6 +125,45 @@ test('route matcher recommends explainable journeys and prepares a comparison', 
     await expect(matcher.getByLabel('Days available')).toHaveValue('12');
 });
 
+test('multi-country builder creates a connected editable My Safari itinerary', async ({ page }) => {
+    test.setTimeout(90_000);
+    await page.goto('/routes', { waitUntil: 'domcontentloaded' });
+    const builder = page.locator('#journey-composer');
+    await expect(builder.getByRole('heading', { name: 'Turn several routes into one workable trip' })).toBeVisible();
+
+    await builder.getByLabel('Namibia').check();
+    await builder.getByLabel('Botswana').check();
+    await builder.getByLabel('Days available').fill('22');
+    await builder.getByLabel('Driving comfort').selectOption('4x4');
+    await builder.getByLabel('Main interest').selectOption('wildlife');
+    await builder.getByLabel('Start date').fill('2026-10-01');
+    await builder.getByRole('button', { name: 'Build my journey' }).click();
+
+    const results = builder.locator('#journey-composer-results');
+    await expect(results).toContainText('Namibia');
+    await expect(results).toContainText('Botswana');
+    await expect(results.getByText('22 days')).toBeVisible();
+    await expect(results.locator('.journey-step--route')).toHaveCount(2);
+    await expect(results.locator('.journey-step--border')).toHaveCount(1);
+
+    const accessibility = await new AxeBuilder({ page })
+        .include('#journey-composer')
+        .withTags(['wcag2a', 'wcag2aa'])
+        .analyze();
+    expect(accessibility.violations.filter(item => ['serious', 'critical'].includes(item.impact))).toEqual([]);
+
+    await results.getByRole('button', { name: 'Save to My Safari' }).click();
+    await expect(page).toHaveURL(/\/my-safari$/);
+    await expect(page.locator('#my-safari-active-name')).toContainText('Namibia · Botswana journey');
+
+    const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('se_my_safari_v1')));
+    expect(saved.trips).toHaveLength(1);
+    expect(saved.trips[0].templateRouteId).toMatch(/^journey:/);
+    expect(saved.trips[0].countries).toEqual(['Namibia', 'Botswana']);
+    expect(saved.trips[0].routeDays).toHaveLength(22);
+    expect(saved.trips[0].routeDays.some(day => day.stops.some(stop => stop.type === 'border'))).toBe(true);
+});
+
 test('Route Explorer has no serious accessibility violations', async ({ page }) => {
     test.setTimeout(90_000);
     await page.goto('/#route-explorer', { waitUntil: 'domcontentloaded' });

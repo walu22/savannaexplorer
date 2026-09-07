@@ -9,6 +9,7 @@ import { navigateHome, navigateToRoute, routePath, scrollToSection } from '../li
 import { routeShareUrl } from '../lib/share.js';
 import { setHomeMeta, setRouteMeta } from '../lib/page-meta.js';
 import { renderShareBar } from './share.js';
+import { initJourneyComposer } from './journey-composer.js';
 import {
     formatDriveMinutes,
     editorialLegFor,
@@ -455,6 +456,7 @@ function startRoute(routeId, source = 'route_explorer') {
 export function initRouteExplorer() {
     const section = document.getElementById('route-explorer');
     if (!section) return;
+    initJourneyComposer();
     restoreComparison();
     renderFilters();
     restoreRouteMatcher();

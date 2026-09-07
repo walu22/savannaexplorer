@@ -22,6 +22,7 @@ test('search index covers core travel content and country filters', () => {
     assert.ok(index.some(item => item.type === 'border' && item.href === '/borders/ngoma'));
     assert.ok(index.some(item => item.type === 'guide' && item.href === '/guides/planning/namibia'));
     assert.ok(index.some(item => item.type === 'practical' && item.href === '/plan'));
+    assert.ok(index.some(item => item.type === 'practical' && item.href === '/routes#journey-composer'));
     assert.deepEqual(searchCountryOptions(index, sources.countries).map(item => item.id), ['botswana', 'namibia', 'south-africa']);
 });
 
@@ -31,6 +32,7 @@ test('search ranks exact titles and expands traveller language', () => {
     assert.equal(searchSiteIndex(index, 'family drive')[0].sourceId, 'namibia-loop');
     assert.ok(searchSiteIndex(index, 'malaria', { country: 'namibia' }).some(item => item.type === 'practical'));
     assert.ok(searchSiteIndex(index, 'passport', { type: 'guide' }).some(item => item.title === 'Namibia Planning Guide'));
+    assert.equal(searchSiteIndex(index, 'multi country itinerary')[0].title, 'Multi-country journey builder');
 });
 
 test('search normalizes accents and applies type and country filters safely', () => {
