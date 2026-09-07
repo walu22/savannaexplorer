@@ -75,7 +75,7 @@ const SECTION_FEATURES = {
     phrasebook: ['phrasebook'],
     campsites: ['campsites'],
     editorial: ['editorial'],
-    cultures: ['marketplace'],
+    cultures: [],
     gastronomy: ['marketplace'],
     experiences: ['marketplace'],
     news: ['discover'],

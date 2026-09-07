@@ -105,16 +105,16 @@ body.site-v2 .page-chapter--plan {
     background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-light) 100%);
 }
 
-body.site-v2 .page-chapter--plan > section:not(.utility-hub):not(.gastronomy):not(.cultural-mosaic):not(.safari-bingo-section):not(.phrasebook-section) {
+body.site-v2 .page-chapter--plan > section:not(.utility-hub):not(.gastronomy):not(.community-travel-section):not(.safari-bingo-section):not(.phrasebook-section) {
     background: transparent;
 }
 
-body.site-v2 .page-chapter--plan > section:nth-child(even):not(.utility-hub):not(.gastronomy):not(.cultural-mosaic):not(.safari-bingo-section):not(.phrasebook-section) {
+body.site-v2 .page-chapter--plan > section:nth-child(even):not(.utility-hub):not(.gastronomy):not(.community-travel-section):not(.safari-bingo-section):not(.phrasebook-section) {
     background: rgba(255, 255, 255, 0.55);
 }
 
 /* Dark-band sections keep their own backgrounds (chapter pacing must not wash them out) */
-body.site-v2 .page-chapter--plan > section.cultural-mosaic {
+body.site-v2 .page-chapter--plan > section.community-travel-section {
     background: var(--brand-dark-surface);
 }
 

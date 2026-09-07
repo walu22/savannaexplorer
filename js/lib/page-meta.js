@@ -78,6 +78,10 @@ const HUB_META = {
         title: 'Southern Africa Tourism Statistics',
         description: 'Visitor arrivals and tourism trends for Namibia, South Africa, Botswana, Zambia, Zimbabwe, and neighbouring countries.',
     },
+    cultures: {
+        title: 'Responsible Community Travel',
+        description: 'Plan respectful local experiences across Southern Africa with practical guidance on community benefit, consent, photography, language, and local guides.',
+    },
     editorial: {
         title: 'Editorial Workspace',
         description: 'Restricted Savanna Explorer editorial operations workspace.',

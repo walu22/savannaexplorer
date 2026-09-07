@@ -27,7 +27,7 @@ export const NAV_JOURNEY_GROUPS = [
             { href: '/top-destinations', label: 'Top highlights' },
             { href: '/experiences', label: 'Experiences' },
             { href: '/parks', label: 'National parks' },
-            { href: '/cultures', label: 'Cultures' },
+            { href: '/cultures', label: 'Community travel' },
             { href: '/gastronomy', label: 'Gastronomy' },
         ],
     },
