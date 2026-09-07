@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastReviewed": "2026-09-07",
-    "coverage": "Sixteen high-value border corridors",
+    "coverage": "Twenty-two high-value border corridors",
     "methodology": "Properties are included only when a direct property or official tourism source can be paired with usable coordinates. Straight-line distances are calculated from the property coordinates to the reviewed border coordinates in data/borders.json; they are not road distances.",
     "availability": "No live room availability is provided. Travellers must confirm dates, rates, access, parking and arrival arrangements directly with the property.",
     "parkingPolicy": "Secure parking is shown only when the cited source explicitly publishes a security claim. Parking availability alone is not described as secure."
@@ -486,6 +486,189 @@
       "accessNotes": [
         "The listing publishes direct telephone contacts and identifies the hotel as an M6-road accommodation option.",
         "Phone before arrival because online availability is not provided."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "mopani-rest-camp",
+      "borderId": "giriyondo",
+      "name": "Mopani Rest Camp",
+      "countryId": "south-africa",
+      "countryName": "South Africa",
+      "locality": "Kruger National Park",
+      "coordinates": { "lat": -23.5275, "lng": 31.3997222 },
+      "coordinateSourceUrl": "https://www.sanparks.org/parks/kruger/travel/gps-waypoints",
+      "distanceKm": 27.3,
+      "publishedProximity": "SANParks publishes Mopani's GPS position; the displayed figure is a straight-line distance, not the much longer in-park driving distance.",
+      "propertyUrl": "https://www.sanparks.org/parks/kruger/camps/main-rest-camps/mopani",
+      "sourceUrl": "https://www.sanparks.org/parks/kruger/travel/giriyondo-access-point",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Overnight guest parking security is not published on the reviewed SANParks pages.",
+        "sourceUrl": "https://www.sanparks.org/parks/kruger/camps/main-rest-camps/mopani"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Accommodation check-in limits are not published on the reviewed camp page.",
+        "sourceUrl": "https://www.sanparks.org/parks/kruger/camps/main-rest-camps/mopani"
+      },
+      "accessNotes": [
+        "Giriyondo is a tourism-only, 4x4 crossing and SANParks requires proof of an official overnight booking in Kruger or Limpopo National Park.",
+        "The crossing closes before park gates; confirm current road conditions, seasonal hours and enough daylight to reach camp."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "shewula-mountain-camp",
+      "borderId": "lomahasha",
+      "name": "Shewula Mountain Camp",
+      "countryId": "eswatini",
+      "countryName": "Eswatini",
+      "locality": "Shewula",
+      "coordinates": { "lat": -26.1422194, "lng": 32.0397194 },
+      "coordinateSourceUrl": "https://shewulacamp.org/contacts/",
+      "distanceKm": 17.5,
+      "publishedProximity": "The community camp publishes its GPS coordinates; the displayed distance to Lomahasha is calculated.",
+      "propertyUrl": "https://shewulacamp.org/contacts/",
+      "actionLabel": "Open booking contacts",
+      "sourceUrl": "https://shewulacamp.org/contacts/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking availability and security are not published on the reviewed camp page.",
+        "sourceUrl": "https://shewulacamp.org/contacts/"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Check-in limits are not published on the reviewed camp page.",
+        "sourceUrl": "https://shewulacamp.org/contacts/"
+      },
+      "accessNotes": [
+        "No credible bookable stay was found at Lomahasha itself; this is a verified community-owned corridor stop, not gate-side lodging.",
+        "Call or email the camp to confirm availability, road access, parking and arrival timing."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "mhlumeni-community-camp",
+      "borderId": "mhlumeni-goba",
+      "name": "Mhlumeni Community Camp",
+      "countryId": "eswatini",
+      "countryName": "Eswatini",
+      "locality": "Mhlumeni",
+      "coordinates": { "lat": -26.2679917, "lng": 32.0293778 },
+      "coordinateSourceUrl": "https://www.tripadvisor.com/Hotel_Review-g3666040-d15182997-Reviews-Mhlumeni_Bush_Camp-Lubombo_District.html",
+      "distanceKm": 13.8,
+      "publishedProximity": "The property describes access from the Siteki–Mhlumeni/Goba border road; the displayed distance is calculated from published GPS coordinates.",
+      "propertyUrl": "https://www.mbuluzi.com/rooms/mhlumeni-community-camp-3/",
+      "sourceUrl": "https://www.mbuluzi.com/rooms/mhlumeni-community-camp-3/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking availability and security are not published on the reviewed property page.",
+        "sourceUrl": "https://www.mbuluzi.com/rooms/mhlumeni-community-camp-3/"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Check-in limits are not published on the reviewed property page.",
+        "sourceUrl": "https://www.mbuluzi.com/rooms/mhlumeni-community-camp-3/"
+      },
+      "accessNotes": [
+        "The camp offers safari tents and campsites on community-owned land off the Siteki–Mhlumeni road.",
+        "Confirm the Mozambique-side border hours, road access and arrival arrangements directly."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "pafuri-moz",
+      "borderId": "pafuri-border-gate",
+      "name": "Pafuri Moz",
+      "countryId": "mozambique",
+      "countryName": "Mozambique",
+      "locality": "Limpopo National Park",
+      "coordinates": { "lat": -22.435907, "lng": 31.381821 },
+      "coordinateSourceUrl": "https://www.pafurimoz.co.za/",
+      "distanceKm": 7.5,
+      "publishedProximity": "The property publishes a location 8 km from Pafuri border post; the displayed straight-line figure is calculated from its embedded map.",
+      "propertyUrl": "https://www.pafurimoz.co.za/",
+      "actionLabel": "Open booking contacts",
+      "sourceUrl": "https://www.pafurimoz.co.za/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking availability and security are not published on the reviewed property page.",
+        "sourceUrl": "https://www.pafurimoz.co.za/"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Check-in limits are not published on the reviewed property page.",
+        "sourceUrl": "https://www.pafurimoz.co.za/"
+      },
+      "accessNotes": [
+        "The property offers camping and self-catering tents in Limpopo National Park.",
+        "Pafuri travellers must carry proof of a qualifying official park overnight and confirm current border, park-road and arrival conditions."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "mmabatho-palms",
+      "borderId": "ramatlabama",
+      "name": "Mmabatho Palms Hotel",
+      "countryId": "south-africa",
+      "countryName": "South Africa",
+      "locality": "Mahikeng",
+      "coordinates": { "lat": -25.8173111, "lng": 25.6344028 },
+      "coordinateSourceUrl": "https://mmabathopalms.co.za/contact/",
+      "distanceKm": 19.6,
+      "publishedProximity": "The property publishes its Mahikeng GPS coordinates; the displayed distance to Ramatlabama is calculated.",
+      "propertyUrl": "https://mmabathopalms.co.za/",
+      "actionLabel": "Open hotel details",
+      "sourceUrl": "https://mmabathopalms.co.za/contact/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking availability and security are not published on the reviewed hotel page.",
+        "sourceUrl": "https://mmabathopalms.co.za/contact/"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Check-in limits are not published on the reviewed hotel page.",
+        "sourceUrl": "https://mmabathopalms.co.za/contact/"
+      },
+      "accessNotes": [
+        "This is a verified Mahikeng corridor stay, not gate-side accommodation.",
+        "Confirm room availability, parking and late-arrival arrangements before departure."
+      ],
+      "availability": "check-direct"
+    },
+    {
+      "id": "caprivi-houseboat-safari-lodge",
+      "borderId": "wenela",
+      "name": "Caprivi Houseboat Safari Lodge",
+      "countryId": "namibia",
+      "countryName": "Namibia",
+      "locality": "Katima Mulilo",
+      "coordinates": { "lat": -17.49519, "lng": 24.32405 },
+      "coordinateSourceUrl": "https://visitnamibia.com.na/wp-content/uploads/2022/03/FOUR_RIVERS_DIGITAL_BROCHURE_FINAL.pdf",
+      "distanceKm": 5.3,
+      "publishedProximity": "Namibia's official tourism brochure publishes the lodge GPS position; the displayed distance to Wenela is calculated.",
+      "propertyUrl": "https://www.caprivihouseboatsafaris.com/collections/accommodation/",
+      "sourceUrl": "https://www.caprivihouseboatsafaris.com/collections/accommodation/",
+      "lastVerified": "2026-09-07",
+      "parking": {
+        "status": "unknown",
+        "label": "Parking availability and security are not published on the reviewed property page.",
+        "sourceUrl": "https://www.caprivihouseboatsafaris.com/collections/accommodation/"
+      },
+      "checkIn": {
+        "status": "unknown",
+        "label": "Check-in limits are not published on the reviewed property page.",
+        "sourceUrl": "https://www.caprivihouseboatsafaris.com/collections/accommodation/"
+      },
+      "accessNotes": [
+        "The lodge provides chalets, a tented room and campsites east of Katima Mulilo, with direct booking available from its site.",
+        "Confirm current river-season road access, parking and arrival timing directly."
       ],
       "availability": "check-direct"
     }

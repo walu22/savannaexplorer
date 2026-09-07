@@ -43,10 +43,14 @@ test('corridor stay collection is traceable, conservative and geographically con
         return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     };
 
-    assert.equal(corridorCollection.stays.length, 16);
-    assert.equal(new Set(corridorCollection.stays.map(stay => stay.borderId)).size, 16);
+    assert.equal(corridorCollection.stays.length, 22);
+    assert.equal(new Set(corridorCollection.stays.map(stay => stay.borderId)).size, 22);
     assert.deepEqual(
-        ['plumtree', 'ponta-do-ouro', 'sani-pass', 'mwanza-zobue'].filter(borderId => !corridorCollection.stays.some(stay => stay.borderId === borderId)),
+        [
+            'plumtree', 'ponta-do-ouro', 'sani-pass', 'mwanza-zobue',
+            'giriyondo', 'lomahasha', 'mhlumeni-goba', 'pafuri-border-gate',
+            'ramatlabama', 'wenela',
+        ].filter(borderId => !corridorCollection.stays.some(stay => stay.borderId === borderId)),
         [],
     );
     corridorCollection.stays.forEach(stay => {
@@ -71,7 +75,12 @@ test('corridor stay collection is traceable, conservative and geographically con
 test('unresearched crossings keep the honest country-directory fallback', () => {
     const fromSegment = { countryId: 'south-africa', countryName: 'South Africa', route: routeCollection.routes.find(route => route.countryIds[0] === 'south-africa') };
     const toSegment = { countryId: 'botswana', countryName: 'Botswana', route: routeCollection.routes.find(route => route.countryIds[0] === 'botswana') };
-    const plan = buildStopoverPlan({ status: 'partial', schedulingMinutes: 420 }, borders.find(border => border.id === 'ramatlabama'), fromSegment, toSegment);
+    const plan = buildStopoverPlan(
+        { status: 'partial', schedulingMinutes: 420 },
+        { id: 'research-pending-crossing', name: 'Research-pending crossing' },
+        fromSegment,
+        toSegment,
+    );
 
     assert.deepEqual(plan.corridorStays, []);
     assert.ok(plan.sources.length >= 2);
