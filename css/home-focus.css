@@ -55,7 +55,20 @@ body.home-section-focus--my-safari #plan .hub-card:not(#hub-my-safari) {
     display: none !important;
 }
 
-body.home-section-focus--my-safari #plan { padding-top: 2.5rem; }
+body.home-section-focus--my-safari #plan {
+    padding-top: 2.5rem;
+    background: #f1ede5;
+}
+
+body.home-section-focus--my-safari #hub-my-safari {
+    border-color: rgba(141, 78, 39, 0.34);
+    background: linear-gradient(145deg, #2b2d2a, #1d201f);
+    box-shadow: 0 24px 64px rgba(27, 31, 28, 0.18);
+}
+
+body.home-section-focus--my-safari #hub-my-safari:hover {
+    transform: none;
+}
 
 body.home-section-focus--expense #plan > .container > .section-header,
 body.home-section-focus--expense #plan > .container > .hub-toolbar,
