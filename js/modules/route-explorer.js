@@ -3,13 +3,14 @@ import { filterRouteCollection, routeToTripTemplate } from '../lib/route-collect
 import { MAX_COMPARE_ROUTES, normalizeComparisonIds, routeCostSignal, toggleComparisonId } from '../lib/route-comparison.js';
 import { DEFAULT_ROUTE_PREFERENCES, normalizeRoutePreferences, rankRouteMatches } from '../lib/route-matcher.js';
 import { mountRouteCollectionMap, destroyRouteCollectionMap } from '../lib/itinerary-maps.js';
-import { createTrip } from '../lib/trip-store.js';
+import { createTrip, updateTrip } from '../lib/trip-store.js';
 import { trackProductEvent } from '../lib/product-analytics.js';
 import { navigateHome, navigateToRoute, routePath, scrollToSection } from '../lib/router.js';
 import { routeShareUrl } from '../lib/share.js';
 import { setHomeMeta, setRouteMeta } from '../lib/page-meta.js';
 import { renderShareBar } from './share.js';
 import { initJourneyComposer } from './journey-composer.js';
+import { evaluateRouteFeasibility, normalizeFeasibilityPreferences } from '../lib/route-feasibility.js';
 import {
     formatDriveMinutes,
     editorialLegFor,
@@ -51,6 +52,7 @@ let explorerActivated = false;
 let comparisonIds = [];
 let comparisonOpen = false;
 let matcherMatches = [];
+const feasibilityPreferences = new Map();
 
 const COMPARISON_STORAGE_KEY = 'se_route_comparison_v1';
 const MATCHER_STORAGE_KEY = 'se_route_matcher_v1';
@@ -67,6 +69,53 @@ function countryNames(route) {
 
 function googleMapsUrl(route) {
     return `https://www.google.com/maps/dir/${route.stops.map(stop => encodeURIComponent(`${stop.name}, ${countryNames(route)}`)).join('/')}`;
+}
+
+function routeFeasibilityMarkup(route) {
+    const preferences = feasibilityPreferences.get(route.id) || normalizeFeasibilityPreferences(route);
+    feasibilityPreferences.set(route.id, preferences);
+    const assessment = evaluateRouteFeasibility(route, preferences);
+    const vehicleOptions = [
+        ['standard', 'Standard car'],
+        ['suv', 'High-clearance SUV'],
+        ['4x4', 'Experienced 4×4'],
+    ].map(([value, label]) => `<option value="${value}"${preferences.vehicle === value ? ' selected' : ''}>${label}</option>`).join('');
+    return `
+        <section class="route-feasibility" aria-labelledby="route-feasibility-title">
+            <div class="route-feasibility__heading">
+                <div><span class="section-eyebrow">Before you save</span><h4 id="route-feasibility-title">Trip Fit Check</h4><p>Test this route against the time, vehicle and month you actually plan to use.</p></div>
+                <span class="route-feasibility__status is-${assessment.status}"><i class="fas ${assessment.status === 'ready' ? 'fa-circle-check' : assessment.status === 'blocker' ? 'fa-triangle-exclamation' : 'fa-circle-exclamation'}" aria-hidden="true"></i>${escapeHtml(assessment.statusLabel)}</span>
+            </div>
+            <div class="route-feasibility__controls">
+                <label><span>Start date</span><input type="date" id="route-template-start-date" value="${escapeHtml(preferences.startDate)}" data-route-feasibility="startDate"></label>
+                <label><span>Days available</span><input type="number" min="1" max="60" inputmode="numeric" value="${preferences.days}" data-route-feasibility="days"></label>
+                <label><span>Vehicle you will use</span><select data-route-feasibility="vehicle">${vehicleOptions}</select></label>
+            </div>
+            <div id="route-feasibility-result">${routeFeasibilityResultMarkup(route, assessment)}</div>
+        </section>`;
+}
+
+function routeFeasibilityResultMarkup(route, assessment) {
+    return `
+        <div class="route-feasibility__summary"><strong>${escapeHtml(assessment.summary)}</strong><span>${assessment.alignedCount} / ${assessment.checks.length} aligned</span></div>
+        <div class="route-feasibility__checks">${assessment.checks.map(item => `
+            <article class="route-feasibility__check is-${item.status}">
+                <i class="fas ${item.status === 'ready' ? 'fa-check' : item.status === 'blocker' ? 'fa-xmark' : 'fa-exclamation'}" aria-hidden="true"></i>
+                <div><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(item.value)}</strong><p>${escapeHtml(item.detail)}</p></div>
+            </article>`).join('')}</div>
+        <footer><p>Planning guidance, not a road guarantee. Reconfirm weather, access and official requirements near departure.</p><button type="button" class="btn btn-primary" data-route-start="${escapeHtml(route.id)}"${assessment.blockerCount ? ' disabled' : ''}><i class="fas fa-route" aria-hidden="true"></i> ${assessment.blockerCount ? 'Resolve blockers to continue' : 'Build this trip in My Safari'}</button></footer>`;
+}
+
+function updateRouteFeasibility(route) {
+    const result = document.getElementById('route-feasibility-result');
+    if (!result) return;
+    const assessment = evaluateRouteFeasibility(route, feasibilityPreferences.get(route.id));
+    result.innerHTML = routeFeasibilityResultMarkup(route, assessment);
+    const status = document.querySelector('.route-feasibility__status');
+    if (status) {
+        status.className = `route-feasibility__status is-${assessment.status}`;
+        status.innerHTML = `<i class="fas ${assessment.status === 'ready' ? 'fa-circle-check' : assessment.status === 'blocker' ? 'fa-triangle-exclamation' : 'fa-circle-exclamation'}" aria-hidden="true"></i>${escapeHtml(assessment.statusLabel)}`;
+    }
 }
 
 function renderRouteLogistics(route) {
@@ -214,7 +263,7 @@ function renderRouteMatches() {
                     ${match.cautions.length ? `<ul class="route-match-card__cautions">${match.cautions.map(caution => `<li><i class="fas fa-triangle-exclamation" aria-hidden="true"></i>${escapeHtml(caution)}</li>`).join('')}</ul>` : ''}
                     <div class="route-match-card__actions">
                         <a class="btn btn-outline btn-sm" href="${escapeHtml(routePath(match.route.id))}" data-route-select="${escapeHtml(match.route.id)}">Explore</a>
-                        <button type="button" class="btn btn-primary btn-sm" data-route-start="${escapeHtml(match.route.id)}">Start in My Safari</button>
+                        <a class="btn btn-primary btn-sm" href="${escapeHtml(routePath(match.route.id))}" data-route-select="${escapeHtml(match.route.id)}">Check trip fit</a>
                     </div>
                 </article>
             `).join('')}
@@ -277,7 +326,7 @@ function renderComparison() {
                     ${row('Best for', route => escapeHtml(route.travellerTypes.join(' · ')))}
                     ${row('Highlights', route => `<ul>${route.highlights.slice(0, 3).map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`)}
                     ${row('Main planning check', route => escapeHtml(route.warnings[0]))}
-                    ${row('Choose route', route => `<button type="button" class="btn btn-primary btn-sm" data-compare-start="${escapeHtml(route.id)}">Start in My Safari</button>`)}
+                    ${row('Choose route', route => `<a class="btn btn-primary btn-sm" href="${escapeHtml(routePath(route.id))}" data-route-select="${escapeHtml(route.id)}">Review trip fit</a>`)}
                 </tbody>
             </table>
         </div>
@@ -365,8 +414,6 @@ function renderDetail(route) {
                 <p>${escapeHtml(route.promise)}</p>
             </div>
             <div class="route-detail-actions">
-                <label>Optional start date<input type="date" id="route-template-start-date"></label>
-                <button type="button" class="btn btn-primary" data-route-start="${escapeHtml(route.id)}"><i class="fas fa-route"></i> Start in My Safari</button>
                 <button type="button" class="btn btn-outline" data-route-compare="${escapeHtml(route.id)}" aria-pressed="${comparisonIds.includes(route.id)}"><i class="fas fa-scale-balanced" aria-hidden="true"></i> ${comparisonIds.includes(route.id) ? 'Selected for comparison' : 'Add to comparison'}</button>
             </div>
         </div>
@@ -376,6 +423,7 @@ function renderDetail(route) {
             <div><span>Best for</span><strong>${escapeHtml(route.travellerTypes.join(' · '))}</strong></div>
             <div><span>Reviewed</span><strong>${escapeHtml(route.lastReviewed)}</strong></div>
         </div>
+        ${routeFeasibilityMarkup(route)}
         <div class="route-detail-map-wrap">
             <div id="route-explorer-map" class="route-explorer-map" role="img" aria-label="Map showing the ordered stops for ${escapeHtml(route.title)}"></div>
             <ol class="route-detail-stops" tabindex="0" aria-label="Ordered route stops">${route.stops.map((stop, index) => `<li><span>${index + 1}</span><div><strong>${escapeHtml(stop.name)}</strong><small>${escapeHtml(stop.region)}</small><p>${escapeHtml(stop.summary)}</p></div></li>`).join('')}</ol>
@@ -437,6 +485,7 @@ export function openRouteExplorer(routeId) {
 function startRoute(routeId, source = 'route_explorer') {
     const route = routes.find(item => item.id === routeId);
     const startDate = document.getElementById('route-template-start-date')?.value || '';
+    const preferences = feasibilityPreferences.get(routeId) || normalizeFeasibilityPreferences(route, { startDate });
     const template = routeToTripTemplate(route, startDate);
     const status = document.getElementById('route-explorer-status');
     if (!template || !route) {
@@ -444,6 +493,12 @@ function startRoute(routeId, source = 'route_explorer') {
         return;
     }
     const trip = createTrip(template);
+    updateTrip(trip.id, {
+        operations: {
+            ...trip.operations,
+            vehicleCapability: preferences.vehicle === 'suv' ? 'high-clearance' : preferences.vehicle,
+        },
+    });
     trackProductEvent('route_added_to_trip', {
         source,
         countryCount: route.countryIds.length,
@@ -494,6 +549,18 @@ export function initRouteExplorer() {
     }
 
     section.addEventListener('change', event => {
+        const feasibilityInput = event.target.closest('[data-route-feasibility]');
+        if (feasibilityInput) {
+            const route = routes.find(item => item.id === selectedRouteId);
+            if (!route) return;
+            const current = feasibilityPreferences.get(route.id) || normalizeFeasibilityPreferences(route);
+            feasibilityPreferences.set(route.id, normalizeFeasibilityPreferences(route, {
+                ...current,
+                [feasibilityInput.dataset.routeFeasibility]: feasibilityInput.value,
+            }));
+            updateRouteFeasibility(route);
+            return;
+        }
         const select = event.target.closest('[data-route-filter]');
         if (!select) return;
         filters = { ...filters, [select.dataset.routeFilter]: select.value };
@@ -520,7 +587,6 @@ export function initRouteExplorer() {
         const start = event.target.closest('[data-route-start]');
         const compare = event.target.closest('[data-route-compare]');
         const removeCompare = event.target.closest('[data-compare-remove]');
-        const compareStart = event.target.closest('[data-compare-start]');
         const compareMatches = event.target.closest('[data-match-compare-all]');
         if (select) {
             event.preventDefault();
@@ -536,8 +602,6 @@ export function initRouteExplorer() {
             toggleRouteComparison(compare.dataset.routeCompare);
         } else if (removeCompare) {
             toggleRouteComparison(removeCompare.dataset.compareRemove);
-        } else if (compareStart) {
-            startRoute(compareStart.dataset.compareStart, 'route_comparison');
         } else if (compareMatches) {
             comparisonIds = normalizeComparisonIds(matcherMatches.map(match => match.route.id), routes);
             comparisonOpen = true;
