@@ -7,6 +7,13 @@ import {
     getCountryNavLinks,
 } from '../lib/nav-structure.js';
 
+function closeDesktopDropdowns() {
+    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+        dropdown.classList.remove('open');
+        dropdown.querySelector('.nav-drop-toggle')?.setAttribute('aria-expanded', 'false');
+    });
+}
+
 function setMobileNavOpen(open) {
     const menuToggle = document.getElementById('mobile-menu');
     const panel = document.getElementById('mobile-nav-panel');
@@ -23,7 +30,7 @@ function setMobileNavOpen(open) {
     icon?.classList.toggle('fa-xmark', open);
 
     if (!open) {
-        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        closeDesktopDropdowns();
         document.querySelectorAll('.mobile-nav-group').forEach(g => g.classList.remove('is-open'));
         document.querySelectorAll('.mobile-nav-group__toggle').forEach(t => {
             t.setAttribute('aria-expanded', 'false');
@@ -155,11 +162,16 @@ function initDesktopDropdowns() {
 
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.nav-dropdown')) {
-            document.querySelectorAll('.nav-dropdown').forEach(d => {
-                d.classList.remove('open');
-                d.querySelector('.nav-drop-toggle')?.setAttribute('aria-expanded', 'false');
-            });
+            closeDesktopDropdowns();
         }
+    });
+
+    document.querySelectorAll('.nav-drop-menu a').forEach(link => {
+        link.addEventListener('click', closeDesktopDropdowns);
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeDesktopDropdowns();
     });
 }
 

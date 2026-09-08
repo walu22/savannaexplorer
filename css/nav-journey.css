@@ -24,6 +24,13 @@ body.site-v2 .nav-links--desktop {
     justify-content: flex-end;
 }
 
+/* Keep the permanent header focused on primary journey actions. */
+body.site-v2 #nav-links-desktop > li:nth-child(4),
+body.site-v2 #nav-links-desktop > li:nth-child(6),
+body.site-v2 #nav-links-desktop > .nav-dropdown--cta {
+    display: none;
+}
+
 body.site-v2 .nav-inner .logo {
     flex-shrink: 0;
 }
@@ -65,7 +72,7 @@ body.site-v2 .nav-drop-toggle i {
     opacity: 0.75;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 961px) {
     body.site-v2 .nav-drop-toggle {
         cursor: pointer;
     }
@@ -249,8 +256,8 @@ body.site-v2 .mobile-nav-standalone:hover {
     color: var(--primary);
 }
 
-/* Journey nav from 769px up — avoids treating narrow laptop/tablet windows as "mobile" */
-@media (min-width: 769px) {
+/* Keep tablet and narrow laptop headers uncluttered with the compact menu. */
+@media (min-width: 961px) {
     body.site-v2 .nav-mobile-controls,
     body.site-v2 .mobile-nav-panel {
         display: none !important;
@@ -280,7 +287,7 @@ body.site-v2 .mobile-nav-standalone:hover {
 }
 
 /* Compact labels when the header is tight but still desktop journey nav */
-@media (min-width: 769px) and (max-width: 1140px) {
+@media (min-width: 961px) and (max-width: 1140px) {
     body.site-v2 .nav-links--desktop > li > a,
     body.site-v2 .nav-links--desktop > li > button.nav-drop-toggle {
         padding: 0.45rem 0.6rem;
@@ -298,7 +305,7 @@ body.site-v2 .mobile-nav-standalone:hover {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
     body.site-v2 .nav-links--desktop {
         display: none !important;
     }
