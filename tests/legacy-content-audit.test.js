@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 const index = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const featureLoader = readFileSync(new URL('../js/modules/feature-loader.js', import.meta.url), 'utf8');
 const experiencesModule = readFileSync(new URL('../js/modules/experiences.js', import.meta.url), 'utf8');
+const campsitesModule = readFileSync(new URL('../js/modules/campsites.js', import.meta.url), 'utf8');
 const prerender = readFileSync(new URL('../scripts/prerender-seo.mjs', import.meta.url), 'utf8');
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'));
 
@@ -99,4 +100,14 @@ test('yearless events and unsourced news are replaced by governed traveller brie
     assert.match(index, /Auto-expiring/);
     assert.match(featureLoader, /news: \['travel-updates'\]/);
     assert.doesNotMatch(featureLoader, /news: \['discover'\]/);
+});
+
+test('mixed accommodation cards are replaced by a nine-country campsite planner', () => {
+    assert.doesNotMatch(index, /Campsite &amp; Accommodation Finder|filter by country, type, and amenities/);
+    assert.match(index, /Campsite &amp; Overlander Planner/);
+    assert.match(index, /Match the road, not just the view/);
+    assert.match(index, /id="camp-planner-access"/);
+    assert.match(index, /id="camp-planner-facility"/);
+    assert.match(campsitesModule, /Shortlist in My Safari/);
+    assert.match(featureLoader, /campsites: \['campsites'\]/);
 });

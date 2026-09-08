@@ -1559,18 +1559,47 @@
         </div>
     </section>
 
-    <!-- Campsite & Accommodation Comparison -->
-    <section id="campsites" class="campsites-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-eyebrow">Where to stay</span>
-                <h2>Campsite &amp; Accommodation Finder</h2>
-                <p>Compare campsites, lodges, and tented camps across Southern Africa — filter by country, type, and amenities.</p>
+    <!-- Reviewed campsite and overlander planner -->
+    <section id="campsites" class="campsites-section" aria-labelledby="camp-planner-title">
+        <div class="container campsites-layout">
+            <header class="camp-planner-intro">
+                <div>
+                    <span class="section-eyebrow">Where can you actually camp?</span>
+                    <h1 id="camp-planner-title">Campsite &amp; Overlander Planner</h1>
+                    <p>Compare road access, vehicle needs, seasonal limits and source-backed facilities before adding a possible stay to your trip.</p>
+                </div>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&amp;fit=crop&amp;q=82&amp;w=1200" alt="Safari vehicle travelling through a Southern African wildlife landscape" loading="lazy" width="1200" height="800">
+                    <figcaption><strong id="camp-planner-site-count">0</strong> reviewed sites across <strong id="camp-planner-country-count">0</strong> countries—not a claim of live availability.</figcaption>
+                </figure>
+            </header>
+
+            <form id="camp-planner-filter-form" class="camp-planner-filters">
+                <div class="camp-planner-filters__heading"><span class="section-eyebrow">Build a workable shortlist</span><h2>Match the road, not just the view</h2></div>
+                <label>Country<select id="camp-planner-country" name="country"></select></label>
+                <label>Setting<select id="camp-planner-setting" name="setting"></select></label>
+                <label>Vehicle access<select id="camp-planner-access" name="access"></select></label>
+                <label>Facility confirmed<select id="camp-planner-facility" name="facility"></select></label>
+                <button type="reset" class="btn btn-outline">Clear filters</button>
+            </form>
+
+            <div class="camp-planner-results-heading">
+                <div><h2>Reviewed camping options</h2><p id="camp-planner-summary" role="status" aria-live="polite"></p></div>
+                <span id="camp-planner-reviewed"></span>
             </div>
-            
-            <div id="campsites-app">
-                <!-- Injected via JS -->
-            </div>
+            <p id="camp-planner-status" class="camp-planner-status" role="status" aria-live="polite"></p>
+            <div id="campsites-app" class="camp-planner-grid"></div>
+            <div id="camp-planner-empty" class="camp-planner-empty" hidden><i class="fas fa-tent" aria-hidden="true"></i><h3>No reviewed campsite matches</h3><p>Remove a facility or vehicle filter. We do not invent missing facilities to fill the results.</p></div>
+
+            <aside class="camp-planner-method">
+                <div><span class="section-eyebrow">Before you pay</span><h2>Three confirmations matter</h2></div>
+                <ol>
+                    <li><strong>Exact campsite.</strong> Authorities may operate several camp categories with different facilities.</li>
+                    <li><strong>Current road access.</strong> Rain, sand, floods and park notices can change the vehicle you need.</li>
+                    <li><strong>Arrival plan.</strong> Confirm gate closing time, fuel, water, food and after-dark movement rules.</li>
+                </ol>
+            </aside>
+            <p id="camp-planner-disclaimer" class="camp-planner-disclaimer"></p>
         </div>
     </section>
 

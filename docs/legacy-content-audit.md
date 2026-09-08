@@ -19,7 +19,7 @@ Each public section must help a traveller discover, decide, prepare, act, or sta
 | Legacy itineraries | Consolidated | The competing card grid and modal were retired. Nine single-country journeys now redirect to researched Route Explorer replacements; six distinctive cross-border concepts are editable journey-builder presets. |
 | Gastronomy | Replaced | The generic dish carousel and unrelated marketplace modal were removed. The Food & Market Planner now covers all nine countries with dietary questions, regional route ideas, market etiquette, WHO-based safer-food guidance, and reviewed sources. |
 | Events and travel news | Replaced and governed | Yearless listings and unsourced headlines were removed. Confirmed events now require exact dates and sources; uncertain dates stay on a labelled watchlist; travel updates require review and expiry dates and disappear when stale. |
-| Campsites | Refresh | Keep only if coverage becomes useful across countries and includes booking/access evidence. |
+| Campsites | Replaced | The mixed lodge directory was replaced with a nine-country camping and overlander planner. Every site now exposes its booking source, review deadline, vehicle/access assumptions, seasonal cautions and confirmed-versus-unknown facilities. |
 | Tourism statistics | Keep as editorial/B2B | Useful for credibility and acquisition, but secondary to the tourist journey. |
 | Safari Bingo | Keep | Distinct family utility with no duplication. |
 | FAQ, About, Contact | Keep lean | Trust and support content; remove repeated planning advice. |
@@ -27,4 +27,4 @@ Each public section must help a traveller discover, decide, prepare, act, or sta
 
 ## Next replacement order
 
-1. Refresh campsite coverage with booking and access evidence.
+The traveller-facing legacy replacement queue is complete. Future audits should focus on maintenance evidence, duplicate utility removal and deeper integration with My Safari.

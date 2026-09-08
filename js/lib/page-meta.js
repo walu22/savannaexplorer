@@ -89,6 +89,10 @@ const HUB_META = {
         title: 'Verified Southern Africa Travel Updates',
         description: 'Current, source-linked entry-rule and event updates for Southern Africa, each with a review date and automatic expiry.',
     },
+    campsites: {
+        title: 'Southern Africa Campsite & Overlander Planner',
+        description: 'Compare reviewed campsites across nine Southern African countries by road access, vehicle needs, setting, facilities and booking source.',
+    },
     experiences: {
         title: 'Southern Africa Experience Finder',
         description: 'Compare wildlife, landscape, coast, active, cultural, food, and road-trip ideas across nine Southern African countries without paid rankings or invented ratings.',

@@ -31,6 +31,7 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 | `data/regions.json` | Per-country regional breakdowns for country guides | Original editorial informed by official tourism boards |
 | `data/marketplace.json` | Curated experience listings | Original editorial; representative pricing tiers |
 | `data/food-travel.json` | Food and market planning across nine countries | WHO safer-food guidance; official national tourism and government sources linked in each record; reviewed September 2026 |
+| `data/campsites.json` | Campsite and overlander planning across nine countries | Park authorities and direct site operators linked on every record; road, vehicle, facility and review metadata checked September 2026 |
 | `data/image-catalog.json` | Verified Unsplash stock photo IDs | [Unsplash License](https://unsplash.com/license) — free for commercial use with attribution appreciated |
 | `data/discover.json` | Homepage facts and planning links | Original editorial; time-sensitive news is intentionally stored separately |
 | `data/travel-updates.json` | Current entry-rule and event changes | Named source, published date, review date, and automatic expiry on every record |

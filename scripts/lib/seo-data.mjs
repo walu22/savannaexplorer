@@ -65,7 +65,7 @@ const HUB_SECTIONS = [
     { id: 'events', title: 'Southern Africa Events & Seasonal Planner', description: 'Find source-checked festivals and regional events by trip date, plus clearly separated seasonal wildlife planning across Southern Africa.', priority: '0.65' },
     { id: 'packing-list', title: 'Safari Packing List Builder', description: 'Build a practical Southern Africa packing list based on your travel month and trip style.', priority: '0.7' },
     { id: 'phrasebook', title: 'Essential Southern Africa Phrasebook', description: 'Learn useful greetings and travel phrases for connecting respectfully with people across Southern Africa.', priority: '0.65' },
-    { id: 'campsites', title: 'Southern Africa Campsite Finder', description: 'Explore campsite planning information for road trips, overland journeys, and independent safaris across Southern Africa.', priority: '0.65' },
+    { id: 'campsites', title: 'Southern Africa Campsite & Overlander Planner', description: 'Compare reviewed campsites across nine Southern African countries by road access, vehicle needs, setting, facilities and booking source.', priority: '0.7' },
     { id: 'safari-bingo', title: 'Southern Africa Safari Bingo', description: 'Track wildlife sightings and make family safari drives more engaging with a printable safari bingo game.', priority: '0.6' },
     { id: 'about', title: 'About Savanna Explorer', description: 'Learn how Savanna Explorer researches, reviews, and presents independent Southern Africa travel-planning information.', priority: '0.5' },
     { id: 'faq', title: 'Southern Africa Travel FAQ', description: 'Answers to common questions about visas, seasons, safety, routes, parks, and independent travel in Southern Africa.', priority: '0.6' },
