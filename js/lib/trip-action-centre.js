@@ -1,6 +1,7 @@
 import borders from '../../data/borders.json' with { type: 'json' };
 
 const VEHICLE_CONTEXTS = new Set(['owned', 'financed', 'rented']);
+const VEHICLE_CAPABILITIES = new Set(['standard', 'high-clearance', '4x4']);
 const COUNTRY_IDS = {
     Botswana: 'botswana',
     Eswatini: 'eswatini',
@@ -33,6 +34,7 @@ export function normalizeTripOperations(operations) {
     return {
         borderSelections: cleanSelections(operations?.borderSelections),
         vehicleContext: VEHICLE_CONTEXTS.has(operations?.vehicleContext) ? operations.vehicleContext : '',
+        vehicleCapability: VEHICLE_CAPABILITIES.has(operations?.vehicleCapability) ? operations.vehicleCapability : '',
         completedDocumentIds: cleanIds(operations?.completedDocumentIds),
     };
 }
@@ -150,6 +152,10 @@ export function setTripBorderSelection(operations, key, borderId) {
 
 export function setTripVehicleContext(operations, vehicleContext) {
     return normalizeTripOperations({ ...normalizeTripOperations(operations), vehicleContext });
+}
+
+export function setTripVehicleCapability(operations, vehicleCapability) {
+    return normalizeTripOperations({ ...normalizeTripOperations(operations), vehicleCapability });
 }
 
 export function setTripDocumentComplete(operations, documentIdValue, completed) {

@@ -108,6 +108,6 @@ test('mixed accommodation cards are replaced by a nine-country campsite planner'
     assert.match(index, /Match the road, not just the view/);
     assert.match(index, /id="camp-planner-access"/);
     assert.match(index, /id="camp-planner-facility"/);
-    assert.match(campsitesModule, /Shortlist in My Safari/);
+    assert.match(campsitesModule, /Add to My Safari/);
     assert.match(featureLoader, /campsites: \['campsites'\]/);
 });

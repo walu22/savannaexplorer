@@ -7,6 +7,7 @@ import {
     buildTripActionCentre,
     setTripBorderSelection,
     setTripDocumentComplete,
+    setTripVehicleCapability,
     setTripVehicleContext,
 } from '../js/lib/trip-action-centre.js';
 
@@ -22,6 +23,13 @@ test('saved journeys inherit their selected border and wait for vehicle context'
     assert.equal(action.vehicleContext, '');
     assert.ok(action.documents.length >= 3);
     assert.equal(action.isComplete, false);
+});
+
+test('vehicle capability is normalized separately from ownership context', () => {
+    const operations = setTripVehicleCapability({ vehicleContext: 'rented' }, '4x4');
+    assert.equal(operations.vehicleContext, 'rented');
+    assert.equal(operations.vehicleCapability, '4x4');
+    assert.equal(setTripVehicleCapability(operations, 'motorbike').vehicleCapability, '');
 });
 
 test('manual trips can select a crossing and generate rented-vehicle paperwork', () => {

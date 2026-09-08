@@ -1,7 +1,7 @@
 import campsiteData from '../../data/campsites.json';
 import { COUNTRY_META } from '../lib/country-meta.js';
-import { campsiteBooking, campsiteCoverage, filterCampsites, sortCampsites } from '../lib/campsite-planner.js';
-import { addBooking } from '../lib/trip-bookings.js';
+import { campsiteCoverage, filterCampsites, sortCampsites } from '../lib/campsite-planner.js';
+import { addCampsiteToTrip } from '../lib/trip-stay-placement.js';
 import { getActiveTrip, updateTrip } from '../lib/trip-store.js';
 
 const ACCESS_LABELS = {
@@ -44,9 +44,24 @@ function optionList(values, labels, initialLabel) {
     return `<option value="all">${initialLabel}</option>${values.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(labels[value] || value)}</option>`).join('')}`;
 }
 
-function siteCard(site, savedProviders) {
+function dayLabel(day, index) {
+    const date = day.date ? formatDate(day.date) : `Day ${index + 1}`;
+    return `Day ${index + 1} · ${date}${day.title ? ` · ${day.title}` : ''}`;
+}
+
+function siteCard(site, activeTrip, savedProviders) {
     const country = COUNTRY_META[site.country] || {};
     const saved = savedProviders.has(site.name);
+    const days = activeTrip?.routeDays || [];
+    const dayPicker = activeTrip && !saved ? `
+        <label class="camp-planner-card__day">
+            <span>Place in ${escapeHtml(activeTrip.name)}</span>
+            <select data-campsite-day="${escapeHtml(site.id)}" aria-label="Itinerary day for ${escapeHtml(site.name)}">
+                <option value="">Shortlist without a day</option>
+                ${days.map((day, index) => `<option value="${escapeHtml(day.id)}">${escapeHtml(dayLabel(day, index))}</option>`).join('')}
+            </select>
+            ${days.length ? '<small>The stay date will follow the selected itinerary day.</small>' : '<small>Build itinerary days in My Safari to place this stay.</small>'}
+        </label>` : '';
     return `
         <article class="camp-planner-card camp-planner-card--${escapeHtml(site.accessLevel)}">
             <header>
@@ -70,9 +85,12 @@ function siteCard(site, savedProviders) {
                     <span>Source checked ${formatDate(site.reviewedOn)}</span>
                     <a href="${escapeHtml(site.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(site.sourceLabel)} <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                 </div>
-                <button type="button" class="camp-planner-card__save" data-save-campsite="${escapeHtml(site.id)}" ${saved ? 'disabled' : ''}>
-                    <i class="fas ${saved ? 'fa-check' : 'fa-bookmark'}" aria-hidden="true"></i> ${saved ? 'In My Safari' : 'Shortlist in My Safari'}
-                </button>
+                <div class="camp-planner-card__plan">
+                    ${dayPicker}
+                    <button type="button" class="camp-planner-card__save" data-save-campsite="${escapeHtml(site.id)}" ${saved ? 'disabled' : ''}>
+                        <i class="fas ${saved ? 'fa-check' : 'fa-calendar-plus'}" aria-hidden="true"></i> ${saved ? 'In My Safari' : 'Add to My Safari'}
+                    </button>
+                </div>
             </footer>
         </article>`;
 }
@@ -110,7 +128,7 @@ export function initCampsites() {
             access: accessSelect.value,
             facility: facilitySelect.value,
         }));
-        app.innerHTML = matches.map(site => siteCard(site, savedProviders)).join('');
+        app.innerHTML = matches.map(site => siteCard(site, activeTrip, savedProviders)).join('');
         app.hidden = matches.length === 0;
         empty.hidden = matches.length !== 0;
         summary.textContent = `${matches.length} reviewed ${matches.length === 1 ? 'site' : 'sites'} match. Vehicle labels describe access—not rental permission or current road conditions.`;
@@ -131,8 +149,12 @@ export function initCampsites() {
             status.textContent = `${site.name} is already in ${activeTrip.name}.`;
             return;
         }
-        updateTrip(activeTrip.id, { bookings: addBooking(activeTrip.bookings, campsiteBooking(site)) });
-        status.textContent = `${site.name} was added as a planned stay in ${activeTrip.name}. Availability is not reserved.`;
+        const routeDayId = app.querySelector(`[data-campsite-day="${CSS.escape(site.id)}"]`)?.value || '';
+        const result = addCampsiteToTrip(activeTrip, site, routeDayId);
+        updateTrip(activeTrip.id, { bookings: result.bookings, routeDays: result.routeDays });
+        status.textContent = result.placed
+            ? `${site.name} was added to the selected itinerary day in ${activeTrip.name}. Availability is not reserved.`
+            : `${site.name} was shortlisted in ${activeTrip.name}. Place it on a day in My Safari when your route is ready.`;
         render();
     });
     render();

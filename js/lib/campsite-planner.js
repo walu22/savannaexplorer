@@ -26,12 +26,21 @@ export function sortCampsites(sites = []) {
     ));
 }
 
-export function campsiteBooking(site) {
+export function campsiteBooking(site, day = null) {
     return {
         type: 'stay',
         provider: site.name,
         reference: 'Shortlisted from Campsite Finder',
-        date: '',
+        date: day?.date || '',
         status: 'planned',
+        routeDayId: day?.id || '',
+        sourceType: 'campsite',
+        sourceId: site.id,
+        sourceUrl: site.sourceUrl,
+        country: site.country,
+        location: site.area,
+        accessLevel: site.accessLevel,
+        accessLabel: site.accessLabel,
+        accessNote: site.accessNote,
     };
 }

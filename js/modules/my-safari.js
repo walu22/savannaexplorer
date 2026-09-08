@@ -38,7 +38,12 @@ import {
     setReadinessReminderDays,
     setReadinessTask,
 } from '../lib/trip-readiness.js';
-import { addBooking, removeBooking, updateBooking } from '../lib/trip-bookings.js';
+import { addBooking, updateBooking } from '../lib/trip-bookings.js';
+import {
+    assignStayToDay,
+    buildStayPlacementAudit,
+    removeBookingAndPlacement,
+} from '../lib/trip-stay-placement.js';
 import { buildTripCalendar } from '../lib/trip-calendar.js';
 import { buildTripPack } from '../lib/trip-pack.js';
 import practical from '../../data/practical.json';
@@ -49,6 +54,7 @@ import { formatDriveMinutes } from '../lib/route-logistics.js';
 import {
     setTripBorderSelection,
     setTripDocumentComplete,
+    setTripVehicleCapability,
     setTripVehicleContext,
 } from '../lib/trip-action-centre.js';
 
@@ -118,6 +124,50 @@ function bookingDateLabel(value) {
     return value
         ? new Date(`${value}T12:00:00`).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })
         : 'Date not set';
+}
+
+function itineraryDayLabel(day, index) {
+    return `Day ${index + 1}${day.date ? ` · ${bookingDateLabel(day.date)}` : ''}${day.title ? ` · ${day.title}` : ''}`;
+}
+
+function stayDayPicker(booking, trip) {
+    if (booking.type !== 'stay') return '';
+    const days = trip.routeDays || [];
+    return `<label class="my-safari-stay-day">
+        <span>Itinerary night</span>
+        <select data-booking-route-day="${escapeHtml(booking.id)}" aria-label="Itinerary day for ${escapeHtml(booking.provider)}">
+            <option value="">Not placed</option>
+            ${days.map((day, index) => `<option value="${escapeHtml(day.id)}"${booking.routeDayId === day.id ? ' selected' : ''}>${escapeHtml(itineraryDayLabel(day, index))}</option>`).join('')}
+        </select>
+    </label>`;
+}
+
+function renderStayPlan(trip) {
+    const root = document.getElementById('my-safari-stay-planner');
+    if (!root) return;
+    const audit = buildStayPlacementAudit(trip);
+    root.hidden = audit.stays === 0;
+    if (!audit.stays) {
+        root.replaceChildren();
+        return;
+    }
+    const issueMarkup = audit.issues.length
+        ? `<ul class="my-safari-stay-issues">${audit.issues.map(issue => `<li class="is-${escapeHtml(issue.severity)}"><i class="fas ${issue.severity === 'blocker' ? 'fa-triangle-exclamation' : 'fa-circle-info'}" aria-hidden="true"></i><span>${escapeHtml(issue.message)}</span></li>`).join('')}</ul>`
+        : '<div class="my-safari-stay-ready"><i class="fas fa-circle-check" aria-hidden="true"></i><span>Every stay is placed and its access fits the selected vehicle.</span></div>';
+    root.innerHTML = `
+        <div class="my-safari-stay-plan-head">
+            <div><span>Stay plan</span><strong>${audit.placed} of ${audit.stays} placed on itinerary days</strong></div>
+            <label><span>Vehicle capability</span>
+                <select id="my-safari-vehicle-capability">
+                    <option value=""${!audit.vehicleCapability ? ' selected' : ''}>Not selected</option>
+                    <option value="standard"${audit.vehicleCapability === 'standard' ? ' selected' : ''}>Standard vehicle</option>
+                    <option value="high-clearance"${audit.vehicleCapability === 'high-clearance' ? ' selected' : ''}>High-clearance vehicle</option>
+                    <option value="4x4"${audit.vehicleCapability === '4x4' ? ' selected' : ''}>4×4</option>
+                </select>
+            </label>
+        </div>
+        ${issueMarkup}
+        <footer><span>${audit.blockers ? `${audit.blockers} conflict${audit.blockers === 1 ? '' : 's'} to resolve` : audit.checks ? `${audit.checks} planning check${audit.checks === 1 ? '' : 's'} remaining` : 'Stay plan aligned'}</span><a href="/campsites">Find another campsite <i class="fas fa-arrow-right" aria-hidden="true"></i></a></footer>`;
 }
 
 function downloadTripCalendar(trip) {
@@ -193,11 +243,13 @@ function renderBookings(trip) {
     const confirmed = bookings.filter(booking => booking.status === 'confirmed').length;
     progress.textContent = `${confirmed} of ${bookings.length} confirmed`;
     empty.hidden = Boolean(bookings.length);
+    renderStayPlan(trip);
     list.innerHTML = bookings.map(booking => `
         <article class="my-safari-booking-row">
             <span class="my-safari-booking-type" aria-hidden="true"><i class="fas ${BOOKING_ICONS[booking.type] || BOOKING_ICONS.other}"></i></span>
-            <div class="my-safari-booking-copy"><strong>${escapeHtml(booking.provider)}</strong><small>${booking.reference ? `Reference: ${escapeHtml(booking.reference)}` : 'No reference recorded'}</small></div>
+            <div class="my-safari-booking-copy"><strong>${escapeHtml(booking.provider)}</strong><small>${booking.reference ? `Reference: ${escapeHtml(booking.reference)}` : 'No reference recorded'}</small>${booking.sourceUrl ? `<a href="${escapeHtml(booking.sourceUrl)}" target="_blank" rel="noopener noreferrer">Official / operator source <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>` : ''}</div>
             <span class="my-safari-booking-date">${escapeHtml(bookingDateLabel(booking.date))}</span>
+            ${stayDayPicker(booking, trip)}
             <label class="sr-only" for="booking-status-${escapeHtml(booking.id)}">Status for ${escapeHtml(booking.provider)}</label>
             <select id="booking-status-${escapeHtml(booking.id)}" class="my-safari-booking-status-select" data-booking-status="${escapeHtml(booking.id)}">
                 <option value="planned"${booking.status === 'planned' ? ' selected' : ''}>Planned</option>
@@ -1017,9 +1069,20 @@ export async function initMySafari() {
     });
 
     document.getElementById('my-safari-booking-list')?.addEventListener('change', event => {
+        const daySelect = event.target.closest('[data-booking-route-day]');
         const select = event.target.closest('[data-booking-status]');
         const active = getActiveTrip();
-        if (!select || !active) return;
+        if (!active) return;
+        if (daySelect) {
+            const placement = assignStayToDay(active, daySelect.dataset.bookingRouteDay, daySelect.value);
+            updateTrip(active.id, { bookings: placement.bookings, routeDays: placement.routeDays });
+            trackProductEvent('booking_record_updated', { source: 'stay_itinerary', status: placement.placed ? 'placed' : 'unplaced', itemType: 'stay' });
+            document.getElementById('my-safari-booking-status').textContent = placement.placed
+                ? 'Stay added to the selected itinerary day.'
+                : 'Stay removed from the day-by-day itinerary. The booking record is still saved.';
+            return;
+        }
+        if (!select) return;
         updateTrip(active.id, { bookings: updateBooking(active.bookings, select.dataset.bookingStatus, { status: select.value }) });
         trackProductEvent('booking_status_updated', { source: 'my_safari', status: select.value });
         document.getElementById('my-safari-booking-status').textContent = `Booking marked ${select.value}.`;
@@ -1044,9 +1107,22 @@ export async function initMySafari() {
         }
         if (button) {
             if (editingBookingId === button.dataset.bookingRemove) editingBookingId = '';
-            updateTrip(active.id, { bookings: removeBooking(active.bookings, button.dataset.bookingRemove) });
+            const next = removeBookingAndPlacement(active, button.dataset.bookingRemove);
+            updateTrip(active.id, next);
             document.getElementById('my-safari-booking-status').textContent = 'Booking record removed.';
         }
+    });
+
+    document.getElementById('my-safari-bookings')?.addEventListener('change', event => {
+        const select = event.target.closest('#my-safari-vehicle-capability');
+        const active = getActiveTrip();
+        if (!select || !active) return;
+        const operations = setTripVehicleCapability(active.operations, select.value);
+        updateTrip(active.id, { operations });
+        trackProductEvent('trip_details_updated', { source: 'stay_access', status: select.value || 'unset' });
+        document.getElementById('my-safari-booking-status').textContent = select.value
+            ? 'Vehicle access checks updated.'
+            : 'Vehicle capability cleared. Access checks remain open.';
     });
 
     document.getElementById('my-safari-booking-list')?.addEventListener('submit', event => {
@@ -1055,15 +1131,24 @@ export async function initMySafari() {
         if (!form || !active) return;
         event.preventDefault();
         const data = new FormData(form);
-        const bookings = updateBooking(active.bookings, form.dataset.bookingEditForm, {
+        const bookingId = form.dataset.bookingEditForm;
+        const original = active.bookings.find(booking => booking.id === bookingId);
+        const cleared = original?.type === 'stay' && original.routeDayId
+            ? assignStayToDay(active, bookingId, '')
+            : { bookings: active.bookings, routeDays: active.routeDays };
+        const bookings = updateBooking(cleared.bookings, bookingId, {
             type: data.get('booking-type'),
             provider: data.get('booking-provider'),
             reference: data.get('booking-reference'),
             date: data.get('booking-date'),
             status: data.get('booking-status'),
         });
+        const edited = bookings.find(booking => booking.id === bookingId);
+        const placement = edited?.type === 'stay' && original?.routeDayId
+            ? assignStayToDay({ ...active, bookings, routeDays: cleared.routeDays }, bookingId, original.routeDayId)
+            : { bookings, routeDays: cleared.routeDays };
         editingBookingId = '';
-        updateTrip(active.id, { bookings });
+        updateTrip(active.id, { bookings: placement.bookings, routeDays: placement.routeDays });
         trackProductEvent('booking_record_updated', { source: 'my_safari', itemType: data.get('booking-type'), status: data.get('booking-status') });
         document.getElementById('my-safari-booking-status').textContent = 'Booking record updated.';
     });

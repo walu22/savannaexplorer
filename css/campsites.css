@@ -298,6 +298,42 @@
     text-underline-offset: 3px;
 }
 
+.camp-planner-card__plan {
+    display: grid;
+    justify-items: end;
+    gap: .65rem;
+    min-width: min(18rem, 100%);
+}
+
+.camp-planner-card__day {
+    display: grid;
+    gap: .3rem;
+    width: 100%;
+}
+
+.camp-planner-card__day > span {
+    color: #315246;
+    font-size: .8rem;
+    font-weight: 800;
+}
+
+.camp-planner-card__day select {
+    width: 100%;
+    min-height: 2.7rem;
+    border: 1px solid #b8c5bf;
+    border-radius: .65rem;
+    background: #fff;
+    color: #17362d;
+    padding: .55rem .7rem;
+    font: inherit;
+    font-size: .82rem;
+}
+
+.camp-planner-card__day small {
+    color: #6a7772;
+    font-size: .75rem;
+}
+
 .camp-planner-card__save {
     min-height: 2.8rem;
     padding: .65rem .85rem;
@@ -435,5 +471,11 @@
 
     .camp-planner-card__save {
         justify-self: start;
+    }
+
+    .camp-planner-card__plan {
+        justify-items: start;
+        min-width: 0;
+        width: 100%;
     }
 }

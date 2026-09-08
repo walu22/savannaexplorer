@@ -42,7 +42,7 @@ function itineraryHtml(routeDays) {
                 ${stops.length ? `<ol>${stops.map(stop => `
                     <li>
                         <time>${escapeHtml(stop.time || 'Any time')}</time>
-                        <div><strong>${escapeHtml(stop.name || 'Untitled stop')}</strong>${stop.location ? `<span>${escapeHtml(stop.location)}</span>` : ''}${stop.notes ? `<small>${escapeHtml(stop.notes)}</small>` : ''}</div>
+                        <div><strong>${escapeHtml(stop.name || 'Untitled stop')}</strong>${stop.location ? `<span>${escapeHtml(stop.location)}</span>` : ''}${stop.notes ? `<small>${escapeHtml(stop.notes)}</small>` : ''}${stop.sourceUrl ? `<small><a href="${escapeHtml(stop.sourceUrl)}">Stay source</a></small>` : ''}</div>
                     </li>
                 `).join('')}</ol>` : '<p class="trip-pack-empty">No stops recorded for this day.</p>'}
             </article>
@@ -54,7 +54,7 @@ function bookingHtml(bookings, includeReferences) {
     if (!bookings.length) return '<p class="trip-pack-empty">No booking records have been added.</p>';
     return `<table><thead><tr><th>Booking</th><th>Date</th><th>Status</th>${includeReferences ? '<th>Reference</th>' : ''}</tr></thead><tbody>${bookings.map(booking => `
         <tr>
-            <td><strong>${escapeHtml(booking.provider || 'Untitled booking')}</strong><small>${escapeHtml(booking.type || 'other')}</small></td>
+            <td><strong>${escapeHtml(booking.provider || 'Untitled booking')}</strong><small>${escapeHtml(booking.type || 'other')}</small>${booking.sourceUrl ? `<small><a href="${escapeHtml(booking.sourceUrl)}">Stay source</a></small>` : ''}</td>
             <td>${escapeHtml(dateLabel(booking.date))}</td>
             <td>${escapeHtml(booking.status || 'planned')}</td>
             ${includeReferences ? `<td>${escapeHtml(booking.reference || '—')}</td>` : ''}

@@ -10,6 +10,11 @@ function text(value, limit) {
     return String(value || '').trim().slice(0, limit);
 }
 
+function httpsUrl(value) {
+    const result = text(value, 500);
+    return /^https:\/\//i.test(result) ? result : '';
+}
+
 export function normalizeRouteDays(value) {
     if (!Array.isArray(value)) return [];
     return value.slice(0, MAX_ROUTE_DAYS).map((day, dayIndex) => ({
@@ -23,6 +28,10 @@ export function normalizeRouteDays(value) {
             location: text(stop?.location, 140),
             time: /^([01]\d|2[0-3]):[0-5]\d$/.test(stop?.time || '') ? stop.time : '',
             notes: text(stop?.notes, 500),
+            bookingId: text(stop?.bookingId, 128),
+            sourceType: text(stop?.sourceType, 40),
+            sourceId: text(stop?.sourceId, 128),
+            sourceUrl: httpsUrl(stop?.sourceUrl),
         })) : [],
     }));
 }
@@ -99,6 +108,10 @@ export function addRouteStop(days, dayId, input) {
             location: text(input?.location, 140),
             time: /^([01]\d|2[0-3]):[0-5]\d$/.test(input?.time || '') ? input.time : '',
             notes: text(input?.notes, 500),
+            bookingId: text(input?.bookingId, 128),
+            sourceType: text(input?.sourceType, 40),
+            sourceId: text(input?.sourceId, 128),
+            sourceUrl: httpsUrl(input?.sourceUrl),
         }] }
         : day);
 }

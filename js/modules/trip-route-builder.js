@@ -38,6 +38,7 @@ function stopMarkup(stop, day, days, editable) {
                     <div class="route-stop-heading"><strong>${escapeHtml(stop.name)}</strong>${stop.time ? `<time>${escapeHtml(stop.time)}</time>` : ''}</div>
                     <span>${escapeHtml(TYPE_LABELS[stop.type] || 'Other')}${stop.location ? ` · ${escapeHtml(stop.location)}` : ''}</span>
                     ${stop.notes ? `<p>${escapeHtml(stop.notes)}</p>` : ''}
+                    ${stop.sourceUrl ? `<a class="route-stop-source" href="${escapeHtml(stop.sourceUrl)}" target="_blank" rel="noopener noreferrer">Check stay source <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>` : ''}
                 </div>
             </div>
             ${editable ? `<div class="route-stop-actions" aria-label="Actions for ${escapeHtml(stop.name)}">

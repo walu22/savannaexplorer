@@ -105,12 +105,14 @@ test('border and vehicle action-centre progress survives storage and duplication
     updateActiveTrip({ operations: {
         borderSelections: { 'botswana|namibia': 'mamuno' },
         vehicleContext: 'rented',
+        vehicleCapability: '4x4',
         completedDocumentIds: ['document:valid-passport'],
     } }, storage);
 
     const saved = getActiveTrip(storage);
     assert.equal(saved.operations.borderSelections['botswana|namibia'], 'mamuno');
     assert.equal(saved.operations.vehicleContext, 'rented');
+    assert.equal(saved.operations.vehicleCapability, '4x4');
     assert.deepEqual(saved.operations.completedDocumentIds, ['document:valid-passport']);
     assert.deepEqual(duplicateTrip(trip.id, storage).operations, saved.operations);
 });

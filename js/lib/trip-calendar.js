@@ -137,6 +137,7 @@ function tripEvents(trip, generatedAt) {
         const detail = [
             booking?.type ? `Type: ${booking.type}` : '',
             booking?.status ? `Status: ${booking.status}` : '',
+            booking?.sourceUrl ? `Source: ${booking.sourceUrl}` : '',
         ].filter(Boolean).join('\n');
         events.push({
             uid: `${tripId}-booking-${String(booking?.id || index + 1).replace(/[^a-z0-9-]/gi, '-')}`,

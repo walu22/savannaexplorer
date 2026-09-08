@@ -44,11 +44,13 @@ test('access sort presents standard roads before higher-commitment tracks', () =
 
 test('shortlisting creates an honest undated planned stay', () => {
     const booking = campsiteBooking(data.sites[0]);
-    assert.deepEqual(booking, {
-        type: 'stay',
-        provider: data.sites[0].name,
-        reference: 'Shortlisted from Campsite Finder',
-        date: '',
-        status: 'planned',
-    });
+    assert.equal(booking.type, 'stay');
+    assert.equal(booking.provider, data.sites[0].name);
+    assert.equal(booking.reference, 'Shortlisted from Campsite Finder');
+    assert.equal(booking.date, '');
+    assert.equal(booking.status, 'planned');
+    assert.equal(booking.sourceType, 'campsite');
+    assert.equal(booking.sourceId, data.sites[0].id);
+    assert.equal(booking.routeDayId, '');
+    assert.match(booking.sourceUrl, /^https:\/\//);
 });

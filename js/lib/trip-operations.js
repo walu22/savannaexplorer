@@ -6,6 +6,7 @@ import {
     routeLogisticsSummary,
 } from './route-logistics.js';
 import { buildTripActionCentre } from './trip-action-centre.js';
+import { buildStayPlacementAudit } from './trip-stay-placement.js';
 
 function uniqueBy(items, key) {
     const seen = new Set();
@@ -35,6 +36,7 @@ export function buildTripOperationsBrief(trip) {
         .map(id => routeCollection.routes.find(route => route.id === id))
         .filter(Boolean);
     const actionCentre = buildTripActionCentre(trip);
+    const stayPlan = buildStayPlacementAudit(trip);
     const crossings = uniqueBy(actionCentre.selectedCrossings, crossing => crossing.id)
         .map(crossing => ({
             ...crossing,
@@ -86,6 +88,8 @@ export function buildTripOperationsBrief(trip) {
     if (actionCentre.routeUpdateRequired) actions.push('The chosen crossing differs from the saved driving itinerary; rebuild the transfer before relying on its road times.');
     if (crossings.some(crossing => !crossing.stays.length)) actions.push('Choose a locally verified overnight for every long border transfer.');
     if (!confirmedStays && overnightAnchors.length) actions.push('Record at least the key overnight confirmations for this route.');
+    if (stayPlan.blockers) actions.push(`${stayPlan.blockers} stay placement conflict${stayPlan.blockers === 1 ? '' : 's'} must be resolved before relying on the itinerary.`);
+    else if (stayPlan.checks) actions.push(`${stayPlan.checks} stay planning check${stayPlan.checks === 1 ? '' : 's'} still need attention.`);
 
     return {
         routeCount: routes.length,
@@ -103,6 +107,7 @@ export function buildTripOperationsBrief(trip) {
             confirmed: confirmedBookings.length,
             confirmedStays,
         },
+        stayPlan,
         actions,
         actionCentre,
         status: !routes.length || actions.length >= 3 ? 'planning' : actions.length ? 'check' : 'ready',
