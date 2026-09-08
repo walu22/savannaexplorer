@@ -88,3 +88,15 @@ test('legacy itineraries are consolidated into one Route Explorer workflow', () 
     assert.equal(redirects.get('/itineraries/desert-to-delta'), '/routes?journey=desert-to-delta');
     assert.equal(redirects.get('/itineraries/namibia-essentials'), '/routes/namibia-essentials-extended');
 });
+
+test('yearless events and unsourced news are replaced by governed traveller briefings', () => {
+    assert.doesNotMatch(index, /Travel Updates & Industry News|Latest News|travel-news-grid/);
+    assert.match(index, /What’s happening during your trip\?/);
+    assert.match(index, /id="events-start-date"/);
+    assert.match(index, /Dates not ready yet/);
+    assert.match(index, /What changed before your trip\?/);
+    assert.match(index, /Source linked/);
+    assert.match(index, /Auto-expiring/);
+    assert.match(featureLoader, /news: \['travel-updates'\]/);
+    assert.doesNotMatch(featureLoader, /news: \['discover'\]/);
+});

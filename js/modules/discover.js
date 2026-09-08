@@ -38,30 +38,6 @@ function renderPlanTrip() {
     `).join('');
 }
 
-function renderTravelNews() {
-    const grid = document.getElementById('travel-news-grid');
-    if (!grid) return;
-
-    grid.innerHTML = discover.travelNews.map(item => {
-        const meta = item.country ? getCountryMeta(item.country) : null;
-        const link = item.country ? countryPath(item.country) : '#plan';
-        return `
-            <article class="news-card">
-                <div class="news-meta">
-                    <span class="news-category">${item.category}</span>
-                    <span class="news-date">${item.date}</span>
-                </div>
-                <h3>${item.title}</h3>
-                <p>${item.excerpt}</p>
-                <a href="${link}" class="news-read-more" ${item.country ? `data-country-link="${item.country}"` : ''}>
-                    Read more <i class="fas fa-arrow-right"></i>
-                </a>
-                ${meta ? `<span class="news-country">${meta.flag} ${meta.name}</span>` : ''}
-            </article>
-        `;
-    }).join('');
-}
-
 function renderPlanningGuides() {
     const grid = document.getElementById('planning-guides-grid');
     if (!grid) return;
@@ -153,7 +129,6 @@ function bindCountryLinks() {
 export function initDiscover() {
     renderFacts();
     renderPlanTrip();
-    renderTravelNews();
     renderPlanningGuides();
     renderHomeFaq();
     bindCountryLinks();

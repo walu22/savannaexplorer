@@ -752,26 +752,49 @@
         </div>
     </section>
 
-    <!-- Events & Festivals Calendar -->
-    <section id="events" class="events-hub">
+    <!-- Verified Events & Seasonal Planner -->
+    <section id="events" class="events-hub events-planner" aria-labelledby="events-title">
         <div class="container">
-            <div class="section-header">
-                <span class="section-eyebrow">When to Go</span>
-                <h2>Events &amp; Seasonal Highlights</h2>
-                <p><span id="events-count">28</span> festivals, wildlife peaks, and cultural events across Southern Africa.</p>
-            </div>
-            <div class="wildlife-calendar" id="wildlife-calendar"></div>
-            <div class="events-toolbar">
-                <label>
-                    <span>Month</span>
-                    <select id="events-month-filter"></select>
-                </label>
-                <label>
-                    <span>Country</span>
-                    <select id="events-country-filter"></select>
-                </label>
+            <header class="events-planner-hero">
+                <div>
+                    <span class="section-eyebrow">Plan around real dates</span>
+                    <h2 id="events-title">What’s happening during your trip?</h2>
+                    <p>Match confirmed festivals and public events to your travel dates. Unconfirmed annual traditions stay on a separate watchlist—never disguised as fixed dates.</p>
+                    <ul><li><i class="fas fa-circle-check" aria-hidden="true"></i> Dated source required</li><li><i class="fas fa-clock-rotate-left" aria-hidden="true"></i> Expired records hide automatically</li></ul>
+                </div>
+                <img src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?auto=format&amp;fit=crop&amp;q=82&amp;w=1200" alt="Community cultural gathering in Southern Africa" loading="lazy" width="1200" height="800">
+            </header>
+
+            <form id="events-filter-form" class="events-trip-filter">
+                <div class="events-trip-filter__heading"><span class="section-eyebrow">Your travel window</span><h3>Find confirmed dates</h3></div>
+                <label><span>Trip starts</span><input id="events-start-date" type="date" required></label>
+                <label><span>Trip ends</span><input id="events-end-date" type="date" required></label>
+                <label><span>Country</span><select id="events-country-filter"></select></label>
+                <label><span>Event type</span><select id="events-type-filter"></select></label>
+                <div class="events-trip-filter__presets" aria-label="Quick date windows">
+                    <button type="button" data-event-window="30">Next 30 days</button>
+                    <button type="button" data-event-window="90">Next 90 days</button>
+                    <button type="button" data-event-window="all">All confirmed</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </form>
+
+            <div class="events-results-heading">
+                <div><span class="section-eyebrow">Confirmed calendar</span><h3><span id="events-count">0</span> matching events</h3></div>
+                <p id="events-results-summary" role="status" aria-live="polite"></p>
             </div>
             <div class="events-grid" id="events-grid"></div>
+            <div id="events-empty-state" class="events-empty-state" hidden><i class="fas fa-calendar-xmark" aria-hidden="true"></i><div><h3>No verified event in this window</h3><p>That is a trustworthy result—not an invitation to guess. Try all confirmed dates or use the seasonal planner below.</p></div></div>
+
+            <section class="event-watchlist-section" aria-labelledby="event-watchlist-title">
+                <div class="events-results-heading"><div><span class="section-eyebrow">Watch before booking</span><h3 id="event-watchlist-title">Dates not ready yet</h3></div><p>Postponed or date-pending events are clearly separated from the confirmed calendar.</p></div>
+                <div id="events-watchlist" class="event-watchlist"></div>
+            </section>
+
+            <section class="seasonal-planner" aria-labelledby="seasonal-planner-title">
+                <div class="events-results-heading"><div><span class="section-eyebrow">Nature follows conditions</span><h3 id="seasonal-planner-title"><span id="seasonal-result-count">0</span> seasonal possibilities</h3></div><p>Broad wildlife and landscape windows matched to your selected months; never a sightings guarantee.</p></div>
+                <div class="wildlife-calendar" id="wildlife-calendar"></div>
+            </section>
             <p class="section-disclaimer" id="events-disclaimer"></p>
         </div>
     </section>
@@ -1686,15 +1709,66 @@
 
     <div class="page-chapter page-chapter--reference">
 
-    <!-- Travel News — Visit Namibia latest updates -->
-    <section id="news" class="travel-news-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-eyebrow">Latest News</span>
-                <h2>Travel Updates & Industry News</h2>
-                <p>Stay informed about visas, borders, conservation, and new experiences across the region.</p>
+    <!-- Verified travel updates — source-linked and automatically expired -->
+    <section id="news" class="travel-updates-section">
+        <header class="travel-updates-hero">
+            <div class="container">
+                <span class="section-eyebrow">Verified travel updates</span>
+                <h1>What changed before your trip?</h1>
+                <p>Entry rules and event plans can move quickly. This is a deliberately small briefing of updates that have a named source, a review date, and an automatic expiry.</p>
+                <div class="travel-updates-hero__trust" aria-label="Editorial standards">
+                    <span><i class="fas fa-link" aria-hidden="true"></i> Source linked</span>
+                    <span><i class="fas fa-calendar-check" aria-hidden="true"></i> Review dated</span>
+                    <span><i class="fas fa-clock" aria-hidden="true"></i> Auto-expiring</span>
+                </div>
             </div>
-            <div class="travel-news-grid" id="travel-news-grid"></div>
+        </header>
+
+        <div class="container travel-updates-content">
+            <form id="travel-updates-filter-form" class="travel-updates-filter">
+                <div>
+                    <strong>Filter the briefing</strong>
+                    <span>Only currently valid records appear.</span>
+                </div>
+                <label>
+                    Country
+                    <select id="travel-updates-country" name="country"></select>
+                </label>
+                <label>
+                    Update type
+                    <select id="travel-updates-category" name="category"></select>
+                </label>
+                <button type="reset" class="btn btn-outline">Clear filters</button>
+            </form>
+
+            <div class="travel-updates-heading">
+                <div>
+                    <span class="section-eyebrow">Current briefing</span>
+                    <h2>Updates worth acting on</h2>
+                    <p id="travel-updates-reviewed"></p>
+                </div>
+                <span id="travel-updates-count" aria-label="Number of current updates">0</span>
+            </div>
+            <div id="travel-updates-grid" class="travel-updates-grid"></div>
+            <div id="travel-updates-empty" class="travel-updates-empty" hidden>
+                <i class="fas fa-circle-check" aria-hidden="true"></i>
+                <h3>No current update matches</h3>
+                <p></p>
+            </div>
+
+            <aside class="travel-updates-method">
+                <div>
+                    <span class="section-eyebrow">How to read this page</span>
+                    <h2>Absence is not a promise</h2>
+                </div>
+                <p>We suppress a record when its recheck date passes. A quiet page therefore means there is no update recent enough for us to publish—not that borders, flights, roads, or events are guaranteed unchanged.</p>
+                <ol>
+                    <li><strong>Read the summary.</strong> Understand what may affect your plan.</li>
+                    <li><strong>Open the source.</strong> Confirm the latest wording before paying.</li>
+                    <li><strong>Check again near departure.</strong> Rules can change between planning and travel.</li>
+                </ol>
+            </aside>
+            <p id="travel-updates-disclaimer" class="travel-updates-disclaimer"></p>
         </div>
     </section>
 

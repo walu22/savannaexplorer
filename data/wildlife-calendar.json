@@ -1,116 +1,152 @@
 {
   "meta": {
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-09-08",
     "disclaimer": "Wildlife movements depend on rainfall and local conditions — use this calendar for trip timing, not as a guarantee of sightings."
   },
   "highlights": [
     {
       "id": "great-migration",
+      "countryIds": ["botswana", "zimbabwe", "namibia"],
       "months": [7, 8, 9, 10],
       "monthLabel": "Jul–Oct",
       "icon": "🐘",
       "title": "Elephant concentrations — dry season",
       "region": "Chobe · Hwange · Etosha · Linyanti",
-      "description": "Waterholes and rivers draw hundreds of elephants. Chobe River cruises and Hwange pumped pans peak Jul–Oct. Etosha's Okaukuejo waterhole is legendary at dusk."
+      "description": "Waterholes and rivers draw hundreds of elephants. Chobe River cruises and Hwange pumped pans peak Jul–Oct. Etosha's Okaukuejo waterhole is legendary at dusk.",
+      "sourceLabel": "Botswana Tourism Organisation",
+      "sourceUrl": "https://www.botswanatourism.co.bw/"
     },
     {
       "id": "wildebeest-calving",
+      "countryIds": ["botswana", "zimbabwe"],
       "months": [1, 2],
       "monthLabel": "Jan–Feb",
       "icon": "🦬",
       "title": "Calving season — predator action",
       "region": "Botswana · Zimbabwe fringe",
-      "description": "Green season births attract lions and wild dogs. Lower rates and lush photography — some remote camps close for rains."
+      "description": "Green season births attract lions and wild dogs. Lower rates and lush photography — some remote camps close for rains.",
+      "sourceLabel": "Botswana Tourism Organisation",
+      "sourceUrl": "https://www.botswanatourism.co.bw/"
     },
     {
       "id": "wild-dog-denning",
+      "countryIds": ["zimbabwe", "botswana", "zambia"],
       "months": [5, 6, 7],
       "monthLabel": "May–Jul",
       "icon": "🐕",
       "title": "African wild dog denning",
       "region": "Mana Pools · Moremi · South Luangwa",
-      "description": "Packs stay near dens — exceptional viewing for photographers. Mana Pools and Moremi concessions most reliable."
+      "description": "Packs stay near dens — exceptional viewing for photographers. Mana Pools and Moremi concessions most reliable.",
+      "sourceLabel": "Zimbabwe Parks and Wildlife",
+      "sourceUrl": "https://www.zimparks.org.zw/"
     },
     {
       "id": "whale-shark",
+      "countryIds": ["mozambique"],
       "months": [10, 11, 12, 1, 2, 3],
       "monthLabel": "Oct–Mar",
       "icon": "🦈",
       "title": "Whale sharks & manta rays",
       "region": "Tofo · Inhambane coast, Mozambique",
-      "description": "Snorkelling with whale sharks peaks in warmer months. Combine with Bazaruto dhow sailing in shoulder season."
+      "description": "Snorkelling with whale sharks peaks in warmer months. Combine with Bazaruto dhow sailing in shoulder season.",
+      "sourceLabel": "Visit Mozambique",
+      "sourceUrl": "https://www.visitmozambique.gov.mz/"
     },
     {
       "id": "sardine-run",
+      "countryIds": ["south-africa"],
       "months": [6, 7],
       "monthLabel": "Jun–Jul",
       "icon": "🐟",
       "title": "Sardine Run",
       "region": "Wild Coast & KZN, South Africa",
-      "description": "Massive bait balls along the east coast draw dolphins, sharks, and gannets — weather-dependent spectacle."
+      "description": "Massive bait balls along the east coast draw dolphins, sharks, and gannets — weather-dependent spectacle.",
+      "sourceLabel": "South African Tourism",
+      "sourceUrl": "https://www.southafrica.net/"
     },
     {
       "id": "flamingo-breeding",
+      "countryIds": ["namibia"],
       "months": [4, 5, 6],
       "monthLabel": "Apr–Jun",
       "icon": "🦩",
       "title": "Flamingo & pelican breeding",
       "region": "Walvis Bay · Etosha pan fringe",
-      "description": "Coastal lagoons pink with greater and lesser flamingos. Walvis Bay boat tours best at high tide."
+      "description": "Coastal lagoons pink with greater and lesser flamingos. Walvis Bay boat tours best at high tide.",
+      "sourceLabel": "Visit Namibia",
+      "sourceUrl": "https://visitnamibia.com.na/"
     },
     {
       "id": "bat-migration",
+      "countryIds": ["zambia"],
       "months": [10, 11, 12],
       "monthLabel": "Oct–Dec",
       "icon": "🦇",
       "title": "Straw-coloured fruit bat migration",
       "region": "Kasanka, Zambia",
-      "description": "Millions of bats darken the sky at Kasanka — one of Africa's greatest wildlife spectacles. Book lodges a year ahead."
+      "description": "Millions of bats darken the sky at Kasanka — one of Africa's greatest wildlife spectacles. Book lodges a year ahead.",
+      "sourceLabel": "Kasanka National Park",
+      "sourceUrl": "https://kasankanationalpark.com/"
     },
     {
       "id": "turtle-nesting",
+      "countryIds": ["south-africa", "mozambique"],
       "months": [11, 12, 1, 2],
       "monthLabel": "Nov–Feb",
       "icon": "🐢",
       "title": "Loggerhead & leatherback turtles",
       "region": "iSimangaliso, South Africa · Maputo Special Reserve",
-      "description": "Night beach walks with licensed guides to see nesting turtles — strict red-torch protocols."
+      "description": "Night beach walks with licensed guides to see nesting turtles — strict red-torch protocols.",
+      "sourceLabel": "iSimangaliso Wetland Park",
+      "sourceUrl": "https://isimangaliso.com/"
     },
     {
       "id": "zebra-migration",
+      "countryIds": ["botswana"],
       "months": [12, 1, 2, 3, 4],
       "monthLabel": "Dec–Apr",
       "icon": "🦓",
       "title": "Zebra migration",
       "region": "Makgadikgadi · Nxai Pan, Botswana",
-      "description": "Second-largest zebra migration follows rains into the salt pans — green season wonder with lower camp rates."
+      "description": "Second-largest zebra migration follows rains into the salt pans — green season wonder with lower camp rates.",
+      "sourceLabel": "Botswana Tourism Organisation",
+      "sourceUrl": "https://www.botswanatourism.co.bw/"
     },
     {
       "id": "birding-emerald",
+      "countryIds": ["zambia", "zimbabwe", "malawi"],
       "months": [11, 12, 1, 2, 3],
       "monthLabel": "Nov–Mar",
       "icon": "🦅",
       "title": "Emerald-season birding",
       "region": "Zambia · Zimbabwe · Malawi",
-      "description": "Migratory birds, breeding plumage, and dramatic skies. Victoria Falls full spray Nov–Apr — pack rain gear."
+      "description": "Migratory birds, breeding plumage, and dramatic skies. Victoria Falls full spray Nov–Apr — pack rain gear.",
+      "sourceLabel": "Zambia Tourism Agency",
+      "sourceUrl": "https://www.zambia.travel/"
     },
     {
       "id": "desert-adapted-wildlife",
+      "countryIds": ["namibia"],
       "months": [6, 7, 8, 9],
       "monthLabel": "Jun–Sep",
       "icon": "🦁",
       "title": "Desert-adapted lions & rhinos",
       "region": "Damaraland · Kaokoland, Namibia",
-      "description": "Track desert-adapted elephant and black rhino on foot with community guides — cool mornings, clear skies."
+      "description": "Track desert-adapted elephant and black rhino on foot with community guides — cool mornings, clear skies.",
+      "sourceLabel": "Visit Namibia",
+      "sourceUrl": "https://visitnamibia.com.na/"
     },
     {
       "id": "humpback-whales",
+      "countryIds": ["south-africa", "mozambique"],
       "months": [6, 7, 8, 9, 10],
       "monthLabel": "Jun–Oct",
       "icon": "🐋",
       "title": "Humpback whales",
       "region": "Hermanus · Mozambique coast",
-      "description": "Southern right and humpback whales visible from shore in Hermanus (SA) and off Vilanculos/Bazaruto (Mozambique)."
+      "description": "Southern right and humpback whales visible from shore in Hermanus (SA) and off Vilanculos/Bazaruto (Mozambique).",
+      "sourceLabel": "Hermanus Whale Festival",
+      "sourceUrl": "https://hermanuswhalefestival.co.za/"
     }
   ]
 }

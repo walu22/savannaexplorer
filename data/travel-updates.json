@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "lastReviewed": "2026-09-08",
+    "disclaimer": "Travel conditions can change after publication. Open the linked source before booking or crossing a border.",
+    "emptyMessage": "There are no current verified updates for this filter. That means we have nothing recent enough to publish — not that conditions cannot change."
+  },
+  "updates": [
+    {
+      "id": "lake-of-stars-2026-postponed",
+      "country": "malawi",
+      "category": "event-change",
+      "status": "attention",
+      "publishedOn": "2026-09-04",
+      "reviewedOn": "2026-09-08",
+      "validUntil": "2027-06-30",
+      "title": "Lake of Stars 2026 postponed to 2027",
+      "summary": "Organisers have postponed the 2026 festival. Do not build an October 2026 itinerary around the previously announced dates; wait for the replacement 2027 dates before booking.",
+      "sourceLabel": "Music In Africa — organiser announcement",
+      "sourceUrl": "https://musicinafrica.net/magazine/lake-stars-malawi-arts-festival-postpones-2026-edition-2027/",
+      "actionHref": "/events",
+      "actionLabel": "See the events watchlist"
+    },
+    {
+      "id": "mtn-bushfire-2027-dates",
+      "country": "eswatini",
+      "category": "event-date",
+      "status": "confirmed",
+      "publishedOn": "2026-06-22",
+      "reviewedOn": "2026-09-08",
+      "validUntil": "2027-05-31",
+      "title": "MTN Bushfire confirms its 2027 weekend",
+      "summary": "The next festival is scheduled for 28–30 May 2027. Travellers pairing Eswatini with Kruger should reserve accommodation early and recheck the organiser before paying.",
+      "sourceLabel": "Eswatini Tourism Authority",
+      "sourceUrl": "https://www.thekingdomofeswatini.com/news-blogs/the-mtn-bushfire-effect-another-impactful-edition-lights-the-way-for-20-years/",
+      "actionHref": "/events",
+      "actionLabel": "Check the date planner"
+    },
+    {
+      "id": "namibia-visa-on-arrival-check",
+      "country": "namibia",
+      "category": "entry-rule",
+      "status": "verify-before-travel",
+      "publishedOn": "2025-04-01",
+      "reviewedOn": "2026-09-08",
+      "validUntil": "2026-10-08",
+      "title": "Namibia entry rules require a fresh passport check",
+      "summary": "Namibia's visa regime changed on 1 April 2025 for affected nationalities. Use the official visa-on-arrival portal and confirm your passport's current requirement before departure.",
+      "sourceLabel": "Namibia Ministry of Home Affairs",
+      "sourceUrl": "https://eservices.mhaiss.gov.na/visaonarrival",
+      "actionHref": "/plan",
+      "actionLabel": "Open visa planning tools"
+    },
+    {
+      "id": "lesotho-evisa-service-status",
+      "country": "lesotho",
+      "category": "entry-rule",
+      "status": "attention",
+      "publishedOn": "2026-09-06",
+      "reviewedOn": "2026-09-08",
+      "validUntil": "2026-10-08",
+      "title": "Check Lesotho's visa channel before applying",
+      "summary": "Lesotho's Home Affairs e-services notice says the eVisa service is suspended. Travellers who require a visa should follow the ministry's current instructions rather than relying on older eVisa links.",
+      "sourceLabel": "Lesotho Ministry of Home Affairs",
+      "sourceUrl": "https://www.homeaffairs.gov.ls/eservices/",
+      "actionHref": "/plan",
+      "actionLabel": "Review entry planning"
+    }
+  ]
+}

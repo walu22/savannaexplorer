@@ -1,0 +1,487 @@
+.events-planner {
+    padding: 0;
+    background: #f4efe4;
+    color: var(--color-text, #1f3028);
+}
+
+.events-planner > .container {
+    padding-top: clamp(6.5rem, 10vw, 9rem);
+    padding-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.events-planner-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(18rem, .95fr);
+    min-height: 31rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border-radius: 1.4rem;
+    background: #17362d;
+}
+
+.events-planner-hero > div {
+    align-self: end;
+    padding: clamp(2rem, 5vw, 4.25rem);
+}
+
+.events-planner-hero .section-kicker,
+.events-planner-hero .section-eyebrow,
+.events-planner-hero h2,
+.events-planner-hero p {
+    color: #fff;
+}
+
+.events-planner-hero h2 {
+    max-width: 14ch;
+    margin: .6rem 0 1rem;
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(2.4rem, 5vw, 4.7rem);
+    line-height: .96;
+    letter-spacing: -.035em;
+}
+
+.events-planner-hero p {
+    max-width: 41rem;
+    margin: 0;
+    font-size: clamp(1rem, 1.7vw, 1.18rem);
+    line-height: 1.7;
+}
+
+.events-planner-hero ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.events-planner-hero li {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .5rem .7rem;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 999px;
+    color: #fff;
+    font-size: .76rem;
+    font-weight: 750;
+}
+
+.events-planner-hero li i {
+    color: #e9bd82;
+}
+
+.events-planner-hero img {
+    width: 100%;
+    height: 100%;
+    min-height: 31rem;
+    object-fit: cover;
+}
+
+.events-trip-filter {
+    display: grid;
+    grid-template-columns: minmax(13rem, 1.2fr) repeat(4, minmax(9rem, 1fr)) auto;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: 3rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid rgba(24, 56, 46, .17);
+    border-radius: 1.25rem;
+    background: #fffaf0;
+    box-shadow: 0 20px 55px rgba(27, 46, 38, .09);
+}
+
+.events-trip-filter__heading {
+    align-self: center;
+}
+
+.events-trip-filter__heading strong,
+.events-trip-filter__heading h3 {
+    display: block;
+    margin: 0 0 .35rem;
+    color: #17362d;
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.25rem;
+}
+
+.events-trip-filter__heading span,
+.events-trip-filter label span {
+    color: #607069;
+    font-size: .82rem;
+    line-height: 1.45;
+}
+
+.events-trip-filter label {
+    display: grid;
+    gap: .45rem;
+    color: #263c34;
+    font-size: .82rem;
+    font-weight: 700;
+}
+
+.events-trip-filter input,
+.events-trip-filter select {
+    width: 100%;
+    min-height: 3rem;
+    padding: .7rem .8rem;
+    border: 1px solid #c9c7bb;
+    border-radius: .7rem;
+    background: #fff;
+    color: #1c322a;
+    font: inherit;
+}
+
+.events-trip-filter input:focus,
+.events-trip-filter select:focus {
+    border-color: #bd6d32;
+    outline: 3px solid rgba(189, 109, 50, .2);
+}
+
+.events-trip-filter__presets {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .65rem;
+    padding-top: .25rem;
+}
+
+.events-trip-filter__presets button {
+    min-height: 2.45rem;
+    padding: .55rem .9rem;
+    border: 1px solid rgba(23, 54, 45, .25);
+    border-radius: 999px;
+    background: transparent;
+    color: #17362d;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.events-trip-filter__presets button:hover,
+.events-trip-filter__presets button:focus-visible {
+    border-color: #17362d;
+    background: #17362d;
+    color: #fff;
+}
+
+.events-results-heading,
+.seasonal-planner__heading,
+.event-watchlist__heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.events-results-heading h2,
+.events-results-heading h3,
+.seasonal-planner__heading h2,
+.event-watchlist__heading h2 {
+    margin: 0 0 .35rem;
+    color: #17362d;
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(1.85rem, 3.4vw, 3rem);
+}
+
+.events-results-heading p,
+.seasonal-planner__heading p,
+.event-watchlist__heading p {
+    max-width: 45rem;
+    margin: 0;
+    color: #5d6b65;
+    line-height: 1.6;
+}
+
+.events-results-heading > span {
+    flex: 0 0 auto;
+    min-width: 3.2rem;
+    padding: .55rem .85rem;
+    border-radius: 999px;
+    background: #17362d;
+    color: #fff;
+    text-align: center;
+    font-weight: 800;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.verified-event-card {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    overflow: hidden;
+    border: 1px solid rgba(23, 54, 45, .15);
+    border-radius: 1.1rem;
+    background: #fff;
+    box-shadow: 0 14px 35px rgba(30, 47, 40, .07);
+}
+
+.verified-event-card__date {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.3rem;
+    background: #17362d;
+    color: #fff;
+}
+
+.verified-event-card__date time {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.08rem;
+    line-height: 1.35;
+}
+
+.verified-event-card__date span {
+    color: #e9bd82;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.verified-event-card__body {
+    padding: 1.35rem;
+}
+
+.verified-event-card__country {
+    color: #9c5427;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+.verified-event-card h3,
+.event-watch-card h3,
+.seasonal-event-card h3 {
+    margin: .45rem 0 .55rem;
+    color: #17362d;
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.35rem;
+    line-height: 1.2;
+}
+
+.verified-event-card p,
+.event-watch-card p,
+.seasonal-event-card p {
+    margin: .45rem 0;
+    color: #55655f;
+    font-size: .9rem;
+    line-height: 1.6;
+}
+
+.verified-event-card__location {
+    color: #263c34 !important;
+    font-weight: 700;
+}
+
+.verified-event-card__note {
+    display: flex;
+    gap: .7rem;
+    margin-top: 1rem;
+    padding: .8rem;
+    border-radius: .75rem;
+    background: #f4efe4;
+    color: #334a41;
+    font-size: .86rem;
+    line-height: 1.5;
+}
+
+.verified-event-card__note i {
+    margin-top: .18rem;
+    color: #bd6d32;
+}
+
+.verified-event-card footer {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .85rem 1.3rem;
+    border-top: 1px solid #ece8dd;
+    background: #fbfaf5;
+    font-size: .76rem;
+    line-height: 1.4;
+}
+
+.verified-event-card footer span {
+    color: #547065;
+}
+
+.verified-event-card footer a,
+.event-watch-card a,
+.seasonal-event-card__source {
+    color: #944d23;
+    font-weight: 800;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.seasonal-event-card__source {
+    display: inline-block;
+    margin-top: .65rem;
+    font-size: .78rem;
+}
+
+.events-empty-state {
+    padding: 2rem;
+    border: 1px dashed #aaa99f;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, .5);
+    text-align: center;
+}
+
+.events-empty-state h3 {
+    margin: 0 0 .5rem;
+    color: #17362d;
+}
+
+.event-watchlist-section,
+.seasonal-planner {
+    margin-top: clamp(4rem, 7vw, 7rem);
+}
+
+.event-watchlist,
+.wildlife-calendar {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.event-watch-card,
+.seasonal-event-card {
+    padding: 1.35rem;
+    border: 1px solid rgba(23, 54, 45, .14);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, .74);
+}
+
+.event-watch-card > div,
+.seasonal-event-card > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    color: #52645d;
+    font-size: .78rem;
+    font-weight: 750;
+}
+
+.event-watch-card > div strong {
+    padding: .3rem .55rem;
+    border-radius: 999px;
+    background: #e8dcc5;
+    color: #72542d;
+    font-size: .69rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.event-watch-card--postponed {
+    border-left: 4px solid #a84d3f;
+}
+
+.event-watch-card--postponed > div strong {
+    background: #f2dcd7;
+    color: #853c32;
+}
+
+.event-watch-card__timing,
+.seasonal-event-card__region {
+    color: #9c5427 !important;
+    font-weight: 800;
+}
+
+.seasonal-planner {
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border-radius: 1.4rem;
+    background: #17362d;
+}
+
+.seasonal-planner__heading h2,
+.seasonal-planner__heading p {
+    color: #fff;
+}
+
+.seasonal-planner .events-results-heading h3,
+.seasonal-planner .events-results-heading p,
+.seasonal-planner .section-eyebrow {
+    color: #fff;
+}
+
+.seasonal-event-card {
+    background: #fffaf0;
+}
+
+.seasonal-event-card > div span {
+    font-size: 1.4rem;
+}
+
+.events-planner .events-disclaimer {
+    margin: 2rem 0 0;
+    color: #65716c;
+    font-size: .8rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
+    .events-trip-filter {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .events-trip-filter__heading {
+        grid-column: 1 / -1;
+    }
+
+    .events-grid,
+    .event-watchlist,
+    .wildlife-calendar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .events-planner-hero {
+        min-height: 29rem;
+        grid-template-columns: 1fr;
+    }
+
+    .events-planner-hero img {
+        min-height: 18rem;
+        max-height: 22rem;
+        order: -1;
+    }
+
+    .events-trip-filter,
+    .events-grid,
+    .event-watchlist,
+    .wildlife-calendar {
+        grid-template-columns: 1fr;
+    }
+
+    .verified-event-card {
+        grid-template-columns: 1fr;
+    }
+
+    .verified-event-card__date {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .verified-event-card footer {
+        flex-direction: column;
+    }
+
+    .events-results-heading,
+    .seasonal-planner__heading,
+    .event-watchlist__heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

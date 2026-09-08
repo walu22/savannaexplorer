@@ -81,6 +81,14 @@ const HUB_META = {
         title: 'Southern Africa Food & Market Planner',
         description: 'Plan food experiences across nine Southern African countries with dietary questions, market etiquette, safer-food guidance, route ideas, and official sources.',
     },
+    events: {
+        title: 'Southern Africa Events & Seasonal Planner',
+        description: 'Find source-checked festivals and regional events by trip date, plus clearly separated seasonal wildlife planning across Southern Africa.',
+    },
+    news: {
+        title: 'Verified Southern Africa Travel Updates',
+        description: 'Current, source-linked entry-rule and event updates for Southern Africa, each with a review date and automatic expiry.',
+    },
     experiences: {
         title: 'Southern Africa Experience Finder',
         description: 'Compare wildlife, landscape, coast, active, cultural, food, and road-trip ideas across nine Southern African countries without paid rankings or invented ratings.',

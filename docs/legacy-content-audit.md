@@ -18,7 +18,7 @@ Each public section must help a traveller discover, decide, prepare, act, or sta
 | Top destinations | Replaced | The duplicated “must visit” gallery was replaced with an explainable matcher using month, interests, time, budget, pace, driving comfort and researched routes. |
 | Legacy itineraries | Consolidated | The competing card grid and modal were retired. Nine single-country journeys now redirect to researched Route Explorer replacements; six distinctive cross-border concepts are editable journey-builder presets. |
 | Gastronomy | Replaced | The generic dish carousel and unrelated marketplace modal were removed. The Food & Market Planner now covers all nine countries with dietary questions, regional route ideas, market etiquette, WHO-based safer-food guidance, and reviewed sources. |
-| Events and travel news | Tighten governance | Valuable only while dates and advice are current. Require expiry dates, sources, and automatic stale-content suppression. |
+| Events and travel news | Replaced and governed | Yearless listings and unsourced headlines were removed. Confirmed events now require exact dates and sources; uncertain dates stay on a labelled watchlist; travel updates require review and expiry dates and disappear when stale. |
 | Campsites | Refresh | Keep only if coverage becomes useful across countries and includes booking/access evidence. |
 | Tourism statistics | Keep as editorial/B2B | Useful for credibility and acquisition, but secondary to the tourist journey. |
 | Safari Bingo | Keep | Distinct family utility with no duplication. |
@@ -27,5 +27,4 @@ Each public section must help a traveller discover, decide, prepare, act, or sta
 
 ## Next replacement order
 
-1. Enforce expiry and review rules for Events and News.
-2. Refresh campsite coverage with booking and access evidence.
+1. Refresh campsite coverage with booking and access evidence.

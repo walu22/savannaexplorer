@@ -19,7 +19,7 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 |------|---------|-----------------|
 | `data/practical.json` | Utility hub: currency, visa/health matrix, seasons, typical weather, emergencies | Government immigration portals; XE.com (currency reference); WHO / national health advisories (health summaries) |
 | `data/health.json` | Malaria zones, yellow fever notes, regional health summaries | WHO malaria programme; national health ministries (reference) |
-| `data/events.json` | Festivals, wildlife peaks, seasonal highlights | National tourism boards; public event calendars |
+| `data/events.json` | Confirmed festivals and regional events, plus a dates-pending watchlist | Named organiser, government, or tourism-authority source on every record; checked and expiry dates required |
 | `data/parks.json` | National park listings, fees, seasons | SANParks, Namibia Wildlife Resorts, Zimparks, Malawi Parks, etc. (`sourceUrl` per park) |
 | `data/borders.json` | Border crossing practical info | National immigration and cross-border authority pages (`sourceUrl` per crossing) |
 | `data/countries.json` | Country profiles, advice summaries | Original editorial copy informed by official tourism and immigration sites |
@@ -32,10 +32,11 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 | `data/marketplace.json` | Curated experience listings | Original editorial; representative pricing tiers |
 | `data/food-travel.json` | Food and market planning across nine countries | WHO safer-food guidance; official national tourism and government sources linked in each record; reviewed September 2026 |
 | `data/image-catalog.json` | Verified Unsplash stock photo IDs | [Unsplash License](https://unsplash.com/license) — free for commercial use with attribution appreciated |
-| `data/discover.json` | Homepage facts, news, guides | Original editorial; news items should cite policy changes, not reproduce press releases |
+| `data/discover.json` | Homepage facts and planning links | Original editorial; time-sensitive news is intentionally stored separately |
+| `data/travel-updates.json` | Current entry-rule and event changes | Named source, published date, review date, and automatic expiry on every record |
 | `data/cross-border.json` | KAZA UniVisa, COMESA Yellow Card, IDP, border fees | Zambia Immigration, COMESA Yellow Card, AA South Africa |
 | `data/on-the-ground.json` | Cash, fuel, power, plugs per country | Original editorial informed by tourism boards and utility updates |
-| `data/wildlife-calendar.json` | Seasonal wildlife & nature highlights | Original editorial; park authority seasonal guidance |
+| `data/wildlife-calendar.json` | Seasonal wildlife & nature highlights | Official tourism and park planning sources linked on every record; patterns are not sighting guarantees |
 | `data/itinerary-budgets.json` | Line-item indicative budgets per route template | Original editorial; park fee references from `parks.json` |
 | `data/planning-guides.json` | Full country planning guides (read/print) | Original editorial; immigration URLs per country |
 | `data/tourism-stats.json` | International arrival context by country | National statistics offices & tourism authorities |
@@ -130,7 +131,9 @@ Attribution notes for select photos live in `data/image-catalog.json` → `attri
 | Park fees | Annually (or when authorities publish changes) |
 | Border hours / fees | Annually |
 | Health zones | Annually |
-| Events calendar | Annually (before each travel season) |
+| Confirmed events | At least monthly while published; remove after `publishUntil` |
+| Travel updates | By each record's `validUntil`; stale records are suppressed automatically |
+| Seasonal wildlife patterns | Annually and when park guidance changes |
 | Currency rates | Monthly (planning approximations only) |
 | Emergency numbers | Annually |
 
