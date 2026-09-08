@@ -105,11 +105,11 @@ body.site-v2 .page-chapter--plan {
     background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-light) 100%);
 }
 
-body.site-v2 .page-chapter--plan > section:not(.utility-hub):not(.food-planner-section):not(.community-travel-section):not(.safari-bingo-section):not(.phrasebook-section) {
+body.site-v2 .page-chapter--plan > section:not(.utility-hub):not(.food-planner-section):not(.community-travel-section):not(.safari-bingo-section):not(.phrasebook-section):not(.home-my-safari) {
     background: transparent;
 }
 
-body.site-v2 .page-chapter--plan > section:nth-child(even):not(.utility-hub):not(.food-planner-section):not(.community-travel-section):not(.safari-bingo-section):not(.phrasebook-section) {
+body.site-v2 .page-chapter--plan > section:nth-child(even):not(.utility-hub):not(.food-planner-section):not(.community-travel-section):not(.safari-bingo-section):not(.phrasebook-section):not(.home-my-safari) {
     background: rgba(255, 255, 255, 0.55);
 }
 
