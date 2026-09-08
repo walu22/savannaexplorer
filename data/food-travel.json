@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "version": "1.0",
+    "lastReviewed": "2026-09",
+    "disclaimer": "Food traditions vary by region, family and cook. Dietary labels below are planning prompts, not guarantees: always confirm ingredients, cooking stock and cross-contact directly.",
+    "heroImage": "https://images.unsplash.com/photo-1576485375217-d6a95e34d043?auto=format&fit=crop&q=82&w=1200"
+  },
+  "countries": [
+    {
+      "id": "namibia",
+      "name": "Namibia",
+      "flag": "🇳🇦",
+      "lead": "Build a food day around Windhoek markets, coastal seafood and the distinct cooking traditions of northern Namibia.",
+      "contexts": ["market", "city", "coast", "road-trip"],
+      "foods": ["Kapana grilled meat", "Mahangu porridge", "Coastal fish and oysters", "Biltong and dry-road snacks"],
+      "dietary": ["vegetarian", "gluten-aware", "peanut-alert"],
+      "dietaryNote": "Meat is prominent in many well-known dishes. Ask for mahangu or maize porridge, beans and greens without meat stock; packaged spice mixes and relishes need checking.",
+      "ask": ["Was this cooked with meat stock?", "Is the relish made with peanuts or another nut?"],
+      "routeId": "namibia-essentials-extended",
+      "source": { "label": "Visit Namibia — uniquely Namibian food", "url": "https://visitnamibia.com.na/2015/03/uniquely-namibian-food/" }
+    },
+    {
+      "id": "south-africa",
+      "name": "South Africa",
+      "flag": "🇿🇦",
+      "lead": "Treat the country as many food regions: Cape Malay kitchens, township food businesses, braai culture, Indian Ocean flavours and the Winelands.",
+      "contexts": ["market", "city", "coast", "road-trip"],
+      "foods": ["Cape Malay curries and bredies", "Braai and shisa nyama", "Bunny chow and Durban curries", "Seasonal Cape produce and wine"],
+      "dietary": ["vegetarian", "vegan", "halal", "gluten-aware", "peanut-alert"],
+      "dietaryNote": "Large cities usually offer the widest choice. Halaal certification and kitchen separation vary, so ask the venue; curries, chutneys and baked goods may contain nuts, dairy or gluten.",
+      "ask": ["Is the venue Halaal-certified or simply pork-free?", "Does the vegetable dish contain ghee, butter or meat stock?"],
+      "routeId": "south-africa-garden-route",
+      "source": { "label": "South African Tourism — food and wine", "url": "https://www.southafrica.net/uk/en/travel/article/world-class-food-and-award-winning-wines" }
+    },
+    {
+      "id": "botswana",
+      "name": "Botswana",
+      "flag": "🇧🇼",
+      "lead": "Use Gaborone and Maun for wider choice, then ask lodges and community hosts about regional Setwana dishes and local sourcing.",
+      "contexts": ["city", "community", "road-trip"],
+      "foods": ["Seswaa-style pounded meat", "Bogobe porridge", "Beans and leafy vegetables", "Kalahari-grown produce when available"],
+      "dietary": ["vegetarian", "gluten-aware", "peanut-alert"],
+      "dietaryNote": "Maize or sorghum staples can suit some gluten-aware travellers, but shared kitchens and sauces still need checking. Vegetarian plates may require advance notice at remote camps.",
+      "ask": ["Can the vegetables be cooked without meat stock?", "What food can I buy before the next remote leg?"],
+      "routeId": "botswana-okavango-chobe",
+      "source": { "label": "Botswana Tourism — Ghanzi and local food resources", "url": "https://www.botswanatourism.co.bw/explore/ghanzi" }
+    },
+    {
+      "id": "zambia",
+      "name": "Zambia",
+      "flag": "🇿🇲",
+      "lead": "Start with nshima and its relishes, then compare market, city and lodge interpretations rather than hunting for one definitive plate.",
+      "contexts": ["market", "city", "community", "road-trip"],
+      "foods": ["Nshima with vegetable or meat relishes", "Kapenta", "Ifinkubala when in season", "Beans, pumpkin leaves and groundnuts"],
+      "dietary": ["vegetarian", "vegan", "gluten-aware", "peanut-alert"],
+      "dietaryNote": "Plant-based relishes are common possibilities, but groundnuts and cooking stock are important questions. Nshima is maize-based; cross-contact is still kitchen-specific.",
+      "ask": ["Which relishes are made without meat, fish or stock?", "Does this dish contain groundnuts?"],
+      "routeId": "zambia-southern-zambezi",
+      "source": { "label": "Zambia Tourism — first-time food overview", "url": "https://www.zambiatourism.com/what-to-see-during-your-holidays-in-zambia/" }
+    },
+    {
+      "id": "zimbabwe",
+      "name": "Zimbabwe",
+      "flag": "🇿🇼",
+      "lead": "Pair sadza with locally available relishes, and leave room for regional produce, tea and street or home-style cooking along the route.",
+      "contexts": ["market", "city", "community", "road-trip"],
+      "foods": ["Sadza with muriwo", "Roadside roasted maize", "Peanut-butter greens", "Meat stews and freshwater fish"],
+      "dietary": ["vegetarian", "vegan", "gluten-aware", "peanut-alert"],
+      "dietaryNote": "Sadza is maize-based, but the relish determines the meal. Peanut butter is used in some greens and sauces; ask about stock, dairy and shared utensils.",
+      "ask": ["Is the muriwo cooked with peanut butter?", "Can I have a vegetable relish without meat stock?"],
+      "routeId": "zimbabwe-falls-hwange-matobo",
+      "source": { "label": "Zimbabwe Tourism Authority", "url": "https://www.zimbabwetourism.net/" }
+    },
+    {
+      "id": "mozambique",
+      "name": "Mozambique",
+      "flag": "🇲🇿",
+      "lead": "Follow the coast through seafood, coconut, cassava leaves and piri-piri, while inland tables bring different staples and preparations.",
+      "contexts": ["market", "city", "coast", "road-trip"],
+      "foods": ["Matapa", "Xima or upshwa", "Grilled fish and prawns", "Coconut-rich stews and piri-piri"],
+      "dietary": ["vegetarian", "vegan", "gluten-aware", "peanut-alert"],
+      "dietaryNote": "Matapa may include groundnuts, coconut and sometimes seafood; confirm the recipe. Grills and sauces can share utensils, and coastal availability changes with season and catch.",
+      "ask": ["Does the matapa contain peanuts or seafood?", "Was this grilled separately from shellfish?"],
+      "routeId": "mozambique-southern-lagoons",
+      "source": { "label": "Visit Mozambique — gastronomy", "url": "https://www.visitmozambique.gov.mz/o-que-fazer/gastronomia/" }
+    },
+    {
+      "id": "malawi",
+      "name": "Malawi",
+      "flag": "🇲🇼",
+      "lead": "Connect market produce, highland tea country and Lake Malawi, while choosing lake fish with current sustainability advice in mind.",
+      "contexts": ["market", "community", "coast", "road-trip"],
+      "foods": ["Nsima with ndiwo", "Usipa and other lake fish", "Greens with groundnut sauce", "Tea, fruit and maheu"],
+      "dietary": ["vegetarian", "vegan", "gluten-aware", "peanut-alert"],
+      "dietaryNote": "Vegetable ndiwo can be adaptable, but groundnuts and fish may be present. Ask before ordering and seek current local guidance before choosing threatened fish species.",
+      "ask": ["Does the ndiwo contain fish, meat stock or groundnuts?", "Which locally caught fish is the more sustainable choice today?"],
+      "routeId": "malawi-southern-wildlife-lake",
+      "source": { "label": "Malawi Tourism — first-timer’s guide", "url": "https://www.malawitourism.com/news-blogs/a-first-timers-guide-to-malawi/" }
+    },
+    {
+      "id": "lesotho",
+      "name": "Lesotho",
+      "flag": "🇱🇸",
+      "lead": "Highland food planning is about warmth, seasonality and advance communication with rural stays more than a long restaurant list.",
+      "contexts": ["community", "road-trip"],
+      "foods": ["Motoho fermented porridge", "Papa with moroho", "Beans and seasonal vegetables", "Bread and warming stews"],
+      "dietary": ["vegetarian", "vegan", "gluten-aware", "peanut-alert"],
+      "dietaryNote": "Simple maize, sorghum, bean and vegetable dishes may be adaptable. Remote stays can have limited supplies, so communicate dietary needs before arrival.",
+      "ask": ["Can you prepare the vegetables without meat stock?", "Should I bring any specialist food from Maseru?"],
+      "routeId": "lesotho-highlands-dam-loop",
+      "source": { "label": "Government of Lesotho — tourism", "url": "https://www.gov.ls/about-lesotho/tourism/" }
+    },
+    {
+      "id": "eswatini",
+      "name": "Eswatini",
+      "flag": "🇸🇿",
+      "lead": "Link the central craft-and-food corridor with local produce, fair-trade pantry goods and food events that put Swati makers first.",
+      "contexts": ["market", "city", "community", "road-trip"],
+      "foods": ["Maize and bean dishes", "Emasi and sorghum preparations", "Local preserves and chilli sauces", "Seasonal market produce"],
+      "dietary": ["vegetarian", "vegan", "gluten-aware", "peanut-alert"],
+      "dietaryNote": "Craft centres and city restaurants can broaden options, but dairy and shared preparation are common questions. Ask producers directly about ingredients in preserves and sauces.",
+      "ask": ["Does this contain emasi, milk or butter?", "Which products are made by local or fair-trade producers?"],
+      "routeId": "eswatini-royal-heartland",
+      "source": { "label": "Eswatini Tourism — Vuvulane Food Market", "url": "https://www.thekingdomofeswatini.com/news-blogs/discovering-vuvulane-food-market/" }
+    }
+  ],
+  "routeIdeas": [
+    {
+      "title": "Cape kitchens to the Garden Route",
+      "countries": "South Africa",
+      "summary": "Use Cape Town for Cape Malay and city food stories, add a Winelands day with a sober driver, then follow seasonal producers east.",
+      "routeId": "south-africa-garden-route",
+      "note": "Pre-book small-group or community-led experiences; never combine wine tasting with driving."
+    },
+    {
+      "title": "Maputo to the Inhambane table",
+      "countries": "Mozambique",
+      "summary": "Begin with Maputo’s markets and grills, then follow coconut, cassava-leaf and seafood traditions north toward the lagoons.",
+      "routeId": "mozambique-southern-lagoons",
+      "note": "Ask about the day’s catch, shellfish cross-contact and road conditions before each leg."
+    },
+    {
+      "title": "Tea country to Lake Malawi",
+      "countries": "Malawi",
+      "summary": "Connect arranged tea-estate visits with southern markets, highland produce and lake communities on a slower wildlife-and-food circuit.",
+      "routeId": "malawi-southern-wildlife-lake",
+      "note": "Confirm estate access and seek current sustainability guidance before ordering lake fish."
+    },
+    {
+      "title": "Windhoek, coast and northern staples",
+      "countries": "Namibia",
+      "summary": "Compare Windhoek’s kapana culture with Atlantic seafood and the mahangu-based food traditions encountered farther north.",
+      "routeId": "namibia-essentials-extended",
+      "note": "Treat markets as working places: ask before photographing, sampling or filming vendors."
+    }
+  ],
+  "etiquette": [
+    { "title": "Ask before the camera", "text": "Markets and kitchens are workplaces. Ask the person—not only a guide—before photographing people, stalls or food preparation." },
+    { "title": "Agree before ordering", "text": "Confirm the dish, portion, price and payment method before food is prepared, especially where menus are informal." },
+    { "title": "Follow your host", "text": "At a home or community table, wait for the host’s cue on hand-washing, seating, serving and whether food is shared." },
+    { "title": "Spend where value stays", "text": "Prefer locally owned guides, markets, producers and food businesses; avoid turning a community meal into a staged photo stop." }
+  ],
+  "safety": [
+    { "title": "Keep clean", "text": "Wash or sanitise hands before eating and choose visibly clean preparation surfaces." },
+    { "title": "Separate raw and cooked", "text": "Be alert to utensils or boards shared between raw meat, seafood and ready-to-eat food." },
+    { "title": "Cook thoroughly", "text": "Prefer food cooked thoroughly and served hot, particularly meat, eggs and seafood." },
+    { "title": "Use safe water", "text": "Use safe water and raw ingredients; when uncertain, choose sealed water and fruit you can peel." }
+  ],
+  "sources": [
+    { "label": "WHO — Five keys to safer food", "url": "https://www.who.int/activities/promoting-safe-food-handling/five-key-to-safer-food/", "type": "Safety standard" },
+    { "label": "South African Tourism — Cape Malay cuisine", "url": "https://www.southafrica.net/za/en/travel/article/cape-malay-cuisine-food-that-feeds-the-soul/1000", "type": "Official tourism" },
+    { "label": "South African Tourism — local food and sustainable seafood", "url": "https://www.southafrica.net/uk/en/travel/article/south-african-food-conservation-making-sure-the-local-resources-last", "type": "Official tourism" },
+    { "label": "Visit Mozambique — gastronomy", "url": "https://www.visitmozambique.gov.mz/o-que-fazer/gastronomia/", "type": "Official tourism" },
+    { "label": "Malawi Tourism — first-timer’s guide", "url": "https://www.malawitourism.com/news-blogs/a-first-timers-guide-to-malawi/", "type": "Official tourism" },
+    { "label": "Zambia Tourism — food overview", "url": "https://www.zambiatourism.com/what-to-see-during-your-holidays-in-zambia/", "type": "Official tourism" },
+    { "label": "Botswana Tourism — importing food across the border", "url": "https://www.botswanatourism.co.bw/index.php/travel-info/importation-goods", "type": "Official border guidance" },
+    { "label": "Eswatini Tourism — Vuvulane Food Market", "url": "https://www.thekingdomofeswatini.com/news-blogs/discovering-vuvulane-food-market/", "type": "Official tourism" },
+    { "label": "Government of Lesotho — tourism", "url": "https://www.gov.ls/about-lesotho/tourism/", "type": "Government tourism" },
+    { "label": "Visit Namibia — uniquely Namibian food", "url": "https://visitnamibia.com.na/2015/03/uniquely-namibian-food/", "type": "Official tourism" },
+    { "label": "Zimbabwe Tourism Authority", "url": "https://www.zimbabwetourism.net/", "type": "Official tourism" }
+  ]
+}

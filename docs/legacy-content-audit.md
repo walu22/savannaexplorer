@@ -1,6 +1,6 @@
 # Legacy content audit
 
-Updated: 2026-09-07
+Updated: 2026-09-08
 
 ## Decision standard
 
@@ -17,7 +17,7 @@ Each public section must help a traveller discover, decide, prepare, act, or sta
 | Experiences | Replaced | Legacy product-style cards and untraceable ratings were removed. The new finder uses transparent planning pathways into country guides, routes and reviewed operator sources. |
 | Top destinations | Replaced | The duplicated “must visit” gallery was replaced with an explainable matcher using month, interests, time, budget, pace, driving comfort and researched routes. |
 | Legacy itineraries | Consolidated | The competing card grid and modal were retired. Nine single-country journeys now redirect to researched Route Explorer replacements; six distinctive cross-border concepts are editable journey-builder presets. |
-| Gastronomy | Refresh | Keep the topic, replace general dish cards with market etiquette, dietary planning, regional food routes, and reviewed sources. |
+| Gastronomy | Replaced | The generic dish carousel and unrelated marketplace modal were removed. The Food & Market Planner now covers all nine countries with dietary questions, regional route ideas, market etiquette, WHO-based safer-food guidance, and reviewed sources. |
 | Events and travel news | Tighten governance | Valuable only while dates and advice are current. Require expiry dates, sources, and automatic stale-content suppression. |
 | Campsites | Refresh | Keep only if coverage becomes useful across countries and includes booking/access evidence. |
 | Tourism statistics | Keep as editorial/B2B | Useful for credibility and acquisition, but secondary to the tourist journey. |
@@ -27,6 +27,5 @@ Each public section must help a traveller discover, decide, prepare, act, or sta
 
 ## Next replacement order
 
-1. Rework gastronomy as practical regional food planning.
-2. Enforce expiry and review rules for Events and News.
-3. Refresh campsite coverage with booking and access evidence.
+1. Enforce expiry and review rules for Events and News.
+2. Refresh campsite coverage with booking and access evidence.

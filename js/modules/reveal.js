@@ -8,7 +8,7 @@ const STAGGER_CHILD_SELECTORS = [
     '.parks-card',
     '.fact-card',
     '.plan-trip-card',
-    '.gastro-card',
+    '.food-country-card',
     '.trip-country-card',
     '.book-card'
 ].join(', ');

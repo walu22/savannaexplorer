@@ -146,7 +146,6 @@ function pruneHubHtml(html, path) {
     if (!section) return html;
     let output = replaceAppMain(html, [section]);
     output = removeElement(output, 'country-detail-view', 'section');
-    if (path !== 'gastronomy') output = removeElement(output, 'marketplace-modal', 'div');
     if (!['my-safari', 'plan'].includes(path)) output = removeElement(output, 'ai-planner-sidebar', 'div');
     return output;
 }
@@ -163,7 +162,6 @@ function pruneHomepageHtml(html) {
     ];
     let output = replaceAppMain(html, sections);
     output = removeElement(output, 'country-detail-view', 'section');
-    output = removeElement(output, 'marketplace-modal', 'div');
     return output;
 }
 

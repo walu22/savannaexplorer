@@ -51,7 +51,21 @@ test('experience hub loads its own filters and excludes the legacy marketplace m
     assert.match(featureLoader, /experiences: \['experiences'\]/);
     assert.match(experiencesModule, /applyExperienceFilters/);
     assert.match(experiencesModule, /aria-pressed/);
-    assert.match(prerender, /path !== 'gastronomy'/);
+    assert.doesNotMatch(index, /id="marketplace-modal"|id="marketplace-grid"/);
+    assert.doesNotMatch(featureLoader, /marketplace\.js|marketplace: \(\)/);
+    assert.doesNotMatch(prerender, /marketplace-modal/);
+});
+
+test('legacy dish carousel is replaced by an actionable food and market planner', () => {
+    assert.doesNotMatch(index, /Gastronomy Journey|gastro-scroll|gastro-card|Signature Drinks/);
+    assert.match(index, /Food &amp; Market Planner/);
+    assert.match(index, /id="food-country-filter"/);
+    assert.match(index, /id="food-context-filter"/);
+    assert.match(index, /id="food-dietary-filter"/);
+    assert.match(index, /Market &amp; table etiquette/);
+    assert.match(index, /Safer food on the road/);
+    assert.match(index, /Sources &amp; review notes/);
+    assert.match(featureLoader, /gastronomy: \['food-planner'\]/);
 });
 
 test('legacy must-visit gallery is replaced by an explainable destination matcher', () => {

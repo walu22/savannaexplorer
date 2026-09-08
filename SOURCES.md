@@ -30,6 +30,7 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 | `data/journey-presets.json` | Multi-country builder starting points | Editorial combinations of the researched route collection and border network |
 | `data/regions.json` | Per-country regional breakdowns for country guides | Original editorial informed by official tourism boards |
 | `data/marketplace.json` | Curated experience listings | Original editorial; representative pricing tiers |
+| `data/food-travel.json` | Food and market planning across nine countries | WHO safer-food guidance; official national tourism and government sources linked in each record; reviewed September 2026 |
 | `data/image-catalog.json` | Verified Unsplash stock photo IDs | [Unsplash License](https://unsplash.com/license) — free for commercial use with attribution appreciated |
 | `data/discover.json` | Homepage facts, news, guides | Original editorial; news items should cite policy changes, not reproduce press releases |
 | `data/cross-border.json` | KAZA UniVisa, COMESA Yellow Card, IDP, border fees | Zambia Immigration, COMESA Yellow Card, AA South Africa |

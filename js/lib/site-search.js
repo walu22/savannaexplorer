@@ -70,6 +70,7 @@ const PRACTICAL_PAGES = [
     { id: 'packing', title: 'Safari packing list', summary: 'Build a practical packing checklist for your season and travel style.', href: '/packing-list', keywords: ['pack', 'luggage', 'clothes', 'equipment', 'gear'] },
     { id: 'budget', title: 'Trip budget and expenses', summary: 'Estimate costs and keep trip expenses together in My Safari.', href: '/expenses', keywords: ['money', 'currency', 'budget', 'cost', 'cheap'] },
     { id: 'phrasebook', title: 'Essential phrasebook', summary: 'Carry useful greetings and travel phrases for Southern Africa.', href: '/phrasebook', keywords: ['language', 'phrases', 'speak', 'local', 'greeting'] },
+    { id: 'food-markets', title: 'Food and market planner', summary: 'Compare local food traditions, dietary questions, market etiquette and food-led routes across nine countries.', href: '/gastronomy', keywords: ['food', 'market', 'cuisine', 'vegetarian', 'vegan', 'halal', 'allergy', 'restaurant', 'street food'] },
     { id: 'my-safari', title: 'My Safari trip workspace', summary: 'Save routes, bookings, readiness checks, budgets and offline trip packs.', href: '/my-safari', keywords: ['planner', 'itinerary', 'calendar', 'offline', 'booking'] },
     { id: 'journey-builder', title: 'Multi-country journey builder', summary: 'Connect researched routes through reviewed land borders and save one editable itinerary.', href: '/routes#journey-composer', keywords: ['multi country', 'multicountry', 'cross border', 'road trip', 'route planner', 'itinerary'] },
 ];

@@ -77,6 +77,10 @@ const HUB_META = {
         title: 'Responsible Community Travel',
         description: 'Plan respectful local experiences across Southern Africa with practical guidance on community benefit, consent, photography, language, and local guides.',
     },
+    gastronomy: {
+        title: 'Southern Africa Food & Market Planner',
+        description: 'Plan food experiences across nine Southern African countries with dietary questions, market etiquette, safer-food guidance, route ideas, and official sources.',
+    },
     experiences: {
         title: 'Southern Africa Experience Finder',
         description: 'Compare wildlife, landscape, coast, active, cultural, food, and road-trip ideas across nine Southern African countries without paid rankings or invented ratings.',

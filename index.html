@@ -53,7 +53,7 @@
                         <a href="/experiences">Experiences</a>
                         <a href="/parks">National parks</a>
                         <a href="/cultures">Community travel</a>
-                        <a href="/gastronomy">Gastronomy</a>
+                        <a href="/gastronomy">Food &amp; markets</a>
                     </div>
                 </li>
                 <li class="nav-dropdown">
@@ -776,76 +776,93 @@
         </div>
     </section>
 
-    <!-- Gastronomy Journey -->
-    <section id="gastronomy" class="gastronomy">
+    <!-- Food & Market Planner -->
+    <section id="gastronomy" class="food-planner-section" aria-labelledby="food-planner-title">
         <div class="container">
-            <div class="section-header">
-                <span class="section-eyebrow">Taste the region</span>
-                <h2>Gastronomy Journey</h2>
-                <p>Taste Southern Africa — from open-fire braais to Swahili-spiced coastlines.</p>
+            <header class="food-planner-hero">
+                <div class="food-planner-hero__copy">
+                    <span class="section-eyebrow">Taste the region, plan with care</span>
+                    <h2 id="food-planner-title">Food &amp; Market Planner</h2>
+                    <p>Find the food experiences that fit your route, understand what to ask about dietary needs, and spend more thoughtfully with local cooks, markets and producers.</p>
+                    <ul class="food-planner-trust" aria-label="Planner coverage">
+                        <li><strong>9</strong><span>countries</span></li>
+                        <li><strong>5</strong><span>dietary lenses</span></li>
+                        <li><strong>11</strong><span>reviewed sources</span></li>
+                    </ul>
+                </div>
+                <figure class="food-planner-hero__media">
+                    <img src="https://images.unsplash.com/photo-1576485375217-d6a95e34d043?auto=format&amp;fit=crop&amp;q=82&amp;w=1200" alt="Vineyard landscape representing Southern Africa's regional food and wine journeys" loading="lazy" width="1200" height="800">
+                    <figcaption>Regional flavours are best understood as part of the place—not a checklist of “national dishes”.</figcaption>
+                </figure>
+            </header>
+
+            <div class="food-planner-workbench" aria-label="Food planning filters">
+                <div class="food-planner-workbench__intro">
+                    <span class="section-eyebrow">Build your food map</span>
+                    <h3>What fits this trip?</h3>
+                    <p>Choose a country, eating context or dietary question. Results are prompts for a conversation with the cook—not a safety certification.</p>
+                </div>
+                <form id="food-planner-filters" class="food-planner-filters">
+                    <label><span>Country</span><select id="food-country-filter"><option value="all">All nine countries</option></select></label>
+                    <label><span>Where you will eat</span><select id="food-context-filter">
+                        <option value="all">Any setting</option>
+                        <option value="market">Markets &amp; street food</option>
+                        <option value="city">City restaurants</option>
+                        <option value="community">Community or home table</option>
+                        <option value="coast">Coast or lakeside</option>
+                        <option value="road-trip">Road trip &amp; self-catering</option>
+                    </select></label>
+                    <label><span>Dietary lens</span><select id="food-dietary-filter">
+                        <option value="all">Show every option</option>
+                        <option value="vegetarian">Vegetarian possibilities</option>
+                        <option value="vegan">Vegan by adaptation</option>
+                        <option value="halal">Halaal / halal questions</option>
+                        <option value="gluten-aware">Gluten-aware questions</option>
+                        <option value="peanut-alert">Peanut &amp; nut alerts</option>
+                    </select></label>
+                    <button id="food-filter-reset" class="btn btn-outline" type="reset">Reset filters</button>
+                </form>
             </div>
-            <div class="gastro-scroll">
-                <div class="gastro-card">
-                    <div class="gastro-emoji">🥩</div>
-                    <h3>Kapana</h3>
-                    <span class="gastro-country">🇳🇦 Namibia</span>
-                    <p>Thin strips of beef grilled over open coals, served with chilli relish and vetkoek — Windhoek's beloved street food.</p>
-                </div>
-                <div class="gastro-card">
-                    <div class="gastro-emoji">🔥</div>
-                    <h3>Braai</h3>
-                    <span class="gastro-country">🇿🇦 South Africa</span>
-                    <p>More than a BBQ — it's a cultural institution. Boerewors, sosaties, and pap unite every South African gathering.</p>
-                </div>
-                <div class="gastro-card">
-                    <div class="gastro-emoji">🍖</div>
-                    <h3>Seswaa</h3>
-                    <span class="gastro-country">🇧🇼 Botswana</span>
-                    <p>Slow-cooked, pounded beef — Botswana's national dish, served at every wedding and celebration.</p>
-                </div>
-                <div class="gastro-card">
-                    <div class="gastro-emoji">🌽</div>
-                    <h3>Nshima</h3>
-                    <span class="gastro-country">🇿🇲 Zambia</span>
-                    <p>A thick maize porridge eaten with relish — the heartbeat of every Zambian meal, shaped by hand.</p>
-                </div>
-                <div class="gastro-card">
-                    <div class="gastro-emoji">🍲</div>
-                    <h3>Sadza</h3>
-                    <span class="gastro-country">🇿🇼 Zimbabwe</span>
-                    <p>Zimbabwe's staple — maize meal served with muriwo (greens) and nyama (meat). No Zimbabwean table is complete without it.</p>
-                </div>
-                <div class="gastro-card">
-                    <div class="gastro-emoji">🦐</div>
-                    <h3>Peri-Peri Prawns</h3>
-                    <span class="gastro-country">🇲🇿 Mozambique</span>
-                    <p>Giant tiger prawns in fiery peri-peri sauce — a Portuguese-African fusion that defines Mozambican cuisine.</p>
-                </div>
-                <div class="gastro-card">
-                    <div class="gastro-emoji">🐛</div>
-                    <h3>Omagungu</h3>
-                    <span class="gastro-country">🇳🇦 Namibia</span>
-                    <p>Fried Mopane worms — a protein-rich delicacy harvested from Mopane trees, crunchy and surprisingly addictive.</p>
-                </div>
-                <div class="gastro-card">
-                    <div class="gastro-emoji">🏔</div>
-                    <h3>Papa</h3>
-                    <span class="gastro-country">🇱🇸 Lesotho</span>
-                    <p>Mountain-ground maize porridge with moroho (wild greens) — hearty fare for the Kingdom in the Sky.</p>
-                </div>
-                <div class="gastro-card">
-                    <div class="gastro-emoji">🥣</div>
-                    <h3>Sishwala</h3>
-                    <span class="gastro-country">🇸🇿 Eswatini</span>
-                    <p>Thick porridge of dried sugar beans and maize — the Swazi staple, served with stewed goat or emasi (sour milk).</p>
-                </div>
-                <div class="gastro-card">
-                    <div class="gastro-emoji">🍺</div>
-                    <h3>Signature Drinks</h3>
-                    <span class="gastro-country">🌍 Region-wide</span>
-                    <p>Amarula (SA), Windhoek Lager (NAM), Chibuku (ZM/MW), Tipo Tinto (MOZ) — each with a story to tell.</p>
-                </div>
+
+            <div class="food-planner-results-heading">
+                <div><span class="section-eyebrow">Country food notes</span><h3><span id="food-result-count">9</span> planning guides</h3></div>
+                <p id="food-results-summary" aria-live="polite">Showing all countries.</p>
             </div>
+            <div id="food-country-grid" class="food-country-grid"></div>
+            <div id="food-empty-state" class="food-empty-state" hidden>
+                <h3>No exact match</h3>
+                <p>Try a broader filter. Dietary needs can often be handled with advance notice even when a country is not tagged here.</p>
+                <button class="btn btn-primary" type="button" data-food-reset>Show every country</button>
+            </div>
+
+            <section class="food-route-ideas" aria-labelledby="food-routes-title">
+                <div class="food-planner-results-heading">
+                    <div><span class="section-eyebrow">Put food on the route</span><h3 id="food-routes-title">Four food-led journey ideas</h3></div>
+                    <p>These are route layers, not restaurant rankings or bookable packages.</p>
+                </div>
+                <div id="food-route-grid" class="food-route-grid"></div>
+            </section>
+
+            <div class="food-practical-grid">
+                <section class="food-practical-panel" aria-labelledby="food-etiquette-title">
+                    <span class="section-eyebrow">Meet the table respectfully</span>
+                    <h3 id="food-etiquette-title">Market &amp; table etiquette</h3>
+                    <div id="food-etiquette-list" class="food-practical-list"></div>
+                </section>
+                <section class="food-practical-panel food-practical-panel--safety" aria-labelledby="food-safety-title">
+                    <span class="section-eyebrow">Based on WHO guidance</span>
+                    <h3 id="food-safety-title">Safer food on the road</h3>
+                    <div id="food-safety-list" class="food-practical-list"></div>
+                    <a class="food-text-link" href="https://www.who.int/activities/promoting-safe-food-handling/five-key-to-safer-food/" target="_blank" rel="noopener noreferrer">Read the WHO Five Keys <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </section>
+            </div>
+
+            <details class="food-sources">
+                <summary><span>Sources &amp; review notes</span><small>Reviewed September 2026</small></summary>
+                <p>We prioritise tourism boards, governments and public-health guidance. Venue details and recipes change, so confirm current ingredients, access and opening times directly.</p>
+                <div id="food-source-grid" class="food-source-grid"></div>
+            </details>
+            <p id="food-planner-disclaimer" class="food-planner-disclaimer"></p>
         </div>
     </section>
 
@@ -2397,23 +2414,6 @@
                 </div>
             </header>
             <div class="planning-guide-body" id="planning-guide-body"></div>
-        </div>
-    </div>
-
-    <!-- Marketplace Modal (Experiences) -->
-    <div id="marketplace-modal" class="modal">
-        <div class="modal-overlay market-close"></div>
-        <div class="modal-container">
-            <button class="modal-close market-close">&times;</button>
-            <div class="modal-header">
-                <h2><span id="market-title">Marketplace</span> Inspiration</h2>
-                <p>Activity ideas with typical cost bands and official resources — book directly with local operators when you travel.</p>
-            </div>
-            <div class="modal-body">
-                <div id="marketplace-grid" class="marketplace-grid">
-                    <!-- Dynamic Experience Cards Injected Here -->
-                </div>
-            </div>
         </div>
     </div>
 
