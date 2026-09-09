@@ -928,6 +928,12 @@ function handleRoute(route) {
 
     if (route.type === 'country') {
         showCountryPage(route.countryId);
+        if (route.sectionHash) {
+            const targetId = route.sectionHash === 'travel-essentials'
+                ? 'country-travel-essentials'
+                : route.sectionHash;
+            requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView({ block: 'start' }));
+        }
         return;
     }
 

@@ -1,87 +1,199 @@
-import marketplaceData from '../../data/marketplace.json';
-import DOMPurify from 'dompurify';
+import routeCollection from '../../data/route-collections.json';
 import {
     trackPlannerOpen,
     trackPlannerGenerateError,
     trackPlannerGenerateSuccess,
 } from '../lib/planner-analytics.js';
 import { TRIP_CHANGE_EVENT, getActiveTrip, updateActiveTrip } from '../lib/trip-store.js';
+import { renderMarkdownLite } from '../lib/assistant-renderer.js';
+export { renderMarkdownLite } from '../lib/assistant-renderer.js';
 
 const SAVED_ITINERARY_KEY = 'se_ai_saved_itinerary_v1';
+const ROUTE_MARKER_PATTERN = /\*{0,2}\[SavannaExplorer Route:\s*([^\]]+)\]\*{0,2}/gi;
+const COUNTRY_ID_BY_NAME = {
+    'south africa': 'south-africa',
+    namibia: 'namibia',
+    botswana: 'botswana',
+    zambia: 'zambia',
+    zimbabwe: 'zimbabwe',
+    mozambique: 'mozambique',
+    malawi: 'malawi',
+    lesotho: 'lesotho',
+    eswatini: 'eswatini',
+};
+const THEME_BY_CATEGORY = {
+    safari: 'wildlife',
+    adventure: 'adventure',
+    culture: 'culture',
+    nature: 'landscapes',
+};
+const QUICK_ASKS = [
+    { emoji: '🦁', text: 'Best time for safari?' },
+    { emoji: '🛂', text: 'Do I need a visa?' },
+    { emoji: '🚗', text: 'Border crossing tips' },
+    { emoji: '🎒', text: 'What should I pack?' },
+    { emoji: '💰', text: 'How do park fees work?' },
+];
+let plannerInitialized = false;
+let assistantMode = 'plan';
 
-// Helper: Find matching local catalog experiences with robust mappings
-function getMatchingExperiences(destination, style, budget) {
-    let matched = [];
+function escapeHtml(value) {
+    return String(value || '').replace(/[&<>"']/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+    })[character]);
+}
 
-    // Normalize style mapping to keys in marketplaceData (safari, adventure, culture, nature)
-    const styleMap = {
-        'safari': 'safari',
-        'luxury safari': 'safari',
-        'safari & wildlife': 'safari',
-        'adventure': 'adventure',
-        'high adventure': 'adventure',
-        'scenic & adventure': 'adventure',
-        'culture': 'culture',
-        'cultural immersion': 'culture',
-        'nature': 'nature',
-        'scenic & nature': 'nature'
-    };
-
-    // Normalize budget mapping to price_range strings ($, $$, $$$, $$$$)
-    const budgetMap = {
-        '$': '$$', // Map single dollar to $$ to ensure we get results and don't end up empty
-        'value ($)': '$$',
-        '$$': '$$',
-        'classic ($$)': '$$',
-        'comfort ($$)': '$$',
-        '$$$': '$$$',
-        'luxury ($$$)': '$$$',
-        '$$$$': '$$$$',
-        'ultra luxe ($$$$)': '$$$$',
-        'ultra luxury ($$$$)': '$$$$'
-    };
-
-    const targetKey = styleMap[style.toLowerCase()] || null;
-    const targetBudgetStr = budgetMap[budget.toLowerCase()] || null;
-
-    // Read keys to scan
-    const keysToScan = targetKey ? [targetKey] : Object.keys(marketplaceData);
-
-    keysToScan.forEach(key => {
-        const items = marketplaceData[key] || [];
-        items.forEach(item => {
-            let isMatch = true;
-
-            // Filter by Destination (Country)
-            if (destination && destination !== 'All' && destination !== 'Southern Africa') {
-                if (item.location.toLowerCase() !== destination.toLowerCase()) {
-                    isMatch = false;
-                }
-            }
-
-            // Filter by Budget (allow soft-matching to prevent empty results)
-            if (budget && budget !== 'All' && targetBudgetStr) {
-                if (budget.toLowerCase().includes('$') && !budget.includes('$$')) {
-                    // This matches '$' or 'value ($)'
-                    if (item.price_range !== '$' && item.price_range !== '$$') {
-                        isMatch = false;
-                    }
-                } else if (item.price_range !== targetBudgetStr) {
-                    isMatch = false;
-                }
-            }
-
-            if (isMatch) {
-                matched.push(item);
-            }
-        });
+function setAssistantMode(mode = 'plan') {
+    assistantMode = mode === 'ask' ? 'ask' : 'plan';
+    document.querySelectorAll('[data-assistant-mode]').forEach(button => {
+        const active = button.dataset.assistantMode === assistantMode;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-selected', String(active));
+        button.tabIndex = active ? 0 : -1;
     });
+    document.querySelectorAll('[data-assistant-panel]').forEach(panel => {
+        panel.hidden = panel.dataset.assistantPanel !== assistantMode;
+    });
+}
 
-    return matched;
+function routePromptShape(route) {
+    return {
+        id: route.id,
+        title: route.title,
+        countryIds: route.countryIds,
+        promise: route.promise,
+        duration: route.duration,
+        vehicle: route.vehicle,
+        bestSeason: route.bestSeason,
+        highlights: route.highlights,
+        warnings: route.warnings,
+        officialSources: route.officialSources,
+        lastReviewed: route.lastReviewed,
+    };
+}
+
+export function getMatchingRouteTemplates(destination, category, duration) {
+    const countryId = COUNTRY_ID_BY_NAME[String(destination || '').toLowerCase()] || null;
+    const theme = THEME_BY_CATEGORY[String(category || '').toLowerCase()] || null;
+    const requestedDays = Number(duration) || 0;
+
+    return routeCollection.routes
+        .filter(route => !countryId || route.countryIds.includes(countryId))
+        .map(route => {
+            const themeScore = !theme || route.themes.includes(theme) ? 2 : 0;
+            const durationScore = requestedDays >= route.duration.min && requestedDays <= route.duration.max
+                ? 2
+                : Math.max(0, 1 - Math.min(
+                    Math.abs(requestedDays - route.duration.min),
+                    Math.abs(requestedDays - route.duration.max),
+                ) / 10);
+            return { route, score: themeScore + durationScore };
+        })
+        .sort((a, b) => b.score - a.score || a.route.title.localeCompare(b.route.title))
+        .slice(0, 6)
+        .map(({ route }) => routePromptShape(route));
+}
+
+function renderInlineMarkdown(value) {
+    const source = String(value || '');
+    const segments = [];
+    let cursor = 0;
+    source.replace(ROUTE_MARKER_PATTERN, (match, title, offset) => {
+        segments.push({ type: 'text', value: source.slice(cursor, offset) });
+        segments.push({ type: 'route', value: title.trim() });
+        cursor = offset + match.length;
+        return match;
+    });
+    segments.push({ type: 'text', value: source.slice(cursor) });
+
+    return segments.map(segment => {
+        if (segment.type === 'route') {
+            const matchedRoute = routeCollection.routes.find(route => (
+                route.title.toLowerCase() === segment.value.toLowerCase()
+            ));
+            if (!matchedRoute) {
+                return `<strong class="ai-custom-highlight">${escapeHtml(segment.value)}</strong>`;
+            }
+            return `<a class="ai-route-reference" href="/routes/${encodeURIComponent(matchedRoute.id)}"><span>Reviewed route</span><strong>${escapeHtml(matchedRoute.title)}</strong><small>${escapeHtml(matchedRoute.duration.label)} · ${escapeHtml(matchedRoute.vehicle.label)}</small></a>`;
+        }
+
+        return escapeHtml(segment.value)
+            .replace(/`([^`]+)`/g, '<code>$1</code>')
+            .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+            .replace(/__([^_]+)__/g, '<strong>$1</strong>')
+            .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+            .replace(/_([^_]+)_/g, '<em>$1</em>');
+    }).join('');
+}
+
+export function renderSafeItineraryMarkdown(markdown) {
+    const text = String(markdown || '').replace(/^```markdown\s*/i, '').replace(/```\s*$/i, '').trim();
+    const blocks = [];
+    let listType = null;
+    const closeList = () => {
+        if (!listType) return;
+        blocks.push(`</${listType}>`);
+        listType = null;
+    };
+
+    text.split(/\r?\n/).forEach(line => {
+        const heading = line.match(/^(#{1,4})\s+(.+)$/);
+        const ordered = line.match(/^\s*\d+[.)]\s+(.+)$/);
+        const unordered = line.match(/^\s*[-*]\s+(.+)$/);
+
+        if (heading) {
+            closeList();
+            const level = Math.min(4, heading[1].length);
+            blocks.push(`<h${level}>${renderInlineMarkdown(heading[2])}</h${level}>`);
+        } else if (ordered || unordered) {
+            const nextType = ordered ? 'ol' : 'ul';
+            if (listType !== nextType) {
+                closeList();
+                listType = nextType;
+                blocks.push(`<${listType}>`);
+            }
+            blocks.push(`<li>${renderInlineMarkdown((ordered || unordered)[1])}</li>`);
+        } else if (!line.trim()) {
+            closeList();
+        } else {
+            closeList();
+            blocks.push(`<p>${renderInlineMarkdown(line)}</p>`);
+        }
+    });
+    closeList();
+    return blocks.join('');
+}
+
+export function openAiPlanner(mode = 'plan') {
+    const sidebar = document.getElementById('ai-planner-sidebar');
+    if (!sidebar) return;
+    setAssistantMode(mode);
+    sidebar.classList.add('open');
+    sidebar.setAttribute('aria-hidden', 'false');
+    document.getElementById('chat-fab')?.classList.add('hidden');
+    trackPlannerOpen();
+
+    if (typeof window.closeMobileNav === 'function') {
+        window.closeMobileNav();
+    } else {
+        document.getElementById('mobile-nav-panel')?.classList.remove('is-open');
+        document.body.classList.remove('nav-open');
+    }
+
+    const focusTarget = assistantMode === 'ask'
+        ? document.getElementById('assistant-ask-input')
+        : document.getElementById('sidebar-country');
+    requestAnimationFrame(() => focusTarget?.focus());
 }
 
 // Main initialization function
 export function initAiPlanner() {
+    if (plannerInitialized) return;
+    plannerInitialized = true;
     const sidebar = document.getElementById('ai-planner-sidebar');
     const closeSidebarBtn = document.getElementById('close-ai-planner');
 
@@ -103,27 +215,153 @@ export function initAiPlanner() {
             const btn = e.target.closest('#open-ai-planner, .open-ai-planner, [data-trigger="ai-planner"]');
             if (btn) {
                 e.preventDefault();
-                sidebar.classList.add('open');
-                sidebar.setAttribute('aria-hidden', 'false');
-                trackPlannerOpen();
-
-                // Dismiss mobile navigation menu if it is currently open
-                if (typeof window.closeMobileNav === 'function') {
-                    window.closeMobileNav();
-                } else {
-                    document.getElementById('mobile-nav-panel')?.classList.remove('is-open');
-                    document.body.classList.remove('nav-open');
-                }
+                openAiPlanner('plan');
             }
         });
     }
 
+    const closeAssistant = () => {
+        if (!sidebar) return;
+        sidebar.classList.remove('open');
+        sidebar.setAttribute('aria-hidden', 'true');
+        document.getElementById('chat-fab')?.classList.remove('hidden');
+    };
+
     if (closeSidebarBtn && sidebar) {
-        closeSidebarBtn.addEventListener('click', () => {
-            sidebar.classList.remove('open');
-            sidebar.setAttribute('aria-hidden', 'true');
-        });
+        closeSidebarBtn.addEventListener('click', closeAssistant);
     }
+
+    document.querySelectorAll('[data-assistant-mode]').forEach(button => {
+        button.addEventListener('click', () => {
+            setAssistantMode(button.dataset.assistantMode);
+            const target = assistantMode === 'ask'
+                ? document.getElementById('assistant-ask-input')
+                : document.getElementById('sidebar-country');
+            target?.focus();
+        });
+        button.addEventListener('keydown', event => {
+            if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+            event.preventDefault();
+            const nextMode = assistantMode === 'ask' ? 'plan' : 'ask';
+            setAssistantMode(nextMode);
+            document.querySelector(`[data-assistant-mode="${nextMode}"]`)?.focus();
+        });
+    });
+    setAssistantMode(assistantMode);
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && sidebar?.classList.contains('open')) closeAssistant();
+    });
+
+    // Q&A mode shares this assistant surface but uses its evidence-grounded question endpoint.
+    const askMessages = document.getElementById('assistant-ask-messages');
+    const askInput = document.getElementById('assistant-ask-input');
+    const askSend = document.getElementById('assistant-ask-send');
+    const askChips = document.getElementById('assistant-ask-chips');
+    let askHistory = [];
+    let askBusy = false;
+
+    function appendAskMessage(role, content, animate = true) {
+        if (!askMessages) return;
+        askMessages.querySelector('.assistant-ask-welcome')?.remove();
+        const message = document.createElement('div');
+        message.className = `assistant-ask-message assistant-ask-message--${role}`;
+        if (!animate) message.style.animation = 'none';
+        if (role === 'assistant') message.innerHTML = renderMarkdownLite(content);
+        else message.textContent = content;
+        askMessages.appendChild(message);
+        askMessages.scrollTop = askMessages.scrollHeight;
+    }
+
+    function saveAskHistory() {
+        try {
+            sessionStorage.setItem('se_chat_history', JSON.stringify(askHistory.slice(-20)));
+        } catch {
+            // Q&A history is a convenience only; the assistant still works without storage.
+        }
+    }
+
+    async function sendAskMessage(rawText) {
+        const text = String(rawText || '').trim();
+        if (!text || askBusy || !askMessages) return;
+
+        askBusy = true;
+        askChips?.classList.add('hidden');
+        appendAskMessage('user', text);
+        askHistory.push({ role: 'user', content: text });
+        if (askInput) {
+            askInput.value = '';
+            askInput.style.height = 'auto';
+            askInput.disabled = true;
+        }
+        if (askSend) askSend.disabled = true;
+
+        const typing = document.createElement('div');
+        typing.className = 'assistant-ask-typing';
+        typing.setAttribute('aria-label', 'Savanna Guide is responding');
+        typing.innerHTML = '<span></span><span></span><span></span>';
+        askMessages.appendChild(typing);
+        askMessages.scrollTop = askMessages.scrollHeight;
+
+        try {
+            const response = await fetch('/api/chat/ask', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    message: text,
+                    history: askHistory.slice(0, -1).slice(-6),
+                }),
+            });
+            const data = await response.json();
+            typing.remove();
+            if (!response.ok || !data.reply) throw new Error('The travel answer could not be generated.');
+            appendAskMessage('assistant', data.reply);
+            askHistory.push({ role: 'assistant', content: data.reply });
+            saveAskHistory();
+        } catch {
+            typing.remove();
+            appendAskMessage('assistant', 'I could not answer that just now. Check your connection and try again.');
+        } finally {
+            askBusy = false;
+            if (askInput) askInput.disabled = false;
+            if (askSend) askSend.disabled = false;
+            askInput?.focus();
+        }
+    }
+
+    try {
+        const savedHistory = JSON.parse(sessionStorage.getItem('se_chat_history') || '[]');
+        if (Array.isArray(savedHistory)) {
+            askHistory = savedHistory
+                .filter(item => ['user', 'assistant'].includes(item?.role) && typeof item?.content === 'string')
+                .slice(-20);
+            askHistory.forEach(item => appendAskMessage(item.role, item.content, false));
+            if (askHistory.length) askChips?.classList.add('hidden');
+        }
+    } catch {
+        askHistory = [];
+    }
+
+    QUICK_ASKS.forEach(item => {
+        if (!askChips) return;
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'assistant-ask-chip';
+        chip.textContent = `${item.emoji} ${item.text}`;
+        chip.addEventListener('click', () => sendAskMessage(item.text));
+        askChips.appendChild(chip);
+    });
+    askSend?.addEventListener('click', () => sendAskMessage(askInput?.value));
+    askInput?.addEventListener('keydown', event => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            sendAskMessage(askInput.value);
+        }
+    });
+    askInput?.addEventListener('input', () => {
+        askInput.style.height = 'auto';
+        askInput.style.height = `${Math.min(askInput.scrollHeight, 120)}px`;
+    });
 
     // State for conversational planner
     let plannerHistory = [];
@@ -173,14 +411,6 @@ export function initAiPlanner() {
         messagesContainer.scrollTo({ top: messagesContainer.scrollHeight, behavior: 'smooth' });
     }
 
-    // Helper to escape HTML safely
-    function escapeHtml(str) {
-        if (!str) return '';
-        return str.replace(/[&<>"']/g, function(m) {
-            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
-        });
-    }
-
     function readSavedItinerary() {
         try {
             const activeTrip = getActiveTrip();
@@ -210,55 +440,10 @@ export function initAiPlanner() {
         if (label) label.textContent = saved ? 'Saved' : 'Save Itinerary';
     }
 
-    // Helper to process markdown and inject catalog cards
-    function processItineraryMarkdown(markdown) {
-        let text = markdown.replace(/^```markdown\s*/i, '').replace(/```$/, '');
-        text = text.replace(/\*{0,2}\[SavannaExplorer Experience:\s*([^\]]+)\]\*{0,2}/gi, (match, title) => {
-            const cleanTitle = title.trim();
-            let matchedItem = null;
-            for (const category in marketplaceData) {
-                const found = marketplaceData[category].find(x => x.title.toLowerCase().trim() === cleanTitle.toLowerCase() || x.title.toLowerCase().includes(cleanTitle.toLowerCase()) || cleanTitle.toLowerCase().includes(x.title.toLowerCase()));
-                if (found) {
-                    matchedItem = found;
-                    break;
-                }
-            }
-            if (matchedItem) {
-                return `
-<div class="ai-product-card" data-experience-id="${escapeHtml(matchedItem.id)}" role="button" tabindex="0">
-    <div class="ai-product-img">
-        <img src="${matchedItem.image}" alt="${matchedItem.title}" loading="lazy">
-    </div>
-    <div class="ai-product-info">
-        <div class="ai-product-header">
-            <span class="ai-product-badge">${matchedItem.badge || 'Experience'}</span>
-            <span class="ai-product-rating"><i class="fas fa-star" style="color: var(--primary);"></i> ${matchedItem.rating || '4.8'}</span>
-        </div>
-        <h4 class="ai-product-title">${matchedItem.title}</h4>
-        <div class="ai-product-meta">
-            <span><i class="fas fa-map-marker-alt"></i> ${matchedItem.location}</span>
-            <span><i class="far fa-clock"></i> ${matchedItem.duration}</span>
-            <span><i class="fas fa-wallet"></i> ${matchedItem.price_range}</span>
-        </div>
-    </div>
-</div>`.trim();
-            }
-            return `<strong class="ai-custom-highlight">${cleanTitle}</strong>`;
-        });
-
-        if (typeof marked !== 'undefined') {
-            return DOMPurify.sanitize(marked.parse(text), {
-                USE_PROFILES: { html: true },
-                ADD_ATTR: ['target', 'data-experience-id'],
-            });
-        }
-        return `<pre style="white-space: pre-wrap; font-family: inherit;">${escapeHtml(text)}</pre>`;
-    }
-
     function renderPlannerHistory() {
         if (messagesContainer) messagesContainer.innerHTML = '';
         plannerHistory.forEach(item => {
-            appendMessage(item.role, item.role === 'assistant' ? processItineraryMarkdown(item.content) : item.content);
+            appendMessage(item.role, item.role === 'assistant' ? renderSafeItineraryMarkdown(item.content) : item.content);
         });
     }
 
@@ -319,24 +504,6 @@ export function initAiPlanner() {
         if (saveStatus) saveStatus.textContent = '';
     });
 
-    function openExperienceFromCard(card) {
-        const experienceId = card?.dataset.experienceId;
-        if (experienceId && typeof window.openExperienceDetails === 'function') {
-            window.openExperienceDetails(experienceId);
-        }
-    }
-
-    messagesContainer?.addEventListener('click', (event) => {
-        openExperienceFromCard(event.target.closest('[data-experience-id]'));
-    });
-    messagesContainer?.addEventListener('keydown', (event) => {
-        if (event.key !== 'Enter' && event.key !== ' ') return;
-        const card = event.target.closest('[data-experience-id]');
-        if (!card) return;
-        event.preventDefault();
-        openExperienceFromCard(card);
-    });
-
     // Generate function for initial itinerary
     if (sidebarGenerateBtn) {
         sidebarGenerateBtn.addEventListener('click', async () => {
@@ -351,11 +518,7 @@ export function initAiPlanner() {
             if (sidebarLoading) sidebarLoading.classList.remove('hidden');
             if (sidebarResult) sidebarResult.classList.add('hidden');
 
-            const localMatches = getMatchingExperiences(
-                country,
-                category === 'All' ? 'luxury safari' : category,
-                budget === 'All' ? 'classic ($$)' : budget
-            );
+            const localMatches = getMatchingRouteTemplates(country, category, duration);
 
             const destination = country === 'All' ? 'Southern Africa' : country;
             const startedAt = performance.now();
@@ -367,7 +530,7 @@ export function initAiPlanner() {
             plannerHistory = [];
             if (messagesContainer) messagesContainer.innerHTML = '';
 
-            const initialRequest = `Generate a ${duration}-day ${category !== 'All' ? category : 'luxury'} itinerary to ${destination} on a ${budget !== 'All' ? budget : 'standard'} budget.`;
+            const initialRequest = `Generate a ${duration}-day ${category !== 'All' ? category.toLowerCase() : 'independent travel'} itinerary to ${destination} on a ${budget !== 'All' ? budget : 'standard'} budget.`;
             appendMessage('user', initialRequest);
 
             try {
@@ -390,7 +553,7 @@ export function initAiPlanner() {
                 plannerHistory.push({ role: 'user', content: initialRequest });
                 plannerHistory.push({ role: 'assistant', content: data.itinerary });
 
-                const processedHtml = processItineraryMarkdown(data.itinerary);
+                const processedHtml = renderSafeItineraryMarkdown(data.itinerary);
                 appendMessage('assistant', processedHtml);
 
                 if (sidebarLoading) sidebarLoading.classList.add('hidden');
@@ -401,7 +564,7 @@ export function initAiPlanner() {
                     duration,
                     category,
                     budget,
-                    catalogMatches: localMatches.length,
+                    routeMatches: localMatches.length,
                     latencyMs: Math.round(performance.now() - startedAt),
                     generationMethod: data.method || null,
                 });
@@ -471,7 +634,7 @@ export function initAiPlanner() {
             markCurrentPlanSaved(false);
             if (saveStatus) saveStatus.textContent = 'Updated itinerary is not saved yet.';
 
-            const processedHtml = processItineraryMarkdown(data.itinerary);
+            const processedHtml = renderSafeItineraryMarkdown(data.itinerary);
             appendMessage('assistant', processedHtml);
 
         } catch (error) {

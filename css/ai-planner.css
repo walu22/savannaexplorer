@@ -45,6 +45,37 @@
     right: 0;
 }
 
+.chat-fab {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 9990;
+    display: grid;
+    width: 58px;
+    height: 58px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 10px 30px rgba(12, 18, 16, 0.32);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-fab:hover,
+.chat-fab:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(12, 18, 16, 0.42);
+}
+
+.chat-fab.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
+}
+
 .ai-sidebar-header {
     padding: 1.5rem 2rem;
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
@@ -61,6 +92,38 @@
     align-items: center;
     gap: 0.5rem;
     margin: 0;
+}
+
+.assistant-mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.16);
+    background: rgba(0, 0, 0, 0.18);
+}
+
+.assistant-mode-tabs button {
+    min-height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.72);
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.assistant-mode-tabs button.active {
+    border-color: rgba(212, 175, 55, 0.5);
+    background: rgba(212, 175, 55, 0.14);
+    color: var(--primary-light);
+}
+
+.assistant-mode-tabs button:focus-visible {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 2px;
 }
 
 .ai-close-btn {
@@ -240,125 +303,41 @@
     backdrop-filter: blur(10px);
 }
 
-/* --- AI Interactive Product Card --- */
-.ai-product-card {
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    margin: 1.5rem 0;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-}
-
-.ai-product-card:hover {
-    transform: translateY(-4px) scale(1.01);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(212, 175, 55, 0.4);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.15);
-}
-
-.ai-product-img {
-    width: 100%;
-    height: 140px;
-    overflow: hidden;
-    position: relative;
-}
-
-.ai-product-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.ai-product-card:hover .ai-product-img img {
-    transform: scale(1.05);
-}
-
-.ai-product-info {
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.ai-product-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.ai-product-badge {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background: rgba(212, 175, 55, 0.15);
-    color: var(--primary-light);
-    padding: 0.25rem 0.65rem;
-    border-radius: 4px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-.ai-product-rating {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--white);
-    display: flex;
-    align-items: center;
+/* Reviewed route references emitted by the AI planner. */
+.ai-route-reference {
+    display: grid;
     gap: 0.25rem;
-}
-
-.ai-product-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
-    font-weight: 600;
+    margin: 1rem 0;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
     color: var(--white);
-    margin: 0;
-    line-height: 1.3;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.ai-product-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.6);
+.ai-route-reference:hover,
+.ai-route-reference:focus-visible {
+    border-color: var(--primary);
+    background: rgba(212, 175, 55, 0.12);
 }
 
-.ai-product-meta span {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-}
-
-.ai-product-meta i {
-    color: var(--primary);
-}
-
-.ai-product-footer {
-    margin-top: 0.25rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 0.75rem;
-}
-
-.ai-product-cta {
-    font-size: 0.8rem;
-    font-weight: 600;
+.ai-route-reference span {
     color: var(--primary-light);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: gap 0.2s ease;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
-.ai-product-card:hover .ai-product-cta {
-    gap: 0.75rem;
+.ai-route-reference strong {
+    color: var(--white);
+    font-size: 1.05rem;
+}
+
+.ai-route-reference small {
+    color: rgba(255, 255, 255, 0.76);
 }
 
 /* --- Conversational Chat Input Area --- */
@@ -540,4 +519,191 @@
 .ai-planner-messages .markdown-body p {
     margin-bottom: 0.8rem;
     line-height: 1.6;
+}
+
+.secure-backend-badge i {
+    color: var(--primary);
+}
+
+.assistant-mode-panel[hidden] {
+    display: none;
+}
+
+.assistant-ask-panel:not([hidden]) {
+    display: flex;
+    min-height: calc(100vh - 12.5rem);
+    flex-direction: column;
+}
+
+.assistant-ask-messages {
+    display: flex;
+    flex: 1;
+    min-height: 18rem;
+    flex-direction: column;
+    gap: 0.75rem;
+    overflow-y: auto;
+    padding: 0.25rem 0.1rem 1rem;
+}
+
+.assistant-ask-welcome {
+    margin: auto 0;
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+.assistant-ask-welcome > span {
+    font-size: 2.4rem;
+}
+
+.assistant-ask-welcome h4 {
+    margin: 0.65rem 0 0.35rem;
+    color: var(--primary-light);
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+}
+
+.assistant-ask-welcome p {
+    margin: 0 auto;
+    max-width: 20rem;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.assistant-ask-message {
+    max-width: 90%;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    animation: fadeIn 0.25s ease;
+}
+
+.assistant-ask-message--assistant {
+    align-self: flex-start;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom-left-radius: 3px;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.assistant-ask-message--user {
+    align-self: flex-end;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-bottom-right-radius: 3px;
+    background: rgba(212, 175, 55, 0.16);
+}
+
+.assistant-ask-message a,
+.assistant-ask-message strong {
+    color: var(--primary-light);
+}
+
+.assistant-ask-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    padding: 0.75rem 0;
+}
+
+.assistant-ask-chip {
+    border: 1px solid rgba(212, 175, 55, 0.24);
+    border-radius: 999px;
+    background: rgba(212, 175, 55, 0.08);
+    color: var(--primary-light);
+    padding: 0.45rem 0.7rem;
+    font: inherit;
+    font-size: 0.78rem;
+    cursor: pointer;
+}
+
+.assistant-ask-chip:hover,
+.assistant-ask-chip:focus-visible {
+    border-color: var(--primary-light);
+    background: rgba(212, 175, 55, 0.16);
+}
+
+.assistant-ask-input-area {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-end;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#assistant-ask-input {
+    min-height: 44px;
+    max-height: 120px;
+    flex: 1;
+    resize: none;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--white);
+    padding: 0.75rem 0.85rem;
+    font: inherit;
+    font-size: 0.9rem;
+}
+
+#assistant-ask-input:focus {
+    border-color: var(--primary-light);
+}
+
+#assistant-ask-send {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #1a1a1a;
+    cursor: pointer;
+}
+
+#assistant-ask-send:disabled {
+    cursor: wait;
+    opacity: 0.5;
+}
+
+.assistant-ask-typing {
+    display: flex;
+    gap: 0.3rem;
+    align-self: flex-start;
+    padding: 0.8rem 1rem;
+}
+
+.assistant-ask-typing span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    animation: assistant-typing 1.2s infinite ease-in-out;
+}
+
+.assistant-ask-typing span:nth-child(2) { animation-delay: 0.14s; }
+.assistant-ask-typing span:nth-child(3) { animation-delay: 0.28s; }
+
+@keyframes assistant-typing {
+    0%, 60%, 100% { opacity: 0.35; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(-4px); }
+}
+
+@media (max-width: 520px) {
+    .ai-sidebar {
+        max-width: none;
+    }
+
+    .ai-sidebar-body {
+        padding: 1.25rem;
+    }
+
+    .chat-fab {
+        right: 1rem;
+        bottom: 1rem;
+        width: 52px;
+        height: 52px;
+    }
 }

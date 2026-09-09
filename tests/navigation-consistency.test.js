@@ -33,3 +33,10 @@ test('My Safari homepage feature keeps its dark surface and readable light text'
     assert.match(chapterCss, /section:nth-child\(even\)[^{]*:not\(\.home-my-safari\)/);
     assert.match(homeCss, /\.home-my-safari\s*\{[\s\S]*?color:\s*white;[\s\S]*?background:\s*var\(--brand-dark-surface\)/);
 });
+
+test('country essentials and the global hub use distinct stable anchors', () => {
+    const index = read('index.html');
+    assert.equal((index.match(/id="travel-essentials"/g) || []).length, 1);
+    assert.equal((index.match(/id="country-travel-essentials"/g) || []).length, 1);
+    assert.match(index, /href="#country-travel-essentials"/);
+});

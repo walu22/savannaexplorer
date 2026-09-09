@@ -6,6 +6,7 @@ const index = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const featureLoader = readFileSync(new URL('../js/modules/feature-loader.js', import.meta.url), 'utf8');
 const experiencesModule = readFileSync(new URL('../js/modules/experiences.js', import.meta.url), 'utf8');
 const campsitesModule = readFileSync(new URL('../js/modules/campsites.js', import.meta.url), 'utf8');
+const discoverModule = readFileSync(new URL('../js/modules/discover.js', import.meta.url), 'utf8');
 const prerender = readFileSync(new URL('../scripts/prerender-seo.mjs', import.meta.url), 'utf8');
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'));
 
@@ -110,4 +111,41 @@ test('mixed accommodation cards are replaced by a nine-country campsite planner'
     assert.match(index, /id="camp-planner-facility"/);
     assert.match(campsitesModule, /Add to My Safari/);
     assert.match(featureLoader, /campsites: \['campsites'\]/);
+});
+
+test('dead homepage discovery blocks and their renderers are removed from source', () => {
+    assert.doesNotMatch(index, /class="ticker-bar"|id="facts-grid"|id="plan-trip-grid"|trust-bar--features/);
+    assert.doesNotMatch(experiencesModule, /marketplace/);
+    assert.doesNotMatch(discoverModule, /data\/discover\.json|renderFacts|renderPlanTrip/);
+    assert.doesNotMatch(prerender, /ticker-bar|facts-grid|plan-trip-grid|trust-bar--features/);
+});
+
+test('duplicated printable trip planner is consolidated into the My Safari Trip Pack', () => {
+    assert.match(index, /<h3>My Safari Trip Pack<\/h3>/);
+    assert.match(index, /href="\/my-safari"[^>]*>[^<]*<i[^>]*><\/i> Build your Trip Pack<\/a>|href="\/my-safari"[^>]*>Build your Trip Pack<\/a>/);
+    assert.match(index, /href="\/planning-checklist">Preview the public checklist<\/a>/);
+    assert.doesNotMatch(index, /id="trip-planner"|id="trip-country-picker"|id="trip-print-btn"|id="trip-planner-preview"/);
+    assert.doesNotMatch(featureLoader, /trip-planner\.js|'trip-planner': \(\)/);
+    assert.match(featureLoader, /plan: \['utility'\]/);
+});
+
+test('packing progress has one canonical saved owner', () => {
+    const packingModule = readFileSync(new URL('../js/modules/packing-list.js', import.meta.url), 'utf8');
+    const tripStore = readFileSync(new URL('../js/lib/trip-store.js', import.meta.url), 'utf8');
+
+    assert.match(index, /id="packing-save-status"/);
+    assert.match(packingModule, /updateActiveTrip/);
+    assert.doesNotMatch(packingModule, /localStorage\.setItem\('se_packing_list'/);
+    assert.match(tripStore, /LEGACY_PACKING_KEY/);
+});
+
+test('expense editor writes only to the active My Safari trip', () => {
+    const expenseModule = readFileSync(new URL('../js/modules/expense-tracker.js', import.meta.url), 'utf8');
+    const tripStore = readFileSync(new URL('../js/lib/trip-store.js', import.meta.url), 'utf8');
+
+    assert.match(index, /id="expense-workspace-status"/);
+    assert.doesNotMatch(index, /id="expense-trip-name"/);
+    assert.match(expenseModule, /updateActiveTrip/);
+    assert.doesNotMatch(expenseModule, /localStorage\.(?:getItem|setItem)|STORAGE_KEY/);
+    assert.match(tripStore, /LEGACY_EXPENSE_KEY/);
 });

@@ -1,6 +1,7 @@
 import { routeToTripTemplate } from './route-collection.js';
 import { buildTransferPlan } from './journey-logistics.js';
 import { buildStopoverPlan, estimateTransferDays } from './journey-stopovers.js';
+import { assessJourneyFeasibility, normalizeVehicleArrangement } from './journey-feasibility.js';
 
 export const JOURNEY_COUNTRIES = {
     namibia: 'Namibia',
@@ -110,6 +111,7 @@ export function normalizeJourneyPreferences(value = {}) {
         startCountry,
         days,
         vehicle: VEHICLE_LEVEL[value.vehicle] ? value.vehicle : 'suv',
+        vehicleArrangement: normalizeVehicleArrangement(value.vehicleArrangement),
         theme: THEMES.has(value.theme) ? value.theme : 'wildlife',
         startDate: validDate(value.startDate),
         transferDepartures: normalizedDepartureTimes(value.transferDepartures),
@@ -238,7 +240,7 @@ export function composeJourney(routes, borders, rawPreferences = {}) {
         segments[index + 1],
     ));
 
-    return {
+    const journey = {
         status: 'ready',
         preferences,
         countryOrder: best.order,
@@ -253,6 +255,8 @@ export function composeJourney(routes, borders, rawPreferences = {}) {
         extraDays: preferences.days - best.minimumDays,
         warnings: unique(best.selectedRoutes.flatMap(route => route.warnings || [])).slice(0, 4),
     };
+    journey.feasibility = assessJourneyFeasibility(journey);
+    return journey;
 }
 
 export function reorderJourneyCountries(order, countryId, targetIndex) {
@@ -309,6 +313,7 @@ export function journeyToTripTemplate(journey, startDate = '') {
         if (crossing) {
             const transfer = journey.transfers?.[segmentIndex];
             const stopover = journey.stopovers?.[segmentIndex];
+            const feasibilityCheck = journey.feasibility?.checks?.[segmentIndex];
             const nextCountry = journey.segments[segmentIndex + 1].countryName;
             const transferDays = stopover?.transferDays || 1;
             for (let stage = 0; stage < transferDays; stage += 1) {
@@ -338,7 +343,7 @@ export function journeyToTripTemplate(journey, startDate = '') {
                         name: crossing.name,
                         location: `${segment.countryName} · ${nextCountry}`,
                         time: transferDays === 1 ? transfer?.arrival?.arrivalTime || '' : '',
-                        notes: `${transferDays === 1 ? transfer?.arrival?.label || 'Confirm arrival against current border hours.' : 'Recalculate the border arrival time after choosing the preceding stopover.'} Published hours: ${crossing.hours || 'confirm current hours'}. ${crossing.fees || 'Confirm current fees and requirements'}. Carry: ${(crossing.documents || []).join('; ') || 'confirm passport and vehicle paperwork'}. Border record last verified ${crossing.lastVerified || 'date unavailable'}; reconfirm before travel.`,
+                        notes: `${transferDays === 1 ? transfer?.arrival?.label || 'Confirm arrival against current border hours.' : 'Recalculate the border arrival time after choosing the preceding stopover.'} Published hours: ${crossing.hours || 'confirm current hours'}. Carry: ${(feasibilityCheck?.paperwork?.items || crossing.documents || []).join('; ') || 'confirm passport and vehicle paperwork'}. Checklist context: ${feasibilityCheck?.paperwork?.arrangementLabel || 'vehicle arrangement not supplied'}. Border record last verified ${crossing.lastVerified || 'date unavailable'}; reconfirm before travel.`,
                     }, {
                         id: `journey-border-onward-${segmentIndex + 1}-${crossing.id}`,
                         type: 'drive',

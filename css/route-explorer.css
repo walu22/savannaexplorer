@@ -1,8 +1,6 @@
 .route-explorer-section {
     padding: var(--section-pad) 0;
-    background:
-        radial-gradient(circle at 8% 10%, rgba(196, 103, 42, 0.1), transparent 28rem),
-        var(--bg-warm);
+    background: var(--bg-warm);
 }
 
 .route-matcher {

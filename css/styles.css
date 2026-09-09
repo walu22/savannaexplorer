@@ -192,13 +192,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        105deg,
-        rgba(0, 0, 0, 0.82) 0%,
-        rgba(0, 0, 0, 0.5) 40%,
-        rgba(0, 0, 0, 0.15) 65%,
-        rgba(0, 0, 0, 0.35) 100%
-    );
+    background: rgba(0, 0, 0, 0.56);
     z-index: 2;
 }
 
@@ -345,7 +339,7 @@ section {
     left: 0;
     width: 100%;
     padding: 2rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+    background: rgba(0, 0, 0, 0.64);
     color: var(--white);
     z-index: 2;
     transition: var(--transition-smooth);
@@ -475,7 +469,7 @@ section {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(8, 24, 17, 0.92) 100%);
+    background: rgba(8, 24, 17, 0.58);
 }
 
 .experience-finder-image img {
@@ -739,36 +733,6 @@ section {
     font-weight: 800;
 }
 
-/* --- Facts Section --- */
-.facts {
-    background: var(--bg-dark);
-    color: var(--white);
-}
-
-.facts h2 {
-    color: var(--white);
-}
-
-.facts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    text-align: center;
-}
-
-.fact-item h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 4rem;
-    color: var(--primary-light);
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.fact-item p {
-    font-size: 1.1rem;
-    font-weight: 300;
-}
-
 /* --- Interactive Itineraries --- */
 .itineraries {
     background: var(--bg-cream);
@@ -910,112 +874,6 @@ section {
     border: 1px solid rgba(212, 168, 85, 0.4);
     padding: 0.4rem 1.2rem;
     border-radius: 100px;
-}
-
-/* ==============================================
-   TRAVELER UTILITY HUB — Premium Dashboard
-   ============================================== */
-.utility-hub {
-    background: var(--brand-dark-surface);
-    color: var(--white);
-}
-.utility-hub .section-header h2 { color: var(--white); }
-.utility-hub .section-header p { color: rgba(255,255,255,0.6); }
-.utility-hub .section-header h2::after { background: var(--primary-light); }
-
-/* Hub toolbar + journey tabs */
-.hub-toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem 1rem;
-    margin-bottom: 1.25rem;
-    padding: 1rem 1.25rem;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.hub-toolbar .hub-passport-label {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-}
-
-.hub-toolbar .hub-passport-select {
-    min-width: min(100%, 280px);
-    flex: 1 1 200px;
-}
-
-.hub-journey-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-    position: sticky;
-    top: calc(var(--header-height, 64px) + 0.5rem);
-    z-index: 20;
-    padding: 0.35rem;
-    border-radius: 999px;
-    background: rgba(15, 15, 18, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.hub-journey-tab {
-    flex: 1 1 auto;
-    min-width: 7rem;
-    padding: 0.65rem 1rem;
-    border: none;
-    border-radius: 999px;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-.hub-journey-tab:hover {
-    color: rgba(255, 255, 255, 0.9);
-    background: rgba(255, 255, 255, 0.06);
-}
-
-.hub-journey-tab.active {
-    color: #fff;
-    background: rgba(184, 134, 11, 0.35);
-    box-shadow: inset 0 0 0 1px rgba(212, 160, 23, 0.45);
-}
-
-.hub-journey-panel:not(.active) {
-    display: none;
-}
-
-.hub-grid--on-the-go {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.hub-grid--on-the-go #hub-on-the-ground {
-    grid-column: 1 / -1;
-}
-
-@media (max-width: 768px) {
-    .hub-journey-nav {
-        border-radius: 14px;
-    }
-
-    .hub-journey-tab {
-        min-width: calc(50% - 0.25rem);
-        flex: 1 1 calc(50% - 0.25rem);
-    }
-
-    .hub-grid--on-the-go {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* Hub Grid — Bento Layout */
@@ -1489,7 +1347,7 @@ section {
 }
 .hub-progress-fill {
     height: 100%; width: 0%;
-    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    background: var(--primary);
     border-radius: 100px;
     transition: width 0.3s ease;
 }
@@ -1815,10 +1673,7 @@ footer {
 #modal-country-name {
     font-size: 3rem;
     margin-bottom: 0.5rem;
-    background: linear-gradient(to right, var(--white), var(--primary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--white);
 }
 
 #modal-tagline {
@@ -2079,54 +1934,6 @@ footer {
 /* ==============================================
    SAVANNA EXPLORER V2 — NEW SECTIONS
    ============================================== */
-
-/* --- DID YOU KNOW TICKER --- */
-.ticker-bar {
-    display: flex;
-    align-items: center;
-    background: var(--bg-dark);
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 0;
-    position: relative;
-    z-index: 10;
-}
-.ticker-label {
-    background: var(--primary);
-    color: var(--bg-dark);
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 0.9rem 1.5rem;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-.ticker-track {
-    overflow: hidden;
-    flex: 1;
-}
-.ticker-content {
-    display: inline-flex;
-    animation: marquee 60s linear infinite;
-}
-.ticker-item {
-    color: rgba(255,255,255,0.85);
-    font-size: 0.85rem;
-    padding: 0.9rem 3rem;
-    display: inline-block;
-    letter-spacing: 0.5px;
-}
-@keyframes marquee {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-.ticker-bar:hover .ticker-content {
-    animation-play-state: paused;
-}
 
 /* --- JOURNEY ENGINE (enhanced itinerary grid) --- */
 .itinerary-filters {
@@ -2856,9 +2663,6 @@ footer {
     .parks-grid,
     .destinations-grid { grid-template-columns: 1fr !important; }
 
-    /* Ticker */
-    .ticker-label { display: none; }
-    
     /* Utility Hub Responsive */
     .hub-input-row { flex-direction: column; }
     .hub-matrix-head, .hub-matrix-row { grid-template-columns: 1.2fr 1fr 1fr; }
@@ -2875,7 +2679,6 @@ footer {
     .hero h1 { font-size: 2.2rem; }
     .hero p { font-size: 0.95rem; }
     
-    .ticker-item { font-size: 0.75rem; }
     .btn { padding: 0.8rem 1.8rem; font-size: 0.75rem; }
     
 }
@@ -4259,154 +4062,10 @@ footer {
     font-size: 2rem;
 }
 
-/* Did You Know fact cards */
-.facts-section {
-    padding: 4rem 0;
-    background: var(--bg-cream);
-}
-
-.facts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-    gap: 1.25rem;
-}
-
-.fact-card {
-    background: white;
-    border-radius: 16px;
-    padding: 1.75rem;
-    border: 1px solid var(--border-subtle);
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition-smooth);
-    display: block;
-}
-
-.fact-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--primary-light);
-}
-
-.fact-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--primary-light), var(--primary));
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
-
-.fact-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-dark);
-}
-
-.fact-card p {
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    line-height: 1.55;
-    margin-bottom: 1rem;
-}
-
-.fact-country {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Plan Your Trip hub */
-.plan-trip-section {
-    padding: 4rem 0 5rem;
-    background: var(--bg-dark);
-    color: white;
-}
-
-.plan-trip-section .section-eyebrow {
-    color: var(--primary-light);
-}
-
-.plan-trip-section h2 {
-    color: white;
-}
-
-.plan-trip-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-}
-
-.plan-trip-card {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 16px;
-    padding: 1.75rem;
-    text-decoration: none;
-    color: white;
-    transition: var(--transition-smooth);
-    display: flex;
-    flex-direction: column;
-}
-
-.plan-trip-card:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--primary);
-    transform: translateY(-4px);
-}
-
-.plan-trip-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    margin-bottom: 1.25rem;
-}
-
-.plan-trip-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.25rem;
-}
-
-.plan-trip-sub {
-    font-size: 0.78rem;
-    color: var(--primary-light);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-}
-
-.plan-trip-card p {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.5;
-    flex: 1;
-    margin-bottom: 1rem;
-}
-
-.plan-trip-arrow {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--primary-light);
-}
-
 /* Destination Matcher */
 .destination-matcher-section {
     padding: var(--section-pad) 0;
-    background:
-        radial-gradient(circle at 100% 0%, rgba(var(--primary-rgb), 0.1), transparent 28rem),
-        var(--bg-warm);
+    background: var(--bg-warm);
 }
 
 .destination-matcher-layout {
@@ -4668,7 +4327,7 @@ footer {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(12, 18, 16, 0.08), rgba(12, 18, 16, 0.65));
+    background: rgba(12, 18, 16, 0.5);
 }
 
 .destination-match-card-image img {
@@ -5063,21 +4722,62 @@ footer {
 }
 
 /* Trip expense tracker hub card */
+.expense-workspace-status {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.75rem;
+    align-items: center;
+    margin: -0.25rem 0 1.25rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(212, 160, 23, 0.35);
+    border-radius: 10px;
+    background: rgba(212, 160, 23, 0.08);
+    color: white;
+}
+
+.expense-workspace-status > i,
+.expense-workspace-status > a {
+    color: var(--primary-light, #d4a017);
+}
+
+.expense-workspace-status div,
+.expense-workspace-status strong,
+.expense-workspace-status span {
+    display: block;
+}
+
+.expense-workspace-status span {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.8rem;
+    margin-top: 0.1rem;
+}
+
+.expense-workspace-status > a {
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+#hub-expense-tracker :disabled {
+    cursor: not-allowed;
+    opacity: 0.48;
+}
+
+@media (max-width: 600px) {
+    .expense-workspace-status {
+        grid-template-columns: auto 1fr;
+    }
+
+    .expense-workspace-status > a {
+        grid-column: 2;
+    }
+}
+
 .expense-trip-label {
     display: block;
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 0.35rem;
-}
-
-.expense-trip-input {
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.55rem 0.75rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.08);
-    color: white;
 }
 
 .expense-add-form {
@@ -5513,7 +5213,7 @@ footer {
 .tourism-chart-bar {
     height: 100%;
     border-radius: inherit;
-    background: linear-gradient(90deg, var(--accent-light, #2a5c4a), var(--primary, #c4672a));
+    background: var(--accent-light, #2a5c4a);
 }
 
 .tourism-chart-value {
@@ -5886,7 +5586,6 @@ footer {
 }
 
 @media (max-width: 992px) {
-    .plan-trip-grid,
     .planning-guides-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -5902,9 +5601,7 @@ footer {
 }
 
 @media (max-width: 576px) {
-    .plan-trip-grid,
-    .planning-guides-grid,
-    .facts-grid {
+    .planning-guides-grid {
         grid-template-columns: 1fr;
     }
     .destination-matcher-fields,
@@ -5924,12 +5621,12 @@ footer {
     }
 }
 
-/* --- Trip Planner --- */
+/* --- Canonical Trip Pack entry point --- */
 .hub-card--full {
     grid-column: 1 / -1;
 }
 
-.trip-planner-intro {
+.trip-pack-canonical-lead {
     color: rgba(255, 255, 255, 0.72);
     font-size: 0.95rem;
     line-height: 1.6;
@@ -5937,28 +5634,11 @@ footer {
     max-width: 720px;
 }
 
-.trip-planner-sync-note,
 .expense-sync-note {
     margin: 0.45rem 0 0;
     font-size: 0.78rem;
     color: rgba(212, 160, 23, 0.85);
     line-height: 1.4;
-}
-
-.trip-planner-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.trip-planner-label {
-    display: block;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
 }
 
 .trip-optional {
@@ -5968,113 +5648,66 @@ footer {
     color: rgba(255, 255, 255, 0.55);
 }
 
-.trip-country-picker {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-}
-
-.trip-country-chip {
-    display: inline-flex;
-    cursor: pointer;
-}
-
-.trip-country-chip input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.trip-country-chip span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.5rem 0.9rem;
-    border-radius: var(--radius-pill, 999px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.88);
-    font-size: 0.88rem;
-    transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.trip-country-chip input:checked + span {
-    background: rgba(184, 134, 11, 0.25);
-    border-color: var(--primary-light, #d4a017);
-    color: white;
-}
-
-.trip-country-chip:hover span {
-    border-color: rgba(255, 255, 255, 0.35);
-}
-
-.trip-planner-select {
-    width: 100%;
-    max-width: 480px;
-    padding: 0.65rem 0.85rem;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgba(0, 0, 0, 0.25);
-    color: white;
-    font-size: 0.95rem;
-}
-
-.trip-planner-select option {
-    color: #111;
-}
-
-.trip-pack-list {
-    max-height: 220px;
-    overflow-y: auto;
-}
-
-.trip-planner-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
+.trip-pack-canonical {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(15rem, 0.6fr);
+    gap: 1.5rem;
     align-items: center;
 }
 
-.utility-hub .trip-planner-actions .btn-outline {
+.trip-pack-canonical-list {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.trip-pack-canonical-list li {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.trip-pack-canonical-list i {
+    color: var(--primary-light, #d4a017);
+    margin-top: 0.2rem;
+}
+
+.trip-pack-canonical-list span,
+.trip-pack-canonical-list strong {
+    display: block;
+}
+
+.trip-pack-canonical-list strong {
+    color: white;
+    margin-bottom: 0.15rem;
+}
+
+.trip-pack-canonical-actions {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.utility-hub .trip-pack-canonical-actions .btn-outline {
     color: white;
     border-color: rgba(255, 255, 255, 0.45);
-    background: transparent;
 }
 
-.utility-hub .trip-planner-actions .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.12);
-    color: white;
+.trip-pack-canonical-link {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.83rem;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
 }
 
-.trip-planner-feedback {
-    color: #ffb4b4;
-    font-size: 0.9rem;
-    margin: 0;
-}
-
-.trip-planner-preview-panel {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.trip-preview-heading {
-    color: white;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
-
-.trip-planner-preview {
-    background: white;
-    color: #1a1a1a;
-    border-radius: 12px;
-    padding: 2rem;
-    max-height: 520px;
-    overflow-y: auto;
-}
-
-.trip-planner-print-root {
-    display: none;
+@media (max-width: 760px) {
+    .trip-pack-canonical {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Transport & Logistics */
@@ -6996,21 +6629,18 @@ footer {
 }
 
 /* Passport-specific visa helper */
-.hub-passport-row,
-.trip-planner-row--passport {
+.hub-passport-row {
     margin-bottom: 1rem;
 }
 
-.hub-passport-label,
-.trip-planner-row--passport .trip-planner-label {
+.hub-passport-label {
     display: block;
     font-size: 0.82rem;
     color: rgba(255, 255, 255, 0.75);
     margin-bottom: 0.35rem;
 }
 
-.hub-passport-select,
-#trip-passport-select {
+.hub-passport-select {
     width: 100%;
     max-width: 320px;
     padding: 0.55rem 0.75rem;
@@ -7019,14 +6649,6 @@ footer {
     background: rgba(0, 0, 0, 0.25);
     color: white;
     font-size: 0.92rem;
-}
-
-.trip-planner-row--passport .trip-planner-label {
-    color: rgba(255, 255, 255, 0.75);
-}
-
-#trip-passport-select {
-    max-width: 100%;
 }
 
 .hub-visa-summary {
@@ -7088,7 +6710,7 @@ footer {
     left: 0;
     right: 0;
     height: 3em;
-    background: linear-gradient(transparent, var(--bg-cream, #fdfbf7));
+    background: var(--bg-cream, #fdfbf7);
     pointer-events: none;
     transition: opacity 0.3s ease;
 }

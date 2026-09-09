@@ -1,27 +1,32 @@
-/** @typedef {'plan' | 'documents' | 'on-the-go' | 'when'} HubTabId */
+/** @typedef {'entry' | 'journey' | 'money' | 'health' | 'road'} HubTabId */
 
 const TAB_BY_ANCHOR = {
-    plan: 'plan',
-    'hub-my-safari': 'plan',
-    'hub-trip-planner': 'plan',
-    'trip-planner': 'plan',
-    'hub-expense-tracker': 'plan',
-    'expense-tracker': 'plan',
-    documents: 'documents',
-    'hub-visa': 'documents',
-    visa: 'documents',
-    'on-the-go': 'on-the-go',
-    'hub-currency': 'on-the-go',
-    currency: 'on-the-go',
-    'hub-emergency': 'on-the-go',
-    emergency: 'on-the-go',
-    'hub-on-the-ground': 'on-the-go',
-    'on-the-ground': 'on-the-go',
-    when: 'when',
-    'hub-seasons': 'when',
-    seasons: 'when',
-    'hub-weather': 'when',
-    weather: 'when',
+    plan: 'entry',
+    entry: 'entry',
+    documents: 'entry',
+    'hub-visa': 'entry',
+    visa: 'entry',
+    journey: 'journey',
+    'hub-my-safari': 'journey',
+    'hub-trip-planner': 'journey',
+    'trip-planner': 'journey',
+    money: 'money',
+    'hub-expense-tracker': 'money',
+    'expense-tracker': 'money',
+    'hub-currency': 'money',
+    currency: 'money',
+    health: 'health',
+    road: 'road',
+    'on-the-go': 'road',
+    'hub-emergency': 'road',
+    emergency: 'road',
+    'hub-on-the-ground': 'road',
+    'on-the-ground': 'road',
+    when: 'road',
+    'hub-seasons': 'road',
+    seasons: 'road',
+    'hub-weather': 'road',
+    weather: 'road',
 };
 
 /** @type {Partial<Record<HubTabId, () => void>>} */
@@ -31,7 +36,7 @@ const lazyInits = {};
 const initializedTabs = new Set();
 
 /** @type {HubTabId} */
-let activeTab = 'plan';
+let activeTab = 'entry';
 
 export function registerHubTabInit(tabId, initFn) {
     lazyInits[tabId] = initFn;
@@ -55,6 +60,7 @@ function setActiveTab(tabId, { updateHash = true, scrollTarget = null } = {}) {
         const isActive = btn.dataset.hubTab === tabId;
         btn.classList.toggle('active', isActive);
         btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        btn.tabIndex = isActive ? 0 : -1;
     });
 
     document.querySelectorAll('.hub-journey-panel').forEach(panel => {
@@ -64,7 +70,7 @@ function setActiveTab(tabId, { updateHash = true, scrollTarget = null } = {}) {
     });
 
     if (updateHash) {
-        const hash = tabId === 'plan' ? '#plan' : `#plan/${tabId}`;
+        const hash = tabId === 'entry' ? '#plan' : `#plan/${tabId}`;
         if (window.location.hash !== hash) {
             history.replaceState(null, '', hash);
         }
@@ -81,24 +87,40 @@ function setActiveTab(tabId, { updateHash = true, scrollTarget = null } = {}) {
 }
 
 function resolveTabFromHash() {
+    if (window.location.pathname === '/expenses' || window.location.pathname === '/expenses/') {
+        return { tabId: 'money', scrollTarget: 'hub-expense-tracker' };
+    }
     const raw = window.location.hash.replace(/^#/, '');
     if (!raw || raw === 'plan') {
-        return { tabId: 'plan', scrollTarget: null };
+        return { tabId: 'entry', scrollTarget: null };
     }
 
     const parts = raw.split('/');
     const anchor = parts.length > 1 ? parts[parts.length - 1] : parts[0];
-    const tabId = TAB_BY_ANCHOR[anchor] || TAB_BY_ANCHOR[parts[0]] || 'plan';
+    const tabId = TAB_BY_ANCHOR[anchor] || TAB_BY_ANCHOR[parts[0]] || 'entry';
     const scrollTarget = document.getElementById(anchor) ? anchor : null;
 
     return { tabId, scrollTarget };
 }
 
 export function initHubTabs() {
-    document.querySelectorAll('.hub-journey-tab').forEach(btn => {
+    const tabs = [...document.querySelectorAll('.hub-journey-tab')];
+    tabs.forEach((btn, index) => {
         btn.addEventListener('click', () => {
             const tabId = /** @type {HubTabId} */ (btn.dataset.hubTab);
             if (tabId) setActiveTab(tabId);
+        });
+        btn.addEventListener('keydown', event => {
+            if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+            event.preventDefault();
+            let nextIndex = index;
+            if (event.key === 'Home') nextIndex = 0;
+            if (event.key === 'End') nextIndex = tabs.length - 1;
+            if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+            if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+            const nextTab = tabs[nextIndex];
+            setActiveTab(/** @type {HubTabId} */ (nextTab.dataset.hubTab));
+            nextTab.focus();
         });
     });
 

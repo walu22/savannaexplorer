@@ -2,7 +2,7 @@
 * { box-sizing: border-box; }
 body { margin: 0; background: #efe9de; }
 .trip-pack-document { width: min(900px, 100%); margin: 0 auto; background: #fff; color: #17251f; }
-.trip-pack-cover { padding: 54px 56px 42px; color: #fff; background: linear-gradient(145deg, #102d24, #245b48); }
+.trip-pack-cover { padding: 54px 56px 42px; color: #fff; background: #173f34; }
 .trip-pack-brand, .trip-pack-kicker { margin: 0; text-transform: uppercase; letter-spacing: .16em; }
 .trip-pack-brand { color: #f4a261; font-size: 14px; font-weight: 800; }
 .trip-pack-kicker { margin-top: 36px; color: #c6d8cf; font-size: 11px; }

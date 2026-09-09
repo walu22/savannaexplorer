@@ -12,6 +12,8 @@ import { createTrip } from '../lib/trip-store.js';
 import { trackProductEvent } from '../lib/product-analytics.js';
 import { destroyJourneyMap, mountJourneyMap } from '../lib/itinerary-maps.js';
 import { buildTransferPlan, formatDriveMinutes } from '../lib/journey-logistics.js';
+import { assessJourneyFeasibility } from '../lib/journey-feasibility.js';
+import { buildStopoverPlan } from '../lib/journey-stopovers.js';
 
 const STORAGE_KEY = 'se_journey_composer_v1';
 const DEFAULTS = {
@@ -19,6 +21,7 @@ const DEFAULTS = {
     startCountry: 'namibia',
     days: 22,
     vehicle: '4x4',
+    vehicleArrangement: 'rental',
     theme: 'wildlife',
     startDate: '',
 };
@@ -104,6 +107,7 @@ function readForm(form) {
         startCountry: String(data.get('startCountry') || ''),
         days: data.get('days'),
         vehicle: String(data.get('vehicle') || ''),
+        vehicleArrangement: String(data.get('vehicleArrangement') || ''),
         theme: String(data.get('theme') || ''),
         startDate: String(data.get('startDate') || ''),
         transferDepartures: currentJourney?.preferences?.transferDepartures || {},
@@ -117,6 +121,7 @@ function setForm(form, preferences) {
     });
     form.elements.days.value = normalized.days;
     form.elements.vehicle.value = normalized.vehicle;
+    form.elements.vehicleArrangement.value = normalized.vehicleArrangement;
     form.elements.theme.value = normalized.theme;
     form.elements.startDate.value = normalized.startDate;
     syncCountryControls(form);
@@ -160,7 +165,26 @@ function segmentReason(segment, theme) {
     return reasons.join(' · ');
 }
 
-function transferMarkup(transfer, crossing, stopover, index) {
+function feasibilityMarkup(feasibility) {
+    const tone = feasibility.status === 'blocker' ? 'is-blocker' : feasibility.status === 'ready' ? 'is-ready' : 'is-check';
+    const icon = feasibility.status === 'blocker' ? 'fa-triangle-exclamation' : feasibility.status === 'ready' ? 'fa-circle-check' : 'fa-clipboard-check';
+    const count = feasibility.crossingCount;
+    return `<section class="journey-feasibility ${tone}" aria-labelledby="journey-feasibility-title">
+        <div class="journey-feasibility__head">
+            <span class="journey-feasibility__icon" aria-hidden="true"><i class="fas ${icon}"></i></span>
+            <div><span class="section-eyebrow">Journey feasibility</span><h5 id="journey-feasibility-title">${escapeHtml(feasibility.title)}</h5><p>${escapeHtml(feasibility.summary)}</p></div>
+        </div>
+        <div class="journey-feasibility__metrics">
+            <div><span>Exact border hours</span><strong>${feasibility.exactHoursCount}/${count}</strong><small>Official, unqualified windows only</small></div>
+            <div><span>Transfer timing</span><strong>${feasibility.safeTimingCount}/${count}</strong><small>Fits drive and clearance plan</small></div>
+            <div><span>Vehicle paperwork</span><strong>${feasibility.paperworkCount}/${count}</strong><small>Tailored checklist prepared</small></div>
+            <div><span>Corridor stays</span><strong>${feasibility.corridorCoveredCount}/${count}</strong><small>Overnight need covered or not required</small></div>
+        </div>
+        <p class="journey-feasibility__legend"><i class="fas fa-shield-halved" aria-hidden="true"></i> Exact when officially published; clearly marked for confirmation when it is not.</p>
+    </section>`;
+}
+
+function transferMarkup(transfer, crossing, stopover, check, index) {
     const confidence = transfer.status === 'estimated'
         ? `${transfer.confidence} confidence · cached ${transfer.capturedAt}`
         : transfer.status === 'partial' ? `Partial coverage · cached ${transfer.capturedAt}` : 'Local route check required';
@@ -186,16 +210,30 @@ function transferMarkup(transfer, crossing, stopover, index) {
         </div>
     </article>`).join('');
     const stopoverSources = stopover.sources.slice(0, 3).map(source => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(source.countryName)} · ${escapeHtml(source.relevance)}</span><strong>${escapeHtml(source.title)}</strong><small>${escapeHtml(source.linkLabel)} · reviewed ${escapeHtml(source.lastVerified)}</small></a>`).join('');
+    const timing = check?.timing || {};
+    const paperwork = check?.paperwork || { items: crossing.documents || [], arrangementLabel: 'Vehicle', note: '' };
+    const borderSource = crossing.sourceUrl ? `<a href="${escapeHtml(crossing.sourceUrl)}" target="_blank" rel="noopener noreferrer">Official/source record <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>` : '';
     return `<section class="journey-transfer" aria-label="Cross-border transfer plan">
         <div class="journey-transfer__head">
             <div><span class="journey-transfer__eyebrow">Cross-border logistics</span><strong>${transfer.status === 'estimated' ? `${transfer.totalDistanceKm} km · ${formatDriveMinutes(transfer.totalDriveMinutes)} driving` : transfer.status === 'partial' ? 'Partial estimate · complete locally' : 'Verify the road transfer locally'}</strong></div>
             <span class="journey-transfer__confidence ${transfer.status === 'estimated' ? '' : 'is-withheld'}">${escapeHtml(confidence)}</span>
         </div>
         ${legs}
+        <div class="journey-transfer__published">
+            <div><span>Published opening hours</span><strong>${escapeHtml(crossing.hours || 'Not published')}</strong></div>
+            <div><span>Evidence</span><strong>${check?.hours?.exact ? 'Exact window recorded' : 'Current confirmation required'}</strong><small>Reviewed ${escapeHtml(crossing.lastVerified || 'date unavailable')}</small></div>
+            ${borderSource}
+        </div>
         <div class="journey-transfer__arrival ${arrivalClass}">
             <label for="journey-departure-${index}">Planned departure</label>
             <input id="journey-departure-${index}" type="time" value="${escapeHtml(transfer.departureTime)}" data-transfer-departure="${index}" aria-describedby="journey-arrival-${index}">
             <p id="journey-arrival-${index}"><i class="fas ${transfer.arrival.status === 'closed' ? 'fa-triangle-exclamation' : 'fa-clock'}" aria-hidden="true"></i>${escapeHtml(transfer.arrival.label)}</p>
+        </div>
+        <div class="journey-transfer__timing" aria-label="Transfer-day timing">
+            <div><span>Depart</span><strong>${escapeHtml(timing.departureTime || transfer.departureTime || 'Check')}</strong></div>
+            <div><span>Border ETA</span><strong>${escapeHtml(timing.borderArrivalTime || 'Check route')}</strong></div>
+            <div><span>Clearance allowance</span><strong>${transfer.borderBufferMinutes} min</strong><small>${timing.clearanceTime ? `To about ${escapeHtml(timing.clearanceTime)}` : 'Recalculate locally'}</small></div>
+            <div><span>Destination ETA</span><strong>${escapeHtml(timing.destinationArrivalTime || 'Withheld')}</strong><small>Includes ${transfer.breakBufferMinutes} min breaks</small></div>
         </div>
         <div class="journey-transfer__advice"><p><i class="fas fa-gas-pump" aria-hidden="true"></i>${escapeHtml(transfer.fuelGuidance)}</p><p><i class="fas fa-sun" aria-hidden="true"></i>${escapeHtml(transfer.dayGuidance)}</p></div>
         <div class="journey-stopover journey-stopover--${escapeHtml(stopover.status)}">
@@ -205,8 +243,8 @@ function transferMarkup(transfer, crossing, stopover, index) {
             ${stopoverSources ? `<details class="journey-stopover__more"${corridorStays ? '' : ' open'}><summary>${corridorStays ? 'More places to search' : 'Reviewed accommodation directories'}</summary><div class="journey-stopover__sources">${stopoverSources}</div></details>` : ''}
             <small>${escapeHtml(stopover.disclaimer)}</small>
         </div>
-        <details class="journey-transfer__documents"><summary>Vehicle and document checklist</summary><ul>${(crossing.documents || []).map(item => `<li>${escapeHtml(item)}</li>`).join('')}<li>${escapeHtml(crossing.fees || 'Confirm current fees and requirements')}</li></ul></details>
-        <p class="journey-transfer__source">Road figures are cached planning estimates from ${escapeHtml(transfer.source)}. They exclude stops, border processing, queues and current disruption.</p>
+        <details class="journey-transfer__documents" open><summary>${escapeHtml(paperwork.arrangementLabel)} paperwork checklist</summary><ul>${paperwork.items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul><p>${escapeHtml(paperwork.note)}</p></details>
+        <p class="journey-transfer__source">Road figures are cached planning estimates from ${escapeHtml(transfer.source)}. The displayed destination time adds ${transfer.borderBufferMinutes} minutes for formalities and ${transfer.breakBufferMinutes} minutes for breaks, but still excludes live queues, disruption and delays.</p>
     </section>`;
 }
 
@@ -220,6 +258,7 @@ function renderJourney(root, journey, focusHeading = true) {
         const crossing = journey.crossings[index];
         const transfer = journey.transfers[index];
         const stopover = journey.stopovers[index];
+        const feasibilityCheck = journey.feasibility?.checks?.[index];
         const routeMarkup = `<article class="journey-step journey-step--route">
             <div class="journey-step__marker"><span>${index + 1}</span></div>
             <div class="journey-step__body">
@@ -241,7 +280,7 @@ function renderJourney(root, journey, focusHeading = true) {
                 <h5>${escapeHtml(crossing.name)}</h5>
                 <p>${escapeHtml(crossing.route)} · ${escapeHtml(crossing.hours)}</p>
                 <div class="journey-step__reason"><i class="fas fa-shield-halved" aria-hidden="true"></i>Reviewed ${escapeHtml(crossing.lastVerified)} · reconfirm before travel</div>
-                ${transferMarkup(transfer, crossing, stopover, index)}
+                ${transferMarkup(transfer, crossing, stopover, feasibilityCheck, index)}
                 <a href="/borders/${escapeHtml(crossing.id)}">Open border guide <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
             </div>
         </article>`;
@@ -262,6 +301,7 @@ function renderJourney(root, journey, focusHeading = true) {
         <div><span>Transfer days</span><strong>${journey.borderDays}</strong></div>
         <div><span>Flexible days</span><strong>${journey.extraDays}</strong></div>
     </div>
+    ${feasibilityMarkup(journey.feasibility)}
     ${orderControls(journey)}
     ${vehicleWarnings.length ? `<div class="journey-result__warning"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i><p><strong>Vehicle check:</strong> ${escapeHtml(vehicleWarnings.map(segment => `${segment.route.title} needs ${segment.route.vehicle.label}`).join('; '))}.</p></div>` : ''}
     <div class="journey-result__workspace">
@@ -353,6 +393,7 @@ function applyPreset(root, form, results, preset, { updateUrl = true } = {}) {
         startCountry: preset.startCountry,
         days: preset.days,
         vehicle: preset.vehicle,
+        vehicleArrangement: 'rental',
         theme: preset.theme,
         startDate: '',
     });
@@ -468,6 +509,13 @@ export function initJourneyComposer() {
         const transfer = buildTransferPlan(fromRoute, crossing, toRoute, input.value);
         currentJourney.preferences.transferDepartures[transfer.key] = transfer.departureTime;
         currentJourney.transfers[index] = transfer;
+        currentJourney.stopovers[index] = buildStopoverPlan(
+            transfer,
+            crossing,
+            currentJourney.segments[index],
+            currentJourney.segments[index + 1],
+        );
+        currentJourney.feasibility = assessJourneyFeasibility(currentJourney);
         savePreferences(currentJourney.preferences);
         trackProductEvent('journey_transfer_time_updated', {
             source: 'journey_composer',

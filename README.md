@@ -71,7 +71,7 @@ Preview runs at **http://localhost:4173** by default.
 
 ## Supabase (optional backend)
 
-The site works offline with local JSON data. Connect **Supabase** to store marketplace listings, contact form messages, newsletter signups, and optional authenticated My Safari trip sync.
+The public planning content works from reviewed local JSON data. Connect **Supabase** for contact messages, newsletter signups, the restricted editorial workspace, and optional authenticated My Safari trip sync.
 
 ### Setup
 
@@ -85,11 +85,10 @@ The site works offline with local JSON data. Connect **Supabase** to store marke
    - `supabase/migrations/20260903093000_lock_collaboration_rpc.sql` — restricts collaboration functions to authenticated travellers
    - `supabase/migrations/20260905180000_product_analytics.sql` — adds insert-only, privacy-conscious product event storage
    - `supabase/migrations/20260906130000_editorial_workspace.sql` — adds the authenticated editorial allowlist, assignments, corrections, audit events, RLS and role-enforced workflow transitions
-   - `supabase/seed.sql` — loads marketplace inspiration listings
 4. In **Authentication → URL Configuration**, set the production site URL and allow `https://savannaexplorer.com/**` plus the local development URL.
 5. Keep email authentication enabled, then restart the dev server: `npm run dev`
 
-Without `.env`, forms fall back to **mailto** and marketplace data loads from `data/marketplace.json`.
+Without `.env`, public route and destination research still loads locally, forms fall back to **mailto**, and My Safari remains available on the device.
 
 Set `VITE_SITE_URL` in `.env` before `npm run build` so `sitemap.xml` and canonical URLs use your production domain.
 

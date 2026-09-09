@@ -70,8 +70,10 @@ function corridorStaysFor(crossing, transfer, fromSegment, toSegment) {
 }
 
 export function estimateTransferDays(transfer) {
-    const minutes = Number.isFinite(transfer?.schedulingMinutes)
-        ? transfer.schedulingMinutes
+    const minutes = Number.isFinite(transfer?.totalPlanningMinutes)
+        ? transfer.totalPlanningMinutes
+        : Number.isFinite(transfer?.schedulingMinutes)
+            ? transfer.schedulingMinutes
         : Number.isFinite(transfer?.totalDriveMinutes) ? transfer.totalDriveMinutes : 840;
     const uncertaintyBuffer = transfer?.status === 'estimated' ? 0 : 1;
     return Math.max(1, Math.ceil(minutes / MAX_DRIVING_MINUTES_PER_TRANSFER_DAY) + uncertaintyBuffer);

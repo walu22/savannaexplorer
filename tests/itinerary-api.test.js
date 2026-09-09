@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import handler, {
+  buildReviewedRouteContext,
   generateItineraryCompletion,
   ITINERARY_SYSTEM_INSTRUCTION,
 } from '../api/itinerary/generate.js';
@@ -99,6 +100,33 @@ test('planner instructions preserve the site non-booking boundary', () => {
   assert.match(ITINERARY_SYSTEM_INSTRUCTION, /Never claim that it can book/i);
   assert.match(ITINERARY_SYSTEM_INSTRUCTION, /confirm them with official sources/i);
   assert.match(ITINERARY_SYSTEM_INSTRUCTION, /Do not invent exact flight times/i);
+  assert.match(ITINERARY_SYSTEM_INSTRUCTION, /reviewed route templates only as planning anchors/i);
+  assert.doesNotMatch(ITINERARY_SYSTEM_INSTRUCTION, /catalog experiences|SavannaExplorer Experience/i);
+});
+
+test('reviewed route context keeps route evidence and rejects unsafe source URLs', () => {
+  const context = buildReviewedRouteContext([{
+    title: 'Namibia Essentials',
+    countryIds: ['namibia'],
+    promise: 'A realistic first-timer route.',
+    duration: { label: '10–14 days' },
+    vehicle: { label: 'High-clearance SUV' },
+    bestSeason: { label: 'May–October' },
+    highlights: ['Etosha waterholes'],
+    warnings: ['Avoid driving after dark.'],
+    officialSources: [
+      { label: 'Visit Namibia', url: 'https://visitnamibia.com.na/' },
+      { label: 'Unsafe', url: 'javascript:alert(1)' },
+    ],
+    lastReviewed: '2026-09',
+  }]);
+
+  assert.match(context, /REVIEWED ROUTE TEMPLATES/);
+  assert.match(context, /Namibia Essentials/);
+  assert.match(context, /High-clearance SUV/);
+  assert.match(context, /https:\/\/visitnamibia\.com\.na\//);
+  assert.doesNotMatch(context, /javascript:/);
+  assert.doesNotMatch(context, /price|rating|bookable/i);
 });
 
 test('rate limits repeated requests from one address', async () => {

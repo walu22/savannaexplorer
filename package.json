@@ -8,7 +8,6 @@
   "type": "module",
   "scripts": {
     "setup:env": "node scripts/setup-env.mjs",
-    "seed:supabase": "node scripts/seed-supabase.mjs",
     "seed:images": "node scripts/apply-stock-images.mjs",
     "verify:images": "node scripts/verify-image-catalog.mjs",
     "postinstall": "node scripts/setup-env.mjs",
@@ -43,7 +42,6 @@
     "@supabase/supabase-js": "^2.108.2",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "dompurify": "^3.4.14",
     "groq-sdk": "^0.3.2"
   }
 }

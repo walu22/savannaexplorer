@@ -2,9 +2,7 @@
     min-height: calc(100vh - 76px);
     padding: clamp(3rem, 6vw, 5.5rem) 0;
     color: #17342c;
-    background:
-        radial-gradient(circle at 88% 4%, rgba(196, 103, 42, 0.13), transparent 28rem),
-        #f4efe4;
+    background: #f4efe4;
 }
 
 .editorial-shell { display: grid; gap: 1.25rem; }
@@ -16,7 +14,7 @@
     gap: 2rem;
     padding: clamp(1.5rem, 4vw, 3rem);
     color: white;
-    background: linear-gradient(125deg, #0f3028, #255241 72%, #526c55);
+    background: #173f34;
     border-radius: 1.5rem;
     box-shadow: 0 22px 58px rgba(18, 51, 42, 0.17);
 }
@@ -93,7 +91,7 @@
 
 body[data-home-section="editorial"] #navbar { border-bottom-color: rgba(255, 255, 255, 0.1); }
 body[data-home-section="editorial"] #chat-fab,
-body[data-home-section="editorial"] #chat-panel,
+body[data-home-section="editorial"] #ai-planner-sidebar,
 body[data-home-section="editorial"] #pwa-install-banner,
 body[data-home-section="editorial"] .back-to-top { display: none !important; }
 

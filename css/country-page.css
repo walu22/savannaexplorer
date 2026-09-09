@@ -210,9 +210,7 @@ body.site-v2 .detail-hero {
 }
 
 body.site-v2 .detail-hero-gradient {
-    background:
-        linear-gradient(90deg, rgba(9, 24, 19, 0.88) 0%, rgba(9, 24, 19, 0.58) 48%, rgba(9, 24, 19, 0.2) 100%),
-        linear-gradient(0deg, rgba(9, 24, 19, 0.85) 0%, transparent 55%);
+    background: rgba(9, 24, 19, 0.64);
 }
 
 body.site-v2 .detail-hero-img {
@@ -614,9 +612,7 @@ body.site-v2 .travel-starter-card {
     overflow: hidden;
     padding: clamp(1.7rem, 3vw, 2.25rem);
     color: white;
-    background:
-        radial-gradient(circle at 100% 0, rgba(239, 184, 112, 0.22), transparent 45%),
-        var(--travel-ink);
+    background: var(--travel-ink);
     border-radius: calc(var(--radius-lg) + 4px);
     box-shadow: 0 22px 50px rgba(18, 48, 39, 0.16);
 }
@@ -1027,9 +1023,7 @@ body.site-v2 .guide-intro--attractions > p {
 body.site-v2 .attractions-shortlist-card {
     padding: clamp(1.7rem, 3vw, 2.25rem);
     color: white;
-    background:
-        radial-gradient(circle at 100% 0, rgba(244, 192, 122, 0.24), transparent 48%),
-        #85401c;
+    background: #85401c;
     border-radius: calc(var(--radius-lg) + 4px);
     box-shadow: 0 22px 50px rgba(96, 43, 16, 0.17);
 }
@@ -1480,9 +1474,7 @@ body.site-v2 .guide-intro--activities > p {
 body.site-v2 .activities-planner-card {
     padding: clamp(1.7rem, 3vw, 2.25rem);
     color: white;
-    background:
-        radial-gradient(circle at 100% 0, rgba(240, 188, 109, 0.22), transparent 48%),
-        #1d4b3c;
+    background: #1d4b3c;
     border-radius: calc(var(--radius-lg) + 4px);
     box-shadow: 0 22px 50px rgba(18, 48, 39, 0.17);
 }
@@ -1930,9 +1922,7 @@ body.site-v2 .guide-intro--routes > p {
 body.site-v2 .routes-summary-card {
     padding: clamp(1.7rem, 3vw, 2.25rem);
     color: white;
-    background:
-        radial-gradient(circle at 100% 0, rgba(240, 188, 109, 0.22), transparent 48%),
-        #263d52;
+    background: #263d52;
     border-radius: calc(var(--radius-lg) + 4px);
     box-shadow: 0 22px 50px rgba(25, 45, 62, 0.18);
 }
@@ -2581,7 +2571,7 @@ body.site-v2 #panel-routes .country-route-card__status {
     }
 
     body.site-v2 .detail-hero-gradient {
-        background: linear-gradient(0deg, rgba(9, 24, 19, 0.94) 0%, rgba(9, 24, 19, 0.56) 66%, rgba(9, 24, 19, 0.2) 100%);
+        background: rgba(9, 24, 19, 0.72);
     }
 
     body.site-v2 .detail-hero-inner {

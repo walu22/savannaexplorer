@@ -90,7 +90,7 @@ test('Travelling is a responsive trip-planning dashboard', async ({ page, isMobi
     await expect(guide.getByRole('heading', { name: 'Plan your visit to Namibia' })).toBeVisible();
     await expect(guide.locator('.travel-jump-links a')).toHaveCount(4);
     await expect(guide.locator('.travel-planning-group')).toHaveCount(2);
-    await expect(guide.locator('#travel-essentials .travel-info-card')).toHaveCount(7);
+    await expect(guide.locator('#country-travel-essentials .travel-info-card')).toHaveCount(7);
     await expect(guide.locator('#detail-packing li')).not.toHaveCount(0);
     await expect(guide.getByRole('button', { name: 'Add to My Safari' })).toBeVisible();
 

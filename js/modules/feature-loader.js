@@ -7,11 +7,12 @@ const loaders = {
     destinations: () => import('./destinations.js').then(module => module.initDestinations()),
     routes: () => import('./route-explorer.js').then(module => module.initRouteExplorer()),
     newsletter: () => import('./newsletter.js').then(module => module.initNewsletter()),
-    ai: () => import('./ai-planner.js').then(module => module.initAiPlanner()),
-    chat: () => import('./chat-assistant.js').then(module => module.initChatAssistant()),
+    ai: () => import('./ai-planner.js').then(module => {
+        module.initAiPlanner();
+        return module;
+    }),
     safari: () => import('./my-safari.js').then(module => module.initMySafari()),
     utility: () => import('./utility-hub.js').then(module => module.initUtilityHub()),
-    'trip-planner': () => import('./trip-planner.js').then(module => module.initTripPlanner()),
     'food-planner': () => import('./food-planner.js').then(module => module.initFoodPlanner()),
     parks: () => import('./parks.js').then(module => module.initParks()),
     borders: () => import('./borders.js').then(module => module.initBorders()),
@@ -47,7 +48,10 @@ function updateDebugState() {
 function loadFeature(name) {
     if (!loaders[name]) return Promise.resolve();
     if (!loaded.has(name)) {
-        const promise = loaders[name]().then(() => updateDebugState());
+        const promise = loaders[name]().then(result => {
+            updateDebugState();
+            return result;
+        });
         loaded.set(name, promise);
         updateDebugState();
     }
@@ -57,8 +61,8 @@ function loadFeature(name) {
 const SECTION_FEATURES = {
     destinations: ['destinations'],
     'route-explorer': ['routes'],
-    'hub-my-safari': ['safari', 'ai'],
-    plan: ['utility', 'trip-planner', 'safari', 'ai'],
+    'hub-my-safari': ['safari'],
+    plan: ['utility'],
     parks: ['parks'],
     borders: ['borders'],
     'book-direct': ['book-direct'],
@@ -144,12 +148,27 @@ async function loadForCurrentRoute() {
         return;
     }
 
-    await Promise.all(['destinations', 'routes', 'newsletter', 'ai'].map(loadFeature));
+    await Promise.all(['destinations', 'routes', 'newsletter'].map(loadFeature));
 }
 
 export function initFeatureLoader() {
+    document.body.addEventListener('click', event => {
+        const trigger = event.target.closest('#chat-fab');
+        if (!trigger) return;
+        event.preventDefault();
+        loadFeature('ai')
+            .then(module => module?.openAiPlanner?.('ask'))
+            .catch(error => console.error('[Features] Could not load travel assistant', error));
+    });
+    document.body.addEventListener('click', event => {
+        const trigger = event.target.closest('#open-ai-planner, .open-ai-planner, [data-trigger="ai-planner"]');
+        if (!trigger || loaded.has('ai')) return;
+        event.preventDefault();
+        loadFeature('ai')
+            .then(module => module?.openAiPlanner?.())
+            .catch(error => console.error('[Features] Could not load AI planner', error));
+    });
     loadForCurrentRoute().catch(error => console.error('[Features] Could not load page features', error));
-    loadFeature('chat').catch(error => console.error('[Features] Could not load assistant', error));
     const sync = () => loadForCurrentRoute().catch(error => console.error('[Features] Could not update page features', error));
     window.addEventListener('savanna:routechange', sync);
     window.addEventListener('hashchange', sync);

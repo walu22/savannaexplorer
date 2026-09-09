@@ -30,4 +30,9 @@ test('detail routes are classified without loading content datasets', () => {
 
 test('legacy hashes continue to resolve as homepage sections', () => {
     assert.deepEqual(parseRouteShape(location('/', '#packing-list')), { type: 'home', sectionHash: 'packing-list' });
+    assert.deepEqual(parseRouteShape(location('/countries/namibia', '#travel-essentials')), {
+        type: 'country',
+        countryId: 'namibia',
+        sectionHash: 'travel-essentials',
+    });
 });

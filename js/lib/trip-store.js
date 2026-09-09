@@ -9,6 +9,8 @@ export const TRIP_CHANGE_EVENT = 'se:trip-change';
 const LEGACY_EXPENSE_KEY = 'savanna-expense-tracker-v1';
 const LEGACY_PACKING_KEY = 'se_packing_list';
 const LEGACY_AI_KEY = 'se_ai_saved_itinerary_v1';
+const PACKING_MONTHS = new Set(['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']);
+const PACKING_STYLES = new Set(['self-drive', 'fly-in', 'group']);
 
 function emptyState() {
     return { version: 1, activeTripId: '', trips: [] };
@@ -24,6 +26,16 @@ function safeParse(value, fallback = null) {
 
 function storageOrNull(storage) {
     return storage || globalThis.localStorage || null;
+}
+
+function normalizePacking(packing) {
+    const month = String(packing?.month || 'jan');
+    const style = String(packing?.style || 'self-drive');
+    return {
+        month: PACKING_MONTHS.has(month) ? month : 'jan',
+        style: PACKING_STYLES.has(style) ? style : 'self-drive',
+        packedItems: Array.isArray(packing?.packedItems) ? [...new Set(packing.packedItems.map(String))] : [],
+    };
 }
 
 function cleanTrip(trip) {
@@ -45,11 +57,7 @@ function cleanTrip(trip) {
             linkedItineraryId: String(trip.expenses?.linkedItineraryId || ''),
             items: Array.isArray(trip.expenses?.items) ? trip.expenses.items : [],
         },
-        packing: {
-            month: String(trip.packing?.month || 'jan'),
-            style: String(trip.packing?.style || 'safari'),
-            packedItems: Array.isArray(trip.packing?.packedItems) ? trip.packing.packedItems.map(String) : [],
-        },
+        packing: normalizePacking(trip.packing),
         readiness: normalizeReadiness(trip.readiness),
         bookings: normalizeBookings(trip.bookings),
         operations: normalizeTripOperations(trip.operations),
@@ -91,7 +99,7 @@ function legacyData(storage) {
         },
         packing: {
             month: 'jan',
-            style: 'safari',
+            style: 'self-drive',
             packedItems: Array.isArray(packedItems) ? packedItems.map(String) : [],
         },
         aiItinerary: aiItinerary && typeof aiItinerary === 'object' ? aiItinerary : null,

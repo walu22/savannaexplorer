@@ -1,7 +1,7 @@
 /* Travel essentials hub — reuses transport tab rhythm */
 .travel-essentials-hub {
     padding: var(--section-pad) 0;
-    background: linear-gradient(180deg, rgba(12, 18, 16, 0.02) 0%, transparent 100%);
+    background: var(--bg-cream);
 }
 
 .essentials-tabs {
@@ -201,34 +201,14 @@
     margin: 0 0 0.5rem;
 }
 
-.essentials-packing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-    gap: 1rem;
+.essentials-packing-principles {
+    margin-bottom: 1.5rem;
 }
 
-.essentials-packing-col ul {
-    margin: 0.5rem 0 0;
-    padding-left: 1.2rem;
-    font-size: 0.9rem;
-}
-
-.essentials-packing-extras {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-    gap: 1.25rem;
-    margin-top: 1rem;
-}
-
-.essentials-packing-extras h4 {
-    margin: 0 0 0.5rem;
-    color: var(--accent);
-}
-
-.essentials-packing-extras ul {
-    margin: 0;
-    padding-left: 1.2rem;
-    font-size: 0.9rem;
+.essentials-packing-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 @media (max-width: 768px) {

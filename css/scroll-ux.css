@@ -102,7 +102,7 @@ body.site-v2 .page-chapter--discover > section:nth-child(even):not(.destinations
 }
 
 body.site-v2 .page-chapter--plan {
-    background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-light) 100%);
+    background: var(--bg-light);
 }
 
 body.site-v2 .page-chapter--plan > section:not(.utility-hub):not(.food-planner-section):not(.community-travel-section):not(.safari-bingo-section):not(.phrasebook-section):not(.home-my-safari) {
@@ -138,7 +138,7 @@ body.site-v2 .page-chapter + .page-chapter::before {
     content: '';
     display: block;
     height: 4px;
-    background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+    background: var(--primary-light);
     opacity: 0.35;
 }
 
@@ -197,7 +197,7 @@ body.site-v2 .back-to-top[hidden] {
 .scroll-progress-bar {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 50%, var(--primary) 100%);
+    background: var(--primary);
     box-shadow: 0 0 10px rgba(196, 103, 42, 0.8);
     transition: width 0.15s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: width;

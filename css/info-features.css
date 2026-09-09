@@ -60,7 +60,7 @@
 }
 
 .tip-card {
-    background: linear-gradient(135deg, var(--surface-1), var(--surface-2));
+    background: var(--surface-1);
     border-left: 4px solid var(--primary-accent);
     padding: 1.5rem;
     border-radius: var(--radius-md);

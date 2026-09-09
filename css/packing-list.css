@@ -17,6 +17,40 @@
     padding: 2.5rem;
 }
 
+.packing-save-status {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.75rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border-subtle));
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--primary) 5%, var(--white));
+    color: var(--text-dark);
+}
+
+.packing-save-status > i {
+    color: var(--primary);
+}
+
+.packing-save-status div {
+    display: grid;
+    gap: 0.15rem;
+}
+
+.packing-save-status span {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+}
+
+.packing-save-status a {
+    color: var(--primary);
+    font-size: 0.88rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
 .packing-controls {
     display: flex;
     gap: 1.5rem;
@@ -76,6 +110,8 @@
 }
 
 .packing-item {
+    width: 100%;
+    border: 0;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -85,10 +121,18 @@
     cursor: pointer;
     transition: var(--transition-fast);
     user-select: none;
+    color: var(--text-dark);
+    font: inherit;
+    text-align: left;
 }
 
 .packing-item:hover {
     background: #f0ebe1;
+}
+
+.packing-item:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--primary) 35%, transparent);
+    outline-offset: 2px;
 }
 
 .packing-checkbox {
@@ -150,6 +194,14 @@
 }
 
 @media (max-width: 768px) {
+    .packing-save-status {
+        grid-template-columns: auto 1fr;
+    }
+
+    .packing-save-status a {
+        grid-column: 2;
+    }
+
     .packing-controls {
         flex-direction: column;
         gap: 1rem;

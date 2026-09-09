@@ -5,7 +5,8 @@ import connectivity from '../../data/connectivity.json';
 import permits from '../../data/permits-restrictions.json';
 import advisories from '../../data/travel-advisories.json';
 import pitfalls from '../../data/travel-pitfalls.json';
-import packing from '../../data/packing.json';
+
+const PACKING_DISCLAIMER = 'Adapt every list to your route, season, activities, baggage limits and accommodation. Confirm medical needs with a qualified professional.';
 
 function escapeHtml(text) {
     return String(text)
@@ -46,7 +47,7 @@ function initTabs() {
         permits: permits.meta.disclaimer,
         advisories: advisories.meta.disclaimer,
         pitfalls: pitfalls.meta.disclaimer,
-        packing: packing.meta.disclaimer,
+        packing: PACKING_DISCLAIMER,
     };
 
     function setTabDisclaimer(tabId) {
@@ -346,45 +347,17 @@ function renderPacking() {
     const el = document.getElementById('essentials-packing');
     if (!el) return;
 
-    const tripTypes = ['safari', 'beach', 'city', 'mountain'].map(type => `
-        <div class="essentials-packing-col">
-            <h4>${type.charAt(0).toUpperCase() + type.slice(1)}</h4>
-            <ul>${packing[type].map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
-        </div>
-    `).join('');
-
-    const seasonal = packing.seasonalNotes.map(s => `
-        <li><strong>${escapeHtml(s.region)}:</strong> ${s.items.map(escapeHtml).join(', ')}</li>
-    `).join('');
-
-    const medical = packing.medicalKit.map(i => `<li>${escapeHtml(i)}</li>`).join('');
-    const docs = packing.documents.map(i => `<li>${escapeHtml(i)}</li>`).join('');
-    const lodgeProvide = packing.lodgesUsuallyProvide.map(i => `<li>${escapeHtml(i)}</li>`).join('');
-    const bring = packing.youShouldBring.map(i => `<li>${escapeHtml(i)}</li>`).join('');
-
     el.innerHTML = `
-        <p class="essentials-intro">${escapeHtml(packing.meta.disclaimer)}</p>
-        <p class="essentials-muted">Trip planner checklist uses the safari / beach / city / mountain lists — see <a href="#plan">Travel Tools</a>.</p>
-        <div class="essentials-packing-grid">${tripTypes}</div>
-        <h3 class="essentials-subheading">Seasonal add-ons</h3>
-        <ul class="essentials-checklist">${seasonal}</ul>
-        <div class="essentials-packing-extras">
-            <div>
-                <h4>Medical kit</h4>
-                <ul>${medical}</ul>
-            </div>
-            <div>
-                <h4>Documents pouch</h4>
-                <ul>${docs}</ul>
-            </div>
-            <div>
-                <h4>Lodges usually provide</h4>
-                <ul>${lodgeProvide}</ul>
-            </div>
-            <div>
-                <h4>You should still bring</h4>
-                <ul>${bring}</ul>
-            </div>
+        <p class="essentials-intro">${escapeHtml(PACKING_DISCLAIMER)}</p>
+        <div class="essentials-pitfall-grid essentials-packing-principles">
+            <article class="essentials-pitfall-card"><div class="essentials-pitfall-icon">🧳</div><h4>Check baggage rules</h4><p>Light-aircraft transfers often impose stricter weight, size and soft-bag limits than international flights.</p></article>
+            <article class="essentials-pitfall-card"><div class="essentials-pitfall-icon">🧥</div><h4>Pack for temperature swings</h4><p>Cool dawn drives, hot afternoons, rain and higher ground can occur in one itinerary. Use adaptable layers.</p></article>
+            <article class="essentials-pitfall-card"><div class="essentials-pitfall-icon">🩹</div><h4>Prepare health essentials</h4><p>Carry prescriptions, a basic first-aid kit, sun protection and insect protection appropriate to the route.</p></article>
+            <article class="essentials-pitfall-card"><div class="essentials-pitfall-icon">📄</div><h4>Protect documents</h4><p>Keep required originals accessible and encrypted copies separate. Vehicle papers belong with the border plan.</p></article>
+        </div>
+        <div class="essentials-packing-actions">
+            <a class="btn btn-primary" href="/packing-list"><i class="fas fa-suitcase-rolling" aria-hidden="true"></i> Build a seasonal packing list</a>
+            <a class="btn btn-outline" href="/my-safari">Save progress in My Safari</a>
         </div>
     `;
 }

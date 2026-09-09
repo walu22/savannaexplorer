@@ -1,6 +1,6 @@
 .my-safari-card {
     border: 1px solid rgba(196, 103, 42, 0.35);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(196, 103, 42, 0.08));
+    background: #242a27;
 }
 .my-safari-card [hidden] { display: none !important; }
 body.site-v2 .my-safari-card .btn-outline { border-color: rgba(247, 243, 237, 0.32); background: rgba(255, 255, 255, 0.045); color: #f7f3ed; }
@@ -133,7 +133,7 @@ body.site-v2 .my-safari-card .btn-outline:hover { border-color: #f4a261; backgro
     overflow: hidden;
     border: 1px solid rgba(240, 190, 116, 0.32);
     border-radius: var(--radius-lg);
-    background: linear-gradient(145deg, rgba(8, 27, 23, 0.94), rgba(26, 48, 39, 0.86));
+    background: #172c25;
     box-shadow: 0 24px 54px rgba(0, 0, 0, 0.16);
 }
 .my-safari-operations-head { display: flex; justify-content: space-between; gap: 1.5rem; align-items: flex-start; padding: clamp(1.1rem, 2.6vw, 1.6rem); border-bottom: 1px solid rgba(255, 255, 255, 0.11); }
@@ -258,9 +258,7 @@ body.site-v2 .my-safari-card .btn-outline:hover { border-color: #f4a261; backgro
     padding: clamp(1rem, 2.5vw, 1.4rem);
     border: 1px solid rgba(196, 103, 42, 0.42);
     border-radius: var(--radius-lg);
-    background:
-        radial-gradient(circle at top right, rgba(196, 103, 42, 0.18), transparent 34%),
-        rgba(15, 34, 28, 0.72);
+    background: #19372e;
 }
 .my-safari-readiness-head { display: flex; justify-content: space-between; gap: 1.25rem; align-items: center; }
 .my-safari-readiness-head h5 { margin: 0.35rem 0 0.25rem; color: var(--text-inverse); font-size: clamp(1.35rem, 2vw, 1.75rem); }
@@ -277,7 +275,7 @@ body.site-v2 .my-safari-card .btn-outline:hover { border-color: #f4a261; backgro
     aspect-ratio: 1;
     border-radius: 50%;
     text-align: center;
-    background: conic-gradient(#f4a261 var(--readiness-score), rgba(255, 255, 255, 0.12) 0);
+    background: #f4a261;
 }
 .my-safari-readiness-score::before { content: ''; position: absolute; z-index: -1; inset: 7px; border-radius: inherit; background: #16352c; }
 .my-safari-readiness-score strong { color: var(--text-inverse); font-size: 1.35rem; line-height: 1; }
@@ -352,7 +350,7 @@ body.site-v2 .my-safari-card .btn-outline:hover { border-color: #f4a261; backgro
 .my-safari-booking-edit-form input,
 .my-safari-booking-edit-form select { min-width: 0; width: 100%; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: var(--radius-sm); background: #241c17; color: var(--text-inverse); padding: 0.58rem; color-scheme: dark; }
 .my-safari-booking-empty { margin: 0; padding: 0.8rem; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.04); color: rgba(247, 243, 237, 0.68); font-size: 0.78rem; }
-.my-safari-stay-planner { margin: 1rem 0; overflow: hidden; border: 1px solid rgba(244, 178, 125, .28); border-radius: var(--radius-md); background: linear-gradient(135deg, rgba(196, 103, 42, .14), rgba(127, 176, 105, .08)); }
+.my-safari-stay-planner { margin: 1rem 0; overflow: hidden; border: 1px solid rgba(244, 178, 125, .28); border-radius: var(--radius-md); background: #20352e; }
 .my-safari-stay-plan-head { display: flex; justify-content: space-between; align-items: end; gap: 1rem; padding: 1rem; border-bottom: 1px solid rgba(255, 255, 255, .1); }
 .my-safari-stay-plan-head > div { display: grid; gap: .2rem; }
 .my-safari-stay-plan-head > div span { color: #f4b27d; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
@@ -370,7 +368,7 @@ body.site-v2 .my-safari-card .btn-outline:hover { border-color: #f4a261; backgro
 .my-safari-stay-planner > footer a { color: #f4b27d; font-weight: 800; }
 .my-safari-notes-label { display: grid; gap: 0.4rem; font-weight: 600; }
 .my-safari-notes { min-height: 90px; resize: vertical; }
-.my-safari-pack-builder { margin: 1.25rem 0 0; padding: clamp(1rem, 2.5vw, 1.4rem); border: 1px solid rgba(244, 162, 97, 0.4); border-radius: var(--radius-lg); background: linear-gradient(135deg, rgba(244, 162, 97, 0.1), rgba(0, 0, 0, 0.2)); }
+.my-safari-pack-builder { margin: 1.25rem 0 0; padding: clamp(1rem, 2.5vw, 1.4rem); border: 1px solid rgba(244, 162, 97, 0.4); border-radius: var(--radius-lg); background: #202823; }
 .my-safari-pack-badge { flex: 0 0 auto; padding: 0.45rem 0.7rem; border-radius: 999px; color: #b6d7c9; background: rgba(127, 176, 105, 0.15); font-size: 0.72rem; font-weight: 800; }
 .my-safari-pack-options { display: flex; flex-wrap: wrap; gap: 0.65rem 1.2rem; margin-top: 1rem; }
 .my-safari-pack-options label { display: flex; gap: 0.45rem; align-items: center; color: rgba(247, 243, 237, 0.82); font-size: 0.78rem; font-weight: 700; cursor: pointer; }

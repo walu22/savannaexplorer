@@ -10,28 +10,40 @@ export function initPackingList() {
     const listContainer = document.getElementById('packing-list-output');
     const progressEl = document.getElementById('packing-progress');
     const resetBtn = document.getElementById('btn-packing-reset');
+    const saveTitle = document.getElementById('packing-save-title');
+    const saveCopy = document.getElementById('packing-save-copy');
+    const saveLink = document.getElementById('packing-save-link');
 
     let packedItems = new Set();
+    let activeTrip = null;
 
     function loadPackingState() {
-        const activeTrip = getActiveTrip();
+        activeTrip = getActiveTrip();
         if (activeTrip) {
             packedItems = new Set(activeTrip.packing.packedItems);
             monthSelect.value = activeTrip.packing.month || monthSelect.value;
             styleSelect.value = activeTrip.packing.style || styleSelect.value;
-            return;
-        }
-
-        try {
-            const saved = localStorage.getItem('se_packing_list');
-            packedItems = new Set(saved ? JSON.parse(saved) : []);
-        } catch {
+        } else {
             packedItems = new Set();
         }
+        renderSaveStatus();
+    }
+
+    function renderSaveStatus() {
+        if (!saveTitle || !saveCopy || !saveLink) return;
+        if (activeTrip) {
+            saveTitle.textContent = `Saving to ${activeTrip.name}`;
+            saveCopy.textContent = 'Every checked item and packing preference stays with this trip.';
+            saveLink.textContent = 'Open My Safari';
+            return;
+        }
+        saveTitle.textContent = 'Preview mode';
+        saveCopy.textContent = 'Try the list here. Create a My Safari trip to save progress between visits.';
+        saveLink.textContent = 'Create a trip';
     }
 
     function savePackingState() {
-        if (getActiveTrip()) {
+        if (activeTrip) {
             updateActiveTrip({
                 packing: {
                     month: monthSelect.value,
@@ -39,11 +51,7 @@ export function initPackingList() {
                     packedItems: [...packedItems],
                 },
             });
-            return;
         }
-        try {
-            localStorage.setItem('se_packing_list', JSON.stringify([...packedItems]));
-        } catch {}
     }
     
     // Load saved state
@@ -93,10 +101,10 @@ export function initPackingList() {
                 const isPacked = packedItems.has(item.id);
                 if (isPacked) totalPacked++;
                 
-                html += `<div class="packing-item ${isPacked ? 'packed' : ''}" data-id="${item.id}">
+                html += `<button type="button" class="packing-item ${isPacked ? 'packed' : ''}" data-id="${item.id}" aria-pressed="${isPacked}">
                             <div class="packing-checkbox"><i class="fas fa-check"></i></div>
                             <div class="packing-item-name">${item.name}</div>
-                         </div>`;
+                         </button>`;
             });
             
             html += `</div></div>`;
@@ -130,6 +138,7 @@ export function initPackingList() {
             packedItems.add(id);
             itemEl.classList.add('packed');
         }
+        itemEl.setAttribute('aria-pressed', String(packedItems.has(id)));
         
         savePackingState();
         

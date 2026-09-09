@@ -184,40 +184,6 @@ const activityImages = {
     'Ngwenya Glass Blowing Demo': I.culturalVillage,
 };
 
-const marketplaceImages = {
-    saf1: I.krugerSafari,
-    saf2: I.okavangoDelta,
-    saf3: I.elephants,
-    saf4: I.savannaWildlife,
-    saf5: I.safariVehicle,
-    saf6: I.riverBoat,
-    saf7: I.safariVehicle,
-    saf8: I.savannaWildlife,
-    adv1: I.namibDunes,
-    adv2: I.victoriaFalls,
-    adv3: I.marineWildlife,
-    adv4: I.mountains,
-    adv5: I.lakeMalawi,
-    adv6: I.hikingTrail,
-    adv7: I.riverBoat,
-    cul1: I.culturalVillage,
-    cul2: I.vineyard,
-    cul3: I.rockFormations,
-    cul4: I.urbanAfrica,
-    cul5: I.culturalVillage,
-    cul6: I.mountains,
-    cul7: I.culturalVillage,
-    cul8: I.victoriaFallsSunrise,
-    nat1: I.victoriaFalls2025,
-    nat2: I.mountains,
-    nat3: I.zebraWildlife,
-    nat4: I.tropicalBeach,
-    nat5: I.lakeMalawi,
-    nat6: I.hikingTrail,
-    nat7: I.sossusvleiAerial,
-    nat8: I.riverBoat,
-};
-
 function applyImageFields(items, map, field = 'image') {
     for (const item of items || []) {
         if (map[item.name] || map[item.id]) {
@@ -241,17 +207,6 @@ for (const data of Object.values(depth)) {
     applyImageFields(data.additionalActivities, activityImages);
 }
 writeFileSync(resolve(root, 'data/country-depth.json'), JSON.stringify(depth, null, 2) + '\n');
-
-// marketplace.json
-const marketplace = JSON.parse(readFileSync(resolve(root, 'data/marketplace.json'), 'utf8'));
-for (const items of Object.values(marketplace)) {
-    for (const item of items) {
-        if (marketplaceImages[item.id]) {
-            item.image = url(marketplaceImages[item.id]);
-        }
-    }
-}
-writeFileSync(resolve(root, 'data/marketplace.json'), JSON.stringify(marketplace, null, 2) + '\n');
 
 // country-meta.js
 let metaJs = readFileSync(resolve(root, 'js/lib/country-meta.js'), 'utf8');
@@ -312,30 +267,5 @@ for (const [slot, config] of Object.entries(indexStockImages)) {
 }
 writeFileSync(resolve(root, 'index.html'), indexHtml);
 
-// Regenerate supabase seed
-const rows = Object.values(marketplace).flat().map((item) => {
-    const esc = (s) => String(s).replace(/'/g, "''");
-    return `    ('${item.id}', '${esc(item.title)}', '${item.category}', '${esc(item.location)}', '${esc(item.duration)}', '${item.price_range}', ${item.rating}, '${esc(item.badge)}', '${esc(item.best_time)}', '${esc(item.image)}', '${esc(item.description)}')`;
-}).join(',\n');
-const seedSql = `-- Seed marketplace experiences from data/marketplace.json
--- Run after schema.sql
-
-insert into public.experiences (id, title, category, location, duration, price_range, rating, badge, best_time, image_url, description)
-values
-${rows}
-on conflict (id) do update set
-    title = excluded.title,
-    category = excluded.category,
-    location = excluded.location,
-    duration = excluded.duration,
-    price_range = excluded.price_range,
-    rating = excluded.rating,
-    badge = excluded.badge,
-    best_time = excluded.best_time,
-    image_url = excluded.image_url,
-    description = excluded.description;
-`;
-writeFileSync(resolve(root, 'supabase/seed.sql'), seedSql);
-
 console.log('Applied', Object.keys(I).length, 'verified stock images across the site.');
-console.log('Updated: countries, country-depth, discover, marketplace, country-meta, seo-data, images.js, index.html, seed.sql');
+console.log('Updated: countries, country-depth, discover, country-meta, seo-data, images.js, and index.html');

@@ -136,75 +136,6 @@
         </div>
     </section>
 
-    <!-- Did You Know Ticker -->
-    <section class="ticker-bar">
-        <div class="ticker-label"><i class="fas fa-lightbulb"></i> DID YOU KNOW</div>
-        <div class="ticker-track">
-            <div class="ticker-content">
-                <span class="ticker-item">🇳🇦 Namibia's Namib Desert is the oldest desert on Earth — approximately 55 million years old</span>
-                <span class="ticker-item">🇧🇼 Botswana's Okavango Delta is the world's largest inland delta, covering 22,000 km²</span>
-                <span class="ticker-item">🇿🇲 Victoria Falls creates a mist column visible from 50 km away — the locals call it "Mosi-oa-Tunya" (The Smoke That Thunders)</span>
-                <span class="ticker-item">🇿🇦 South Africa has 3 capital cities: Pretoria (executive), Cape Town (legislative), and Bloemfontein (judicial)</span>
-                <span class="ticker-item">🇲🇼 Lake Malawi contains more fish species than any other lake on Earth — over 1,000 cichlid species</span>
-                <span class="ticker-item">🇲🇿 Mozambique's flag features an AK-47 — the only national flag in the world to display a modern firearm</span>
-                <span class="ticker-item">🇱🇸 Lesotho is the only country in the world entirely above 1,000 metres in elevation — the "Kingdom in the Sky"</span>
-                <span class="ticker-item">🇸🇿 Eswatini is Africa's last remaining absolute monarchy, ruled by King Mswati III</span>
-                <span class="ticker-item">🇿🇼 The Great Zimbabwe ruins, built between 1100-1450 AD, gave the country its name — "Zimbabwe" means "Houses of Stone"</span>
-                <!-- Duplicate for seamless loop -->
-                <span class="ticker-item">🇳🇦 Namibia's Namib Desert is the oldest desert on Earth — approximately 55 million years old</span>
-                <span class="ticker-item">🇧🇼 Botswana's Okavango Delta is the world's largest inland delta, covering 22,000 km²</span>
-                <span class="ticker-item">🇿🇲 Victoria Falls creates a mist column visible from 50 km away — the locals call it "Mosi-oa-Tunya" (The Smoke That Thunders)</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Did You Know — Visit Namibia-style fact cards -->
-    <section class="facts-section">
-        <div class="container">
-            <div class="section-header section-header--compact">
-                <span class="section-eyebrow">Did You Know</span>
-                <h2>Interesting Facts Before You Visit</h2>
-                <p>Discover what makes Southern Africa unlike anywhere else on Earth.</p>
-            </div>
-            <div class="facts-grid" id="facts-grid"></div>
-        </div>
-    </section>
-
-    <!-- Plan Your Trip — Visit Namibia-style quick links -->
-    <section class="plan-trip-section">
-        <div class="container">
-            <div class="section-header section-header--compact">
-                <span class="section-eyebrow">Plan Your Trip</span>
-                <h2>Discover the Best of Southern Africa</h2>
-            </div>
-            <div class="plan-trip-grid" id="plan-trip-grid"></div>
-        </div>
-    </section>
-
-    <!-- Planning highlights (complements hero stats — no duplicate numbers) -->
-    <section class="trust-bar trust-bar--features" aria-label="Planning tools">
-        <div class="container">
-            <div class="trust-features">
-                <a href="#plan" class="trust-feature">
-                    <i class="fas fa-passport" aria-hidden="true"></i>
-                    <span class="trust-feature-label">Visa matrix</span>
-                </a>
-                <a href="#borders" class="trust-feature">
-                    <i class="fas fa-road" aria-hidden="true"></i>
-                    <span class="trust-feature-label">Border guides</span>
-                </a>
-                <a href="#parks" class="trust-feature">
-                    <i class="fas fa-tree" aria-hidden="true"></i>
-                    <span class="trust-feature-label">Park fees</span>
-                </a>
-                <a href="/routes" class="trust-feature">
-                    <i class="fas fa-route" aria-hidden="true"></i>
-                    <span class="trust-feature-label">Route templates</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- How this site works -->
     <section class="service-section home-featured">
         <div class="container">
@@ -529,6 +460,7 @@
                         <div class="journey-composer__field"><label for="journey-start-country">Start in</label><select id="journey-start-country" name="startCountry"></select></div>
                         <div class="journey-composer__field"><label for="journey-days">Days available</label><input id="journey-days" name="days" type="number" min="7" max="30" value="22" inputmode="numeric" required></div>
                         <div class="journey-composer__field"><label for="journey-vehicle">Driving comfort</label><select id="journey-vehicle" name="vehicle"><option value="standard">Standard-road driving</option><option value="suv">Gravel roads with an SUV</option><option value="4x4">Experienced 4×4 driving</option></select></div>
+                        <div class="journey-composer__field"><label for="journey-vehicle-arrangement">Vehicle arrangement</label><select id="journey-vehicle-arrangement" name="vehicleArrangement"><option value="rental">Rental vehicle</option><option value="owned">My own vehicle</option><option value="financed">Financed vehicle</option><option value="borrowed">Borrowed vehicle</option></select></div>
                         <div class="journey-composer__field"><label for="journey-theme">Main interest</label><select id="journey-theme" name="theme"><option value="wildlife">Wildlife</option><option value="landscapes">Landscapes</option><option value="culture">Culture</option><option value="coast">Coast</option><option value="water">Rivers &amp; lakes</option><option value="adventure">Adventure</option><option value="family">Family</option><option value="all">A balanced mix</option></select></div>
                         <div class="journey-composer__field"><label for="journey-start-date">Start date <span class="sr-only">optional</span></label><input id="journey-start-date" name="startDate" type="date"><span class="sr-only">Optional</span></div>
                         <div class="journey-composer__actions">
@@ -1025,22 +957,33 @@
     <!-- Southern Africa Utility Hub -->
     <section id="plan" class="utility-hub">
         <div class="container">
-            <div class="section-header">
-                <h2>Traveler Utility Hub</h2>
-                <p>Practical planning tools with source links and verification dates — always confirm visa and health rules before travel.</p>
-            </div>
-            <div class="hub-toolbar">
-                <label class="hub-passport-label" for="hub-passport-select">Your passport</label>
-                <select id="hub-passport-select" class="hub-passport-select" data-passport-select aria-label="Passport nationality for visa and checklist"></select>
-            </div>
-            <nav class="hub-journey-nav" aria-label="Utility hub sections">
-                <button type="button" class="hub-journey-tab active" data-hub-tab="plan" aria-selected="true">Plan</button>
-                <button type="button" class="hub-journey-tab" data-hub-tab="documents" aria-selected="false">Documents</button>
-                <button type="button" class="hub-journey-tab" data-hub-tab="on-the-go" aria-selected="false">On the trip</button>
-                <button type="button" class="hub-journey-tab" data-hub-tab="when" aria-selected="false">When to go</button>
+            <header class="planning-hub-hero">
+                <div class="planning-hub-hero__copy">
+                    <span class="section-eyebrow">Practical trip planning</span>
+                    <h1>Turn a route idea into a journey you can use</h1>
+                    <p>Work through the five decisions that matter most: entry rules, the journey, money, health, and what you need on the road.</p>
+                </div>
+                <ol class="planning-hub-progress" aria-label="Five planning areas">
+                    <li><span>1</span> Entry</li>
+                    <li><span>2</span> Journey</li>
+                    <li><span>3</span> Money</li>
+                    <li><span>4</span> Health</li>
+                    <li><span>5</span> On the road</li>
+                </ol>
+            </header>
+            <nav class="hub-journey-nav" role="tablist" aria-label="Utility hub sections">
+                <button type="button" id="hub-tab-entry" class="hub-journey-tab active" data-hub-tab="entry" role="tab" aria-controls="hub-panel-entry" aria-selected="true"><i class="fas fa-passport" aria-hidden="true"></i><span><strong>Entry</strong><small>Visa &amp; documents</small></span></button>
+                <button type="button" id="hub-tab-journey" class="hub-journey-tab" data-hub-tab="journey" role="tab" aria-controls="hub-panel-journey" aria-selected="false" tabindex="-1"><i class="fas fa-route" aria-hidden="true"></i><span><strong>Journey</strong><small>Route &amp; dates</small></span></button>
+                <button type="button" id="hub-tab-money" class="hub-journey-tab" data-hub-tab="money" role="tab" aria-controls="hub-panel-money" aria-selected="false" tabindex="-1"><i class="fas fa-wallet" aria-hidden="true"></i><span><strong>Money</strong><small>Budget &amp; currency</small></span></button>
+                <button type="button" id="hub-tab-health" class="hub-journey-tab" data-hub-tab="health" role="tab" aria-controls="hub-panel-health" aria-selected="false" tabindex="-1"><i class="fas fa-heart-pulse" aria-hidden="true"></i><span><strong>Health</strong><small>Prepare safely</small></span></button>
+                <button type="button" id="hub-tab-road" class="hub-journey-tab" data-hub-tab="road" role="tab" aria-controls="hub-panel-road" aria-selected="false" tabindex="-1"><i class="fas fa-car" aria-hidden="true"></i><span><strong>On the road</strong><small>Live essentials</small></span></button>
             </nav>
 
-            <div class="hub-journey-panel active" id="hub-panel-plan" data-hub-panel="plan">
+            <div class="hub-journey-panel" id="hub-panel-journey" data-hub-panel="journey" role="tabpanel" aria-labelledby="hub-tab-journey" hidden>
+                <div class="planning-job-head">
+                    <div><span class="planning-job-number">02</span><h2>Build the journey</h2><p>Choose a researched route, set the dates, then keep every practical detail inside one editable trip.</p></div>
+                    <a class="btn btn-primary" href="/my-safari"><i class="fas fa-compass" aria-hidden="true"></i> Open My Safari</a>
+                </div>
                 <div class="hub-grid">
                 <div class="hub-card hub-card--full my-safari-card" id="hub-my-safari">
                     <div class="hub-card-header">
@@ -1309,91 +1252,43 @@
                 </div>
                 <div class="hub-card hub-card--full" id="hub-trip-planner">
                     <div class="hub-card-header">
-                        <span class="hub-icon"><i class="fas fa-clipboard-list"></i></span>
-                        <h3>Trip Planner — Print Your Checklist</h3>
+                        <span class="hub-icon"><i class="fas fa-file-arrow-down"></i></span>
+                        <h3>My Safari Trip Pack</h3>
                     </div>
-                    <p class="trip-planner-intro">Select countries and an optional researched Route Explorer template, then print or save as PDF. Includes visa notes, official links, borders, route pacing, and packing — for planning only, not a booking.</p>
-                    <div id="trip-planner" class="trip-planner-form">
-                        <div class="trip-planner-block">
-                            <h4 class="trip-planner-label">Countries on your trip</h4>
-                            <div class="trip-country-picker" id="trip-country-picker"></div>
+                    <p class="trip-pack-canonical-lead">Build the journey once in My Safari, then carry one current pack containing your route, dates, border plan, readiness checks, budget and packing progress.</p>
+                    <div class="trip-pack-canonical">
+                        <ul class="trip-pack-canonical-list">
+                            <li><i class="fas fa-route" aria-hidden="true"></i><span><strong>One editable journey</strong>Route days, stops and traveller details stay together.</span></li>
+                            <li><i class="fas fa-passport" aria-hidden="true"></i><span><strong>Practical checks</strong>Border, vehicle and document actions use the trip's actual countries.</span></li>
+                            <li><i class="fas fa-download" aria-hidden="true"></i><span><strong>One offline export</strong>Download a self-contained file or print a clean PDF from My Safari.</span></li>
+                        </ul>
+                        <div class="trip-pack-canonical-actions">
+                            <a class="btn btn-primary" href="/my-safari"><i class="fas fa-compass" aria-hidden="true"></i> Build your Trip Pack</a>
+                            <a class="btn btn-outline" href="/planning-checklist">Preview the public checklist</a>
+                            <a class="trip-pack-canonical-link" href="/packing-list">Need gear help first? Open the packing generator</a>
                         </div>
-                        <div class="trip-planner-row">
-                            <label class="trip-planner-label" for="trip-route-select">Route template <span class="trip-optional">(optional)</span></label>
-                            <select id="trip-route-select" class="trip-planner-select"></select>
-                        </div>
-                        <div class="trip-planner-block">
-                            <h4 class="trip-planner-label">Packing list</h4>
-                            <div class="hub-pack-tabs">
-                                <button type="button" class="hub-tab active" data-pack="safari">🦁 Safari</button>
-                                <button type="button" class="hub-tab" data-pack="beach">🏖️ Beach</button>
-                                <button type="button" class="hub-tab" data-pack="city">🏙️ City</button>
-                                <button type="button" class="hub-tab" data-pack="mountain">⛰️ Mountain</button>
-                            </div>
-                            <div class="hub-pack-list trip-pack-list" id="trip-pack-list"></div>
-                        </div>
-                        <div class="trip-planner-actions">
-                            <button type="button" class="btn btn-outline" id="trip-preview-btn"><i class="fas fa-eye"></i> Preview checklist</button>
-                            <button type="button" class="btn" id="trip-print-btn"><i class="fas fa-print"></i> Print / Save PDF</button>
-                        </div>
-                        <p class="trip-planner-feedback" id="trip-planner-feedback" hidden></p>
                     </div>
                 </div>
 
-                <div class="hub-card hub-card--full" id="hub-expense-tracker">
-                    <div class="hub-card-header">
-                        <span class="hub-icon"><i class="fas fa-wallet"></i></span>
-                        <h3>Trip Expense Tracker</h3>
-                    </div>
-                    <p class="hub-card-lead">Log fuel, park fees, and lodge deposits as you book. Optionally compare your spending with a broad, indicative trip benchmark.</p>
-                    <label class="expense-trip-label" for="expense-itinerary">Indicative budget benchmark <span class="trip-optional">(optional)</span></label>
-                    <select id="expense-itinerary" class="expense-itinerary-select"></select>
-                    <div id="expense-budget-compare" class="expense-budget-compare"></div>
-                    <label class="expense-trip-label" for="expense-trip-name">Trip name <span class="trip-optional">(optional)</span></label>
-                    <input type="text" id="expense-trip-name" class="expense-trip-input" placeholder="e.g. Namibia self-drive June 2026" maxlength="80">
-                    <form id="expense-add-form" class="expense-add-form">
-                        <div class="expense-form-row">
-                            <label>
-                                <span>Category</span>
-                                <select id="expense-category" required></select>
-                            </label>
-                            <label>
-                                <span>Amount</span>
-                                <input type="number" id="expense-amount" min="0.01" step="0.01" required placeholder="0.00">
-                            </label>
-                            <label>
-                                <span>Currency</span>
-                                <select id="expense-currency"></select>
-                            </label>
-                        </div>
-                        <label class="expense-note-label">
-                            <span>Note</span>
-                            <input type="text" id="expense-note" maxlength="120" placeholder="Etosha NWR deposit, Intercape ticket…">
-                        </label>
-                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add expense</button>
-                    </form>
-                    <div class="expense-summary">
-                        <span id="expense-count">0 items</span>
-                        <strong id="expense-total">USD 0.00</strong>
-                    </div>
-                    <div class="expense-list" id="expense-list"></div>
-                    <div class="expense-actions">
-                        <button type="button" class="btn btn-outline btn-sm" id="expense-export"><i class="fas fa-download"></i> Export .txt</button>
-                        <button type="button" class="btn btn-outline btn-sm" id="expense-clear">Clear all</button>
-                    </div>
-                    <p class="hub-data-note" id="expense-disclaimer"></p>
-                </div>
                 </div>
             </div>
 
-            <div class="hub-journey-panel" id="hub-panel-documents" data-hub-panel="documents" hidden>
+            <div class="hub-journey-panel active" id="hub-panel-entry" data-hub-panel="entry" role="tabpanel" aria-labelledby="hub-tab-entry">
+                <div class="planning-job-head">
+                    <div><span class="planning-job-number">01</span><h2>Check entry requirements</h2><p>Select your passport, compare all countries on your route, and follow the official links before booking.</p></div>
+                    <a class="btn btn-primary" href="#hub-visa"><i class="fas fa-passport" aria-hidden="true"></i> Check entry rules</a>
+                </div>
                 <div class="hub-grid">
                 <div class="hub-card hub-card--full" id="hub-visa">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-passport"></i></span>
-                        <h3>Visa &amp; Health Matrix</h3>
+                        <h3>Visa &amp; Entry Matrix</h3>
                     </div>
-                    <p class="hub-card-lead hub-card-lead--compact">Visa column uses your passport selected above. Health and advisory are general — confirm official sources.</p>
+                    <div class="hub-toolbar">
+                        <label class="hub-passport-label" for="hub-passport-select">Your passport</label>
+                        <select id="hub-passport-select" class="hub-passport-select" data-passport-select aria-label="Passport nationality for visa and checklist"></select>
+                    </div>
+                    <p class="hub-card-lead hub-card-lead--compact">The visa column changes with your passport. Health and advisory notes are general planning signals, not personal medical or safety advice.</p>
                     <div class="hub-visa-summary" id="hub-visa-summary" hidden></div>
                     <div class="hub-search">
                         <i class="fas fa-search"></i>
@@ -1411,37 +1306,82 @@
                 </div>
             </div>
 
-            <div class="hub-journey-panel" id="hub-panel-on-the-go" data-hub-panel="on-the-go" hidden>
-                <div class="hub-grid hub-grid--on-the-go">
-                <div class="hub-card hub-card--md hub-card--compact" id="hub-currency">
-                    <div class="hub-card-header">
-                        <span class="hub-icon"><i class="fas fa-coins"></i></span>
-                        <h3>Currency Converter</h3>
-                    </div>
-                    <div class="hub-converter">
-                        <div class="hub-input-row hub-input-row--converter">
-                            <div class="hub-input-group">
-                                <label for="hub-amount">Amount</label>
-                                <input type="number" id="hub-amount" value="100" min="1">
-                            </div>
-                            <div class="hub-input-group">
-                                <label for="hub-from-currency">From</label>
-                                <select id="hub-from-currency"></select>
-                            </div>
-                            <div class="hub-input-group">
-                                <label for="hub-to-currency">To</label>
-                                <select id="hub-to-currency"></select>
-                            </div>
+            <div class="hub-journey-panel" id="hub-panel-money" data-hub-panel="money" role="tabpanel" aria-labelledby="hub-tab-money" hidden>
+                <div class="planning-job-head">
+                    <div><span class="planning-job-number">03</span><h2>Plan the money</h2><p>Keep a working trip budget, record confirmed costs, and convert regional currencies without separating them from your journey.</p></div>
+                    <a class="btn btn-primary" href="#hub-expense-tracker"><i class="fas fa-wallet" aria-hidden="true"></i> Start trip budget</a>
+                </div>
+                <div class="hub-grid hub-grid--money">
+                    <div class="hub-card hub-card--full" id="hub-expense-tracker">
+                        <div class="hub-card-header">
+                            <span class="hub-icon"><i class="fas fa-wallet"></i></span>
+                            <h3>Trip Expense Tracker</h3>
                         </div>
-                        <div class="hub-currency-primary" id="hub-currency-primary" aria-live="polite"></div>
-                        <details class="hub-panel-details hub-currency-all">
-                            <summary>All regional rates</summary>
-                            <div class="hub-currency-results" id="hub-results"></div>
-                        </details>
-                        <p class="hub-data-note" id="hub-currency-note"></p>
+                        <div class="expense-workspace-status" id="expense-workspace-status" role="status">
+                            <i class="fas fa-wallet" aria-hidden="true"></i>
+                            <div><strong id="expense-workspace-title">Open a My Safari trip first</strong><span id="expense-workspace-copy">Expenses are stored only inside your active trip.</span></div>
+                            <a href="/my-safari">Open My Safari</a>
+                        </div>
+                        <p class="hub-card-lead">Log fuel, park fees, and lodge deposits as you book. Optionally compare your spending with a broad, indicative trip benchmark.</p>
+                        <label class="expense-trip-label" for="expense-itinerary">Indicative budget benchmark <span class="trip-optional">(optional)</span></label>
+                        <select id="expense-itinerary" class="expense-itinerary-select"></select>
+                        <div id="expense-budget-compare" class="expense-budget-compare"></div>
+                        <form id="expense-add-form" class="expense-add-form">
+                            <div class="expense-form-row">
+                                <label><span>Category</span><select id="expense-category" required></select></label>
+                                <label><span>Amount</span><input type="number" id="expense-amount" min="0.01" step="0.01" required placeholder="0.00"></label>
+                                <label><span>Currency</span><select id="expense-currency"></select></label>
+                            </div>
+                            <label class="expense-note-label"><span>Note</span><input type="text" id="expense-note" maxlength="120" placeholder="Etosha NWR deposit, Intercape ticket…"></label>
+                            <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add expense</button>
+                        </form>
+                        <div class="expense-summary"><span id="expense-count">0 items</span><strong id="expense-total">USD 0.00</strong></div>
+                        <div class="expense-list" id="expense-list"></div>
+                        <div class="expense-actions">
+                            <button type="button" class="btn btn-outline btn-sm" id="expense-export"><i class="fas fa-download"></i> Export .txt</button>
+                            <button type="button" class="btn btn-outline btn-sm" id="expense-clear">Clear all</button>
+                        </div>
+                        <p class="hub-data-note" id="expense-disclaimer"></p>
+                    </div>
+
+                    <div class="hub-card hub-card--full hub-card--compact" id="hub-currency">
+                        <div class="hub-card-header">
+                            <span class="hub-icon"><i class="fas fa-coins"></i></span>
+                            <h3>Currency Converter</h3>
+                        </div>
+                        <div class="hub-converter">
+                            <div class="hub-input-row hub-input-row--converter">
+                                <div class="hub-input-group"><label for="hub-amount">Amount</label><input type="number" id="hub-amount" value="100" min="1"></div>
+                                <div class="hub-input-group"><label for="hub-from-currency">From</label><select id="hub-from-currency"></select></div>
+                                <div class="hub-input-group"><label for="hub-to-currency">To</label><select id="hub-to-currency"></select></div>
+                            </div>
+                            <div class="hub-currency-primary" id="hub-currency-primary" aria-live="polite"></div>
+                            <details class="hub-panel-details hub-currency-all"><summary>All regional rates</summary><div class="hub-currency-results" id="hub-results"></div></details>
+                            <p class="hub-data-note" id="hub-currency-note"></p>
+                        </div>
                     </div>
                 </div>
+            </div>
 
+            <div class="hub-journey-panel" id="hub-panel-health" data-hub-panel="health" role="tabpanel" aria-labelledby="hub-tab-health" hidden>
+                <div class="planning-job-head">
+                    <div><span class="planning-job-number">04</span><h2>Prepare for a healthy trip</h2><p>Understand the country-level health questions early, then get personal advice from a qualified travel-health professional.</p></div>
+                    <a class="btn btn-primary" href="/health"><i class="fas fa-heart-pulse" aria-hidden="true"></i> Open health guide</a>
+                </div>
+                <div class="planning-health-grid">
+                    <article class="planning-health-card"><i class="fas fa-syringe" aria-hidden="true"></i><div><span>Before departure</span><h3>Vaccines &amp; malaria</h3><p>Compare broad country guidance and take your full itinerary to a travel-health clinic.</p><a href="/health">Compare countries <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div></article>
+                    <article class="planning-health-card"><i class="fas fa-file-shield" aria-hidden="true"></i><div><span>Documents</span><h3>Certificates &amp; insurance</h3><p>Check yellow-fever certificate rules for the countries you enter and transit, plus suitable medical cover.</p><a href="/travel-essentials">Review travel essentials <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div></article>
+                    <article class="planning-health-card"><i class="fas fa-kit-medical" aria-hidden="true"></i><div><span>Personal preparation</span><h3>Medicines &amp; care</h3><p>Carry prescriptions, know where care is available, and keep emergency details in your offline trip pack.</p><a href="/planning-checklist">Use the planning checklist <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div></article>
+                </div>
+                <aside class="planning-health-note"><i class="fas fa-circle-info" aria-hidden="true"></i><p><strong>This website does not provide medical advice.</strong> Requirements and disease risks change. Confirm official country guidance and consult a qualified clinician before travel.</p></aside>
+            </div>
+
+            <div class="hub-journey-panel" id="hub-panel-road" data-hub-panel="road" role="tabpanel" aria-labelledby="hub-tab-road" hidden>
+                <div class="planning-job-head">
+                    <div><span class="planning-job-number">05</span><h2>Prepare for the road</h2><p>Keep emergency numbers, fuel and payment realities, seasonal context, and current weather in reach.</p></div>
+                    <a class="btn btn-primary" href="/transport"><i class="fas fa-road" aria-hidden="true"></i> Open transport guide</a>
+                </div>
+                <div class="hub-grid hub-grid--on-the-go">
                 <div class="hub-card hub-card--sm hub-card--compact" id="hub-emergency">
                     <div class="hub-card-header">
                         <span class="hub-icon hub-icon--red"><i class="fas fa-phone-alt"></i></span>
@@ -1462,10 +1402,9 @@
                     <p class="hub-data-note" id="on-ground-disclaimer"></p>
                 </div>
                 </div>
-            </div>
-
-            <div class="hub-journey-panel" id="hub-panel-when" data-hub-panel="when" hidden>
-                <div class="hub-grid">
+                <div class="planning-road-context">
+                    <div class="planning-road-context__head"><span>Conditions</span><h3>Season and weather context</h3><p>Use seasonal patterns to choose dates, then check the forecast again close to departure.</p></div>
+                    <div class="hub-grid">
                 <div class="hub-card hub-card--md" id="hub-seasons">
                     <div class="hub-card-header">
                         <span class="hub-icon"><i class="fas fa-sun"></i></span>
@@ -1488,12 +1427,9 @@
                     <p class="hub-data-note" id="hub-weather-note"></p>
                 </div>
                 </div>
+                </div>
             </div>
             <p class="hub-disclaimer" id="hub-disclaimer"></p>
-            <div class="trip-planner-preview-panel" id="trip-planner-preview-panel" hidden>
-                <h3 class="trip-preview-heading">Checklist preview</h3>
-                <div id="trip-planner-preview" class="trip-planner-preview"></div>
-            </div>
         </div>
     </section>
 
@@ -1507,6 +1443,14 @@
             </div>
             
             <div class="packing-generator" id="packing-generator">
+                <div class="packing-save-status" id="packing-save-status" role="status">
+                    <i class="fas fa-suitcase-rolling" aria-hidden="true"></i>
+                    <div>
+                        <strong id="packing-save-title">Preview mode</strong>
+                        <span id="packing-save-copy">Create a My Safari trip to keep this packing progress.</span>
+                    </div>
+                    <a href="/my-safari" id="packing-save-link">Create a trip</a>
+                </div>
                 <div class="packing-controls">
                     <div class="packing-control-group">
                         <label for="pack-month">Travel Month</label>
@@ -1898,34 +1842,26 @@
         </div>
     </section>
 
-    <!-- Free planning checklist lead magnet -->
+    <!-- Public planning checklist preview -->
     <section id="planning-checklist" class="lead-magnet-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-eyebrow">Free download</span>
-                <h2>Southern Africa Self-Drive Planning Checklist</h2>
-                <p>14-point cross-border document list, safari packing essentials, and official resource links — printable PDF for your trip folder.</p>
+                <span class="section-eyebrow">Before you set off</span>
+                <h2>Southern Africa Planning Checklist</h2>
+                <p>Preview the core cross-border checks here. Build a trip in My Safari when you are ready for a dated, country-specific Trip Pack.</p>
             </div>
             <div class="lead-magnet-grid">
                 <div class="lead-magnet-preview-card">
-                    <h3>What you get</h3>
+                    <h3>Core self-drive checks</h3>
                     <div id="lead-magnet-preview"></div>
                 </div>
                 <div class="lead-magnet-form-card">
-                    <div id="lead-magnet-gate">
-                        <h3>Get the printable PDF</h3>
-                        <p>Enter your email to download the checklist and receive occasional route updates. No spam — unsubscribe any time.</p>
-                        <form class="lead-magnet-form" id="lead-magnet-form">
-                            <input type="email" id="lead-magnet-email" placeholder="Your email address" required autocomplete="email">
-                            <button type="submit" class="btn btn-primary">Send me the checklist</button>
-                        </form>
-                        <p class="form-feedback" id="lead-magnet-feedback" hidden></p>
-                    </div>
-                    <div id="lead-magnet-unlocked" class="lead-magnet-unlocked" hidden>
-                        <p>Your checklist is ready.</p>
-                        <button type="button" class="btn btn-primary" id="lead-magnet-print"><i class="fas fa-print"></i> Print / Save PDF</button>
-                        <p class="lead-magnet-note">Tip: choose “Save as PDF” in the print dialog to keep a digital copy on your phone.</p>
-                    </div>
+                    <span class="section-eyebrow">Make it trip-specific</span>
+                    <h3>One plan, one offline pack</h3>
+                    <p>My Safari combines this checklist with your countries, route days, transfer checks, border choices, vehicle paperwork, expenses and packing progress.</p>
+                    <a class="btn btn-primary" href="/my-safari"><i class="fas fa-compass" aria-hidden="true"></i> Build your Trip Pack</a>
+                    <a class="btn btn-outline" href="/packing-list">Open packing generator</a>
+                    <p class="lead-magnet-note">No sign-in is required for a local trip. Sign in only for cloud sync or collaboration.</p>
                     <div class="lead-magnet-share"></div>
                 </div>
             </div>
@@ -1936,7 +1872,7 @@
     <section class="newsletter home-featured">
         <div class="container">
             <h2>Get Traveler Updates</h2>
-            <p>Route news, seasonal tips, and planning updates — or grab the <a href="#planning-checklist">free self-drive checklist</a> if you have not already.</p>
+            <p>Route news, seasonal tips, and planning updates — or review the <a href="#planning-checklist">self-drive checklist</a> before you set off.</p>
             <form class="signup-form" id="newsletter-form">
                 <input type="email" id="newsletter-email" placeholder="Your Email Address" required>
                 <button type="submit" class="btn">Subscribe</button>
@@ -2204,7 +2140,7 @@
                             <p>Turn inspiration into a practical journey with seasonal guidance, entry essentials and trusted planning links.</p>
                             <nav class="travel-jump-links" aria-label="Travel planning sections">
                                 <a href="#travel-when-to-go"><i class="far fa-calendar" aria-hidden="true"></i> When to go</a>
-                                <a href="#travel-essentials"><i class="fas fa-passport" aria-hidden="true"></i> Essentials</a>
+                                <a href="#country-travel-essentials"><i class="fas fa-passport" aria-hidden="true"></i> Essentials</a>
                                 <a href="#travel-on-the-ground"><i class="fas fa-car" aria-hidden="true"></i> On the ground</a>
                                 <a href="#travel-official-links"><i class="fas fa-shield-alt" aria-hidden="true"></i> Official links</a>
                             </nav>
@@ -2232,10 +2168,10 @@
                         <div id="detail-weather-matrix" class="weather-matrix"></div>
                     </section>
 
-                    <section class="travel-section" id="travel-essentials" aria-labelledby="travel-essentials-heading">
+                    <section class="travel-section" id="country-travel-essentials" aria-labelledby="country-travel-essentials-heading">
                         <div class="country-section-heading travel-section-heading">
                             <span class="section-eyebrow">Before you leave</span>
-                            <h3 id="travel-essentials-heading">Travel essentials</h3>
+                            <h3 id="country-travel-essentials-heading">Travel essentials</h3>
                             <p>Work through the checks that can affect whether, when and how you travel.</p>
                         </div>
                         <div class="travel-planning-groups">
@@ -2521,113 +2457,109 @@
         </div>
     </div>
 
-    <!-- AI Safari Itinerary Planner Widget -->
-    <div id="ai-planner-sidebar" class="ai-sidebar" aria-hidden="true">
+    <!-- Evidence-grounded travel assistant -->
+    <div id="ai-planner-sidebar" class="ai-sidebar" role="dialog" aria-label="Savanna Guide travel assistant" aria-modal="true" aria-hidden="true">
         <div class="ai-sidebar-header">
-            <h3><i class="fas fa-sparkles"></i> AI Safari Planner</h3>
-            <button id="close-ai-planner" class="ai-close-btn" type="button" aria-label="Close AI planner">&times;</button>
+            <h3><i class="fas fa-compass"></i> Savanna Guide</h3>
+            <button id="close-ai-planner" class="ai-close-btn" type="button" aria-label="Close Savanna Guide">&times;</button>
+        </div>
+        <div class="assistant-mode-tabs" role="tablist" aria-label="Savanna Guide mode">
+            <button type="button" id="assistant-mode-ask" data-assistant-mode="ask" role="tab" aria-controls="assistant-panel-ask" aria-selected="false"><i class="fas fa-comments" aria-hidden="true"></i> Ask a question</button>
+            <button type="button" id="assistant-mode-plan" data-assistant-mode="plan" role="tab" aria-controls="assistant-panel-plan" aria-selected="true"><i class="fas fa-route" aria-hidden="true"></i> Build itinerary</button>
         </div>
         <div class="ai-sidebar-body">
-            <!-- Secure Serverless Backend Indicator Badge -->
             <div class="secure-backend-badge">
-                <i class="fas fa-shield-halved" style="color: var(--primary);"></i>
-                <span>Secure Serverless AI</span>
+                <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                <span>Evidence-grounded planning · verify live details before travel</span>
             </div>
 
-            <div id="ai-planner-form">
-                <p>Let our AI craft a personalized luxury itinerary tailored to your preferences, combined with matched official resources from our local catalog.</p>
-                <div class="ai-input-group">
-                    <label for="sidebar-country">Destination Country</label>
-                    <select id="sidebar-country">
-                        <option value="All">Any Destination</option>
-                        <option value="South Africa">South Africa</option>
-                        <option value="Namibia">Namibia</option>
-                        <option value="Botswana">Botswana</option>
-                        <option value="Zambia">Zambia</option>
-                        <option value="Zimbabwe">Zimbabwe</option>
-                    </select>
+            <section id="assistant-panel-ask" class="assistant-mode-panel assistant-ask-panel" data-assistant-panel="ask" role="tabpanel" aria-labelledby="assistant-mode-ask" hidden>
+                <div id="assistant-ask-messages" class="assistant-ask-messages" aria-live="polite">
+                    <div class="assistant-ask-welcome">
+                        <span aria-hidden="true">🌍</span>
+                        <h4>What do you need to verify?</h4>
+                        <p>Ask about countries, routes, parks, borders, health or packing across Southern Africa.</p>
+                    </div>
                 </div>
-                <div class="ai-input-group">
-                    <label for="sidebar-duration">Duration (Days)</label>
-                    <input type="number" id="sidebar-duration" value="5" min="1" max="30">
+                <div id="assistant-ask-chips" class="assistant-ask-chips" aria-label="Suggested questions"></div>
+                <div class="assistant-ask-input-area">
+                    <label class="sr-only" for="assistant-ask-input">Ask a Southern Africa travel question</label>
+                    <textarea id="assistant-ask-input" placeholder="Ask about Southern Africa…" rows="1" maxlength="1200"></textarea>
+                    <button id="assistant-ask-send" type="button" aria-label="Send question"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
                 </div>
-                <div class="ai-input-group">
-                    <label for="sidebar-category">Primary Theme</label>
-                    <select id="sidebar-category">
-                        <option value="All">Any Theme</option>
-                        <option value="Safari">Safari &amp; Wildlife</option>
-                        <option value="Adventure">Scenic &amp; Adventure</option>
-                        <option value="Culture">Cultural Immersion</option>
-                        <option value="Nature">Nature &amp; Scenic</option>
-                    </select>
+            </section>
+
+            <section id="assistant-panel-plan" class="assistant-mode-panel" data-assistant-panel="plan" role="tabpanel" aria-labelledby="assistant-mode-plan">
+                <div id="ai-planner-form">
+                    <p>Create a practical first draft using your preferences and relevant reviewed route templates. You stay in control and verify live details before booking.</p>
+                    <div class="ai-input-group">
+                        <label for="sidebar-country">Destination Country</label>
+                        <select id="sidebar-country">
+                            <option value="All">Any Destination</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="Namibia">Namibia</option>
+                            <option value="Botswana">Botswana</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+                            <option value="Mozambique">Mozambique</option>
+                            <option value="Malawi">Malawi</option>
+                            <option value="Lesotho">Lesotho</option>
+                            <option value="Eswatini">Eswatini</option>
+                        </select>
+                    </div>
+                    <div class="ai-input-group">
+                        <label for="sidebar-duration">Duration (Days)</label>
+                        <input type="number" id="sidebar-duration" value="5" min="1" max="30">
+                    </div>
+                    <div class="ai-input-group">
+                        <label for="sidebar-category">Primary Theme</label>
+                        <select id="sidebar-category">
+                            <option value="All">Any Theme</option>
+                            <option value="Safari">Safari &amp; Wildlife</option>
+                            <option value="Adventure">Scenic &amp; Adventure</option>
+                            <option value="Culture">Cultural Immersion</option>
+                            <option value="Nature">Nature &amp; Scenic</option>
+                        </select>
+                    </div>
+                    <div class="ai-input-group">
+                        <label for="sidebar-budget">Comfort level</label>
+                        <select id="sidebar-budget">
+                            <option value="All">Flexible</option>
+                            <option value="$">Value-focused</option>
+                            <option value="$$">Balanced comfort</option>
+                            <option value="$$$">Premium comfort</option>
+                        </select>
+                    </div>
+                    <button id="sidebar-generate-itinerary-btn" class="btn btn-primary ai-submit-btn" type="button">Generate Itinerary <i class="fas fa-sparkles" aria-hidden="true"></i></button>
+                    <button id="ai-restore-itinerary-btn" class="ai-saved-plan-btn" type="button" hidden><i class="fas fa-bookmark" aria-hidden="true"></i> Open Saved Itinerary</button>
                 </div>
-                <div class="ai-input-group">
-                    <label for="sidebar-budget">Budget Tier</label>
-                    <select id="sidebar-budget">
-                        <option value="All">Any Budget</option>
-                        <option value="$">$ (Value)</option>
-                        <option value="$$">$$ (Comfort)</option>
-                        <option value="$$$">$$$ (Luxury)</option>
-                        <option value="$$$$">$$$$ (Ultra Luxury)</option>
-                    </select>
+
+                <div id="ai-loading" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Building your first draft…</p>
+                    <p class="ai-subtext">Matching your preferences to reviewed routes</p>
                 </div>
-                <button id="sidebar-generate-itinerary-btn" class="btn btn-primary ai-submit-btn" type="button">Generate Itinerary <i class="fas fa-sparkles"></i></button>
-                <button id="ai-restore-itinerary-btn" class="ai-saved-plan-btn" type="button" hidden><i class="fas fa-bookmark"></i> Open Saved Itinerary</button>
-            </div>
-            
-            <div id="ai-loading" class="hidden">
-                <div class="spinner"></div>
-                <p>Consulting SavannaExplorer AI...</p>
-                <p class="ai-subtext">Crafting your perfect luxury journey</p>
-            </div>
-            
-            <div id="ai-result" class="hidden">
-                <div class="ai-result-header">
-                    <button id="ai-save-itinerary-btn" class="ai-start-over-pill ai-save-itinerary-pill" type="button"><i class="far fa-bookmark"></i> <span>Save Itinerary</span></button>
-                    <button id="ai-back-btn" class="ai-start-over-pill" type="button"><i class="fas fa-arrow-left"></i> Start Over</button>
+
+                <div id="ai-result" class="hidden">
+                    <div class="ai-result-header">
+                        <button id="ai-save-itinerary-btn" class="ai-start-over-pill ai-save-itinerary-pill" type="button"><i class="far fa-bookmark"></i> <span>Save Itinerary</span></button>
+                        <button id="ai-back-btn" class="ai-start-over-pill" type="button"><i class="fas fa-arrow-left"></i> Start Over</button>
+                    </div>
+                    <p id="ai-save-status" class="ai-save-status" aria-live="polite"></p>
+                    <p class="ai-planner-disclaimer"><i class="fas fa-circle-info" aria-hidden="true"></i> AI-generated planning draft. Verify routes, prices, availability, visa rules, and health guidance with official sources. Savanna Explorer does not make bookings.</p>
+                    <div id="ai-planner-messages" class="ai-planner-messages"></div>
+                    <div id="ai-planner-chat-input-area" class="ai-planner-chat-input-area">
+                        <textarea id="ai-planner-chat-input" class="chat-input" placeholder="e.g. Can we do 10 days instead?" rows="1"></textarea>
+                        <button id="ai-planner-chat-send" class="chat-send-btn" type="button" aria-label="Send follow-up"><i class="fas fa-paper-plane"></i></button>
+                    </div>
                 </div>
-                <p id="ai-save-status" class="ai-save-status" aria-live="polite"></p>
-                <p class="ai-planner-disclaimer"><i class="fas fa-circle-info" aria-hidden="true"></i> AI-generated planning draft. Verify routes, prices, availability, visa rules, and health guidance with official sources. Savanna Explorer does not make bookings.</p>
-                <div id="ai-planner-messages" class="ai-planner-messages">
-                    <!-- Chat bubbles injected here -->
-                </div>
-                <div id="ai-planner-chat-input-area" class="ai-planner-chat-input-area">
-                    <textarea id="ai-planner-chat-input" class="chat-input" placeholder="e.g. Can we do 10 days instead?" rows="1"></textarea>
-                    <button id="ai-planner-chat-send" class="chat-send-btn" type="button" aria-label="Send follow-up"><i class="fas fa-paper-plane"></i></button>
-                </div>
-            </div>
+            </section>
         </div>
     </div>
 
-    <!-- AI Travel Chat Assistant -->
-    <button id="chat-fab" class="chat-fab" aria-label="Open travel chat assistant">
+    <button id="chat-fab" class="chat-fab" type="button" aria-label="Open Savanna Guide">
         <i class="fas fa-comments"></i>
     </button>
-
-    <div id="chat-panel" class="chat-panel" role="dialog" aria-label="Travel Chat Assistant">
-        <div class="chat-header">
-            <div class="chat-header-info">
-                <div class="chat-avatar">🦁</div>
-                <div class="chat-header-text">
-                    <h4>Safari Guide</h4>
-                    <span><span class="chat-status-dot"></span> Online · Southern Africa expert</span>
-                </div>
-            </div>
-            <button class="chat-close-btn" aria-label="Close chat">&times;</button>
-        </div>
-        <div class="chat-messages">
-            <div class="chat-welcome">
-                <div class="chat-welcome-icon">🌍</div>
-                <h5>Welcome to SavannaExplorer!</h5>
-                <p>Ask me anything about travel in Southern Africa — visas, parks, borders, packing, best times to visit, and more.</p>
-            </div>
-        </div>
-        <div class="chat-chips"></div>
-        <div class="chat-input-area">
-            <textarea class="chat-input" placeholder="Ask about Southern Africa..." rows="1"></textarea>
-            <button class="chat-send-btn" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
 
     <!-- PWA Install Banner -->
     <div id="pwa-install-banner" class="pwa-install-banner" role="banner" aria-label="Install App">
@@ -2646,7 +2578,6 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script type="module" src="/js/app.js"></script>
 </body>
 </html>

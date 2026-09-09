@@ -27,4 +27,4 @@ Each public section must help a traveller discover, decide, prepare, act, or sta
 
 ## Next replacement order
 
-The traveller-facing legacy replacement queue is complete. Future audits should focus on maintenance evidence, duplicate utility removal and deeper integration with My Safari.
+The first traveller-facing replacement queue is complete. The first repository-cleanup slice has also removed the retired marketplace from the AI planner, eliminated its ratings and seed artefacts, and deleted the obsolete relay/VPS hosting path. The remaining priorities are the under-grounded floating assistant, dead homepage source blocks, and overlapping planning tools. The staged programme is maintained in `docs/PRODUCT-CLEANUP-PLAN.md`.

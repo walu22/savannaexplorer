@@ -6,9 +6,7 @@ import {
     listBudgetBenchmarks,
     renderBudgetCompareHtml,
 } from '../lib/budget-expense-compare.js';
-import { TRIP_CHANGE_EVENT, getActiveTrip, updateActiveTrip, updateTrip } from '../lib/trip-store.js';
-
-const STORAGE_KEY = expenseConfig.meta.storageKey;
+import { TRIP_CHANGE_EVENT, getActiveTrip, updateActiveTrip } from '../lib/trip-store.js';
 
 function escapeHtml(text) {
     return String(text)
@@ -27,31 +25,33 @@ function loadExpenses() {
             items: Array.isArray(activeTrip.expenses.items) ? activeTrip.expenses.items : [],
         };
     }
-    try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        if (!raw) return { tripName: '', linkedItineraryId: '', items: [] };
-        const data = JSON.parse(raw);
-        return {
-            tripName: data.tripName || '',
-            linkedItineraryId: data.linkedItineraryId || '',
-            items: Array.isArray(data.items) ? data.items : [],
-        };
-    } catch {
-        return { tripName: '', linkedItineraryId: '', items: [] };
-    }
+    return { tripName: '', linkedItineraryId: '', items: [] };
 }
 
 function saveExpenses(data) {
-    if (getActiveTrip()) {
-        updateActiveTrip({
-            expenses: {
-                linkedItineraryId: data.linkedItineraryId || '',
-                items: Array.isArray(data.items) ? data.items : [],
-            },
-        });
-        return;
-    }
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    if (!getActiveTrip()) return false;
+    updateActiveTrip({
+        expenses: {
+            linkedItineraryId: data.linkedItineraryId || '',
+            items: Array.isArray(data.items) ? data.items : [],
+        },
+    });
+    return true;
+}
+
+function renderWorkspaceState() {
+    const activeTrip = getActiveTrip();
+    const title = document.getElementById('expense-workspace-title');
+    const copy = document.getElementById('expense-workspace-copy');
+    const controls = document.querySelectorAll('#hub-expense-tracker input, #hub-expense-tracker select, #hub-expense-tracker button');
+
+    controls.forEach(control => {
+        control.disabled = !activeTrip;
+    });
+    if (title) title.textContent = activeTrip ? `Editing ${activeTrip.name}` : 'Open a My Safari trip first';
+    if (copy) copy.textContent = activeTrip
+        ? 'Every expense and route benchmark is saved with this trip.'
+        : 'Expenses are stored only inside your active trip. The cost estimator remains available for a quick no-sign-in estimate.';
 }
 
 function staticRateToUsd(code) {
@@ -165,22 +165,6 @@ function populateFormSelects() {
     }
 }
 
-/** Link a route template from the itinerary modal and scroll to the tracker. */
-export function linkItineraryToExpenseTracker(itineraryId) {
-    return setExpenseLinkedItinerary(itineraryId || '', { refresh: true });
-}
-
-export async function setExpenseLinkedItinerary(itineraryId, { refresh = true } = {}) {
-    const store = loadExpenses();
-    store.linkedItineraryId = itineraryId || '';
-    saveExpenses(store);
-
-    const select = document.getElementById('expense-itinerary');
-    if (select) select.value = store.linkedItineraryId;
-
-    if (refresh) await refreshTotals();
-}
-
 export async function initExpenseTracker() {
     const root = document.getElementById('hub-expense-tracker');
     if (!root) return;
@@ -192,9 +176,7 @@ export async function initExpenseTracker() {
 
     const data = loadExpenses();
     populateItinerarySelect(data.linkedItineraryId);
-
-    const nameInput = document.getElementById('expense-trip-name');
-    if (nameInput) nameInput.value = data.tripName;
+    renderWorkspaceState();
 
     try {
         liveUsdRates = await fetchLiveCurrencyRates('USD');
@@ -243,18 +225,10 @@ export async function initExpenseTracker() {
         await refreshTotals();
     });
 
-    nameInput?.addEventListener('change', () => {
-        const activeTrip = getActiveTrip();
-        const store = loadExpenses();
-        store.tripName = nameInput.value.trim();
-        saveExpenses(store);
-        if (activeTrip && store.tripName) updateTrip(activeTrip.id, { name: store.tripName });
-    });
-
     document.getElementById('expense-clear')?.addEventListener('click', async () => {
         if (!confirm('Clear all tracked expenses for this trip?')) return;
         const store = loadExpenses();
-        saveExpenses({ tripName: nameInput?.value?.trim() || '', linkedItineraryId: store.linkedItineraryId, items: [] });
+        saveExpenses({ linkedItineraryId: store.linkedItineraryId, items: [] });
         await refreshTotals();
     });
 
@@ -304,7 +278,7 @@ export async function initExpenseTracker() {
     window.addEventListener(TRIP_CHANGE_EVENT, async () => {
         const current = loadExpenses();
         populateItinerarySelect(current.linkedItineraryId);
-        if (nameInput) nameInput.value = current.tripName;
+        renderWorkspaceState();
         await refreshTotals();
     });
 }

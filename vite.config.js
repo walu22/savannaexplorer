@@ -79,10 +79,8 @@ export default defineConfig(({ mode }) => ({
                         if (id.includes('parks.json') || id.includes('park-fees')) return 'data-parks';
                         if (id.includes('borders.json')) return 'data-borders';
                         if (id.includes('itinerary-budgets.json')) return 'data-budget-benchmarks';
-                        if (id.includes('stays-operators.json')) return 'data-marketplace';
+                        if (id.includes('stays-operators.json')) return 'data-stays-operators';
                     }
-                    if (id.includes('/js/modules/marketplace')) return 'mod-marketplace';
-                    if (id.includes('/js/modules/trip-planner')) return 'mod-trip-planner';
                     if (id.includes('/js/modules/tourism-stats')) return 'mod-tourism-stats';
                     if (id.includes('/js/modules/discover')) return 'mod-discover';
                 },

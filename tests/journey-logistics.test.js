@@ -31,6 +31,19 @@ test('arrival check warns when the cached approach reaches a border after closin
     assert.equal(late.arrivalTime, '18:30');
 });
 
+test('arrival check protects a full clearance allowance inside published hours', () => {
+    const safe = borderArrivalCheck('08:00–17:00', '08:00', 360);
+    assert.equal(safe.status, 'open');
+    assert.equal(safe.arrivalTime, '14:00');
+    assert.equal(safe.clearanceTime, '15:30');
+    assert.equal(safe.latestDepartureTime, '09:30');
+
+    const tooLate = borderArrivalCheck('08:00–17:00', '10:00', 360);
+    assert.equal(tooLate.status, 'closed');
+    assert.equal(tooLate.arrivalTime, '16:00');
+    assert.equal(tooLate.clearanceTime, '17:30');
+});
+
 test('transfer plan exposes usable estimates and withholds only low-confidence legs', () => {
     const routesById = Object.fromEntries(routeCollection.routes.map(route => [route.id, route]));
     const bordersById = Object.fromEntries(borders.map(border => [border.id, border]));
@@ -43,6 +56,8 @@ test('transfer plan exposes usable estimates and withholds only low-confidence l
     const goodPlan = buildTransferPlan(routesById[usable.fromRouteId], bordersById[usable.borderId], routesById[usable.toRouteId]);
     assert.equal(goodPlan.status, 'estimated');
     assert.ok(goodPlan.totalDistanceKm > 0);
+    assert.equal(goodPlan.totalPlanningMinutes, goodPlan.totalDriveMinutes + goodPlan.borderBufferMinutes + goodPlan.breakBufferMinutes);
+    assert.match(goodPlan.destinationArrivalTime, /^\d{2}:\d{2}$/);
     assert.equal(goodPlan.key, transferKey(usable.fromRouteId, usable.borderId, usable.toRouteId));
 
     const withheldPlan = buildTransferPlan(routesById[low.fromRouteId], bordersById[low.borderId], routesById[low.toRouteId]);

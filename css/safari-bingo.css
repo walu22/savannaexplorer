@@ -194,7 +194,7 @@ body.site-v2 .safari-bingo-section {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;

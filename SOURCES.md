@@ -29,7 +29,6 @@ A visitor-facing summary also lives on the site at **About This Site** (`#about`
 | `data/route-collections.json` | Research-backed route templates | Official tourism, park, road and destination sources listed per route |
 | `data/journey-presets.json` | Multi-country builder starting points | Editorial combinations of the researched route collection and border network |
 | `data/regions.json` | Per-country regional breakdowns for country guides | Original editorial informed by official tourism boards |
-| `data/marketplace.json` | Curated experience listings | Original editorial; representative pricing tiers |
 | `data/food-travel.json` | Food and market planning across nine countries | WHO safer-food guidance; official national tourism and government sources linked in each record; reviewed September 2026 |
 | `data/campsites.json` | Campsite and overlander planning across nine countries | Park authorities and direct site operators linked on every record; road, vehicle, facility and review metadata checked September 2026 |
 | `data/image-catalog.json` | Verified Unsplash stock photo IDs | [Unsplash License](https://unsplash.com/license) — free for commercial use with attribution appreciated |
@@ -110,9 +109,9 @@ National tourism boards (Namibia, Botswana, etc.) sometimes offer press gallerie
 1. Add the Unsplash photo ID (`timestamp-hash` from the image URL) to `data/image-catalog.json`.
 2. Map the catalog key in `scripts/apply-stock-images.mjs` (country cards, spots, homepage slots, etc.).
 3. Run `npm run verify:images` to confirm every ID returns HTTP 200.
-4. Run `npm run seed:images` to propagate across JSON data, `country-meta.js`, `images.js`, `index.html`, and `supabase/seed.sql`.
+4. Run `npm run seed:images` to propagate across JSON data, `country-meta.js`, `images.js`, and `index.html`.
 
-Homepage hero and “Top Experiences” cards use `data-stock-image` slots wired to the catalog. Country guides, discover grid, itineraries, and marketplace pull from the same catalog.
+Homepage imagery uses `data-stock-image` slots wired to the catalog. Country guides, discovery content, and route planning reuse the verified image catalog.
 
 Attribution notes for select photos live in `data/image-catalog.json` → `attribution`. Credit is appreciated under the Unsplash License but is not required.
 

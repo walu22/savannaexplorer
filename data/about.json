@@ -15,7 +15,7 @@
       "National park and border crossing guides with official source links",
       "Travel tools: visa matrix, currency converter, packing lists, expense tracker, and health zones",
       "Travel essentials: insurance, road rules, tipping, SIM coverage, permits, advisories, and common pitfalls",
-      "Activity inspiration with typical cost bands — not live availability or quotes"
+      "Experience inspiration linked to route, safety, and official booking research — not packages or live availability"
     ]
   },
   "dont": {
@@ -73,7 +73,7 @@
     { "file": "Itineraries", "content": "Route templates and budgets", "sources": "Original editorial planning notes" },
     { "file": "Tourism arrivals", "content": "Regional visitor statistics", "sources": "Stats SA, Namibia Tourist Report, national boards" },
     { "file": "Travel essentials", "content": "Insurance, road rules, tipping, connectivity, permits", "sources": "Government transport, immigration, and tourism authorities" },
-    { "file": "Marketplace inspiration", "content": "Activity ideas and cost bands", "sources": "Official tourism links per item" }
+    { "file": "Reviewed route collection", "content": "Pacing, vehicle needs, highlights, warnings", "sources": "Official sources linked on every route" }
   ],
   "maintenance": [
     { "type": "Visa & entry rules", "frequency": "Quarterly" },
@@ -104,8 +104,8 @@
       "a": "No. Typical budgets on route templates are planning estimates to help you compare trip styles — they are not live quotes from us or any operator. Costs vary by season, accommodation choice, and how you book."
     },
     {
-      "q": "How do marketplace activity cards work?",
-      "a": "They are inspiration only. Each card shows a typical cost band, a planning tip, and a link to an official tourism or park authority. You book activities directly with licensed operators when you travel."
+      "q": "How do reviewed route templates work?",
+      "a": "They are editable planning anchors, not packages. Each route explains realistic pacing, vehicle needs, highlights, cautions, and official sources. You verify current conditions and book directly with parks, accommodation providers, or licensed local operators."
     },
     {
       "q": "How often is visa information updated?",

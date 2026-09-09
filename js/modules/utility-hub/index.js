@@ -37,23 +37,20 @@ function initHubPassport() {
     );
 }
 
-function initDocumentsTab() {
+function initEntryTab() {
     initPassportVisaHelper();
     bindVisaSearch();
 }
 
-function initOnTheGoTab() {
+function initMoneyTab() {
     initHubCurrency();
+    initExpenseTracker();
+}
+
+function initRoadTab() {
     initHubEmergencies();
     initOnTheGround();
-}
-
-function initWhenTab() {
     initHubSeasonsWeather();
-}
-
-function initPlanTab() {
-    initExpenseTracker();
 }
 
 function renderDisclaimer() {
@@ -65,10 +62,11 @@ export function initUtilityHub() {
     initHubPassport();
     renderDisclaimer();
 
-    registerHubTabInit('plan', initPlanTab);
-    registerHubTabInit('documents', initDocumentsTab);
-    registerHubTabInit('on-the-go', initOnTheGoTab);
-    registerHubTabInit('when', initWhenTab);
+    registerHubTabInit('entry', initEntryTab);
+    registerHubTabInit('journey', () => {});
+    registerHubTabInit('money', initMoneyTab);
+    registerHubTabInit('health', () => {});
+    registerHubTabInit('road', initRoadTab);
 
     initHubTabs();
 }

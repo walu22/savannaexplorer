@@ -26,8 +26,8 @@ test('footer keeps concise navigation, country guides, and the technology credit
 });
 
 test('direct My Safari view uses a neutral page and charcoal feature surface', () => {
-    const css = readProjectFile('css/home-focus.css');
+    const css = readProjectFile('css/planning-hub.css');
 
     assert.match(css, /home-section-focus--my-safari #plan\s*{[^}]*background:\s*#f1ede5/s);
-    assert.match(css, /home-section-focus--my-safari #hub-my-safari\s*{[^}]*background:\s*linear-gradient\(145deg, #2b2d2a, #1d201f\)/s);
+    assert.match(css, /home-section-focus--my-safari #hub-my-safari\s*{[^}]*background:\s*#242826/s);
 });

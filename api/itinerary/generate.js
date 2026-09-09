@@ -6,7 +6,7 @@ const RATE_LIMIT_MAX_REQUESTS = 10;
 const MAX_MESSAGE_LENGTH = 1200;
 const MAX_HISTORY_MESSAGES = 8;
 const MAX_HISTORY_CHARACTERS = 16000;
-const MAX_MATCHES = 12;
+const MAX_ROUTE_MATCHES = 6;
 const rateLimitStore = new Map();
 const DEFAULT_ITINERARY_MODELS = ['openai/gpt-oss-120b', 'openai/gpt-oss-20b'];
 
@@ -16,8 +16,9 @@ Create practical, engaging Southern Africa itinerary drafts while following thes
 - Never tell the traveler to contact Savanna Explorer to arrange a trip. Direct them to official authorities or operators for verification and booking.
 - Keep routing realistic for the requested duration. Do not combine distant regions unless the necessary travel time is clearly included.
 - Treat prices, accommodation, transport schedules, opening times, visa rules, health guidance, and availability as unverified planning information. Tell travelers to confirm them with official sources.
-- Do not invent exact flight times, lodge availability, permits, or prices. When a named item is not supplied in the verified catalog context, label it as an example to research.
-- Distinguish catalog experiences from general suggestions, and only use the SavannaExplorer Experience badge for catalog items supplied in the prompt.
+- Do not invent exact flight times, lodge availability, permits, or prices. When a named item is not supplied in the reviewed route context, label it as an example to research.
+- Use supplied reviewed route templates only as planning anchors. They are not products, packages, bookings, or proof of live conditions.
+- Reference a supplied route as [SavannaExplorer Route: Route title]. Never create a route reference that was not supplied in the prompt.
 - Finish with a concise planning disclaimer, not a sales call to action.
 Format the itinerary in clear markdown with a realistic day-by-day schedule, transfer notes, local food ideas, responsible travel guidance, and relevant emojis.`;
 
@@ -57,6 +58,55 @@ function cleanText(value, maxLength = 200) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : '';
 }
 
+function cleanStringList(value, limit = 6, itemLength = 180) {
+  return Array.isArray(value)
+    ? value.slice(0, limit).map(item => cleanText(item, itemLength)).filter(Boolean)
+    : [];
+}
+
+export function buildReviewedRouteContext(matches) {
+  if (!Array.isArray(matches) || matches.length === 0) {
+    return 'No reviewed route template directly matched this request. Build a conservative draft and label named places or services as examples to research.';
+  }
+
+  const lines = matches.slice(0, MAX_ROUTE_MATCHES).map(match => {
+    const title = cleanText(match?.title, 160);
+    if (!title) return '';
+    const countries = cleanStringList(match?.countryIds, 9, 40).join(', ');
+    const promise = cleanText(match?.promise, 400);
+    const duration = cleanText(match?.duration?.label, 60);
+    const vehicle = cleanText(match?.vehicle?.label, 100);
+    const season = cleanText(match?.bestSeason?.label, 100);
+    const highlights = cleanStringList(match?.highlights).join('; ');
+    const warnings = cleanStringList(match?.warnings).join('; ');
+    const lastReviewed = cleanText(match?.lastReviewed, 20);
+    const sources = Array.isArray(match?.officialSources)
+      ? match.officialSources.slice(0, 5).map(source => {
+          const label = cleanText(source?.label, 120);
+          const url = cleanText(source?.url, 300);
+          return label && /^https:\/\//i.test(url) ? `${label}: ${url}` : '';
+        }).filter(Boolean).join('; ')
+      : '';
+
+    return [
+      `- ${title}`,
+      countries ? `countries: ${countries}` : '',
+      promise ? `scope: ${promise}` : '',
+      duration ? `duration: ${duration}` : '',
+      vehicle ? `vehicle: ${vehicle}` : '',
+      season ? `broad season: ${season}` : '',
+      highlights ? `highlights: ${highlights}` : '',
+      warnings ? `planning cautions: ${warnings}` : '',
+      sources ? `official sources: ${sources}` : '',
+      lastReviewed ? `last reviewed: ${lastReviewed}` : '',
+    ].filter(Boolean).join(' | ');
+  }).filter(Boolean);
+
+  return lines.length
+    ? `REVIEWED ROUTE TEMPLATES (planning anchors, not products or live advice):\n${lines.join('\n')}`
+    : 'No reviewed route template directly matched this request. Build a conservative draft and label named places or services as examples to research.';
+}
+
 function getRequestIp(req) {
   const forwarded = req.headers['x-forwarded-for'];
   return cleanText(Array.isArray(forwarded) ? forwarded[0] : forwarded?.split(',')[0], 100)
@@ -85,7 +135,7 @@ function isRateLimited(req) {
 function allowedOrigin(req) {
   const origin = req.headers.origin;
   if (!origin) return null;
-  const configured = (process.env.ALLOWED_ORIGINS || 'https://savannaexplorer.com,http://localhost:5173')
+  const configured = (process.env.ALLOWED_ORIGINS || 'https://savannaexplorer.com,http://localhost:5173,http://127.0.0.1:5173')
     .split(',')
     .map(value => value.trim())
     .filter(Boolean);
@@ -144,7 +194,7 @@ export default async function handler(req, res) {
     const budget = cleanText(body.budget, 80);
     const message = cleanText(body.message, MAX_MESSAGE_LENGTH);
     const history = validateHistory(body.history);
-    const matches = Array.isArray(body.matches) ? body.matches.slice(0, MAX_MATCHES) : [];
+    const matches = Array.isArray(body.matches) ? body.matches.slice(0, MAX_ROUTE_MATCHES) : [];
 
     if (typeof body.message === 'string' && body.message.trim().length > MAX_MESSAGE_LENGTH) {
       return res.status(400).json({ error: 'Message is too long' });
@@ -161,32 +211,19 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Missing required fields for initial generation' });
       }
 
-      let catalog_context = "";
-      if (matches && matches.length > 0) {
-        catalog_context = "Here are the REAL, verified experiences from our catalog that we MUST feature/include in the itinerary if they fit geographically:\n";
-        matches.forEach(m => {
-          const title = cleanText(m?.title, 160);
-          const location = cleanText(m?.location, 100);
-          const description = cleanText(m?.description, 500);
-          const matchCategory = cleanText(m?.category, 80);
-          const priceRange = cleanText(m?.price_range, 20);
-          if (title) catalog_context += `- '${title}' (${location}): ${description} (Category: ${matchCategory}, Price: ${priceRange})\n`;
-        });
-      } else {
-        catalog_context = "No direct catalog matches found. Please design a custom itinerary using popular local attractions in Southern Africa.\n";
-      }
+      const routeContext = buildReviewedRouteContext(matches);
 
-      const prompt = `Generate a customized, luxury ${duration}-day travel itinerary.
+      const prompt = `Generate a practical ${duration}-day independent travel-planning draft.
 Destination Country: ${country}
 Primary Theme: ${category}
 Budget Tier: ${budget}
 
-${catalog_context}
+${routeContext}
 Instructions:
 1. Write a Day-by-Day schedule detailing Morning, Afternoon, and Evening/Night activities.
 2. Ensure travel logistics between locations are realistic and include transfer notes (e.g. drive times or flight transfers).
-3. Explicitly reference our real catalog experiences with a bold badge (e.g. '**[SavannaExplorer Experience: 5-Day Classic Kruger Safari]**') when they are scheduled.
-4. Include a section on 'Local Culinary Highlights' (traditional food/drink to try) and 'Expert Safari Travel Tips'.`;
+3. When a supplied route genuinely helps, reference it exactly as '[SavannaExplorer Route: Route title]'. Do not present route templates as products, packages, or bookable experiences.
+4. Include a section on 'Local Culinary Highlights' (traditional food or drink to research) and practical independent-travel tips.`;
 
       messages.push({ role: 'user', content: prompt });
     } else {

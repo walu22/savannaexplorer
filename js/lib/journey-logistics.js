@@ -1,6 +1,7 @@
 import transferData from '../../data/journey-transfer-logistics.json' with { type: 'json' };
 
 const DEFAULT_DEPARTURE = '07:00';
+export const DEFAULT_BORDER_CLEARANCE_MINUTES = 90;
 
 export const JOURNEY_TRANSFER_META = transferData.meta;
 
@@ -44,10 +45,15 @@ function distanceKm(from, to) {
 export function parsePublishedHours(hours) {
     const value = String(hours || '').trim();
     if (/^24 hours$/i.test(value)) return { status: 'known', alwaysOpen: true, label: value };
-    if (/season|side|confirm|\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\b/i.test(value)) {
-        return { status: 'partial', label: value };
-    }
     const match = value.match(/(\d{2}):(\d{2})\s*[–—-]\s*(\d{2}):(\d{2})/);
+    const qualified = /season|side|confirm|reconfirm|published schedule|\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\b/i.test(value);
+    if (qualified) {
+        if (!match) return { status: 'partial', label: value };
+        const open = Number(match[1]) * 60 + Number(match[2]);
+        let close = Number(match[3]) * 60 + Number(match[4]);
+        if (close === 0) close = 1440;
+        return { status: 'partial', alwaysOpen: false, open, close, label: value };
+    }
     if (!match) return { status: 'unknown', label: value || 'Confirm current hours' };
     const open = Number(match[1]) * 60 + Number(match[2]);
     let close = Number(match[3]) * 60 + Number(match[4]);
@@ -55,7 +61,7 @@ export function parsePublishedHours(hours) {
     return { status: 'known', alwaysOpen: false, open, close, label: value };
 }
 
-export function borderArrivalCheck(hours, departureTime, approachMinutes) {
+export function borderArrivalCheck(hours, departureTime, approachMinutes, clearanceMinutes = DEFAULT_BORDER_CLEARANCE_MINUTES) {
     const schedule = parsePublishedHours(hours);
     const departure = timeMinutes(departureTime);
     if (!Number.isFinite(approachMinutes) || departure === null) {
@@ -63,17 +69,46 @@ export function borderArrivalCheck(hours, departureTime, approachMinutes) {
     }
     const arrival = departure + approachMinutes;
     const arrivalTime = clockTime(arrival);
+    const clearance = Math.max(0, Number(clearanceMinutes) || 0);
+    const clearanceTime = clockTime(arrival + clearance);
     if (schedule.status !== 'known') {
-        return { status: 'unknown', arrivalTime, label: `Estimated arrival ${arrivalTime}; published hours need a local check.` };
+        return {
+            status: 'unknown',
+            arrivalTime,
+            clearanceTime,
+            safeWindow: false,
+            latestDepartureTime: Number.isFinite(schedule.close) ? clockTime(schedule.close - clearance - approachMinutes) : '',
+            label: `Estimated arrival ${arrivalTime}; the published window needs confirmation before this timing can be trusted.`,
+        };
     }
     if (schedule.alwaysOpen) {
-        return { status: 'open', arrivalTime, label: `Estimated arrival ${arrivalTime}, within the published 24-hour schedule.` };
+        return {
+            status: 'open', arrivalTime, clearanceTime, safeWindow: true, latestDepartureTime: '',
+            label: `Estimated arrival ${arrivalTime}; a ${clearance}-minute planning allowance ends around ${clearanceTime}.`,
+        };
     }
     const minuteOfDay = arrival % 1440;
-    const withinWindow = minuteOfDay >= schedule.open && minuteOfDay <= schedule.close && arrival < 1440;
+    const withinWindow = minuteOfDay >= schedule.open
+        && minuteOfDay + clearance <= schedule.close
+        && arrival + clearance < 1440;
+    const latestDepartureTime = clockTime(schedule.close - clearance - approachMinutes);
     return withinWindow
-        ? { status: 'open', arrivalTime, label: `Estimated arrival ${arrivalTime}, within published hours.` }
-        : { status: 'closed', arrivalTime, label: `Estimated arrival ${arrivalTime} falls outside the published window.` };
+        ? {
+            status: 'open', arrivalTime, clearanceTime, safeWindow: true, latestDepartureTime,
+            label: `Estimated arrival ${arrivalTime}; the ${clearance}-minute clearance allowance ends around ${clearanceTime}.`,
+        }
+        : {
+            status: 'closed', arrivalTime, clearanceTime, safeWindow: false, latestDepartureTime,
+            label: `This plan does not leave the full ${clearance}-minute clearance allowance inside published hours. Leave by ${latestDepartureTime} or revise the stopover.`,
+        };
+}
+
+function breakBufferMinutes(driveMinutes) {
+    if (!Number.isFinite(driveMinutes)) return 60;
+    if (driveMinutes >= 600) return 90;
+    if (driveMinutes >= 420) return 60;
+    if (driveMinutes >= 240) return 30;
+    return 15;
 }
 
 function dayGuidance(totalMinutes) {
@@ -109,7 +144,14 @@ export function buildTransferPlan(fromRoute, border, toRoute, departureTime = DE
     const schedulingMinutes = Number.isFinite(totalDriveMinutes)
         ? totalDriveMinutes
         : geometricDistanceKm > 0 ? Math.ceil((geometricDistanceKm * 1.3 / 65) * 60) : 840;
-    const arrival = borderArrivalCheck(border?.hours, departure, approach?.driveMinutes);
+    const borderBufferMinutes = DEFAULT_BORDER_CLEARANCE_MINUTES;
+    const plannedBreakMinutes = breakBufferMinutes(schedulingMinutes);
+    const totalPlanningMinutes = schedulingMinutes + borderBufferMinutes + plannedBreakMinutes;
+    const arrival = borderArrivalCheck(border?.hours, departure, approach?.driveMinutes, borderBufferMinutes);
+    const departureMinutes = timeMinutes(departure);
+    const destinationArrivalTime = departureMinutes !== null && status === 'estimated'
+        ? clockTime(departureMinutes + totalPlanningMinutes)
+        : '';
     return {
         key,
         status,
@@ -120,9 +162,15 @@ export function buildTransferPlan(fromRoute, border, toRoute, departureTime = DE
         totalDistanceKm,
         totalDriveMinutes,
         schedulingMinutes,
+        borderBufferMinutes,
+        breakBufferMinutes: plannedBreakMinutes,
+        totalPlanningMinutes,
+        destinationArrivalTime,
         schedulingMethod: status === 'estimated' ? 'cached-road-estimate' : 'conservative-geographic-buffer',
         arrival,
-        dayGuidance: dayGuidance(totalDriveMinutes),
+        dayGuidance: status === 'estimated'
+            ? dayGuidance(totalPlanningMinutes)
+            : `Confirm the withheld road leg locally. ${dayGuidance(totalPlanningMinutes)}`,
         fuelGuidance: fuelGuidance(totalDistanceKm),
         capturedAt: JOURNEY_TRANSFER_META.generatedAt?.slice(0, 10) || '',
         source: JOURNEY_TRANSFER_META.source,

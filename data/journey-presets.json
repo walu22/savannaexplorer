@@ -50,7 +50,7 @@
       "summary": "Combine Malawi's lake and highlands with a researched Mozambique route.",
       "countries": ["malawi", "mozambique"],
       "startCountry": "malawi",
-      "days": 22,
+      "days": 23,
       "vehicle": "suv",
       "theme": "water"
     },

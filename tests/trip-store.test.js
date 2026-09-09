@@ -39,12 +39,24 @@ test('switching trips keeps their workspace data separate', () => {
     const first = createTrip({ name: 'Botswana' }, storage);
     updateActiveTrip({ expenses: { linkedItineraryId: '', items: [{ id: 'a' }] } }, storage);
     const second = createTrip({ name: 'Zambia' }, storage);
-    updateActiveTrip({ packing: { month: 'jul', style: 'safari', packedItems: ['coat'] } }, storage);
+    updateActiveTrip({ packing: { month: 'jul', style: 'fly-in', packedItems: ['coat'] } }, storage);
 
     assert.equal(getActiveTrip(storage).id, second.id);
     setActiveTrip(first.id, storage);
     assert.equal(getActiveTrip(storage).expenses.items.length, 1);
     assert.deepEqual(getActiveTrip(storage).packing.packedItems, []);
+});
+
+test('packing settings use generator values and normalize obsolete saved styles', () => {
+    const storage = memoryStorage();
+    createTrip({ name: 'Packing test' }, storage);
+
+    assert.equal(getActiveTrip(storage).packing.style, 'self-drive');
+    updateActiveTrip({ packing: { month: 'invalid', style: 'safari', packedItems: ['hat', 'hat'] } }, storage);
+
+    assert.equal(getActiveTrip(storage).packing.month, 'jan');
+    assert.equal(getActiveTrip(storage).packing.style, 'self-drive');
+    assert.deepEqual(getActiveTrip(storage).packing.packedItems, ['hat']);
 });
 
 test('trips can be duplicated and deleted without losing the original', () => {

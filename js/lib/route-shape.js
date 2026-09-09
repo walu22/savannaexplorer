@@ -19,7 +19,11 @@ export function parseRouteShape(loc = window.location) {
     const pathname = loc.pathname || '/';
     const hash = (loc.hash || '').slice(1);
     let match = pathname.match(/^\/countries\/([a-z-]+)\/?$/);
-    if (match) return { type: 'country', countryId: match[1] };
+    if (match) return {
+        type: 'country',
+        countryId: match[1],
+        ...(hash ? { sectionHash: hash } : {}),
+    };
     match = pathname.match(/^\/parks\/([a-z0-9-]+)\/?$/);
     if (match) return { type: 'park', parkId: match[1] };
     match = pathname.match(/^\/borders\/([a-z0-9-]+)\/?$/);

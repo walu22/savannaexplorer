@@ -1,42 +1,9 @@
-import discover from '../../data/discover.json';
 import guidesData from '../../data/planning-guides.json';
 import faqs from '../../data/faqs.json';
 import { getCountryMeta } from '../lib/country-meta.js';
 import { countryPath, planningGuidePath } from '../lib/router.js';
 import { openCountryPage } from './country-guide.js';
 import { openPlanningGuide } from './planning-guides.js';
-
-function renderFacts() {
-    const grid = document.getElementById('facts-grid');
-    if (!grid) return;
-
-    grid.innerHTML = discover.facts.map(fact => {
-        const meta = getCountryMeta(fact.country);
-        return `
-            <a href="${countryPath(fact.country)}" class="fact-card" data-country-link="${fact.country}">
-                <div class="fact-icon"><i class="fas ${fact.icon}"></i></div>
-                <h3>${fact.title}</h3>
-                <p>${fact.description}</p>
-                <span class="fact-country">${meta.flag} ${meta.name}</span>
-            </a>
-        `;
-    }).join('');
-}
-
-function renderPlanTrip() {
-    const grid = document.getElementById('plan-trip-grid');
-    if (!grid) return;
-
-    grid.innerHTML = discover.planTripLinks.map(link => `
-        <a href="${link.href}" class="plan-trip-card">
-            <div class="plan-trip-icon"><i class="fas ${link.icon}"></i></div>
-            <h3>${link.title}</h3>
-            <span class="plan-trip-sub">${link.subtitle}</span>
-            <p>${link.description}</p>
-            <span class="plan-trip-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-        </a>
-    `).join('');
-}
 
 function renderPlanningGuides() {
     const grid = document.getElementById('planning-guides-grid');
@@ -127,8 +94,6 @@ function bindCountryLinks() {
 }
 
 export function initDiscover() {
-    renderFacts();
-    renderPlanTrip();
     renderPlanningGuides();
     renderHomeFaq();
     bindCountryLinks();
