@@ -94,6 +94,8 @@ Progress on 8 September 2026:
 - [x] Give the Plan page family one shell stylesheet and remove its duplicate utility, navigation, toolbar and focused-route overrides from the legacy global stylesheets.
 - [x] Replace decorative CSS gradients with a restrained solid-colour system while retaining accessible solid overlays on photography.
 - [x] Establish shared type, spacing and control-alignment tokens, then apply readable minimums to the country, route, journey, Plan and My Safari working surfaces.
+- [x] Generate direct country routes with a dedicated shell, removing unrelated homepage, hub and overlay markup while preserving crawlable content and all guide tools.
+- [x] Give direct country routes a smaller stylesheet entry and full-page navigation fallback without changing in-app country navigation.
 
 1. Freeze visual regression screenshots for the home, country, route, border, park, Plan and My Safari page families.
 2. Extract shared components for header, page hero, trust/source card, filters, result cards, status notices, footer and modal/dialog treatment.

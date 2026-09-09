@@ -5,6 +5,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { allSeoPages, hubPages, siteUrl } from './lib/seo-data.mjs';
+import { pruneCountryShell } from './lib/country-shell.mjs';
 
 function loadEnv() {
     const envPath = resolve(process.cwd(), '.env');
@@ -29,6 +30,13 @@ const baseUrl = siteUrl(process.env.VITE_SITE_URL);
 const distDir = resolve(process.cwd(), 'dist');
 const templatePath = resolve(distDir, 'index.html');
 const template = readFileSync(templatePath, 'utf8');
+const manifestPath = resolve(distDir, '.vite', 'manifest.json');
+const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+const countryStylesheet = manifest['css/country-entry.css']?.file;
+
+if (!countryStylesheet) {
+    throw new Error('Country stylesheet entry is missing from the Vite manifest.');
+}
 
 function setTag(html, pattern, replacement) {
     return html.replace(pattern, replacement);
@@ -191,7 +199,11 @@ let written = 0;
 for (const page of pages) {
     const outPath = resolve(distDir, page.path.replace(/^\//, ''), 'index.html');
     mkdirSync(dirname(outPath), { recursive: true });
-    writeFileSync(outPath, buildPageHtml(template, page), 'utf8');
+    const pageHtml = buildPageHtml(template, page);
+    const output = page.path.startsWith('/countries/')
+        ? pruneCountryShell(pageHtml, countryStylesheet)
+        : pageHtml;
+    writeFileSync(outPath, output, 'utf8');
     written += 1;
 }
 

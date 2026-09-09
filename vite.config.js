@@ -64,7 +64,11 @@ export default defineConfig(({ mode }) => ({
         outDir: 'dist',
         emptyOutDir: true,
         rollupOptions: {
-            output: {
+            input: {
+                index: resolve(process.cwd(), 'index.html'),
+                country: resolve(process.cwd(), 'css', 'country-entry.css'),
+            },
+                        output: {
                 manualChunks(id) {
                     if (!id.includes('node_modules') && id.includes('/data/')) {
                         if (id.includes('countries.json') || id.includes('country-depth.json')) {
@@ -86,5 +90,6 @@ export default defineConfig(({ mode }) => ({
                 },
             },
         },
+        manifest: true,
     },
 }));

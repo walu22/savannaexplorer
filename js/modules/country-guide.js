@@ -906,6 +906,13 @@ function hideCountryPage() {
 }
 
 function closeCountryPage(scrollTarget) {
+    if (document.body.classList.contains('country-route-shell')) {
+        const destination = !scrollTarget || scrollTarget === 'home'
+            ? '/'
+            : `/${scrollTarget}`;
+        window.location.assign(destination);
+        return;
+    }
     hideCountryPage();
     navigateHome(scrollTarget);
     if (scrollTarget) {
