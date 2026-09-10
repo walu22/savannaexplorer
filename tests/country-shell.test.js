@@ -7,6 +7,10 @@ const source = await readFile(new URL('../index.html', import.meta.url), 'utf8')
 const viteConfig = await readFile(new URL('../vite.config.js', import.meta.url), 'utf8');
 const prerender = await readFile(new URL('../scripts/prerender-seo.mjs', import.meta.url), 'utf8');
 const controller = await readFile(new URL('../js/modules/country-guide.js', import.meta.url), 'utf8');
+const countryEntry = await readFile(new URL('../css/country-entry.css', import.meta.url), 'utf8');
+const countryPage = await readFile(new URL('../css/country-page.css', import.meta.url), 'utf8');
+const countryFoundation = await readFile(new URL('../css/country-foundation.css', import.meta.url), 'utf8');
+const redesign = await readFile(new URL('../css/redesign.css', import.meta.url), 'utf8');
 const seo = '<main id="seo-prerender" class="seo-prerender"><article><h1>Namibia Travel Guide</h1></article></main>';
 const rendered = source.replace('<body class="site-v2">', `<body class="site-v2">${seo}`);
 const country = pruneCountryShell(rendered, 'assets/country-test.css');
@@ -45,4 +49,13 @@ test('the production pipeline uses the lean shell for every direct country route
     assert.match(prerender, /pruneCountryShell\(pageHtml, countryStylesheet\)/);
     assert.match(controller, /document\.body\.classList\.contains\('country-route-shell'\)/);
     assert.match(controller, /window\.location\.assign\(destination\)/);
+});
+
+test('country guides own their redesign foundation without loading the legacy redesign bundle', () => {
+    assert.doesNotMatch(countryEntry, /redesign\.css/);
+    assert.match(countryPage, /@import '\.\/country-foundation\.css'/);
+    assert.match(countryFoundation, /\.country-page-header/);
+    assert.match(countryFoundation, /\.detail-hero-media/);
+    assert.match(countryFoundation, /\.official-resource-card/);
+    assert.doesNotMatch(redesign, /Country detail — fixed header/);
 });

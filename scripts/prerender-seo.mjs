@@ -6,6 +6,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { allSeoPages, hubPages, siteUrl } from './lib/seo-data.mjs';
 import { pruneCountryShell } from './lib/country-shell.mjs';
+import { pruneMySafariShell } from './lib/my-safari-shell.mjs';
 
 function loadEnv() {
     const envPath = resolve(process.cwd(), '.env');
@@ -33,9 +34,10 @@ const template = readFileSync(templatePath, 'utf8');
 const manifestPath = resolve(distDir, '.vite', 'manifest.json');
 const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
 const countryStylesheet = manifest['css/country-entry.css']?.file;
+const mySafariStylesheet = manifest['css/my-safari-entry.css']?.file;
 
-if (!countryStylesheet) {
-    throw new Error('Country stylesheet entry is missing from the Vite manifest.');
+if (!countryStylesheet || !mySafariStylesheet) {
+    throw new Error('A dedicated route stylesheet entry is missing from the Vite manifest.');
 }
 
 function setTag(html, pattern, replacement) {
@@ -202,7 +204,9 @@ for (const page of pages) {
     const pageHtml = buildPageHtml(template, page);
     const output = page.path.startsWith('/countries/')
         ? pruneCountryShell(pageHtml, countryStylesheet)
-        : pageHtml;
+        : page.path === '/my-safari'
+            ? pruneMySafariShell(pageHtml, mySafariStylesheet)
+            : pageHtml;
     writeFileSync(outPath, output, 'utf8');
     written += 1;
 }
@@ -215,7 +219,11 @@ for (const page of hubFallbackPages) {
     const section = page.path.replace(/^\//, '');
     const outPath = resolve(distDir, section, 'index.html');
     mkdirSync(dirname(outPath), { recursive: true });
-    writeFileSync(outPath, pruneHubHtml(buildPageHtml(template, page), section), 'utf8');
+    const pageHtml = buildPageHtml(template, page);
+    const output = section === 'my-safari'
+        ? pruneMySafariShell(pageHtml, mySafariStylesheet)
+        : pruneHubHtml(pageHtml, section);
+    writeFileSync(outPath, output, 'utf8');
 }
 console.log(`Wrote ${hubFallbackPages.length} hub SPA fallbacks.`);
 

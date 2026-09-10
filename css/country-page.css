@@ -1,5 +1,7 @@
 /* Country guide layout v2 — shared by all nine destinations. */
 
+@import './country-foundation.css';
+
 body.site-v2 .country-detail-view {
     padding: 0 !important;
     background: #f6f1ea;

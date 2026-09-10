@@ -1038,11 +1038,14 @@
                         </fieldset>
                     </form>
                     <div id="my-safari-trip-list" class="my-safari-trip-list" role="group" aria-label="Your saved trips"></div>
-                    <p id="my-safari-empty" class="my-safari-empty">No trips yet. Your first trip will also bring in the itinerary, expenses and packing progress already saved on this device.</p>
+                    <div id="my-safari-empty" class="my-safari-empty">
+                        <span class="my-safari-empty__icon"><i class="fas fa-map-signs" aria-hidden="true"></i></span>
+                        <div><strong>No trips yet</strong><p>Name your first journey, choose at least one destination and create the trip to unlock the complete workspace.</p></div>
+                    </div>
                     <div id="my-safari-workspace" class="my-safari-workspace" hidden>
                         <div class="my-safari-workspace-head">
                             <div>
-                                <h4 id="my-safari-active-name"></h4>
+                                <h2 id="my-safari-active-name"></h2>
                                 <p id="my-safari-active-meta"></p>
                             </div>
                             <div class="my-safari-actions" aria-label="Trip actions">
@@ -1079,7 +1082,7 @@
                             <div class="my-safari-readiness-head">
                                 <div>
                                     <span class="my-safari-readiness-eyebrow"><i class="fas fa-list-check" aria-hidden="true"></i> Ready for the road</span>
-                                    <h5 id="my-safari-readiness-title">Trip readiness</h5>
+                                    <h3 id="my-safari-readiness-title">Trip readiness</h3>
                                     <p>Complete the practical checks that turn this itinerary into a travel-ready plan.</p>
                                 </div>
                                 <div class="my-safari-readiness-score" id="my-safari-readiness-score" aria-label="Trip readiness score">
@@ -1119,7 +1122,7 @@
                         </section>
                         <section id="my-safari-bookings" class="my-safari-bookings" aria-labelledby="my-safari-bookings-title">
                             <div class="my-safari-section-head">
-                                <div><span class="my-safari-readiness-eyebrow"><i class="fas fa-receipt" aria-hidden="true"></i> Keep confirmations together</span><h5 id="my-safari-bookings-title">Booking records</h5><p>Store references and confirmation status. Payments still happen directly with providers.</p></div>
+                                <div><span class="my-safari-readiness-eyebrow"><i class="fas fa-receipt" aria-hidden="true"></i> Keep confirmations together</span><h3 id="my-safari-bookings-title">Booking records</h3><p>Store references and confirmation status. Payments still happen directly with providers.</p></div>
                                 <strong id="my-safari-bookings-progress">0 confirmed</strong>
                             </div>
                             <form id="my-safari-booking-form" class="my-safari-booking-form">
@@ -1138,9 +1141,9 @@
                         <label class="my-safari-notes-label" for="my-safari-notes">Trip notes
                             <textarea id="my-safari-notes" class="my-safari-notes" maxlength="2000" placeholder="Booking references, ideas, reminders…"></textarea>
                         </label>
-                        <section class="my-safari-pack-builder" aria-labelledby="my-safari-pack-title">
+                        <section class="my-safari-pack-builder" id="my-safari-pack-builder" aria-labelledby="my-safari-pack-title">
                             <div class="my-safari-section-head">
-                                <div><span class="my-safari-readiness-eyebrow"><i class="fas fa-file-arrow-down" aria-hidden="true"></i> Carry the plan</span><h5 id="my-safari-pack-title">Offline trip pack</h5><p>Download one self-contained file or print a clean copy for the road.</p></div>
+                                <div><span class="my-safari-readiness-eyebrow"><i class="fas fa-file-arrow-down" aria-hidden="true"></i> Carry the plan</span><h3 id="my-safari-pack-title">Offline trip pack</h3><p>Download one self-contained file or print a clean copy for the road.</p></div>
                                 <span class="my-safari-pack-badge"><i class="fas fa-wifi-slash" aria-hidden="true"></i> Works offline</span>
                             </div>
                             <div class="my-safari-pack-options">
@@ -1175,7 +1178,7 @@
                         <section id="my-safari-collaboration-panel" class="my-safari-collaboration-panel" hidden aria-labelledby="my-safari-collaboration-title">
                             <div class="my-safari-panel-head">
                                 <div>
-                                    <h5 id="my-safari-collaboration-title">Plan together</h5>
+                                    <h3 id="my-safari-collaboration-title">Plan together</h3>
                                     <p>Create a private, seven-day invitation. Each link can be accepted by one signed-in traveller.</p>
                                 </div>
                                 <button type="button" class="btn btn-outline btn-sm" id="my-safari-close-collaboration">Close</button>

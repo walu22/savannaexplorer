@@ -1,0 +1,945 @@
+/* Dedicated My Safari route: a light, task-first travel workspace. */
+
+body.my-safari-route-shell {
+    background: #f2efe8;
+    color: #24332d;
+}
+
+body.my-safari-route-shell #main-content {
+    display: block !important;
+    min-height: calc(100vh - 76px);
+    padding: 76px 0 0 !important;
+}
+
+.my-safari-route-shell .my-safari-page {
+    display: block !important;
+    min-height: calc(100vh - 76px);
+    padding: clamp(1.5rem, 3vw, 2.75rem) 0 clamp(4rem, 7vw, 6rem);
+    background: #f2efe8;
+}
+
+.my-safari-page__container {
+    width: min(1480px, calc(100% - 2rem));
+}
+
+.my-safari-page__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+    gap: 2rem;
+    align-items: end;
+    padding: 0.5rem 0 1.5rem;
+    border-bottom: 1px solid #cfd5cf;
+}
+
+.my-safari-page__intro {
+    max-width: 760px;
+}
+
+.my-safari-page__eyebrow {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: #a64f20;
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.my-safari-page__header h1 {
+    margin: 0;
+    color: #18352b;
+    font: 500 clamp(2.55rem, 5vw, 4.75rem)/0.96 var(--font-display);
+    letter-spacing: -0.045em;
+}
+
+.my-safari-page__header p {
+    max-width: 680px;
+    margin: 0.8rem 0 0;
+    color: #53645d;
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+.my-safari-page__privacy {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 0.8rem;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #cbd6ce;
+    border-radius: 14px;
+    background: #e7eee9;
+    color: #3d554b;
+}
+
+.my-safari-page__privacy > i {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #285442;
+    color: #fff;
+}
+
+.my-safari-page__privacy span {
+    display: grid;
+    gap: 0.15rem;
+    font-size: 0.78rem;
+    line-height: 1.45;
+}
+
+.my-safari-page__privacy strong {
+    color: #18352b;
+    font-size: 0.88rem;
+}
+
+.my-safari-page__nav {
+    position: sticky;
+    top: 76px;
+    z-index: 20;
+    display: flex;
+    gap: 0.35rem;
+    overflow-x: auto;
+    margin: 1rem 0 1.25rem;
+    padding: 0.45rem;
+    border: 1px solid #d9d9d2;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(24, 53, 43, 0.07);
+    scrollbar-width: none;
+}
+
+.my-safari-page__nav::-webkit-scrollbar { display: none; }
+
+.my-safari-page__nav a {
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 0.5rem;
+    align-items: center;
+    min-height: 42px;
+    border-radius: 10px;
+    color: #435850;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.88rem;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.my-safari-page__nav a:hover,
+.my-safari-page__nav a:focus-visible {
+    background: #edf2ee;
+    color: #18352b;
+}
+
+.my-safari-page__nav a[aria-current="page"] {
+    background: #285442;
+    color: #fff;
+}
+
+.my-safari-route-shell #hub-my-safari,
+.my-safari-route-shell #hub-my-safari:hover {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: #24332d;
+    transform: none;
+}
+
+.my-safari-route-shell #hub-my-safari > .hub-card-header,
+.my-safari-route-shell #hub-my-safari > .hub-card-lead {
+    display: none;
+}
+
+.my-safari-route-shell #hub-my-safari h4,
+.my-safari-route-shell #hub-my-safari h5,
+.my-safari-route-shell #hub-my-safari strong,
+.my-safari-route-shell #hub-my-safari label,
+.my-safari-route-shell #hub-my-safari legend {
+    color: #18352b;
+}
+
+.my-safari-route-shell #hub-my-safari p,
+.my-safari-route-shell #hub-my-safari span,
+.my-safari-route-shell #hub-my-safari small {
+    color: #5c6b65;
+}
+
+.my-safari-route-shell .my-safari-cloud {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+    margin: 0 0 1rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid #d8ddd8;
+    border-radius: 14px;
+    background: #fff;
+}
+
+.my-safari-route-shell .my-safari-cloud > div,
+.my-safari-route-shell .my-safari-signed-in {
+    min-width: 0;
+}
+
+.my-safari-route-shell .my-safari-cloud-copy span,
+.my-safari-route-shell .my-safari-cloud-status,
+.my-safari-route-shell .my-safari-trip-card span,
+.my-safari-route-shell .my-safari-trip-card small,
+.my-safari-route-shell .my-safari-workspace-head p,
+.my-safari-route-shell .my-safari-stat span,
+.my-safari-route-shell .my-safari-section-head p,
+.my-safari-route-shell .my-safari-edit-head span {
+    color: #697770;
+}
+
+.my-safari-route-shell .my-safari-signin-form input,
+.my-safari-route-shell .my-safari-share-panel input,
+.my-safari-route-shell .my-safari-field input,
+.my-safari-route-shell .my-safari-notes,
+.my-safari-route-shell .my-safari-invite-form input,
+.my-safari-route-shell .my-safari-invite-form select,
+.my-safari-route-shell .my-safari-booking-form input,
+.my-safari-route-shell .my-safari-booking-form select,
+.my-safari-route-shell .my-safari-booking-edit-grid input,
+.my-safari-route-shell .my-safari-booking-edit-grid select,
+.my-safari-route-shell .route-stop-form input,
+.my-safari-route-shell .route-stop-form select,
+.my-safari-route-shell .route-stop-actions select,
+.my-safari-route-shell .trip-route-duration input {
+    border-color: #cfd6d1;
+    background: #fff;
+    color: #24332d;
+    color-scheme: light;
+}
+
+.my-safari-route-shell .my-safari-create {
+    margin: 0 0 1rem;
+    padding: 1.15rem;
+    border: 1px solid #d8ddd8;
+    border-radius: 14px;
+    background: #fff;
+}
+
+.my-safari-route-shell .my-safari-field span {
+    color: #4f6159;
+    font-size: 0.86rem;
+}
+
+.my-safari-route-shell .my-safari-country span {
+    border-color: #cfd6d1;
+    background: #f6f5f1;
+    color: #3f534a;
+}
+
+.my-safari-route-shell .my-safari-country input:checked + span {
+    border-color: #285442;
+    background: #285442;
+    color: #fff;
+}
+
+.my-safari-route-shell .my-safari-trip-list {
+    margin: 0 0 1rem;
+}
+
+.my-safari-route-shell .my-safari-trip-card {
+    min-height: 112px;
+    border-color: #d8ddd8;
+    background: #fff;
+    color: #18352b;
+    box-shadow: 0 5px 16px rgba(24, 53, 43, 0.045);
+}
+
+.my-safari-route-shell .my-safari-trip-card:hover {
+    border-color: #9dae9f;
+    box-shadow: 0 8px 22px rgba(24, 53, 43, 0.08);
+}
+
+.my-safari-route-shell .my-safari-trip-card.is-active {
+    border-color: #285442;
+    background: #eaf1ec;
+    box-shadow: 0 0 0 2px rgba(40, 84, 66, 0.12);
+}
+
+.my-safari-route-shell .my-safari-empty {
+    border: 1px dashed #bec8c1;
+    background: #f9f8f5;
+    color: #617069;
+}
+
+.my-safari-route-shell .my-safari-workspace {
+    padding-top: 1.5rem;
+    border-top-color: #cfd6d1;
+}
+
+.my-safari-route-shell .my-safari-actions button {
+    border-color: #cbd4ce;
+    background: #fff;
+    color: #285442;
+}
+
+.my-safari-route-shell .my-safari-actions .is-danger {
+    color: #a3392d;
+}
+
+.my-safari-route-shell .my-safari-edit-form,
+.my-safari-route-shell .my-safari-operations,
+.my-safari-route-shell .my-safari-readiness,
+.my-safari-route-shell .my-safari-bookings,
+.my-safari-route-shell .my-safari-pack-builder,
+.my-safari-route-shell .my-safari-collaboration-panel,
+.my-safari-route-shell .my-safari-shared-view,
+.my-safari-route-shell .trip-route-builder {
+    border: 1px solid #d8ddd8;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(24, 53, 43, 0.05);
+}
+
+.my-safari-route-shell .my-safari-edit-form,
+.my-safari-route-shell .my-safari-readiness,
+.my-safari-route-shell .my-safari-bookings,
+.my-safari-route-shell .my-safari-pack-builder,
+.my-safari-route-shell .my-safari-collaboration-panel,
+.my-safari-route-shell .my-safari-shared-view,
+.my-safari-route-shell .trip-route-builder {
+    margin: 1rem 0;
+    padding: clamp(1rem, 2vw, 1.4rem);
+}
+
+.my-safari-route-shell .my-safari-operations {
+    margin: 1rem 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.my-safari-route-shell .my-safari-stat {
+    border: 1px solid #dfe3df;
+    background: #fff;
+}
+
+.my-safari-route-shell .my-safari-stat strong {
+    font-size: 1rem;
+}
+
+.my-safari-route-shell .my-safari-readiness-eyebrow,
+.my-safari-route-shell .my-safari-operations-eyebrow,
+.my-safari-route-shell .my-safari-shared-label {
+    color: #a64f20;
+}
+
+.my-safari-route-shell .my-safari-readiness-score {
+    border-color: #285442;
+    background: #e7eee9;
+    color: #18352b;
+}
+
+.my-safari-route-shell .my-safari-readiness-next,
+.my-safari-route-shell .my-safari-reminder-control,
+.my-safari-route-shell .my-safari-readiness-group,
+.my-safari-route-shell .my-safari-custom-task,
+.my-safari-route-shell .my-safari-operation-card,
+.my-safari-route-shell .my-safari-action-centre,
+.my-safari-route-shell .my-safari-booking-row,
+.my-safari-route-shell .my-safari-stay-planner,
+.my-safari-route-shell .my-safari-pack-options,
+.my-safari-route-shell .trip-route-tools,
+.my-safari-route-shell .trip-route-empty,
+.my-safari-route-shell .route-stop-form,
+.my-safari-route-shell .route-day {
+    border-color: #dfe3df;
+    background: #f7f6f2;
+    color: #24332d;
+}
+
+.my-safari-route-shell .my-safari-operation-card--actions {
+    background: #edf2ee;
+}
+
+.my-safari-route-shell .my-safari-operation-item,
+.my-safari-route-shell .my-safari-readiness-task,
+.my-safari-route-shell .my-safari-access-item,
+.my-safari-route-shell .my-safari-activity-item {
+    border-color: #dde3de;
+    background: #fff;
+    color: #24332d;
+}
+
+.my-safari-route-shell .my-safari-operation-item summary,
+.my-safari-route-shell .my-safari-operation-item summary strong,
+.my-safari-route-shell .my-safari-readiness-copy strong,
+.my-safari-route-shell .my-safari-booking-copy strong,
+.my-safari-route-shell .trip-route-head h5,
+.my-safari-route-shell .route-day > header strong,
+.my-safari-route-shell .route-stop-heading strong,
+.my-safari-route-shell .my-safari-shared-view h4,
+.my-safari-route-shell .my-safari-shared-view h5 {
+    color: #18352b;
+}
+
+.my-safari-route-shell .my-safari-operation-item summary em,
+.my-safari-route-shell .my-safari-operation-detail,
+.my-safari-route-shell .my-safari-operations-notes,
+.my-safari-route-shell .my-safari-readiness-copy span,
+.my-safari-route-shell .my-safari-readiness-task-meta,
+.my-safari-route-shell .my-safari-booking-copy span,
+.my-safari-route-shell .trip-route-head p,
+.my-safari-route-shell .trip-route-empty p,
+.my-safari-route-shell .trip-route-duration span,
+.my-safari-route-shell .trip-route-save-status,
+.my-safari-route-shell .route-day > header small,
+.my-safari-route-shell .route-day > header span,
+.my-safari-route-shell .route-stop-heading time,
+.my-safari-route-shell .route-stop-main span,
+.my-safari-route-shell .route-stop-main p,
+.my-safari-route-shell .my-safari-access-item span,
+.my-safari-route-shell .my-safari-activity-item span,
+.my-safari-route-shell .my-safari-access-list > p,
+.my-safari-route-shell .my-safari-activity-list > p,
+.my-safari-route-shell .my-safari-shared-view > p,
+.my-safari-route-shell .my-safari-shared-view section p {
+    color: #65746d;
+}
+
+.my-safari-route-shell .route-day > header {
+    border-bottom-color: #d9dfda;
+}
+
+.my-safari-route-shell .route-stop {
+    border-color: #d6ddd7;
+    border-left-color: #b05a28;
+    background: #fff;
+}
+
+.my-safari-route-shell .route-stop-actions {
+    border-top-color: #e2e6e2;
+}
+
+.my-safari-route-shell .route-stop-actions button {
+    background: #edf1ee;
+    color: #285442;
+}
+
+.my-safari-route-shell .route-stop-icon {
+    background: #f3e5da;
+    color: #9c491d;
+}
+
+.my-safari-route-shell .route-stop-source {
+    color: #9c491d;
+}
+
+.my-safari-route-shell .my-safari-pack-badge {
+    border-color: #c4d2c8;
+    background: #e7eee9;
+    color: #285442;
+}
+
+.my-safari-route-shell .my-safari-pack-privacy,
+.my-safari-route-shell .my-safari-readiness-disclaimer {
+    border-color: #e4d1c2;
+    background: #fbf1e8;
+    color: #74513b;
+}
+
+.my-safari-route-shell .my-safari-share-panel,
+.my-safari-route-shell .my-safari-invite-result {
+    border-color: #cdd8d0;
+    background: #edf2ee;
+}
+
+.my-safari-route-shell .my-safari-shared-view pre {
+    background: #f5f4f0;
+    color: #24332d;
+}
+
+.my-safari-route-shell .my-safari-cloud-status.is-error,
+.my-safari-route-shell .my-safari-readiness-status.is-error,
+.my-safari-route-shell .my-safari-actions .is-danger,
+.my-safari-route-shell .my-safari-access-item button {
+    color: #a3392d;
+}
+
+.my-safari-route-shell #hub-my-safari .btn-outline {
+    border-color: #bdc9c1;
+    background: #fff;
+    color: #285442;
+}
+
+.my-safari-route-shell #hub-my-safari .btn-outline:hover,
+.my-safari-route-shell #hub-my-safari .btn-outline:focus-visible {
+    border-color: #285442;
+    background: #edf2ee;
+    color: #18352b;
+}
+
+@media (max-width: 900px) {
+    .my-safari-page__header {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        align-items: start;
+    }
+
+    .my-safari-page__privacy {
+        max-width: 520px;
+    }
+
+    .my-safari-route-shell .my-safari-create {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .my-safari-route-shell .my-safari-create .my-safari-field:first-child,
+    .my-safari-route-shell .my-safari-country-options {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 640px) {
+    body.my-safari-route-shell #main-content {
+        padding-top: 66px !important;
+    }
+
+    .my-safari-page__container {
+        width: min(100% - 1rem, 1480px);
+    }
+
+    .my-safari-page__header {
+        padding-inline: 0.25rem;
+    }
+
+    .my-safari-page__header h1 {
+        font-size: clamp(2.5rem, 15vw, 3.5rem);
+    }
+
+    .my-safari-page__header p {
+        font-size: 1rem;
+    }
+
+    .my-safari-page__nav {
+        top: 66px;
+        margin-inline: -0.1rem;
+    }
+
+    .my-safari-page__nav a {
+        min-height: 44px;
+        padding-inline: 0.8rem;
+    }
+
+    .my-safari-route-shell .my-safari-create {
+        grid-template-columns: 1fr;
+    }
+
+    .my-safari-route-shell .my-safari-create .my-safari-field:first-child,
+    .my-safari-route-shell .my-safari-country-options {
+        grid-column: 1;
+    }
+
+    .my-safari-route-shell .my-safari-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 420px) {
+    .my-safari-route-shell .my-safari-summary {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Route-only quality pass: dependable contrast, sizing and task-page behaviour. */
+html.my-safari-route-document,
+body.my-safari-route-shell {
+    overflow-x: clip;
+}
+
+.my-safari-route-shell #my-safari-route-builder,
+.my-safari-route-shell #my-safari-bookings,
+.my-safari-route-shell #my-safari-readiness,
+.my-safari-route-shell #my-safari-pack-builder {
+    scroll-margin-top: 150px;
+}
+
+.my-safari-page__nav a[aria-disabled="true"] {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.my-safari-route-shell .my-safari-signin-form {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) auto;
+    gap: 0.6rem;
+    align-items: stretch;
+    width: min(100%, 540px);
+}
+
+.my-safari-route-shell .my-safari-signin-form .btn {
+    width: auto;
+    min-width: 170px;
+    min-height: 48px;
+    height: auto;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.my-safari-route-shell .my-safari-country-options {
+    border: 0 !important;
+    margin: 0;
+    padding: 0 !important;
+}
+
+.my-safari-route-shell .my-safari-country-options legend {
+    float: none;
+    width: 100%;
+    margin: 0 0 0.55rem;
+    padding: 0;
+    color: #18352b;
+    font-size: 0.875rem;
+    font-weight: 750;
+}
+
+.my-safari-route-shell .my-safari-empty {
+    display: flex;
+    gap: 0.9rem;
+    align-items: center;
+    padding: 1.1rem 1.2rem;
+    border-style: solid;
+    text-align: left;
+}
+
+.my-safari-route-shell .my-safari-empty__icon {
+    display: grid;
+    flex: 0 0 44px;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #e7eee9;
+    color: #285442 !important;
+}
+
+.my-safari-route-shell .my-safari-empty > div {
+    display: grid;
+    gap: 0.2rem;
+}
+
+.my-safari-route-shell .my-safari-empty strong {
+    color: #18352b;
+    font-size: 1rem;
+}
+
+.my-safari-route-shell .my-safari-empty p {
+    margin: 0;
+    color: #53645d !important;
+    font-size: 0.875rem;
+    line-height: 1.55;
+}
+
+.my-safari-route-shell #hub-my-safari h2,
+.my-safari-route-shell #hub-my-safari h3,
+.my-safari-route-shell #hub-my-safari h4,
+.my-safari-route-shell #hub-my-safari h5 {
+    color: #18352b;
+}
+
+.my-safari-route-shell #my-safari-active-name {
+    margin: 0;
+    font-size: clamp(1.55rem, 3vw, 2.1rem);
+    line-height: 1.15;
+}
+
+.my-safari-route-shell .my-safari-operations-head h3,
+.my-safari-route-shell .my-safari-readiness-head h3,
+.my-safari-route-shell .my-safari-section-head h3,
+.my-safari-route-shell .trip-route-head h3 {
+    margin: 0.3rem 0 0.2rem;
+    color: #18352b;
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+    line-height: 1.2;
+}
+
+.my-safari-route-shell .my-safari-operation-card h4,
+.my-safari-route-shell .my-safari-readiness-group h4,
+.my-safari-route-shell .my-safari-action-centre h4,
+.my-safari-route-shell .my-safari-action-centre h5 {
+    margin: 0;
+    color: #18352b;
+    font-size: 1rem;
+    line-height: 1.35;
+}
+
+.my-safari-route-shell .my-safari-operations-head,
+.my-safari-route-shell .my-safari-operations-facts,
+.my-safari-route-shell .my-safari-operations > footer {
+    border-color: #d8ddd8;
+    background: #f7f6f2;
+}
+
+.my-safari-route-shell .my-safari-operations-head p,
+.my-safari-route-shell .my-safari-operation-card header p,
+.my-safari-route-shell .my-safari-operation-card li span,
+.my-safari-route-shell .my-safari-operation-copy,
+.my-safari-route-shell .my-safari-operation-empty span,
+.my-safari-route-shell .my-safari-operation-ready span,
+.my-safari-route-shell .my-safari-operations > footer p {
+    color: #53645d !important;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.my-safari-route-shell .my-safari-operation-card > header,
+.my-safari-route-shell .my-safari-operation-card > ul li,
+.my-safari-route-shell .my-safari-operation-card--actions li {
+    border-color: #dde3de;
+}
+
+.my-safari-route-shell .my-safari-operation-card li strong,
+.my-safari-route-shell .my-safari-operation-detail a {
+    color: #8b421f;
+}
+
+.my-safari-route-shell .my-safari-operation-card--actions li {
+    color: #3f5149;
+}
+
+.my-safari-route-shell #hub-my-safari .btn-primary span {
+    color: #fff;
+}
+
+.my-safari-route-shell .my-safari-operation-card--actions li::before {
+    background: #f1ded1;
+    color: #8b421f;
+}
+
+.my-safari-route-shell .my-safari-operation-empty strong,
+.my-safari-route-shell .my-safari-operation-ready strong,
+.my-safari-route-shell .my-safari-action-waiting strong {
+    color: #18352b;
+}
+
+.my-safari-route-shell .my-safari-operation-card > header > span,
+.my-safari-route-shell .my-safari-readiness-category-icon {
+    background: #f1e3d8;
+    color: #96471f !important;
+}
+
+.my-safari-route-shell .my-safari-action-centre > header,
+.my-safari-route-shell .my-safari-action-setup,
+.my-safari-route-shell .my-safari-action-progress,
+.my-safari-route-shell .my-safari-action-checklist label,
+.my-safari-route-shell .my-safari-action-waiting {
+    border-color: #dbe1dc;
+    background: #f7f6f2;
+}
+
+.my-safari-route-shell .my-safari-action-centre > header p,
+.my-safari-route-shell .my-safari-action-field small,
+.my-safari-route-shell .my-safari-action-vehicle small,
+.my-safari-route-shell .my-safari-action-progress span,
+.my-safari-route-shell .my-safari-action-checklist small,
+.my-safari-route-shell .my-safari-action-waiting span {
+    color: #596a62 !important;
+    font-size: 0.8125rem;
+}
+
+.my-safari-route-shell .my-safari-action-progress strong,
+.my-safari-route-shell .my-safari-action-checklist strong,
+.my-safari-route-shell .my-safari-action-field > span,
+.my-safari-route-shell .my-safari-action-vehicle legend {
+    color: #18352b;
+}
+
+.my-safari-route-shell .my-safari-action-field select,
+.my-safari-route-shell .my-safari-reminder-control select,
+.my-safari-route-shell .my-safari-custom-task input,
+.my-safari-route-shell .my-safari-custom-task select,
+.my-safari-route-shell .my-safari-booking-status-select,
+.my-safari-route-shell .my-safari-stay-day select,
+.my-safari-route-shell .my-safari-stay-plan-head select {
+    border-color: #cbd4ce;
+    background: #fff;
+    color: #24332d;
+    color-scheme: light;
+}
+
+.my-safari-route-shell .my-safari-readiness-head p,
+.my-safari-route-shell .my-safari-section-head p,
+.my-safari-route-shell .trip-route-head p {
+    color: #53645d;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+}
+
+.my-safari-route-shell .my-safari-readiness-score {
+    z-index: 0;
+    border: 7px solid #285442;
+    background: #fff;
+    color: #18352b;
+}
+
+.my-safari-route-shell .my-safari-readiness-score::before {
+    display: none;
+}
+
+.my-safari-route-shell .my-safari-readiness-score strong {
+    color: #18352b;
+    font-size: 1.35rem;
+}
+
+.my-safari-route-shell .my-safari-readiness-score span {
+    color: #53645d !important;
+    font-size: 0.7rem;
+}
+
+.my-safari-route-shell .my-safari-readiness-next {
+    border: 1px solid #d2ddd5;
+    background: #edf2ee;
+}
+
+.my-safari-route-shell .my-safari-readiness-next > span,
+.my-safari-route-shell .my-safari-readiness-eyebrow {
+    color: #8b421f !important;
+}
+
+.my-safari-route-shell .my-safari-readiness-next > strong,
+.my-safari-route-shell .my-safari-reminder-control strong,
+.my-safari-route-shell .my-safari-readiness-copy strong {
+    color: #18352b;
+}
+
+.my-safari-route-shell .my-safari-readiness-next > small,
+.my-safari-route-shell .my-safari-reminder-control > div > span,
+.my-safari-route-shell .my-safari-reminder-control label,
+.my-safari-route-shell .my-safari-readiness-group header p,
+.my-safari-route-shell .my-safari-readiness-copy small,
+.my-safari-route-shell .my-safari-readiness-task-meta,
+.my-safari-route-shell .my-safari-readiness-deadline,
+.my-safari-route-shell .my-safari-readiness-disclaimer {
+    color: #596a62 !important;
+}
+
+.my-safari-route-shell .my-safari-reminder-control,
+.my-safari-route-shell .my-safari-custom-task {
+    border-color: #d8ddd8;
+    background: #f7f6f2;
+}
+
+.my-safari-route-shell .my-safari-readiness-group > header,
+.my-safari-route-shell .my-safari-readiness-task {
+    border-color: #dde3de;
+}
+
+.my-safari-route-shell .my-safari-readiness-check,
+.my-safari-route-shell .my-safari-action-check {
+    border-color: #87968f;
+}
+
+.my-safari-route-shell .my-safari-readiness-copy strong {
+    font-size: 0.875rem;
+}
+
+.my-safari-route-shell .my-safari-readiness-copy small,
+.my-safari-route-shell .my-safari-readiness-task-meta,
+.my-safari-route-shell .my-safari-reminder-control > div > span,
+.my-safari-route-shell .my-safari-reminder-control label,
+.my-safari-route-shell .my-safari-booking-form label,
+.my-safari-route-shell .my-safari-booking-edit-form label,
+.my-safari-route-shell .my-safari-stay-day,
+.my-safari-route-shell .my-safari-stay-plan-head label {
+    font-size: 0.8125rem;
+}
+
+.my-safari-route-shell .my-safari-section-head > strong,
+.my-safari-route-shell .my-safari-booking-copy small,
+.my-safari-route-shell .my-safari-booking-date,
+.my-safari-route-shell .my-safari-booking-copy a,
+.my-safari-route-shell .my-safari-booking-empty,
+.my-safari-route-shell .my-safari-stay-planner > footer,
+.my-safari-route-shell .my-safari-pack-privacy,
+.my-safari-route-shell .my-safari-pack-options label {
+    font-size: 0.8125rem;
+}
+
+.my-safari-route-shell .my-safari-stay-plan-head,
+.my-safari-route-shell .my-safari-stay-planner > footer {
+    border-color: #dbe1dc;
+    background: #f7f6f2;
+}
+
+.my-safari-route-shell .my-safari-stay-plan-head > div strong,
+.my-safari-route-shell .my-safari-stay-plan-head label,
+.my-safari-route-shell .my-safari-stay-ready,
+.my-safari-route-shell .my-safari-stay-issues li,
+.my-safari-route-shell .my-safari-stay-planner > footer {
+    color: #3f5149;
+}
+
+.my-safari-route-shell .my-safari-stay-plan-head > div span,
+.my-safari-route-shell .my-safari-stay-planner > footer a {
+    color: #8b421f;
+}
+
+/* A working page needs a concise footer, not a second navigation directory. */
+body.my-safari-route-shell footer.site-footer {
+    padding: 2.2rem 0 1.2rem;
+}
+
+body.my-safari-route-shell #hub-my-safari footer {
+    color: #53645d;
+}
+
+.my-safari-route-shell .site-footer .footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.my-safari-route-shell .site-footer .footer-col,
+.my-safari-route-shell .site-footer .footer-destinations {
+    display: none;
+}
+
+.my-safari-route-shell .site-footer .footer-about p {
+    max-width: 48rem;
+    margin-bottom: 0.65rem;
+}
+
+.my-safari-route-shell .site-footer .footer-bottom {
+    margin-top: 0;
+    padding-top: 1rem;
+}
+
+@media (max-width: 760px) {
+    .my-safari-route-shell .my-safari-signin-form {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .my-safari-route-shell .my-safari-signin-form .btn {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .my-safari-route-shell .my-safari-readiness-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+    }
+
+    .my-safari-route-shell .my-safari-readiness-score {
+        grid-column: 2;
+        grid-row: 1;
+        width: 72px;
+    }
+
+    .my-safari-route-shell .my-safari-readiness-next {
+        grid-template-columns: 1fr;
+    }
+
+    .my-safari-route-shell .my-safari-empty {
+        align-items: flex-start;
+    }
+}

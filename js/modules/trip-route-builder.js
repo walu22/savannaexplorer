@@ -95,7 +95,7 @@ export function createRouteBuilder(root, { onChange = () => {}, autoSave = true 
         trip.routeDays = days;
         const prefix = `${root.id || 'route'}-form`;
         root.innerHTML = `<section class="trip-route-builder${editable ? '' : ' is-readonly'}">
-            <div class="trip-route-head"><div><span class="my-safari-shared-label"><i class="fas fa-route"></i> Interactive itinerary</span><h5>Shape your safari, day by day</h5><p>Adjust the trip length, edit each stop, or drag stops between days.</p></div></div>
+            <div class="trip-route-head"><div><span class="my-safari-shared-label"><i class="fas fa-route"></i> Interactive itinerary</span><h3>Shape your safari, day by day</h3><p>Adjust the trip length, edit each stop, or drag stops between days.</p></div></div>
             ${!days.length ? `<div class="trip-route-empty"><p>No route days yet.</p>${editable ? `<button type="button" class="btn btn-primary btn-sm" data-route-create-days>Build days from trip dates</button>` : ''}</div>` : `
                 ${editable ? `<div class="trip-route-tools">
                     <form class="trip-route-duration" data-route-duration-form>

@@ -67,6 +67,7 @@ export default defineConfig(({ mode }) => ({
             input: {
                 index: resolve(process.cwd(), 'index.html'),
                 country: resolve(process.cwd(), 'css', 'country-entry.css'),
+                mySafari: resolve(process.cwd(), 'css', 'my-safari-entry.css'),
             },
                         output: {
                 manualChunks(id) {

@@ -1,7 +1,6 @@
 /* Lean direct-load bundle for /countries/:id pages. */
 @import './tokens.css';
 @import './styles.css';
-@import './redesign.css';
 @import './seo.css';
 @import './country-page.css';
 @import './type-system.css';

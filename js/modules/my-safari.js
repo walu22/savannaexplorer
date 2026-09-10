@@ -82,9 +82,10 @@ function formatDates(trip) {
 function renderCountryChoices(rootId = 'my-safari-country-options', inputName = 'trip-country', accessiblePrefix = '') {
     const root = document.getElementById(rootId);
     if (!root) return;
-    root.innerHTML = COUNTRIES.map(country => `
+    const legend = rootId === 'my-safari-edit-country-options' ? 'Destinations' : 'Choose destinations';
+    root.innerHTML = `<legend>${legend}</legend>${COUNTRIES.map(country => `
         <label class="my-safari-country"><input type="checkbox" name="${escapeHtml(inputName)}" value="${escapeHtml(country)}"${accessiblePrefix ? ` aria-label="${escapeHtml(accessiblePrefix)} ${escapeHtml(country)}"` : ''}> <span>${escapeHtml(country)}</span></label>
-    `).join('');
+    `).join('')}`;
 }
 
 function readinessTaskHtml(item) {
@@ -328,7 +329,7 @@ function renderReadiness(trip) {
         <section class="my-safari-readiness-group" aria-labelledby="readiness-${category.id}-title">
             <header>
                 <span class="my-safari-readiness-category-icon"><i class="fas ${category.icon}" aria-hidden="true"></i></span>
-                <div><h6 id="readiness-${category.id}-title">${escapeHtml(category.label)}</h6><p>${category.completedCount} of ${category.tasks.length} complete</p></div>
+                <div><h4 id="readiness-${category.id}-title">${escapeHtml(category.label)}</h4><p>${category.completedCount} of ${category.tasks.length} complete</p></div>
             </header>
             <div>${category.tasks.map(readinessTaskHtml).join('')}</div>
         </section>
@@ -387,9 +388,9 @@ function renderOperations(trip) {
         </div>` : `<div class="my-safari-action-waiting"><i class="fas fa-arrow-up" aria-hidden="true"></i><p><strong>Choose the crossing and vehicle first.</strong><span>The relevant document pack will appear here.</span></p></div>`;
     const actionCentreMarkup = action.pairs.length ? `
         <section class="my-safari-action-centre" aria-labelledby="my-safari-action-title">
-            <header><div><span>Action centre</span><h6 id="my-safari-action-title">Set the crossing and prepare the vehicle papers</h6><p>Tick an item only when it is confirmed or packed. Requirements can change, so the linked crossing guide remains the final check.</p></div><strong class="${action.isComplete ? 'is-complete' : ''}">${action.isComplete ? '<i class="fas fa-circle-check" aria-hidden="true"></i> Paperwork prepared' : `${action.completedCount} / ${action.totalCount} documents`}</strong></header>
+            <header><div><span>Action centre</span><h4 id="my-safari-action-title">Set the crossing and prepare the vehicle papers</h4><p>Tick an item only when it is confirmed or packed. Requirements can change, so the linked crossing guide remains the final check.</p></div><strong class="${action.isComplete ? 'is-complete' : ''}">${action.isComplete ? '<i class="fas fa-circle-check" aria-hidden="true"></i> Paperwork prepared' : `${action.completedCount} / ${action.totalCount} documents`}</strong></header>
             <div class="my-safari-action-setup">
-                <div class="my-safari-action-borders"><h6>1. Crossing</h6>${borderControls}</div>
+                <div class="my-safari-action-borders"><h5>1. Crossing</h5>${borderControls}</div>
                 <fieldset class="my-safari-action-vehicle"><legend>2. Vehicle situation</legend><div>${vehicleOptions}</div></fieldset>
             </div>
             ${documentMarkup}
@@ -398,7 +399,7 @@ function renderOperations(trip) {
 
     root.innerHTML = `
         <div class="my-safari-operations-head">
-            <div><span class="my-safari-operations-eyebrow"><i class="fas fa-compass" aria-hidden="true"></i> Departure briefing</span><h5 id="my-safari-operations-title">${escapeHtml(brief.countries.join(' · ') || 'Your journey')} readiness brief</h5><p>The route facts that matter before you commit money or begin driving.</p></div>
+            <div><span class="my-safari-operations-eyebrow"><i class="fas fa-compass" aria-hidden="true"></i> Departure briefing</span><h3 id="my-safari-operations-title">${escapeHtml(brief.countries.join(' · ') || 'Your journey')} readiness brief</h3><p>The route facts that matter before you commit money or begin driving.</p></div>
             <span class="my-safari-operations-status is-${escapeHtml(brief.status)}"><i class="fas ${brief.status === 'ready' ? 'fa-circle-check' : brief.status === 'check' ? 'fa-circle-exclamation' : 'fa-pen-ruler'}" aria-hidden="true"></i>${escapeHtml(brief.statusLabel)}</span>
         </div>
         <div class="my-safari-operations-facts" aria-label="Route readiness summary">
@@ -409,13 +410,37 @@ function renderOperations(trip) {
         </div>
         ${actionCentreMarkup}
         <div class="my-safari-operations-grid">
-            <section class="my-safari-operation-card my-safari-operation-card--border"><header><span><i class="fas fa-passport" aria-hidden="true"></i></span><div><h6>Border plan</h6><p>Hours, documents and the overnight position</p></div></header><div>${borderMarkup}</div></section>
-            <section class="my-safari-operation-card"><header><span><i class="fas fa-gas-pump" aria-hidden="true"></i></span><div><h6>Fuel and supplies</h6><p>Named anchors from the reviewed route</p></div></header>${fuelMarkup}</section>
-            <section class="my-safari-operation-card"><header><span><i class="fas fa-bed" aria-hidden="true"></i></span><div><h6>Overnight anchors</h6><p>Places to structure the trip around</p></div></header>${overnightMarkup}</section>
-            <section class="my-safari-operation-card my-safari-operation-card--actions"><header><span><i class="fas fa-list-check" aria-hidden="true"></i></span><div><h6>Resolve next</h6><p>Only the gaps that still affect this journey</p></div></header>${actionsMarkup}</section>
+            <section class="my-safari-operation-card my-safari-operation-card--border"><header><span><i class="fas fa-passport" aria-hidden="true"></i></span><div><h4>Border plan</h4><p>Hours, documents and the overnight position</p></div></header><div>${borderMarkup}</div></section>
+            <section class="my-safari-operation-card"><header><span><i class="fas fa-gas-pump" aria-hidden="true"></i></span><div><h4>Fuel and supplies</h4><p>Named anchors from the reviewed route</p></div></header>${fuelMarkup}</section>
+            <section class="my-safari-operation-card"><header><span><i class="fas fa-bed" aria-hidden="true"></i></span><div><h4>Overnight anchors</h4><p>Places to structure the trip around</p></div></header>${overnightMarkup}</section>
+            <section class="my-safari-operation-card my-safari-operation-card--actions"><header><span><i class="fas fa-list-check" aria-hidden="true"></i></span><div><h4>Resolve next</h4><p>Only the gaps that still affect this journey</p></div></header>${actionsMarkup}</section>
         </div>
         ${brief.accessNotes.length ? `<details class="my-safari-operations-notes"><summary>Road, gate and permit cautions <span>${brief.accessNotes.length}</span></summary><ul>${brief.accessNotes.map(item => `<li><strong>${escapeHtml(item.routeTitle)}</strong><span>${escapeHtml(item.text)}</span></li>`).join('')}</ul></details>` : ''}
         <footer><p><i class="fas fa-circle-info" aria-hidden="true"></i> Planning guidance only. Reconfirm changing conditions before departure.${brief.reviewedAt ? ` Route records reviewed ${escapeHtml(brief.reviewedAt)}.` : ''}</p>${sourceMarkup ? `<details><summary>Reviewed sources</summary><div>${sourceMarkup}</div></details>` : ''}</footer>`;
+}
+
+function updateWorkspaceNavigation(active) {
+    document.body.classList.toggle('my-safari-has-trip', Boolean(active));
+    const links = [...document.querySelectorAll('.my-safari-page__nav a')];
+    const workspaceHash = active && /^#my-safari-(route-builder|bookings|readiness|pack-builder)$/.test(window.location.hash)
+        ? window.location.hash
+        : '#hub-my-safari';
+    links.forEach((link, index) => {
+        if (index > 0) {
+            if (active) {
+                link.removeAttribute('aria-disabled');
+                link.removeAttribute('tabindex');
+            } else {
+                link.setAttribute('aria-disabled', 'true');
+                link.setAttribute('tabindex', '-1');
+            }
+        }
+        if (link.getAttribute('href') === workspaceHash) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+    });
+    if (!active && /^#my-safari-(route-builder|bookings|readiness|pack-builder)$/.test(window.location.hash)) {
+        history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+    }
 }
 
 function renderDashboard() {
@@ -436,6 +461,7 @@ function renderDashboard() {
 
     empty.hidden = Boolean(active);
     workspace.hidden = !active;
+    updateWorkspaceNavigation(active);
     if (!active) {
         localRouteBuilder?.render(null);
         return;
@@ -749,6 +775,8 @@ async function syncAndReport(successMessage = 'Trips are up to date.') {
 export async function initMySafari() {
     const root = document.getElementById('hub-my-safari');
     if (!root) return;
+    document.documentElement.classList.toggle('my-safari-route-document', document.body.classList.contains('my-safari-route-shell'));
+    const initialWorkspaceHash = window.location.hash;
     renderCountryChoices();
     renderCountryChoices('my-safari-edit-country-options', 'edit-trip-country', 'Edit destination');
     localRouteBuilder = createRouteBuilder(document.getElementById('my-safari-route-builder'), {
@@ -770,6 +798,22 @@ export async function initMySafari() {
         },
     });
     renderDashboard();
+    if (/^#my-safari-(route-builder|bookings|readiness|pack-builder)$/.test(initialWorkspaceHash) && getActiveTrip()) {
+        window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+            document.querySelector(initialWorkspaceHash)?.scrollIntoView({ block: 'start' });
+        }));
+    }
+
+    document.querySelector('.my-safari-page__nav')?.addEventListener('click', event => {
+        const link = event.target.closest('a');
+        if (!link) return;
+        if (link.getAttribute('aria-disabled') === 'true') {
+            event.preventDefault();
+            return;
+        }
+        document.querySelectorAll('.my-safari-page__nav a').forEach(item => item.removeAttribute('aria-current'));
+        link.setAttribute('aria-current', 'page');
+    });
 
     const params = new URLSearchParams(window.location.search);
     const shareToken = params.get('share');
